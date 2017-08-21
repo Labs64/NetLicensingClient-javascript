@@ -1,0 +1,8 @@
+{
+  "name": "Labs64 NetLicensing JavaScript Client",
+  "description": "JavaScript wrapper for Labs64 NetLicensing RESTful API",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
