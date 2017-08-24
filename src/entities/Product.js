@@ -44,70 +44,24 @@
 function Product() {
     BaseEntity.apply(this, arguments);
 
-    var self = this;
-
-    var __productDiscounts = [];
-
-    Object.defineProperties(this, {
-        number: {
-            get: function () {
-                return self.getProperty('number');
-            },
-            set: function (number) {
-                self.setProperty('number', number);
-            }
-        },
-        active: {
-            get: function () {
-                return self.getProperty('active');
-            },
-            set: function (active) {
-                active = Boolean(active);
-                self.setProperty('active', active);
-            }
-        },
-        name: {
-            get: function () {
-                return self.getProperty('name');
-            },
-            set: function (name) {
-                self.setProperty('name', name);
-            }
-        },
-        version: {
-            get: function () {
-                return self.getProperty('version');
-            },
-            set: function (version) {
-                version = parseFloat(version);
-                self.setProperty('version', version);
-            }
-        },
-        description: {
-            get: function () {
-                return self.getProperty('description');
-            },
-            set: function (description) {
-                self.setProperty('description', description);
-            }
-        },
-        licensingInfo: {
-            get: function () {
-                return self.getProperty('licensingInfo');
-            },
-            set: function (licensingInfo) {
-                self.setProperty('licensingInfo', licensingInfo);
-            }
-        },
-        inUse: {
-            get: function () {
-                return self.getProperty('inUse');
-            }
+    //The attributes that should be cast to native types.
+    Object.defineProperty(this, 'casts', {
+        value: {
+            active: 'boolean',
+            version: 'float'
         }
     });
 
+    //define default entity properties
+    this.__defines(['number', 'active', 'name', 'version', 'description', 'licensingInfo']);
+    this.__define('inUse', true);
+
+    var __productDiscounts = [];
+
     this.addDiscount = function (discount) {
-        if (!discount instanceof ProductDiscount) throw 'Discount must be an instance of ProductDiscount';
+        if (!discount instanceof ProductDiscount) {
+            throw new Error('Discount must be an instance of ProductDiscount');
+        }
         __productDiscounts.push(discount);
         return this;
     };
@@ -115,9 +69,16 @@ function Product() {
     this.getProductDiscounts = function () {
         return __productDiscounts;
     };
+
+    //make methods not changeable
+    Object.defineProperties(this, {
+        addDiscount: {writable: false, enumerable: false, configurable: false},
+        getProductDiscounts: {writable: false, enumerable: false, configurable: false}
+    });
 }
 
 Product.prototype = Object.create(BaseEntity.prototype);
+Product.prototype.constructor = Product;
 
 Product.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
@@ -128,7 +89,6 @@ Product.prototype.getNumber = function (def) {
 };
 
 Product.prototype.setActive = function (active) {
-    active = Boolean(active);
     return this.setProperty('active', active);
 };
 
@@ -145,7 +105,6 @@ Product.prototype.getName = function (def) {
 };
 
 Product.prototype.setVersion = function (version) {
-    version = parseFloat(version);
     return this.setProperty('version', version);
 };
 

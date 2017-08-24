@@ -7,16 +7,17 @@
 
 function CheckUtils() {
 
-    /**
-     * Check if value is valid
-     * @param value
-     * @returns {boolean}
-     */
-    CheckUtils.isValid = function (value) {
-        return (value !== undefined
-        && typeof value === 'function'
-        && value !== Infinity
-        && value !== -Infinity
-        && !isNaN(value));
-    }
 }
+
+/**
+ * Check if value is valid
+ * @param value
+ * @returns {boolean}
+ */
+CheckUtils.isValid = function (value) {
+    var valid = (value !== undefined && typeof value !== 'function');
+
+    if (typeof value === 'number') valid = (isFinite(value) && !isNaN(value));
+
+    return valid;
+};
