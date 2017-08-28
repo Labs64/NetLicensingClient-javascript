@@ -5,6 +5,9 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
+//namespace
+var Nlic = Nlic || {};
+
 /**
  * PaymentMethod entity used internally by NetLicensing.
  *
@@ -14,8 +17,8 @@
  * @constructor
  */
 
-function PaymentMethod() {
-    BaseEntity.apply(this, arguments);
+Nlic.PaymentMethod = function PaymentMethod() {
+    Nlic.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -26,31 +29,34 @@ function PaymentMethod() {
 
     //define default entity properties
     this.__defines(['number', 'active', 'paypal.subject']);
-}
 
-PaymentMethod.prototype = Object.create(BaseEntity.prototype);
-PaymentMethod.prototype.constructor = PaymentMethod;
+    //make methods not changeable
+    this.__notChangeable('asPropertiesMap');
+};
 
-PaymentMethod.prototype.setNumber = function (number) {
+Nlic.PaymentMethod.prototype = Object.create(Nlic.BaseEntity.prototype);
+Nlic.PaymentMethod.prototype.constructor = Nlic.PaymentMethod;
+
+Nlic.PaymentMethod.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-PaymentMethod.prototype.getNumber = function (def) {
+Nlic.PaymentMethod.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-PaymentMethod.prototype.setActive = function (active) {
+Nlic.PaymentMethod.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-PaymentMethod.prototype.getActive = function (def) {
+Nlic.PaymentMethod.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-PaymentMethod.prototype.setPaypalSubject = function (paypalSubject) {
+Nlic.PaymentMethod.prototype.setPaypalSubject = function (paypalSubject) {
     return this.setProperty('paypal.subject', paypalSubject);
 };
 
-PaymentMethod.prototype.getPaypalSubject = function (def) {
+Nlic.PaymentMethod.prototype.getPaypalSubject = function (def) {
     return this.getProperty('paypal.subject', def);
 };

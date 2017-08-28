@@ -5,6 +5,9 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
+//namespace
+var Nlic = Nlic || {};
+
 /**
  * License template entity used internally by NetLicensing.
  *
@@ -56,14 +59,14 @@
  * @constructor
  */
 
-function LicenseTemplate() {
-    BaseEntity.apply(this, arguments);
+Nlic.LicenseTemplate = function () {
+    Nlic.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
         value: {
             price: 'double',
-            active: 'boolean_string',
+            active: 'boolean',
             inUse: 'boolean',
             automatic: 'boolean',
             hidden: 'boolean',
@@ -75,103 +78,106 @@ function LicenseTemplate() {
     });
     //define default entity properties
     this.__defines(['number', 'active', 'name', 'licenseType', 'price', 'currency', 'automatic', 'hidden', 'hideLicenses', 'timeVolume', 'maxSessions', 'quantity']);
-}
 
-LicenseTemplate.prototype = Object.create(BaseEntity.prototype);
-LicenseTemplate.prototype.constructor = LicenseTemplate;
+    //make methods not changeable
+    this.__notChangeable('asPropertiesMap');
+};
 
-LicenseTemplate.prototype.setNumber = function (number) {
+Nlic.LicenseTemplate.prototype = Object.create(Nlic.BaseEntity.prototype);
+Nlic.LicenseTemplate.prototype.constructor = Nlic.LicenseTemplate;
+
+Nlic.LicenseTemplate.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-LicenseTemplate.prototype.getNumber = function (def) {
+Nlic.LicenseTemplate.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-LicenseTemplate.prototype.setActive = function (active) {
+Nlic.LicenseTemplate.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-LicenseTemplate.prototype.getActive = function (def) {
+Nlic.LicenseTemplate.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-LicenseTemplate.prototype.setName = function (name) {
+Nlic.LicenseTemplate.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-LicenseTemplate.prototype.getName = function (def) {
+Nlic.LicenseTemplate.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-LicenseTemplate.prototype.setLicenseType = function (licenseType) {
+Nlic.LicenseTemplate.prototype.setLicenseType = function (licenseType) {
     return this.setProperty('licenseType', licenseType);
 };
 
-LicenseTemplate.prototype.getLicenseType = function (def) {
+Nlic.LicenseTemplate.prototype.getLicenseType = function (def) {
     return this.getProperty('licenseType', def);
 };
 
-LicenseTemplate.prototype.setPrice = function (price) {
+Nlic.LicenseTemplate.prototype.setPrice = function (price) {
     return this.setProperty('price', price);
 };
 
-LicenseTemplate.prototype.getPrice = function (def) {
+Nlic.LicenseTemplate.prototype.getPrice = function (def) {
     return this.getProperty('price', def);
 };
 
-LicenseTemplate.prototype.setCurrency = function (currency) {
+Nlic.LicenseTemplate.prototype.setCurrency = function (currency) {
     return this.setProperty('currency', currency);
 };
 
-LicenseTemplate.prototype.getCurrency = function (def) {
+Nlic.LicenseTemplate.prototype.getCurrency = function (def) {
     return this.getProperty('currency', def);
 };
 
-LicenseTemplate.prototype.setAutomatic = function (automatic) {
+Nlic.LicenseTemplate.prototype.setAutomatic = function (automatic) {
     return this.setProperty('automatic', automatic);
 };
 
-LicenseTemplate.prototype.getAutomatic = function (def) {
+Nlic.LicenseTemplate.prototype.getAutomatic = function (def) {
     return this.getProperty('automatic', def);
 };
 
-LicenseTemplate.prototype.setHidden = function (hidden) {
+Nlic.LicenseTemplate.prototype.setHidden = function (hidden) {
     return this.setProperty('hidden', hidden);
 };
 
-LicenseTemplate.prototype.getHidden = function (def) {
+Nlic.LicenseTemplate.prototype.getHidden = function (def) {
     return this.getProperty('hidden', def);
 };
 
-LicenseTemplate.prototype.setHideLicenses = function (hideLicenses) {
+Nlic.LicenseTemplate.prototype.setHideLicenses = function (hideLicenses) {
     return this.setProperty('hideLicenses', hideLicenses);
 };
 
-LicenseTemplate.prototype.getHideLicenses = function (def) {
+Nlic.LicenseTemplate.prototype.getHideLicenses = function (def) {
     return this.getProperty('hideLicenses', def);
 };
 
-LicenseTemplate.prototype.setTimeVolume = function (timeVolume) {
+Nlic.LicenseTemplate.prototype.setTimeVolume = function (timeVolume) {
     return this.setProperty('timeVolume', timeVolume);
 };
 
-LicenseTemplate.prototype.getTimeVolume = function (def) {
+Nlic.LicenseTemplate.prototype.getTimeVolume = function (def) {
     return this.getProperty('timeVolume', def);
 };
 
-LicenseTemplate.prototype.setMaxSessions = function (maxSessions) {
+Nlic.LicenseTemplate.prototype.setMaxSessions = function (maxSessions) {
     return this.setProperty('maxSessions', maxSessions);
 };
 
-LicenseTemplate.prototype.getMaxSessions = function (def) {
+Nlic.LicenseTemplate.prototype.getMaxSessions = function (def) {
     return this.getProperty('maxSessions', def);
 };
 
-LicenseTemplate.prototype.setQuantity = function (quantity) {
+Nlic.LicenseTemplate.prototype.setQuantity = function (quantity) {
     return this.setProperty('quantity', quantity);
 };
 
-LicenseTemplate.prototype.getQuantity = function (def) {
+Nlic.LicenseTemplate.prototype.getQuantity = function (def) {
     return this.getProperty('quantity', def);
 };

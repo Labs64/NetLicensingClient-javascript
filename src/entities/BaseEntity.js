@@ -5,11 +5,14 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-function BaseEntity(properties) {
+//namespace
+var Nlic = Nlic || {};
+
+Nlic.BaseEntity = function (properties) {
 
     /**
      * Object Handle
-     * @type {BaseEntity}
+     * @type {Nlic.BaseEntity}
      */
     var self = this;
 
@@ -31,7 +34,7 @@ function BaseEntity(properties) {
      * Set a given property on the entity.
      * @param property
      * @param value
-     * @returns {BaseEntity}
+     * @returns {Nlic.BaseEntity}
      */
     this.setProperty = function (property, value) {
         value = self.__cast(property, value);
@@ -50,7 +53,7 @@ function BaseEntity(properties) {
      * Alias for setProperty
      * @param property
      * @param value
-     * @returns {BaseEntity}
+     * @returns {Nlic.BaseEntity}
      */
     this.addProperty = function (property, value) {
         return this.setProperty(property, value);
@@ -59,7 +62,7 @@ function BaseEntity(properties) {
     /**
      * Set the entity properties.
      * @param properties
-     * @returns {BaseEntity}
+     * @returns {Nlic.BaseEntity}
      */
     this.setProperties = function (properties) {
 
@@ -80,7 +83,7 @@ function BaseEntity(properties) {
      * @returns {*}
      */
     this.getProperty = function (property, def) {
-        return __properties[property] || def;
+        return (__properties.hasOwnProperty(property)) ? __properties[property] : def;
     };
 
     /**
@@ -93,7 +96,7 @@ function BaseEntity(properties) {
     /**
      * Remove property
      * @param property
-     * @returns {BaseEntity}
+     * @returns {Nlic.BaseEntity}
      */
     this.removeProperty = function (property) {
         delete __properties[property];
@@ -113,6 +116,13 @@ function BaseEntity(properties) {
         for (var i = 0; i < length; i++) {
             this.removeProperty(properties[i]);
         }
+    };
+
+    /**
+     * Get properties map
+     */
+    this.asPropertiesMap = function () {
+        return this.getProperties();
     };
 
     /**
@@ -216,7 +226,7 @@ function BaseEntity(properties) {
                 return parseFloat(value);
             case 'bool':
             case 'boolean':
-                return Boolean(value);
+                return (value && value != 'false') ? true : false;
         }
         return value;
     };
@@ -228,33 +238,47 @@ function BaseEntity(properties) {
      * @private
      */
     this.__checkProperty = function (property, value) {
-        if (!CheckUtils.isValid(property) || typeof property === 'object')  throw new Error('Bad property name:' + property);
-        if (!CheckUtils.isValid(value)) throw new Error('Property ' + property + ' has wrong value' + value);
+        if (!Nlic.CheckUtils.isValid(property) || typeof property === 'object')  throw new TypeError('Bad property name:' + property);
+        if (!Nlic.CheckUtils.isValid(value)) throw new TypeError('Property ' + property + ' has bad value' + value);
+    };
+
+    /**
+     * Make methods not changeable
+     * @param methods
+     * @protected
+     */
+    this.__notChangeable = function (methods) {
+        var noChangeable = {};
+
+        methods = Array.isArray(methods) ? methods : [methods];
+        var length = methods.length;
+
+        for (var i = 0; i < length; i++) {
+            noChangeable[methods[i]] = {writable: false, enumerable: false, configurable: false};
+        }
+
+        Object.defineProperties(this, noChangeable);
     };
 
     //make methods not changeable
-    Object.defineProperties(this, {
-        setProperty: {writable: false, enumerable: false, configurable: false},
-        addProperty: {writable: false, enumerable: false, configurable: false},
-        setProperties: {writable: false, enumerable: false, configurable: false},
-        getProperty: {writable: false, enumerable: false, configurable: false},
-        getProperties: {writable: false, enumerable: false, configurable: false},
-        removeProperty: {writable: false, enumerable: false, configurable: false},
-        __hasDefine: {writable: false, enumerable: false, configurable: false},
-        __define: {writable: false, enumerable: false, configurable: false},
-        __defines: {writable: false, enumerable: false, configurable: false},
-        __removeDefine: {writable: false, enumerable: false, configurable: false},
-        __hasCast: {writable: false, enumerable: false, configurable: false},
-        __getCastType: {writable: false, enumerable: false, configurable: false},
-        __cast: {writable: false, enumerable: false, configurable: false},
-        __checkProperty: {writable: false, enumerable: false, configurable: false}
-    });
+    this.__notChangeable([
+        'setProperty',
+        'addProperty',
+        'setProperties',
+        'getProperty',
+        'getProperties',
+        'removeProperty',
+        '__hasDefine',
+        '__define',
+        '__defines',
+        '__removeDefine',
+        '__hasCast',
+        '__getCastType',
+        '__cast',
+        '__checkProperty',
+        '__noChangeable'
+    ]);
 
     this.setProperties(properties);
-}
-
-BaseEntity.prototype.asPropertiesMap = function () {
-    return this.getProperties();
 };
-
 

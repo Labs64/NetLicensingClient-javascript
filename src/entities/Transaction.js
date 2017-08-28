@@ -5,6 +5,9 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
+//namespace
+var Nlic = Nlic || {};
+
 /**
  * Transaction entity used internally by NetLicensing.
  *
@@ -41,7 +44,7 @@
  * @constructor
  */
 
-function Transaction() {
+Nlic.Transaction = function Transaction() {
     BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
@@ -56,83 +59,86 @@ function Transaction() {
     //define default entity properties
     this.__defines(['number', 'name', 'status', 'source', 'grandTotal', 'discount', 'currency', 'dateCreated', 'dateClosed']);
     this.__define('active', true);
-}
 
-Transaction.prototype = Object.create(BaseEntity.prototype);
-Transaction.prototype.constructor = Transaction;
+    //make methods not changeable
+    this.__notChangeable('asPropertiesMap');
+};
 
-Transaction.prototype.setNumber = function (number) {
+Nlic.Transaction.prototype = Object.create(Nlic.BaseEntity.prototype);
+Nlic.Transaction.prototype.constructor = Nlic.Transaction;
+
+Nlic.Transaction.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Transaction.prototype.getNumber = function (def) {
+Nlic.Transaction.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Transaction.prototype.setName = function (name) {
+Nlic.Transaction.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Transaction.prototype.getName = function (def) {
+Nlic.Transaction.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Transaction.prototype.setStatus = function (status) {
+Nlic.Transaction.prototype.setStatus = function (status) {
     return this.setProperty('status', status);
 };
 
-Transaction.prototype.getStatus = function (def) {
+Nlic.Transaction.prototype.getStatus = function (def) {
     return this.getProperty('status', def);
 };
 
-Transaction.prototype.setSource = function (source) {
+Nlic.Transaction.prototype.setSource = function (source) {
     return this.setProperty('source', source);
 };
 
-Transaction.prototype.getSource = function (def) {
+Nlic.Transaction.prototype.getSource = function (def) {
     return this.getProperty('source', def);
 };
 
-Transaction.prototype.setGrandTotal = function (grandTotal) {
+Nlic.Transaction.prototype.setGrandTotal = function (grandTotal) {
     return this.setProperty('grandTotal', grandTotal);
 };
 
-Transaction.prototype.getGrandTotal = function (def) {
+Nlic.Transaction.prototype.getGrandTotal = function (def) {
     return this.getProperty('grandTotal', def);
 };
 
-Transaction.prototype.setDiscount = function (discount) {
+Nlic.Transaction.prototype.setDiscount = function (discount) {
     return this.setProperty('discount', discount);
 };
 
-Transaction.prototype.getDiscount = function (def) {
+Nlic.Transaction.prototype.getDiscount = function (def) {
     return this.getProperty('discount', def);
 };
 
-Transaction.prototype.setCurrency = function (currency) {
+Nlic.Transaction.prototype.setCurrency = function (currency) {
     return this.setProperty('currency', currency);
 };
 
-Transaction.prototype.getCurrency = function (def) {
+Nlic.Transaction.prototype.getCurrency = function (def) {
     return this.getProperty('currency', def);
 };
 
-Transaction.prototype.setDateCreated = function (dateCreated) {
+Nlic.Transaction.prototype.setDateCreated = function (dateCreated) {
     return this.setProperty('dateCreated', dateCreated);
 };
 
-Transaction.prototype.getDateCreated = function (def) {
+Nlic.Transaction.prototype.getDateCreated = function (def) {
     return this.getProperty('dateCreated', def);
 };
 
-Transaction.prototype.setDateClosed = function (dateClosed) {
+Nlic.Transaction.prototype.setDateClosed = function (dateClosed) {
     return this.setProperty('dateClosed', dateClosed);
 };
 
-Transaction.prototype.getDateClosed = function (def) {
+Nlic.Transaction.prototype.getDateClosed = function (def) {
     return this.getProperty('dateClosed', def);
 };
 
-Transaction.prototype.setActive = function () {
+Nlic.Transaction.prototype.setActive = function () {
     return this.setProperty('active', true);
 };

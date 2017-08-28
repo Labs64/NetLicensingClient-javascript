@@ -5,6 +5,9 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
+//namespace
+var Nlic = Nlic || {};
+
 /**
  * Product module entity used internally by NetLicensing.
  *
@@ -32,8 +35,8 @@
  * @constructor
  */
 
-function Token() {
-    BaseEntity.apply(this, arguments);
+Nlic.Token = function () {
+    Nlic.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -45,91 +48,94 @@ function Token() {
     //define default entity properties
     this.__defines(['number', 'active', 'expirationTime', 'vendorNumber', 'tokenType', 'licenseeNumber', 'successURL', 'successURLTitle', 'cancelURL', 'cancelURLTitle']);
     this.__define('shopURL', true);
-}
 
-Token.prototype = Object.create(BaseEntity.prototype);
-Token.prototype.constructor = Token;
+    //make methods not changeable
+    this.__notChangeable('asPropertiesMap');
+};
 
-Token.prototype.setNumber = function (number) {
+Nlic.Token.prototype = Object.create(Nlic.BaseEntity.prototype);
+Nlic.Token.prototype.constructor = Nlic.Token;
+
+Nlic.Token.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Token.prototype.getNumber = function (def) {
+Nlic.Token.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Token.prototype.setActive = function (active) {
+Nlic.Token.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Token.prototype.getActive = function (def) {
+Nlic.Token.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Token.prototype.setExpirationTime = function (expirationTime) {
+Nlic.Token.prototype.setExpirationTime = function (expirationTime) {
     return this.setProperty('expirationTime', expirationTime);
 };
 
-Token.prototype.getExpirationTime = function (def) {
+Nlic.Token.prototype.getExpirationTime = function (def) {
     return this.getProperty('expirationTime', def);
 };
 
-Token.prototype.setVendorNumber = function (vendorNumber) {
+Nlic.Token.prototype.setVendorNumber = function (vendorNumber) {
     return this.setProperty('vendorNumber', vendorNumber);
 };
 
-Token.prototype.getVendorNumber = function (def) {
+Nlic.Token.prototype.getVendorNumber = function (def) {
     return this.getProperty('vendorNumber', def);
 };
 
-Token.prototype.setTokenType = function (tokenType) {
+Nlic.Token.prototype.setTokenType = function (tokenType) {
     return this.setProperty('tokenType', tokenType);
 };
 
-Token.prototype.getTokenType = function (def) {
+Nlic.Token.prototype.getTokenType = function (def) {
     return this.getProperty('tokenType', def);
 };
 
-Token.prototype.setLicenseeNumber = function (licenseeNumber) {
+Nlic.Token.prototype.setLicenseeNumber = function (licenseeNumber) {
     return this.setProperty('licenseeNumber', licenseeNumber);
 };
 
-Token.prototype.getLicenseeNumber = function (def) {
+Nlic.Token.prototype.getLicenseeNumber = function (def) {
     return this.getProperty('licenseeNumber', def);
 };
 
-Token.prototype.setSuccessURL = function (successURL) {
+Nlic.Token.prototype.setSuccessURL = function (successURL) {
     return this.setProperty('successURL', successURL);
 };
 
-Token.prototype.getSuccessURL = function (def) {
+Nlic.Token.prototype.getSuccessURL = function (def) {
     return this.getProperty('successURL', def);
 };
 
-Token.prototype.setSuccessURLTitle = function (successURLTitle) {
+Nlic.Token.prototype.setSuccessURLTitle = function (successURLTitle) {
     return this.setProperty('successURLTitle', successURLTitle);
 };
 
-Token.prototype.getSuccessURLTitle = function (def) {
+Nlic.Token.prototype.getSuccessURLTitle = function (def) {
     return this.getProperty('successURLTitle', def);
 };
 
-Token.prototype.setCancelURL = function (cancelURL) {
+Nlic.Token.prototype.setCancelURL = function (cancelURL) {
     return this.setProperty('cancelURL', cancelURL);
 };
 
-Token.prototype.getCancelURL = function (def) {
+Nlic.Token.prototype.getCancelURL = function (def) {
     return this.getProperty('cancelURL', def);
 };
 
-Token.prototype.setCancelURLTitle = function (cancelURLTitle) {
+Nlic.Token.prototype.setCancelURLTitle = function (cancelURLTitle) {
     return this.setProperty('cancelURLTitle', cancelURLTitle);
 };
 
-Token.prototype.getCancelURLTitle = function (def) {
+Nlic.Token.prototype.getCancelURLTitle = function (def) {
     return this.getProperty('cancelURLTitle', def);
 };
 
-Token.prototype.getShopURL = function (def) {
+Nlic.Token.prototype.getShopURL = function (def) {
     return this.getProperty('shopURL', def);
 };

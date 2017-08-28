@@ -5,6 +5,9 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
+//namespace
+var Nlic = Nlic || {};
+
 /**
  * Class Context
  *
@@ -34,7 +37,7 @@
  * @constructor
  */
 
-function Context(values) {
+Nlic.Context = function (values) {
 
     if (values === undefined) values = {};
 
@@ -49,7 +52,7 @@ function Context(values) {
      */
     var __defaults = {
         baseUrl: 'https://go.netlicensing.io/core/v2/rest',
-        securityMode: Context.BASIC_AUTHENTICATION
+        securityMode: Nlic.Context.BASIC_AUTHENTICATION
     };
 
     /**
@@ -212,8 +215,8 @@ function Context(values) {
      * @private
      */
     this.__checkValue = function (key, value) {
-        if (!CheckUtils.isValid(key) || typeof key === 'object')  throw new Error('Bad value key:' + key);
-        if (!CheckUtils.isValid(value)) throw new Error('Value ' + key + ' has wrong value' + value);
+        if (!Nlic.CheckUtils.isValid(key) || typeof key === 'object')  throw new Error('Bad value key:' + key);
+        if (!Nlic.CheckUtils.isValid(value)) throw new Error('Value ' + key + ' has wrong value' + value);
     };
 
     //make methods not changeable
@@ -232,64 +235,56 @@ function Context(values) {
     });
 
     this.setValues(Object.assign({}, __defaults, values));
-}
+};
 
 //Security mode static constants
-Object.defineProperty(Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
-Object.defineProperty(Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
+Object.defineProperty(Nlic.Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
+Object.defineProperty(Nlic.Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
 
-Context.prototype.setBaseUrl = function (baseUrl) {
+Nlic.Context.prototype.setBaseUrl = function (baseUrl) {
     return this.setValue('baseUrl', baseUrl);
 };
 
-Context.prototype.getBaseUrl = function (def) {
+Nlic.Context.prototype.getBaseUrl = function (def) {
     return this.getValue('baseUrl', def);
 };
 
-Context.prototype.setUsername = function (username) {
+Nlic.Context.prototype.setUsername = function (username) {
     return this.setValue('username', username);
 };
 
-Context.prototype.getUsername = function (def) {
+Nlic.Context.prototype.getUsername = function (def) {
     return this.getValue('username', def);
 };
 
-Context.prototype.setPassword = function (password) {
+Nlic.Context.prototype.setPassword = function (password) {
     return this.setValue('password', password);
 };
 
-Context.prototype.getPassword = function (def) {
+Nlic.Context.prototype.getPassword = function (def) {
     return this.getValue('password', def);
 };
 
-Context.prototype.setApiKey = function (apiKey) {
+Nlic.Context.prototype.setApiKey = function (apiKey) {
     return this.setValue('apiKey', apiKey);
 };
 
-Context.prototype.getApiKey = function (def) {
+Nlic.Context.prototype.getApiKey = function (def) {
     return this.getValue('apiKey', def);
 };
 
-Context.prototype.setSecurityMode = function (securityMode) {
+Nlic.Context.prototype.setSecurityMode = function (securityMode) {
     return this.setValue('securityMode', securityMode);
 };
 
-Context.prototype.getSecurityMode = function (def) {
+Nlic.Context.prototype.getSecurityMode = function (def) {
     return this.getValue('securityMode', def);
 };
 
-Context.prototype.setVendorNumber = function (vendorNumber) {
+Nlic.Context.prototype.setVendorNumber = function (vendorNumber) {
     return this.setValue('vendorNumber', vendorNumber);
 };
 
-Context.prototype.getVendorNumber = function (def) {
+Nlic.Context.prototype.getVendorNumber = function (def) {
     return this.getValue('vendorNumber', def);
 };
-
-
-var promise = new Promise(function (resolve, reject) {
-    setTimeout(function () {
-        resolve('Slava');
-    }, 3000);
-});
-

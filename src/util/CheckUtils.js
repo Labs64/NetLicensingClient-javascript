@@ -5,19 +5,40 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-function CheckUtils() {
+//namespace
+var Nlic = Nlic || {};
 
-}
+
+Nlic.CheckUtils = function () {
+
+};
 
 /**
  * Check if value is valid
  * @param value
  * @returns {boolean}
  */
-CheckUtils.isValid = function (value) {
+Nlic.CheckUtils.isValid = function (value) {
     var valid = (value !== undefined && typeof value !== 'function');
-
     if (typeof value === 'number') valid = (isFinite(value) && !isNaN(value));
-
     return valid;
+};
+
+/**
+ * Ensures that an object reference passed as a parameter to the calling method is not null.
+ *
+ * param to check
+ * @param parameter
+ *
+ * name of the parameter
+ * @param parameterName
+ */
+Nlic.CheckUtils.paramNotNull = function (parameter, parameterName) {
+    if (!Nlic.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
+    if (parameter === null) throw new TypeError('Parameter ' + parameterName + ' cannot be null')
+};
+
+Nlic.CheckUtils.paramNotEmpty = function (parameter, parameterName) {
+    if (!Nlic.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
+    if (!parameter) throw new TypeError('Parameter ' + parameterName + ' cannot be null or empty string')
 };

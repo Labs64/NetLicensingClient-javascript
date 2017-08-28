@@ -5,6 +5,9 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
+//namespace
+var Nlic = Nlic || {};
+
 /**
  * NetLicensing Product entity.
  *
@@ -41,26 +44,24 @@
  * @constructor
  */
 
-function Product() {
-    BaseEntity.apply(this, arguments);
+Nlic.Product = function () {
+    Nlic.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
         value: {
             active: 'boolean',
-            version: 'float'
+            version: 'float',
+            inUse: 'boolean',
+            licenseeAutoCreate: 'boolean',
         }
     });
-
-    //define default entity properties
-    this.__defines(['number', 'active', 'name', 'version', 'description', 'licensingInfo']);
-    this.__define('inUse', true);
 
     var __productDiscounts = [];
 
     this.addDiscount = function (discount) {
-        if (!discount instanceof ProductDiscount) {
-            throw new Error('Discount must be an instance of ProductDiscount');
+        if (!(discount instanceof Nlic.ProductDiscount)) {
+            throw new TypeError('discount must be an instance of ProductDiscount');
         }
         __productDiscounts.push(discount);
         return this;
@@ -70,64 +71,102 @@ function Product() {
         return __productDiscounts;
     };
 
+    this.asPropertiesMap = function () {
+        var map = this.getProperties();
+        map.discount = [];
+
+        var length = __productDiscounts.length;
+        for (var i = 0; i < length; i++) {
+            map.discount.push(__productDiscounts[i].toString());
+        }
+        return map;
+    };
+
+    //define default entity properties
+    this.__defines(['number', 'active', 'name', 'version', 'description', 'licensingInfo', 'licenseeAutoCreate']);
+    this.__define('inUse', true);
+
     //make methods not changeable
-    Object.defineProperties(this, {
-        addDiscount: {writable: false, enumerable: false, configurable: false},
-        getProductDiscounts: {writable: false, enumerable: false, configurable: false}
-    });
-}
+    this.__notChangeable(['addDiscount', 'getProductDiscounts', 'asPropertiesMap']);
+};
 
-Product.prototype = Object.create(BaseEntity.prototype);
-Product.prototype.constructor = Product;
+Nlic.Product.prototype = Object.create(Nlic.BaseEntity.prototype);
+Nlic.Product.prototype.constructor = Nlic.Product;
 
-Product.prototype.setNumber = function (number) {
+Nlic.Product.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Product.prototype.getNumber = function (def) {
+Nlic.Product.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Product.prototype.setActive = function (active) {
+Nlic.Product.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Product.prototype.getActive = function (def) {
+Nlic.Product.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Product.prototype.setName = function (name) {
+Nlic.Product.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Product.prototype.getName = function (def) {
+Nlic.Product.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Product.prototype.setVersion = function (version) {
+Nlic.Product.prototype.setVersion = function (version) {
     return this.setProperty('version', version);
 };
 
-Product.prototype.getVersion = function (def) {
+Nlic.Product.prototype.getVersion = function (def) {
     return this.getProperty('version', def);
 };
 
-Product.prototype.setDescription = function (description) {
+Nlic.Product.prototype.setLicenseeAutoCreate = function (licenseeAutoCreate) {
+    return this.setProperty('licenseeAutoCreate', licenseeAutoCreate);
+};
+
+Nlic.Product.prototype.getLicenseeAutoCreate = function (def) {
+    return this.getProperty('licenseeAutoCreate', def);
+};
+
+Nlic.Product.prototype.setDescription = function (description) {
     return this.setProperty('description', description);
 };
 
-Product.prototype.getDescription = function (def) {
+Nlic.Product.prototype.getDescription = function (def) {
     return this.getProperty('description', def);
 };
 
-Product.prototype.setLicensingInfo = function (licensingInfo) {
+Nlic.Product.prototype.setLicensingInfo = function (licensingInfo) {
     return this.setProperty('licensingInfo', licensingInfo);
 };
 
-Product.prototype.getLicensingInfo = function (def) {
+Nlic.Product.prototype.getLicensingInfo = function (def) {
     return this.getProperty('licensingInfo', def);
 };
 
-Product.prototype.getInUse = function (def) {
+Nlic.Product.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };
+
+Nlic.Product.prototype.__setListDiscount = function (properties) {
+    if (!properties) return;
+    var length = properties.length;
+    var discount = new Nlic.ProductDiscount();
+    for (var i = 0; i < length; i++) {
+        discount.setProperty(properties[i].name, properties[i].value);
+    }
+    this.addDiscount(discount);
+    return this;
+};
+
+//make methods not changeable
+Object.defineProperty(Nlic.Product.prototype, '__setListDiscount', {
+    writable: false,
+    enumerable: false,
+    configurable: false
+});
