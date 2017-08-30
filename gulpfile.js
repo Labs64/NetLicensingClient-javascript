@@ -8,7 +8,7 @@ function runKarma(configFilePath, options, cb) {
 
     configFilePath = path.resolve(configFilePath);
 
-    var server = karma.server;
+
     var log = gutil.log, colors = gutil.colors;
     var config = karmaParseConfig(configFilePath, {});
 
@@ -16,11 +16,13 @@ function runKarma(configFilePath, options, cb) {
         config[key] = options[key];
     });
 
-    server.start(config, function (exitCode) {
+    var server = new karma.Server(config, function (exitCode) {
         log('Karma has exited with ' + colors.red(exitCode));
         cb();
         process.exit(exitCode);
     });
+
+    server.start();
 }
 
 /**
@@ -34,7 +36,7 @@ gulp.task('test', function (cb) {
 });
 
 /** continuous ... using karma to watch */
-gulp.task('test-dev', function(cb) {
+gulp.task('test-dev', function (cb) {
     runKarma('karma.conf.js', {
         autoWatch: true,
         singleRun: false
