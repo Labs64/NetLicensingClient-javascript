@@ -1,8 +1,11 @@
 {
-  "name": "Labs64 NetLicensing JavaScript Client",
-  "description": "JavaScript wrapper for Labs64 NetLicensing RESTful API",
-  "private": true,
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "jasmine": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-ie-launcher": "^1.0.0",
+    "karma-jasmine": "^1.1.0"
   }
 }

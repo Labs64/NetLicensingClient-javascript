@@ -59,6 +59,11 @@ Nlic.Product = function () {
 
     var __productDiscounts = [];
 
+    /**
+     * Add discount to product
+     * @param discount Nlic.ProductDiscount
+     * @returns {Nlic.Product}
+     */
     this.addDiscount = function (discount) {
         if (!(discount instanceof Nlic.ProductDiscount)) {
             throw new TypeError('discount must be an instance of ProductDiscount');
@@ -67,6 +72,10 @@ Nlic.Product = function () {
         return this;
     };
 
+    /**
+     * Get array of objects discounts
+     * @returns {Array}
+     */
     this.getProductDiscounts = function () {
         return __productDiscounts;
     };

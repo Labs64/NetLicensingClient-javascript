@@ -27,20 +27,21 @@ Object.defineProperty(Nlic.ProductModuleService, 'ENDPOINT_PATH', {value: 'produ
  * https://www.labs64.de/confluence/display/NLICPUB/Product+Module+Services#ProductModuleServices-Createproductmodule
  *
  * determines the vendor on whose behalf the call is performed
- * @param context
+ * @param context Nlic.Context
  *
  * parent product to which the new product module is to be added
- * @param productNumber
+ * @param productNumber string
  *
  * non-null properties will be taken for the new object, null properties will either stay null, or will
  * be set to a default value, depending on property.
- * @param productModule
+ * @param productModule Nlic.ProductModule
  *
+ * the newly created product module object in promise
  * @returns {Promise}
  */
 Nlic.ProductModuleService.create = function (context, productNumber, productModule) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Context');
-    if (!(productModule instanceof Nlic.ProductModule)) throw new TypeError('product must be an instance of ProductModule');
+    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+    if (!(productModule instanceof Nlic.ProductModule)) throw new TypeError('product must be an instance of Nlic.ProductModule');
 
     Nlic.CheckUtils.paramNotEmpty(productNumber, 'productNumber');
 
@@ -56,15 +57,16 @@ Nlic.ProductModuleService.create = function (context, productNumber, productModu
  * https://www.labs64.de/confluence/display/NLICPUB/Product+Module+Services#ProductModuleServices-Getproductmodule
  *
  * determines the vendor on whose behalf the call is performed
- * @param context
+ * @param context Nlic.Context
  *
  * the product module number
- * @param number
+ * @param number string
  *
+ * return the product module object in promise
  * @returns {Promise}
  */
 Nlic.ProductModuleService.get = function (context, number) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Context');
+    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
 
     Nlic.CheckUtils.paramNotEmpty(number, 'number');
 
@@ -80,15 +82,16 @@ Nlic.ProductModuleService.get = function (context, number) {
  * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Productslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context
+ * @param context Nlic.Context
  *
  * reserved for the future use, must be omitted / set to NULL
- * @param filter
+ * @param filter string|null
  *
+ * array of product modules entities or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.ProductModuleService.getList = function (context, filter) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Context');
+Nlic.ProductModuleService.list = function (context, filter) {
+    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
 
     context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
 
@@ -101,7 +104,7 @@ Nlic.ProductModuleService.getList = function (context, filter) {
 
     return Nlic.Service
         .getInstance()
-        .getList(context, Nlic.ProductModuleService.ENDPOINT_PATH, queryParams, Nlic.ProductModule);
+        .list(context, Nlic.ProductModuleService.ENDPOINT_PATH, queryParams, Nlic.ProductModule);
 };
 
 /**
@@ -109,19 +112,20 @@ Nlic.ProductModuleService.getList = function (context, filter) {
  * https://www.labs64.de/confluence/display/NLICPUB/Product+Module+Services#ProductModuleServices-Updateproductmodule
  *
  * determines the vendor on whose behalf the call is performed
- * @param context
+ * @param context Nlic.Context
  *
  * product module number
- * @param number
+ * @param number string
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param productModule
+ * @param productModule Nlic.ProductModule
  *
+ * updated product module in promise.
  * @returns {Promise}
  */
 Nlic.ProductModuleService.update = function (context, number, productModule) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Context');
-    if (!(productModule instanceof Nlic.ProductModule)) throw new TypeError('product must be an instance of ProductModule');
+    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+    if (!(productModule instanceof Nlic.ProductModule)) throw new TypeError('product must be an instance of Nlic.ProductModule');
 
     Nlic.CheckUtils.paramNotEmpty(number, 'number');
 
@@ -137,18 +141,19 @@ Nlic.ProductModuleService.update = function (context, number, productModule) {
  * https://www.labs64.de/confluence/display/NLICPUB/Product+Module+Services#ProductModuleServices-Deleteproductmodule
  *
  * determines the vendor on whose behalf the call is performed
- * @param context
+ * @param context Nlic.Context
  *
  * product module number
- * @param number
+ * @param number string
  *
  * if true, any entities that depend on the one being deleted will be deleted too
- * @param forceCascade
+ * @param forceCascade boolean
  *
+ * return boolean state of delete in promise
  * @returns {Promise}
  */
 Nlic.ProductModuleService.delete = function (context, number, forceCascade) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Context');
+    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
 
     Nlic.CheckUtils.paramNotEmpty(number, 'number');
 
@@ -156,5 +161,5 @@ Nlic.ProductModuleService.delete = function (context, number, forceCascade) {
 
     return Nlic.Service
         .getInstance()
-        .delete(context, Nlic.ProductModuleService.ENDPOINT_PATH + '/' + number, queryParams)
+        .delete(context, Nlic.ProductModuleService.ENDPOINT_PATH + '/' + number, queryParams);
 };

@@ -41,11 +41,9 @@ Nlic.Service = (function () {
         instance.get = function (context, urlTemplate, queryParams, resultType) {
             return this.request(context, 'get', urlTemplate, queryParams)
                 .then(function (httpXHR) {
-                    var entity = (!instance.__has(httpXHR.response, 'items.item.0'))
+                    return (!instance.__has(httpXHR.response, 'items.item.0'))
                         ? null
                         : instance.__getEntity(resultType, instance.__get(httpXHR.response, 'items.item.0'));
-
-                    return Promise.resolve(entity);
                 });
         };
 
@@ -68,7 +66,7 @@ Nlic.Service = (function () {
          *
          * @returns {Promise}
          */
-        instance.getList = function (context, urlTemplate, queryParams, resultType) {
+        instance.list = function (context, urlTemplate, queryParams, resultType) {
             return this.request(context, 'get', urlTemplate, queryParams)
                 .then(function (httpXHR) {
                     var entities = [],
@@ -81,7 +79,7 @@ Nlic.Service = (function () {
                         entities.push(instance.__getEntity(resultType, items[i]));
                     }
 
-                    return Promise.resolve(entities);
+                    return entities;
                 });
         };
 
@@ -106,11 +104,9 @@ Nlic.Service = (function () {
         instance.post = function (context, urlTemplate, queryParams, resultType) {
             return this.request(context, 'post', urlTemplate, queryParams)
                 .then(function (httpXHR) {
-                    var entity = (!instance.__has(httpXHR.response, 'items.item.0.property'))
+                    return (!instance.__has(httpXHR.response, 'items.item.0'))
                         ? null
                         : instance.__getEntity(resultType, instance.__get(httpXHR.response, 'items.item.0'));
-
-                    return Promise.resolve(entity);
                 });
         };
 
@@ -124,10 +120,9 @@ Nlic.Service = (function () {
         instance.delete = function (context, urlTemplate, queryParams) {
             return this.request(context, 'delete', urlTemplate, queryParams)
                 .then(function (httpXHR) {
-                    return Promise.resolve((httpXHR.status == 204));
+                    return (httpXHR.status == 204);
                 });
         };
-
 
         /**
          * Send request to Netlicensing RestApi
@@ -248,7 +243,7 @@ Nlic.Service = (function () {
             var properties = item.property || null;
             var lists = item.list || null;
 
-            if (!resultType || !properties) return null;
+            if (!resultType) return item;
 
             var entity = new resultType();
 

@@ -26,18 +26,19 @@ Object.defineProperty(Nlic.ProductService, 'ENDPOINT_PATH', {value: 'product'});
  * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Createproduct
  *
  * determines the vendor on whose behalf the call is performed
- * @param context
+ * @param context Nlic.Context
  *
  * non-null properties will be taken for the new object, null properties will either stay null, or will
  * be set to a default value, depending on property.
- * @param product
+ * @param product Nlic.Product
  *
+ * return the newly created product object in promise
  * @returns {Promise}
  */
 
 Nlic.ProductService.create = function (context, product) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Context');
-    if (!(product instanceof Nlic.Product)) throw new TypeError('product must be an instance of Product');
+    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+    if (!(product instanceof Nlic.Product)) throw new TypeError('product must be an instance of Nlic.Product');
 
     context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
 
@@ -51,15 +52,16 @@ Nlic.ProductService.create = function (context, product) {
  * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Getproduct
  *
  * determines the vendor on whose behalf the call is performed
- * @param context
+ * @param context Nlic.Context
  *
  * the product number
- * @param number
+ * @param number string
  *
+ * return the product object in promise
  * @returns {Promise}
  */
 Nlic.ProductService.get = function (context, number) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Context');
+    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
 
     Nlic.CheckUtils.paramNotEmpty(number, 'number');
 
@@ -75,16 +77,16 @@ Nlic.ProductService.get = function (context, number) {
  * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Productslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context
+ * @param context Nlic.Context
  *
  * reserved for the future use, must be omitted / set to NULL
- * @param filter
+ * @param filter string|null
  *
- * array of product entities or empty array if nothing found.
+ * array of product entities or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.ProductService.getList = function (context, filter) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Context');
+Nlic.ProductService.list = function (context, filter) {
+    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
 
     context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
 
@@ -97,7 +99,7 @@ Nlic.ProductService.getList = function (context, filter) {
 
     return Nlic.Service
         .getInstance()
-        .getList(context, Nlic.ProductService.ENDPOINT_PATH, queryParams, Nlic.Product);
+        .list(context, Nlic.ProductService.ENDPOINT_PATH, queryParams, Nlic.Product);
 };
 
 /**
@@ -105,20 +107,20 @@ Nlic.ProductService.getList = function (context, filter) {
  * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Updateproduct
  *
  * determines the vendor on whose behalf the call is performed
- * @param context
+ * @param context Nlic.Context
  *
  * product number
- * @param number
+ * @param number string
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param product
+ * @param product Nlic.Product
  *
- * updated product.
+ * updated product in promise.
  * @returns {Promise}
  */
 Nlic.ProductService.update = function (context, number, product) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Context');
-    if (!(product instanceof Nlic.Product)) throw new TypeError('product must be an instance of Product');
+    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+    if (!(product instanceof Nlic.Product)) throw new TypeError('product must be an instance of Nlic.Product');
 
     Nlic.CheckUtils.paramNotEmpty(number, 'number');
 
@@ -134,18 +136,19 @@ Nlic.ProductService.update = function (context, number, product) {
  * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Deleteproduct
  *
  * determines the vendor on whose behalf the call is performed
- * @param context
+ * @param context Nlic.Context
  *
  * product number
- * @param number
+ * @param number string
  *
  * if true, any entities that depend on the one being deleted will be deleted too
- * @param forceCascade
+ * @param forceCascade boolean
  *
+ * return boolean state of delete in promise
  * @returns {Promise}
  */
 Nlic.ProductService.delete = function (context, number, forceCascade) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Context');
+    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
 
     Nlic.CheckUtils.paramNotEmpty(number, 'number');
 
@@ -153,5 +156,5 @@ Nlic.ProductService.delete = function (context, number, forceCascade) {
 
     return Nlic.Service
         .getInstance()
-        .delete(context, Nlic.ProductService.ENDPOINT_PATH + '/' + number, queryParams)
+        .delete(context, Nlic.ProductService.ENDPOINT_PATH + '/' + number, queryParams);
 };
