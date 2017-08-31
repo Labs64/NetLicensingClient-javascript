@@ -132,3 +132,7 @@ Nlic.ProductModule.prototype.setLicenseTemplate = function (licenseTemplate) {
 Nlic.ProductModule.prototype.getLicenseTemplate = function (def) {
     return this.getProperty('licenseTemplate', def);
 };
+
+Nlic.ProductModule.prototype.getInUse = function (def) {
+    return this.getProperty('inUse', def);
+};

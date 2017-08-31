@@ -37,9 +37,13 @@ Nlic.BaseEntity = function (properties) {
      * @returns {Nlic.BaseEntity}
      */
     this.setProperty = function (property, value) {
+        this.__checkProperty(property, value);
+
         value = self.__cast(property, value);
 
+        //check property after cast
         this.__checkProperty(property, value);
+
         this.__define(property);
 
         if (typeof value === 'object')value = (Array.isArray(value)) ? Object.assign([], value) : Object.assign({}, value);
@@ -220,7 +224,7 @@ Nlic.BaseEntity = function (properties) {
         switch (this.__getCastType(property)) {
             case 'int':
             case 'integer':
-                return parseInt(value);
+                return parseInt(value, 10);
             case 'float':
             case 'double':
                 return parseFloat(value);
@@ -239,7 +243,7 @@ Nlic.BaseEntity = function (properties) {
      */
     this.__checkProperty = function (property, value) {
         if (!Nlic.CheckUtils.isValid(property) || typeof property === 'object')  throw new TypeError('Bad property name:' + property);
-        if (!Nlic.CheckUtils.isValid(value)) throw new TypeError('Property ' + property + ' has bad value' + value);
+        if (!Nlic.CheckUtils.isValid(value)) throw new TypeError('Property ' + property + ' has bad value ' + value);
     };
 
     /**

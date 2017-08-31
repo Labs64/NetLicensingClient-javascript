@@ -140,7 +140,7 @@ Nlic.LicenseService.list = function (context, filter) {
  * return updated license in promise.
  * @returns {Promise}
  */
-Nlic.LicenseeService.update = function (context, number, transactionNumber, license) {
+Nlic.LicenseService.update = function (context, number, transactionNumber, license) {
     if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
     if (!(license instanceof Nlic.License)) throw new TypeError('license must be an instance of Nlic.License');
 
@@ -173,7 +173,7 @@ Nlic.LicenseeService.update = function (context, number, transactionNumber, lice
  * return boolean state of delete in promise
  * @returns {Promise}
  */
-Nlic.ProductService.delete = function (context, number, forceCascade) {
+Nlic.LicenseService.delete = function (context, number, forceCascade) {
     if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
 
     Nlic.CheckUtils.paramNotEmpty(number, 'number');

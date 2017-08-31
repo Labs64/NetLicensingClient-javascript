@@ -1,9 +1,10 @@
 module.exports = function (config) {
     config.set({
-        browsers: ['Chrome', 'Firefox', 'IE'],
+        browsers: ['Chrome', 'Firefox', 'Edge'],
         frameworks: ['jasmine'],
         files: [
-            'test/**/*.spec.js'
+            'src/**/*.js',
+            'test/**/*.js'
         ]
     });
 };
