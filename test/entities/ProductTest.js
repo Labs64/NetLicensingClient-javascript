@@ -57,20 +57,20 @@ describe('entities.ProductTest', function () {
     });
 
     it('check "version" property setters/getters', function () {
-        product.setProperty('version', 1.05);
-        expect(product.getProperty('version')).toBe(1.05);
-        expect(product.getVersion()).toBe(1.05);
-        expect(product.version).toBe(1.05);
+        product.setProperty('version', '1.05');
+        expect(product.getProperty('version')).toBe('1.05');
+        expect(product.getVersion()).toBe('1.05');
+        expect(product.version).toBe('1.05');
 
-        product.setVersion(2);
-        expect(product.getProperty('version')).toBe(2);
-        expect(product.getVersion()).toBe(2);
-        expect(product.version).toBe(2);
+        product.setVersion('2.0');
+        expect(product.getProperty('version')).toBe('2.0');
+        expect(product.getVersion()).toBe('2.0');
+        expect(product.version).toBe('2.0');
 
-        product.version = 1.1;
-        expect(product.getProperty('version')).toBe(1.1);
-        expect(product.getVersion()).toBe(1.1);
-        expect(product.version).toBe(1.1);
+        product.version = '1.1';
+        expect(product.getProperty('version')).toBe('1.1');
+        expect(product.getVersion()).toBe('1.1');
+        expect(product.version).toBe('1.1');
     });
 
     it('check "description" property setters/getters', function () {
@@ -153,6 +153,11 @@ describe('entities.ProductTest', function () {
     });
 
     it('check cast an properties to a native js type', function () {
+        product.setProperty('number', 1);
+        expect(product.getProperty('number')).toBe('1');
+        product.setProperty('number', true);
+        expect(product.getProperty('number')).toBe('true');
+
         product.setProperty('active', 1);
         expect(product.getProperty('active')).toBe(true);
         product.setProperty('active', 0);
@@ -164,14 +169,23 @@ describe('entities.ProductTest', function () {
         product.setProperty('active', null);
         expect(product.getProperty('active')).toBe(false);
 
-        product.setProperty('version', "3.14");
-        expect(product.getProperty('version')).toBe(3.14);
-        product.setProperty('version', "314e-2");
-        expect(product.getProperty('version')).toBe(3.14);
-        product.setProperty('version', "0.0314E+2");
-        expect(product.getProperty('version')).toBe(3.14);
-        product.setProperty('version', "3.14any non-numeric characters");
-        expect(product.getProperty('version')).toBe(3.14);
+        product.setProperty('name', 1);
+        expect(product.getProperty('name')).toBe('1');
+        product.setProperty('name', true);
+        expect(product.getProperty('name')).toBe('true');
+
+        product.setProperty('version', 1);
+        expect(product.getProperty('version')).toBe('1');
+
+        product.setProperty('description', 1);
+        expect(product.getProperty('description')).toBe('1');
+        product.setProperty('description', true);
+        expect(product.getProperty('description')).toBe('true');
+
+        product.setProperty('licensingInfo', 1);
+        expect(product.getProperty('licensingInfo')).toBe('1');
+        product.setProperty('licensingInfo', true);
+        expect(product.getProperty('licensingInfo')).toBe('true');
 
         product.setProperty('licenseeAutoCreate', 1);
         expect(product.getProperty('licenseeAutoCreate')).toBe(true);
@@ -189,83 +203,83 @@ describe('entities.ProductTest', function () {
         var func = function () {
         };
 
-        expect(function(){product.setProperty('number',func)}).toThrowError();
-        expect(function(){product.setNumber(func)}).toThrowError();
-        expect(function(){product.setName(func)}).toThrowError();
-        expect(function(){product.setActive(func)}).toThrowError();
-        expect(function(){product.setVersion(func)}).toThrowError();
-        expect(function(){product.setDescription(func)}).toThrowError();
-        expect(function(){product.setLicensingInfo(func)}).toThrowError();
-        expect(function(){product.setLicenseeAutoCreate(func)}).toThrowError();
+        expect(function(){product.setProperty('number',func)}).toThrowError(TypeError);
+        expect(function(){product.setNumber(func)}).toThrowError(TypeError);
+        expect(function(){product.setName(func)}).toThrowError(TypeError);
+        expect(function(){product.setActive(func)}).toThrowError(TypeError);
+        expect(function(){product.setVersion(func)}).toThrowError(TypeError);
+        expect(function(){product.setDescription(func)}).toThrowError(TypeError);
+        expect(function(){product.setLicensingInfo(func)}).toThrowError(TypeError);
+        expect(function(){product.setLicenseeAutoCreate(func)}).toThrowError(TypeError);
 
-        expect(function(){product.number = func}).toThrowError();
-        expect(function(){product.name = func}).toThrowError();
-        expect(function(){product.active = func}).toThrowError();
-        expect(function(){product.version = func}).toThrowError();
-        expect(function(){product.description = func}).toThrowError();
-        expect(function(){product.licensingInfo = func}).toThrowError();
-        expect(function(){product.licenseeAutoCreate = func}).toThrowError();
+        expect(function(){product.number = func}).toThrowError(TypeError);
+        expect(function(){product.name = func}).toThrowError(TypeError);
+        expect(function(){product.active = func}).toThrowError(TypeError);
+        expect(function(){product.version = func}).toThrowError(TypeError);
+        expect(function(){product.description = func}).toThrowError(TypeError);
+        expect(function(){product.licensingInfo = func}).toThrowError(TypeError);
+        expect(function(){product.licenseeAutoCreate = func}).toThrowError(TypeError);
     });
 
     it('check throwable error if property value is "undefined"', function () {
-        expect(function(){product.setProperty('number',undefined)}).toThrowError();
-        expect(function(){product.setNumber(undefined)}).toThrowError();
-        expect(function(){product.setName(undefined)}).toThrowError();
-        expect(function(){product.setActive(undefined)}).toThrowError();
-        expect(function(){product.setVersion(undefined)}).toThrowError();
-        expect(function(){product.setDescription(undefined)}).toThrowError();
-        expect(function(){product.setLicensingInfo(undefined)}).toThrowError();
-        expect(function(){product.setLicenseeAutoCreate(undefined)}).toThrowError();
+        expect(function(){product.setProperty('number',undefined)}).toThrowError(TypeError);
+        expect(function(){product.setNumber(undefined)}).toThrowError(TypeError);
+        expect(function(){product.setName(undefined)}).toThrowError(TypeError);
+        expect(function(){product.setActive(undefined)}).toThrowError(TypeError);
+        expect(function(){product.setVersion(undefined)}).toThrowError(TypeError);
+        expect(function(){product.setDescription(undefined)}).toThrowError(TypeError);
+        expect(function(){product.setLicensingInfo(undefined)}).toThrowError(TypeError);
+        expect(function(){product.setLicenseeAutoCreate(undefined)}).toThrowError(TypeError);
 
-        expect(function(){product.number = undefined}).toThrowError();
-        expect(function(){product.name = undefined}).toThrowError();
-        expect(function(){product.active = undefined}).toThrowError();
-        expect(function(){product.version = undefined}).toThrowError();
-        expect(function(){product.description = undefined}).toThrowError();
-        expect(function(){product.licensingInfo = undefined}).toThrowError();
-        expect(function(){product.licenseeAutoCreate = undefined}).toThrowError();
+        expect(function(){product.number = undefined}).toThrowError(TypeError);
+        expect(function(){product.name = undefined}).toThrowError(TypeError);
+        expect(function(){product.active = undefined}).toThrowError(TypeError);
+        expect(function(){product.version = undefined}).toThrowError(TypeError);
+        expect(function(){product.description = undefined}).toThrowError(TypeError);
+        expect(function(){product.licensingInfo = undefined}).toThrowError(TypeError);
+        expect(function(){product.licenseeAutoCreate = undefined}).toThrowError(TypeError);
     });
 
     it('check throwable error if property value is "NaN"', function () {
-        expect(function(){product.setProperty('number',NaN)}).toThrowError();
-        expect(function(){product.setNumber(NaN)}).toThrowError();
-        expect(function(){product.setName(NaN)}).toThrowError();
-        expect(function(){product.setActive(NaN)}).toThrowError();
-        expect(function(){product.setVersion(NaN)}).toThrowError();
-        expect(function(){product.setDescription(NaN)}).toThrowError();
-        expect(function(){product.setLicensingInfo(NaN)}).toThrowError();
-        expect(function(){product.setLicenseeAutoCreate(NaN)}).toThrowError();
+        expect(function(){product.setProperty('number',NaN)}).toThrowError(TypeError);
+        expect(function(){product.setNumber(NaN)}).toThrowError(TypeError);
+        expect(function(){product.setName(NaN)}).toThrowError(TypeError);
+        expect(function(){product.setActive(NaN)}).toThrowError(TypeError);
+        expect(function(){product.setVersion(NaN)}).toThrowError(TypeError);
+        expect(function(){product.setDescription(NaN)}).toThrowError(TypeError);
+        expect(function(){product.setLicensingInfo(NaN)}).toThrowError(TypeError);
+        expect(function(){product.setLicenseeAutoCreate(NaN)}).toThrowError(TypeError);
 
-        expect(function(){product.number = NaN}).toThrowError();
-        expect(function(){product.name = NaN}).toThrowError();
-        expect(function(){product.active = NaN}).toThrowError();
-        expect(function(){product.version = NaN}).toThrowError();
-        expect(function(){product.description = NaN}).toThrowError();
-        expect(function(){product.licensingInfo = NaN}).toThrowError();
-        expect(function(){product.licenseeAutoCreate = NaN}).toThrowError();
+        expect(function(){product.number = NaN}).toThrowError(TypeError);
+        expect(function(){product.name = NaN}).toThrowError(TypeError);
+        expect(function(){product.active = NaN}).toThrowError(TypeError);
+        expect(function(){product.version = NaN}).toThrowError(TypeError);
+        expect(function(){product.description = NaN}).toThrowError(TypeError);
+        expect(function(){product.licensingInfo = NaN}).toThrowError(TypeError);
+        expect(function(){product.licenseeAutoCreate = NaN}).toThrowError(TypeError);
     });
 
     it('check throwable error if property value is "Infinity"', function () {
-        expect(function(){product.setProperty('number',Infinity)}).toThrowError();
-        expect(function(){product.setNumber(Infinity)}).toThrowError();
-        expect(function(){product.setName(Infinity)}).toThrowError();
-        expect(function(){product.setActive(Infinity)}).toThrowError();
-        expect(function(){product.setVersion(Infinity)}).toThrowError();
-        expect(function(){product.setDescription(Infinity)}).toThrowError();
-        expect(function(){product.setLicensingInfo(Infinity)}).toThrowError();
-        expect(function(){product.setLicenseeAutoCreate(Infinity)}).toThrowError();
+        expect(function(){product.setProperty('number',Infinity)}).toThrowError(TypeError);
+        expect(function(){product.setNumber(Infinity)}).toThrowError(TypeError);
+        expect(function(){product.setName(Infinity)}).toThrowError(TypeError);
+        expect(function(){product.setActive(Infinity)}).toThrowError(TypeError);
+        expect(function(){product.setVersion(Infinity)}).toThrowError(TypeError);
+        expect(function(){product.setDescription(Infinity)}).toThrowError(TypeError);
+        expect(function(){product.setLicensingInfo(Infinity)}).toThrowError(TypeError);
+        expect(function(){product.setLicenseeAutoCreate(Infinity)}).toThrowError(TypeError);
 
-        expect(function(){product.number = Infinity}).toThrowError();
-        expect(function(){product.name = Infinity}).toThrowError();
-        expect(function(){product.active = Infinity}).toThrowError();
-        expect(function(){product.version = Infinity}).toThrowError();
-        expect(function(){product.description = Infinity}).toThrowError();
-        expect(function(){product.licensingInfo = Infinity}).toThrowError();
-        expect(function(){product.licenseeAutoCreate = Infinity}).toThrowError();
+        expect(function(){product.number = Infinity}).toThrowError(TypeError);
+        expect(function(){product.name = Infinity}).toThrowError(TypeError);
+        expect(function(){product.active = Infinity}).toThrowError(TypeError);
+        expect(function(){product.version = Infinity}).toThrowError(TypeError);
+        expect(function(){product.description = Infinity}).toThrowError(TypeError);
+        expect(function(){product.licensingInfo = Infinity}).toThrowError(TypeError);
+        expect(function(){product.licenseeAutoCreate = Infinity}).toThrowError(TypeError);
     });
 
     it('check throwable error if add not Nlic.ProductDiscount in "addDiscount" method', function () {
-        expect(function(){product.addDiscount('discount')}).toThrowError();
-        expect(function(){product.addDiscount({})}).toThrowError();
+        expect(function(){product.addDiscount('discount')}).toThrowError(TypeError);
+        expect(function(){product.addDiscount({})}).toThrowError(TypeError);
     });
 });

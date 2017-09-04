@@ -18,6 +18,7 @@ Nlic.HttpRequest.prototype.__serialize = function (data, prefix) {
         if (data.hasOwnProperty(key)) {
             var k = prefix ? prefix + '[' + key + ']' : key;
             var v = data[key];
+            v = (v instanceof Date) ? v.toISOString() : v;
             query.push((v !== null && typeof v === 'object') ?
                 this.__serialize(v, k) :
             encodeURIComponent(k) + "=" + encodeURIComponent(v));

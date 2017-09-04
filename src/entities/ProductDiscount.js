@@ -14,14 +14,15 @@ Nlic.ProductDiscount = function () {
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
         value: {
-            totalPrice: 'int',
+            totalPrice: 'float',
+            currency: 'string',
             amountFix: 'float',
-            amountPercent: 'float'
+            amountPercent: 'int'
         }
     });
 
     //define default entity properties
-    this.__defines(['totalPrice', 'amountFix', 'amountPercent']);
+    this.__defines(['totalPrice', 'currency', 'amountFix', 'amountPercent']);
 };
 
 Nlic.ProductDiscount.prototype = Object.create(Nlic.BaseEntity.prototype);
@@ -71,4 +72,8 @@ Nlic.ProductDiscount.prototype.toString = function () {
 };
 
 //make methods not changeable
-Object.defineProperty(Nlic.ProductDiscount.prototype, 'toString', {writable: false, enumerable: false, configurable: false});
+Object.defineProperty(Nlic.ProductDiscount.prototype, 'toString', {
+    writable: false,
+    enumerable: false,
+    configurable: false
+});

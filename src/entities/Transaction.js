@@ -45,19 +45,27 @@ var Nlic = Nlic || {};
  */
 
 Nlic.Transaction = function Transaction() {
-    BaseEntity.apply(this, arguments);
+    Nlic.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
         value: {
-            active: 'boolean',
+            number: 'string',
+            name: 'string',
+            status: 'string',
+            source: 'string',
             grandTotal: 'float',
-            discount: 'float'
+            discount: 'float',
+            currency: 'string',
+            dateCreated: 'date',
+            dateClosed: 'date',
+            active: 'boolean',
+            paymentMethod: 'string'
         }
     });
 
     //define default entity properties
-    this.__defines(['number', 'name', 'status', 'source', 'grandTotal', 'discount', 'currency', 'dateCreated', 'dateClosed']);
+    this.__defines(['number', 'name', 'status', 'source', 'grandTotal', 'discount', 'currency', 'dateCreated', 'dateClosed', 'paymentMethod']);
     this.__define('active', true);
 
     //make methods not changeable
@@ -137,6 +145,14 @@ Nlic.Transaction.prototype.setDateClosed = function (dateClosed) {
 
 Nlic.Transaction.prototype.getDateClosed = function (def) {
     return this.getProperty('dateClosed', def);
+};
+
+Nlic.Transaction.prototype.setPaymentMethod = function (paymentMethod) {
+    return this.setProperty('paymentMethod', paymentMethod);
+};
+
+Nlic.Transaction.prototype.getPaymentMethod = function (def) {
+    return this.getProperty('paymentMethod', def);
 };
 
 Nlic.Transaction.prototype.setActive = function () {

@@ -50,10 +50,14 @@ Nlic.ProductModule = function () {
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
         value: {
+            number: 'string',
             active: 'boolean',
+            name: 'string',
+            licensingModel: 'string',
             maxCheckoutValidity: 'int',
             yellowThreshold: 'int',
             redThreshold: 'int',
+            licenseTemplate: 'string',
             inUse: 'boolean'
         }
     });

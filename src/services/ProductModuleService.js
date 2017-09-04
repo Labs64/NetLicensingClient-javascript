@@ -47,6 +47,8 @@ Nlic.ProductModuleService.create = function (context, productNumber, productModu
 
     context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
 
+    productModule.setProperty('productNumber', productNumber);
+
     return Nlic.Service
         .getInstance()
         .post(context, Nlic.ProductModuleService.ENDPOINT_PATH, productModule.asPropertiesMap(), Nlic.ProductModule);

@@ -65,19 +65,24 @@ Nlic.LicenseTemplate = function () {
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
         value: {
-            price: 'double',
+            number: 'string',
             active: 'boolean',
-            inUse: 'boolean',
+            name: 'string',
+            licenseType: 'string',
+            price: 'double',
+            currency: 'string',
             automatic: 'boolean',
             hidden: 'boolean',
             hideLicenses: 'boolean',
             timeVolume: 'int',
             maxSessions: 'int',
-            quantity: 'int'
+            quantity: 'int',
+            inUse: 'boolean',
         }
     });
     //define default entity properties
     this.__defines(['number', 'active', 'name', 'licenseType', 'price', 'currency', 'automatic', 'hidden', 'hideLicenses', 'timeVolume', 'maxSessions', 'quantity']);
+    this.__define('inUse', true);
 
     //make methods not changeable
     this.__notChangeable('asPropertiesMap');

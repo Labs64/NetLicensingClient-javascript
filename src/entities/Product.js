@@ -50,10 +50,14 @@ Nlic.Product = function () {
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
         value: {
+            number: 'string',
             active: 'boolean',
-            version: 'float',
-            inUse: 'boolean',
+            name: 'string',
+            version: 'string',
+            description: 'string',
+            licensingInfo: 'string',
             licenseeAutoCreate: 'boolean',
+            inUse: 'boolean'
         }
     });
 

@@ -36,7 +36,17 @@ Nlic.UtilityService.listLicenseTypes = function (context) {
 
     return Nlic.Service
         .getInstance()
-        .list(context, Nlic.UtilityService.ENDPOINT_PATH + '/licenseTypes');
+        .list(context, Nlic.UtilityService.ENDPOINT_PATH + '/licenseTypes')
+        .then(function (items) {
+            var length = items.length;
+            var licenseTypes = [];
+
+            for (var i = 0; i < length; i++) {
+                licenseTypes.push(items[i].property[0].value);
+            }
+
+            return licenseTypes;
+        });
 };
 
 /**
@@ -56,5 +66,15 @@ Nlic.UtilityService.listLicensingModels = function (context) {
 
     return Nlic.Service
         .getInstance()
-        .list(context, Nlic.UtilityService.ENDPOINT_PATH + '/licensingModels');
+        .list(context, Nlic.UtilityService.ENDPOINT_PATH + '/licensingModels')
+        .then(function (items) {
+            var length = items.length;
+            var licensingModels = [];
+
+            for (var i = 0; i < length; i++) {
+                licensingModels.push(items[i].property[0].value);
+            }
+
+            return licensingModels;
+        });
 };

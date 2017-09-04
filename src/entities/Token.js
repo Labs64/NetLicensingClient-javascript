@@ -41,7 +41,17 @@ Nlic.Token = function () {
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
         value: {
-            active: 'boolean'
+            number: 'string',
+            active: 'boolean',
+            expirationTime: 'date',
+            vendorNumber: 'string',
+            tokenType: 'string',
+            licenseeNumber: 'string',
+            successURL: 'string',
+            successURLTitle: 'string',
+            cancelURL: 'string',
+            cancelURLTitle: 'string',
+            shopURL: 'string'
         }
     });
 

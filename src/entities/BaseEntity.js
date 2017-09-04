@@ -46,7 +46,9 @@ Nlic.BaseEntity = function (properties) {
 
         this.__define(property);
 
-        if (typeof value === 'object')value = (Array.isArray(value)) ? Object.assign([], value) : Object.assign({}, value);
+        if (typeof value === 'object') {
+            value = (Array.isArray(value)) ? Object.assign([], value) : (value instanceof Date) ? new Date(value) : Object.assign({}, value);
+        }
 
         __properties[property] = value;
 
@@ -222,6 +224,9 @@ Nlic.BaseEntity = function (properties) {
         if (!this.__hasCast(property)) return value;
 
         switch (this.__getCastType(property)) {
+            case 'str':
+            case 'string':
+                return String(value);
             case 'int':
             case 'integer':
                 return parseInt(value, 10);
@@ -231,6 +236,8 @@ Nlic.BaseEntity = function (properties) {
             case 'bool':
             case 'boolean':
                 return (value && value != 'false') ? true : false;
+            case 'date':
+                return new Date(String(value));
         }
         return value;
     };
@@ -285,4 +292,3 @@ Nlic.BaseEntity = function (properties) {
 
     this.setProperties(properties);
 };
-

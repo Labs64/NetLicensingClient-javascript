@@ -23,7 +23,9 @@ Nlic.PaymentMethod = function PaymentMethod() {
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
         value: {
-            active: 'boolean'
+            number: 'string',
+            active: 'boolean',
+            'paypal.subject': 'string',
         }
     });
 

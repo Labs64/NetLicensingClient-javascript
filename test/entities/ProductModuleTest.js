@@ -164,6 +164,11 @@ describe('entities.ProductModuleTest', function () {
     });
 
     it('check cast an properties to a native js type', function () {
+        productModule.setProperty('number', 1);
+        expect(productModule.getProperty('number')).toBe('1');
+        productModule.setProperty('number', true);
+        expect(productModule.getProperty('number')).toBe('true');
+
         productModule.setProperty('active', 1);
         expect(productModule.getProperty('active')).toBe(true);
         productModule.setProperty('active', 0);
@@ -174,6 +179,16 @@ describe('entities.ProductModuleTest', function () {
         expect(productModule.getProperty('active')).toBe(true);
         productModule.setProperty('active', null);
         expect(productModule.getProperty('active')).toBe(false);
+
+        productModule.setProperty('name', 1);
+        expect(productModule.getProperty('name')).toBe('1');
+        productModule.setProperty('name', true);
+        expect(productModule.getProperty('name')).toBe('true');
+
+        productModule.setProperty('licensingModel', 1);
+        expect(productModule.getProperty('licensingModel')).toBe('1');
+        productModule.setProperty('licensingModel', true);
+        expect(productModule.getProperty('licensingModel')).toBe('true');
 
         productModule.setProperty('maxCheckoutValidity', "015");
         expect(productModule.getProperty('maxCheckoutValidity')).toBe(15);
@@ -201,92 +216,97 @@ describe('entities.ProductModuleTest', function () {
         expect(productModule.getProperty('redThreshold')).toBe(15);
         productModule.setProperty('redThreshold', '15e2');
         expect(productModule.getProperty('redThreshold')).toBe(15);
+
+        productModule.setProperty('licenseTemplate', 1);
+        expect(productModule.getProperty('licenseTemplate')).toBe('1');
+        productModule.setProperty('licenseTemplate', true);
+        expect(productModule.getProperty('licenseTemplate')).toBe('true');
     });
 
     it('check throwable error if property value is typeof "function"', function () {
         var func = function () {
         };
 
-        expect(function(){productModule.setProperty('number',func)}).toThrowError();
-        expect(function(){productModule.setNumber(func)}).toThrowError();
-        expect(function(){productModule.setName(func)}).toThrowError();
-        expect(function(){productModule.setActive(func)}).toThrowError();
-        expect(function(){productModule.setLicensingModel(func)}).toThrowError();
-        expect(function(){productModule.setMaxCheckoutValidity(func)}).toThrowError();
-        expect(function(){productModule.setYellowThreshold(func)}).toThrowError();
-        expect(function(){productModule.setRedThreshold(func)}).toThrowError();
-        expect(function(){productModule.setLicenseTemplate(func)}).toThrowError();
+        expect(function(){productModule.setProperty('number',func)}).toThrowError(TypeError);
+        expect(function(){productModule.setNumber(func)}).toThrowError(TypeError);
+        expect(function(){productModule.setName(func)}).toThrowError(TypeError);
+        expect(function(){productModule.setActive(func)}).toThrowError(TypeError);
+        expect(function(){productModule.setLicensingModel(func)}).toThrowError(TypeError);
+        expect(function(){productModule.setMaxCheckoutValidity(func)}).toThrowError(TypeError);
+        expect(function(){productModule.setYellowThreshold(func)}).toThrowError(TypeError);
+        expect(function(){productModule.setRedThreshold(func)}).toThrowError(TypeError);
+        expect(function(){productModule.setLicenseTemplate(func)}).toThrowError(TypeError);
 
-        expect(function(){productModule.number = func}).toThrowError();
-        expect(function(){productModule.name = func}).toThrowError();
-        expect(function(){productModule.active = func}).toThrowError();
-        expect(function(){productModule.licensingModel = func}).toThrowError();
-        expect(function(){productModule.maxCheckoutValidity = func}).toThrowError();
-        expect(function(){productModule.yellowThreshold = func}).toThrowError();
-        expect(function(){productModule.redThreshold = func}).toThrowError();
-        expect(function(){productModule.licenseTemplate = func}).toThrowError();
+        expect(function(){productModule.number = func}).toThrowError(TypeError);
+        expect(function(){productModule.name = func}).toThrowError(TypeError);
+        expect(function(){productModule.active = func}).toThrowError(TypeError);
+        expect(function(){productModule.licensingModel = func}).toThrowError(TypeError);
+        expect(function(){productModule.maxCheckoutValidity = func}).toThrowError(TypeError);
+        expect(function(){productModule.yellowThreshold = func}).toThrowError(TypeError);
+        expect(function(){productModule.redThreshold = func}).toThrowError(TypeError);
+        expect(function(){productModule.licenseTemplate = func}).toThrowError(TypeError);
     });
 
     it('check throwable error if property value is "undefined"', function () {
-        expect(function(){productModule.setProperty('number',undefined)}).toThrowError();
-        expect(function(){productModule.setNumber(undefined)}).toThrowError();
-        expect(function(){productModule.setName(undefined)}).toThrowError();
-        expect(function(){productModule.setActive(undefined)}).toThrowError();
-        expect(function(){productModule.setLicensingModel(undefined)}).toThrowError();
-        expect(function(){productModule.setMaxCheckoutValidity(undefined)}).toThrowError();
-        expect(function(){productModule.setYellowThreshold(undefined)}).toThrowError();
-        expect(function(){productModule.setRedThreshold(undefined)}).toThrowError();
-        expect(function(){productModule.setLicenseTemplate(undefined)}).toThrowError();
+        expect(function(){productModule.setProperty('number',undefined)}).toThrowError(TypeError);
+        expect(function(){productModule.setNumber(undefined)}).toThrowError(TypeError);
+        expect(function(){productModule.setName(undefined)}).toThrowError(TypeError);
+        expect(function(){productModule.setActive(undefined)}).toThrowError(TypeError);
+        expect(function(){productModule.setLicensingModel(undefined)}).toThrowError(TypeError);
+        expect(function(){productModule.setMaxCheckoutValidity(undefined)}).toThrowError(TypeError);
+        expect(function(){productModule.setYellowThreshold(undefined)}).toThrowError(TypeError);
+        expect(function(){productModule.setRedThreshold(undefined)}).toThrowError(TypeError);
+        expect(function(){productModule.setLicenseTemplate(undefined)}).toThrowError(TypeError);
 
-        expect(function(){productModule.number = undefined}).toThrowError();
-        expect(function(){productModule.name = undefined}).toThrowError();
-        expect(function(){productModule.active = undefined}).toThrowError();
-        expect(function(){productModule.licensingModel = undefined}).toThrowError();
-        expect(function(){productModule.maxCheckoutValidity = undefined}).toThrowError();
-        expect(function(){productModule.yellowThreshold = undefined}).toThrowError();
-        expect(function(){productModule.redThreshold = undefined}).toThrowError();
-        expect(function(){productModule.licenseTemplate = undefined}).toThrowError();
+        expect(function(){productModule.number = undefined}).toThrowError(TypeError);
+        expect(function(){productModule.name = undefined}).toThrowError(TypeError);
+        expect(function(){productModule.active = undefined}).toThrowError(TypeError);
+        expect(function(){productModule.licensingModel = undefined}).toThrowError(TypeError);
+        expect(function(){productModule.maxCheckoutValidity = undefined}).toThrowError(TypeError);
+        expect(function(){productModule.yellowThreshold = undefined}).toThrowError(TypeError);
+        expect(function(){productModule.redThreshold = undefined}).toThrowError(TypeError);
+        expect(function(){productModule.licenseTemplate = undefined}).toThrowError(TypeError);
     });
 
     it('check throwable error if property value is "NaN"', function () {
-        expect(function(){productModule.setProperty('number',NaN)}).toThrowError();
-        expect(function(){productModule.setNumber(NaN)}).toThrowError();
-        expect(function(){productModule.setName(NaN)}).toThrowError();
-        expect(function(){productModule.setActive(NaN)}).toThrowError();
-        expect(function(){productModule.setLicensingModel(NaN)}).toThrowError();
-        expect(function(){productModule.setMaxCheckoutValidity(NaN)}).toThrowError();
-        expect(function(){productModule.setYellowThreshold(NaN)}).toThrowError();
-        expect(function(){productModule.setRedThreshold(NaN)}).toThrowError();
-        expect(function(){productModule.setLicenseTemplate(NaN)}).toThrowError();
+        expect(function(){productModule.setProperty('number',NaN)}).toThrowError(TypeError);
+        expect(function(){productModule.setNumber(NaN)}).toThrowError(TypeError);
+        expect(function(){productModule.setName(NaN)}).toThrowError(TypeError);
+        expect(function(){productModule.setActive(NaN)}).toThrowError(TypeError);
+        expect(function(){productModule.setLicensingModel(NaN)}).toThrowError(TypeError);
+        expect(function(){productModule.setMaxCheckoutValidity(NaN)}).toThrowError(TypeError);
+        expect(function(){productModule.setYellowThreshold(NaN)}).toThrowError(TypeError);
+        expect(function(){productModule.setRedThreshold(NaN)}).toThrowError(TypeError);
+        expect(function(){productModule.setLicenseTemplate(NaN)}).toThrowError(TypeError);
 
-        expect(function(){productModule.number = NaN}).toThrowError();
-        expect(function(){productModule.name = NaN}).toThrowError();
-        expect(function(){productModule.active = NaN}).toThrowError();
-        expect(function(){productModule.licensingModel = NaN}).toThrowError();
-        expect(function(){productModule.maxCheckoutValidity = NaN}).toThrowError();
-        expect(function(){productModule.yellowThreshold = NaN}).toThrowError();
-        expect(function(){productModule.redThreshold = NaN}).toThrowError();
-        expect(function(){productModule.licenseTemplate = NaN}).toThrowError();
+        expect(function(){productModule.number = NaN}).toThrowError(TypeError);
+        expect(function(){productModule.name = NaN}).toThrowError(TypeError);
+        expect(function(){productModule.active = NaN}).toThrowError(TypeError);
+        expect(function(){productModule.licensingModel = NaN}).toThrowError(TypeError);
+        expect(function(){productModule.maxCheckoutValidity = NaN}).toThrowError(TypeError);
+        expect(function(){productModule.yellowThreshold = NaN}).toThrowError(TypeError);
+        expect(function(){productModule.redThreshold = NaN}).toThrowError(TypeError);
+        expect(function(){productModule.licenseTemplate = NaN}).toThrowError(TypeError);
     });
 
     it('check throwable error if property value is "Infinity"', function () {
-        expect(function(){productModule.setProperty('number',Infinity)}).toThrowError();
-        expect(function(){productModule.setNumber(Infinity)}).toThrowError();
-        expect(function(){productModule.setName(Infinity)}).toThrowError();
-        expect(function(){productModule.setActive(Infinity)}).toThrowError();
-        expect(function(){productModule.setLicensingModel(Infinity)}).toThrowError();
-        expect(function(){productModule.setMaxCheckoutValidity(Infinity)}).toThrowError();
-        expect(function(){productModule.setYellowThreshold(Infinity)}).toThrowError();
-        expect(function(){productModule.setRedThreshold(Infinity)}).toThrowError();
-        expect(function(){productModule.setLicenseTemplate(Infinity)}).toThrowError();
+        expect(function(){productModule.setProperty('number',Infinity)}).toThrowError(TypeError);
+        expect(function(){productModule.setNumber(Infinity)}).toThrowError(TypeError);
+        expect(function(){productModule.setName(Infinity)}).toThrowError(TypeError);
+        expect(function(){productModule.setActive(Infinity)}).toThrowError(TypeError);
+        expect(function(){productModule.setLicensingModel(Infinity)}).toThrowError(TypeError);
+        expect(function(){productModule.setMaxCheckoutValidity(Infinity)}).toThrowError(TypeError);
+        expect(function(){productModule.setYellowThreshold(Infinity)}).toThrowError(TypeError);
+        expect(function(){productModule.setRedThreshold(Infinity)}).toThrowError(TypeError);
+        expect(function(){productModule.setLicenseTemplate(Infinity)}).toThrowError(TypeError);
 
-        expect(function(){productModule.number = Infinity}).toThrowError();
-        expect(function(){productModule.name = Infinity}).toThrowError();
-        expect(function(){productModule.active = Infinity}).toThrowError();
-        expect(function(){productModule.licensingModel = Infinity}).toThrowError();
-        expect(function(){productModule.maxCheckoutValidity = Infinity}).toThrowError();
-        expect(function(){productModule.yellowThreshold = Infinity}).toThrowError();
-        expect(function(){productModule.redThreshold = Infinity}).toThrowError();
-        expect(function(){productModule.licenseTemplate = Infinity}).toThrowError();
+        expect(function(){productModule.number = Infinity}).toThrowError(TypeError);
+        expect(function(){productModule.name = Infinity}).toThrowError(TypeError);
+        expect(function(){productModule.active = Infinity}).toThrowError(TypeError);
+        expect(function(){productModule.licensingModel = Infinity}).toThrowError(TypeError);
+        expect(function(){productModule.maxCheckoutValidity = Infinity}).toThrowError(TypeError);
+        expect(function(){productModule.yellowThreshold = Infinity}).toThrowError(TypeError);
+        expect(function(){productModule.redThreshold = Infinity}).toThrowError(TypeError);
+        expect(function(){productModule.licenseTemplate = Infinity}).toThrowError(TypeError);
     });
 });

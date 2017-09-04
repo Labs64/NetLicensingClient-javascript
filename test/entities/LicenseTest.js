@@ -90,38 +90,21 @@ describe('entities.LicenseTest', function () {
         expect(license.timeVolume).toBe(3);
     });
 
-    it('check "timeVolume" property setters/getters', function () {
-        license.setProperty('startDate', '2055-01-01');
-        expect(license.getProperty('startDate')).toBe('2055-01-01');
-        expect(license.getStartDate()).toBe('2055-01-01');
-        expect(license.startDate).toBe('2055-01-01');
+    it('check "startDate" property setters/getters', function () {
+        license.setProperty('startDate', new Date('2055-01-01'));
+        expect(license.getProperty('startDate').toISOString()).toBe(new Date('2055-01-01').toISOString());
+        expect(license.getStartDate().toISOString()).toBe(new Date('2055-01-01').toISOString());
+        expect(license.startDate.toISOString()).toBe(new Date('2055-01-01').toISOString());
 
-        license.setStartDate('2055-01-02');
-        expect(license.getProperty('startDate')).toBe('2055-01-02');
-        expect(license.getStartDate()).toBe('2055-01-02');
-        expect(license.startDate).toBe('2055-01-02');
+        license.setStartDate(new Date('2055-01-02'));
+        expect(license.getProperty('startDate').toISOString()).toBe(new Date('2055-01-02').toISOString());
+        expect(license.getStartDate().toISOString()).toBe(new Date('2055-01-02').toISOString());
+        expect(license.startDate.toISOString()).toBe(new Date('2055-01-02').toISOString());
 
-        license.startDate = '2055-01-03';
-        expect(license.getProperty('startDate')).toBe('2055-01-03');
-        expect(license.getStartDate()).toBe('2055-01-03');
-        expect(license.startDate).toBe('2055-01-03');
-    });
-
-    it('check "timeVolume" property setters/getters', function () {
-        license.setProperty('startDate', '2055-01-01');
-        expect(license.getProperty('startDate')).toBe('2055-01-01');
-        expect(license.getStartDate()).toBe('2055-01-01');
-        expect(license.startDate).toBe('2055-01-01');
-
-        license.setStartDate('2055-01-02');
-        expect(license.getProperty('startDate')).toBe('2055-01-02');
-        expect(license.getStartDate()).toBe('2055-01-02');
-        expect(license.startDate).toBe('2055-01-02');
-
-        license.startDate = '2055-01-03';
-        expect(license.getProperty('startDate')).toBe('2055-01-03');
-        expect(license.getStartDate()).toBe('2055-01-03');
-        expect(license.startDate).toBe('2055-01-03');
+        license.startDate = new Date('2055-01-03');
+        expect(license.getProperty('startDate').toISOString()).toBe(new Date('2055-01-03').toISOString());
+        expect(license.getStartDate().toISOString()).toBe(new Date('2055-01-03').toISOString());
+        expect(license.startDate.toISOString()).toBe(new Date('2055-01-03').toISOString());
     });
 
     it('check "price" property getters', function () {
@@ -171,6 +154,11 @@ describe('entities.LicenseTest', function () {
     });
 
     it('check cast an properties to a native js type', function () {
+        license.setProperty('number', 1);
+        expect(license.getProperty('number')).toBe('1');
+        license.setProperty('number', true);
+        expect(license.getProperty('number')).toBe('true');
+
         license.setProperty('active', 1);
         expect(license.getProperty('active')).toBe(true);
         license.setProperty('active', 0);
@@ -181,6 +169,16 @@ describe('entities.LicenseTest', function () {
         expect(license.getProperty('active')).toBe(true);
         license.setProperty('active', null);
         expect(license.getProperty('active')).toBe(false);
+
+        license.setProperty('startDate', '2055-01-01');
+        expect(license.getProperty('startDate') instanceof Date).toBe(true);
+        license.setProperty('startDate', new Date());
+        expect(license.getProperty('startDate') instanceof Date).toBe(true);
+
+        license.setProperty('name', 1);
+        expect(license.getProperty('name')).toBe('1');
+        license.setProperty('name', true);
+        expect(license.getProperty('name')).toBe('true');
 
         license.setProperty('price', "3.14");
         expect(license.getProperty('price')).toBe(3.14);
@@ -202,6 +200,11 @@ describe('entities.LicenseTest', function () {
         license.setProperty('hidden', null);
         expect(license.getProperty('hidden')).toBe(false);
 
+        license.setProperty('parentfeature', 1);
+        expect(license.getProperty('parentfeature')).toBe('1');
+        license.setProperty('parentfeature', true);
+        expect(license.getProperty('parentfeature')).toBe('true');
+
         license.setProperty('timeVolume', "015");
         expect(license.getProperty('timeVolume')).toBe(15);
         license.setProperty('timeVolume', 15.99);
@@ -217,78 +220,78 @@ describe('entities.LicenseTest', function () {
         var func = function () {
         };
 
-        expect(function(){license.setProperty('number',func)}).toThrowError();
-        expect(function(){license.setNumber(func)}).toThrowError();
-        expect(function(){license.setName(func)}).toThrowError();
-        expect(function(){license.setActive(func)}).toThrowError();
-        expect(function(){license.setHidden(func)}).toThrowError();
-        expect(function(){license.setParentfeature(func)}).toThrowError();
-        expect(function(){license.setTimeVolume(func)}).toThrowError();
-        expect(function(){license.setStartDate(func)}).toThrowError();
+        expect(function(){license.setProperty('number',func)}).toThrowError(TypeError);
+        expect(function(){license.setNumber(func)}).toThrowError(TypeError);
+        expect(function(){license.setName(func)}).toThrowError(TypeError);
+        expect(function(){license.setActive(func)}).toThrowError(TypeError);
+        expect(function(){license.setHidden(func)}).toThrowError(TypeError);
+        expect(function(){license.setParentfeature(func)}).toThrowError(TypeError);
+        expect(function(){license.setTimeVolume(func)}).toThrowError(TypeError);
+        expect(function(){license.setStartDate(func)}).toThrowError(TypeError);
 
-        expect(function(){product.number = func}).toThrowError();
-        expect(function(){product.name = func}).toThrowError();
-        expect(function(){product.active = func}).toThrowError();
-        expect(function(){product.hidden = func}).toThrowError();
-        expect(function(){product.parentfeature = func}).toThrowError();
-        expect(function(){product.timeVolume = func}).toThrowError();
-        expect(function(){product.startDate = func}).toThrowError();
+        expect(function(){license.number = func}).toThrowError(TypeError);
+        expect(function(){license.name = func}).toThrowError(TypeError);
+        expect(function(){license.active = func}).toThrowError(TypeError);
+        expect(function(){license.hidden = func}).toThrowError(TypeError);
+        expect(function(){license.parentfeature = func}).toThrowError(TypeError);
+        expect(function(){license.timeVolume = func}).toThrowError(TypeError);
+        expect(function(){license.startDate = func}).toThrowError(TypeError);
     });
 
     it('check throwable error if property value is typeof "undefined"', function () {
-        expect(function(){license.setProperty('number',undefined)}).toThrowError();
-        expect(function(){license.setNumber(undefined)}).toThrowError();
-        expect(function(){license.setName(undefined)}).toThrowError();
-        expect(function(){license.setActive(undefined)}).toThrowError();
-        expect(function(){license.setHidden(undefined)}).toThrowError();
-        expect(function(){license.setParentfeature(undefined)}).toThrowError();
-        expect(function(){license.setTimeVolume(undefined)}).toThrowError();
-        expect(function(){license.setStartDate(undefined)}).toThrowError();
+        expect(function(){license.setProperty('number',undefined)}).toThrowError(TypeError);
+        expect(function(){license.setNumber(undefined)}).toThrowError(TypeError);
+        expect(function(){license.setName(undefined)}).toThrowError(TypeError);
+        expect(function(){license.setActive(undefined)}).toThrowError(TypeError);
+        expect(function(){license.setHidden(undefined)}).toThrowError(TypeError);
+        expect(function(){license.setParentfeature(undefined)}).toThrowError(TypeError);
+        expect(function(){license.setTimeVolume(undefined)}).toThrowError(TypeError);
+        expect(function(){license.setStartDate(undefined)}).toThrowError(TypeError);
 
-        expect(function(){product.number = undefined}).toThrowError();
-        expect(function(){product.name = undefined}).toThrowError();
-        expect(function(){product.active = undefined}).toThrowError();
-        expect(function(){product.hidden = undefined}).toThrowError();
-        expect(function(){product.parentfeature = undefined}).toThrowError();
-        expect(function(){product.timeVolume = undefined}).toThrowError();
-        expect(function(){product.startDate = undefined}).toThrowError();
+        expect(function(){license.number = undefined}).toThrowError(TypeError);
+        expect(function(){license.name = undefined}).toThrowError(TypeError);
+        expect(function(){license.active = undefined}).toThrowError(TypeError);
+        expect(function(){license.hidden = undefined}).toThrowError(TypeError);
+        expect(function(){license.parentfeature = undefined}).toThrowError(TypeError);
+        expect(function(){license.timeVolume = undefined}).toThrowError(TypeError);
+        expect(function(){license.startDate = undefined}).toThrowError(TypeError);
     });
 
     it('check throwable error if property value is typeof "NaN"', function () {
-        expect(function(){license.setProperty('number',NaN)}).toThrowError();
-        expect(function(){license.setNumber(NaN)}).toThrowError();
-        expect(function(){license.setName(NaN)}).toThrowError();
-        expect(function(){license.setActive(NaN)}).toThrowError();
-        expect(function(){license.setHidden(NaN)}).toThrowError();
-        expect(function(){license.setParentfeature(NaN)}).toThrowError();
-        expect(function(){license.setTimeVolume(NaN)}).toThrowError();
-        expect(function(){license.setStartDate(NaN)}).toThrowError();
+        expect(function(){license.setProperty('number',NaN)}).toThrowError(TypeError);
+        expect(function(){license.setNumber(NaN)}).toThrowError(TypeError);
+        expect(function(){license.setName(NaN)}).toThrowError(TypeError);
+        expect(function(){license.setActive(NaN)}).toThrowError(TypeError);
+        expect(function(){license.setHidden(NaN)}).toThrowError(TypeError);
+        expect(function(){license.setParentfeature(NaN)}).toThrowError(TypeError);
+        expect(function(){license.setTimeVolume(NaN)}).toThrowError(TypeError);
+        expect(function(){license.setStartDate(NaN)}).toThrowError(TypeError);
 
-        expect(function(){product.number = NaN}).toThrowError();
-        expect(function(){product.name = NaN}).toThrowError();
-        expect(function(){product.active = NaN}).toThrowError();
-        expect(function(){product.hidden = NaN}).toThrowError();
-        expect(function(){product.parentfeature = NaN}).toThrowError();
-        expect(function(){product.timeVolume = NaN}).toThrowError();
-        expect(function(){product.startDate = NaN}).toThrowError();
+        expect(function(){license.number = NaN}).toThrowError(TypeError);
+        expect(function(){license.name = NaN}).toThrowError(TypeError);
+        expect(function(){license.active = NaN}).toThrowError(TypeError);
+        expect(function(){license.hidden = NaN}).toThrowError(TypeError);
+        expect(function(){license.parentfeature = NaN}).toThrowError(TypeError);
+        expect(function(){license.timeVolume = NaN}).toThrowError(TypeError);
+        expect(function(){license.startDate = NaN}).toThrowError(TypeError);
     });
 
     it('check throwable error if property value is typeof "Infinity"', function () {
-        expect(function(){license.setProperty('number',Infinity)}).toThrowError();
-        expect(function(){license.setNumber(Infinity)}).toThrowError();
-        expect(function(){license.setName(Infinity)}).toThrowError();
-        expect(function(){license.setActive(Infinity)}).toThrowError();
-        expect(function(){license.setHidden(Infinity)}).toThrowError();
-        expect(function(){license.setParentfeature(Infinity)}).toThrowError();
-        expect(function(){license.setTimeVolume(Infinity)}).toThrowError();
-        expect(function(){license.setStartDate(Infinity)}).toThrowError();
+        expect(function(){license.setProperty('number',Infinity)}).toThrowError(TypeError);
+        expect(function(){license.setNumber(Infinity)}).toThrowError(TypeError);
+        expect(function(){license.setName(Infinity)}).toThrowError(TypeError);
+        expect(function(){license.setActive(Infinity)}).toThrowError(TypeError);
+        expect(function(){license.setHidden(Infinity)}).toThrowError(TypeError);
+        expect(function(){license.setParentfeature(Infinity)}).toThrowError(TypeError);
+        expect(function(){license.setTimeVolume(Infinity)}).toThrowError(TypeError);
+        expect(function(){license.setStartDate(Infinity)}).toThrowError(TypeError);
 
-        expect(function(){product.number = Infinity}).toThrowError();
-        expect(function(){product.name = Infinity}).toThrowError();
-        expect(function(){product.active = Infinity}).toThrowError();
-        expect(function(){product.hidden = Infinity}).toThrowError();
-        expect(function(){product.parentfeature = Infinity}).toThrowError();
-        expect(function(){product.timeVolume = Infinity}).toThrowError();
-        expect(function(){product.startDate = Infinity}).toThrowError();
+        expect(function(){license.number = Infinity}).toThrowError(TypeError);
+        expect(function(){license.name = Infinity}).toThrowError(TypeError);
+        expect(function(){license.active = Infinity}).toThrowError(TypeError);
+        expect(function(){license.hidden = Infinity}).toThrowError(TypeError);
+        expect(function(){license.parentfeature = Infinity}).toThrowError(TypeError);
+        expect(function(){license.timeVolume = Infinity}).toThrowError(TypeError);
+        expect(function(){license.startDate = Infinity}).toThrowError(TypeError);
     });
 });

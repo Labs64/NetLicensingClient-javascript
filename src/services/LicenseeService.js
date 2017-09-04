@@ -51,6 +51,8 @@ Nlic.LicenseeService.create = function (context, productNumber, licensee) {
 
     context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
 
+    licensee.setProperty('productNumber', productNumber);
+
     return Nlic.Service
         .getInstance()
         .post(context, Nlic.LicenseeService.ENDPOINT_PATH, licensee.asPropertiesMap(), Nlic.Licensee);

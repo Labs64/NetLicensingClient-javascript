@@ -34,12 +34,12 @@ Nlic.ValidationResults = function () {
 
     this.setTtl = function (ttl) {
         if (!Nlic.CheckUtils.isValid(ttl) || typeof ttl === 'object')  throw new TypeError('Bad ttl:' + ttl);
-        __ttl = ttl;
+        __ttl = new Date(String(ttl));
         return this;
     };
 
     this.getTtl = function () {
-        return __ttl;
+        return (__ttl) ? Object.assign({}, __ttl) : undefined;
     };
 };
 

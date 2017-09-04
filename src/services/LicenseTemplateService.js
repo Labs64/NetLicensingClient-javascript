@@ -74,7 +74,7 @@ Nlic.LicenseTemplateService.get = function (context, number) {
 
     return Nlic.Service
         .getInstance()
-        .get(context.Nlic.LicenseTemplateService.ENDPOINT_PATH + '/' + number, {}, Nlic.LicenseTemplate);
+        .get(context, Nlic.LicenseTemplateService.ENDPOINT_PATH + '/' + number, {}, Nlic.LicenseTemplate);
 };
 
 /**
