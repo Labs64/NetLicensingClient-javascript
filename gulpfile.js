@@ -37,6 +37,13 @@ gulp.task('test', function (cb) {
     }, cb);
 });
 
+gulp.task('travis-test', function (cb) {
+    runKarma('karma.travis.conf.js', {
+        autoWatch: false,
+        singleRun: true
+    }, cb);
+});
+
 /** continuous ... using karma to watch */
 gulp.task('test-watch', function (cb) {
     runKarma('karma.conf.js', {

@@ -3,7 +3,7 @@ node_js:
   - stable
 env:
   - NODEJS_VERSION=6.10.3
-script: gulp test
+script: gulp travis-test
 before_install:
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
