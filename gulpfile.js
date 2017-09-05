@@ -3,7 +3,6 @@ var gulp = require('gulp'),
     size = require('gulp-size'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    minify = require('gulp-minify'),
     path = require('path'),
     karma = require('karma'),
     karmaParseConfig = require('karma/lib/config').parseConfig;
