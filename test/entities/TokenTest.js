@@ -5,21 +5,11 @@ describe('entities.TokenTest', function () {
         token = new Nlic.Token();
     });
 
-    it('check "number" property setters/getters', function () {
+    it('check "number" property getters', function () {
         token.setProperty('number', 'number_0');
         expect(token.getProperty('number')).toBe('number_0');
         expect(token.getNumber()).toBe('number_0');
         expect(token.number).toBe('number_0');
-
-        token.setNumber('number_1');
-        expect(token.getProperty('number')).toBe('number_1');
-        expect(token.getNumber()).toBe('number_1');
-        expect(token.number).toBe('number_1');
-
-        token.number = 'number_2';
-        expect(token.getProperty('number')).toBe('number_2');
-        expect(token.getNumber()).toBe('number_2');
-        expect(token.number).toBe('number_2');
     });
 
     it('check "active" property setters/getters', function () {
@@ -255,7 +245,6 @@ describe('entities.TokenTest', function () {
         };
 
         expect(function(){token.setProperty('number',func)}).toThrowError(TypeError);
-        expect(function(){token.setNumber(func)}).toThrowError(TypeError);
         expect(function(){token.setActive(func)}).toThrowError(TypeError);
         expect(function(){token.setExpirationTime(func)}).toThrowError(TypeError);
         expect(function(){token.setVendorNumber(func)}).toThrowError(TypeError);
@@ -267,7 +256,6 @@ describe('entities.TokenTest', function () {
         expect(function(){token.setCancelURLTitle(func)}).toThrowError(TypeError);
         expect(function(){token.setProperty('shopURL',func)}).toThrowError(TypeError);
 
-        expect(function(){token.number = func}).toThrowError(TypeError);
         expect(function(){token.active = func}).toThrowError(TypeError);
         expect(function(){token.expirationTime = func}).toThrowError(TypeError);
         expect(function(){token.vendorNumber = func}).toThrowError(TypeError);
@@ -281,7 +269,6 @@ describe('entities.TokenTest', function () {
 
     it('check throwable error if property value is typeof "undefined"', function () {
         expect(function(){token.setProperty('number',undefined)}).toThrowError(TypeError);
-        expect(function(){token.setNumber(undefined)}).toThrowError(TypeError);
         expect(function(){token.setActive(undefined)}).toThrowError(TypeError);
         expect(function(){token.setExpirationTime(undefined)}).toThrowError(TypeError);
         expect(function(){token.setVendorNumber(undefined)}).toThrowError(TypeError);
@@ -293,7 +280,6 @@ describe('entities.TokenTest', function () {
         expect(function(){token.setCancelURLTitle(undefined)}).toThrowError(TypeError);
         expect(function(){token.setProperty('shopURL',undefined)}).toThrowError(TypeError);
 
-        expect(function(){token.number = undefined}).toThrowError(TypeError);
         expect(function(){token.active = undefined}).toThrowError(TypeError);
         expect(function(){token.expirationTime = undefined}).toThrowError(TypeError);
         expect(function(){token.vendorNumber = undefined}).toThrowError(TypeError);
@@ -307,7 +293,6 @@ describe('entities.TokenTest', function () {
 
     it('check throwable error if property value is typeof "NaN"', function () {
         expect(function(){token.setProperty('number',NaN)}).toThrowError(TypeError);
-        expect(function(){token.setNumber(NaN)}).toThrowError(TypeError);
         expect(function(){token.setActive(NaN)}).toThrowError(TypeError);
         expect(function(){token.setExpirationTime(NaN)}).toThrowError(TypeError);
         expect(function(){token.setVendorNumber(NaN)}).toThrowError(TypeError);
@@ -319,7 +304,6 @@ describe('entities.TokenTest', function () {
         expect(function(){token.setCancelURLTitle(NaN)}).toThrowError(TypeError);
         expect(function(){token.setProperty('shopURL',NaN)}).toThrowError(TypeError);
 
-        expect(function(){token.number = NaN}).toThrowError(TypeError);
         expect(function(){token.active = NaN}).toThrowError(TypeError);
         expect(function(){token.expirationTime = NaN}).toThrowError(TypeError);
         expect(function(){token.vendorNumber = NaN}).toThrowError(TypeError);
@@ -333,7 +317,6 @@ describe('entities.TokenTest', function () {
 
     it('check throwable error if property value is typeof "Infinity"', function () {
         expect(function(){token.setProperty('number',Infinity)}).toThrowError(TypeError);
-        expect(function(){token.setNumber(Infinity)}).toThrowError(TypeError);
         expect(function(){token.setActive(Infinity)}).toThrowError(TypeError);
         expect(function(){token.setExpirationTime(Infinity)}).toThrowError(TypeError);
         expect(function(){token.setVendorNumber(Infinity)}).toThrowError(TypeError);
@@ -345,7 +328,6 @@ describe('entities.TokenTest', function () {
         expect(function(){token.setCancelURLTitle(Infinity)}).toThrowError(TypeError);
         expect(function(){token.setProperty('shopURL',Infinity)}).toThrowError(TypeError);
 
-        expect(function(){token.number = Infinity}).toThrowError(TypeError);
         expect(function(){token.active = Infinity}).toThrowError(TypeError);
         expect(function(){token.expirationTime = Infinity}).toThrowError(TypeError);
         expect(function(){token.vendorNumber = Infinity}).toThrowError(TypeError);

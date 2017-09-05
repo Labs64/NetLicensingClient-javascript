@@ -39,7 +39,7 @@ Nlic.ValidationResults = function () {
     };
 
     this.getTtl = function () {
-        return (__ttl) ? Object.assign({}, __ttl) : undefined;
+        return (__ttl) ? new Date(__ttl) : undefined;
     };
 };
 

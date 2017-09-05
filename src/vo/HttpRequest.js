@@ -72,21 +72,22 @@ Nlic.HttpRequest.prototype.send = function (config) {
         httpSetup.data = self.__serialize(httpSetup.data);
         httpSetup.headers = Object.assign({}, {Accept: 'application/json, text/plain, */*'}, httpSetup.headers);
 
+        switch (httpSetup.method) {
+            case 'DELETE':
+            case 'GET':
+                if (httpSetup.data.length) httpSetup.url += (Object.keys(self.__parseQuery(httpSetup.url)).length) ? '&' + httpSetup.data : '?' + httpSetup.data;
+                break;
+            case 'POST':
+                httpSetup.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+                break;
+        }
+
         xhr.open(httpSetup.method, httpSetup.url, true);
 
         //set headers
         for (var key in httpSetup.headers) {
             if (!httpSetup.headers.hasOwnProperty(key)) continue;
             xhr.setRequestHeader(key, httpSetup.headers[key]);
-        }
-
-        switch (httpSetup.method) {
-            case 'GET':
-                if (httpSetup.data.length) httpSetup.url += (Object.keys(self.__parseQuery(httpSetup.url)).length) ? '&' + httpSetup.data : '?' + httpSetup.data;
-                break;
-            case 'POST':
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                break;
         }
 
         xhr.timeout = httpSetup.timeout;

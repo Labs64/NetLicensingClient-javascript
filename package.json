@@ -1,6 +1,9 @@
 {
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-size": "^2.1.0",
+    "gulp-uglify": "^3.0.0",
     "jasmine": "^2.8.0",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",

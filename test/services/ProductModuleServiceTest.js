@@ -1,51 +1,30 @@
 describe('ProductModuleServiceTest', function () {
     var context, promise, product, productModule;
 
-    var faker = {
-        string: function (prefix) {
-            prefix = prefix || '';
-            return Math.random().toString(36).substr(2, 9);
-        },
-        boolean: function () {
-            return Boolean(Math.round(Math.random()));
-        },
-        float: function (min, max) {
-            min = min || 0;
-            max = max || 100;
-            return Number((Math.random() * (max - min) + min).toFixed(2));
-        },
-        int: function (min, max) {
-            min = min || 0;
-            max = max || 100;
-            return Math.round(Math.random() * (max - min) + min);
-        }
-    };
-
     beforeAll(function () {
         context = new Nlic.Context().setUsername('Demo').setPassword('demo');
 
         product = new Nlic.Product()
-            .setProperty('number', faker.string('JS-TEST-').toUpperCase())
-            .setProperty('name', faker.string('JS-NAME-').toUpperCase())
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true)
-            .setProperty('version', String(faker.float(1, 3)))
-            .setProperty('description', faker.string('JS-DESCRIPTION-').toUpperCase())
-            .setProperty('licensingInfo', faker.string('JS-LICENSING-INFO-').toUpperCase())
-            .setProperty('licenseeAutoCreate', faker.boolean());
+            .setProperty('version', String(Faker.float(1, 3)))
+            .setProperty('description', Faker.string('JS-DESCRIPTION-').toUpperCase())
+            .setProperty('licensingInfo', Faker.string('JS-LICENSING-INFO-').toUpperCase())
+            .setProperty('licenseeAutoCreate', Faker.boolean());
 
-        promise = Promise.resolve('ProductModuleServiceTest');
-
-        //create product
-        promise = promise.then(function () {
-            return Nlic.ProductService.create(context, product)
-        });
+        promise = Promise.resolve('ProductModuleServiceTest')
+            //create product
+            .then(function () {
+                return Nlic.ProductService.create(context, product)
+            });
 
         productModule = new Nlic.ProductModule()
-            .setProperty('number', faker.string('JS-TEST-').toUpperCase())
-            .setProperty('name', faker.string('JS-NAME-').toUpperCase())
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true)
             .setProperty('licensingModel', 'Subscription')
-            .setProperty('my_custom_property','MY-CUSTOM-PROPERTY');
+            .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
     });
 
     afterAll(function () {
@@ -53,7 +32,7 @@ describe('ProductModuleServiceTest', function () {
     });
 
     it('check "create" method', function () {
-        return promise = promise
+        return promise
             .then(function () {
                 return Nlic.ProductModuleService.create(context, product.getProperty('number'), productModule);
             })
@@ -69,7 +48,7 @@ describe('ProductModuleServiceTest', function () {
     });
 
     it('check "get" method', function () {
-        return promise = promise
+        return promise
             .then(function () {
                 return Nlic.ProductModuleService.get(context, productModule.getProperty('number'));
             })
@@ -94,9 +73,9 @@ describe('ProductModuleServiceTest', function () {
     });
 
     it('check "update" method', function () {
-        return promise = promise
+        return promise
             .then(function () {
-                productModule.setProperty('name', faker.string('JS-NAME-').toUpperCase());
+                productModule.setProperty('name', Faker.string('JS-NAME-').toUpperCase());
                 productModule.setProperty('licensingModel', 'TryAndBuy');
                 productModule.setProperty('licenseTemplate', 'TIMEVOLUME');
                 productModule.setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY-UPDATED');
@@ -113,7 +92,7 @@ describe('ProductModuleServiceTest', function () {
     });
 
     it('check "delete" method', function () {
-        return promise = promise
+        return promise
             .then(function () {
                 return Nlic.ProductModuleService.delete(context, productModule.getProperty('number'));
             })

@@ -56,8 +56,8 @@ Nlic.Token = function () {
     });
 
     //define default entity properties
-    this.__defines(['number', 'active', 'expirationTime', 'vendorNumber', 'tokenType', 'licenseeNumber', 'successURL', 'successURLTitle', 'cancelURL', 'cancelURLTitle']);
-    this.__define('shopURL', true);
+    this.__defines(['active', 'expirationTime', 'vendorNumber', 'tokenType', 'licenseeNumber', 'successURL', 'successURLTitle', 'cancelURL', 'cancelURLTitle']);
+    this.__defines(['number', 'shopURL'], true);
 
     //make methods not changeable
     this.__notChangeable('asPropertiesMap');
@@ -65,10 +65,6 @@ Nlic.Token = function () {
 
 Nlic.Token.prototype = Object.create(Nlic.BaseEntity.prototype);
 Nlic.Token.prototype.constructor = Nlic.Token;
-
-Nlic.Token.prototype.setNumber = function (number) {
-    return this.setProperty('number', number);
-};
 
 Nlic.Token.prototype.getNumber = function (def) {
     return this.getProperty('number', def);

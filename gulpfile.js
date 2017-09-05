@@ -1,13 +1,16 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var path = require('path');
-var karma = require('karma');
-var karmaParseConfig = require('karma/lib/config').parseConfig;
+var gulp = require('gulp'),
+    gutil = require('gulp-util'),
+    size = require('gulp-size'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    minify = require('gulp-minify'),
+    path = require('path'),
+    karma = require('karma'),
+    karmaParseConfig = require('karma/lib/config').parseConfig;
 
 function runKarma(configFilePath, options, cb) {
 
     configFilePath = path.resolve(configFilePath);
-
 
     var log = gutil.log, colors = gutil.colors;
     var config = karmaParseConfig(configFilePath, {});
@@ -43,3 +46,29 @@ gulp.task('test-watch', function (cb) {
     }, cb);
 });
 
+//clean dist
+gulp.task('clean', function() {
+    return gulp.src(['dist/**/*.js'], {read: false})
+        .pipe(clean());
+});
+
+//create dist files
+gulp.task('scripts', function () {
+    var js = gulp.src(['src/**/*.js'])
+        .pipe(concat('netlicensing-client-js.js'))
+        .pipe(size({
+            title: 'The size of a library'
+        }))
+        .pipe(gulp.dest('dist'));
+
+    var min = gulp.src(['src/**/*.js'])
+        .pipe(concat('netlicensing-client-js.min.js'))
+        .pipe(uglify())
+        .pipe(size({
+            title: 'The size of a minimized library'
+        }))
+        .pipe(gulp.dest('dist'));
+});
+
+//test + create dist files
+gulp.task('production',['test','scripts']);

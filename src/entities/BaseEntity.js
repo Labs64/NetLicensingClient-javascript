@@ -237,7 +237,7 @@ Nlic.BaseEntity = function (properties) {
             case 'boolean':
                 return (value && value != 'false') ? true : false;
             case 'date':
-                return new Date(String(value));
+                return (value === 'now') ? 'now' : new Date(String(value));
         }
         return value;
     };
