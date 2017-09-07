@@ -62,6 +62,7 @@ Nlic.Product = function () {
     });
 
     var __productDiscounts = [];
+    var __productDiscountsTouched = false;
 
     /**
      * Add discount to product
@@ -73,6 +74,8 @@ Nlic.Product = function () {
             throw new TypeError('discount must be an instance of ProductDiscount');
         }
         __productDiscounts.push(discount);
+        __productDiscountsTouched = true;
+        
         return this;
     };
 
@@ -88,6 +91,7 @@ Nlic.Product = function () {
         for (var i = 0; i < length; i++) {
             if (__productDiscounts[i].getProperty('totalPrice') == totalPrice) {
                 __productDiscounts.splice(i, 1);
+                __productDiscountsTouched = true;
                 break;
             }
         }
@@ -101,6 +105,9 @@ Nlic.Product = function () {
      */
     this.removeDiscounts = function (discounts) {
         if (!discounts) {
+            if(__productDiscounts.length){
+                __productDiscountsTouched = true;
+            }
             __productDiscounts = [];
             return this;
         }
@@ -127,12 +134,15 @@ Nlic.Product = function () {
 
         var length = __productDiscounts.length;
 
-        map.discount = (length) ? [] : '';
-
         if (length) {
+            map.discount = [];
             for (var i = 0; i < length; i++) {
                 map.discount.push(__productDiscounts[i].toString());
             }
+        }
+
+        if(!map.discount && __productDiscountsTouched){
+            map.discount = '';
         }
 
         return map;
