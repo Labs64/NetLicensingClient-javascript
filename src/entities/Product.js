@@ -96,19 +96,19 @@ Nlic.Product = function () {
 
     /**
      * Remove discounts from product
-     * @param discounts array
+     * @param totalPrices array
      * @returns {Nlic.Product}
      */
-    this.removeDiscounts = function (discounts) {
-        if (!discounts) {
+    this.removeDiscounts = function (totalPrices) {
+        if (!totalPrices) {
             __productDiscounts = [];
             return this;
         }
 
-        var length = discounts.length;
+        var length = totalPrices.length;
 
         for (var i = 0; i < length; i++) {
-            this.removeDiscount(discounts[i]);
+            this.removeDiscount(totalPrices[i]);
         }
 
         return this;
