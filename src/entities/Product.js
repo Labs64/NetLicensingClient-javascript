@@ -78,11 +78,11 @@ Nlic.Product = function () {
 
     /**
      * Remove discount from product
-     * @param totalPrice float|Nlic.ProductDiscount
+     * @param discount float|Nlic.ProductDiscount
      * @returns {Nlic.Product}
      */
-    this.removeDiscount = function (totalPrice) {
-        totalPrice = (totalPrice instanceof Nlic.ProductDiscount) ? totalPrice.getProperty('totalPrice') : totalPrice;
+    this.removeDiscount = function (discount) {
+        var totalPrice = (discount instanceof Nlic.ProductDiscount) ? discount.getProperty('totalPrice') : discount;
         var length = __productDiscounts.length;
 
         for (var i = 0; i < length; i++) {
@@ -96,19 +96,19 @@ Nlic.Product = function () {
 
     /**
      * Remove discounts from product
-     * @param totalPrices array
+     * @param discounts array <float|Nlic.ProductDiscount>
      * @returns {Nlic.Product}
      */
-    this.removeDiscounts = function (totalPrices) {
-        if (!totalPrices) {
+    this.removeDiscounts = function (discounts) {
+        if (!discounts) {
             __productDiscounts = [];
             return this;
         }
 
-        var length = totalPrices.length;
+        var length = discounts.length;
 
         for (var i = 0; i < length; i++) {
-            this.removeDiscount(totalPrices[i]);
+            this.removeDiscount(discounts[i]);
         }
 
         return this;
