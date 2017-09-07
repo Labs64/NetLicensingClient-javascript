@@ -63,7 +63,7 @@ Nlic.ProductDiscount.prototype.getAmountPercent = function (def) {
 Nlic.ProductDiscount.prototype.toString = function () {
     var totalPrice = this.getTotalPrice();
     var currency = this.getCurrency();
-    var amount = '';
+    var amount = 0;
 
     if (this.getAmountFix(null)) amount = this.getAmountFix();
     if (this.getAmountPercent(null)) amount = this.getAmountPercent() + '%';

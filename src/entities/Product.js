@@ -77,6 +77,44 @@ Nlic.Product = function () {
     };
 
     /**
+     * Remove discount from product
+     * @param totalPrice float|Nlic.ProductDiscount
+     * @returns {Nlic.Product}
+     */
+    this.removeDiscount = function (totalPrice) {
+        totalPrice = (totalPrice instanceof Nlic.ProductDiscount) ? totalPrice.getProperty('totalPrice') : totalPrice;
+        var length = __productDiscounts.length;
+
+        for (var i = 0; i < length; i++) {
+            if (__productDiscounts[i].getProperty('totalPrice') == totalPrice) {
+                __productDiscounts.splice(i, 1);
+                break;
+            }
+        }
+        return this;
+    };
+
+    /**
+     * Remove discounts from product
+     * @param discounts array
+     * @returns {Nlic.Product}
+     */
+    this.removeDiscounts = function (discounts) {
+        if (!discounts) {
+            __productDiscounts = [];
+            return this;
+        }
+
+        var length = discounts.length;
+
+        for (var i = 0; i < length; i++) {
+            this.removeDiscount(discounts[i]);
+        }
+
+        return this;
+    };
+
+    /**
      * Get array of objects discounts
      * @returns {Array}
      */
@@ -86,12 +124,17 @@ Nlic.Product = function () {
 
     this.asPropertiesMap = function () {
         var map = this.getProperties();
-        map.discount = [];
 
         var length = __productDiscounts.length;
-        for (var i = 0; i < length; i++) {
-            map.discount.push(__productDiscounts[i].toString());
+
+        map.discount = (length) ? [] : '';
+
+        if (length) {
+            for (var i = 0; i < length; i++) {
+                map.discount.push(__productDiscounts[i].toString());
+            }
         }
+
         return map;
     };
 

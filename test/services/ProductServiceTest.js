@@ -1,6 +1,6 @@
 describe('ProductServiceTest', function () {
     var context, promise, product, discounts;
-    
+
     beforeAll(function () {
         context = new Nlic.Context().setUsername('Demo').setPassword('demo');
 
@@ -96,6 +96,18 @@ describe('ProductServiceTest', function () {
                 expect(entity.getProperty('my_custom_property')).toBe(product.getProperty('my_custom_property'));
 
                 expect(entity.getProductDiscounts().length).toBe(3);
+
+                return entity;
+            })
+            .then(function (entity) {
+                var discounts = entity.getProductDiscounts();
+
+                product.removeDiscount(discounts[0]);
+
+                return Nlic.ProductService.update(context, product.getProperty('number'), product);
+            })
+            .then(function (entity) {
+                expect(entity.getProductDiscounts().length).toBe(2);
             });
     });
 
