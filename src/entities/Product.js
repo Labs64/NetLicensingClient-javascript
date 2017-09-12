@@ -75,48 +75,29 @@ Nlic.Product = function () {
         }
         __productDiscounts.push(discount);
         __productDiscountsTouched = true;
-        
+
         return this;
     };
 
     /**
-     * Remove discount from product
-     * @param discount float|Nlic.ProductDiscount
-     * @returns {Nlic.Product}
+     * Set discounts to product
+     * @param discounts
      */
-    this.removeDiscount = function (discount) {
-        var totalPrice = (discount instanceof Nlic.ProductDiscount) ? discount.getProperty('totalPrice') : discount;
-        var length = __productDiscounts.length;
+    this.setProductDiscounts = function (discounts) {
+        __productDiscounts = [];
+        __productDiscountsTouched = true;
 
-        for (var i = 0; i < length; i++) {
-            if (__productDiscounts[i].getProperty('totalPrice') == totalPrice) {
-                __productDiscounts.splice(i, 1);
-                __productDiscountsTouched = true;
-                break;
-            }
-        }
-        return this;
-    };
+        if (!discounts) return this;
 
-    /**
-     * Remove discounts from product
-     * @param discounts array <float|Nlic.ProductDiscount>
-     * @returns {Nlic.Product}
-     */
-    this.removeDiscounts = function (discounts) {
-        if (!discounts) {
-            if(__productDiscounts.length){
-                __productDiscountsTouched = true;
+        if (Array.isArray(discounts)) {
+            var length = discounts.length;
+            for (var i = 0; i < length; i++) {
+                this.addDiscount(discounts[i]);
             }
-            __productDiscounts = [];
             return this;
         }
 
-        var length = discounts.length;
-
-        for (var i = 0; i < length; i++) {
-            this.removeDiscount(discounts[i]);
-        }
+        this.addDiscount(discounts);
 
         return this;
     };
@@ -141,7 +122,7 @@ Nlic.Product = function () {
             }
         }
 
-        if(!map.discount && __productDiscountsTouched){
+        if (!map.discount && __productDiscountsTouched) {
             map.discount = '';
         }
 

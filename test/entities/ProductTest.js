@@ -146,7 +146,7 @@ describe('entities.ProductTest', function () {
         expect(product.custom_property).toBe('my_custom_property_1');
     });
 
-    it('check "addDiscount" , "getProductDiscounts", "removeDiscount", "removeDiscounts" methods', function () {
+    it('check "addDiscount" , "getProductDiscounts", "setProductDiscounts" methods', function () {
         product.addDiscount(new Nlic.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
         product.addDiscount(new Nlic.ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50));
         product.addDiscount(new Nlic.ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25));
@@ -154,13 +154,18 @@ describe('entities.ProductTest', function () {
         product.addDiscount(new Nlic.ProductDiscount().setTotalPrice(50).setCurrency('EUR').setAmountFix(15));
         expect(product.getProductDiscounts().length).toBe(5);
 
-        product.removeDiscount(10);
-        expect(product.getProductDiscounts().length).toBe(4);
+        product.setProductDiscounts([
+            new Nlic.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8),
+            new Nlic.ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50),
+            new Nlic.ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25)
+        ]);
 
-        product.removeDiscounts([20, 30]);
-        expect(product.getProductDiscounts().length).toBe(2);
+        expect(product.getProductDiscounts().length).toBe(3);
 
-        product.removeDiscounts();
+        product.setProductDiscounts(new Nlic.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
+        expect(product.getProductDiscounts().length).toBe(1);
+
+        product.setProductDiscounts(null);
         expect(product.getProductDiscounts().length).toBe(0);
     });
 

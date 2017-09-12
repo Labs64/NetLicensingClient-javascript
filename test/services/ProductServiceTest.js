@@ -102,7 +102,9 @@ describe('ProductServiceTest', function () {
             .then(function (entity) {
                 var discounts = entity.getProductDiscounts();
 
-                product.removeDiscount(discounts[0]);
+                discounts.shift();
+
+                product.setProductDiscounts(discounts);
 
                 return Nlic.ProductService.update(context, product.getProperty('number'), product);
             })
