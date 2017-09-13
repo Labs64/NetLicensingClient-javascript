@@ -2,11 +2,11 @@ describe('ProductServiceTest', function () {
     var context, promise, product, discounts;
 
     beforeAll(function () {
-        context = new Nlic.Context().setUsername('Demo').setPassword('demo');
+        context = new Netlicensing.Context().setUsername('Demo').setPassword('demo');
 
         promise = Promise.resolve('ProductServiceTest');
 
-        product = new Nlic.Product()
+        product = new Netlicensing.Product()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', Faker.boolean())
@@ -16,12 +16,12 @@ describe('ProductServiceTest', function () {
             .setProperty('licenseeAutoCreate', Faker.boolean())
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
-        product.addDiscount(new Nlic.ProductDiscount()
+        product.addDiscount(new Netlicensing.ProductDiscount()
             .setProperty('totalPrice', Faker.int(10, 20))
             .setProperty('currency', 'EUR')
             .setProperty('amountFix', Faker.int(1, 5)));
 
-        product.addDiscount(new Nlic.ProductDiscount()
+        product.addDiscount(new Netlicensing.ProductDiscount()
             .setProperty('totalPrice', Faker.int(30, 40))
             .setProperty('currency', 'EUR')
             .setProperty('amountPercent', Faker.int(1, 5)));
@@ -30,10 +30,10 @@ describe('ProductServiceTest', function () {
     it('check "create" method', function () {
         return promise
             .then(function () {
-                return Nlic.ProductService.create(context, product);
+                return Netlicensing.ProductService.create(context, product);
             })
             .then(function (entity) {
-                expect(entity instanceof Nlic.Product).toBe(true);
+                expect(entity instanceof Netlicensing.Product).toBe(true);
 
                 expect(entity.getProperty('number')).toBe(product.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(product.getProperty('name'));
@@ -50,10 +50,10 @@ describe('ProductServiceTest', function () {
     it('check "get" method', function () {
         return promise
             .then(function () {
-                return Nlic.ProductService.get(context, product.getProperty('number'));
+                return Netlicensing.ProductService.get(context, product.getProperty('number'));
             })
             .then(function (entity) {
-                expect(entity instanceof Nlic.Product).toBe(true);
+                expect(entity instanceof Netlicensing.Product).toBe(true);
 
                 expect(entity.getProperty('number')).toBe(product.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(product.getProperty('name'));
@@ -69,11 +69,11 @@ describe('ProductServiceTest', function () {
     });
 
     it('check "list" method', function () {
-        return Nlic.ProductService.list(context)
+        return Netlicensing.ProductService.list(context)
             .then(function (entities) {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
-                expect(entities[0] instanceof Nlic.Product).toBe(true);
+                expect(entities[0] instanceof Netlicensing.Product).toBe(true);
             });
     });
 
@@ -83,14 +83,14 @@ describe('ProductServiceTest', function () {
                 product.setProperty('name', Faker.string('JS-NAME-').toUpperCase());
                 product.setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY-UPDATED');
 
-                product.addDiscount(new Nlic.ProductDiscount()
+                product.addDiscount(new Netlicensing.ProductDiscount()
                     .setProperty('totalPrice', Faker.int(50, 60))
                     .setProperty('currency', 'EUR')
                     .setProperty('amountFix', Faker.int(1, 5)));
 
-                return Nlic.ProductService.update(context, product.getProperty('number'), product);
+                return Netlicensing.ProductService.update(context, product.getProperty('number'), product);
             }).then(function (entity) {
-                expect(entity instanceof Nlic.Product).toBe(true);
+                expect(entity instanceof Netlicensing.Product).toBe(true);
 
                 expect(entity.getProperty('name')).toBe(product.getProperty('name'));
                 expect(entity.getProperty('my_custom_property')).toBe(product.getProperty('my_custom_property'));
@@ -106,18 +106,17 @@ describe('ProductServiceTest', function () {
 
                 product.setProductDiscounts(discounts);
 
-                return Nlic.ProductService.update(context, product.getProperty('number'), product);
+                return Netlicensing.ProductService.update(context, product.getProperty('number'), product);
             })
             .then(function (entity) {
                 expect(entity.getProductDiscounts().length).toBe(2);
             });
     });
 
-
     it('check "delete" method', function () {
         return promise
             .then(function () {
-                return Nlic.ProductService.delete(context, product.getProperty('number'));
+                return Netlicensing.ProductService.delete(context, product.getProperty('number'));
             })
             .then(function (state) {
                 expect(state).toBe(true);

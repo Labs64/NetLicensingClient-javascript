@@ -6,7 +6,7 @@
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * Product module entity used internally by NetLicensing.
@@ -44,8 +44,8 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.ProductModule = function () {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.ProductModule = function () {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -70,73 +70,73 @@ Nlic.ProductModule = function () {
     this.__notChangeable('asPropertiesMap');
 };
 
-Nlic.ProductModule.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.ProductModule.prototype.constructor = Nlic.ProductModule;
+Netlicensing.ProductModule.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.ProductModule.prototype.constructor = Netlicensing.ProductModule;
 
-Nlic.ProductModule.prototype.setNumber = function (number) {
+Netlicensing.ProductModule.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Nlic.ProductModule.prototype.getNumber = function (def) {
+Netlicensing.ProductModule.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Nlic.ProductModule.prototype.setActive = function (active) {
+Netlicensing.ProductModule.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Nlic.ProductModule.prototype.getActive = function (def) {
+Netlicensing.ProductModule.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Nlic.ProductModule.prototype.setName = function (name) {
+Netlicensing.ProductModule.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Nlic.ProductModule.prototype.getName = function (def) {
+Netlicensing.ProductModule.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Nlic.ProductModule.prototype.setLicensingModel = function (licensingModel) {
+Netlicensing.ProductModule.prototype.setLicensingModel = function (licensingModel) {
     return this.setProperty('licensingModel', licensingModel);
 };
 
-Nlic.ProductModule.prototype.getLicensingModel = function (def) {
+Netlicensing.ProductModule.prototype.getLicensingModel = function (def) {
     return this.getProperty('licensingModel', def);
 };
 
-Nlic.ProductModule.prototype.setMaxCheckoutValidity = function (maxCheckoutValidity) {
+Netlicensing.ProductModule.prototype.setMaxCheckoutValidity = function (maxCheckoutValidity) {
     return this.setProperty('maxCheckoutValidity', maxCheckoutValidity);
 };
 
-Nlic.ProductModule.prototype.getMaxCheckoutValidity = function (def) {
+Netlicensing.ProductModule.prototype.getMaxCheckoutValidity = function (def) {
     return this.getProperty('maxCheckoutValidity', def);
 };
 
-Nlic.ProductModule.prototype.setYellowThreshold = function (yellowThreshold) {
+Netlicensing.ProductModule.prototype.setYellowThreshold = function (yellowThreshold) {
     return this.setProperty('yellowThreshold', yellowThreshold);
 };
 
-Nlic.ProductModule.prototype.getYellowThreshold = function (def) {
+Netlicensing.ProductModule.prototype.getYellowThreshold = function (def) {
     return this.getProperty('yellowThreshold', def);
 };
 
-Nlic.ProductModule.prototype.setRedThreshold = function (redThreshold) {
+Netlicensing.ProductModule.prototype.setRedThreshold = function (redThreshold) {
     return this.setProperty('redThreshold', redThreshold);
 };
 
-Nlic.ProductModule.prototype.getRedThreshold = function (def) {
+Netlicensing.ProductModule.prototype.getRedThreshold = function (def) {
     return this.getProperty('redThreshold', def);
 };
 
-Nlic.ProductModule.prototype.setLicenseTemplate = function (licenseTemplate) {
+Netlicensing.ProductModule.prototype.setLicenseTemplate = function (licenseTemplate) {
     return this.setProperty('licenseTemplate', licenseTemplate);
 };
 
-Nlic.ProductModule.prototype.getLicenseTemplate = function (def) {
+Netlicensing.ProductModule.prototype.getLicenseTemplate = function (def) {
     return this.getProperty('licenseTemplate', def);
 };
 
-Nlic.ProductModule.prototype.getInUse = function (def) {
+Netlicensing.ProductModule.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };

@@ -2,7 +2,7 @@ describe('entities.LicenseTest', function () {
     var license;
 
     beforeEach(function () {
-        license = new Nlic.License();
+        license = new Netlicensing.License();
     });
 
     it('check "number" property setters/getters', function () {

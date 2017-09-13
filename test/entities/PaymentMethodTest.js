@@ -2,7 +2,7 @@ describe('entities.PaymentMethodTest', function () {
     var paymentMethod;
 
     beforeEach(function () {
-        paymentMethod = new Nlic.PaymentMethod();
+        paymentMethod = new Netlicensing.PaymentMethod();
     });
 
     it('check "number" property setters/getters', function () {

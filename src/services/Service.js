@@ -6,9 +6,9 @@
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
-Nlic.Service = (function () {
+Netlicensing.Service = (function () {
     var instance;
 
     function createInstance() {
@@ -133,7 +133,7 @@ Nlic.Service = (function () {
          */
         instance.request = function (context, method, urlTemplate, queryParams) {
 
-            if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+            if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
             urlTemplate = String(urlTemplate);
             queryParams = queryParams || {};
@@ -157,13 +157,13 @@ Nlic.Service = (function () {
             var headers = {Accept: 'application/json'};
 
             switch (context.getSecurityMode()) {
-                case Nlic.Context.BASIC_AUTHENTICATION:
+                case Netlicensing.Context.BASIC_AUTHENTICATION:
                     if (!context.getUsername()) throw new Error('Missing parameter "username"');
                     if (!context.getPassword()) throw new Error('Missing parameter "password"');
 
                     headers['Authorization'] = 'Basic ' + btoa(context.getUsername() + ':' + context.getPassword());
                     break;
-                case Nlic.Context.APIKEY_IDENTIFICATION:
+                case Netlicensing.Context.APIKEY_IDENTIFICATION:
                     if (!context.getApiKey()) throw new Error('Missing parameter "apiKey"');
 
                     headers['Authorization'] = 'Basic ' + btoa('apiKey:' + context.getApiKey());
@@ -173,7 +173,7 @@ Nlic.Service = (function () {
                     break;
             }
 
-            return new Nlic.HttpRequest().send({
+            return new Netlicensing.HttpRequest().send({
                 url: restUrl,
                 method: method,
                 headers: headers,
@@ -247,8 +247,8 @@ Nlic.Service = (function () {
 
             var entity = new resultType();
 
-            if (!(entity instanceof Nlic.BaseEntity)) {
-                throw new Error('Invalid entity ' + resultType + ', entity must be instanceof Nlic.BaseEntity');
+            if (!(entity instanceof Netlicensing.BaseEntity)) {
+                throw new Error('Invalid entity ' + resultType + ', entity must be instanceof Netlicensing.BaseEntity');
             }
 
             var propertiesLength = properties.length;

@@ -6,53 +6,53 @@
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * JS representation of the Product Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Services
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Services
  *
  * @constructor
  */
 
-Nlic.ProductService = function () {
+Netlicensing.ProductService = function () {
 };
 
 //static constants
-Object.defineProperty(Nlic.ProductService, 'ENDPOINT_PATH', {value: 'product'});
+Object.defineProperty(Netlicensing.ProductService, 'ENDPOINT_PATH', {value: 'product'});
 
 /**
  * Creates new product with given properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Createproduct
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Services#ProductServices-Createproduct
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * non-null properties will be taken for the new object, null properties will either stay null, or will
  * be set to a default value, depending on property.
- * @param product Nlic.Product
+ * @param product Netlicensing.Product
  *
  * return the newly created product object in promise
  * @returns {Promise}
  */
 
-Nlic.ProductService.create = function (context, product) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(product instanceof Nlic.Product)) throw new TypeError('product must be an instance of Nlic.Product');
+Netlicensing.ProductService.create = function (context, product) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(product instanceof Netlicensing.Product)) throw new TypeError('product must be an instance of Netlicensing.Product');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.ProductService.ENDPOINT_PATH, product.asPropertiesMap(), Nlic.Product);
+        .post(context, Netlicensing.ProductService.ENDPOINT_PATH, product.asPropertiesMap(), Netlicensing.Product);
 };
 
 /**
  * Gets product by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Getproduct
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Services#ProductServices-Getproduct
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * the product number
  * @param number string
@@ -60,24 +60,24 @@ Nlic.ProductService.create = function (context, product) {
  * return the product object in promise
  * @returns {Promise}
  */
-Nlic.ProductService.get = function (context, number) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.ProductService.get = function (context, number) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .get(context, Nlic.ProductService.ENDPOINT_PATH + '/' + number, {}, Nlic.Product);
+        .get(context, Netlicensing.ProductService.ENDPOINT_PATH + '/' + number, {}, Netlicensing.Product);
 };
 
 /**
  * Returns products of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Productslist
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Services#ProductServices-Productslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string|null
@@ -85,58 +85,58 @@ Nlic.ProductService.get = function (context, number) {
  * array of product entities or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.ProductService.list = function (context, filter) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.ProductService.list = function (context, filter) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
     if (filter) {
-        if (!Nlic.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!Netlicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .list(context, Nlic.ProductService.ENDPOINT_PATH, queryParams, Nlic.Product);
+        .list(context, Netlicensing.ProductService.ENDPOINT_PATH, queryParams, Netlicensing.Product);
 };
 
 /**
  * Updates product properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Updateproduct
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Services#ProductServices-Updateproduct
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * product number
  * @param number string
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param product Nlic.Product
+ * @param product Netlicensing.Product
  *
  * updated product in promise.
  * @returns {Promise}
  */
-Nlic.ProductService.update = function (context, number, product) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(product instanceof Nlic.Product)) throw new TypeError('product must be an instance of Nlic.Product');
+Netlicensing.ProductService.update = function (context, number, product) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(product instanceof Netlicensing.Product)) throw new TypeError('product must be an instance of Netlicensing.Product');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.ProductService.ENDPOINT_PATH + '/' + number, product.asPropertiesMap(), Nlic.Product);
+        .post(context, Netlicensing.ProductService.ENDPOINT_PATH + '/' + number, product.asPropertiesMap(), Netlicensing.Product);
 };
 
 /**
  * Deletes product.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Deleteproduct
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Services#ProductServices-Deleteproduct
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * product number
  * @param number string
@@ -147,14 +147,14 @@ Nlic.ProductService.update = function (context, number, product) {
  * return boolean state of delete in promise
  * @returns {Promise}
  */
-Nlic.ProductService.delete = function (context, number, forceCascade) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.ProductService.delete = function (context, number, forceCascade) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
     var queryParams = {forceCascade: Boolean(forceCascade)};
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .delete(context, Nlic.ProductService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, Netlicensing.ProductService.ENDPOINT_PATH + '/' + number, queryParams);
 };

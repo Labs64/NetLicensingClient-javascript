@@ -6,13 +6,13 @@
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
-Nlic.BaseEntity = function (properties) {
+Netlicensing.BaseEntity = function (properties) {
 
     /**
      * Object Handle
-     * @type {Nlic.BaseEntity}
+     * @type {Netlicensing.BaseEntity}
      */
     var self = this;
 
@@ -34,7 +34,7 @@ Nlic.BaseEntity = function (properties) {
      * Set a given property on the entity.
      * @param property
      * @param value
-     * @returns {Nlic.BaseEntity}
+     * @returns {Netlicensing.BaseEntity}
      */
     this.setProperty = function (property, value) {
         this.__checkProperty(property, value);
@@ -59,7 +59,7 @@ Nlic.BaseEntity = function (properties) {
      * Alias for setProperty
      * @param property
      * @param value
-     * @returns {Nlic.BaseEntity}
+     * @returns {Netlicensing.BaseEntity}
      */
     this.addProperty = function (property, value) {
         return this.setProperty(property, value);
@@ -68,7 +68,7 @@ Nlic.BaseEntity = function (properties) {
     /**
      * Set the entity properties.
      * @param properties
-     * @returns {Nlic.BaseEntity}
+     * @returns {Netlicensing.BaseEntity}
      */
     this.setProperties = function (properties) {
 
@@ -102,7 +102,7 @@ Nlic.BaseEntity = function (properties) {
     /**
      * Remove property
      * @param property
-     * @returns {Nlic.BaseEntity}
+     * @returns {Netlicensing.BaseEntity}
      */
     this.removeProperty = function (property) {
         delete __properties[property];
@@ -235,7 +235,19 @@ Nlic.BaseEntity = function (properties) {
                 return parseFloat(value);
             case 'bool':
             case 'boolean':
-                return (value && value != 'false') ? true : false;
+                switch (value) {
+                    case 'true':
+                    case 'TRUE':
+                        return true;
+                        break;
+                    case 'false':
+                    case 'FALSE':
+                        return false;
+                        break;
+                    default:
+                        return Boolean(value);
+                        break;
+                }
             case 'date':
                 return (value === 'now') ? 'now' : new Date(String(value));
         }
@@ -249,8 +261,8 @@ Nlic.BaseEntity = function (properties) {
      * @private
      */
     this.__checkProperty = function (property, value) {
-        if (!Nlic.CheckUtils.isValid(property) || typeof property === 'object')  throw new TypeError('Bad property name:' + property);
-        if (!Nlic.CheckUtils.isValid(value)) throw new TypeError('Property ' + property + ' has bad value ' + value);
+        if (!Netlicensing.CheckUtils.isValid(property) || typeof property === 'object')  throw new TypeError('Bad property name:' + property);
+        if (!Netlicensing.CheckUtils.isValid(value)) throw new TypeError('Property ' + property + ' has bad value ' + value);
     };
 
     /**

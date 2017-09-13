@@ -6,13 +6,13 @@
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
-Nlic.HttpRequest = function () {
+Netlicensing.HttpRequest = function () {
 
 };
 
-Nlic.HttpRequest.prototype.__serialize = function (data, prefix) {
+Netlicensing.HttpRequest.prototype.__serialize = function (data, prefix) {
     var query = [];
     for (var key in data) {
         if (data.hasOwnProperty(key)) {
@@ -27,7 +27,7 @@ Nlic.HttpRequest.prototype.__serialize = function (data, prefix) {
     return query.join("&").replace(/%5B[0-9]+%5D=/g, '=');
 };
 
-Nlic.HttpRequest.prototype.__parseQuery = function (url) {
+Netlicensing.HttpRequest.prototype.__parseQuery = function (url) {
     var query = {};
     var queryPos = url.indexOf('?');
     var parts = url.substr(queryPos + 1).split('&');
@@ -41,7 +41,7 @@ Nlic.HttpRequest.prototype.__parseQuery = function (url) {
     return query;
 };
 
-Nlic.HttpRequest.prototype.__parseHeadersStr = function (headers) {
+Netlicensing.HttpRequest.prototype.__parseHeadersStr = function (headers) {
     if (typeof headers !== 'string') return headers;
     var responseHeaders = {};
     headers = headers.split("\n");
@@ -53,7 +53,7 @@ Nlic.HttpRequest.prototype.__parseHeadersStr = function (headers) {
     return responseHeaders;
 };
 
-Nlic.HttpRequest.prototype.send = function (config) {
+Netlicensing.HttpRequest.prototype.send = function (config) {
     var self = this;
 
     return new Promise(function (resolve, reject) {
@@ -147,58 +147,58 @@ Nlic.HttpRequest.prototype.send = function (config) {
     });
 };
 
-Nlic.HttpRequest.prototype.get = function (url, config) {
+Netlicensing.HttpRequest.prototype.get = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'GET'}));
 };
 
-Nlic.HttpRequest.prototype.post = function (url, data, config) {
+Netlicensing.HttpRequest.prototype.post = function (url, data, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'POST', data: data}));
 };
 
-Nlic.HttpRequest.prototype.patch = function (url, data, config) {
+Netlicensing.HttpRequest.prototype.patch = function (url, data, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'PATCH', data: data}));
 };
 
-Nlic.HttpRequest.prototype.head = function (url, config) {
+Netlicensing.HttpRequest.prototype.head = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'HEAD'}));
 };
 
-Nlic.HttpRequest.prototype.jsonp = function (url, config) {
+Netlicensing.HttpRequest.prototype.jsonp = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'JSONP'}));
 };
 
-Nlic.HttpRequest.prototype.put = function (url, config) {
+Netlicensing.HttpRequest.prototype.put = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'PUT'}));
 };
 
-Nlic.HttpRequest.prototype.delete = function (url, config) {
+Netlicensing.HttpRequest.prototype.delete = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'DELETE'}));
 };
 
-Nlic.HttpRequest.get = function (url, config) {
-    return new Nlic.HttpRequest().get(url, config);
+Netlicensing.HttpRequest.get = function (url, config) {
+    return new Netlicensing.HttpRequest().get(url, config);
 };
 
-Nlic.HttpRequest.post = function (url, data, config) {
-    return new Nlic.HttpRequest().post(url, data, config);
+Netlicensing.HttpRequest.post = function (url, data, config) {
+    return new Netlicensing.HttpRequest().post(url, data, config);
 };
 
-Nlic.HttpRequest.patch = function (url, data, config) {
-    return new Nlic.HttpRequest().patch(url, data, config);
+Netlicensing.HttpRequest.patch = function (url, data, config) {
+    return new Netlicensing.HttpRequest().patch(url, data, config);
 };
 
-Nlic.HttpRequest.head = function (url, data, config) {
-    return new Nlic.HttpRequest().head(url, data, config);
+Netlicensing.HttpRequest.head = function (url, data, config) {
+    return new Netlicensing.HttpRequest().head(url, data, config);
 };
 
-Nlic.HttpRequest.jsonp = function (url, data, config) {
-    return new Nlic.HttpRequest().jsonp(url, data, config);
+Netlicensing.HttpRequest.jsonp = function (url, data, config) {
+    return new Netlicensing.HttpRequest().jsonp(url, data, config);
 };
 
-Nlic.HttpRequest.put = function (url, data, config) {
-    return new Nlic.HttpRequest().put(url, data, config);
+Netlicensing.HttpRequest.put = function (url, data, config) {
+    return new Netlicensing.HttpRequest().put(url, data, config);
 };
 
-Nlic.HttpRequest.delete = function (url, data, config) {
-    return new Nlic.HttpRequest().delete(url, data, config);
+Netlicensing.HttpRequest.delete = function (url, data, config) {
+    return new Netlicensing.HttpRequest().delete(url, data, config);
 };

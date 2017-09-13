@@ -6,10 +6,10 @@
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 
-Nlic.ValidationResults = function () {
+Netlicensing.ValidationResults = function () {
 
     var __validators = {};
     var __ttl;
@@ -19,7 +19,7 @@ Nlic.ValidationResults = function () {
     };
 
     this.setProductModuleValidation = function (productModuleNumber, productModuleValidation) {
-        if (!Nlic.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
+        if (!Netlicensing.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
 
         __validators[productModuleNumber] = productModuleValidation;
 
@@ -27,13 +27,13 @@ Nlic.ValidationResults = function () {
     };
 
     this.getProductModuleValidation = function (productModuleNumber) {
-        if (!Nlic.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
+        if (!Netlicensing.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
 
         return __validators[productModuleNumber];
     };
 
     this.setTtl = function (ttl) {
-        if (!Nlic.CheckUtils.isValid(ttl) || typeof ttl === 'object')  throw new TypeError('Bad ttl:' + ttl);
+        if (!Netlicensing.CheckUtils.isValid(ttl) || typeof ttl === 'object')  throw new TypeError('Bad ttl:' + ttl);
         __ttl = new Date(String(ttl));
         return this;
     };
@@ -43,7 +43,7 @@ Nlic.ValidationResults = function () {
     };
 };
 
-Nlic.ValidationResults.prototype.toString = function () {
+Netlicensing.ValidationResults.prototype.toString = function () {
     var data = 'ValidationResult [';
     var validators = this.getValidators();
 

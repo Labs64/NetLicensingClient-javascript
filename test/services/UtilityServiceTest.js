@@ -2,11 +2,11 @@ describe('UtilityServiceTest', function () {
     var context;
 
     beforeAll(function () {
-        context = new Nlic.Context().setUsername('Demo').setPassword('demo');
+        context = new Netlicensing.Context().setUsername('Demo').setPassword('demo');
     });
 
     it('check "listLicenseTypes" method', function () {
-        return Nlic.UtilityService.listLicenseTypes(context)
+        return Netlicensing.UtilityService.listLicenseTypes(context)
             .then(function (licenseTypes) {
                 expect(Array.isArray(licenseTypes)).toBe(true);
                 expect(licenseTypes.length).toBeGreaterThanOrEqual(4);
@@ -15,7 +15,7 @@ describe('UtilityServiceTest', function () {
     });
 
     it('check "listLicensingModels" method', function () {
-        return Nlic.UtilityService.listLicensingModels(context)
+        return Netlicensing.UtilityService.listLicensingModels(context)
             .then(function (licensingModels) {
                 expect(Array.isArray(licensingModels)).toBe(true);
                 expect(licensingModels.length).toBeGreaterThanOrEqual(6);

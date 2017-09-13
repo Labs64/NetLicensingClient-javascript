@@ -6,7 +6,7 @@
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * NetLicensing Product entity.
@@ -44,8 +44,8 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.Product = function () {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.Product = function () {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -66,11 +66,11 @@ Nlic.Product = function () {
 
     /**
      * Add discount to product
-     * @param discount Nlic.ProductDiscount
-     * @returns {Nlic.Product}
+     * @param discount Netlicensing.ProductDiscount
+     * @returns {Netlicensing.Product}
      */
     this.addDiscount = function (discount) {
-        if (!(discount instanceof Nlic.ProductDiscount)) {
+        if (!(discount instanceof Netlicensing.ProductDiscount)) {
             throw new TypeError('discount must be an instance of ProductDiscount');
         }
         __productDiscounts.push(discount);
@@ -137,73 +137,73 @@ Nlic.Product = function () {
     this.__notChangeable(['addDiscount', 'getProductDiscounts', 'asPropertiesMap']);
 };
 
-Nlic.Product.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.Product.prototype.constructor = Nlic.Product;
+Netlicensing.Product.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.Product.prototype.constructor = Netlicensing.Product;
 
-Nlic.Product.prototype.setNumber = function (number) {
+Netlicensing.Product.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Nlic.Product.prototype.getNumber = function (def) {
+Netlicensing.Product.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Nlic.Product.prototype.setActive = function (active) {
+Netlicensing.Product.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Nlic.Product.prototype.getActive = function (def) {
+Netlicensing.Product.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Nlic.Product.prototype.setName = function (name) {
+Netlicensing.Product.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Nlic.Product.prototype.getName = function (def) {
+Netlicensing.Product.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Nlic.Product.prototype.setVersion = function (version) {
+Netlicensing.Product.prototype.setVersion = function (version) {
     return this.setProperty('version', version);
 };
 
-Nlic.Product.prototype.getVersion = function (def) {
+Netlicensing.Product.prototype.getVersion = function (def) {
     return this.getProperty('version', def);
 };
 
-Nlic.Product.prototype.setLicenseeAutoCreate = function (licenseeAutoCreate) {
+Netlicensing.Product.prototype.setLicenseeAutoCreate = function (licenseeAutoCreate) {
     return this.setProperty('licenseeAutoCreate', licenseeAutoCreate);
 };
 
-Nlic.Product.prototype.getLicenseeAutoCreate = function (def) {
+Netlicensing.Product.prototype.getLicenseeAutoCreate = function (def) {
     return this.getProperty('licenseeAutoCreate', def);
 };
 
-Nlic.Product.prototype.setDescription = function (description) {
+Netlicensing.Product.prototype.setDescription = function (description) {
     return this.setProperty('description', description);
 };
 
-Nlic.Product.prototype.getDescription = function (def) {
+Netlicensing.Product.prototype.getDescription = function (def) {
     return this.getProperty('description', def);
 };
 
-Nlic.Product.prototype.setLicensingInfo = function (licensingInfo) {
+Netlicensing.Product.prototype.setLicensingInfo = function (licensingInfo) {
     return this.setProperty('licensingInfo', licensingInfo);
 };
 
-Nlic.Product.prototype.getLicensingInfo = function (def) {
+Netlicensing.Product.prototype.getLicensingInfo = function (def) {
     return this.getProperty('licensingInfo', def);
 };
 
-Nlic.Product.prototype.getInUse = function (def) {
+Netlicensing.Product.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };
 
-Nlic.Product.prototype.__setListDiscount = function (properties) {
+Netlicensing.Product.prototype.__setListDiscount = function (properties) {
     if (!properties) return;
     var length = properties.length;
-    var discount = new Nlic.ProductDiscount();
+    var discount = new Netlicensing.ProductDiscount();
     for (var i = 0; i < length; i++) {
         discount.setProperty(properties[i].name, properties[i].value);
     }
@@ -212,7 +212,7 @@ Nlic.Product.prototype.__setListDiscount = function (properties) {
 };
 
 //make methods not changeable
-Object.defineProperty(Nlic.Product.prototype, '__setListDiscount', {
+Object.defineProperty(Netlicensing.Product.prototype, '__setListDiscount', {
     writable: false,
     enumerable: false,
     configurable: false

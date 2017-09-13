@@ -6,10 +6,10 @@
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 
-Nlic.CheckUtils = function () {
+Netlicensing.CheckUtils = function () {
 
 };
 
@@ -18,7 +18,7 @@ Nlic.CheckUtils = function () {
  * @param value
  * @returns {boolean}
  */
-Nlic.CheckUtils.isValid = function (value) {
+Netlicensing.CheckUtils.isValid = function (value) {
     var valid = (value !== undefined && typeof value !== 'function');
     if (typeof value === 'number') valid = (isFinite(value) && !isNaN(value));
     return valid;
@@ -33,12 +33,12 @@ Nlic.CheckUtils.isValid = function (value) {
  * name of the parameter
  * @param parameterName
  */
-Nlic.CheckUtils.paramNotNull = function (parameter, parameterName) {
-    if (!Nlic.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
+Netlicensing.CheckUtils.paramNotNull = function (parameter, parameterName) {
+    if (!Netlicensing.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
     if (parameter === null) throw new TypeError('Parameter ' + parameterName + ' cannot be null')
 };
 
-Nlic.CheckUtils.paramNotEmpty = function (parameter, parameterName) {
-    if (!Nlic.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
+Netlicensing.CheckUtils.paramNotEmpty = function (parameter, parameterName) {
+    if (!Netlicensing.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
     if (!parameter) throw new TypeError('Parameter ' + parameterName + ' cannot be null or empty string')
 };

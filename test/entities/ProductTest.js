@@ -2,7 +2,7 @@ describe('entities.ProductTest', function () {
     var product;
 
     beforeEach(function () {
-        product = new Nlic.Product();
+        product = new Netlicensing.Product();
     });
 
     it('check "number" property setters/getters', function () {
@@ -147,22 +147,22 @@ describe('entities.ProductTest', function () {
     });
 
     it('check "addDiscount" , "getProductDiscounts", "setProductDiscounts" methods', function () {
-        product.addDiscount(new Nlic.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
-        product.addDiscount(new Nlic.ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50));
-        product.addDiscount(new Nlic.ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25));
-        product.addDiscount(new Nlic.ProductDiscount().setTotalPrice(40).setCurrency('EUR').setAmountPercent(34));
-        product.addDiscount(new Nlic.ProductDiscount().setTotalPrice(50).setCurrency('EUR').setAmountFix(15));
+        product.addDiscount(new Netlicensing.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
+        product.addDiscount(new Netlicensing.ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50));
+        product.addDiscount(new Netlicensing.ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25));
+        product.addDiscount(new Netlicensing.ProductDiscount().setTotalPrice(40).setCurrency('EUR').setAmountPercent(34));
+        product.addDiscount(new Netlicensing.ProductDiscount().setTotalPrice(50).setCurrency('EUR').setAmountFix(15));
         expect(product.getProductDiscounts().length).toBe(5);
 
         product.setProductDiscounts([
-            new Nlic.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8),
-            new Nlic.ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50),
-            new Nlic.ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25)
+            new Netlicensing.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8),
+            new Netlicensing.ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50),
+            new Netlicensing.ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25)
         ]);
 
         expect(product.getProductDiscounts().length).toBe(3);
 
-        product.setProductDiscounts(new Nlic.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
+        product.setProductDiscounts(new Netlicensing.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
         expect(product.getProductDiscounts().length).toBe(1);
 
         product.setProductDiscounts(null);
@@ -295,7 +295,7 @@ describe('entities.ProductTest', function () {
         expect(function(){product.licenseeAutoCreate = Infinity}).toThrowError(TypeError);
     });
 
-    it('check throwable error if add not Nlic.ProductDiscount in "addDiscount" method', function () {
+    it('check throwable error if add not Netlicensing.ProductDiscount in "addDiscount" method', function () {
         expect(function(){product.addDiscount('discount')}).toThrowError(TypeError);
         expect(function(){product.addDiscount({})}).toThrowError(TypeError);
     });

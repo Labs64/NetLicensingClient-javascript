@@ -6,10 +6,10 @@
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
-Nlic.ProductDiscount = function () {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.ProductDiscount = function () {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -25,42 +25,42 @@ Nlic.ProductDiscount = function () {
     this.__defines(['totalPrice', 'currency', 'amountFix', 'amountPercent']);
 };
 
-Nlic.ProductDiscount.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.ProductDiscount.prototype.constructor = Nlic.ProductDiscount;
+Netlicensing.ProductDiscount.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.ProductDiscount.prototype.constructor = Netlicensing.ProductDiscount;
 
-Nlic.ProductDiscount.prototype.setTotalPrice = function (totalPrice) {
+Netlicensing.ProductDiscount.prototype.setTotalPrice = function (totalPrice) {
     return this.setProperty('totalPrice', totalPrice);
 };
 
-Nlic.ProductDiscount.prototype.getTotalPrice = function (def) {
+Netlicensing.ProductDiscount.prototype.getTotalPrice = function (def) {
     return this.getProperty('totalPrice', def);
 };
 
-Nlic.ProductDiscount.prototype.setCurrency = function (currency) {
+Netlicensing.ProductDiscount.prototype.setCurrency = function (currency) {
     return this.setProperty('currency', currency);
 };
 
-Nlic.ProductDiscount.prototype.getCurrency = function (def) {
+Netlicensing.ProductDiscount.prototype.getCurrency = function (def) {
     return this.getProperty('currency', def);
 };
 
-Nlic.ProductDiscount.prototype.setAmountFix = function (amountFix) {
+Netlicensing.ProductDiscount.prototype.setAmountFix = function (amountFix) {
     return this.setProperty('amountFix', amountFix).removeProperty('amountPercent');
 };
 
-Nlic.ProductDiscount.prototype.getAmountFix = function (def) {
+Netlicensing.ProductDiscount.prototype.getAmountFix = function (def) {
     return this.getProperty('amountFix', def);
 };
 
-Nlic.ProductDiscount.prototype.setAmountPercent = function (amountPercent) {
+Netlicensing.ProductDiscount.prototype.setAmountPercent = function (amountPercent) {
     return this.setProperty('amountPercent', amountPercent).removeProperty('amountFix');
 };
 
-Nlic.ProductDiscount.prototype.getAmountPercent = function (def) {
+Netlicensing.ProductDiscount.prototype.getAmountPercent = function (def) {
     return this.getProperty('amountPercent', def);
 };
 
-Nlic.ProductDiscount.prototype.toString = function () {
+Netlicensing.ProductDiscount.prototype.toString = function () {
     var totalPrice = this.getTotalPrice();
     var currency = this.getCurrency();
     var amount = 0;
@@ -72,7 +72,7 @@ Nlic.ProductDiscount.prototype.toString = function () {
 };
 
 //make methods not changeable
-Object.defineProperty(Nlic.ProductDiscount.prototype, 'toString', {
+Object.defineProperty(Netlicensing.ProductDiscount.prototype, 'toString', {
     writable: false,
     enumerable: false,
     configurable: false

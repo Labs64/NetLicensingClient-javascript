@@ -6,37 +6,37 @@
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * JS representation of the Utility Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Utility+Services
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Utility+Services
  * @constructor
  */
-Nlic.UtilityService = function () {
+Netlicensing.UtilityService = function () {
 };
 
 //static constants
-Object.defineProperty(Nlic.UtilityService, 'ENDPOINT_PATH', {value: 'utility'});
+Object.defineProperty(Netlicensing.UtilityService, 'ENDPOINT_PATH', {value: 'utility'});
 
 /**
  * Returns all license types. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Utility+Services#UtilityServices-LicenseTypeslist
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Utility+Services#UtilityServices-LicenseTypeslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * array of available license types or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.UtilityService.listLicenseTypes = function (context) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.UtilityService.listLicenseTypes = function (context) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .list(context, Nlic.UtilityService.ENDPOINT_PATH + '/licenseTypes')
+        .list(context, Netlicensing.UtilityService.ENDPOINT_PATH + '/licenseTypes')
         .then(function (items) {
             var length = items.length;
             var licenseTypes = [];
@@ -51,22 +51,22 @@ Nlic.UtilityService.listLicenseTypes = function (context) {
 
 /**
  * Returns all license models. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Utility+Services#UtilityServices-LicensingModelslist
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Utility+Services#UtilityServices-LicensingModelslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * array of available license models or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.UtilityService.listLicensingModels = function (context) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.UtilityService.listLicensingModels = function (context) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .list(context, Nlic.UtilityService.ENDPOINT_PATH + '/licensingModels')
+        .list(context, Netlicensing.UtilityService.ENDPOINT_PATH + '/licensingModels')
         .then(function (items) {
             var length = items.length;
             var licensingModels = [];

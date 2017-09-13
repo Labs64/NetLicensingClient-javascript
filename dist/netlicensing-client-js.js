@@ -6,13 +6,13 @@
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
-Nlic.BaseEntity = function (properties) {
+Netlicensing.BaseEntity = function (properties) {
 
     /**
      * Object Handle
-     * @type {Nlic.BaseEntity}
+     * @type {Netlicensing.BaseEntity}
      */
     var self = this;
 
@@ -34,7 +34,7 @@ Nlic.BaseEntity = function (properties) {
      * Set a given property on the entity.
      * @param property
      * @param value
-     * @returns {Nlic.BaseEntity}
+     * @returns {Netlicensing.BaseEntity}
      */
     this.setProperty = function (property, value) {
         this.__checkProperty(property, value);
@@ -59,7 +59,7 @@ Nlic.BaseEntity = function (properties) {
      * Alias for setProperty
      * @param property
      * @param value
-     * @returns {Nlic.BaseEntity}
+     * @returns {Netlicensing.BaseEntity}
      */
     this.addProperty = function (property, value) {
         return this.setProperty(property, value);
@@ -68,7 +68,7 @@ Nlic.BaseEntity = function (properties) {
     /**
      * Set the entity properties.
      * @param properties
-     * @returns {Nlic.BaseEntity}
+     * @returns {Netlicensing.BaseEntity}
      */
     this.setProperties = function (properties) {
 
@@ -102,7 +102,7 @@ Nlic.BaseEntity = function (properties) {
     /**
      * Remove property
      * @param property
-     * @returns {Nlic.BaseEntity}
+     * @returns {Netlicensing.BaseEntity}
      */
     this.removeProperty = function (property) {
         delete __properties[property];
@@ -235,7 +235,19 @@ Nlic.BaseEntity = function (properties) {
                 return parseFloat(value);
             case 'bool':
             case 'boolean':
-                return (value && value != 'false') ? true : false;
+                switch (value) {
+                    case 'true':
+                    case 'TRUE':
+                        return true;
+                        break;
+                    case 'false':
+                    case 'FALSE':
+                        return false;
+                        break;
+                    default:
+                        return Boolean(value);
+                        break;
+                }
             case 'date':
                 return (value === 'now') ? 'now' : new Date(String(value));
         }
@@ -249,8 +261,8 @@ Nlic.BaseEntity = function (properties) {
      * @private
      */
     this.__checkProperty = function (property, value) {
-        if (!Nlic.CheckUtils.isValid(property) || typeof property === 'object')  throw new TypeError('Bad property name:' + property);
-        if (!Nlic.CheckUtils.isValid(value)) throw new TypeError('Property ' + property + ' has bad value ' + value);
+        if (!Netlicensing.CheckUtils.isValid(property) || typeof property === 'object')  throw new TypeError('Bad property name:' + property);
+        if (!Netlicensing.CheckUtils.isValid(value)) throw new TypeError('Property ' + property + ' has bad value ' + value);
     };
 
     /**
@@ -300,7 +312,7 @@ Nlic.BaseEntity = function (properties) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * License entity used internally by NetLicensing.
@@ -340,8 +352,8 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.License = function () {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.License = function () {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -366,74 +378,74 @@ Nlic.License = function () {
     this.__notChangeable('asPropertiesMap');
 };
 
-Nlic.License.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.License.prototype.constructor = Nlic.License;
+Netlicensing.License.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.License.prototype.constructor = Netlicensing.License;
 
-Nlic.License.prototype.setNumber = function (number) {
+Netlicensing.License.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Nlic.License.prototype.getNumber = function (def) {
+Netlicensing.License.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Nlic.License.prototype.setActive = function (active) {
+Netlicensing.License.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Nlic.License.prototype.getActive = function (def) {
+Netlicensing.License.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Nlic.License.prototype.setName = function (name) {
+Netlicensing.License.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Nlic.License.prototype.getName = function (def) {
+Netlicensing.License.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Nlic.License.prototype.setHidden = function (hidden) {
+Netlicensing.License.prototype.setHidden = function (hidden) {
     return this.setProperty('hidden', hidden);
 };
 
-Nlic.License.prototype.getHidden = function (def) {
+Netlicensing.License.prototype.getHidden = function (def) {
     return this.getProperty('hidden', def);
 };
 
-Nlic.License.prototype.setParentfeature = function (parentfeature) {
+Netlicensing.License.prototype.setParentfeature = function (parentfeature) {
     return this.setProperty('parentfeature', parentfeature);
 };
 
-Nlic.License.prototype.getParentfeature = function (def) {
+Netlicensing.License.prototype.getParentfeature = function (def) {
     return this.getProperty('parentfeature', def);
 };
 
-Nlic.License.prototype.setTimeVolume = function (timeVolume) {
+Netlicensing.License.prototype.setTimeVolume = function (timeVolume) {
     return this.setProperty('timeVolume', timeVolume);
 };
 
-Nlic.License.prototype.getTimeVolume = function (def) {
+Netlicensing.License.prototype.getTimeVolume = function (def) {
     return this.getProperty('timeVolume', def);
 };
 
-Nlic.License.prototype.setStartDate = function (startDate) {
+Netlicensing.License.prototype.setStartDate = function (startDate) {
     return this.setProperty('startDate', startDate);
 };
 
-Nlic.License.prototype.getStartDate = function (def) {
+Netlicensing.License.prototype.getStartDate = function (def) {
     return this.getProperty('startDate', def);
 };
 
-Nlic.License.prototype.getInUse = function (def) {
+Netlicensing.License.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };
 
-Nlic.License.prototype.getPrice = function (def) {
+Netlicensing.License.prototype.getPrice = function (def) {
     return this.getProperty('price', def);
 };
 
-Nlic.License.prototype.getCurrency = function (def) {
+Netlicensing.License.prototype.getCurrency = function (def) {
     return this.getProperty('currency', def);
 };
 /**
@@ -444,7 +456,7 @@ Nlic.License.prototype.getCurrency = function (def) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * Licensee entity used internally by NetLicensing.
@@ -475,8 +487,8 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.Licensee = function () {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.Licensee = function () {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -498,50 +510,50 @@ Nlic.Licensee = function () {
     this.__notChangeable('asPropertiesMap');
 };
 
-Nlic.Licensee.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.Licensee.prototype.constructor = Nlic.Licensee;
+Netlicensing.Licensee.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.Licensee.prototype.constructor = Netlicensing.Licensee;
 
-Nlic.Licensee.prototype.setNumber = function (number) {
+Netlicensing.Licensee.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Nlic.Licensee.prototype.getNumber = function (def) {
+Netlicensing.Licensee.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Nlic.Licensee.prototype.setActive = function (active) {
+Netlicensing.Licensee.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Nlic.Licensee.prototype.getActive = function (def) {
+Netlicensing.Licensee.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Nlic.Licensee.prototype.setName = function (name) {
+Netlicensing.Licensee.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Nlic.Licensee.prototype.getName = function (def) {
+Netlicensing.Licensee.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Nlic.Licensee.prototype.setLicenseeSecret = function (licenseeSecret) {
+Netlicensing.Licensee.prototype.setLicenseeSecret = function (licenseeSecret) {
     return this.setProperty('licenseeSecret', licenseeSecret);
 };
 
-Nlic.Licensee.prototype.getLicenseeSecret = function (def) {
+Netlicensing.Licensee.prototype.getLicenseeSecret = function (def) {
     return this.getProperty('licenseeSecret', def);
 };
 
-Nlic.Licensee.prototype.setMarkedForTransfer = function (markedForTransfer) {
+Netlicensing.Licensee.prototype.setMarkedForTransfer = function (markedForTransfer) {
     return this.setProperty('markedForTransfer', markedForTransfer);
 };
 
-Nlic.Licensee.prototype.getMarkedForTransfer = function (def) {
+Netlicensing.Licensee.prototype.getMarkedForTransfer = function (def) {
     return this.getProperty('markedForTransfer', def);
 };
 
-Nlic.Licensee.prototype.getInUse = function (def) {
+Netlicensing.Licensee.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };
 /**
@@ -552,7 +564,7 @@ Nlic.Licensee.prototype.getInUse = function (def) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * License template entity used internally by NetLicensing.
@@ -605,8 +617,8 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.LicenseTemplate = function () {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.LicenseTemplate = function () {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -634,102 +646,102 @@ Nlic.LicenseTemplate = function () {
     this.__notChangeable('asPropertiesMap');
 };
 
-Nlic.LicenseTemplate.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.LicenseTemplate.prototype.constructor = Nlic.LicenseTemplate;
+Netlicensing.LicenseTemplate.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.LicenseTemplate.prototype.constructor = Netlicensing.LicenseTemplate;
 
-Nlic.LicenseTemplate.prototype.setNumber = function (number) {
+Netlicensing.LicenseTemplate.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Nlic.LicenseTemplate.prototype.getNumber = function (def) {
+Netlicensing.LicenseTemplate.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Nlic.LicenseTemplate.prototype.setActive = function (active) {
+Netlicensing.LicenseTemplate.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Nlic.LicenseTemplate.prototype.getActive = function (def) {
+Netlicensing.LicenseTemplate.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Nlic.LicenseTemplate.prototype.setName = function (name) {
+Netlicensing.LicenseTemplate.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Nlic.LicenseTemplate.prototype.getName = function (def) {
+Netlicensing.LicenseTemplate.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Nlic.LicenseTemplate.prototype.setLicenseType = function (licenseType) {
+Netlicensing.LicenseTemplate.prototype.setLicenseType = function (licenseType) {
     return this.setProperty('licenseType', licenseType);
 };
 
-Nlic.LicenseTemplate.prototype.getLicenseType = function (def) {
+Netlicensing.LicenseTemplate.prototype.getLicenseType = function (def) {
     return this.getProperty('licenseType', def);
 };
 
-Nlic.LicenseTemplate.prototype.setPrice = function (price) {
+Netlicensing.LicenseTemplate.prototype.setPrice = function (price) {
     return this.setProperty('price', price);
 };
 
-Nlic.LicenseTemplate.prototype.getPrice = function (def) {
+Netlicensing.LicenseTemplate.prototype.getPrice = function (def) {
     return this.getProperty('price', def);
 };
 
-Nlic.LicenseTemplate.prototype.setCurrency = function (currency) {
+Netlicensing.LicenseTemplate.prototype.setCurrency = function (currency) {
     return this.setProperty('currency', currency);
 };
 
-Nlic.LicenseTemplate.prototype.getCurrency = function (def) {
+Netlicensing.LicenseTemplate.prototype.getCurrency = function (def) {
     return this.getProperty('currency', def);
 };
 
-Nlic.LicenseTemplate.prototype.setAutomatic = function (automatic) {
+Netlicensing.LicenseTemplate.prototype.setAutomatic = function (automatic) {
     return this.setProperty('automatic', automatic);
 };
 
-Nlic.LicenseTemplate.prototype.getAutomatic = function (def) {
+Netlicensing.LicenseTemplate.prototype.getAutomatic = function (def) {
     return this.getProperty('automatic', def);
 };
 
-Nlic.LicenseTemplate.prototype.setHidden = function (hidden) {
+Netlicensing.LicenseTemplate.prototype.setHidden = function (hidden) {
     return this.setProperty('hidden', hidden);
 };
 
-Nlic.LicenseTemplate.prototype.getHidden = function (def) {
+Netlicensing.LicenseTemplate.prototype.getHidden = function (def) {
     return this.getProperty('hidden', def);
 };
 
-Nlic.LicenseTemplate.prototype.setHideLicenses = function (hideLicenses) {
+Netlicensing.LicenseTemplate.prototype.setHideLicenses = function (hideLicenses) {
     return this.setProperty('hideLicenses', hideLicenses);
 };
 
-Nlic.LicenseTemplate.prototype.getHideLicenses = function (def) {
+Netlicensing.LicenseTemplate.prototype.getHideLicenses = function (def) {
     return this.getProperty('hideLicenses', def);
 };
 
-Nlic.LicenseTemplate.prototype.setTimeVolume = function (timeVolume) {
+Netlicensing.LicenseTemplate.prototype.setTimeVolume = function (timeVolume) {
     return this.setProperty('timeVolume', timeVolume);
 };
 
-Nlic.LicenseTemplate.prototype.getTimeVolume = function (def) {
+Netlicensing.LicenseTemplate.prototype.getTimeVolume = function (def) {
     return this.getProperty('timeVolume', def);
 };
 
-Nlic.LicenseTemplate.prototype.setMaxSessions = function (maxSessions) {
+Netlicensing.LicenseTemplate.prototype.setMaxSessions = function (maxSessions) {
     return this.setProperty('maxSessions', maxSessions);
 };
 
-Nlic.LicenseTemplate.prototype.getMaxSessions = function (def) {
+Netlicensing.LicenseTemplate.prototype.getMaxSessions = function (def) {
     return this.getProperty('maxSessions', def);
 };
 
-Nlic.LicenseTemplate.prototype.setQuantity = function (quantity) {
+Netlicensing.LicenseTemplate.prototype.setQuantity = function (quantity) {
     return this.setProperty('quantity', quantity);
 };
 
-Nlic.LicenseTemplate.prototype.getQuantity = function (def) {
+Netlicensing.LicenseTemplate.prototype.getQuantity = function (def) {
     return this.getProperty('quantity', def);
 };
 /**
@@ -740,7 +752,7 @@ Nlic.LicenseTemplate.prototype.getQuantity = function (def) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * PaymentMethod entity used internally by NetLicensing.
@@ -751,8 +763,8 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.PaymentMethod = function PaymentMethod() {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.PaymentMethod = function PaymentMethod() {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -770,30 +782,30 @@ Nlic.PaymentMethod = function PaymentMethod() {
     this.__notChangeable('asPropertiesMap');
 };
 
-Nlic.PaymentMethod.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.PaymentMethod.prototype.constructor = Nlic.PaymentMethod;
+Netlicensing.PaymentMethod.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.PaymentMethod.prototype.constructor = Netlicensing.PaymentMethod;
 
-Nlic.PaymentMethod.prototype.setNumber = function (number) {
+Netlicensing.PaymentMethod.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Nlic.PaymentMethod.prototype.getNumber = function (def) {
+Netlicensing.PaymentMethod.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Nlic.PaymentMethod.prototype.setActive = function (active) {
+Netlicensing.PaymentMethod.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Nlic.PaymentMethod.prototype.getActive = function (def) {
+Netlicensing.PaymentMethod.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Nlic.PaymentMethod.prototype.setPaypalSubject = function (paypalSubject) {
+Netlicensing.PaymentMethod.prototype.setPaypalSubject = function (paypalSubject) {
     return this.setProperty('paypal.subject', paypalSubject);
 };
 
-Nlic.PaymentMethod.prototype.getPaypalSubject = function (def) {
+Netlicensing.PaymentMethod.prototype.getPaypalSubject = function (def) {
     return this.getProperty('paypal.subject', def);
 };
 /**
@@ -804,7 +816,7 @@ Nlic.PaymentMethod.prototype.getPaypalSubject = function (def) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * NetLicensing Product entity.
@@ -842,8 +854,8 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.Product = function () {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.Product = function () {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -860,17 +872,43 @@ Nlic.Product = function () {
     });
 
     var __productDiscounts = [];
+    var __productDiscountsTouched = false;
 
     /**
      * Add discount to product
-     * @param discount Nlic.ProductDiscount
-     * @returns {Nlic.Product}
+     * @param discount Netlicensing.ProductDiscount
+     * @returns {Netlicensing.Product}
      */
     this.addDiscount = function (discount) {
-        if (!(discount instanceof Nlic.ProductDiscount)) {
+        if (!(discount instanceof Netlicensing.ProductDiscount)) {
             throw new TypeError('discount must be an instance of ProductDiscount');
         }
         __productDiscounts.push(discount);
+        __productDiscountsTouched = true;
+
+        return this;
+    };
+
+    /**
+     * Set discounts to product
+     * @param discounts
+     */
+    this.setProductDiscounts = function (discounts) {
+        __productDiscounts = [];
+        __productDiscountsTouched = true;
+
+        if (!discounts) return this;
+
+        if (Array.isArray(discounts)) {
+            var length = discounts.length;
+            for (var i = 0; i < length; i++) {
+                this.addDiscount(discounts[i]);
+            }
+            return this;
+        }
+
+        this.addDiscount(discounts);
+
         return this;
     };
 
@@ -884,12 +922,20 @@ Nlic.Product = function () {
 
     this.asPropertiesMap = function () {
         var map = this.getProperties();
-        map.discount = [];
 
         var length = __productDiscounts.length;
-        for (var i = 0; i < length; i++) {
-            map.discount.push(__productDiscounts[i].toString());
+
+        if (length) {
+            map.discount = [];
+            for (var i = 0; i < length; i++) {
+                map.discount.push(__productDiscounts[i].toString());
+            }
         }
+
+        if (!map.discount && __productDiscountsTouched) {
+            map.discount = '';
+        }
+
         return map;
     };
 
@@ -901,73 +947,73 @@ Nlic.Product = function () {
     this.__notChangeable(['addDiscount', 'getProductDiscounts', 'asPropertiesMap']);
 };
 
-Nlic.Product.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.Product.prototype.constructor = Nlic.Product;
+Netlicensing.Product.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.Product.prototype.constructor = Netlicensing.Product;
 
-Nlic.Product.prototype.setNumber = function (number) {
+Netlicensing.Product.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Nlic.Product.prototype.getNumber = function (def) {
+Netlicensing.Product.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Nlic.Product.prototype.setActive = function (active) {
+Netlicensing.Product.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Nlic.Product.prototype.getActive = function (def) {
+Netlicensing.Product.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Nlic.Product.prototype.setName = function (name) {
+Netlicensing.Product.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Nlic.Product.prototype.getName = function (def) {
+Netlicensing.Product.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Nlic.Product.prototype.setVersion = function (version) {
+Netlicensing.Product.prototype.setVersion = function (version) {
     return this.setProperty('version', version);
 };
 
-Nlic.Product.prototype.getVersion = function (def) {
+Netlicensing.Product.prototype.getVersion = function (def) {
     return this.getProperty('version', def);
 };
 
-Nlic.Product.prototype.setLicenseeAutoCreate = function (licenseeAutoCreate) {
+Netlicensing.Product.prototype.setLicenseeAutoCreate = function (licenseeAutoCreate) {
     return this.setProperty('licenseeAutoCreate', licenseeAutoCreate);
 };
 
-Nlic.Product.prototype.getLicenseeAutoCreate = function (def) {
+Netlicensing.Product.prototype.getLicenseeAutoCreate = function (def) {
     return this.getProperty('licenseeAutoCreate', def);
 };
 
-Nlic.Product.prototype.setDescription = function (description) {
+Netlicensing.Product.prototype.setDescription = function (description) {
     return this.setProperty('description', description);
 };
 
-Nlic.Product.prototype.getDescription = function (def) {
+Netlicensing.Product.prototype.getDescription = function (def) {
     return this.getProperty('description', def);
 };
 
-Nlic.Product.prototype.setLicensingInfo = function (licensingInfo) {
+Netlicensing.Product.prototype.setLicensingInfo = function (licensingInfo) {
     return this.setProperty('licensingInfo', licensingInfo);
 };
 
-Nlic.Product.prototype.getLicensingInfo = function (def) {
+Netlicensing.Product.prototype.getLicensingInfo = function (def) {
     return this.getProperty('licensingInfo', def);
 };
 
-Nlic.Product.prototype.getInUse = function (def) {
+Netlicensing.Product.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };
 
-Nlic.Product.prototype.__setListDiscount = function (properties) {
+Netlicensing.Product.prototype.__setListDiscount = function (properties) {
     if (!properties) return;
     var length = properties.length;
-    var discount = new Nlic.ProductDiscount();
+    var discount = new Netlicensing.ProductDiscount();
     for (var i = 0; i < length; i++) {
         discount.setProperty(properties[i].name, properties[i].value);
     }
@@ -976,7 +1022,7 @@ Nlic.Product.prototype.__setListDiscount = function (properties) {
 };
 
 //make methods not changeable
-Object.defineProperty(Nlic.Product.prototype, '__setListDiscount', {
+Object.defineProperty(Netlicensing.Product.prototype, '__setListDiscount', {
     writable: false,
     enumerable: false,
     configurable: false
@@ -989,10 +1035,10 @@ Object.defineProperty(Nlic.Product.prototype, '__setListDiscount', {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
-Nlic.ProductDiscount = function () {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.ProductDiscount = function () {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -1008,45 +1054,45 @@ Nlic.ProductDiscount = function () {
     this.__defines(['totalPrice', 'currency', 'amountFix', 'amountPercent']);
 };
 
-Nlic.ProductDiscount.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.ProductDiscount.prototype.constructor = Nlic.ProductDiscount;
+Netlicensing.ProductDiscount.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.ProductDiscount.prototype.constructor = Netlicensing.ProductDiscount;
 
-Nlic.ProductDiscount.prototype.setTotalPrice = function (totalPrice) {
+Netlicensing.ProductDiscount.prototype.setTotalPrice = function (totalPrice) {
     return this.setProperty('totalPrice', totalPrice);
 };
 
-Nlic.ProductDiscount.prototype.getTotalPrice = function (def) {
+Netlicensing.ProductDiscount.prototype.getTotalPrice = function (def) {
     return this.getProperty('totalPrice', def);
 };
 
-Nlic.ProductDiscount.prototype.setCurrency = function (currency) {
+Netlicensing.ProductDiscount.prototype.setCurrency = function (currency) {
     return this.setProperty('currency', currency);
 };
 
-Nlic.ProductDiscount.prototype.getCurrency = function (def) {
+Netlicensing.ProductDiscount.prototype.getCurrency = function (def) {
     return this.getProperty('currency', def);
 };
 
-Nlic.ProductDiscount.prototype.setAmountFix = function (amountFix) {
+Netlicensing.ProductDiscount.prototype.setAmountFix = function (amountFix) {
     return this.setProperty('amountFix', amountFix).removeProperty('amountPercent');
 };
 
-Nlic.ProductDiscount.prototype.getAmountFix = function (def) {
+Netlicensing.ProductDiscount.prototype.getAmountFix = function (def) {
     return this.getProperty('amountFix', def);
 };
 
-Nlic.ProductDiscount.prototype.setAmountPercent = function (amountPercent) {
+Netlicensing.ProductDiscount.prototype.setAmountPercent = function (amountPercent) {
     return this.setProperty('amountPercent', amountPercent).removeProperty('amountFix');
 };
 
-Nlic.ProductDiscount.prototype.getAmountPercent = function (def) {
+Netlicensing.ProductDiscount.prototype.getAmountPercent = function (def) {
     return this.getProperty('amountPercent', def);
 };
 
-Nlic.ProductDiscount.prototype.toString = function () {
+Netlicensing.ProductDiscount.prototype.toString = function () {
     var totalPrice = this.getTotalPrice();
     var currency = this.getCurrency();
-    var amount = '';
+    var amount = 0;
 
     if (this.getAmountFix(null)) amount = this.getAmountFix();
     if (this.getAmountPercent(null)) amount = this.getAmountPercent() + '%';
@@ -1055,7 +1101,7 @@ Nlic.ProductDiscount.prototype.toString = function () {
 };
 
 //make methods not changeable
-Object.defineProperty(Nlic.ProductDiscount.prototype, 'toString', {
+Object.defineProperty(Netlicensing.ProductDiscount.prototype, 'toString', {
     writable: false,
     enumerable: false,
     configurable: false
@@ -1068,7 +1114,7 @@ Object.defineProperty(Nlic.ProductDiscount.prototype, 'toString', {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * Product module entity used internally by NetLicensing.
@@ -1106,8 +1152,8 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.ProductModule = function () {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.ProductModule = function () {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -1132,74 +1178,74 @@ Nlic.ProductModule = function () {
     this.__notChangeable('asPropertiesMap');
 };
 
-Nlic.ProductModule.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.ProductModule.prototype.constructor = Nlic.ProductModule;
+Netlicensing.ProductModule.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.ProductModule.prototype.constructor = Netlicensing.ProductModule;
 
-Nlic.ProductModule.prototype.setNumber = function (number) {
+Netlicensing.ProductModule.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Nlic.ProductModule.prototype.getNumber = function (def) {
+Netlicensing.ProductModule.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Nlic.ProductModule.prototype.setActive = function (active) {
+Netlicensing.ProductModule.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Nlic.ProductModule.prototype.getActive = function (def) {
+Netlicensing.ProductModule.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Nlic.ProductModule.prototype.setName = function (name) {
+Netlicensing.ProductModule.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Nlic.ProductModule.prototype.getName = function (def) {
+Netlicensing.ProductModule.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Nlic.ProductModule.prototype.setLicensingModel = function (licensingModel) {
+Netlicensing.ProductModule.prototype.setLicensingModel = function (licensingModel) {
     return this.setProperty('licensingModel', licensingModel);
 };
 
-Nlic.ProductModule.prototype.getLicensingModel = function (def) {
+Netlicensing.ProductModule.prototype.getLicensingModel = function (def) {
     return this.getProperty('licensingModel', def);
 };
 
-Nlic.ProductModule.prototype.setMaxCheckoutValidity = function (maxCheckoutValidity) {
+Netlicensing.ProductModule.prototype.setMaxCheckoutValidity = function (maxCheckoutValidity) {
     return this.setProperty('maxCheckoutValidity', maxCheckoutValidity);
 };
 
-Nlic.ProductModule.prototype.getMaxCheckoutValidity = function (def) {
+Netlicensing.ProductModule.prototype.getMaxCheckoutValidity = function (def) {
     return this.getProperty('maxCheckoutValidity', def);
 };
 
-Nlic.ProductModule.prototype.setYellowThreshold = function (yellowThreshold) {
+Netlicensing.ProductModule.prototype.setYellowThreshold = function (yellowThreshold) {
     return this.setProperty('yellowThreshold', yellowThreshold);
 };
 
-Nlic.ProductModule.prototype.getYellowThreshold = function (def) {
+Netlicensing.ProductModule.prototype.getYellowThreshold = function (def) {
     return this.getProperty('yellowThreshold', def);
 };
 
-Nlic.ProductModule.prototype.setRedThreshold = function (redThreshold) {
+Netlicensing.ProductModule.prototype.setRedThreshold = function (redThreshold) {
     return this.setProperty('redThreshold', redThreshold);
 };
 
-Nlic.ProductModule.prototype.getRedThreshold = function (def) {
+Netlicensing.ProductModule.prototype.getRedThreshold = function (def) {
     return this.getProperty('redThreshold', def);
 };
 
-Nlic.ProductModule.prototype.setLicenseTemplate = function (licenseTemplate) {
+Netlicensing.ProductModule.prototype.setLicenseTemplate = function (licenseTemplate) {
     return this.setProperty('licenseTemplate', licenseTemplate);
 };
 
-Nlic.ProductModule.prototype.getLicenseTemplate = function (def) {
+Netlicensing.ProductModule.prototype.getLicenseTemplate = function (def) {
     return this.getProperty('licenseTemplate', def);
 };
 
-Nlic.ProductModule.prototype.getInUse = function (def) {
+Netlicensing.ProductModule.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };
 /**
@@ -1210,7 +1256,7 @@ Nlic.ProductModule.prototype.getInUse = function (def) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * Product module entity used internally by NetLicensing.
@@ -1239,8 +1285,8 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.Token = function () {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.Token = function () {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -1267,86 +1313,86 @@ Nlic.Token = function () {
     this.__notChangeable('asPropertiesMap');
 };
 
-Nlic.Token.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.Token.prototype.constructor = Nlic.Token;
+Netlicensing.Token.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.Token.prototype.constructor = Netlicensing.Token;
 
-Nlic.Token.prototype.getNumber = function (def) {
+Netlicensing.Token.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Nlic.Token.prototype.setActive = function (active) {
+Netlicensing.Token.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Nlic.Token.prototype.getActive = function (def) {
+Netlicensing.Token.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Nlic.Token.prototype.setExpirationTime = function (expirationTime) {
+Netlicensing.Token.prototype.setExpirationTime = function (expirationTime) {
     return this.setProperty('expirationTime', expirationTime);
 };
 
-Nlic.Token.prototype.getExpirationTime = function (def) {
+Netlicensing.Token.prototype.getExpirationTime = function (def) {
     return this.getProperty('expirationTime', def);
 };
 
-Nlic.Token.prototype.setVendorNumber = function (vendorNumber) {
+Netlicensing.Token.prototype.setVendorNumber = function (vendorNumber) {
     return this.setProperty('vendorNumber', vendorNumber);
 };
 
-Nlic.Token.prototype.getVendorNumber = function (def) {
+Netlicensing.Token.prototype.getVendorNumber = function (def) {
     return this.getProperty('vendorNumber', def);
 };
 
-Nlic.Token.prototype.setTokenType = function (tokenType) {
+Netlicensing.Token.prototype.setTokenType = function (tokenType) {
     return this.setProperty('tokenType', tokenType);
 };
 
-Nlic.Token.prototype.getTokenType = function (def) {
+Netlicensing.Token.prototype.getTokenType = function (def) {
     return this.getProperty('tokenType', def);
 };
 
-Nlic.Token.prototype.setLicenseeNumber = function (licenseeNumber) {
+Netlicensing.Token.prototype.setLicenseeNumber = function (licenseeNumber) {
     return this.setProperty('licenseeNumber', licenseeNumber);
 };
 
-Nlic.Token.prototype.getLicenseeNumber = function (def) {
+Netlicensing.Token.prototype.getLicenseeNumber = function (def) {
     return this.getProperty('licenseeNumber', def);
 };
 
-Nlic.Token.prototype.setSuccessURL = function (successURL) {
+Netlicensing.Token.prototype.setSuccessURL = function (successURL) {
     return this.setProperty('successURL', successURL);
 };
 
-Nlic.Token.prototype.getSuccessURL = function (def) {
+Netlicensing.Token.prototype.getSuccessURL = function (def) {
     return this.getProperty('successURL', def);
 };
 
-Nlic.Token.prototype.setSuccessURLTitle = function (successURLTitle) {
+Netlicensing.Token.prototype.setSuccessURLTitle = function (successURLTitle) {
     return this.setProperty('successURLTitle', successURLTitle);
 };
 
-Nlic.Token.prototype.getSuccessURLTitle = function (def) {
+Netlicensing.Token.prototype.getSuccessURLTitle = function (def) {
     return this.getProperty('successURLTitle', def);
 };
 
-Nlic.Token.prototype.setCancelURL = function (cancelURL) {
+Netlicensing.Token.prototype.setCancelURL = function (cancelURL) {
     return this.setProperty('cancelURL', cancelURL);
 };
 
-Nlic.Token.prototype.getCancelURL = function (def) {
+Netlicensing.Token.prototype.getCancelURL = function (def) {
     return this.getProperty('cancelURL', def);
 };
 
-Nlic.Token.prototype.setCancelURLTitle = function (cancelURLTitle) {
+Netlicensing.Token.prototype.setCancelURLTitle = function (cancelURLTitle) {
     return this.setProperty('cancelURLTitle', cancelURLTitle);
 };
 
-Nlic.Token.prototype.getCancelURLTitle = function (def) {
+Netlicensing.Token.prototype.getCancelURLTitle = function (def) {
     return this.getProperty('cancelURLTitle', def);
 };
 
-Nlic.Token.prototype.getShopURL = function (def) {
+Netlicensing.Token.prototype.getShopURL = function (def) {
     return this.getProperty('shopURL', def);
 };
 /**
@@ -1357,7 +1403,7 @@ Nlic.Token.prototype.getShopURL = function (def) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * Transaction entity used internally by NetLicensing.
@@ -1395,8 +1441,8 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.Transaction = function Transaction() {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.Transaction = function Transaction() {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -1423,90 +1469,90 @@ Nlic.Transaction = function Transaction() {
     this.__notChangeable('asPropertiesMap');
 };
 
-Nlic.Transaction.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.Transaction.prototype.constructor = Nlic.Transaction;
+Netlicensing.Transaction.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.Transaction.prototype.constructor = Netlicensing.Transaction;
 
-Nlic.Transaction.prototype.setNumber = function (number) {
+Netlicensing.Transaction.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Nlic.Transaction.prototype.getNumber = function (def) {
+Netlicensing.Transaction.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Nlic.Transaction.prototype.setName = function (name) {
+Netlicensing.Transaction.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Nlic.Transaction.prototype.getName = function (def) {
+Netlicensing.Transaction.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Nlic.Transaction.prototype.setStatus = function (status) {
+Netlicensing.Transaction.prototype.setStatus = function (status) {
     return this.setProperty('status', status);
 };
 
-Nlic.Transaction.prototype.getStatus = function (def) {
+Netlicensing.Transaction.prototype.getStatus = function (def) {
     return this.getProperty('status', def);
 };
 
-Nlic.Transaction.prototype.setSource = function (source) {
+Netlicensing.Transaction.prototype.setSource = function (source) {
     return this.setProperty('source', source);
 };
 
-Nlic.Transaction.prototype.getSource = function (def) {
+Netlicensing.Transaction.prototype.getSource = function (def) {
     return this.getProperty('source', def);
 };
 
-Nlic.Transaction.prototype.setGrandTotal = function (grandTotal) {
+Netlicensing.Transaction.prototype.setGrandTotal = function (grandTotal) {
     return this.setProperty('grandTotal', grandTotal);
 };
 
-Nlic.Transaction.prototype.getGrandTotal = function (def) {
+Netlicensing.Transaction.prototype.getGrandTotal = function (def) {
     return this.getProperty('grandTotal', def);
 };
 
-Nlic.Transaction.prototype.setDiscount = function (discount) {
+Netlicensing.Transaction.prototype.setDiscount = function (discount) {
     return this.setProperty('discount', discount);
 };
 
-Nlic.Transaction.prototype.getDiscount = function (def) {
+Netlicensing.Transaction.prototype.getDiscount = function (def) {
     return this.getProperty('discount', def);
 };
 
-Nlic.Transaction.prototype.setCurrency = function (currency) {
+Netlicensing.Transaction.prototype.setCurrency = function (currency) {
     return this.setProperty('currency', currency);
 };
 
-Nlic.Transaction.prototype.getCurrency = function (def) {
+Netlicensing.Transaction.prototype.getCurrency = function (def) {
     return this.getProperty('currency', def);
 };
 
-Nlic.Transaction.prototype.setDateCreated = function (dateCreated) {
+Netlicensing.Transaction.prototype.setDateCreated = function (dateCreated) {
     return this.setProperty('dateCreated', dateCreated);
 };
 
-Nlic.Transaction.prototype.getDateCreated = function (def) {
+Netlicensing.Transaction.prototype.getDateCreated = function (def) {
     return this.getProperty('dateCreated', def);
 };
 
-Nlic.Transaction.prototype.setDateClosed = function (dateClosed) {
+Netlicensing.Transaction.prototype.setDateClosed = function (dateClosed) {
     return this.setProperty('dateClosed', dateClosed);
 };
 
-Nlic.Transaction.prototype.getDateClosed = function (def) {
+Netlicensing.Transaction.prototype.getDateClosed = function (def) {
     return this.getProperty('dateClosed', def);
 };
 
-Nlic.Transaction.prototype.setPaymentMethod = function (paymentMethod) {
+Netlicensing.Transaction.prototype.setPaymentMethod = function (paymentMethod) {
     return this.setProperty('paymentMethod', paymentMethod);
 };
 
-Nlic.Transaction.prototype.getPaymentMethod = function (def) {
+Netlicensing.Transaction.prototype.getPaymentMethod = function (def) {
     return this.getProperty('paymentMethod', def);
 };
 
-Nlic.Transaction.prototype.setActive = function () {
+Netlicensing.Transaction.prototype.setActive = function () {
     return this.setProperty('active', true);
 };
 /**
@@ -1517,21 +1563,65 @@ Nlic.Transaction.prototype.setActive = function () {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
+
+
+Netlicensing.CheckUtils = function () {
+
+};
+
+/**
+ * Check if value is valid
+ * @param value
+ * @returns {boolean}
+ */
+Netlicensing.CheckUtils.isValid = function (value) {
+    var valid = (value !== undefined && typeof value !== 'function');
+    if (typeof value === 'number') valid = (isFinite(value) && !isNaN(value));
+    return valid;
+};
+
+/**
+ * Ensures that an object reference passed as a parameter to the calling method is not null.
+ *
+ * param to check
+ * @param parameter
+ *
+ * name of the parameter
+ * @param parameterName
+ */
+Netlicensing.CheckUtils.paramNotNull = function (parameter, parameterName) {
+    if (!Netlicensing.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
+    if (parameter === null) throw new TypeError('Parameter ' + parameterName + ' cannot be null')
+};
+
+Netlicensing.CheckUtils.paramNotEmpty = function (parameter, parameterName) {
+    if (!Netlicensing.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
+    if (!parameter) throw new TypeError('Parameter ' + parameterName + ' cannot be null or empty string')
+};
+/**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      http://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
+
+//namespace
+var Netlicensing = Netlicensing || {};
 
 /**
  * JS representation of the Licensee Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Licensee+Services
  *
  * @constructor
  */
 
-Nlic.LicenseeService = function () {
+Netlicensing.LicenseeService = function () {
 
 };
 
 //static constants
-Object.defineProperties(Nlic.LicenseeService, {
+Object.defineProperties(Netlicensing.LicenseeService, {
     'ENDPOINT_PATH': {value: 'licensee'},
     'ENDPOINT_PATH_VALIDATE': {value: 'validate'},
     'ENDPOINT_PATH_TRANSFER': {value: 'transfer'},
@@ -1539,42 +1629,42 @@ Object.defineProperties(Nlic.LicenseeService, {
 
 /**
  * Creates new licensee object with given properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Createlicensee
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Licensee+Services#LicenseeServices-Createlicensee
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * parent product to which the new licensee is to be added
  * @param productNumber string
  *
  * non-null properties will be taken for the new object, null properties will either stay null, or will
  * be set to a default value, depending on property.
- * @param licensee Nlic.Licensee
+ * @param licensee Netlicensing.Licensee
  *
  * return the newly created licensee object in promise
  * @returns {Promise}
  */
-Nlic.LicenseeService.create = function (context, productNumber, licensee) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(licensee instanceof Nlic.Licensee)) throw new TypeError('licensee must be an instance of Nlic.Licensee');
+Netlicensing.LicenseeService.create = function (context, productNumber, licensee) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(licensee instanceof Netlicensing.Licensee)) throw new TypeError('licensee must be an instance of Netlicensing.Licensee');
 
-    Nlic.CheckUtils.paramNotEmpty(productNumber, 'productNumber');
+    Netlicensing.CheckUtils.paramNotEmpty(productNumber, 'productNumber');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
     licensee.setProperty('productNumber', productNumber);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.LicenseeService.ENDPOINT_PATH, licensee.asPropertiesMap(), Nlic.Licensee);
+        .post(context, Netlicensing.LicenseeService.ENDPOINT_PATH, licensee.asPropertiesMap(), Netlicensing.Licensee);
 };
 
 /**
  * Gets licensee by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Getlicensee
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Licensee+Services#LicenseeServices-Getlicensee
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * the licensee number
  * @param number string
@@ -1582,22 +1672,22 @@ Nlic.LicenseeService.create = function (context, productNumber, licensee) {
  * return the licensee in promise
  * @returns {Promise}
  */
-Nlic.LicenseeService.get = function (context, number) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.LicenseeService.get = function (context, number) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .get(context, Nlic.LicenseeService.ENDPOINT_PATH + '/' + number, {}, Nlic.Licensee);
+        .get(context, Netlicensing.LicenseeService.ENDPOINT_PATH + '/' + number, {}, Netlicensing.Licensee);
 };
 
 /**
  * Returns all licensees of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Licenseeslist
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Licensee+Services#LicenseeServices-Licenseeslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string|null
@@ -1605,54 +1695,54 @@ Nlic.LicenseeService.get = function (context, number) {
  * array of licensees (of all products) or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.LicenseeService.list = function (context, filter) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.LicenseeService.list = function (context, filter) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
     var queryParams = {};
 
     if (filter) {
-        if (!Nlic.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!Netlicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .list(context, Nlic.LicenseeService.ENDPOINT_PATH, queryParams, Nlic.Licensee);
+        .list(context, Netlicensing.LicenseeService.ENDPOINT_PATH, queryParams, Netlicensing.Licensee);
 };
 
 /**
  * Updates licensee properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Updatelicensee
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Licensee+Services#LicenseeServices-Updatelicensee
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * licensee number
  * @param number string
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param licensee Nlic.Licensee
+ * @param licensee Netlicensing.Licensee
  *
  * return updated licensee in promise.
  * @returns {Promise}
  */
-Nlic.LicenseeService.update = function (context, number, licensee) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(licensee instanceof Nlic.Licensee)) throw new TypeError('licensee must be an instance of Nlic.Licensee');
+Netlicensing.LicenseeService.update = function (context, number, licensee) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(licensee instanceof Netlicensing.Licensee)) throw new TypeError('licensee must be an instance of Netlicensing.Licensee');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.LicenseeService.ENDPOINT_PATH + '/' + number, licensee.asPropertiesMap(), Nlic.Licensee);
+        .post(context, Netlicensing.LicenseeService.ENDPOINT_PATH + '/' + number, licensee.asPropertiesMap(), Netlicensing.Licensee);
 };
 
 /**
  * Deletes licensee.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Deletelicensee
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Licensee+Services#LicenseeServices-Deletelicensee
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * licensee number
  * @param number string
@@ -1663,38 +1753,38 @@ Nlic.LicenseeService.update = function (context, number, licensee) {
  * return boolean state of delete in promise
  * @returns {Promise}
  */
-Nlic.LicenseeService.delete = function (context, number, forceCascade) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.LicenseeService.delete = function (context, number, forceCascade) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
     var queryParams = {forceCascade: Boolean(forceCascade)};
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .delete(context, Nlic.LicenseeService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, Netlicensing.LicenseeService.ENDPOINT_PATH + '/' + number, queryParams);
 };
 
 /**
  * Validates active licenses of the licensee. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Validatelicensee
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Licensee+Services#LicenseeServices-Validatelicensee
  *
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * licensee number
  * @param number string
  *
  * optional validation parameters. See ValidationParameters and licensing model documentation for
  * details.
- * @param validationParameters Nlic.ValidationParameters.
+ * @param validationParameters Netlicensing.ValidationParameters.
  *
  * @returns {Promise}
  */
-Nlic.LicenseeService.validate = function (context, number, validationParameters) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(validationParameters instanceof Nlic.ValidationParameters)) throw new TypeError('validationParameters must be an instance of Nlic.ValidationParameters');
+Netlicensing.LicenseeService.validate = function (context, number, validationParameters) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(validationParameters instanceof Netlicensing.ValidationParameters)) throw new TypeError('validationParameters must be an instance of Netlicensing.ValidationParameters');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
     var queryParams = {};
 
@@ -1725,12 +1815,12 @@ Nlic.LicenseeService.validate = function (context, number, validationParameters)
         pmIndex++;
     }
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.LicenseeService.ENDPOINT_PATH + '/' + number + '/' + Nlic.LicenseeService.ENDPOINT_PATH_VALIDATE, queryParams)
+        .post(context, Netlicensing.LicenseeService.ENDPOINT_PATH + '/' + number + '/' + Netlicensing.LicenseeService.ENDPOINT_PATH_VALIDATE, queryParams)
         .then(function (item) {
             var data = {};
-            var validationResults = new Nlic.ValidationResults();
+            var validationResults = new Netlicensing.ValidationResults();
 
             var length = item.property.length;
 
@@ -1747,7 +1837,7 @@ Nlic.LicenseeService.validate = function (context, number, validationParameters)
 
             validationResults
                 .setProductModuleValidation(data.productModuleNumber, data)
-                .setTtl(Nlic.Service.getInstance().getLastHttpRequestInfo().response.ttl);
+                .setTtl(Netlicensing.Service.getInstance().getLastHttpRequestInfo().response.ttl);
 
             return validationResults;
         });
@@ -1755,10 +1845,10 @@ Nlic.LicenseeService.validate = function (context, number, validationParameters)
 
 /**
  * Transfer licenses between licensees.
- * https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Transferlicensee
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Licensee+Services#LicenseeServices-Transferlicensee
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * the number of the licensee receiving licenses
  * @param number string
@@ -1768,17 +1858,17 @@ Nlic.LicenseeService.validate = function (context, number, validationParameters)
  *
  * @returns {Promise}
  */
-Nlic.LicenseeService.transfer = function (context, number, sourceLicenseeNumber) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.LicenseeService.transfer = function (context, number, sourceLicenseeNumber) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
-    Nlic.CheckUtils.paramNotEmpty(sourceLicenseeNumber, 'sourceLicenseeNumber');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(sourceLicenseeNumber, 'sourceLicenseeNumber');
 
     var queryParams = {sourceLicenseeNumber: sourceLicenseeNumber};
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.LicenseeService.ENDPOINT_PATH + '/' + number + '/' + Nlic.LicenseeService.ENDPOINT_PATH_TRANSFER, queryParams);
+        .post(context, Netlicensing.LicenseeService.ENDPOINT_PATH + '/' + number + '/' + Netlicensing.LicenseeService.ENDPOINT_PATH_TRANSFER, queryParams);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -1788,26 +1878,26 @@ Nlic.LicenseeService.transfer = function (context, number, sourceLicenseeNumber)
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * JS representation of the License Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Services
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/License+Services
  *
  * @constructor
  */
-Nlic.LicenseService = function () {
+Netlicensing.LicenseService = function () {
 };
 
 //static constants
-Object.defineProperty(Nlic.LicenseService, 'ENDPOINT_PATH', {value: 'license'});
+Object.defineProperty(Netlicensing.LicenseService, 'ENDPOINT_PATH', {value: 'license'});
 
 /**
  * Creates new license object with given properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Createlicense
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/License+Services#LicenseServices-Createlicense
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * parent licensee to which the new license is to be added
  * @param licenseeNumber string
@@ -1823,36 +1913,36 @@ Object.defineProperty(Nlic.LicenseService, 'ENDPOINT_PATH', {value: 'license'});
  *
  * non-null properties will be taken for the new object, null properties will either stay null, or will
  * be set to a default value, depending on property.
- * @param license Nlic.License
+ * @param license Netlicensing.License
  *
  * return the newly created license object in promise
  * @returns {Promise}
  */
-Nlic.LicenseService.create = function (context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(license instanceof Nlic.License)) throw new TypeError('license must be an instance of Nlic.License');
+Netlicensing.LicenseService.create = function (context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(license instanceof Netlicensing.License)) throw new TypeError('license must be an instance of Netlicensing.License');
 
-    Nlic.CheckUtils.paramNotEmpty(licenseeNumber, 'licenseeNumber');
-    Nlic.CheckUtils.paramNotEmpty(licenseTemplateNumber, 'licenseTemplateNumber');
+    Netlicensing.CheckUtils.paramNotEmpty(licenseeNumber, 'licenseeNumber');
+    Netlicensing.CheckUtils.paramNotEmpty(licenseTemplateNumber, 'licenseTemplateNumber');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
     license.setProperty('licenseeNumber', licenseeNumber);
     license.setProperty('licenseTemplateNumber', licenseTemplateNumber);
 
     if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.LicenseService.ENDPOINT_PATH, license.asPropertiesMap(), Nlic.License);
+        .post(context, Netlicensing.LicenseService.ENDPOINT_PATH, license.asPropertiesMap(), Netlicensing.License);
 };
 
 /**
  * Gets license by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Getlicense
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/License+Services#LicenseServices-Getlicense
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * the license number
  * @param number string
@@ -1860,24 +1950,24 @@ Nlic.LicenseService.create = function (context, licenseeNumber, licenseTemplateN
  * return the license in promise
  * @returns {Promise}
  */
-Nlic.LicenseService.get = function (context, number) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.LicenseService.get = function (context, number) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .get(context, Nlic.LicenseService.ENDPOINT_PATH + '/' + number, {}, Nlic.License)
+        .get(context, Netlicensing.LicenseService.ENDPOINT_PATH + '/' + number, {}, Netlicensing.License)
 };
 
 /**
  * Returns licenses of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Licenseslist
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/License+Services#LicenseServices-Licenseslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string|null
@@ -1885,29 +1975,29 @@ Nlic.LicenseService.get = function (context, number) {
  * return array of licenses (of all products) or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.LicenseService.list = function (context, filter) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.LicenseService.list = function (context, filter) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
     if (filter) {
-        if (!Nlic.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!Netlicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .list(context, Nlic.LicenseService.ENDPOINT_PATH, queryParams, Nlic.License);
+        .list(context, Netlicensing.LicenseService.ENDPOINT_PATH, queryParams, Netlicensing.License);
 };
 
 /**
  * Updates license properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Updatelicense
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/License+Services#LicenseServices-Updatelicense
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * license number
  * @param number string
@@ -1917,34 +2007,34 @@ Nlic.LicenseService.list = function (context, filter) {
  * @param transactionNumber string|null
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param license Nlic.License
+ * @param license Netlicensing.License
  *
  * return updated license in promise.
  * @returns {Promise}
  */
-Nlic.LicenseService.update = function (context, number, transactionNumber, license) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(license instanceof Nlic.License)) throw new TypeError('license must be an instance of Nlic.License');
+Netlicensing.LicenseService.update = function (context, number, transactionNumber, license) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(license instanceof Netlicensing.License)) throw new TypeError('license must be an instance of Netlicensing.License');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
     if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.LicenseService.ENDPOINT_PATH + '/' + number, license.asPropertiesMap(), Nlic.License);
+        .post(context, Netlicensing.LicenseService.ENDPOINT_PATH + '/' + number, license.asPropertiesMap(), Netlicensing.License);
 };
 
 /**
  * Deletes license.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Deletelicense
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/License+Services#LicenseServices-Deletelicense
  *
  * When any license is deleted, corresponding transaction is created automatically.
  *
  *  determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * license number
  * @param number string
@@ -1955,16 +2045,16 @@ Nlic.LicenseService.update = function (context, number, transactionNumber, licen
  * return boolean state of delete in promise
  * @returns {Promise}
  */
-Nlic.LicenseService.delete = function (context, number, forceCascade) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.LicenseService.delete = function (context, number, forceCascade) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
     var queryParams = {forceCascade: Boolean(forceCascade)};
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .delete(context, Nlic.LicenseService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, Netlicensing.LicenseService.ENDPOINT_PATH + '/' + number, queryParams);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -1974,58 +2064,58 @@ Nlic.LicenseService.delete = function (context, number, forceCascade) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * JS representation of the ProductModule Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/License+Template+Services
  *
  * @constructor
  */
-Nlic.LicenseTemplateService = function () {
+Netlicensing.LicenseTemplateService = function () {
 };
 
 //static constants
-Object.defineProperty(Nlic.LicenseTemplateService, 'ENDPOINT_PATH', {value: 'licensetemplate'});
+Object.defineProperty(Netlicensing.LicenseTemplateService, 'ENDPOINT_PATH', {value: 'licensetemplate'});
 
 /**
  * Creates new license template object with given properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Createlicensetemplate
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/License+Template+Services#LicenseTemplateServices-Createlicensetemplate
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * parent product module to which the new license template is to be added
  * @param productModuleNumber
  *
  * non-null properties will be taken for the new object, null properties will either stay null, or will
  * be set to a default value, depending on property.
- * @param licenseTemplate Nlic.LicenseTemplate
+ * @param licenseTemplate Netlicensing.LicenseTemplate
  *
  * the newly created license template object in promise
  * @returns {Promise}
  */
-Nlic.LicenseTemplateService.create = function (context, productModuleNumber, licenseTemplate) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(licenseTemplate instanceof Nlic.LicenseTemplate)) throw new TypeError('licenseTemplate must be an instance of Nlic.LicenseTemplate');
+Netlicensing.LicenseTemplateService.create = function (context, productModuleNumber, licenseTemplate) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(licenseTemplate instanceof Netlicensing.LicenseTemplate)) throw new TypeError('licenseTemplate must be an instance of Netlicensing.LicenseTemplate');
 
-    Nlic.CheckUtils.paramNotEmpty(productModuleNumber, 'productModuleNumber');
+    Netlicensing.CheckUtils.paramNotEmpty(productModuleNumber, 'productModuleNumber');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
     licenseTemplate.setProperty('productModuleNumber', productModuleNumber);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.LicenseTemplateService.ENDPOINT_PATH, licenseTemplate.asPropertiesMap(), Nlic.LicenseTemplate);
+        .post(context, Netlicensing.LicenseTemplateService.ENDPOINT_PATH, licenseTemplate.asPropertiesMap(), Netlicensing.LicenseTemplate);
 };
 
 /**
  * Gets license template by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Getlicensetemplate
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/License+Template+Services#LicenseTemplateServices-Getlicensetemplate
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * the license template number
  * @param number string
@@ -2033,24 +2123,24 @@ Nlic.LicenseTemplateService.create = function (context, productModuleNumber, lic
  * return the license template object in promise
  * @returns {Promise}
  */
-Nlic.LicenseTemplateService.get = function (context, number) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.LicenseTemplateService.get = function (context, number) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .get(context, Nlic.LicenseTemplateService.ENDPOINT_PATH + '/' + number, {}, Nlic.LicenseTemplate);
+        .get(context, Netlicensing.LicenseTemplateService.ENDPOINT_PATH + '/' + number, {}, Netlicensing.LicenseTemplate);
 };
 
 /**
  * Returns all license templates of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Licensetemplateslist
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/License+Template+Services#LicenseTemplateServices-Licensetemplateslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string|null
@@ -2058,58 +2148,58 @@ Nlic.LicenseTemplateService.get = function (context, number) {
  * array of license templates (of all products/modules) or null/empty list if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.LicenseTemplateService.list = function (context, filter) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.LicenseTemplateService.list = function (context, filter) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
     if (filter) {
-        if (!Nlic.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!Netlicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .list(context, Nlic.LicenseTemplateService.ENDPOINT_PATH, queryParams, Nlic.LicenseTemplate);
+        .list(context, Netlicensing.LicenseTemplateService.ENDPOINT_PATH, queryParams, Netlicensing.LicenseTemplate);
 };
 
 /**
  * Updates license template properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Updatelicensetemplate
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/License+Template+Services#LicenseTemplateServices-Updatelicensetemplate
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * license template number
  * @param number string
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param licenseTemplate Nlic.LicenseTemplate
+ * @param licenseTemplate Netlicensing.LicenseTemplate
  *
  * updated license template in promise.
  * @returns {Promise}
  */
-Nlic.LicenseTemplateService.update = function (context, number, licenseTemplate) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(licenseTemplate instanceof Nlic.LicenseTemplate)) throw new TypeError('licenseTemplate must be an instance of Nlic.LicenseTemplate');
+Netlicensing.LicenseTemplateService.update = function (context, number, licenseTemplate) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(licenseTemplate instanceof Netlicensing.LicenseTemplate)) throw new TypeError('licenseTemplate must be an instance of Netlicensing.LicenseTemplate');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.LicenseTemplateService.ENDPOINT_PATH + '/' + number, licenseTemplate.asPropertiesMap(), Nlic.LicenseTemplate);
+        .post(context, Netlicensing.LicenseTemplateService.ENDPOINT_PATH + '/' + number, licenseTemplate.asPropertiesMap(), Netlicensing.LicenseTemplate);
 };
 
 /**
  * Deletes license template.See NetLicensingAPI JavaDoc for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Deletelicensetemplate
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/License+Template+Services#LicenseTemplateServices-Deletelicensetemplate
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * license template number
  * @param number string
@@ -2120,16 +2210,16 @@ Nlic.LicenseTemplateService.update = function (context, number, licenseTemplate)
  * return boolean state of delete in promise
  * @returns {Promise}
  */
-Nlic.LicenseTemplateService.delete = function (context, number, forceCascade) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.LicenseTemplateService.delete = function (context, number, forceCascade) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
     var queryParams = {forceCascade: Boolean(forceCascade)};
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .delete(context, Nlic.LicenseTemplateService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, Netlicensing.LicenseTemplateService.ENDPOINT_PATH + '/' + number, queryParams);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -2139,20 +2229,20 @@ Nlic.LicenseTemplateService.delete = function (context, number, forceCascade) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
-Nlic.PaymentMethodService = function () {
+Netlicensing.PaymentMethodService = function () {
 };
 
 //static constants
-Object.defineProperty(Nlic.PaymentMethodService, 'ENDPOINT_PATH', {value: 'paymentmethod'});
+Object.defineProperty(Netlicensing.PaymentMethodService, 'ENDPOINT_PATH', {value: 'paymentmethod'});
 
 /**
  * Gets payment method by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Payment+Method+Services#PaymentMethodServices-Getpaymentmethod
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Payment+Method+Services#PaymentMethodServices-Getpaymentmethod
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * the payment method number
  * @param number string
@@ -2160,25 +2250,25 @@ Object.defineProperty(Nlic.PaymentMethodService, 'ENDPOINT_PATH', {value: 'payme
  * return the payment method in promise
  * @returns {Promise}
  */
-Nlic.PaymentMethodService.get = function (context, number) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.PaymentMethodService.get = function (context, number) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .get(context, Nlic.PaymentMethodService.ENDPOINT_PATH + '/' + number, {}, Nlic.PaymentMethod);
+        .get(context, Netlicensing.PaymentMethodService.ENDPOINT_PATH + '/' + number, {}, Netlicensing.PaymentMethod);
 };
 
 
 /**
  * Returns payment methods of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Payment+Method+Services#PaymentMethodServices-Paymentmethodslist
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Payment+Method+Services#PaymentMethodServices-Paymentmethodslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string|null
@@ -2186,50 +2276,50 @@ Nlic.PaymentMethodService.get = function (context, number) {
  * array of payment method entities or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.PaymentMethodService.list = function (context, filter) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.PaymentMethodService.list = function (context, filter) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
     if (filter) {
-        if (!Nlic.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!Netlicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .list(context, Nlic.PaymentMethodService.ENDPOINT_PATH, queryParams, Nlic.PaymentMethod);
+        .list(context, Netlicensing.PaymentMethodService.ENDPOINT_PATH, queryParams, Netlicensing.PaymentMethod);
 };
 
 /**
  * Updates payment method properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Payment+Method+Services#PaymentMethodServices-Updatepaymentmethod
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Payment+Method+Services#PaymentMethodServices-Updatepaymentmethod
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * the payment method number
  * @param number string
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param paymentMethod Nlic.PaymentMethod
+ * @param paymentMethod Netlicensing.PaymentMethod
  *
  * return updated payment method in promise.
  * @returns {Promise}
  */
-Nlic.PaymentMethodService.update = function (context, number, paymentMethod) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(paymentMethod instanceof Nlic.PaymentMethod)) throw new TypeError('paymentMethod must be an instance of Nlic.PaymentMethod');
+Netlicensing.PaymentMethodService.update = function (context, number, paymentMethod) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(paymentMethod instanceof Netlicensing.PaymentMethod)) throw new TypeError('paymentMethod must be an instance of Netlicensing.PaymentMethod');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.PaymentMethodService.ENDPOINT_PATH + '/' + number, paymentMethod.asPropertiesMap(), Nlic.PaymentMethod);
+        .post(context, Netlicensing.PaymentMethodService.ENDPOINT_PATH + '/' + number, paymentMethod.asPropertiesMap(), Netlicensing.PaymentMethod);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -2239,60 +2329,60 @@ Nlic.PaymentMethodService.update = function (context, number, paymentMethod) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * JS representation of the ProductModule Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Module+Services
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Module+Services
  *
  * @constructor
  */
 
-Nlic.ProductModuleService = function () {
+Netlicensing.ProductModuleService = function () {
 
 };
 
 //static constants
-Object.defineProperty(Nlic.ProductModuleService, 'ENDPOINT_PATH', {value: 'productmodule'});
+Object.defineProperty(Netlicensing.ProductModuleService, 'ENDPOINT_PATH', {value: 'productmodule'});
 
 /**
  * Creates new product module object with given properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Module+Services#ProductModuleServices-Createproductmodule
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Module+Services#ProductModuleServices-Createproductmodule
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * parent product to which the new product module is to be added
  * @param productNumber string
  *
  * non-null properties will be taken for the new object, null properties will either stay null, or will
  * be set to a default value, depending on property.
- * @param productModule Nlic.ProductModule
+ * @param productModule Netlicensing.ProductModule
  *
  * the newly created product module object in promise
  * @returns {Promise}
  */
-Nlic.ProductModuleService.create = function (context, productNumber, productModule) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(productModule instanceof Nlic.ProductModule)) throw new TypeError('product must be an instance of Nlic.ProductModule');
+Netlicensing.ProductModuleService.create = function (context, productNumber, productModule) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(productModule instanceof Netlicensing.ProductModule)) throw new TypeError('product must be an instance of Netlicensing.ProductModule');
 
-    Nlic.CheckUtils.paramNotEmpty(productNumber, 'productNumber');
+    Netlicensing.CheckUtils.paramNotEmpty(productNumber, 'productNumber');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
     productModule.setProperty('productNumber', productNumber);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.ProductModuleService.ENDPOINT_PATH, productModule.asPropertiesMap(), Nlic.ProductModule);
+        .post(context, Netlicensing.ProductModuleService.ENDPOINT_PATH, productModule.asPropertiesMap(), Netlicensing.ProductModule);
 };
 
 /**
  * Gets product module by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Module+Services#ProductModuleServices-Getproductmodule
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Module+Services#ProductModuleServices-Getproductmodule
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * the product module number
  * @param number string
@@ -2300,24 +2390,24 @@ Nlic.ProductModuleService.create = function (context, productNumber, productModu
  * return the product module object in promise
  * @returns {Promise}
  */
-Nlic.ProductModuleService.get = function (context, number) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.ProductModuleService.get = function (context, number) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .get(context, Nlic.ProductModuleService.ENDPOINT_PATH + '/' + number, {}, Nlic.ProductModule);
+        .get(context, Netlicensing.ProductModuleService.ENDPOINT_PATH + '/' + number, {}, Netlicensing.ProductModule);
 };
 
 /**
  * Returns products of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Productslist
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Services#ProductServices-Productslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string|null
@@ -2325,58 +2415,58 @@ Nlic.ProductModuleService.get = function (context, number) {
  * array of product modules entities or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.ProductModuleService.list = function (context, filter) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.ProductModuleService.list = function (context, filter) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
     if (filter) {
-        if (!Nlic.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!Netlicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .list(context, Nlic.ProductModuleService.ENDPOINT_PATH, queryParams, Nlic.ProductModule);
+        .list(context, Netlicensing.ProductModuleService.ENDPOINT_PATH, queryParams, Netlicensing.ProductModule);
 };
 
 /**
  * Updates product module properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Module+Services#ProductModuleServices-Updateproductmodule
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Module+Services#ProductModuleServices-Updateproductmodule
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * product module number
  * @param number string
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param productModule Nlic.ProductModule
+ * @param productModule Netlicensing.ProductModule
  *
  * updated product module in promise.
  * @returns {Promise}
  */
-Nlic.ProductModuleService.update = function (context, number, productModule) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(productModule instanceof Nlic.ProductModule)) throw new TypeError('product must be an instance of Nlic.ProductModule');
+Netlicensing.ProductModuleService.update = function (context, number, productModule) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(productModule instanceof Netlicensing.ProductModule)) throw new TypeError('product must be an instance of Netlicensing.ProductModule');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.ProductModuleService.ENDPOINT_PATH + '/' + number, productModule.asPropertiesMap(), Nlic.ProductModule);
+        .post(context, Netlicensing.ProductModuleService.ENDPOINT_PATH + '/' + number, productModule.asPropertiesMap(), Netlicensing.ProductModule);
 };
 
 /**
  * Deletes product module.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Module+Services#ProductModuleServices-Deleteproductmodule
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Module+Services#ProductModuleServices-Deleteproductmodule
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * product module number
  * @param number string
@@ -2387,16 +2477,16 @@ Nlic.ProductModuleService.update = function (context, number, productModule) {
  * return boolean state of delete in promise
  * @returns {Promise}
  */
-Nlic.ProductModuleService.delete = function (context, number, forceCascade) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.ProductModuleService.delete = function (context, number, forceCascade) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
     var queryParams = {forceCascade: Boolean(forceCascade)};
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .delete(context, Nlic.ProductModuleService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, Netlicensing.ProductModuleService.ENDPOINT_PATH + '/' + number, queryParams);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -2406,53 +2496,53 @@ Nlic.ProductModuleService.delete = function (context, number, forceCascade) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * JS representation of the Product Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Services
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Services
  *
  * @constructor
  */
 
-Nlic.ProductService = function () {
+Netlicensing.ProductService = function () {
 };
 
 //static constants
-Object.defineProperty(Nlic.ProductService, 'ENDPOINT_PATH', {value: 'product'});
+Object.defineProperty(Netlicensing.ProductService, 'ENDPOINT_PATH', {value: 'product'});
 
 /**
  * Creates new product with given properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Createproduct
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Services#ProductServices-Createproduct
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * non-null properties will be taken for the new object, null properties will either stay null, or will
  * be set to a default value, depending on property.
- * @param product Nlic.Product
+ * @param product Netlicensing.Product
  *
  * return the newly created product object in promise
  * @returns {Promise}
  */
 
-Nlic.ProductService.create = function (context, product) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(product instanceof Nlic.Product)) throw new TypeError('product must be an instance of Nlic.Product');
+Netlicensing.ProductService.create = function (context, product) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(product instanceof Netlicensing.Product)) throw new TypeError('product must be an instance of Netlicensing.Product');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.ProductService.ENDPOINT_PATH, product.asPropertiesMap(), Nlic.Product);
+        .post(context, Netlicensing.ProductService.ENDPOINT_PATH, product.asPropertiesMap(), Netlicensing.Product);
 };
 
 /**
  * Gets product by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Getproduct
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Services#ProductServices-Getproduct
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * the product number
  * @param number string
@@ -2460,24 +2550,24 @@ Nlic.ProductService.create = function (context, product) {
  * return the product object in promise
  * @returns {Promise}
  */
-Nlic.ProductService.get = function (context, number) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.ProductService.get = function (context, number) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .get(context, Nlic.ProductService.ENDPOINT_PATH + '/' + number, {}, Nlic.Product);
+        .get(context, Netlicensing.ProductService.ENDPOINT_PATH + '/' + number, {}, Netlicensing.Product);
 };
 
 /**
  * Returns products of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Productslist
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Services#ProductServices-Productslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string|null
@@ -2485,58 +2575,58 @@ Nlic.ProductService.get = function (context, number) {
  * array of product entities or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.ProductService.list = function (context, filter) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.ProductService.list = function (context, filter) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
     if (filter) {
-        if (!Nlic.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!Netlicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .list(context, Nlic.ProductService.ENDPOINT_PATH, queryParams, Nlic.Product);
+        .list(context, Netlicensing.ProductService.ENDPOINT_PATH, queryParams, Netlicensing.Product);
 };
 
 /**
  * Updates product properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Updateproduct
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Services#ProductServices-Updateproduct
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * product number
  * @param number string
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param product Nlic.Product
+ * @param product Netlicensing.Product
  *
  * updated product in promise.
  * @returns {Promise}
  */
-Nlic.ProductService.update = function (context, number, product) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(product instanceof Nlic.Product)) throw new TypeError('product must be an instance of Nlic.Product');
+Netlicensing.ProductService.update = function (context, number, product) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(product instanceof Netlicensing.Product)) throw new TypeError('product must be an instance of Netlicensing.Product');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.ProductService.ENDPOINT_PATH + '/' + number, product.asPropertiesMap(), Nlic.Product);
+        .post(context, Netlicensing.ProductService.ENDPOINT_PATH + '/' + number, product.asPropertiesMap(), Netlicensing.Product);
 };
 
 /**
  * Deletes product.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Product+Services#ProductServices-Deleteproduct
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Product+Services#ProductServices-Deleteproduct
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * product number
  * @param number string
@@ -2547,16 +2637,16 @@ Nlic.ProductService.update = function (context, number, product) {
  * return boolean state of delete in promise
  * @returns {Promise}
  */
-Nlic.ProductService.delete = function (context, number, forceCascade) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.ProductService.delete = function (context, number, forceCascade) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
     var queryParams = {forceCascade: Boolean(forceCascade)};
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .delete(context, Nlic.ProductService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, Netlicensing.ProductService.ENDPOINT_PATH + '/' + number, queryParams);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -2566,9 +2656,9 @@ Nlic.ProductService.delete = function (context, number, forceCascade) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
-Nlic.Service = (function () {
+Netlicensing.Service = (function () {
     var instance;
 
     function createInstance() {
@@ -2693,7 +2783,7 @@ Nlic.Service = (function () {
          */
         instance.request = function (context, method, urlTemplate, queryParams) {
 
-            if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+            if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
             urlTemplate = String(urlTemplate);
             queryParams = queryParams || {};
@@ -2717,13 +2807,13 @@ Nlic.Service = (function () {
             var headers = {Accept: 'application/json'};
 
             switch (context.getSecurityMode()) {
-                case Nlic.Context.BASIC_AUTHENTICATION:
+                case Netlicensing.Context.BASIC_AUTHENTICATION:
                     if (!context.getUsername()) throw new Error('Missing parameter "username"');
                     if (!context.getPassword()) throw new Error('Missing parameter "password"');
 
                     headers['Authorization'] = 'Basic ' + btoa(context.getUsername() + ':' + context.getPassword());
                     break;
-                case Nlic.Context.APIKEY_IDENTIFICATION:
+                case Netlicensing.Context.APIKEY_IDENTIFICATION:
                     if (!context.getApiKey()) throw new Error('Missing parameter "apiKey"');
 
                     headers['Authorization'] = 'Basic ' + btoa('apiKey:' + context.getApiKey());
@@ -2733,7 +2823,7 @@ Nlic.Service = (function () {
                     break;
             }
 
-            return new Nlic.HttpRequest().send({
+            return new Netlicensing.HttpRequest().send({
                 url: restUrl,
                 method: method,
                 headers: headers,
@@ -2807,8 +2897,8 @@ Nlic.Service = (function () {
 
             var entity = new resultType();
 
-            if (!(entity instanceof Nlic.BaseEntity)) {
-                throw new Error('Invalid entity ' + resultType + ', entity must be instanceof Nlic.BaseEntity');
+            if (!(entity instanceof Netlicensing.BaseEntity)) {
+                throw new Error('Invalid entity ' + resultType + ', entity must be instanceof Netlicensing.BaseEntity');
             }
 
             var propertiesLength = properties.length;
@@ -2865,48 +2955,48 @@ Nlic.Service = (function () {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * JS representation of the Token Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Token+Services
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Token+Services
  *
  * @constructor
  */
-Nlic.TokenService = function () {
+Netlicensing.TokenService = function () {
 };
 
 //static constants
-Object.defineProperty(Nlic.TokenService, 'ENDPOINT_PATH', {value: 'token'});
+Object.defineProperty(Netlicensing.TokenService, 'ENDPOINT_PATH', {value: 'token'});
 
 /**
  * Creates new token.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Token+Services#TokenServices-Createtoken
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Token+Services#TokenServices-Createtoken
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param token Nlic.Token
+ * @param token Netlicensing.Token
  *
  * return created token in promise
  * @returns {Promise}
  */
-Nlic.TokenService.create = function (context, token) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(token instanceof Nlic.Token)) throw new TypeError('token must be an instance of Nlic.Token');
+Netlicensing.TokenService.create = function (context, token) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(token instanceof Netlicensing.Token)) throw new TypeError('token must be an instance of Netlicensing.Token');
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.TokenService.ENDPOINT_PATH, token.asPropertiesMap(), Nlic.Token);
+        .post(context, Netlicensing.TokenService.ENDPOINT_PATH, token.asPropertiesMap(), Netlicensing.Token);
 };
 
 /**
  * Gets token by its number..See NetLicensingAPI for details:
- * https://www.labs64.de/conluence/display/NLICPUB/Token+Services#TokenServices-Gettoken
+ * https://www.labs64.de/conluence/display/NetlicensingPUB/Token+Services#TokenServices-Gettoken
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * the token number
  * @param number
@@ -2914,22 +3004,22 @@ Nlic.TokenService.create = function (context, token) {
  * return the token in promise
  * @returns {Promise}
  */
-Nlic.TokenService.get = function (context, number) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.TokenService.get = function (context, number) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .get(context, Nlic.TokenService.ENDPOINT_PATH + '/' + number, {}, Nlic.Token);
+        .get(context, Netlicensing.TokenService.ENDPOINT_PATH + '/' + number, {}, Netlicensing.Token);
 };
 
 /**
  * Returns tokens of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Token+Services#TokenServices-Tokenslist
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Token+Services#TokenServices-Tokenslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string|null
@@ -2937,27 +3027,27 @@ Nlic.TokenService.get = function (context, number) {
  * array of token entities or empty array if nothing found.
  * @return array
  */
-Nlic.TokenService.list = function (context, filter) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.TokenService.list = function (context, filter) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
     var queryParams = {};
 
     if (filter) {
-        if (!Nlic.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!Netlicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .list(context, Nlic.TokenService.ENDPOINT_PATH, queryParams, Nlic.Token);
+        .list(context, Netlicensing.TokenService.ENDPOINT_PATH, queryParams, Netlicensing.Token);
 };
 
 /**
  * Delete token by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Token+Services#TokenServices-Deletetoken
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Token+Services#TokenServices-Deletetoken
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  *  the token number
  * @param number string
@@ -2965,14 +3055,14 @@ Nlic.TokenService.list = function (context, filter) {
  * return boolean state of delete in promise
  * @returns {Promise}
  */
-Nlic.TokenService.delete = function (context, number) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.TokenService.delete = function (context, number) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .delete(context, Nlic.TokenService.ENDPOINT_PATH + '/' + number);
+        .delete(context, Netlicensing.TokenService.ENDPOINT_PATH + '/' + number);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -2982,11 +3072,11 @@ Nlic.TokenService.delete = function (context, number) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * JS representation of the Transaction Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Transaction+Services
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Transaction+Services
  *
  * Transaction is created each time change to  LicenseService licenses happens. For instance licenses are
  * obtained by a licensee, licenses disabled by vendor, licenses deleted, etc. Transaction is created no matter what
@@ -2999,43 +3089,43 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.TransactionService = function () {
+Netlicensing.TransactionService = function () {
 };
 
 //static constants
-Object.defineProperty(Nlic.TransactionService, 'ENDPOINT_PATH', {value: 'transaction'});
+Object.defineProperty(Netlicensing.TransactionService, 'ENDPOINT_PATH', {value: 'transaction'});
 
 /**
  * Creates new transaction object with given properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Transaction+Services#TransactionServices-Createtransaction
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Transaction+Services#TransactionServices-Createtransaction
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * non-null properties will be taken for the new object, null properties will either stay null, or will
  * be set to a default value, depending on property.
- * @param transaction Nlic.Transaction
+ * @param transaction Netlicensing.Transaction
  *
  * return the newly created transaction object in promise
  * @returns {Promise}
  */
-Nlic.TransactionService.create = function (context, transaction) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(transaction instanceof Nlic.Transaction)) throw new TypeError('transaction must be an instance of Nlic.Transaction');
+Netlicensing.TransactionService.create = function (context, transaction) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(transaction instanceof Netlicensing.Transaction)) throw new TypeError('transaction must be an instance of Netlicensing.Transaction');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.TransactionService.ENDPOINT_PATH, transaction.asPropertiesMap(), Nlic.Transaction);
+        .post(context, Netlicensing.TransactionService.ENDPOINT_PATH, transaction.asPropertiesMap(), Netlicensing.Transaction);
 };
 
 /**
  * Gets transaction by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Transaction+Services#TransactionServices-Gettransaction
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Transaction+Services#TransactionServices-Gettransaction
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * the transaction number
  * @param number string
@@ -3043,24 +3133,24 @@ Nlic.TransactionService.create = function (context, transaction) {
  * return the transaction in promise
  * @returns {Promise}
  */
-Nlic.TransactionService.get = function (context, number) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.TransactionService.get = function (context, number) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .get(context, Nlic.TransactionService.ENDPOINT_PATH + '/' + number, {}, Nlic.Transaction);
+        .get(context, Netlicensing.TransactionService.ENDPOINT_PATH + '/' + number, {}, Netlicensing.Transaction);
 };
 
 /**
  * Returns all transactions of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Transaction+Services#TransactionServices-Transactionslist
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Transaction+Services#TransactionServices-Transactionslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string
@@ -3068,50 +3158,50 @@ Nlic.TransactionService.get = function (context, number) {
  * array of transaction entities or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.TransactionService.list = function (context, filter) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.TransactionService.list = function (context, filter) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
     if (filter) {
-        if (!Nlic.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!Netlicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .list(context, Nlic.TransactionService.ENDPOINT_PATH, queryParams, Nlic.Transaction);
+        .list(context, Netlicensing.TransactionService.ENDPOINT_PATH, queryParams, Netlicensing.Transaction);
 };
 
 /**
  * Updates transaction properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Transaction+Services#TransactionServices-Updatetransaction
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Transaction+Services#TransactionServices-Updatetransaction
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * transaction number
  * @param number string
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param transaction Nlic.Transaction
+ * @param transaction Netlicensing.Transaction
  *
  * return updated transaction in promise.
  * @returns {Promise}
  */
-Nlic.TransactionService.update = function (context, number, transaction) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
-    if (!(transaction instanceof Nlic.Transaction)) throw new TypeError('transaction must be an instance of Nlic.Transaction');
+Netlicensing.TransactionService.update = function (context, number, transaction) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+    if (!(transaction instanceof Netlicensing.Transaction)) throw new TypeError('transaction must be an instance of Netlicensing.Transaction');
 
-    Nlic.CheckUtils.paramNotEmpty(number, 'number');
+    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .post(context, Nlic.TransactionService.ENDPOINT_PATH + '/' + number, transaction.asPropertiesMap(), Nlic.Transaction);
+        .post(context, Netlicensing.TransactionService.ENDPOINT_PATH + '/' + number, transaction.asPropertiesMap(), Netlicensing.Transaction);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -3121,37 +3211,37 @@ Nlic.TransactionService.update = function (context, number, transaction) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * JS representation of the Utility Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Utility+Services
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Utility+Services
  * @constructor
  */
-Nlic.UtilityService = function () {
+Netlicensing.UtilityService = function () {
 };
 
 //static constants
-Object.defineProperty(Nlic.UtilityService, 'ENDPOINT_PATH', {value: 'utility'});
+Object.defineProperty(Netlicensing.UtilityService, 'ENDPOINT_PATH', {value: 'utility'});
 
 /**
  * Returns all license types. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Utility+Services#UtilityServices-LicenseTypeslist
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Utility+Services#UtilityServices-LicenseTypeslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * array of available license types or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.UtilityService.listLicenseTypes = function (context) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.UtilityService.listLicenseTypes = function (context) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .list(context, Nlic.UtilityService.ENDPOINT_PATH + '/licenseTypes')
+        .list(context, Netlicensing.UtilityService.ENDPOINT_PATH + '/licenseTypes')
         .then(function (items) {
             var length = items.length;
             var licenseTypes = [];
@@ -3166,22 +3256,22 @@ Nlic.UtilityService.listLicenseTypes = function (context) {
 
 /**
  * Returns all license models. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Utility+Services#UtilityServices-LicensingModelslist
+ * https://www.labs64.de/confluence/display/NetlicensingPUB/Utility+Services#UtilityServices-LicensingModelslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Nlic.Context
+ * @param context Netlicensing.Context
  *
  * array of available license models or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Nlic.UtilityService.listLicensingModels = function (context) {
-    if (!(context instanceof Nlic.Context)) throw new TypeError('context must be an instance of Nlic.Context');
+Netlicensing.UtilityService.listLicensingModels = function (context) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-    context.setSecurityMode(Nlic.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    return Nlic.Service
+    return Netlicensing.Service
         .getInstance()
-        .list(context, Nlic.UtilityService.ENDPOINT_PATH + '/licensingModels')
+        .list(context, Netlicensing.UtilityService.ENDPOINT_PATH + '/licensingModels')
         .then(function (items) {
             var length = items.length;
             var licensingModels = [];
@@ -3201,51 +3291,7 @@ Nlic.UtilityService.listLicensingModels = function (context) {
  */
 
 //namespace
-var Nlic = Nlic || {};
-
-
-Nlic.CheckUtils = function () {
-
-};
-
-/**
- * Check if value is valid
- * @param value
- * @returns {boolean}
- */
-Nlic.CheckUtils.isValid = function (value) {
-    var valid = (value !== undefined && typeof value !== 'function');
-    if (typeof value === 'number') valid = (isFinite(value) && !isNaN(value));
-    return valid;
-};
-
-/**
- * Ensures that an object reference passed as a parameter to the calling method is not null.
- *
- * param to check
- * @param parameter
- *
- * name of the parameter
- * @param parameterName
- */
-Nlic.CheckUtils.paramNotNull = function (parameter, parameterName) {
-    if (!Nlic.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
-    if (parameter === null) throw new TypeError('Parameter ' + parameterName + ' cannot be null')
-};
-
-Nlic.CheckUtils.paramNotEmpty = function (parameter, parameterName) {
-    if (!Nlic.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
-    if (!parameter) throw new TypeError('Parameter ' + parameterName + ' cannot be null or empty string')
-};
-/**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      http://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
-
-//namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * Class Context
@@ -3276,7 +3322,7 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.Context = function (values) {
+Netlicensing.Context = function (values) {
 
     if (values === undefined) values = {};
 
@@ -3291,7 +3337,7 @@ Nlic.Context = function (values) {
      */
     var __defaults = {
         baseUrl: 'https://go.netlicensing.io/core/v2/rest',
-        securityMode: Nlic.Context.BASIC_AUTHENTICATION
+        securityMode: Netlicensing.Context.BASIC_AUTHENTICATION
     };
 
     /**
@@ -3454,8 +3500,8 @@ Nlic.Context = function (values) {
      * @private
      */
     this.__checkValue = function (key, value) {
-        if (!Nlic.CheckUtils.isValid(key) || typeof key === 'object')  throw new Error('Bad value key:' + key);
-        if (!Nlic.CheckUtils.isValid(value)) throw new Error('Value ' + key + ' has wrong value' + value);
+        if (!Netlicensing.CheckUtils.isValid(key) || typeof key === 'object')  throw new Error('Bad value key:' + key);
+        if (!Netlicensing.CheckUtils.isValid(value)) throw new Error('Value ' + key + ' has wrong value' + value);
     };
 
     //make methods not changeable
@@ -3477,54 +3523,54 @@ Nlic.Context = function (values) {
 };
 
 //Security mode static constants
-Object.defineProperty(Nlic.Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
-Object.defineProperty(Nlic.Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
+Object.defineProperty(Netlicensing.Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
+Object.defineProperty(Netlicensing.Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
 
-Nlic.Context.prototype.setBaseUrl = function (baseUrl) {
+Netlicensing.Context.prototype.setBaseUrl = function (baseUrl) {
     return this.setValue('baseUrl', baseUrl);
 };
 
-Nlic.Context.prototype.getBaseUrl = function (def) {
+Netlicensing.Context.prototype.getBaseUrl = function (def) {
     return this.getValue('baseUrl', def);
 };
 
-Nlic.Context.prototype.setUsername = function (username) {
+Netlicensing.Context.prototype.setUsername = function (username) {
     return this.setValue('username', username);
 };
 
-Nlic.Context.prototype.getUsername = function (def) {
+Netlicensing.Context.prototype.getUsername = function (def) {
     return this.getValue('username', def);
 };
 
-Nlic.Context.prototype.setPassword = function (password) {
+Netlicensing.Context.prototype.setPassword = function (password) {
     return this.setValue('password', password);
 };
 
-Nlic.Context.prototype.getPassword = function (def) {
+Netlicensing.Context.prototype.getPassword = function (def) {
     return this.getValue('password', def);
 };
 
-Nlic.Context.prototype.setApiKey = function (apiKey) {
+Netlicensing.Context.prototype.setApiKey = function (apiKey) {
     return this.setValue('apiKey', apiKey);
 };
 
-Nlic.Context.prototype.getApiKey = function (def) {
+Netlicensing.Context.prototype.getApiKey = function (def) {
     return this.getValue('apiKey', def);
 };
 
-Nlic.Context.prototype.setSecurityMode = function (securityMode) {
+Netlicensing.Context.prototype.setSecurityMode = function (securityMode) {
     return this.setValue('securityMode', securityMode);
 };
 
-Nlic.Context.prototype.getSecurityMode = function (def) {
+Netlicensing.Context.prototype.getSecurityMode = function (def) {
     return this.getValue('securityMode', def);
 };
 
-Nlic.Context.prototype.setVendorNumber = function (vendorNumber) {
+Netlicensing.Context.prototype.setVendorNumber = function (vendorNumber) {
     return this.setValue('vendorNumber', vendorNumber);
 };
 
-Nlic.Context.prototype.getVendorNumber = function (def) {
+Netlicensing.Context.prototype.getVendorNumber = function (def) {
     return this.getValue('vendorNumber', def);
 };
 /**
@@ -3535,13 +3581,13 @@ Nlic.Context.prototype.getVendorNumber = function (def) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
-Nlic.HttpRequest = function () {
+Netlicensing.HttpRequest = function () {
 
 };
 
-Nlic.HttpRequest.prototype.__serialize = function (data, prefix) {
+Netlicensing.HttpRequest.prototype.__serialize = function (data, prefix) {
     var query = [];
     for (var key in data) {
         if (data.hasOwnProperty(key)) {
@@ -3556,7 +3602,7 @@ Nlic.HttpRequest.prototype.__serialize = function (data, prefix) {
     return query.join("&").replace(/%5B[0-9]+%5D=/g, '=');
 };
 
-Nlic.HttpRequest.prototype.__parseQuery = function (url) {
+Netlicensing.HttpRequest.prototype.__parseQuery = function (url) {
     var query = {};
     var queryPos = url.indexOf('?');
     var parts = url.substr(queryPos + 1).split('&');
@@ -3570,7 +3616,7 @@ Nlic.HttpRequest.prototype.__parseQuery = function (url) {
     return query;
 };
 
-Nlic.HttpRequest.prototype.__parseHeadersStr = function (headers) {
+Netlicensing.HttpRequest.prototype.__parseHeadersStr = function (headers) {
     if (typeof headers !== 'string') return headers;
     var responseHeaders = {};
     headers = headers.split("\n");
@@ -3582,7 +3628,7 @@ Nlic.HttpRequest.prototype.__parseHeadersStr = function (headers) {
     return responseHeaders;
 };
 
-Nlic.HttpRequest.prototype.send = function (config) {
+Netlicensing.HttpRequest.prototype.send = function (config) {
     var self = this;
 
     return new Promise(function (resolve, reject) {
@@ -3676,60 +3722,60 @@ Nlic.HttpRequest.prototype.send = function (config) {
     });
 };
 
-Nlic.HttpRequest.prototype.get = function (url, config) {
+Netlicensing.HttpRequest.prototype.get = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'GET'}));
 };
 
-Nlic.HttpRequest.prototype.post = function (url, data, config) {
+Netlicensing.HttpRequest.prototype.post = function (url, data, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'POST', data: data}));
 };
 
-Nlic.HttpRequest.prototype.patch = function (url, data, config) {
+Netlicensing.HttpRequest.prototype.patch = function (url, data, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'PATCH', data: data}));
 };
 
-Nlic.HttpRequest.prototype.head = function (url, config) {
+Netlicensing.HttpRequest.prototype.head = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'HEAD'}));
 };
 
-Nlic.HttpRequest.prototype.jsonp = function (url, config) {
+Netlicensing.HttpRequest.prototype.jsonp = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'JSONP'}));
 };
 
-Nlic.HttpRequest.prototype.put = function (url, config) {
+Netlicensing.HttpRequest.prototype.put = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'PUT'}));
 };
 
-Nlic.HttpRequest.prototype.delete = function (url, config) {
+Netlicensing.HttpRequest.prototype.delete = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'DELETE'}));
 };
 
-Nlic.HttpRequest.get = function (url, config) {
-    return new Nlic.HttpRequest().get(url, config);
+Netlicensing.HttpRequest.get = function (url, config) {
+    return new Netlicensing.HttpRequest().get(url, config);
 };
 
-Nlic.HttpRequest.post = function (url, data, config) {
-    return new Nlic.HttpRequest().post(url, data, config);
+Netlicensing.HttpRequest.post = function (url, data, config) {
+    return new Netlicensing.HttpRequest().post(url, data, config);
 };
 
-Nlic.HttpRequest.patch = function (url, data, config) {
-    return new Nlic.HttpRequest().patch(url, data, config);
+Netlicensing.HttpRequest.patch = function (url, data, config) {
+    return new Netlicensing.HttpRequest().patch(url, data, config);
 };
 
-Nlic.HttpRequest.head = function (url, data, config) {
-    return new Nlic.HttpRequest().head(url, data, config);
+Netlicensing.HttpRequest.head = function (url, data, config) {
+    return new Netlicensing.HttpRequest().head(url, data, config);
 };
 
-Nlic.HttpRequest.jsonp = function (url, data, config) {
-    return new Nlic.HttpRequest().jsonp(url, data, config);
+Netlicensing.HttpRequest.jsonp = function (url, data, config) {
+    return new Netlicensing.HttpRequest().jsonp(url, data, config);
 };
 
-Nlic.HttpRequest.put = function (url, data, config) {
-    return new Nlic.HttpRequest().put(url, data, config);
+Netlicensing.HttpRequest.put = function (url, data, config) {
+    return new Netlicensing.HttpRequest().put(url, data, config);
 };
 
-Nlic.HttpRequest.delete = function (url, data, config) {
-    return new Nlic.HttpRequest().delete(url, data, config);
+Netlicensing.HttpRequest.delete = function (url, data, config) {
+    return new Netlicensing.HttpRequest().delete(url, data, config);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -3739,9 +3785,9 @@ Nlic.HttpRequest.delete = function (url, data, config) {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
-Nlic.ValidationParameters = function () {
+Netlicensing.ValidationParameters = function () {
     var __productNumber;
     var __licenseeName;
     var __licenseeSecret;
@@ -3752,7 +3798,7 @@ Nlic.ValidationParameters = function () {
      *
      * optional productNumber, must be provided in case licensee auto-create is enabled
      * @param productNumber
-     * @returns {Nlic.ValidationParameters}
+     * @returns {Netlicensing.ValidationParameters}
      */
     this.setProductNumber = function (productNumber) {
         __productNumber = productNumber;
@@ -3770,7 +3816,7 @@ Nlic.ValidationParameters = function () {
      * be the name, but can be used to store any other useful string information with new licensees, up to
      * 1000 characters.
      * @param licenseeName
-     * @returns {Nlic.ValidationParameters}
+     * @returns {Netlicensing.ValidationParameters}
      */
     this.setLicenseeName = function (licenseeName) {
         __licenseeName = licenseeName;
@@ -3786,7 +3832,7 @@ Nlic.ValidationParameters = function () {
      *
      * licensee secret stored on the client side. Refer to Licensee Secret documentation for details.
      * @param licenseeSecret
-     * @returns {Nlic.ValidationParameters}
+     * @returns {Netlicensing.ValidationParameters}
      */
     this.setLicenseeSecret = function (licenseeSecret) {
         __licenseeSecret = licenseeSecret;
@@ -3826,10 +3872,10 @@ Nlic.ValidationParameters = function () {
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 
-Nlic.ValidationResults = function () {
+Netlicensing.ValidationResults = function () {
 
     var __validators = {};
     var __ttl;
@@ -3839,7 +3885,7 @@ Nlic.ValidationResults = function () {
     };
 
     this.setProductModuleValidation = function (productModuleNumber, productModuleValidation) {
-        if (!Nlic.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
+        if (!Netlicensing.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
 
         __validators[productModuleNumber] = productModuleValidation;
 
@@ -3847,13 +3893,13 @@ Nlic.ValidationResults = function () {
     };
 
     this.getProductModuleValidation = function (productModuleNumber) {
-        if (!Nlic.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
+        if (!Netlicensing.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
 
         return __validators[productModuleNumber];
     };
 
     this.setTtl = function (ttl) {
-        if (!Nlic.CheckUtils.isValid(ttl) || typeof ttl === 'object')  throw new TypeError('Bad ttl:' + ttl);
+        if (!Netlicensing.CheckUtils.isValid(ttl) || typeof ttl === 'object')  throw new TypeError('Bad ttl:' + ttl);
         __ttl = new Date(String(ttl));
         return this;
     };
@@ -3863,7 +3909,7 @@ Nlic.ValidationResults = function () {
     };
 };
 
-Nlic.ValidationResults.prototype.toString = function () {
+Netlicensing.ValidationResults.prototype.toString = function () {
     var data = 'ValidationResult [';
     var validators = this.getValidators();
 

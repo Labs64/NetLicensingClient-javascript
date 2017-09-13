@@ -6,7 +6,7 @@
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * PaymentMethod entity used internally by NetLicensing.
@@ -17,8 +17,8 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.PaymentMethod = function PaymentMethod() {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.PaymentMethod = function PaymentMethod() {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -36,29 +36,29 @@ Nlic.PaymentMethod = function PaymentMethod() {
     this.__notChangeable('asPropertiesMap');
 };
 
-Nlic.PaymentMethod.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.PaymentMethod.prototype.constructor = Nlic.PaymentMethod;
+Netlicensing.PaymentMethod.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.PaymentMethod.prototype.constructor = Netlicensing.PaymentMethod;
 
-Nlic.PaymentMethod.prototype.setNumber = function (number) {
+Netlicensing.PaymentMethod.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Nlic.PaymentMethod.prototype.getNumber = function (def) {
+Netlicensing.PaymentMethod.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Nlic.PaymentMethod.prototype.setActive = function (active) {
+Netlicensing.PaymentMethod.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Nlic.PaymentMethod.prototype.getActive = function (def) {
+Netlicensing.PaymentMethod.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Nlic.PaymentMethod.prototype.setPaypalSubject = function (paypalSubject) {
+Netlicensing.PaymentMethod.prototype.setPaypalSubject = function (paypalSubject) {
     return this.setProperty('paypal.subject', paypalSubject);
 };
 
-Nlic.PaymentMethod.prototype.getPaypalSubject = function (def) {
+Netlicensing.PaymentMethod.prototype.getPaypalSubject = function (def) {
     return this.getProperty('paypal.subject', def);
 };

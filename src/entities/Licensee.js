@@ -6,7 +6,7 @@
  */
 
 //namespace
-var Nlic = Nlic || {};
+var Netlicensing = Netlicensing || {};
 
 /**
  * Licensee entity used internally by NetLicensing.
@@ -37,8 +37,8 @@ var Nlic = Nlic || {};
  * @constructor
  */
 
-Nlic.Licensee = function () {
-    Nlic.BaseEntity.apply(this, arguments);
+Netlicensing.Licensee = function () {
+    Netlicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -60,49 +60,49 @@ Nlic.Licensee = function () {
     this.__notChangeable('asPropertiesMap');
 };
 
-Nlic.Licensee.prototype = Object.create(Nlic.BaseEntity.prototype);
-Nlic.Licensee.prototype.constructor = Nlic.Licensee;
+Netlicensing.Licensee.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.Licensee.prototype.constructor = Netlicensing.Licensee;
 
-Nlic.Licensee.prototype.setNumber = function (number) {
+Netlicensing.Licensee.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Nlic.Licensee.prototype.getNumber = function (def) {
+Netlicensing.Licensee.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Nlic.Licensee.prototype.setActive = function (active) {
+Netlicensing.Licensee.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Nlic.Licensee.prototype.getActive = function (def) {
+Netlicensing.Licensee.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Nlic.Licensee.prototype.setName = function (name) {
+Netlicensing.Licensee.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Nlic.Licensee.prototype.getName = function (def) {
+Netlicensing.Licensee.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Nlic.Licensee.prototype.setLicenseeSecret = function (licenseeSecret) {
+Netlicensing.Licensee.prototype.setLicenseeSecret = function (licenseeSecret) {
     return this.setProperty('licenseeSecret', licenseeSecret);
 };
 
-Nlic.Licensee.prototype.getLicenseeSecret = function (def) {
+Netlicensing.Licensee.prototype.getLicenseeSecret = function (def) {
     return this.getProperty('licenseeSecret', def);
 };
 
-Nlic.Licensee.prototype.setMarkedForTransfer = function (markedForTransfer) {
+Netlicensing.Licensee.prototype.setMarkedForTransfer = function (markedForTransfer) {
     return this.setProperty('markedForTransfer', markedForTransfer);
 };
 
-Nlic.Licensee.prototype.getMarkedForTransfer = function (def) {
+Netlicensing.Licensee.prototype.getMarkedForTransfer = function (def) {
     return this.getProperty('markedForTransfer', def);
 };
 
-Nlic.Licensee.prototype.getInUse = function (def) {
+Netlicensing.Licensee.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };
