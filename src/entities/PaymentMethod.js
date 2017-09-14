@@ -33,7 +33,7 @@ Netlicensing.PaymentMethod = function PaymentMethod() {
     this.__defines(['number', 'active', 'paypal.subject']);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
 Netlicensing.PaymentMethod.prototype = Object.create(Netlicensing.BaseEntity.prototype);
@@ -62,3 +62,16 @@ Netlicensing.PaymentMethod.prototype.setPaypalSubject = function (paypalSubject)
 Netlicensing.PaymentMethod.prototype.getPaypalSubject = function (def) {
     return this.getProperty('paypal.subject', def);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.PaymentMethod.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.PaymentMethod.prototype, [
+    'setNumber',
+    'getNumber',
+    'setActive',
+    'getActive',
+    'setPaypalSubject',
+    'getPaypalSubject',
+]);

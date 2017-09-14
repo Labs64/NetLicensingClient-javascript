@@ -85,8 +85,14 @@ Netlicensing.LicenseTemplate = function () {
     this.__define('inUse', true);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
+
+//static constants
+Object.defineProperty(Netlicensing.LicenseTemplate, 'LICENSE_TYPE_FEATURE', {value: 'FEATURE'});
+Object.defineProperty(Netlicensing.LicenseTemplate, 'LICENSE_TYPE_TIMEVOLUME', {value: 'TIMEVOLUME'});
+Object.defineProperty(Netlicensing.LicenseTemplate, 'LICENSE_TYPE_FLOATING', {value: 'FLOATING'});
+Object.defineProperty(Netlicensing.LicenseTemplate, 'LICENSE_TYPE_QUANTITY', {value: 'QUANTITY'});
 
 Netlicensing.LicenseTemplate.prototype = Object.create(Netlicensing.BaseEntity.prototype);
 Netlicensing.LicenseTemplate.prototype.constructor = Netlicensing.LicenseTemplate;
@@ -186,3 +192,34 @@ Netlicensing.LicenseTemplate.prototype.setQuantity = function (quantity) {
 Netlicensing.LicenseTemplate.prototype.getQuantity = function (def) {
     return this.getProperty('quantity', def);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.LicenseTemplate.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.LicenseTemplate.prototype, [
+    'setNumber',
+    'getNumber',
+    'setActive',
+    'getActive',
+    'setName',
+    'getName',
+    'setLicenseType',
+    'getLicenseType',
+    'setPrice',
+    'getPrice',
+    'setCurrency',
+    'getCurrency',
+    'setAutomatic',
+    'getAutomatic',
+    'setHidden',
+    'getHidden',
+    'setHideLicenses',
+    'getHideLicenses',
+    'setTimeVolume',
+    'getTimeVolume',
+    'setMaxSessions',
+    'getMaxSessions',
+    'setQuantity',
+    'getQuantity',
+]);

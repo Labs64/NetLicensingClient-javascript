@@ -21,4 +21,13 @@ describe('UtilityServiceTest', function () {
                 expect(licensingModels.length).toBeGreaterThanOrEqual(6);
             });
     });
+
+    it('check "listCountries" method', function () {
+        return Netlicensing.UtilityService.listCountries(context)
+            .then(function (listCountries) {
+                expect(Array.isArray(listCountries)).toBe(true);
+                expect(listCountries[0] instanceof Netlicensing.Country).toBe(true);
+                expect(listCountries.length).toBeGreaterThanOrEqual(0);
+            });
+    });
 });

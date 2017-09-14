@@ -60,8 +60,13 @@ Netlicensing.Token = function () {
     this.__defines(['number', 'shopURL'], true);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
+
+//static constants
+Object.defineProperty(Netlicensing.Token, 'TOKEN_TYPE_DEFAULT', {value: 'DEFAULT'});
+Object.defineProperty(Netlicensing.Token, 'TOKEN_TYPE_SHOP', {value: 'SHOP'});
+Object.defineProperty(Netlicensing.Token, 'TOKEN_TYPE_APIKEY', {value: 'APIKEY'});
 
 Netlicensing.Token.prototype = Object.create(Netlicensing.BaseEntity.prototype);
 Netlicensing.Token.prototype.constructor = Netlicensing.Token;
@@ -145,3 +150,30 @@ Netlicensing.Token.prototype.getCancelURLTitle = function (def) {
 Netlicensing.Token.prototype.getShopURL = function (def) {
     return this.getProperty('shopURL', def);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.Token.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.Token.prototype, [
+    'getNumber',
+    'setActive',
+    'getActive',
+    'setExpirationTime',
+    'getExpirationTime',
+    'setVendorNumber',
+    'getVendorNumber',
+    'setTokenType',
+    'getTokenType',
+    'setLicenseeNumber',
+    'getLicenseeNumber',
+    'setSuccessURL',
+    'getSuccessURL',
+    'setSuccessURLTitle',
+    'getSuccessURLTitle',
+    'setCancelURL',
+    'getCancelURL',
+    'setCancelURLTitle',
+    'getCancelURLTitle',
+    'getShopURL',
+]);

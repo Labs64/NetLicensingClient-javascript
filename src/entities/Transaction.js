@@ -69,8 +69,13 @@ Netlicensing.Transaction = function Transaction() {
     this.__define('active', true);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
+
+//static constants
+Object.defineProperty(Netlicensing.Transaction, 'STATUS_CANCELLED', {value: 'CANCELLED'});
+Object.defineProperty(Netlicensing.Transaction, 'STATUS_CLOSED', {value: 'CLOSED'});
+Object.defineProperty(Netlicensing.Transaction, 'STATUS_PENDING', {value: 'PENDING'});
 
 Netlicensing.Transaction.prototype = Object.create(Netlicensing.BaseEntity.prototype);
 Netlicensing.Transaction.prototype.constructor = Netlicensing.Transaction;
@@ -158,3 +163,31 @@ Netlicensing.Transaction.prototype.getPaymentMethod = function (def) {
 Netlicensing.Transaction.prototype.setActive = function () {
     return this.setProperty('active', true);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.Transaction.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.Transaction.prototype, [
+    'setNumber',
+    'getNumber',
+    'setName',
+    'getName',
+    'setStatus',
+    'getStatus',
+    'setSource',
+    'getSource',
+    'setGrandTotal',
+    'getGrandTotal',
+    'setDiscount',
+    'getDiscount',
+    'setCurrency',
+    'getCurrency',
+    'setDateCreated',
+    'getDateCreated',
+    'setDateClosed',
+    'getDateClosed',
+    'setPaymentMethod',
+    'getPaymentMethod',
+    'setActive',
+]);

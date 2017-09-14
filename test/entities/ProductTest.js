@@ -124,6 +124,23 @@ describe('entities.ProductTest', function () {
         expect(product.licenseeAutoCreate).toBe(true);
     });
 
+    it('check "licenseeSecretMode" property setters/getters', function () {
+        product.setProperty('licenseeSecretMode', Netlicensing.Product.LICENSEE_SECRET_MODE_DISABLED);
+        expect(product.getProperty('licenseeSecretMode')).toBe(Netlicensing.Product.LICENSEE_SECRET_MODE_DISABLED);
+        expect(product.getLicenseeSecretMode()).toBe(Netlicensing.Product.LICENSEE_SECRET_MODE_DISABLED);
+        expect(product.licenseeSecretMode).toBe(Netlicensing.Product.LICENSEE_SECRET_MODE_DISABLED);
+
+        product.setLicenseeSecretMode(Netlicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
+        expect(product.getProperty('licenseeSecretMode')).toBe(Netlicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
+        expect(product.getLicenseeSecretMode()).toBe(Netlicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
+        expect(product.licenseeSecretMode).toBe(Netlicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
+
+        product.licenseeSecretMode = Netlicensing.Product.LICENSEE_SECRET_MODE_CLIENT;
+        expect(product.getProperty('licenseeSecretMode')).toBe(Netlicensing.Product.LICENSEE_SECRET_MODE_CLIENT);
+        expect(product.getLicenseeSecretMode()).toBe(Netlicensing.Product.LICENSEE_SECRET_MODE_CLIENT);
+        expect(product.licenseeSecretMode).toBe(Netlicensing.Product.LICENSEE_SECRET_MODE_CLIENT);
+    });
+
     it('check "inUse" property getters', function () {
         product.inUse = true;
         expect(product.getProperty('inUse')).toBe(undefined);

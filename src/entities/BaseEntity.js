@@ -125,13 +125,6 @@ Netlicensing.BaseEntity = function (properties) {
     };
 
     /**
-     * Get properties map
-     */
-    this.asPropertiesMap = function () {
-        return this.getProperties();
-    };
-
-    /**
      * Check if property has defined
      * @param property
      * @protected
@@ -265,32 +258,15 @@ Netlicensing.BaseEntity = function (properties) {
         if (!Netlicensing.CheckUtils.isValid(value)) throw new TypeError('Property ' + property + ' has bad value ' + value);
     };
 
-    /**
-     * Make methods not changeable
-     * @param methods
-     * @protected
-     */
-    this.__notChangeable = function (methods) {
-        var noChangeable = {};
-
-        methods = Array.isArray(methods) ? methods : [methods];
-        var length = methods.length;
-
-        for (var i = 0; i < length; i++) {
-            noChangeable[methods[i]] = {writable: false, enumerable: false, configurable: false};
-        }
-
-        Object.defineProperties(this, noChangeable);
-    };
-
     //make methods not changeable
-    this.__notChangeable([
+    Netlicensing.DefineUtil.notChangeable(this, [
         'setProperty',
         'addProperty',
         'setProperties',
         'getProperty',
         'getProperties',
         'removeProperty',
+        'removeProperties',
         '__hasDefine',
         '__define',
         '__defines',
@@ -301,6 +277,23 @@ Netlicensing.BaseEntity = function (properties) {
         '__checkProperty',
         '__noChangeable'
     ]);
+
+    /**
+     * Get properties map
+     */
+    this.asPropertiesMap = function () {
+        var properties = this.getProperties();
+        var customProperties = {};
+
+        for (var key in this) {
+            if (!this.hasOwnProperty(key)) continue;
+            if (!Netlicensing.CheckUtils.isValid(this[key])) continue;
+
+            customProperties[key] = this[key];
+        }
+
+        return Object.assign({}, customProperties, properties);
+    };
 
     this.setProperties(properties);
 };

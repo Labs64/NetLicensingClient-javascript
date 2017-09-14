@@ -78,3 +78,32 @@ Netlicensing.UtilityService.listLicensingModels = function (context) {
             return licensingModels;
         });
 };
+
+/**
+ * Returns all countries.
+ *
+ *  determines the vendor on whose behalf the call is performed
+ * @param context
+ *
+ * reserved for the future use, must be omitted / set to NULL
+ * @param filter
+ *
+ * collection of available countries or null/empty list if nothing found in promise.
+ * @returns {Promise}
+ */
+Netlicensing.UtilityService.listCountries = function (context, filter) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
+
+    var queryParams = {};
+
+    if (filter) {
+        if (!Netlicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        queryParams.filter = filter;
+    }
+
+    return Netlicensing.Service
+        .getInstance()
+        .list(context, Netlicensing.UtilityService.ENDPOINT_PATH + '/countries', queryParams, Netlicensing.Country);
+};

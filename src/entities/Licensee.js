@@ -57,7 +57,7 @@ Netlicensing.Licensee = function () {
     this.__define('inUse', true);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
 Netlicensing.Licensee.prototype = Object.create(Netlicensing.BaseEntity.prototype);
@@ -106,3 +106,21 @@ Netlicensing.Licensee.prototype.getMarkedForTransfer = function (def) {
 Netlicensing.Licensee.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.Licensee.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.Licensee.prototype, [
+    'setNumber',
+    'getNumber',
+    'setActive',
+    'getActive',
+    'setName',
+    'getName',
+    'setLicenseeSecret',
+    'getLicenseeSecret',
+    'setMarkedForTransfer',
+    'getMarkedForTransfer',
+    'getInUse',
+]);

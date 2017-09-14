@@ -53,21 +53,28 @@ gulp.task('test-watch', function (cb) {
 });
 
 //clean dist
-gulp.task('clean', function() {
+gulp.task('clean', function () {
     return gulp.src(['dist/**/*.js'], {read: false})
         .pipe(clean());
 });
 
 //create dist files
 gulp.task('scripts', function () {
-    var js = gulp.src(['src/**/*.js'])
+    var src = [
+        'src/util/*.js',
+        'src/entities/*.js',
+        'src/vo/*.js',
+        'src/services/*.js'
+    ];
+
+    var js = gulp.src(src)
         .pipe(concat('netlicensing-client-js.js'))
         .pipe(size({
             title: 'The size of a library'
         }))
         .pipe(gulp.dest('dist'));
 
-    var min = gulp.src(['src/**/*.js'])
+    var min = gulp.src(src)
         .pipe(concat('netlicensing-client-js.min.js'))
         .pipe(uglify())
         .pipe(size({
@@ -77,4 +84,4 @@ gulp.task('scripts', function () {
 });
 
 //test + create dist files
-gulp.task('production',['test','scripts']);
+gulp.task('production', ['test', 'scripts']);

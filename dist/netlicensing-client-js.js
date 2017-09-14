@@ -8,6 +8,91 @@
 //namespace
 var Netlicensing = Netlicensing || {};
 
+
+Netlicensing.CheckUtils = function () {
+
+};
+
+/**
+ * Check if value is valid
+ * @param value
+ * @returns {boolean}
+ */
+Netlicensing.CheckUtils.isValid = function (value) {
+    var valid = (value !== undefined && typeof value !== 'function');
+    if (typeof value === 'number') valid = (isFinite(value) && !isNaN(value));
+    return valid;
+};
+
+/**
+ * Ensures that an object reference passed as a parameter to the calling method is not null.
+ *
+ * param to check
+ * @param parameter
+ *
+ * name of the parameter
+ * @param parameterName
+ */
+Netlicensing.CheckUtils.paramNotNull = function (parameter, parameterName) {
+    if (!Netlicensing.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
+    if (parameter === null) throw new TypeError('Parameter ' + parameterName + ' cannot be null')
+};
+
+Netlicensing.CheckUtils.paramNotEmpty = function (parameter, parameterName) {
+    if (!Netlicensing.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
+    if (!parameter) throw new TypeError('Parameter ' + parameterName + ' cannot be null or empty string')
+};
+/**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      http://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
+
+//namespace
+var Netlicensing = Netlicensing || {};
+
+
+Netlicensing.DefineUtil = function () {
+
+};
+
+Netlicensing.DefineUtil.notChangeable = function (object, methods) {
+    var noChangeable = {};
+
+    methods = Array.isArray(methods) ? methods : [methods];
+    var length = methods.length;
+
+    for (var i = 0; i < length; i++) {
+        noChangeable[methods[i]] = {writable: false, enumerable: false, configurable: false};
+    }
+
+    Object.defineProperties(object, noChangeable);
+};
+
+Netlicensing.DefineUtil.notEnumerable = function (object, methods) {
+    var noChangeable = {};
+
+    methods = Array.isArray(methods) ? methods : [methods];
+    var length = methods.length;
+
+    for (var i = 0; i < length; i++) {
+        noChangeable[methods[i]] = {writable: true, enumerable: false, configurable: false};
+    }
+
+    Object.defineProperties(object, noChangeable);
+};
+
+/**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      http://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
+
+//namespace
+var Netlicensing = Netlicensing || {};
+
 Netlicensing.BaseEntity = function (properties) {
 
     /**
@@ -122,13 +207,6 @@ Netlicensing.BaseEntity = function (properties) {
         for (var i = 0; i < length; i++) {
             this.removeProperty(properties[i]);
         }
-    };
-
-    /**
-     * Get properties map
-     */
-    this.asPropertiesMap = function () {
-        return this.getProperties();
     };
 
     /**
@@ -265,32 +343,15 @@ Netlicensing.BaseEntity = function (properties) {
         if (!Netlicensing.CheckUtils.isValid(value)) throw new TypeError('Property ' + property + ' has bad value ' + value);
     };
 
-    /**
-     * Make methods not changeable
-     * @param methods
-     * @protected
-     */
-    this.__notChangeable = function (methods) {
-        var noChangeable = {};
-
-        methods = Array.isArray(methods) ? methods : [methods];
-        var length = methods.length;
-
-        for (var i = 0; i < length; i++) {
-            noChangeable[methods[i]] = {writable: false, enumerable: false, configurable: false};
-        }
-
-        Object.defineProperties(this, noChangeable);
-    };
-
     //make methods not changeable
-    this.__notChangeable([
+    Netlicensing.DefineUtil.notChangeable(this, [
         'setProperty',
         'addProperty',
         'setProperties',
         'getProperty',
         'getProperties',
         'removeProperty',
+        'removeProperties',
         '__hasDefine',
         '__define',
         '__defines',
@@ -302,8 +363,119 @@ Netlicensing.BaseEntity = function (properties) {
         '__noChangeable'
     ]);
 
+    /**
+     * Get properties map
+     */
+    this.asPropertiesMap = function () {
+        var properties = this.getProperties();
+        var customProperties = {};
+
+        for (var key in this) {
+            if (!this.hasOwnProperty(key)) continue;
+            if (!Netlicensing.CheckUtils.isValid(this[key])) continue;
+
+            customProperties[key] = this[key];
+        }
+
+        return Object.assign({}, customProperties, properties);
+    };
+
     this.setProperties(properties);
 };
+
+/**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      http://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
+
+//namespace
+var Netlicensing = Netlicensing || {};
+
+/**
+ * Country entity used internally by NetLicensing.
+ *
+ * Properties visible via NetLicensing API:
+ *
+ * @property code - Unique code of country.
+ *
+ * @property name - Unique name of country
+ *
+ * @property vatPercent - Country vat.
+ *
+ * @property isEu - is country in EU.
+ */
+
+Netlicensing.Country = function () {
+    Netlicensing.BaseEntity.apply(this, arguments);
+
+    //The attributes that should be cast to native types.
+    Object.defineProperty(this, 'casts', {
+        value: {
+            code: 'string',
+            name: 'string',
+            vatPercent: 'int',
+            isEu: 'boolean',
+        }
+    });
+
+    //define default entity properties
+    this.__defines(['code', 'name', 'vatPercent', 'isEu']);
+
+    //make methods not changeable
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
+};
+
+Netlicensing.Country.prototype = Object.create(Netlicensing.BaseEntity.prototype);
+Netlicensing.Country.prototype.constructor = Netlicensing.Country;
+
+Netlicensing.Country.prototype.setCode = function (code) {
+    return this.setProperty('code', code);
+};
+
+Netlicensing.Country.prototype.getCode = function (def) {
+    return this.getProperty('code', def);
+};
+
+Netlicensing.Country.prototype.setName = function (name) {
+    return this.setProperty('name', name);
+};
+
+Netlicensing.Country.prototype.getName = function (def) {
+    return this.getProperty('name', def);
+};
+
+Netlicensing.Country.prototype.setVatPercent = function (vat) {
+    return this.setProperty('vatPercent', vat);
+};
+
+Netlicensing.Country.prototype.getVatPercent = function (def) {
+    return this.getProperty('vatPercent', def);
+};
+
+Netlicensing.Country.prototype.setIsEu = function (isEu) {
+    return this.setProperty('isEu', isEu);
+};
+
+Netlicensing.Country.prototype.getIsEu = function (def) {
+    return this.getProperty('isEu', def);
+};
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.Country.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.Country.prototype, [
+    'setCode',
+    'getCode',
+    'setName',
+    'getName',
+    'setVatPercent',
+    'getVatPercent',
+    'setIsEu',
+    'getIsEu',
+]);
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -375,7 +547,7 @@ Netlicensing.License = function () {
     this.__defines(['inUse', 'currency', 'price'], true);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
 Netlicensing.License.prototype = Object.create(Netlicensing.BaseEntity.prototype);
@@ -448,6 +620,30 @@ Netlicensing.License.prototype.getPrice = function (def) {
 Netlicensing.License.prototype.getCurrency = function (def) {
     return this.getProperty('currency', def);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.License.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.License.prototype, [
+    'setNumber',
+    'getNumber',
+    'setActive',
+    'getActive',
+    'setName',
+    'getName',
+    'setHidden',
+    'getHidden',
+    'setParentfeature',
+    'getParentfeature',
+    'setTimeVolume',
+    'getTimeVolume',
+    'setStartDate',
+    'getStartDate',
+    'getInUse',
+    'getPrice',
+    'getCurrency',
+]);
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -507,7 +703,7 @@ Netlicensing.Licensee = function () {
     this.__define('inUse', true);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
 Netlicensing.Licensee.prototype = Object.create(Netlicensing.BaseEntity.prototype);
@@ -556,6 +752,24 @@ Netlicensing.Licensee.prototype.getMarkedForTransfer = function (def) {
 Netlicensing.Licensee.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.Licensee.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.Licensee.prototype, [
+    'setNumber',
+    'getNumber',
+    'setActive',
+    'getActive',
+    'setName',
+    'getName',
+    'setLicenseeSecret',
+    'getLicenseeSecret',
+    'setMarkedForTransfer',
+    'getMarkedForTransfer',
+    'getInUse',
+]);
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -643,8 +857,14 @@ Netlicensing.LicenseTemplate = function () {
     this.__define('inUse', true);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
+
+//static constants
+Object.defineProperty(Netlicensing.LicenseTemplate, 'LICENSE_TYPE_FEATURE', {value: 'FEATURE'});
+Object.defineProperty(Netlicensing.LicenseTemplate, 'LICENSE_TYPE_TIMEVOLUME', {value: 'TIMEVOLUME'});
+Object.defineProperty(Netlicensing.LicenseTemplate, 'LICENSE_TYPE_FLOATING', {value: 'FLOATING'});
+Object.defineProperty(Netlicensing.LicenseTemplate, 'LICENSE_TYPE_QUANTITY', {value: 'QUANTITY'});
 
 Netlicensing.LicenseTemplate.prototype = Object.create(Netlicensing.BaseEntity.prototype);
 Netlicensing.LicenseTemplate.prototype.constructor = Netlicensing.LicenseTemplate;
@@ -744,6 +964,37 @@ Netlicensing.LicenseTemplate.prototype.setQuantity = function (quantity) {
 Netlicensing.LicenseTemplate.prototype.getQuantity = function (def) {
     return this.getProperty('quantity', def);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.LicenseTemplate.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.LicenseTemplate.prototype, [
+    'setNumber',
+    'getNumber',
+    'setActive',
+    'getActive',
+    'setName',
+    'getName',
+    'setLicenseType',
+    'getLicenseType',
+    'setPrice',
+    'getPrice',
+    'setCurrency',
+    'getCurrency',
+    'setAutomatic',
+    'getAutomatic',
+    'setHidden',
+    'getHidden',
+    'setHideLicenses',
+    'getHideLicenses',
+    'setTimeVolume',
+    'getTimeVolume',
+    'setMaxSessions',
+    'getMaxSessions',
+    'setQuantity',
+    'getQuantity',
+]);
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -779,7 +1030,7 @@ Netlicensing.PaymentMethod = function PaymentMethod() {
     this.__defines(['number', 'active', 'paypal.subject']);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
 Netlicensing.PaymentMethod.prototype = Object.create(Netlicensing.BaseEntity.prototype);
@@ -808,6 +1059,19 @@ Netlicensing.PaymentMethod.prototype.setPaypalSubject = function (paypalSubject)
 Netlicensing.PaymentMethod.prototype.getPaypalSubject = function (def) {
     return this.getProperty('paypal.subject', def);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.PaymentMethod.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.PaymentMethod.prototype, [
+    'setNumber',
+    'getNumber',
+    'setActive',
+    'getActive',
+    'setPaypalSubject',
+    'getPaypalSubject',
+]);
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -840,6 +1104,9 @@ var Netlicensing = Netlicensing || {};
  * If set to 'true', non-existing licensees will be created at first validation attempt.
  * @property boolean licenseeAutoCreate
  *
+ * Licensee secret mode for product.Supported types: "DISABLED", "PREDEFINED", "CLIENT"
+ * @property boolean licenseeSecretMode
+ *
  * Product description. Optional.
  * @property string description
  *
@@ -867,6 +1134,7 @@ Netlicensing.Product = function () {
             description: 'string',
             licensingInfo: 'string',
             licenseeAutoCreate: 'boolean',
+            licenseeSecretMode: 'string',
             inUse: 'boolean'
         }
     });
@@ -920,8 +1188,10 @@ Netlicensing.Product = function () {
         return __productDiscounts;
     };
 
+    var parentAsPropertiesMap = this.asPropertiesMap;
     this.asPropertiesMap = function () {
-        var map = this.getProperties();
+
+        var map = parentAsPropertiesMap.call(this);
 
         var length = __productDiscounts.length;
 
@@ -940,12 +1210,17 @@ Netlicensing.Product = function () {
     };
 
     //define default entity properties
-    this.__defines(['number', 'active', 'name', 'version', 'description', 'licensingInfo', 'licenseeAutoCreate']);
+    this.__defines(['number', 'active', 'name', 'version', 'description', 'licensingInfo', 'licenseeAutoCreate', 'licenseeSecretMode']);
     this.__define('inUse', true);
 
     //make methods not changeable
-    this.__notChangeable(['addDiscount', 'getProductDiscounts', 'asPropertiesMap']);
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
+
+//static constants
+Object.defineProperty(Netlicensing.Product, 'LICENSEE_SECRET_MODE_DISABLED', {value: 'DISABLED'});
+Object.defineProperty(Netlicensing.Product, 'LICENSEE_SECRET_MODE_PREDEFINED', {value: 'PREDEFINED '});
+Object.defineProperty(Netlicensing.Product, 'LICENSEE_SECRET_MODE_CLIENT', {value: 'CLIENT '});
 
 Netlicensing.Product.prototype = Object.create(Netlicensing.BaseEntity.prototype);
 Netlicensing.Product.prototype.constructor = Netlicensing.Product;
@@ -990,6 +1265,14 @@ Netlicensing.Product.prototype.getLicenseeAutoCreate = function (def) {
     return this.getProperty('licenseeAutoCreate', def);
 };
 
+Netlicensing.Product.prototype.setLicenseeSecretMode = function (licenseeSecretMode) {
+    return this.setProperty('licenseeSecretMode', licenseeSecretMode);
+};
+
+Netlicensing.Product.prototype.getLicenseeSecretMode = function (def) {
+    return this.getProperty('licenseeSecretMode', def);
+};
+
 Netlicensing.Product.prototype.setDescription = function (description) {
     return this.setProperty('description', description);
 };
@@ -1022,11 +1305,28 @@ Netlicensing.Product.prototype.__setListDiscount = function (properties) {
 };
 
 //make methods not changeable
-Object.defineProperty(Netlicensing.Product.prototype, '__setListDiscount', {
-    writable: false,
-    enumerable: false,
-    configurable: false
-});
+Netlicensing.DefineUtil.notChangeable(Netlicensing.Product.prototype, ['constructor', '__setListDiscount']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.Product.prototype, [
+    'setNumber',
+    'getNumber',
+    'setName',
+    'getName',
+    'setActive',
+    'getActive',
+    'setVersion',
+    'getVersion',
+    'setLicenseeAutoCreate',
+    'getLicenseeAutoCreate',
+    'setLicenseeSecretMode',
+    'getLicenseeSecretMode',
+    'setDescription',
+    'getDescription',
+    'setLicensingInfo',
+    'getLicensingInfo',
+    'getInUse',
+]);
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -1052,6 +1352,9 @@ Netlicensing.ProductDiscount = function () {
 
     //define default entity properties
     this.__defines(['totalPrice', 'currency', 'amountFix', 'amountPercent']);
+
+    //make methods not changeable
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
 Netlicensing.ProductDiscount.prototype = Object.create(Netlicensing.BaseEntity.prototype);
@@ -1101,11 +1404,19 @@ Netlicensing.ProductDiscount.prototype.toString = function () {
 };
 
 //make methods not changeable
-Object.defineProperty(Netlicensing.ProductDiscount.prototype, 'toString', {
-    writable: false,
-    enumerable: false,
-    configurable: false
-});
+Netlicensing.DefineUtil.notChangeable(Netlicensing.ProductDiscount.prototype, ['constructor', 'toString']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.ProductDiscount.prototype, [
+    'setTotalPrice',
+    'getTotalPrice',
+    'setCurrency',
+    'getCurrency',
+    'setAmountFix',
+    'getAmountFix',
+    'setAmountPercent',
+    'getAmountPercent',
+]);
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -1175,8 +1486,17 @@ Netlicensing.ProductModule = function () {
     this.__define('inUse', true);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
+
+//static constants
+Object.defineProperty(Netlicensing.ProductModule, 'LICENSING_MODEL_SUBSCRIPTION', {value: 'Subscription'});
+Object.defineProperty(Netlicensing.ProductModule, 'LICENSING_MODEL_TRY_AND_BUY', {value: 'TryAndBuy'});
+Object.defineProperty(Netlicensing.ProductModule, 'LICENSING_MODEL_RENTAL', {value: 'Rental'});
+Object.defineProperty(Netlicensing.ProductModule, 'LICENSING_MODEL_FLOATING', {value: 'Floating'});
+Object.defineProperty(Netlicensing.ProductModule, 'LICENSING_MODEL_MULTI_FEATURE', {value: 'MultiFeature'});
+Object.defineProperty(Netlicensing.ProductModule, 'LICENSING_MODEL_PAY_PER_USE', {value: 'PayPerUse'});
+
 
 Netlicensing.ProductModule.prototype = Object.create(Netlicensing.BaseEntity.prototype);
 Netlicensing.ProductModule.prototype.constructor = Netlicensing.ProductModule;
@@ -1248,6 +1568,30 @@ Netlicensing.ProductModule.prototype.getLicenseTemplate = function (def) {
 Netlicensing.ProductModule.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.ProductModule.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.ProductModule.prototype, [
+    'setNumber',
+    'getNumber',
+    'setActive',
+    'getActive',
+    'setName',
+    'getName',
+    'setLicensingModel',
+    'getLicensingModel',
+    'setMaxCheckoutValidity',
+    'getMaxCheckoutValidity',
+    'setYellowThreshold',
+    'getYellowThreshold',
+    'setRedThreshold',
+    'getRedThreshold',
+    'setLicenseTemplate',
+    'getLicenseTemplate',
+    'getInUse',
+]);
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -1310,8 +1654,13 @@ Netlicensing.Token = function () {
     this.__defines(['number', 'shopURL'], true);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
+
+//static constants
+Object.defineProperty(Netlicensing.Token, 'TOKEN_TYPE_DEFAULT', {value: 'DEFAULT'});
+Object.defineProperty(Netlicensing.Token, 'TOKEN_TYPE_SHOP', {value: 'SHOP'});
+Object.defineProperty(Netlicensing.Token, 'TOKEN_TYPE_APIKEY', {value: 'APIKEY'});
 
 Netlicensing.Token.prototype = Object.create(Netlicensing.BaseEntity.prototype);
 Netlicensing.Token.prototype.constructor = Netlicensing.Token;
@@ -1395,6 +1744,33 @@ Netlicensing.Token.prototype.getCancelURLTitle = function (def) {
 Netlicensing.Token.prototype.getShopURL = function (def) {
     return this.getProperty('shopURL', def);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.Token.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.Token.prototype, [
+    'getNumber',
+    'setActive',
+    'getActive',
+    'setExpirationTime',
+    'getExpirationTime',
+    'setVendorNumber',
+    'getVendorNumber',
+    'setTokenType',
+    'getTokenType',
+    'setLicenseeNumber',
+    'getLicenseeNumber',
+    'setSuccessURL',
+    'getSuccessURL',
+    'setSuccessURLTitle',
+    'getSuccessURLTitle',
+    'setCancelURL',
+    'getCancelURL',
+    'setCancelURLTitle',
+    'getCancelURLTitle',
+    'getShopURL',
+]);
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -1466,8 +1842,13 @@ Netlicensing.Transaction = function Transaction() {
     this.__define('active', true);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
+
+//static constants
+Object.defineProperty(Netlicensing.Transaction, 'STATUS_CANCELLED', {value: 'CANCELLED'});
+Object.defineProperty(Netlicensing.Transaction, 'STATUS_CLOSED', {value: 'CLOSED'});
+Object.defineProperty(Netlicensing.Transaction, 'STATUS_PENDING', {value: 'PENDING'});
 
 Netlicensing.Transaction.prototype = Object.create(Netlicensing.BaseEntity.prototype);
 Netlicensing.Transaction.prototype.constructor = Netlicensing.Transaction;
@@ -1555,6 +1936,615 @@ Netlicensing.Transaction.prototype.getPaymentMethod = function (def) {
 Netlicensing.Transaction.prototype.setActive = function () {
     return this.setProperty('active', true);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.Transaction.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.Transaction.prototype, [
+    'setNumber',
+    'getNumber',
+    'setName',
+    'getName',
+    'setStatus',
+    'getStatus',
+    'setSource',
+    'getSource',
+    'setGrandTotal',
+    'getGrandTotal',
+    'setDiscount',
+    'getDiscount',
+    'setCurrency',
+    'getCurrency',
+    'setDateCreated',
+    'getDateCreated',
+    'setDateClosed',
+    'getDateClosed',
+    'setPaymentMethod',
+    'getPaymentMethod',
+    'setActive',
+]);
+/**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      http://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
+
+//namespace
+var Netlicensing = Netlicensing || {};
+
+/**
+ * Class Context
+ *
+ * Provides calling context for the NetLicensing API calls.
+ * The Context object may differ depending on the level at which NetLicensing API is called.
+ * For the internal Java NetLicensing API the Context provides information about the targeted Vendor.
+ *
+ * @property string $baseUrl
+ * Server URL base of the NetLicensing RESTful API. Normally should be "https://go.netlicensing.io".
+ *
+ * @property  string username
+ * Login name of the user sending the requests when securityMode = BASIC_AUTHENTICATION.
+ *
+ * @property string password
+ * Password of the user sending the requests when securityMode = BASIC_AUTHENTICATION.
+ *
+ * @property string apiKey
+ * API Key used to identify the request sender when securityMode = APIKEY_IDENTIFICATION.
+ *
+ * @property string securityMode
+ * Determines the security mode used for accessing the NetLicensing API.
+ * See https://www.labs64.de/confluence/x/pwCo#NetLicensingAPI%28RESTful%29-Security for details.
+ *
+ * @property string vendorNumber
+ * External number of the vendor.
+ *
+ * @constructor
+ */
+
+Netlicensing.Context = function (values) {
+
+    if (values === undefined) values = {};
+
+    if (typeof values != 'object') {
+        throw new Error('Argument 1 passed to Context() must be of the type object, ' + typeof values + ' given');
+    }
+
+    /**
+     * Context defaults
+     * @type {{baseUrl: string, securityMode}}
+     * @private
+     */
+    var __defaults = {
+        baseUrl: 'https://go.netlicensing.io/core/v2/rest',
+        securityMode: Netlicensing.Context.BASIC_AUTHENTICATION
+    };
+
+    /**
+     * The context values.
+     * @type {{}}
+     * @private
+     */
+    var __values = {};
+
+
+    /**
+     * List of values that was defined
+     * @type {{}}
+     * @private
+     */
+    var __defined = {};
+
+    /**
+     * Set a given values on the context.
+     * @param key
+     * @param value
+     * @returns {Context}
+     */
+    this.setValue = function (key, value) {
+        this.__checkValue(key, value);
+        this.__define(key);
+
+        if (typeof value === 'object')value = (Array.isArray(value)) ? Object.assign([], value) : Object.assign({}, value);
+
+        __values[key] = value;
+
+        return this;
+    };
+
+    /**
+     * Set the array of context values.
+     * @param values
+     * @returns {Context}
+     */
+    this.setValues = function (values) {
+
+        this.removeValues();
+
+        for (var key in values) {
+            if (!values.hasOwnProperty(key)) continue;
+            this.setValue(key, values[key]);
+        }
+
+        return this;
+    };
+
+    /**
+     * Get an value from the context.
+     * @param key
+     * @param def
+     * @returns {*}
+     */
+    this.getValue = function (key, def) {
+        return __values[key] || def;
+    };
+
+    /**
+     * Get all of the current value on the context.
+     */
+    this.getValues = function () {
+        return Object.assign({}, __values);
+    };
+
+    /**
+     * Remove value
+     * @param key
+     * @returns {BaseEntity}
+     */
+    this.removeValue = function (key) {
+        delete __values[key];
+        this.__removeDefine(key);
+        return this;
+    };
+
+    /**
+     * Remove values
+     * @param keys
+     */
+    this.removeValues = function (keys) {
+        keys = keys || Object.keys(__values);
+
+        var length = keys.length;
+
+        for (var i = 0; i < length; i++) {
+            this.removeValue(keys[i]);
+        }
+    };
+
+    /**
+     * Check if value has defined
+     * @param key
+     * @protected
+     */
+    this.__hasDefine = function (key) {
+        return Boolean(__defined[key]);
+    };
+
+    /**
+     * Define value getter and setter
+     * @param key
+     * @param onlyGetter
+     * @protected
+     */
+    this.__define = function (key, onlyGetter) {
+        if (this.__hasDefine(key)) return;
+
+        //delete property
+        delete this[key];
+
+        var descriptors = {
+            enumerable: true,
+            configurable: true,
+            get: function () {
+                return self.getValue(key)
+            }
+        };
+
+        if (!onlyGetter) {
+            descriptors.set = function (value) {
+                return self.setValue(key, value);
+            };
+        }
+
+        Object.defineProperty(this, key, descriptors);
+    };
+
+    /**
+     * Define values getter and setter
+     * @param keys
+     * @param onlyGetter
+     * @protected
+     */
+    this.__defines = function (keys, onlyGetter) {
+        var length = keys.length;
+        for (var i = 0; i < length; i++) {
+            this.__define(keys[i], onlyGetter);
+        }
+    };
+
+    /**
+     * Remove value getter and setter
+     * @param key
+     * @protected
+     */
+    this.__removeDefine = function (key) {
+        if (!this.__hasDefine(key)) return;
+        delete this[key];
+        delete __defined[key];
+    };
+
+    /**
+     * Check if value is valid
+     * @param key
+     * @param value
+     * @private
+     */
+    this.__checkValue = function (key, value) {
+        if (!Netlicensing.CheckUtils.isValid(key) || typeof key === 'object')  throw new Error('Bad value key:' + key);
+        if (!Netlicensing.CheckUtils.isValid(value)) throw new Error('Value ' + key + ' has wrong value' + value);
+    };
+
+    //make methods not changeable
+    Object.defineProperties(this, {
+        setValue: {writable: false, enumerable: false, configurable: false},
+        setValues: {writable: false, enumerable: false, configurable: false},
+        getValue: {writable: false, enumerable: false, configurable: false},
+        getValues: {writable: false, enumerable: false, configurable: false},
+        removeValue: {writable: false, enumerable: false, configurable: false},
+        removeValues: {writable: false, enumerable: false, configurable: false},
+        __hasDefine: {writable: false, enumerable: false, configurable: false},
+        __define: {writable: false, enumerable: false, configurable: false},
+        __defines: {writable: false, enumerable: false, configurable: false},
+        __removeDefine: {writable: false, enumerable: false, configurable: false},
+        __checkValue: {writable: false, enumerable: false, configurable: false}
+    });
+
+    this.setValues(Object.assign({}, __defaults, values));
+};
+
+//Security mode static constants
+Object.defineProperty(Netlicensing.Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
+Object.defineProperty(Netlicensing.Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
+
+Netlicensing.Context.prototype.setBaseUrl = function (baseUrl) {
+    return this.setValue('baseUrl', baseUrl);
+};
+
+Netlicensing.Context.prototype.getBaseUrl = function (def) {
+    return this.getValue('baseUrl', def);
+};
+
+Netlicensing.Context.prototype.setUsername = function (username) {
+    return this.setValue('username', username);
+};
+
+Netlicensing.Context.prototype.getUsername = function (def) {
+    return this.getValue('username', def);
+};
+
+Netlicensing.Context.prototype.setPassword = function (password) {
+    return this.setValue('password', password);
+};
+
+Netlicensing.Context.prototype.getPassword = function (def) {
+    return this.getValue('password', def);
+};
+
+Netlicensing.Context.prototype.setApiKey = function (apiKey) {
+    return this.setValue('apiKey', apiKey);
+};
+
+Netlicensing.Context.prototype.getApiKey = function (def) {
+    return this.getValue('apiKey', def);
+};
+
+Netlicensing.Context.prototype.setSecurityMode = function (securityMode) {
+    return this.setValue('securityMode', securityMode);
+};
+
+Netlicensing.Context.prototype.getSecurityMode = function (def) {
+    return this.getValue('securityMode', def);
+};
+
+Netlicensing.Context.prototype.setVendorNumber = function (vendorNumber) {
+    return this.setValue('vendorNumber', vendorNumber);
+};
+
+Netlicensing.Context.prototype.getVendorNumber = function (def) {
+    return this.getValue('vendorNumber', def);
+};
+/**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      http://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
+
+//namespace
+var Netlicensing = Netlicensing || {};
+
+Netlicensing.HttpRequest = function () {
+
+};
+
+Netlicensing.HttpRequest.prototype.__serialize = function (data, prefix) {
+    var query = [];
+    for (var key in data) {
+        if (data.hasOwnProperty(key)) {
+            var k = prefix ? prefix + '[' + key + ']' : key;
+            var v = data[key];
+            v = (v instanceof Date) ? v.toISOString() : v;
+            query.push((v !== null && typeof v === 'object') ?
+                this.__serialize(v, k) :
+            encodeURIComponent(k) + "=" + encodeURIComponent(v));
+        }
+    }
+    return query.join("&").replace(/%5B[0-9]+%5D=/g, '=');
+};
+
+Netlicensing.HttpRequest.prototype.__parseQuery = function (url) {
+    var query = {};
+    var queryPos = url.indexOf('?');
+    var parts = url.substr(queryPos + 1).split('&');
+    if (queryPos !== -1 || url.indexOf("=") !== -1) {
+        var length = parts.length;
+        for (var i = 0; i < length; i++) {
+            var part = parts[i].split('=');
+            query[decodeURIComponent(part[0])] = part.hasOwnProperty(1) ? decodeURIComponent(part[1]) : null;
+        }
+    }
+    return query;
+};
+
+Netlicensing.HttpRequest.prototype.__parseHeadersStr = function (headers) {
+    if (typeof headers !== 'string') return headers;
+    var responseHeaders = {};
+    headers = headers.split("\n");
+    var length = headers.length;
+    for (var i = 0; i < length; i++) {
+        var part = headers[i].split(':');
+        if (part[0]) responseHeaders[part[0].toLowerCase()] = part[1].trim();
+    }
+    return responseHeaders;
+};
+
+Netlicensing.HttpRequest.prototype.send = function (config) {
+    var self = this;
+
+    return new Promise(function (resolve, reject) {
+        var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
+        var xhr = new XHR();
+
+        var httpSetup = Object.assign({}, {
+            method: 'GET',
+            url: '/',
+            headers: {},
+            data: {},
+            timeout: 0
+        }, config);
+
+        httpSetup.method = httpSetup.method.toUpperCase();
+        httpSetup.data = self.__serialize(httpSetup.data);
+        httpSetup.headers = Object.assign({}, {Accept: 'application/json, text/plain, */*'}, httpSetup.headers);
+
+        switch (httpSetup.method) {
+            case 'DELETE':
+            case 'GET':
+                if (httpSetup.data.length) httpSetup.url += (Object.keys(self.__parseQuery(httpSetup.url)).length) ? '&' + httpSetup.data : '?' + httpSetup.data;
+                break;
+            case 'POST':
+                httpSetup.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+                break;
+        }
+
+        xhr.open(httpSetup.method, httpSetup.url, true);
+
+        //set headers
+        for (var key in httpSetup.headers) {
+            if (!httpSetup.headers.hasOwnProperty(key)) continue;
+            xhr.setRequestHeader(key, httpSetup.headers[key]);
+        }
+
+        xhr.timeout = httpSetup.timeout;
+
+        var httpXHR = function (xhr, requestHeaders) {
+
+            var httpXHR = {
+                status: xhr.status,
+                statusText: xhr.statusText,
+                responseText: xhr.responseText,
+                responseType: xhr.responseType,
+                responseURL: xhr.responseURL,
+                responseXML: xhr.responseXML,
+                requestHeaders: requestHeaders,
+                responseHeaders: self.__parseHeadersStr(xhr.getAllResponseHeaders())
+            };
+
+            var index = httpXHR.responseHeaders['content-type'].indexOf(';');
+            var contentType = index !== -1
+                ? httpXHR.responseHeaders['content-type'].substr(0, index).trim()
+                : httpXHR.responseHeaders['content-type'].trim();
+
+            switch (contentType) {
+                case 'application/xml':
+                    httpXHR.response = xhr.responseXML;
+                    break;
+                case 'application/json':
+                    httpXHR.response = JSON.parse(xhr.responseText);
+                    break;
+                default:
+                    httpXHR.response = xhr.responseText;
+                    break;
+            }
+
+            return httpXHR;
+        };
+
+        xhr.onload = function () {
+            (xhr.status >= 400)
+                ? reject(httpXHR(xhr, httpSetup.headers))
+                : resolve(httpXHR(xhr, httpSetup.headers));
+        };
+
+        xhr.onerror = function () {
+            reject(httpXHR(xhr, httpSetup.headers));
+        };
+
+        xhr.onabort = function () {
+            reject(httpXHR(xhr, httpSetup.headers));
+        };
+
+        xhr.timeout = function () {
+            reject(httpXHR(xhr, httpSetup.headers));
+        };
+
+        xhr.send(httpSetup.data);
+    });
+};
+
+Netlicensing.HttpRequest.prototype.get = function (url, config) {
+    return this.send(Object.assign({}, config, {url: url, method: 'GET'}));
+};
+
+Netlicensing.HttpRequest.prototype.post = function (url, data, config) {
+    return this.send(Object.assign({}, config, {url: url, method: 'POST', data: data}));
+};
+
+Netlicensing.HttpRequest.prototype.patch = function (url, data, config) {
+    return this.send(Object.assign({}, config, {url: url, method: 'PATCH', data: data}));
+};
+
+Netlicensing.HttpRequest.prototype.head = function (url, config) {
+    return this.send(Object.assign({}, config, {url: url, method: 'HEAD'}));
+};
+
+Netlicensing.HttpRequest.prototype.jsonp = function (url, config) {
+    return this.send(Object.assign({}, config, {url: url, method: 'JSONP'}));
+};
+
+Netlicensing.HttpRequest.prototype.put = function (url, config) {
+    return this.send(Object.assign({}, config, {url: url, method: 'PUT'}));
+};
+
+Netlicensing.HttpRequest.prototype.delete = function (url, config) {
+    return this.send(Object.assign({}, config, {url: url, method: 'DELETE'}));
+};
+
+Netlicensing.HttpRequest.get = function (url, config) {
+    return new Netlicensing.HttpRequest().get(url, config);
+};
+
+Netlicensing.HttpRequest.post = function (url, data, config) {
+    return new Netlicensing.HttpRequest().post(url, data, config);
+};
+
+Netlicensing.HttpRequest.patch = function (url, data, config) {
+    return new Netlicensing.HttpRequest().patch(url, data, config);
+};
+
+Netlicensing.HttpRequest.head = function (url, data, config) {
+    return new Netlicensing.HttpRequest().head(url, data, config);
+};
+
+Netlicensing.HttpRequest.jsonp = function (url, data, config) {
+    return new Netlicensing.HttpRequest().jsonp(url, data, config);
+};
+
+Netlicensing.HttpRequest.put = function (url, data, config) {
+    return new Netlicensing.HttpRequest().put(url, data, config);
+};
+
+Netlicensing.HttpRequest.delete = function (url, data, config) {
+    return new Netlicensing.HttpRequest().delete(url, data, config);
+};
+/**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      http://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
+
+//namespace
+var Netlicensing = Netlicensing || {};
+
+Netlicensing.ValidationParameters = function () {
+    var __productNumber;
+    var __licenseeName;
+    var __licenseeSecret;
+    var __parameters = {};
+
+    /**
+     * Sets the target product
+     *
+     * optional productNumber, must be provided in case licensee auto-create is enabled
+     * @param productNumber
+     * @returns {Netlicensing.ValidationParameters}
+     */
+    this.setProductNumber = function (productNumber) {
+        __productNumber = productNumber;
+        return this;
+    };
+
+    this.getProductNumber = function () {
+        return __productNumber;
+    };
+
+    /**
+     * Sets the name for the new licensee
+     *
+     * optional human-readable licensee name in case licensee will be auto-created. This parameter must not
+     * be the name, but can be used to store any other useful string information with new licensees, up to
+     * 1000 characters.
+     * @param licenseeName
+     * @returns {Netlicensing.ValidationParameters}
+     */
+    this.setLicenseeName = function (licenseeName) {
+        __licenseeName = licenseeName;
+        return this;
+    };
+
+    this.getLicenseeName = function () {
+        return __licenseeName;
+    };
+
+    /**
+     * Sets the licensee secret
+     *
+     * licensee secret stored on the client side. Refer to Licensee Secret documentation for details.
+     * @param licenseeSecret
+     * @returns {Netlicensing.ValidationParameters}
+     */
+    this.setLicenseeSecret = function (licenseeSecret) {
+        __licenseeSecret = licenseeSecret;
+        return this;
+    };
+
+    this.getLicenseeSecret = function () {
+        return __licenseeSecret;
+    };
+
+    this.getParameters = function () {
+        return Object.assign({}, __parameters);
+    };
+
+    this.getProductModuleValidationParameters = function (productModuleNumber) {
+
+        if (__parameters[productModuleNumber] === undefined || !Object.keys(__parameters[productModuleNumber]).length) {
+            __parameters[productModuleNumber] = {};
+        }
+
+        return Object.assign({}, __parameters[productModuleNumber]);
+    };
+
+    this.setProductModuleValidationParameters = function (productModuleNumber, productModuleParameters) {
+        if (__parameters[productModuleNumber] === undefined || !Object.keys(__parameters[productModuleNumber]).length) {
+            __parameters[productModuleNumber] = {};
+        }
+        __parameters[productModuleNumber] = Object.assign(__parameters[productModuleNumber], productModuleParameters);
+        return this;
+    };
+};
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -1566,38 +2556,52 @@ Netlicensing.Transaction.prototype.setActive = function () {
 var Netlicensing = Netlicensing || {};
 
 
-Netlicensing.CheckUtils = function () {
+Netlicensing.ValidationResults = function () {
 
+    var __validators = {};
+    var __ttl;
+
+    this.getValidators = function () {
+        return Object.assign({}, __validators);
+    };
+
+    this.setProductModuleValidation = function (productModuleNumber, productModuleValidation) {
+        if (!Netlicensing.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
+
+        __validators[productModuleNumber] = productModuleValidation;
+
+        return this;
+    };
+
+    this.getProductModuleValidation = function (productModuleNumber) {
+        if (!Netlicensing.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
+
+        return __validators[productModuleNumber];
+    };
+
+    this.setTtl = function (ttl) {
+        if (!Netlicensing.CheckUtils.isValid(ttl) || typeof ttl === 'object')  throw new TypeError('Bad ttl:' + ttl);
+        __ttl = new Date(String(ttl));
+        return this;
+    };
+
+    this.getTtl = function () {
+        return (__ttl) ? new Date(__ttl) : undefined;
+    };
 };
 
-/**
- * Check if value is valid
- * @param value
- * @returns {boolean}
- */
-Netlicensing.CheckUtils.isValid = function (value) {
-    var valid = (value !== undefined && typeof value !== 'function');
-    if (typeof value === 'number') valid = (isFinite(value) && !isNaN(value));
-    return valid;
-};
+Netlicensing.ValidationResults.prototype.toString = function () {
+    var data = 'ValidationResult [';
+    var validators = this.getValidators();
 
-/**
- * Ensures that an object reference passed as a parameter to the calling method is not null.
- *
- * param to check
- * @param parameter
- *
- * name of the parameter
- * @param parameterName
- */
-Netlicensing.CheckUtils.paramNotNull = function (parameter, parameterName) {
-    if (!Netlicensing.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
-    if (parameter === null) throw new TypeError('Parameter ' + parameterName + ' cannot be null')
-};
+    for (var productModuleNumber in validators) {
+        data += 'ProductModule<' + productModuleNumber + '>';
+        if (!validators.hasOwnProperty(productModuleNumber))continue;
+        data += JSON.stringify(validators[productModuleNumber]);
+    }
 
-Netlicensing.CheckUtils.paramNotEmpty = function (parameter, parameterName) {
-    if (!Netlicensing.CheckUtils.isValid(parameter)) throw new TypeError('Parameter ' + parameterName + ' has bad value ' + parameter);
-    if (!parameter) throw new TypeError('Parameter ' + parameterName + ' cannot be null or empty string')
+    data += ']';
+    return data;
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -3283,642 +4287,32 @@ Netlicensing.UtilityService.listLicensingModels = function (context) {
             return licensingModels;
         });
 };
-/**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      http://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
-
-//namespace
-var Netlicensing = Netlicensing || {};
 
 /**
- * Class Context
+ * Returns all countries.
  *
- * Provides calling context for the NetLicensing API calls.
- * The Context object may differ depending on the level at which NetLicensing API is called.
- * For the internal Java NetLicensing API the Context provides information about the targeted Vendor.
+ *  determines the vendor on whose behalf the call is performed
+ * @param context
  *
- * @property string $baseUrl
- * Server URL base of the NetLicensing RESTful API. Normally should be "https://go.netlicensing.io".
+ * reserved for the future use, must be omitted / set to NULL
+ * @param filter
  *
- * @property  string username
- * Login name of the user sending the requests when securityMode = BASIC_AUTHENTICATION.
- *
- * @property string password
- * Password of the user sending the requests when securityMode = BASIC_AUTHENTICATION.
- *
- * @property string apiKey
- * API Key used to identify the request sender when securityMode = APIKEY_IDENTIFICATION.
- *
- * @property string securityMode
- * Determines the security mode used for accessing the NetLicensing API.
- * See https://www.labs64.de/confluence/x/pwCo#NetLicensingAPI%28RESTful%29-Security for details.
- *
- * @property string vendorNumber
- * External number of the vendor.
- *
- * @constructor
+ * collection of available countries or null/empty list if nothing found in promise.
+ * @returns {Promise}
  */
+Netlicensing.UtilityService.listCountries = function (context, filter) {
+    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
 
-Netlicensing.Context = function (values) {
+    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
 
-    if (values === undefined) values = {};
+    var queryParams = {};
 
-    if (typeof values != 'object') {
-        throw new Error('Argument 1 passed to Context() must be of the type object, ' + typeof values + ' given');
+    if (filter) {
+        if (!Netlicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        queryParams.filter = filter;
     }
 
-    /**
-     * Context defaults
-     * @type {{baseUrl: string, securityMode}}
-     * @private
-     */
-    var __defaults = {
-        baseUrl: 'https://go.netlicensing.io/core/v2/rest',
-        securityMode: Netlicensing.Context.BASIC_AUTHENTICATION
-    };
-
-    /**
-     * The context values.
-     * @type {{}}
-     * @private
-     */
-    var __values = {};
-
-
-    /**
-     * List of values that was defined
-     * @type {{}}
-     * @private
-     */
-    var __defined = {};
-
-    /**
-     * Set a given values on the context.
-     * @param key
-     * @param value
-     * @returns {Context}
-     */
-    this.setValue = function (key, value) {
-        this.__checkValue(key, value);
-        this.__define(key);
-
-        if (typeof value === 'object')value = (Array.isArray(value)) ? Object.assign([], value) : Object.assign({}, value);
-
-        __values[key] = value;
-
-        return this;
-    };
-
-    /**
-     * Set the array of context values.
-     * @param values
-     * @returns {Context}
-     */
-    this.setValues = function (values) {
-
-        this.removeValues();
-
-        for (var key in values) {
-            if (!values.hasOwnProperty(key)) continue;
-            this.setValue(key, values[key]);
-        }
-
-        return this;
-    };
-
-    /**
-     * Get an value from the context.
-     * @param key
-     * @param def
-     * @returns {*}
-     */
-    this.getValue = function (key, def) {
-        return __values[key] || def;
-    };
-
-    /**
-     * Get all of the current value on the context.
-     */
-    this.getValues = function () {
-        return Object.assign({}, __values);
-    };
-
-    /**
-     * Remove value
-     * @param key
-     * @returns {BaseEntity}
-     */
-    this.removeValue = function (key) {
-        delete __values[key];
-        this.__removeDefine(key);
-        return this;
-    };
-
-    /**
-     * Remove values
-     * @param keys
-     */
-    this.removeValues = function (keys) {
-        keys = keys || Object.keys(__values);
-
-        var length = keys.length;
-
-        for (var i = 0; i < length; i++) {
-            this.removeValue(keys[i]);
-        }
-    };
-
-    /**
-     * Check if value has defined
-     * @param key
-     * @protected
-     */
-    this.__hasDefine = function (key) {
-        return Boolean(__defined[key]);
-    };
-
-    /**
-     * Define value getter and setter
-     * @param key
-     * @param onlyGetter
-     * @protected
-     */
-    this.__define = function (key, onlyGetter) {
-        if (this.__hasDefine(key)) return;
-
-        //delete property
-        delete this[key];
-
-        var descriptors = {
-            enumerable: true,
-            configurable: true,
-            get: function () {
-                return self.getValue(key)
-            }
-        };
-
-        if (!onlyGetter) {
-            descriptors.set = function (value) {
-                return self.setValue(key, value);
-            };
-        }
-
-        Object.defineProperty(this, key, descriptors);
-    };
-
-    /**
-     * Define values getter and setter
-     * @param keys
-     * @param onlyGetter
-     * @protected
-     */
-    this.__defines = function (keys, onlyGetter) {
-        var length = keys.length;
-        for (var i = 0; i < length; i++) {
-            this.__define(keys[i], onlyGetter);
-        }
-    };
-
-    /**
-     * Remove value getter and setter
-     * @param key
-     * @protected
-     */
-    this.__removeDefine = function (key) {
-        if (!this.__hasDefine(key)) return;
-        delete this[key];
-        delete __defined[key];
-    };
-
-    /**
-     * Check if value is valid
-     * @param key
-     * @param value
-     * @private
-     */
-    this.__checkValue = function (key, value) {
-        if (!Netlicensing.CheckUtils.isValid(key) || typeof key === 'object')  throw new Error('Bad value key:' + key);
-        if (!Netlicensing.CheckUtils.isValid(value)) throw new Error('Value ' + key + ' has wrong value' + value);
-    };
-
-    //make methods not changeable
-    Object.defineProperties(this, {
-        setValue: {writable: false, enumerable: false, configurable: false},
-        setValues: {writable: false, enumerable: false, configurable: false},
-        getValue: {writable: false, enumerable: false, configurable: false},
-        getValues: {writable: false, enumerable: false, configurable: false},
-        removeValue: {writable: false, enumerable: false, configurable: false},
-        removeValues: {writable: false, enumerable: false, configurable: false},
-        __hasDefine: {writable: false, enumerable: false, configurable: false},
-        __define: {writable: false, enumerable: false, configurable: false},
-        __defines: {writable: false, enumerable: false, configurable: false},
-        __removeDefine: {writable: false, enumerable: false, configurable: false},
-        __checkValue: {writable: false, enumerable: false, configurable: false}
-    });
-
-    this.setValues(Object.assign({}, __defaults, values));
-};
-
-//Security mode static constants
-Object.defineProperty(Netlicensing.Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
-Object.defineProperty(Netlicensing.Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
-
-Netlicensing.Context.prototype.setBaseUrl = function (baseUrl) {
-    return this.setValue('baseUrl', baseUrl);
-};
-
-Netlicensing.Context.prototype.getBaseUrl = function (def) {
-    return this.getValue('baseUrl', def);
-};
-
-Netlicensing.Context.prototype.setUsername = function (username) {
-    return this.setValue('username', username);
-};
-
-Netlicensing.Context.prototype.getUsername = function (def) {
-    return this.getValue('username', def);
-};
-
-Netlicensing.Context.prototype.setPassword = function (password) {
-    return this.setValue('password', password);
-};
-
-Netlicensing.Context.prototype.getPassword = function (def) {
-    return this.getValue('password', def);
-};
-
-Netlicensing.Context.prototype.setApiKey = function (apiKey) {
-    return this.setValue('apiKey', apiKey);
-};
-
-Netlicensing.Context.prototype.getApiKey = function (def) {
-    return this.getValue('apiKey', def);
-};
-
-Netlicensing.Context.prototype.setSecurityMode = function (securityMode) {
-    return this.setValue('securityMode', securityMode);
-};
-
-Netlicensing.Context.prototype.getSecurityMode = function (def) {
-    return this.getValue('securityMode', def);
-};
-
-Netlicensing.Context.prototype.setVendorNumber = function (vendorNumber) {
-    return this.setValue('vendorNumber', vendorNumber);
-};
-
-Netlicensing.Context.prototype.getVendorNumber = function (def) {
-    return this.getValue('vendorNumber', def);
-};
-/**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      http://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
-
-//namespace
-var Netlicensing = Netlicensing || {};
-
-Netlicensing.HttpRequest = function () {
-
-};
-
-Netlicensing.HttpRequest.prototype.__serialize = function (data, prefix) {
-    var query = [];
-    for (var key in data) {
-        if (data.hasOwnProperty(key)) {
-            var k = prefix ? prefix + '[' + key + ']' : key;
-            var v = data[key];
-            v = (v instanceof Date) ? v.toISOString() : v;
-            query.push((v !== null && typeof v === 'object') ?
-                this.__serialize(v, k) :
-            encodeURIComponent(k) + "=" + encodeURIComponent(v));
-        }
-    }
-    return query.join("&").replace(/%5B[0-9]+%5D=/g, '=');
-};
-
-Netlicensing.HttpRequest.prototype.__parseQuery = function (url) {
-    var query = {};
-    var queryPos = url.indexOf('?');
-    var parts = url.substr(queryPos + 1).split('&');
-    if (queryPos !== -1 || url.indexOf("=") !== -1) {
-        var length = parts.length;
-        for (var i = 0; i < length; i++) {
-            var part = parts[i].split('=');
-            query[decodeURIComponent(part[0])] = part.hasOwnProperty(1) ? decodeURIComponent(part[1]) : null;
-        }
-    }
-    return query;
-};
-
-Netlicensing.HttpRequest.prototype.__parseHeadersStr = function (headers) {
-    if (typeof headers !== 'string') return headers;
-    var responseHeaders = {};
-    headers = headers.split("\n");
-    var length = headers.length;
-    for (var i = 0; i < length; i++) {
-        var part = headers[i].split(':');
-        if (part[0]) responseHeaders[part[0].toLowerCase()] = part[1].trim();
-    }
-    return responseHeaders;
-};
-
-Netlicensing.HttpRequest.prototype.send = function (config) {
-    var self = this;
-
-    return new Promise(function (resolve, reject) {
-        var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
-        var xhr = new XHR();
-
-        var httpSetup = Object.assign({}, {
-            method: 'GET',
-            url: '/',
-            headers: {},
-            data: {},
-            timeout: 0
-        }, config);
-
-        httpSetup.method = httpSetup.method.toUpperCase();
-        httpSetup.data = self.__serialize(httpSetup.data);
-        httpSetup.headers = Object.assign({}, {Accept: 'application/json, text/plain, */*'}, httpSetup.headers);
-
-        switch (httpSetup.method) {
-            case 'DELETE':
-            case 'GET':
-                if (httpSetup.data.length) httpSetup.url += (Object.keys(self.__parseQuery(httpSetup.url)).length) ? '&' + httpSetup.data : '?' + httpSetup.data;
-                break;
-            case 'POST':
-                httpSetup.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-                break;
-        }
-
-        xhr.open(httpSetup.method, httpSetup.url, true);
-
-        //set headers
-        for (var key in httpSetup.headers) {
-            if (!httpSetup.headers.hasOwnProperty(key)) continue;
-            xhr.setRequestHeader(key, httpSetup.headers[key]);
-        }
-
-        xhr.timeout = httpSetup.timeout;
-
-        var httpXHR = function (xhr, requestHeaders) {
-
-            var httpXHR = {
-                status: xhr.status,
-                statusText: xhr.statusText,
-                responseText: xhr.responseText,
-                responseType: xhr.responseType,
-                responseURL: xhr.responseURL,
-                responseXML: xhr.responseXML,
-                requestHeaders: requestHeaders,
-                responseHeaders: self.__parseHeadersStr(xhr.getAllResponseHeaders())
-            };
-
-            var index = httpXHR.responseHeaders['content-type'].indexOf(';');
-            var contentType = index !== -1
-                ? httpXHR.responseHeaders['content-type'].substr(0, index).trim()
-                : httpXHR.responseHeaders['content-type'].trim();
-
-            switch (contentType) {
-                case 'application/xml':
-                    httpXHR.response = xhr.responseXML;
-                    break;
-                case 'application/json':
-                    httpXHR.response = JSON.parse(xhr.responseText);
-                    break;
-                default:
-                    httpXHR.response = xhr.responseText;
-                    break;
-            }
-
-            return httpXHR;
-        };
-
-        xhr.onload = function () {
-            (xhr.status >= 400)
-                ? reject(httpXHR(xhr, httpSetup.headers))
-                : resolve(httpXHR(xhr, httpSetup.headers));
-        };
-
-        xhr.onerror = function () {
-            reject(httpXHR(xhr, httpSetup.headers));
-        };
-
-        xhr.onabort = function () {
-            reject(httpXHR(xhr, httpSetup.headers));
-        };
-
-        xhr.timeout = function () {
-            reject(httpXHR(xhr, httpSetup.headers));
-        };
-
-        xhr.send(httpSetup.data);
-    });
-};
-
-Netlicensing.HttpRequest.prototype.get = function (url, config) {
-    return this.send(Object.assign({}, config, {url: url, method: 'GET'}));
-};
-
-Netlicensing.HttpRequest.prototype.post = function (url, data, config) {
-    return this.send(Object.assign({}, config, {url: url, method: 'POST', data: data}));
-};
-
-Netlicensing.HttpRequest.prototype.patch = function (url, data, config) {
-    return this.send(Object.assign({}, config, {url: url, method: 'PATCH', data: data}));
-};
-
-Netlicensing.HttpRequest.prototype.head = function (url, config) {
-    return this.send(Object.assign({}, config, {url: url, method: 'HEAD'}));
-};
-
-Netlicensing.HttpRequest.prototype.jsonp = function (url, config) {
-    return this.send(Object.assign({}, config, {url: url, method: 'JSONP'}));
-};
-
-Netlicensing.HttpRequest.prototype.put = function (url, config) {
-    return this.send(Object.assign({}, config, {url: url, method: 'PUT'}));
-};
-
-Netlicensing.HttpRequest.prototype.delete = function (url, config) {
-    return this.send(Object.assign({}, config, {url: url, method: 'DELETE'}));
-};
-
-Netlicensing.HttpRequest.get = function (url, config) {
-    return new Netlicensing.HttpRequest().get(url, config);
-};
-
-Netlicensing.HttpRequest.post = function (url, data, config) {
-    return new Netlicensing.HttpRequest().post(url, data, config);
-};
-
-Netlicensing.HttpRequest.patch = function (url, data, config) {
-    return new Netlicensing.HttpRequest().patch(url, data, config);
-};
-
-Netlicensing.HttpRequest.head = function (url, data, config) {
-    return new Netlicensing.HttpRequest().head(url, data, config);
-};
-
-Netlicensing.HttpRequest.jsonp = function (url, data, config) {
-    return new Netlicensing.HttpRequest().jsonp(url, data, config);
-};
-
-Netlicensing.HttpRequest.put = function (url, data, config) {
-    return new Netlicensing.HttpRequest().put(url, data, config);
-};
-
-Netlicensing.HttpRequest.delete = function (url, data, config) {
-    return new Netlicensing.HttpRequest().delete(url, data, config);
-};
-/**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      http://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
-
-//namespace
-var Netlicensing = Netlicensing || {};
-
-Netlicensing.ValidationParameters = function () {
-    var __productNumber;
-    var __licenseeName;
-    var __licenseeSecret;
-    var __parameters = {};
-
-    /**
-     * Sets the target product
-     *
-     * optional productNumber, must be provided in case licensee auto-create is enabled
-     * @param productNumber
-     * @returns {Netlicensing.ValidationParameters}
-     */
-    this.setProductNumber = function (productNumber) {
-        __productNumber = productNumber;
-        return this;
-    };
-
-    this.getProductNumber = function () {
-        return __productNumber;
-    };
-
-    /**
-     * Sets the name for the new licensee
-     *
-     * optional human-readable licensee name in case licensee will be auto-created. This parameter must not
-     * be the name, but can be used to store any other useful string information with new licensees, up to
-     * 1000 characters.
-     * @param licenseeName
-     * @returns {Netlicensing.ValidationParameters}
-     */
-    this.setLicenseeName = function (licenseeName) {
-        __licenseeName = licenseeName;
-        return this;
-    };
-
-    this.getLicenseeName = function () {
-        return __licenseeName;
-    };
-
-    /**
-     * Sets the licensee secret
-     *
-     * licensee secret stored on the client side. Refer to Licensee Secret documentation for details.
-     * @param licenseeSecret
-     * @returns {Netlicensing.ValidationParameters}
-     */
-    this.setLicenseeSecret = function (licenseeSecret) {
-        __licenseeSecret = licenseeSecret;
-        return this;
-    };
-
-    this.getLicenseeSecret = function () {
-        return __licenseeSecret;
-    };
-
-    this.getParameters = function () {
-        return Object.assign({}, __parameters);
-    };
-
-    this.getProductModuleValidationParameters = function (productModuleNumber) {
-
-        if (__parameters[productModuleNumber] === undefined || !Object.keys(__parameters[productModuleNumber]).length) {
-            __parameters[productModuleNumber] = {};
-        }
-
-        return Object.assign({}, __parameters[productModuleNumber]);
-    };
-
-    this.setProductModuleValidationParameters = function (productModuleNumber, productModuleParameters) {
-        if (__parameters[productModuleNumber] === undefined || !Object.keys(__parameters[productModuleNumber]).length) {
-            __parameters[productModuleNumber] = {};
-        }
-        __parameters[productModuleNumber] = Object.assign(__parameters[productModuleNumber], productModuleParameters);
-        return this;
-    };
-};
-/**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      http://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
-
-//namespace
-var Netlicensing = Netlicensing || {};
-
-
-Netlicensing.ValidationResults = function () {
-
-    var __validators = {};
-    var __ttl;
-
-    this.getValidators = function () {
-        return Object.assign({}, __validators);
-    };
-
-    this.setProductModuleValidation = function (productModuleNumber, productModuleValidation) {
-        if (!Netlicensing.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
-
-        __validators[productModuleNumber] = productModuleValidation;
-
-        return this;
-    };
-
-    this.getProductModuleValidation = function (productModuleNumber) {
-        if (!Netlicensing.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
-
-        return __validators[productModuleNumber];
-    };
-
-    this.setTtl = function (ttl) {
-        if (!Netlicensing.CheckUtils.isValid(ttl) || typeof ttl === 'object')  throw new TypeError('Bad ttl:' + ttl);
-        __ttl = new Date(String(ttl));
-        return this;
-    };
-
-    this.getTtl = function () {
-        return (__ttl) ? new Date(__ttl) : undefined;
-    };
-};
-
-Netlicensing.ValidationResults.prototype.toString = function () {
-    var data = 'ValidationResult [';
-    var validators = this.getValidators();
-
-    for (var productModuleNumber in validators) {
-        data += 'ProductModule<' + productModuleNumber + '>';
-        if (!validators.hasOwnProperty(productModuleNumber))continue;
-        data += JSON.stringify(validators[productModuleNumber]);
-    }
-
-    data += ']';
-    return data;
+    return Netlicensing.Service
+        .getInstance()
+        .list(context, Netlicensing.UtilityService.ENDPOINT_PATH + '/countries', queryParams, Netlicensing.Country);
 };

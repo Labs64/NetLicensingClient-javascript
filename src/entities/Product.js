@@ -30,6 +30,9 @@ var Netlicensing = Netlicensing || {};
  * If set to 'true', non-existing licensees will be created at first validation attempt.
  * @property boolean licenseeAutoCreate
  *
+ * Licensee secret mode for product.Supported types: "DISABLED", "PREDEFINED", "CLIENT"
+ * @property boolean licenseeSecretMode
+ *
  * Product description. Optional.
  * @property string description
  *
@@ -57,6 +60,7 @@ Netlicensing.Product = function () {
             description: 'string',
             licensingInfo: 'string',
             licenseeAutoCreate: 'boolean',
+            licenseeSecretMode: 'string',
             inUse: 'boolean'
         }
     });
@@ -110,8 +114,10 @@ Netlicensing.Product = function () {
         return __productDiscounts;
     };
 
+    var parentAsPropertiesMap = this.asPropertiesMap;
     this.asPropertiesMap = function () {
-        var map = this.getProperties();
+
+        var map = parentAsPropertiesMap.call(this);
 
         var length = __productDiscounts.length;
 
@@ -130,12 +136,17 @@ Netlicensing.Product = function () {
     };
 
     //define default entity properties
-    this.__defines(['number', 'active', 'name', 'version', 'description', 'licensingInfo', 'licenseeAutoCreate']);
+    this.__defines(['number', 'active', 'name', 'version', 'description', 'licensingInfo', 'licenseeAutoCreate', 'licenseeSecretMode']);
     this.__define('inUse', true);
 
     //make methods not changeable
-    this.__notChangeable(['addDiscount', 'getProductDiscounts', 'asPropertiesMap']);
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
+
+//static constants
+Object.defineProperty(Netlicensing.Product, 'LICENSEE_SECRET_MODE_DISABLED', {value: 'DISABLED'});
+Object.defineProperty(Netlicensing.Product, 'LICENSEE_SECRET_MODE_PREDEFINED', {value: 'PREDEFINED '});
+Object.defineProperty(Netlicensing.Product, 'LICENSEE_SECRET_MODE_CLIENT', {value: 'CLIENT '});
 
 Netlicensing.Product.prototype = Object.create(Netlicensing.BaseEntity.prototype);
 Netlicensing.Product.prototype.constructor = Netlicensing.Product;
@@ -180,6 +191,14 @@ Netlicensing.Product.prototype.getLicenseeAutoCreate = function (def) {
     return this.getProperty('licenseeAutoCreate', def);
 };
 
+Netlicensing.Product.prototype.setLicenseeSecretMode = function (licenseeSecretMode) {
+    return this.setProperty('licenseeSecretMode', licenseeSecretMode);
+};
+
+Netlicensing.Product.prototype.getLicenseeSecretMode = function (def) {
+    return this.getProperty('licenseeSecretMode', def);
+};
+
 Netlicensing.Product.prototype.setDescription = function (description) {
     return this.setProperty('description', description);
 };
@@ -212,8 +231,25 @@ Netlicensing.Product.prototype.__setListDiscount = function (properties) {
 };
 
 //make methods not changeable
-Object.defineProperty(Netlicensing.Product.prototype, '__setListDiscount', {
-    writable: false,
-    enumerable: false,
-    configurable: false
-});
+Netlicensing.DefineUtil.notChangeable(Netlicensing.Product.prototype, ['constructor', '__setListDiscount']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.Product.prototype, [
+    'setNumber',
+    'getNumber',
+    'setName',
+    'getName',
+    'setActive',
+    'getActive',
+    'setVersion',
+    'getVersion',
+    'setLicenseeAutoCreate',
+    'getLicenseeAutoCreate',
+    'setLicenseeSecretMode',
+    'getLicenseeSecretMode',
+    'setDescription',
+    'getDescription',
+    'setLicensingInfo',
+    'getLicensingInfo',
+    'getInUse',
+]);

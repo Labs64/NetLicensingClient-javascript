@@ -23,6 +23,9 @@ Netlicensing.ProductDiscount = function () {
 
     //define default entity properties
     this.__defines(['totalPrice', 'currency', 'amountFix', 'amountPercent']);
+
+    //make methods not changeable
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
 Netlicensing.ProductDiscount.prototype = Object.create(Netlicensing.BaseEntity.prototype);
@@ -72,8 +75,16 @@ Netlicensing.ProductDiscount.prototype.toString = function () {
 };
 
 //make methods not changeable
-Object.defineProperty(Netlicensing.ProductDiscount.prototype, 'toString', {
-    writable: false,
-    enumerable: false,
-    configurable: false
-});
+Netlicensing.DefineUtil.notChangeable(Netlicensing.ProductDiscount.prototype, ['constructor', 'toString']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.ProductDiscount.prototype, [
+    'setTotalPrice',
+    'getTotalPrice',
+    'setCurrency',
+    'getCurrency',
+    'setAmountFix',
+    'getAmountFix',
+    'setAmountPercent',
+    'getAmountPercent',
+]);

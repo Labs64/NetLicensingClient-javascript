@@ -67,8 +67,17 @@ Netlicensing.ProductModule = function () {
     this.__define('inUse', true);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
+
+//static constants
+Object.defineProperty(Netlicensing.ProductModule, 'LICENSING_MODEL_SUBSCRIPTION', {value: 'Subscription'});
+Object.defineProperty(Netlicensing.ProductModule, 'LICENSING_MODEL_TRY_AND_BUY', {value: 'TryAndBuy'});
+Object.defineProperty(Netlicensing.ProductModule, 'LICENSING_MODEL_RENTAL', {value: 'Rental'});
+Object.defineProperty(Netlicensing.ProductModule, 'LICENSING_MODEL_FLOATING', {value: 'Floating'});
+Object.defineProperty(Netlicensing.ProductModule, 'LICENSING_MODEL_MULTI_FEATURE', {value: 'MultiFeature'});
+Object.defineProperty(Netlicensing.ProductModule, 'LICENSING_MODEL_PAY_PER_USE', {value: 'PayPerUse'});
+
 
 Netlicensing.ProductModule.prototype = Object.create(Netlicensing.BaseEntity.prototype);
 Netlicensing.ProductModule.prototype.constructor = Netlicensing.ProductModule;
@@ -140,3 +149,27 @@ Netlicensing.ProductModule.prototype.getLicenseTemplate = function (def) {
 Netlicensing.ProductModule.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.ProductModule.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.ProductModule.prototype, [
+    'setNumber',
+    'getNumber',
+    'setActive',
+    'getActive',
+    'setName',
+    'getName',
+    'setLicensingModel',
+    'getLicensingModel',
+    'setMaxCheckoutValidity',
+    'getMaxCheckoutValidity',
+    'setYellowThreshold',
+    'getYellowThreshold',
+    'setRedThreshold',
+    'getRedThreshold',
+    'setLicenseTemplate',
+    'getLicenseTemplate',
+    'getInUse',
+]);

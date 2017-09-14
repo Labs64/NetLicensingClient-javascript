@@ -69,7 +69,7 @@ Netlicensing.License = function () {
     this.__defines(['inUse', 'currency', 'price'], true);
 
     //make methods not changeable
-    this.__notChangeable('asPropertiesMap');
+    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
 Netlicensing.License.prototype = Object.create(Netlicensing.BaseEntity.prototype);
@@ -142,3 +142,27 @@ Netlicensing.License.prototype.getPrice = function (def) {
 Netlicensing.License.prototype.getCurrency = function (def) {
     return this.getProperty('currency', def);
 };
+
+//make methods not changeable
+Netlicensing.DefineUtil.notChangeable(Netlicensing.License.prototype, ['constructor']);
+
+//make methods not enumerable
+Netlicensing.DefineUtil.notEnumerable(Netlicensing.License.prototype, [
+    'setNumber',
+    'getNumber',
+    'setActive',
+    'getActive',
+    'setName',
+    'getName',
+    'setHidden',
+    'getHidden',
+    'setParentfeature',
+    'getParentfeature',
+    'setTimeVolume',
+    'getTimeVolume',
+    'setStartDate',
+    'getStartDate',
+    'getInUse',
+    'getPrice',
+    'getCurrency',
+]);
