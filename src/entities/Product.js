@@ -145,8 +145,8 @@ Netlicensing.Product = function () {
 
 //static constants
 Object.defineProperty(Netlicensing.Product, 'LICENSEE_SECRET_MODE_DISABLED', {value: 'DISABLED'});
-Object.defineProperty(Netlicensing.Product, 'LICENSEE_SECRET_MODE_PREDEFINED', {value: 'PREDEFINED '});
-Object.defineProperty(Netlicensing.Product, 'LICENSEE_SECRET_MODE_CLIENT', {value: 'CLIENT '});
+Object.defineProperty(Netlicensing.Product, 'LICENSEE_SECRET_MODE_PREDEFINED', {value: 'PREDEFINED'});
+Object.defineProperty(Netlicensing.Product, 'LICENSEE_SECRET_MODE_CLIENT', {value: 'CLIENT'});
 
 Netlicensing.Product.prototype = Object.create(Netlicensing.BaseEntity.prototype);
 Netlicensing.Product.prototype.constructor = Netlicensing.Product;
