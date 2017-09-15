@@ -68,14 +68,14 @@ gulp.task('dist', function () {
     ];
 
     var js = gulp.src(src)
-        .pipe(concat('netlicensing-client-js.js'))
+        .pipe(concat('netlicensing-client.js'))
         .pipe(size({
             title: 'The size of a library'
         }))
         .pipe(gulp.dest('dist'));
 
     var min = gulp.src(src)
-        .pipe(concat('netlicensing-client-js.min.js'))
+        .pipe(concat('netlicensing-client.min.js'))
         .pipe(uglify())
         .pipe(size({
             title: 'The size of a minimized library'
