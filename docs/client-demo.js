@@ -6,9 +6,8 @@ var NetLicensingDemo = function () {
     var productModuleNumber = numberWithPrefix("PM", randomNumber);
     var licenseTemplateNumber = numberWithPrefix("LT", randomNumber);
     var licenseeNumber = numberWithPrefix("L", randomNumber);
-    var licenseNumber = numberWithPrefix("LC", randomNumber);
     var licenseeName = numberWithPrefix("Licensee ", Math.random().toString(36).slice(2));
-
+    var licenseNumber = numberWithPrefix("LC", randomNumber);
 
     // region ********* Lists
 
