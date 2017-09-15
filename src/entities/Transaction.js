@@ -6,7 +6,7 @@
  */
 
 //namespace
-var Netlicensing = Netlicensing || {};
+var NetLicensing  = NetLicensing  || {};
 
 /**
  * Transaction entity used internally by NetLicensing.
@@ -44,8 +44,8 @@ var Netlicensing = Netlicensing || {};
  * @constructor
  */
 
-Netlicensing.Transaction = function Transaction() {
-    Netlicensing.BaseEntity.apply(this, arguments);
+NetLicensing .Transaction = function Transaction() {
+    NetLicensing .BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -69,106 +69,106 @@ Netlicensing.Transaction = function Transaction() {
     this.__define('active', true);
 
     //make methods not changeable
-    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
+    NetLicensing .DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
 //static constants
-Object.defineProperty(Netlicensing.Transaction, 'STATUS_CANCELLED', {value: 'CANCELLED'});
-Object.defineProperty(Netlicensing.Transaction, 'STATUS_CLOSED', {value: 'CLOSED'});
-Object.defineProperty(Netlicensing.Transaction, 'STATUS_PENDING', {value: 'PENDING'});
+Object.defineProperty(NetLicensing .Transaction, 'STATUS_CANCELLED', {value: 'CANCELLED'});
+Object.defineProperty(NetLicensing .Transaction, 'STATUS_CLOSED', {value: 'CLOSED'});
+Object.defineProperty(NetLicensing .Transaction, 'STATUS_PENDING', {value: 'PENDING'});
 
-Netlicensing.Transaction.prototype = Object.create(Netlicensing.BaseEntity.prototype);
-Netlicensing.Transaction.prototype.constructor = Netlicensing.Transaction;
+NetLicensing .Transaction.prototype = Object.create(NetLicensing .BaseEntity.prototype);
+NetLicensing .Transaction.prototype.constructor = NetLicensing .Transaction;
 
-Netlicensing.Transaction.prototype.setNumber = function (number) {
+NetLicensing .Transaction.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Netlicensing.Transaction.prototype.getNumber = function (def) {
+NetLicensing .Transaction.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Netlicensing.Transaction.prototype.setName = function (name) {
+NetLicensing .Transaction.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Netlicensing.Transaction.prototype.getName = function (def) {
+NetLicensing .Transaction.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Netlicensing.Transaction.prototype.setStatus = function (status) {
+NetLicensing .Transaction.prototype.setStatus = function (status) {
     return this.setProperty('status', status);
 };
 
-Netlicensing.Transaction.prototype.getStatus = function (def) {
+NetLicensing .Transaction.prototype.getStatus = function (def) {
     return this.getProperty('status', def);
 };
 
-Netlicensing.Transaction.prototype.setSource = function (source) {
+NetLicensing .Transaction.prototype.setSource = function (source) {
     return this.setProperty('source', source);
 };
 
-Netlicensing.Transaction.prototype.getSource = function (def) {
+NetLicensing .Transaction.prototype.getSource = function (def) {
     return this.getProperty('source', def);
 };
 
-Netlicensing.Transaction.prototype.setGrandTotal = function (grandTotal) {
+NetLicensing .Transaction.prototype.setGrandTotal = function (grandTotal) {
     return this.setProperty('grandTotal', grandTotal);
 };
 
-Netlicensing.Transaction.prototype.getGrandTotal = function (def) {
+NetLicensing .Transaction.prototype.getGrandTotal = function (def) {
     return this.getProperty('grandTotal', def);
 };
 
-Netlicensing.Transaction.prototype.setDiscount = function (discount) {
+NetLicensing .Transaction.prototype.setDiscount = function (discount) {
     return this.setProperty('discount', discount);
 };
 
-Netlicensing.Transaction.prototype.getDiscount = function (def) {
+NetLicensing .Transaction.prototype.getDiscount = function (def) {
     return this.getProperty('discount', def);
 };
 
-Netlicensing.Transaction.prototype.setCurrency = function (currency) {
+NetLicensing .Transaction.prototype.setCurrency = function (currency) {
     return this.setProperty('currency', currency);
 };
 
-Netlicensing.Transaction.prototype.getCurrency = function (def) {
+NetLicensing .Transaction.prototype.getCurrency = function (def) {
     return this.getProperty('currency', def);
 };
 
-Netlicensing.Transaction.prototype.setDateCreated = function (dateCreated) {
+NetLicensing .Transaction.prototype.setDateCreated = function (dateCreated) {
     return this.setProperty('dateCreated', dateCreated);
 };
 
-Netlicensing.Transaction.prototype.getDateCreated = function (def) {
+NetLicensing .Transaction.prototype.getDateCreated = function (def) {
     return this.getProperty('dateCreated', def);
 };
 
-Netlicensing.Transaction.prototype.setDateClosed = function (dateClosed) {
+NetLicensing .Transaction.prototype.setDateClosed = function (dateClosed) {
     return this.setProperty('dateClosed', dateClosed);
 };
 
-Netlicensing.Transaction.prototype.getDateClosed = function (def) {
+NetLicensing .Transaction.prototype.getDateClosed = function (def) {
     return this.getProperty('dateClosed', def);
 };
 
-Netlicensing.Transaction.prototype.setPaymentMethod = function (paymentMethod) {
+NetLicensing .Transaction.prototype.setPaymentMethod = function (paymentMethod) {
     return this.setProperty('paymentMethod', paymentMethod);
 };
 
-Netlicensing.Transaction.prototype.getPaymentMethod = function (def) {
+NetLicensing .Transaction.prototype.getPaymentMethod = function (def) {
     return this.getProperty('paymentMethod', def);
 };
 
-Netlicensing.Transaction.prototype.setActive = function () {
+NetLicensing .Transaction.prototype.setActive = function () {
     return this.setProperty('active', true);
 };
 
 //make methods not changeable
-Netlicensing.DefineUtil.notChangeable(Netlicensing.Transaction.prototype, ['constructor']);
+NetLicensing .DefineUtil.notChangeable(NetLicensing .Transaction.prototype, ['constructor']);
 
 //make methods not enumerable
-Netlicensing.DefineUtil.notEnumerable(Netlicensing.Transaction.prototype, [
+NetLicensing .DefineUtil.notEnumerable(NetLicensing .Transaction.prototype, [
     'setNumber',
     'getNumber',
     'setName',

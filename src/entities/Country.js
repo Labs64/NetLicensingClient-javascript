@@ -6,12 +6,12 @@
  */
 
 //namespace
-var Netlicensing = Netlicensing || {};
+var NetLicensing  = NetLicensing  || {};
 
 /**
- * Country entity used internally by NetLicensing.
+ * Country entity used internally by NetLicensing .
  *
- * Properties visible via NetLicensing API:
+ * Properties visible via NetLicensing  API:
  *
  * @property code - Unique code of country.
  *
@@ -22,8 +22,8 @@ var Netlicensing = Netlicensing || {};
  * @property isEu - is country in EU.
  */
 
-Netlicensing.Country = function () {
-    Netlicensing.BaseEntity.apply(this, arguments);
+NetLicensing .Country = function () {
+    NetLicensing .BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -39,49 +39,49 @@ Netlicensing.Country = function () {
     this.__defines(['code', 'name', 'vatPercent', 'isEu']);
 
     //make methods not changeable
-    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
+    NetLicensing .DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
-Netlicensing.Country.prototype = Object.create(Netlicensing.BaseEntity.prototype);
-Netlicensing.Country.prototype.constructor = Netlicensing.Country;
+NetLicensing .Country.prototype = Object.create(NetLicensing .BaseEntity.prototype);
+NetLicensing .Country.prototype.constructor = NetLicensing .Country;
 
-Netlicensing.Country.prototype.setCode = function (code) {
+NetLicensing .Country.prototype.setCode = function (code) {
     return this.setProperty('code', code);
 };
 
-Netlicensing.Country.prototype.getCode = function (def) {
+NetLicensing .Country.prototype.getCode = function (def) {
     return this.getProperty('code', def);
 };
 
-Netlicensing.Country.prototype.setName = function (name) {
+NetLicensing .Country.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Netlicensing.Country.prototype.getName = function (def) {
+NetLicensing .Country.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Netlicensing.Country.prototype.setVatPercent = function (vat) {
+NetLicensing .Country.prototype.setVatPercent = function (vat) {
     return this.setProperty('vatPercent', vat);
 };
 
-Netlicensing.Country.prototype.getVatPercent = function (def) {
+NetLicensing .Country.prototype.getVatPercent = function (def) {
     return this.getProperty('vatPercent', def);
 };
 
-Netlicensing.Country.prototype.setIsEu = function (isEu) {
+NetLicensing .Country.prototype.setIsEu = function (isEu) {
     return this.setProperty('isEu', isEu);
 };
 
-Netlicensing.Country.prototype.getIsEu = function (def) {
+NetLicensing .Country.prototype.getIsEu = function (def) {
     return this.getProperty('isEu', def);
 };
 
 //make methods not changeable
-Netlicensing.DefineUtil.notChangeable(Netlicensing.Country.prototype, ['constructor']);
+NetLicensing .DefineUtil.notChangeable(NetLicensing .Country.prototype, ['constructor']);
 
 //make methods not enumerable
-Netlicensing.DefineUtil.notEnumerable(Netlicensing.Country.prototype, [
+NetLicensing .DefineUtil.notEnumerable(NetLicensing .Country.prototype, [
     'setCode',
     'getCode',
     'setName',

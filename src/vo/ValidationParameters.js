@@ -6,9 +6,9 @@
  */
 
 //namespace
-var Netlicensing = Netlicensing || {};
+var NetLicensing  = NetLicensing  || {};
 
-Netlicensing.ValidationParameters = function () {
+NetLicensing .ValidationParameters = function () {
     var __productNumber;
     var __licenseeName;
     var __licenseeSecret;
@@ -19,7 +19,7 @@ Netlicensing.ValidationParameters = function () {
      *
      * optional productNumber, must be provided in case licensee auto-create is enabled
      * @param productNumber
-     * @returns {Netlicensing.ValidationParameters}
+     * @returns {NetLicensing .ValidationParameters}
      */
     this.setProductNumber = function (productNumber) {
         __productNumber = productNumber;
@@ -37,7 +37,7 @@ Netlicensing.ValidationParameters = function () {
      * be the name, but can be used to store any other useful string information with new licensees, up to
      * 1000 characters.
      * @param licenseeName
-     * @returns {Netlicensing.ValidationParameters}
+     * @returns {NetLicensing .ValidationParameters}
      */
     this.setLicenseeName = function (licenseeName) {
         __licenseeName = licenseeName;
@@ -53,7 +53,7 @@ Netlicensing.ValidationParameters = function () {
      *
      * licensee secret stored on the client side. Refer to Licensee Secret documentation for details.
      * @param licenseeSecret
-     * @returns {Netlicensing.ValidationParameters}
+     * @returns {NetLicensing .ValidationParameters}
      */
     this.setLicenseeSecret = function (licenseeSecret) {
         __licenseeSecret = licenseeSecret;

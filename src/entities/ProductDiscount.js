@@ -6,10 +6,10 @@
  */
 
 //namespace
-var Netlicensing = Netlicensing || {};
+var NetLicensing  = NetLicensing  || {};
 
-Netlicensing.ProductDiscount = function () {
-    Netlicensing.BaseEntity.apply(this, arguments);
+NetLicensing .ProductDiscount = function () {
+    NetLicensing .BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -25,45 +25,45 @@ Netlicensing.ProductDiscount = function () {
     this.__defines(['totalPrice', 'currency', 'amountFix', 'amountPercent']);
 
     //make methods not changeable
-    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
+    NetLicensing .DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
-Netlicensing.ProductDiscount.prototype = Object.create(Netlicensing.BaseEntity.prototype);
-Netlicensing.ProductDiscount.prototype.constructor = Netlicensing.ProductDiscount;
+NetLicensing .ProductDiscount.prototype = Object.create(NetLicensing .BaseEntity.prototype);
+NetLicensing .ProductDiscount.prototype.constructor = NetLicensing .ProductDiscount;
 
-Netlicensing.ProductDiscount.prototype.setTotalPrice = function (totalPrice) {
+NetLicensing .ProductDiscount.prototype.setTotalPrice = function (totalPrice) {
     return this.setProperty('totalPrice', totalPrice);
 };
 
-Netlicensing.ProductDiscount.prototype.getTotalPrice = function (def) {
+NetLicensing .ProductDiscount.prototype.getTotalPrice = function (def) {
     return this.getProperty('totalPrice', def);
 };
 
-Netlicensing.ProductDiscount.prototype.setCurrency = function (currency) {
+NetLicensing .ProductDiscount.prototype.setCurrency = function (currency) {
     return this.setProperty('currency', currency);
 };
 
-Netlicensing.ProductDiscount.prototype.getCurrency = function (def) {
+NetLicensing .ProductDiscount.prototype.getCurrency = function (def) {
     return this.getProperty('currency', def);
 };
 
-Netlicensing.ProductDiscount.prototype.setAmountFix = function (amountFix) {
+NetLicensing .ProductDiscount.prototype.setAmountFix = function (amountFix) {
     return this.setProperty('amountFix', amountFix).removeProperty('amountPercent');
 };
 
-Netlicensing.ProductDiscount.prototype.getAmountFix = function (def) {
+NetLicensing .ProductDiscount.prototype.getAmountFix = function (def) {
     return this.getProperty('amountFix', def);
 };
 
-Netlicensing.ProductDiscount.prototype.setAmountPercent = function (amountPercent) {
+NetLicensing .ProductDiscount.prototype.setAmountPercent = function (amountPercent) {
     return this.setProperty('amountPercent', amountPercent).removeProperty('amountFix');
 };
 
-Netlicensing.ProductDiscount.prototype.getAmountPercent = function (def) {
+NetLicensing .ProductDiscount.prototype.getAmountPercent = function (def) {
     return this.getProperty('amountPercent', def);
 };
 
-Netlicensing.ProductDiscount.prototype.toString = function () {
+NetLicensing .ProductDiscount.prototype.toString = function () {
     var totalPrice = this.getTotalPrice();
     var currency = this.getCurrency();
     var amount = 0;
@@ -75,10 +75,10 @@ Netlicensing.ProductDiscount.prototype.toString = function () {
 };
 
 //make methods not changeable
-Netlicensing.DefineUtil.notChangeable(Netlicensing.ProductDiscount.prototype, ['constructor', 'toString']);
+NetLicensing .DefineUtil.notChangeable(NetLicensing .ProductDiscount.prototype, ['constructor', 'toString']);
 
 //make methods not enumerable
-Netlicensing.DefineUtil.notEnumerable(Netlicensing.ProductDiscount.prototype, [
+NetLicensing .DefineUtil.notEnumerable(NetLicensing .ProductDiscount.prototype, [
     'setTotalPrice',
     'getTotalPrice',
     'setCurrency',

@@ -6,7 +6,7 @@
  */
 
 //namespace
-var Netlicensing = Netlicensing || {};
+var NetLicensing  = NetLicensing  || {};
 
 /**
  * Class Context
@@ -37,7 +37,7 @@ var Netlicensing = Netlicensing || {};
  * @constructor
  */
 
-Netlicensing.Context = function (values) {
+NetLicensing .Context = function (values) {
 
     if (values === undefined) values = {};
 
@@ -52,7 +52,7 @@ Netlicensing.Context = function (values) {
      */
     var __defaults = {
         baseUrl: 'https://go.netlicensing.io/core/v2/rest',
-        securityMode: Netlicensing.Context.BASIC_AUTHENTICATION
+        securityMode: NetLicensing .Context.BASIC_AUTHENTICATION
     };
 
     /**
@@ -215,8 +215,8 @@ Netlicensing.Context = function (values) {
      * @private
      */
     this.__checkValue = function (key, value) {
-        if (!Netlicensing.CheckUtils.isValid(key) || typeof key === 'object')  throw new Error('Bad value key:' + key);
-        if (!Netlicensing.CheckUtils.isValid(value)) throw new Error('Value ' + key + ' has wrong value' + value);
+        if (!NetLicensing .CheckUtils.isValid(key) || typeof key === 'object')  throw new Error('Bad value key:' + key);
+        if (!NetLicensing .CheckUtils.isValid(value)) throw new Error('Value ' + key + ' has wrong value' + value);
     };
 
     //make methods not changeable
@@ -238,53 +238,53 @@ Netlicensing.Context = function (values) {
 };
 
 //Security mode static constants
-Object.defineProperty(Netlicensing.Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
-Object.defineProperty(Netlicensing.Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
+Object.defineProperty(NetLicensing .Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
+Object.defineProperty(NetLicensing .Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
 
-Netlicensing.Context.prototype.setBaseUrl = function (baseUrl) {
+NetLicensing .Context.prototype.setBaseUrl = function (baseUrl) {
     return this.setValue('baseUrl', baseUrl);
 };
 
-Netlicensing.Context.prototype.getBaseUrl = function (def) {
+NetLicensing .Context.prototype.getBaseUrl = function (def) {
     return this.getValue('baseUrl', def);
 };
 
-Netlicensing.Context.prototype.setUsername = function (username) {
+NetLicensing .Context.prototype.setUsername = function (username) {
     return this.setValue('username', username);
 };
 
-Netlicensing.Context.prototype.getUsername = function (def) {
+NetLicensing .Context.prototype.getUsername = function (def) {
     return this.getValue('username', def);
 };
 
-Netlicensing.Context.prototype.setPassword = function (password) {
+NetLicensing .Context.prototype.setPassword = function (password) {
     return this.setValue('password', password);
 };
 
-Netlicensing.Context.prototype.getPassword = function (def) {
+NetLicensing .Context.prototype.getPassword = function (def) {
     return this.getValue('password', def);
 };
 
-Netlicensing.Context.prototype.setApiKey = function (apiKey) {
+NetLicensing .Context.prototype.setApiKey = function (apiKey) {
     return this.setValue('apiKey', apiKey);
 };
 
-Netlicensing.Context.prototype.getApiKey = function (def) {
+NetLicensing .Context.prototype.getApiKey = function (def) {
     return this.getValue('apiKey', def);
 };
 
-Netlicensing.Context.prototype.setSecurityMode = function (securityMode) {
+NetLicensing .Context.prototype.setSecurityMode = function (securityMode) {
     return this.setValue('securityMode', securityMode);
 };
 
-Netlicensing.Context.prototype.getSecurityMode = function (def) {
+NetLicensing .Context.prototype.getSecurityMode = function (def) {
     return this.getValue('securityMode', def);
 };
 
-Netlicensing.Context.prototype.setVendorNumber = function (vendorNumber) {
+NetLicensing .Context.prototype.setVendorNumber = function (vendorNumber) {
     return this.setValue('vendorNumber', vendorNumber);
 };
 
-Netlicensing.Context.prototype.getVendorNumber = function (def) {
+NetLicensing .Context.prototype.getVendorNumber = function (def) {
     return this.getValue('vendorNumber', def);
 };

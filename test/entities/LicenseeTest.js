@@ -2,7 +2,7 @@ describe('entities.LicenseeTest', function () {
     var licensee;
 
     beforeEach(function () {
-        licensee = new Netlicensing.Licensee();
+        licensee = new NetLicensing .Licensee();
     });
 
 

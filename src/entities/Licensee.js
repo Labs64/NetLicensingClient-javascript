@@ -6,15 +6,15 @@
  */
 
 //namespace
-var Netlicensing = Netlicensing || {};
+var NetLicensing  = NetLicensing  || {};
 
 /**
- * Licensee entity used internally by NetLicensing.
+ * Licensee entity used internally by NetLicensing .
  *
- * Properties visible via NetLicensing API:
+ * Properties visible via NetLicensing  API:
  *
  * Unique number (across all products of a vendor) that identifies the licensee. Vendor can assign this
- * number when creating a licensee or let NetLicensing generate one. Read-only after creation of the first license for
+ * number when creating a licensee or let NetLicensing  generate one. Read-only after creation of the first license for
  * the licensee.
  * @property string number
  *
@@ -37,8 +37,8 @@ var Netlicensing = Netlicensing || {};
  * @constructor
  */
 
-Netlicensing.Licensee = function () {
-    Netlicensing.BaseEntity.apply(this, arguments);
+NetLicensing .Licensee = function () {
+    NetLicensing .BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -57,61 +57,61 @@ Netlicensing.Licensee = function () {
     this.__define('inUse', true);
 
     //make methods not changeable
-    Netlicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
+    NetLicensing .DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
-Netlicensing.Licensee.prototype = Object.create(Netlicensing.BaseEntity.prototype);
-Netlicensing.Licensee.prototype.constructor = Netlicensing.Licensee;
+NetLicensing .Licensee.prototype = Object.create(NetLicensing .BaseEntity.prototype);
+NetLicensing .Licensee.prototype.constructor = NetLicensing .Licensee;
 
-Netlicensing.Licensee.prototype.setNumber = function (number) {
+NetLicensing .Licensee.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-Netlicensing.Licensee.prototype.getNumber = function (def) {
+NetLicensing .Licensee.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-Netlicensing.Licensee.prototype.setActive = function (active) {
+NetLicensing .Licensee.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-Netlicensing.Licensee.prototype.getActive = function (def) {
+NetLicensing .Licensee.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-Netlicensing.Licensee.prototype.setName = function (name) {
+NetLicensing .Licensee.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-Netlicensing.Licensee.prototype.getName = function (def) {
+NetLicensing .Licensee.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-Netlicensing.Licensee.prototype.setLicenseeSecret = function (licenseeSecret) {
+NetLicensing .Licensee.prototype.setLicenseeSecret = function (licenseeSecret) {
     return this.setProperty('licenseeSecret', licenseeSecret);
 };
 
-Netlicensing.Licensee.prototype.getLicenseeSecret = function (def) {
+NetLicensing .Licensee.prototype.getLicenseeSecret = function (def) {
     return this.getProperty('licenseeSecret', def);
 };
 
-Netlicensing.Licensee.prototype.setMarkedForTransfer = function (markedForTransfer) {
+NetLicensing .Licensee.prototype.setMarkedForTransfer = function (markedForTransfer) {
     return this.setProperty('markedForTransfer', markedForTransfer);
 };
 
-Netlicensing.Licensee.prototype.getMarkedForTransfer = function (def) {
+NetLicensing .Licensee.prototype.getMarkedForTransfer = function (def) {
     return this.getProperty('markedForTransfer', def);
 };
 
-Netlicensing.Licensee.prototype.getInUse = function (def) {
+NetLicensing .Licensee.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };
 
 //make methods not changeable
-Netlicensing.DefineUtil.notChangeable(Netlicensing.Licensee.prototype, ['constructor']);
+NetLicensing .DefineUtil.notChangeable(NetLicensing .Licensee.prototype, ['constructor']);
 
 //make methods not enumerable
-Netlicensing.DefineUtil.notEnumerable(Netlicensing.Licensee.prototype, [
+NetLicensing .DefineUtil.notEnumerable(NetLicensing .Licensee.prototype, [
     'setNumber',
     'getNumber',
     'setActive',

@@ -6,48 +6,48 @@
  */
 
 //namespace
-var Netlicensing = Netlicensing || {};
+var NetLicensing  = NetLicensing  || {};
 
 /**
  * JS representation of the Token Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetlicensingPUB/Token+Services
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services
  *
  * @constructor
  */
-Netlicensing.TokenService = function () {
+NetLicensing .TokenService = function () {
 };
 
 //static constants
-Object.defineProperty(Netlicensing.TokenService, 'ENDPOINT_PATH', {value: 'token'});
+Object.defineProperty(NetLicensing .TokenService, 'ENDPOINT_PATH', {value: 'token'});
 
 /**
  * Creates new token.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetlicensingPUB/Token+Services#TokenServices-Createtoken
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services#TokenServices-Createtoken
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Netlicensing.Context
+ * @param context NetLicensing .Context
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param token Netlicensing.Token
+ * @param token NetLicensing .Token
  *
  * return created token in promise
  * @returns {Promise}
  */
-Netlicensing.TokenService.create = function (context, token) {
-    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
-    if (!(token instanceof Netlicensing.Token)) throw new TypeError('token must be an instance of Netlicensing.Token');
+NetLicensing .TokenService.create = function (context, token) {
+    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+    if (!(token instanceof NetLicensing .Token)) throw new TypeError('token must be an instance of NetLicensing .Token');
 
-    return Netlicensing.Service
+    return NetLicensing .Service
         .getInstance()
-        .post(context, Netlicensing.TokenService.ENDPOINT_PATH, token.asPropertiesMap(), Netlicensing.Token);
+        .post(context, NetLicensing .TokenService.ENDPOINT_PATH, token.asPropertiesMap(), NetLicensing .Token);
 };
 
 /**
  * Gets token by its number..See NetLicensingAPI for details:
- * https://www.labs64.de/conluence/display/NetlicensingPUB/Token+Services#TokenServices-Gettoken
+ * https://www.labs64.de/conluence/display/NetLicensing PUB/Token+Services#TokenServices-Gettoken
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Netlicensing.Context
+ * @param context NetLicensing .Context
  *
  * the token number
  * @param number
@@ -55,22 +55,22 @@ Netlicensing.TokenService.create = function (context, token) {
  * return the token in promise
  * @returns {Promise}
  */
-Netlicensing.TokenService.get = function (context, number) {
-    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+NetLicensing .TokenService.get = function (context, number) {
+    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
 
-    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
+    NetLicensing .CheckUtils.paramNotEmpty(number, 'number');
 
-    return Netlicensing.Service
+    return NetLicensing .Service
         .getInstance()
-        .get(context, Netlicensing.TokenService.ENDPOINT_PATH + '/' + number, {}, Netlicensing.Token);
+        .get(context, NetLicensing .TokenService.ENDPOINT_PATH + '/' + number, {}, NetLicensing .Token);
 };
 
 /**
  * Returns tokens of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetlicensingPUB/Token+Services#TokenServices-Tokenslist
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services#TokenServices-Tokenslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Netlicensing.Context
+ * @param context NetLicensing .Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string|null
@@ -78,27 +78,27 @@ Netlicensing.TokenService.get = function (context, number) {
  * array of token entities or empty array if nothing found.
  * @return array
  */
-Netlicensing.TokenService.list = function (context, filter) {
-    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+NetLicensing .TokenService.list = function (context, filter) {
+    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
 
     var queryParams = {};
 
     if (filter) {
-        if (!Netlicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!NetLicensing .CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return Netlicensing.Service
+    return NetLicensing .Service
         .getInstance()
-        .list(context, Netlicensing.TokenService.ENDPOINT_PATH, queryParams, Netlicensing.Token);
+        .list(context, NetLicensing .TokenService.ENDPOINT_PATH, queryParams, NetLicensing .Token);
 };
 
 /**
  * Delete token by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetlicensingPUB/Token+Services#TokenServices-Deletetoken
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services#TokenServices-Deletetoken
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Netlicensing.Context
+ * @param context NetLicensing .Context
  *
  *  the token number
  * @param number string
@@ -106,12 +106,12 @@ Netlicensing.TokenService.list = function (context, filter) {
  * return boolean state of delete in promise
  * @returns {Promise}
  */
-Netlicensing.TokenService.delete = function (context, number) {
-    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+NetLicensing .TokenService.delete = function (context, number) {
+    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
 
-    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
+    NetLicensing .CheckUtils.paramNotEmpty(number, 'number');
 
-    return Netlicensing.Service
+    return NetLicensing .Service
         .getInstance()
-        .delete(context, Netlicensing.TokenService.ENDPOINT_PATH + '/' + number);
+        .delete(context, NetLicensing .TokenService.ENDPOINT_PATH + '/' + number);
 };

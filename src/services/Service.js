@@ -6,9 +6,9 @@
  */
 
 //namespace
-var Netlicensing = Netlicensing || {};
+var NetLicensing  = NetLicensing  || {};
 
-Netlicensing.Service = (function () {
+NetLicensing .Service = (function () {
     var instance;
 
     function createInstance() {
@@ -125,7 +125,7 @@ Netlicensing.Service = (function () {
         };
 
         /**
-         * Send request to Netlicensing RestApi
+         * Send request to NetLicensing  RestApi
          * @param context
          * @param method
          * @param urlTemplate
@@ -133,7 +133,7 @@ Netlicensing.Service = (function () {
          */
         instance.request = function (context, method, urlTemplate, queryParams) {
 
-            if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+            if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
 
             urlTemplate = String(urlTemplate);
             queryParams = queryParams || {};
@@ -157,13 +157,13 @@ Netlicensing.Service = (function () {
             var headers = {Accept: 'application/json'};
 
             switch (context.getSecurityMode()) {
-                case Netlicensing.Context.BASIC_AUTHENTICATION:
+                case NetLicensing .Context.BASIC_AUTHENTICATION:
                     if (!context.getUsername()) throw new Error('Missing parameter "username"');
                     if (!context.getPassword()) throw new Error('Missing parameter "password"');
 
                     headers['Authorization'] = 'Basic ' + btoa(context.getUsername() + ':' + context.getPassword());
                     break;
-                case Netlicensing.Context.APIKEY_IDENTIFICATION:
+                case NetLicensing .Context.APIKEY_IDENTIFICATION:
                     if (!context.getApiKey()) throw new Error('Missing parameter "apiKey"');
 
                     headers['Authorization'] = 'Basic ' + btoa('apiKey:' + context.getApiKey());
@@ -173,7 +173,7 @@ Netlicensing.Service = (function () {
                     break;
             }
 
-            return new Netlicensing.HttpRequest().send({
+            return new NetLicensing .HttpRequest().send({
                 url: restUrl,
                 method: method,
                 headers: headers,
@@ -247,8 +247,8 @@ Netlicensing.Service = (function () {
 
             var entity = new resultType();
 
-            if (!(entity instanceof Netlicensing.BaseEntity)) {
-                throw new Error('Invalid entity ' + resultType + ', entity must be instanceof Netlicensing.BaseEntity');
+            if (!(entity instanceof NetLicensing .BaseEntity)) {
+                throw new Error('Invalid entity ' + resultType + ', entity must be instanceof NetLicensing .BaseEntity');
             }
 
             var propertiesLength = properties.length;

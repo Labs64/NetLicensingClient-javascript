@@ -2,7 +2,7 @@ describe('entities.CountryTest', function () {
     var country;
 
     beforeEach(function () {
-        country = new Netlicensing.Country();
+        country = new NetLicensing .Country();
     });
 
     it('check "code" property setters/getters', function () {

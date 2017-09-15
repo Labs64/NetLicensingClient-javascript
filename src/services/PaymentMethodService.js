@@ -6,20 +6,20 @@
  */
 
 //namespace
-var Netlicensing = Netlicensing || {};
+var NetLicensing  = NetLicensing  || {};
 
-Netlicensing.PaymentMethodService = function () {
+NetLicensing .PaymentMethodService = function () {
 };
 
 //static constants
-Object.defineProperty(Netlicensing.PaymentMethodService, 'ENDPOINT_PATH', {value: 'paymentmethod'});
+Object.defineProperty(NetLicensing .PaymentMethodService, 'ENDPOINT_PATH', {value: 'paymentmethod'});
 
 /**
  * Gets payment method by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetlicensingPUB/Payment+Method+Services#PaymentMethodServices-Getpaymentmethod
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/Payment+Method+Services#PaymentMethodServices-Getpaymentmethod
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Netlicensing.Context
+ * @param context NetLicensing .Context
  *
  * the payment method number
  * @param number string
@@ -27,25 +27,25 @@ Object.defineProperty(Netlicensing.PaymentMethodService, 'ENDPOINT_PATH', {value
  * return the payment method in promise
  * @returns {Promise}
  */
-Netlicensing.PaymentMethodService.get = function (context, number) {
-    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+NetLicensing .PaymentMethodService.get = function (context, number) {
+    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
 
-    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
+    NetLicensing .CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
 
-    return Netlicensing.Service
+    return NetLicensing .Service
         .getInstance()
-        .get(context, Netlicensing.PaymentMethodService.ENDPOINT_PATH + '/' + number, {}, Netlicensing.PaymentMethod);
+        .get(context, NetLicensing .PaymentMethodService.ENDPOINT_PATH + '/' + number, {}, NetLicensing .PaymentMethod);
 };
 
 
 /**
  * Returns payment methods of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetlicensingPUB/Payment+Method+Services#PaymentMethodServices-Paymentmethodslist
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/Payment+Method+Services#PaymentMethodServices-Paymentmethodslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Netlicensing.Context
+ * @param context NetLicensing .Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string|null
@@ -53,48 +53,48 @@ Netlicensing.PaymentMethodService.get = function (context, number) {
  * array of payment method entities or empty array if nothing found in promise.
  * @returns {Promise}
  */
-Netlicensing.PaymentMethodService.list = function (context, filter) {
-    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
+NetLicensing .PaymentMethodService.list = function (context, filter) {
+    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
 
-    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
     if (filter) {
-        if (!Netlicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!NetLicensing .CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return Netlicensing.Service
+    return NetLicensing .Service
         .getInstance()
-        .list(context, Netlicensing.PaymentMethodService.ENDPOINT_PATH, queryParams, Netlicensing.PaymentMethod);
+        .list(context, NetLicensing .PaymentMethodService.ENDPOINT_PATH, queryParams, NetLicensing .PaymentMethod);
 };
 
 /**
  * Updates payment method properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetlicensingPUB/Payment+Method+Services#PaymentMethodServices-Updatepaymentmethod
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/Payment+Method+Services#PaymentMethodServices-Updatepaymentmethod
  *
  * determines the vendor on whose behalf the call is performed
- * @param context Netlicensing.Context
+ * @param context NetLicensing .Context
  *
  * the payment method number
  * @param number string
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param paymentMethod Netlicensing.PaymentMethod
+ * @param paymentMethod NetLicensing .PaymentMethod
  *
  * return updated payment method in promise.
  * @returns {Promise}
  */
-Netlicensing.PaymentMethodService.update = function (context, number, paymentMethod) {
-    if (!(context instanceof Netlicensing.Context)) throw new TypeError('context must be an instance of Netlicensing.Context');
-    if (!(paymentMethod instanceof Netlicensing.PaymentMethod)) throw new TypeError('paymentMethod must be an instance of Netlicensing.PaymentMethod');
+NetLicensing .PaymentMethodService.update = function (context, number, paymentMethod) {
+    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+    if (!(paymentMethod instanceof NetLicensing .PaymentMethod)) throw new TypeError('paymentMethod must be an instance of NetLicensing .PaymentMethod');
 
-    Netlicensing.CheckUtils.paramNotEmpty(number, 'number');
+    NetLicensing .CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(Netlicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
 
-    return Netlicensing.Service
+    return NetLicensing .Service
         .getInstance()
-        .post(context, Netlicensing.PaymentMethodService.ENDPOINT_PATH + '/' + number, paymentMethod.asPropertiesMap(), Netlicensing.PaymentMethod);
+        .post(context, NetLicensing .PaymentMethodService.ENDPOINT_PATH + '/' + number, paymentMethod.asPropertiesMap(), NetLicensing .PaymentMethod);
 };

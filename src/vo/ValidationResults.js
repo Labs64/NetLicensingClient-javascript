@@ -6,10 +6,10 @@
  */
 
 //namespace
-var Netlicensing = Netlicensing || {};
+var NetLicensing  = NetLicensing  || {};
 
 
-Netlicensing.ValidationResults = function () {
+NetLicensing .ValidationResults = function () {
 
     var __validators = {};
     var __ttl;
@@ -19,7 +19,7 @@ Netlicensing.ValidationResults = function () {
     };
 
     this.setProductModuleValidation = function (productModuleNumber, productModuleValidation) {
-        if (!Netlicensing.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
+        if (!NetLicensing .CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
 
         __validators[productModuleNumber] = productModuleValidation;
 
@@ -27,13 +27,13 @@ Netlicensing.ValidationResults = function () {
     };
 
     this.getProductModuleValidation = function (productModuleNumber) {
-        if (!Netlicensing.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
+        if (!NetLicensing .CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
 
         return __validators[productModuleNumber];
     };
 
     this.setTtl = function (ttl) {
-        if (!Netlicensing.CheckUtils.isValid(ttl) || typeof ttl === 'object')  throw new TypeError('Bad ttl:' + ttl);
+        if (!NetLicensing .CheckUtils.isValid(ttl) || typeof ttl === 'object')  throw new TypeError('Bad ttl:' + ttl);
         __ttl = new Date(String(ttl));
         return this;
     };
@@ -43,7 +43,7 @@ Netlicensing.ValidationResults = function () {
     };
 };
 
-Netlicensing.ValidationResults.prototype.toString = function () {
+NetLicensing .ValidationResults.prototype.toString = function () {
     var data = 'ValidationResult [';
     var validators = this.getValidators();
 

@@ -6,14 +6,14 @@
  */
 
 //namespace
-var Netlicensing = Netlicensing || {};
+var NetLicensing  = NetLicensing  || {};
 
 
-Netlicensing.DefineUtil = function () {
+NetLicensing .DefineUtil = function () {
 
 };
 
-Netlicensing.DefineUtil.notChangeable = function (object, methods) {
+NetLicensing .DefineUtil.notChangeable = function (object, methods) {
     var noChangeable = {};
 
     methods = Array.isArray(methods) ? methods : [methods];
@@ -26,7 +26,7 @@ Netlicensing.DefineUtil.notChangeable = function (object, methods) {
     Object.defineProperties(object, noChangeable);
 };
 
-Netlicensing.DefineUtil.notEnumerable = function (object, methods) {
+NetLicensing .DefineUtil.notEnumerable = function (object, methods) {
     var noChangeable = {};
 
     methods = Array.isArray(methods) ? methods : [methods];
