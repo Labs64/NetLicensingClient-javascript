@@ -59,7 +59,7 @@ gulp.task('clean', function () {
 });
 
 //create dist files
-gulp.task('scripts', function () {
+gulp.task('dist', function () {
     var src = [
         'src/util/*.js',
         'src/entities/*.js',
@@ -84,4 +84,4 @@ gulp.task('scripts', function () {
 });
 
 //test + create dist files
-gulp.task('production', ['test', 'scripts']);
+gulp.task('release', ['test', 'dist']);
