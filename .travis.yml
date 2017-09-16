@@ -16,4 +16,5 @@ before_script:
   
 script:
   - gulp travis-test
+  - gulp release
   - ls -la
