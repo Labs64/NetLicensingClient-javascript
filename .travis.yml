@@ -1,7 +1,11 @@
 language: node_js
 
 node_js:
-  - stable
+  - "node"
+  - "iojs"
+  - "8"
+  - "7"
+  - "6"
 
 env:
   - NODEJS_VERSION=6.10.3
@@ -11,11 +15,10 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 before_script:
-  - nvm install $NODEJS_VERSION
-  - npm install
+  #- nvm install $NODEJS_VERSION
+  #- npm install
   
 script:
   - gulp travis-test
-  - ls -la dist/
-  - gulp release
+  #- gulp release
   - ls -la dist/
