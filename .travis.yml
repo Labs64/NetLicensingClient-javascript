@@ -7,8 +7,8 @@ env:
   - NODEJS_VERSION=6.10.3
 
 before_install:
-    - export DISPLAY=:99.0
-    - sh -e /etc/init.d/xvfb start
+  #- export DISPLAY=:99.0
+  #- sh -e /etc/init.d/xvfb start
 
 before_script:
   - nvm install $NODEJS_VERSION
@@ -17,4 +17,4 @@ before_script:
 script:
   - gulp travis-test
   - gulp release
-  - ls -la
+  - ls -la dist/
