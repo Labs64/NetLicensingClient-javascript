@@ -2,13 +2,12 @@ language: node_js
 
 node_js:
   - "node"
-  - "iojs"
   - "8"
   - "7"
   - "6"
 
 env:
-  - NODEJS_VERSION=6.10.3
+  #- NODEJS_VERSION=6.10.3
 
 before_install:
   - export DISPLAY=:99.0
