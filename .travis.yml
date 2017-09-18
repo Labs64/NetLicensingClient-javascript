@@ -11,9 +11,8 @@ before_install:
 
 script:
   - gulp travis-test
-  #- gulp release
-  #- ls -la dist/
 
 after_success:
   - env
   - test "${TRAVIS_NODE_VERSION}" == "node" && test "${TRAVIS_TEST_RESULT}" == "0" && gulp release
+  - ls -la dist/
