@@ -11,8 +11,8 @@ before_install:
 
 script:
   - gulp travis-test
-  - gulp release
-  - ls -la dist/
+  #- gulp release
+  #- ls -la dist/
 
 after_success:
   - env
