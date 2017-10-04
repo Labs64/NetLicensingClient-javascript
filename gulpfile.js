@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     path = require('path'),
     karma = require('karma'),
-    karmaParseConfig = require('karma/lib/config').parseConfig;
+    karmaParseConfig = require('karma/lib/config').parseConfig,
+    guppy = require('git-guppy')(gulp);
 
 function runKarma(configFilePath, options, cb) {
 
@@ -85,5 +86,15 @@ gulp.task('dist', function () {
 gulp.task('release', ['test', 'dist']);
 
 
-gulp.task('pre-commit', ['dist']);
-gulp.task('pre-push', ['test']);
+gulp.task('pre-commit',['dist']);
+
+// another contrived example
+gulp.task('pre-push', guppy.src('pre-push', function (files, extra, cb) {
+    var branch = execSync('git rev-parse --abbrev-ref HEAD');
+
+    if (branch === 'master') {
+        cb('Don\'t push master!')
+    } else {
+        cb();
+    }
+}));
