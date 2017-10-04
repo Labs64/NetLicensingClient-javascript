@@ -89,6 +89,7 @@ gulp.task('release', ['test', 'dist']);
 gulp.task('pre-commit',['dist']);
 
 // another contrived example
+
 gulp.task('pre-push', guppy.src('pre-push', function (files, extra, cb) {
     var branch = execSync('git rev-parse --abbrev-ref HEAD');
 
