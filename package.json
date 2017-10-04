@@ -4,6 +4,18 @@
   "description": "JavaScript wrapper for Labs64 NetLicensing RESTful API",
   "keywords": [
     "labs64",
+    "netlicensing",
+    "licensing",
+    "licensing-as-a-service",
+    "license",
+    "license-management",
+    "software-license",
+    "client",
+    "restful",
+    "restful-api",
+    "javascript",
+    "wrapper",
+    "api",
     "client"
   ],
   "author": "Labs64 GmbH",
@@ -24,7 +36,7 @@
   "main": "dist/netlicensing-client.js",
   "contributors": [
     {
-      "name": "Alexey Averikhin",
+      "name": "Ready Brown",
       "email": "ready.brown@hotmail.de",
       "url": "https://github.com/r-brown"
     },

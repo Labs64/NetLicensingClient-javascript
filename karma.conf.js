@@ -12,7 +12,6 @@ module.exports = function (config) {
             'src/entities/*.js',
             'src/vo/*.js',
             'src/services/*.js',
-
             'test/**/*.js'
         ]
     });

@@ -1,397 +1,417 @@
 var NetLicensingDemo = function () {
-    var context = new NetLicensing .Context().setUsername('demo').setPassword('demo');
+    var context = new NetLicensing.Context().setUsername('demo').setPassword('demo');
 
     var randomNumber = Math.random().toString(36).slice(2);
     var productNumber = numberWithPrefix("P", randomNumber);
-    var productModuleNumber = numberWithPrefix("PM", randomNumber);
-    var licenseTemplateNumber = numberWithPrefix("LT", randomNumber);
-    var licenseeNumber = numberWithPrefix("L", randomNumber);
-    var licenseNumber = numberWithPrefix("LC", randomNumber);
-    var licenseeName = numberWithPrefix("Licensee ", Math.random().toString(36).slice(2));
+    var productModuleNumber = numberWithPrefix("M", randomNumber);
+    var licenseTemplateNumber = numberWithPrefix("E", randomNumber);
+    var licenseeNumber = numberWithPrefix("I", randomNumber);
+    var licenseNumber = numberWithPrefix("L", randomNumber);
 
+    // region ********* Utilities
 
-    // region ********* Lists
+    console.log("==> UtilityService");
 
-    var listLicenseTypes = NetLicensing .UtilityService.listLicenseTypes(context);
-    var listLicensingModels = NetLicensing .UtilityService.listLicensingModels(context);
-    var countries = NetLicensing .UtilityService.listCountries(context);
-    console.log("License Types:", listLicenseTypes);
-    console.log("Licensing Models:", listLicensingModels);
-    console.log("Countries:", countries);
+    var UtilityServicePromise = Promise.resolve()
+        .then(function () {
+            return NetLicensing.UtilityService.listLicenseTypes(context);
+        })
+        .then(function (listLicenseTypes) {
+            console.log("UtilityService.listLicenseTypes() :", listLicenseTypes);
+            return NetLicensing.UtilityService.listLicensingModels(context);
+        })
+        .then(function (listLicensingModels) {
+            console.log("UtilityService.listLicensingModels() :", listLicensingModels);
+            return NetLicensing.UtilityService.listCountries(context);
+        })
+        .then(function (listCountries) {
+            console.log("UtilityService.listCountries() :", listCountries);
+        })
+
     // endregion
 
     // region ********* Product
 
-    var product = new NetLicensing .Product()
+    var product = new NetLicensing.Product()
         .setNumber(productNumber)
-        .setName("Demo product");
+        .setName(numberWithPrefix("Product-", Math.random().toString(36).slice(2)));
 
-    var ProductServicePromise = Promise.resolve()
-        .then(function () {
-            return NetLicensing .ProductService.create(context, product)
+    var ProductServicePromise = UtilityServicePromise.then(function () {
+            console.log("==> ProductService");
+
+            return NetLicensing.ProductService.create(context, product)
                 .then(function (createdProduct) {
-                    console.log("Added product:", createdProduct);
-                    return NetLicensing .ProductService.get(context, createdProduct.getNumber());
+                    console.log("ProductService.create() :", createdProduct);
+                    return NetLicensing.ProductService.get(context, createdProduct.getNumber());
                 })
                 .then(function (getProduct) {
-                    console.log("Got product:", getProduct);
-
-                    var listProducts = NetLicensing .ProductService.list(context);
-                    console.log("Got the following products:", listProducts);
+                    console.log("ProductService.get() :", getProduct);
+                    var listProducts = NetLicensing.ProductService.list(context);
                     return getProduct;
                 })
-                .then(function (getProduct) {
-                    console.log(NetLicensing .Product.LICENSEE_SECRET_MODE_PREDEFINED);
-                    getProduct.setProperty("Updated property name", "Updated value");
-                    getProduct.setLicenseeSecretMode(NetLicensing .Product.LICENSEE_SECRET_MODE_PREDEFINED);
-                    return NetLicensing .ProductService.update(context, getProduct.getNumber(), getProduct)
+                .then(function (listProducts) {
+                    console.log("ProductService.list() :", listProducts);
+                    console.log("Product.setLicenseeSecretMode() :", NetLicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
+                    product.setProperty("Updated Property", "Property Value");
+                    product.setLicenseeSecretMode(NetLicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
+                    return NetLicensing.ProductService.update(context, product.getNumber(), product)
                 })
                 .then(function (updatedProduct) {
-                    console.log("Updated product:", updatedProduct);
-                    return NetLicensing .ProductService.delete(context, productNumber, true);
+                    console.log("ProductService.update() :", updatedProduct);
+                    return NetLicensing.ProductService.delete(context, productNumber, true);
                 })
                 .then(function () {
-                    console.log("Deleted Product!");
-                    var listProducts = NetLicensing .ProductService.list(context);
-                    console.log("Got the following products:", listProducts);
+                    console.log("ProductService.delete()");
+                    var listProducts = NetLicensing.ProductService.list(context);
                 })
-                .then(function () {
-                    var createdProduct = NetLicensing .ProductService.create(context, product);
-                    console.log("Added product again:", createdProduct);
-                    return createdProduct;
+                .then(function (listProducts) {
+                    console.log("ProductService.list() :", listProducts);
+                    // Recreate Product for later use
+                    return NetLicensing.ProductService.create(context, product);
                 })
                 .then(function (createdProduct) {
-                    var listProducts = NetLicensing .ProductService.list(context);
-                    console.log("Got the following products:", listProducts);
+                    console.log("ProductService.create() :", createdProduct);
                     return createdProduct;
                 });
         });
+
     // endregion
 
     // region ********* ProductModule
 
-    var productModule = new NetLicensing .ProductModule()
+    var productModule = new NetLicensing.ProductModule()
         .setNumber(productModuleNumber)
-        .setName("Demo product module")
-        .setLicensingModel(NetLicensing .ProductModule.LICENSING_MODEL_TRY_AND_BUY);
+        .setName(numberWithPrefix("ProductModule-", Math.random().toString(36).slice(2)))
+        .setLicensingModel(NetLicensing.ProductModule.LICENSING_MODEL_TRY_AND_BUY);
 
     var ProductModuleServicePromise = ProductServicePromise.then(function (createdProduct) {
-
-        return NetLicensing .ProductModuleService.create(context, createdProduct.getNumber(), productModule)
+        console.log("==> ProductModuleService");
+        return NetLicensing.ProductModuleService.create(context, createdProduct.getNumber(), productModule)
             .then(function (createdProductModule) {
-                console.log("Added product module:", createdProductModule);
-                return NetLicensing .ProductModuleService.get(context, createdProductModule.getNumber());
+                console.log("ProductModuleService.create() :", createdProductModule);
+                return NetLicensing.ProductModuleService.get(context, createdProductModule.getNumber());
             })
             .then(function (getProductModule) {
-                console.log("Got product module:", getProductModule);
-                var listProductModules = NetLicensing .ProductModuleService.list(context);
-                console.log("Got the following product modules:", listProductModules);
-                return getProductModule;
+                console.log("ProductModuleService.get() :", getProductModule);
+                return NetLicensing.ProductModuleService.list(context);
             })
-            .then(function (getProductModule) {
-                getProductModule.setProperty("Updated property name", "Updated property value");
-                return NetLicensing .ProductModuleService.update(context, getProductModule.getNumber(), getProductModule);
+            .then(function (listProductModules) {
+                console.log("ProductModuleService.list() :", listProductModules);
+                productModule.setProperty("Updated Property", "Property Value");
+                return NetLicensing.ProductModuleService.update(context, productModule.getNumber(), productModule);
             })
             .then(function (updatedProductModule) {
-                console.log("Updated product module:", updatedProductModule);
-                return NetLicensing .ProductModuleService.delete(context, productModuleNumber, true);
+                console.log("ProductModuleService.update() :", updatedProductModule);
+                return NetLicensing.ProductModuleService.delete(context, productModuleNumber, true);
             })
             .then(function () {
-                console.log("Deleted product module!");
-                var listProductModules = NetLicensing .ProductModuleService.list(context);
-                console.log("Got the following product modules:", listProductModules);
+                console.log("ProductModuleService.delete() :");
+                return NetLicensing.ProductModuleService.list(context);
             })
-            .then(function () {
-                var createdProductModule = NetLicensing .ProductModuleService.create(context, productNumber, productModule);
-                console.log("Added product module again:", createdProductModule);
-                return createdProductModule;
+            .then(function (listProductModules) {
+                console.log("ProductModuleService.list() :", listProductModules);
+                // Recreate ProductModule for later use
+                return NetLicensing.ProductModuleService.create(context, productNumber, productModule);
             })
             .then(function (createdProductModule) {
-                var listProductsModules = NetLicensing .ProductModuleService.list(context);
-                console.log("Got the following product modules:", listProductsModules);
+                console.log("ProductModuleService.create() :", productModule);
                 return createdProductModule;
-            })
-    })
+            });
+    });
+
     // endregion
 
     // region ********* LicenseTemplate
 
-    var licenseTemplate = new NetLicensing .LicenseTemplate()
+    var licenseTemplate = new NetLicensing.LicenseTemplate()
         .setNumber(licenseTemplateNumber)
-        .setName("Demo Evaluation Period")
-        .setLicenseType(NetLicensing .LicenseTemplate.LICENSE_TYPE_FEATURE)
+        .setName(numberWithPrefix("LicenseTemplate-", Math.random().toString(36).slice(2)))
+        .setLicenseType(NetLicensing.LicenseTemplate.LICENSE_TYPE_FEATURE)
         .setPrice("12.5")
         .setCurrency("EUR")
         .setAutomatic(false)
         .setHidden(false);
 
     var LicenseTemplateServicePromise = ProductModuleServicePromise.then(function (createdProductModule) {
-        console.log("Adding license template:", licenseTemplate);
-
-        return NetLicensing .LicenseTemplateService.create(context, createdProductModule.getNumber(), licenseTemplate)
+        console.log("==> LicenseTemplateService");
+        return NetLicensing.LicenseTemplateService.create(context, createdProductModule.getNumber(), licenseTemplate)
             .then(function (createdLicenseTemplate) {
-                console.log("Added license template:", createdLicenseTemplate);
-                return NetLicensing .LicenseTemplateService.get(context, createdLicenseTemplate.getNumber());
+                console.log("LicenseTemplateService.create() :", createdLicenseTemplate);
+                return NetLicensing.LicenseTemplateService.get(context, createdLicenseTemplate.getNumber());
             })
             .then(function (getLicenseTemplate) {
-                console.log("Got licenseTemplate:", getLicenseTemplate);
-                var listLicenseTemplate = NetLicensing .LicenseTemplateService.list(context);
-                console.log("Got the following license templates:", listLicenseTemplate);
-                return getLicenseTemplate;
+                console.log("LicenseTemplateService.get() :", getLicenseTemplate);
+                return NetLicensing.LicenseTemplateService.list(context);
             })
-            .then(function (getLicenseTemplate) {
-                getLicenseTemplate.setProperty("Updated property name", "Updated value");
-                return NetLicensing .LicenseTemplateService.update(context, licenseTemplateNumber, getLicenseTemplate);
+            .then(function (listLicenseTemplate) {
+                console.log("LicenseTemplateService.list() :", listLicenseTemplate);
+                licenseTemplate.setProperty("Updated Property", "Updated Value");
+                return NetLicensing.LicenseTemplateService.update(context, licenseTemplateNumber, licenseTemplate);
             })
             .then(function (updatedLicenseTemplate) {
-                console.log("Updated license template:", updatedLicenseTemplate);
-                return NetLicensing .LicenseTemplateService.delete(context, updatedLicenseTemplate.getNumber(), true);
+                console.log("LicenseTemplateService.update() :", updatedLicenseTemplate);
+                return NetLicensing.LicenseTemplateService.delete(context, updatedLicenseTemplate.getNumber(), true);
             })
             .then(function () {
-                console.log("Deleted license template!");
-                var listLicenseTemplate = NetLicensing .LicenseTemplateService.list(context);
-                console.log("Got the following license templates:", listLicenseTemplate);
+                console.log("LicenseTemplateService.delete() :");
+                return NetLicensing.LicenseTemplateService.list(context);
             })
-            .then(function () {
-                var createdLicenseTemplate = NetLicensing .LicenseTemplateService.create(context, createdProductModule.getNumber(), licenseTemplate);
-                console.log("Added license template again:", createdLicenseTemplate);
-                return createdLicenseTemplate;
-            })
-            .then(function (createdLicenseTemplate) {
-                var listLicenseTemplate = NetLicensing .LicenseTemplateService.list(context);
-                console.log("Got the following license templates:", listLicenseTemplate);
+            .then(function (listLicenseTemplate) {
+                console.log("LicenseTemplateService.list() :", listLicenseTemplate);
+                // Create LicenseTemplate for later use
+                return NetLicensing.LicenseTemplateService.create(context, createdProductModule.getNumber(), licenseTemplate);
+            }).then(function (createdLicenseTemplate) {
+                console.log("LicenseTemplateService.create() :", createdLicenseTemplate);
                 return createdLicenseTemplate;
             })
     })
+
     // endregion
 
     // region ********* Licensee
 
-    var licensee = new NetLicensing .Licensee()
-        .setNumber(licenseeNumber);
+    var licensee = new NetLicensing.Licensee()
+        .setNumber(licenseeNumber)
+        .setName(licenseeNumber+"na");
 
     var LicenseeServicePromise = LicenseTemplateServicePromise.then(function (createdLicenseTemplate) {
-
-        return NetLicensing .LicenseeService.create(context, productNumber, licensee)
+        console.log("==> LicenseeService");
+        return NetLicensing.LicenseeService.create(context, productNumber, licensee)
             .then(function (createdLicensee) {
-                console.log("Added licensee:", createdLicensee);
-                return NetLicensing .LicenseeService.get(context, createdLicensee.getNumber());
+                console.log("LicenseeService.create() :", createdLicensee);
+                return NetLicensing.LicenseeService.get(context, createdLicensee.getNumber());
             })
             .then(function (getLicensee) {
-                console.log("Got the following licensee:", getLicensee);
-                var listLicensee = NetLicensing .LicenseeService.list(context);
-                console.log("Got the following licensees:", listLicensee);
-                return getLicensee;
+                console.log("LicenseeService.get() :", getLicensee);
+                return NetLicensing.LicenseeService.list(context);
             })
-            .then(function (getLicensee) {
-                getLicensee.setProperty("Updated property name", "Updated value");
-                getLicensee.setLicenseeSecret(numberWithPrefix("secret", randomNumber));
-                return NetLicensing .LicenseeService.update(context, licenseeNumber, getLicensee);
+            .then(function (listLicensee) {
+                console.log("LicenseeService.list() :", listLicensee);
+
+                licensee.setProperty("Updated Property", "Updated Value");
+                licensee.setLicenseeSecret(numberWithPrefix("secret", randomNumber));
+                return NetLicensing.LicenseeService.update(context, licenseeNumber, licensee);
             })
             .then(function (updatedLicensee) {
-                console.log("Updated licensee:", updatedLicensee);
-                return NetLicensing .LicenseeService.delete(context, updatedLicensee.getNumber(), true);
+                console.log("LicenseeService.update() :", updatedLicensee);
+                return NetLicensing.LicenseeService.delete(context, updatedLicensee.getNumber(), true);
             })
             .then(function () {
-                console.log("Deleted licensee!");
-                var listLicensees = NetLicensing .LicenseeService.list(context);
-                console.log("Got the following licensees:", listLicensees);
+                console.log("LicenseeService.delete() :");
+                return NetLicensing.LicenseeService.list(context);
             })
-            .then(function () {
+            .then(function (listLicensees) {
+                console.log("LicenseeService.list() :", listLicensees);
+                // Create Licensee for later use
                 licensee.setLicenseeSecret(numberWithPrefix("secret", randomNumber));
-                var createdLicensee = NetLicensing .LicenseeService.create(context, productNumber, licensee);
-                console.log("Added licensee again:", createdLicensee);
-                return createdLicensee;
-            })
-            .then(function (createdLicensee) {
-                var listLicensees = NetLicensing .LicenseeService.list(context);
-                console.log("Got the following licensees:", listLicensees);
+                return NetLicensing.LicenseeService.create(context, productNumber, licensee);
+            }).then(function (createdLicensee) {
+                console.log("LicenseeService.create() :", createdLicensee);
                 return createdLicensee;
             })
     })
+
     // endregion
 
     // region ********* License
 
-    var license = new NetLicensing .License()
+    var license = new NetLicensing.License()
         .setNumber(licenseNumber);
 
     var LicenseServicePromise = LicenseeServicePromise.then(function (createdLicensee) {
-
-        return NetLicensing .LicenseService.create(context, licenseeNumber, licenseTemplateNumber, null, license)
+        console.log("==> LicenseService");
+        return NetLicensing.LicenseService.create(context, licenseeNumber, licenseTemplateNumber, null, license)
             .then(function (createdLicense) {
-                console.log("Added license:", createdLicense);
-                return NetLicensing .LicenseService.get(context, createdLicense.getNumber());
+                console.log("LicenseService.create() :", createdLicense);
+                return NetLicensing.LicenseService.get(context, createdLicense.getNumber());
             })
             .then(function (getLicense) {
-                console.log("Got the following license:", getLicense);
-                var listLicenses = NetLicensing .LicenseService.list(context);
-                console.log("Got the following licenses:", listLicenses);
-                return getLicense;
+                console.log("LicenseService.get() :", getLicense);
+                return NetLicensing.LicenseService.list(context);
             })
-            .then(function (getLicense) {
-                getLicense.setProperty("Updated property name", "Updated value");
-                return NetLicensing .LicenseService.update(context, licenseNumber, null, getLicense);
+            .then(function (listLicenses) {
+                console.log("LicenseService.list() :", listLicenses);
+                license.setProperty("Updated Property", "Updated Value");
+                return NetLicensing.LicenseService.update(context, licenseNumber, null, license);
             })
             .then(function (updatedLicense) {
-                console.log("Updated license:", updatedLicense);
-                return NetLicensing .LicenseService.delete(context, updatedLicense.getNumber(), true);
+                console.log("LicenseService.update() :", updatedLicense);
+                return NetLicensing.LicenseService.delete(context, updatedLicense.getNumber(), true);
             })
             .then(function () {
-                console.log("Deleted license!");
-                var listLicenses = NetLicensing .LicenseService.list(context);
-                console.log("Got the following licenses:", listLicenses);
+                console.log("LicenseService.delete() :");
+                return NetLicensing.LicenseService.list(context);
             })
-            .then(function () {
-                var createdLicense = NetLicensing .LicenseService.create(context, licenseeNumber, licenseTemplateNumber, null, license);
-                console.log("Added license again:", createdLicense);
-                return createdLicense;
-            })
-            .then(function (createdLicense) {
-                var listLicenses = NetLicensing .LicenseService.list(context);
-                console.log("Got the following licenses:", listLicenses);
+            .then(function (listLicenses) {
+                console.log("LicenseService.list() :", listLicenses);
+                // Create License for later use
+                return NetLicensing.LicenseService.create(context, licenseeNumber, licenseTemplateNumber, null, license);
+            }).then(function (createdLicense) {
+                console.log("LicenseService.create() :", createdLicense);
                 return createdLicense;
             })
     })
+
     // endregion
 
     // region ********* PaymentMethod
 
     var PaymentMethodsServicePromise = LicenseServicePromise.then(function () {
-
-        return NetLicensing .PaymentMethodService.list(context)
+        console.log("==> PaymentMethodService");
+        return NetLicensing.PaymentMethodService.list(context)
             .then(function (paymentMethods) {
-                console.log("Got the following payment methods:", paymentMethods);
+                console.log("PaymentMethodService.list() :", paymentMethods);
                 return paymentMethods;
             })
     })
+
     // endregion
 
     // region ********* Token
-
-    var token = new NetLicensing .Token()
+    var token = new NetLicensing.Token()
         .setTokenType("APIKEY");
 
     var TokenServicePromise = PaymentMethodsServicePromise.then(function () {
+        console.log("==> TokenService");
 
-        return NetLicensing .TokenService.create(context, token)
+        return NetLicensing.TokenService.create(context, token)
             .then(function (createdToken) {
-                console.log("Created APIKey:", createdToken);
+                console.log("TokenService.create(APIKEY) :", createdToken);
                 context.setApiKey(createdToken.getNumber());
-                context.setSecurityMode(NetLicensing .Context.APIKEY_IDENTIFICATION);
+                context.setSecurityMode(NetLicensing.Context.APIKEY_IDENTIFICATION);
 
                 token.setTokenType("SHOP");
                 token.setLicenseeNumber(licenseeNumber);
 
-                return NetLicensing .TokenService.create(context, token);
+                return NetLicensing.TokenService.create(context, token);
             })
             .then(function (shopToken) {
-                console.log("Got the following shop token:", shopToken);
-                context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
-                console.log("Got the following shop tokens:", NetLicensing .TokenService.list(context, "tokenType=SHOP"));
-                return shopToken;
+                console.log("TokenService.create(SHOP) :", shopToken);
+                context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+                return [shopToken, NetLicensing.TokenService.list(context, "tokenType=SHOP")];
             })
-            .then(function (shopToken) {
-                console.log("Delete shop token!");
-                return NetLicensing .TokenService.delete(context, shopToken.getNumber());
+            .then(function (shopTokenArray) {
+                console.log("TokenService.list(SHOP) :", shopTokenArray[1]);
+                console.log("TokenService.delete() :");
+                return NetLicensing.TokenService.delete(context, shopTokenArray[0].getNumber());
             })
-            .then(function () {
-                return console.log("Got the following shop tokens after delete:", NetLicensing .TokenService.list(context, "tokenType=SHOP"));
+            .then(function (shopTokenDelete) {
+                return NetLicensing.TokenService.list(context, "tokenType=SHOP");
+            })
+            .then(function (shopTokenList) {
+                console.log("TokenService.list(SHOP) :", shopTokenList);
+                return shopTokenList;
             })
     })
+
     // endregion
 
     // region ********* Validate
 
-    var validationParameters = new NetLicensing .ValidationParameters()
+    var validationParameters = new NetLicensing.ValidationParameters()
+        .setProductNumber(productNumber)
+        .setLicenseeName(numberWithPrefix("Licensee-", Math.random().toString(36).slice(2)))
         .setLicenseeSecret(numberWithPrefix("secret", randomNumber))
-        .setLicenseeName(licenseeName)
-        .setProductNumber(licenseeNumber)
-        .setProductModuleValidationParameters(productModuleNumber, {key:"paramKey", value:"paramValue"});
+        .setProductModuleValidationParameters(productModuleNumber, {
+            key: "paramKey",
+            value: "paramValue"
+        });
+
 
     var ValidationPromise = TokenServicePromise.then(function () {
+        console.log("==> Validation");
 
-        return NetLicensing .LicenseeService.validate(context, licenseeNumber, validationParameters)
+        return NetLicensing.LicenseeService.validate(context, licenseeNumber, validationParameters)
             .then(function (validationResult) {
-                console.log("Validation result for created licensee:", validationResult);
-                context.setSecurityMode(NetLicensing .Context.APIKEY_IDENTIFICATION);
-                return NetLicensing .LicenseeService.validate(context, licenseeNumber, validationParameters)
+                console.log("LicenseeService.validate(APIKEY_IDENTIFICATION) :", validationResult.getValidators());
+                context.setSecurityMode(NetLicensing.Context.APIKEY_IDENTIFICATION);
+                return NetLicensing.LicenseeService.validate(context, licenseeNumber, validationParameters)
             })
             .then(function (validationResult) {
-                context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
-                console.log("Validation repeated with APIKey:", validationResult);
+                context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+                console.log("LicenseeService.validate(BASIC_AUTHENTICATION) :", validationResult.getValidators());
                 return validationResult;
             })
     })
+
     // endregion
 
     // region ********* Transfer
 
     var TransferPromise = ValidationPromise.then(function () {
-        var transferLicensee = new NetLicensing .Licensee()
+        console.log("==> Transfer");
+        var transferLicensee = new NetLicensing.Licensee()
             .setNumber("TR" + licenseeNumber)
             .setMarkedForTransfer(true);
 
-        return NetLicensing .LicenseeService.create(context, productNumber, transferLicensee)
+        return NetLicensing.LicenseeService.create(context, productNumber, transferLicensee)
             .then(function (transferLicensee) {
-                console.log("Added transfer licensee:", transferLicensee);
-                var transferLicense = new NetLicensing .License()
+                console.log("LicenseeService.create(transfer-from) :", transferLicensee);
+                var transferLicense = new NetLicensing.License()
                     .setNumber("TR" + licenseNumber);
 
-                return NetLicensing .LicenseService.create(context, transferLicensee.getNumber(),
+                return NetLicensing.LicenseService.create(context, transferLicensee.getNumber(),
                     licenseTemplateNumber, null, transferLicense)
             })
             .then(function (newTransferLicense) {
-                console.log("Added license for transfer:", newTransferLicense);
-                return NetLicensing .LicenseeService.transfer(context, licensee.getNumber(), transferLicensee.getNumber());
+                console.log("LicenseeService.create(transfer-to) :", newTransferLicense);
+                return NetLicensing.LicenseeService.transfer(context, licensee.getNumber(), transferLicensee.getNumber());
             })
-            .then(function (newTransferLicense) {
-                var licenseList = NetLicensing .LicenseService.list(context, "licenseeNumber=" + licensee.getNumber());
-                console.log("Got the following licenses after transfer:", licenseList);
+            .then(function () {
+                return NetLicensing.LicenseService.list(context, "licenseeNumber=" + licensee.getNumber());
+            })
+            .then(function (licenseList) {
+                console.log("LicenseeService.list(transfer) :", licenseList);
                 return licenseList;
             })
     })
 
     var TransferWithApiKeyPromise = TransferPromise.then(function () {
-        var transferLicenseeWithApiKey = new NetLicensing .Licensee()
+        var transferLicenseeWithApiKey = new NetLicensing.Licensee()
             .setNumber("AP" + licenseeNumber)
             .setMarkedForTransfer(true);
 
-        return NetLicensing .LicenseeService.create(context, productNumber, transferLicenseeWithApiKey)
+        return NetLicensing.LicenseeService.create(context, productNumber, transferLicenseeWithApiKey)
             .then(function (transferLicenseeWithApiKey) {
-                console.log("Added transfer licensee:", transferLicenseeWithApiKey);
-                var transferLicenseWithApiKey = new NetLicensing .License()
+                console.log("LicenseeService.create(transfer-from) :", transferLicenseeWithApiKey);
+                var transferLicenseWithApiKey = new NetLicensing.License()
                     .setNumber("AP" + licenseNumber);
 
-                return NetLicensing .LicenseService.create(context, transferLicenseeWithApiKey.getNumber(),
+                return NetLicensing.LicenseService.create(context, transferLicenseeWithApiKey.getNumber(),
                     licenseTemplateNumber, null, transferLicenseWithApiKey)
             })
             .then(function (newTransferLicense) {
-                console.log("Added license for transfer:", newTransferLicense);
-
-                context.setSecurityMode(NetLicensing .Context.APIKEY_IDENTIFICATION);
-                return NetLicensing .LicenseeService.transfer(context, licensee.getNumber(), transferLicenseeWithApiKey.getNumber());
+                console.log("LicenseeService.create(transfer-to) :", newTransferLicense);
+                context.setSecurityMode(NetLicensing.Context.APIKEY_IDENTIFICATION);
+                return NetLicensing.LicenseeService.transfer(context, licensee.getNumber(), transferLicenseeWithApiKey.getNumber());
             })
             .then(function (newTransferLicense) {
-                context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
-
-                var licenseList = NetLicensing .LicenseService.list(context, "licenseeNumber=" + licensee.getNumber());
-                console.log("Got the following licenses after transfer:", licenseList);
+                context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+                return NetLicensing.LicenseService.list(context, "licenseeNumber=" + licensee.getNumber());
+            })
+            .then(function (licenseList) {
+                console.log("LicenseeService.list(transfer) :", licenseList);
                 return licenseList;
             })
     })
+
     // endregion
 
     // region ********* CleanUp
 
     var cleanUp = TransferWithApiKeyPromise.then(function () {
         console.log("All done.");
-        return NetLicensing .ProductService.delete(context, productNumber, true);
+        return NetLicensing.ProductService.delete(context, productNumber, true);
+
     })
     // endregion
 };
 
 
 function numberWithPrefix(prefix, number) {
-    return "DEMO-".concat(prefix).concat(number);
+    return prefix.concat(number).concat("-DEMO");
+}
+
+function clearBox(elementID) {
+    document.getElementById(elementID).innerHTML = "";
 }

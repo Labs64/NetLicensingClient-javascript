@@ -19,7 +19,7 @@ function runKarma(configFilePath, options, cb) {
     });
 
     var server = new karma.Server(config, function (exitCode) {
-        log('Karma has exited with ' + colors.red(exitCode));
+        log('Karma exited with ' + colors.red(exitCode));
         cb();
         process.exit(exitCode);
     });
@@ -27,13 +27,19 @@ function runKarma(configFilePath, options, cb) {
     server.start();
 }
 
-/**
- * single run test
- */
+// single run test
 gulp.task('test', function (cb) {
     runKarma('karma.conf.js', {
         autoWatch: false,
         singleRun: true
+    }, cb);
+});
+
+// using karma in watch mode
+gulp.task('test-watch', function (cb) {
+    runKarma('karma.conf.js', {
+        autoWatch: true,
+        singleRun: false
     }, cb);
 });
 
@@ -44,21 +50,13 @@ gulp.task('travis-test', function (cb) {
     }, cb);
 });
 
-/** continuous ... using karma to watch */
-gulp.task('test-watch', function (cb) {
-    runKarma('karma.conf.js', {
-        autoWatch: true,
-        singleRun: false
-    }, cb);
-});
-
-//clean dist
+// clean dist
 gulp.task('clean', function () {
     return gulp.src(['dist/**/*.js'], {read: false})
         .pipe(clean());
 });
 
-//create dist files
+// create distribution files
 gulp.task('dist', function () {
     var src = [
         'src/util/*.js',
@@ -83,5 +81,5 @@ gulp.task('dist', function () {
         .pipe(gulp.dest('dist'));
 });
 
-//test + create dist files
+// test & release distribution files
 gulp.task('release', ['test', 'dist']);
