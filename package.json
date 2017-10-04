@@ -52,6 +52,7 @@
     }
   ],
   "devDependencies": {
+    "git-guppy": "^2.1.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-size": "^2.1.0",
