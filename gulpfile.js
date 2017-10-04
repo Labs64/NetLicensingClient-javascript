@@ -85,5 +85,5 @@ gulp.task('dist', function () {
 // test & release distribution files
 gulp.task('release', ['test', 'dist']);
 
-gulp.task('pre-commit', []);
-gulp.task('post-receive', ['dist']);
+// git pre commit with gulp
+gulp.task('pre-commit',['dist']);
