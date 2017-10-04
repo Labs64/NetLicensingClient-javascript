@@ -85,17 +85,8 @@ gulp.task('dist', function () {
 // test & release distribution files
 gulp.task('release', ['test', 'dist']);
 
-
-gulp.task('pre-commit',['dist']);
-
+gulp.task('pre-commit',[]);
 // another contrived example
-
 gulp.task('pre-push', guppy.src('pre-push', function (files, extra, cb) {
-    var branch = execSync('git rev-parse --abbrev-ref HEAD');
-
-    if (branch === 'master') {
-        cb('Don\'t push master!')
-    } else {
-        cb();
-    }
+    cb('Don\'t push master!')
 }));
