@@ -86,3 +86,4 @@ gulp.task('release', ['test', 'dist']);
 
 
 gulp.task('pre-commit', ['dist']);
+gulp.task('pre-push', ['test']);
