@@ -22,10 +22,7 @@ jobs:
     - stage: npm release
       node_js: "node"
       script:
-       - 'if[ ${TRAVIS_TAG} = "true" ]; then
-          echo "Deploying version ${TRAVIS_TAG} to npm..."
-          npm version ${TRAVIS_TAG}
-          fi'
+       - echo "Deploying version ${TRAVIS_TAG} to npm..."
       deploy:
         provider: npm
         email: info@labs64.com
