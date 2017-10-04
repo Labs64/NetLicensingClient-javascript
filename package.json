@@ -52,6 +52,7 @@
     }
   ],
   "devDependencies": {
+    "git-pre-hooks": "^1.2.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-size": "^2.1.0",
@@ -62,5 +63,8 @@
     "karma-edge-launcher": "^0.4.1",
     "karma-firefox-launcher": "^1.0.1",
     "karma-jasmine": "^1.1.0"
+  },
+  "git-pre-hooks": {
+    "pre-push": "gulp dist"
   }
 }

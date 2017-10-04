@@ -23,7 +23,6 @@ jobs:
       node_js: "node"
       script:
        - echo "Deploying version ${TRAVIS_TAG} to npm..."
-       - npm version from-git
       deploy:
         provider: npm
         email: info@labs64.com
