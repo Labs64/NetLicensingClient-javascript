@@ -63,5 +63,8 @@
     "karma-edge-launcher": "^0.4.1",
     "karma-firefox-launcher": "^1.0.1",
     "karma-jasmine": "^1.1.0"
+  },
+  "git-pre-hooks": {
+    "pre-release": "gulp dist"
   }
 }
