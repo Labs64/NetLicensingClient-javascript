@@ -22,7 +22,7 @@ jobs:
     - stage: npm release
       node_js: "node"
       script:
-       - echo "Deploying version ${TRAVIS_TAG} to npm..."
+       - echo "Deploying to npm..."
       deploy:
         provider: npm
         email: info@labs64.com
