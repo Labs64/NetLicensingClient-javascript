@@ -85,8 +85,5 @@ gulp.task('dist', function () {
 // test & release distribution files
 gulp.task('release', ['test', 'dist']);
 
-gulp.task('pre-commit',[]);
-// another contrived example
-gulp.task('pre-push', guppy.src('pre-push', function (files, extra, cb) {
-    cb('Don\'t push master!')
-}));
+gulp.task('pre-commit', []);
+gulp.task('post-receive', ['dist']);
