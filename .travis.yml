@@ -1,12 +1,25 @@
 language: node_js
 node_js:
-  - stable
+- stable
 env:
-  - NODEJS_VERSION=6.10.3
+- NODEJS_VERSION=6.10.3
 script: gulp travis-test
 before_install:
-    - export DISPLAY=:99.0
-    - sh -e /etc/init.d/xvfb start
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 before_script:
-  - nvm install $NODEJS_VERSION
-  - npm install
+- nvm install $NODEJS_VERSION
+- npm install
+jobs:
+  include:
+  - stage: npm release
+    node_js: '7'
+    script: echo "Deploying to npm ..."
+    deploy:
+      provider: npm
+      api_key: 05bb8cc0-1b2b-43fc-ae02-84365d30b49d
+      on:
+        tags: true
+deploy:
+  api_key:
+    secure: U04+JjD7qTnrM9M5lJftYdf1rCLm/MRMu7tLF4HplTJPtfAxw3fDnnbjR97eSxA/0x5vUx4OWbxRNJt8FBoprVQrqB6E5x0wFf5qVGKCg1ky628AuLa0QMvJW56M3L0w/rLg023so/zgJ0v6P2Tx2n1UDnm+XBYlELyJLKYotTaS1SCIeEOpPbmWU9urlvPfuRL1Ycx+xvnzajNlnrUyNMTVyxA+3Fepy595TkZAaQWSEo7dO9ZQ2Uv27Jwu6kO0FauoYJH4a+OTnfuCLYZUqzifmDWWny5yiVqjKY4WEvhWrEYd7HZsWSGliSpYQnHjJmHq5SxJDQw1Sd0eit43G4qhY2G2RXMLNBzZiO+XwtdHjMGfWdjrQtPGEjMorVaA72jdfJKDmwbK45aC8hPasK8nJEa3wBGJ8+zvexD+T4y42vO3GkYppVZD/O/r3PauK9w8WtWJkwDBi6B3eEW/ycVF1ySNyxUnXsacwSnkmII4wS5Qbu21Nj31N9t2ZXcmTsbOtOx4s/Sa9Fai4MugoC2uq7qPVdGs3LBAj1BCIjOEbwcSHlxrY9HeEgRvg9FjRkBFZlWGHVYexlgPY9Vrv/kpWp5RvNUQjAv9eovu7rhhnEib/TQ4sl05R1XPHLws2RtbrN1jhteeFS9lMLlSH+y0MBVslHR05E1DDiVKCsU=

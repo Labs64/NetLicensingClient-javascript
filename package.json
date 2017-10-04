@@ -1,20 +1,21 @@
 {
-  "name": "netlicensing-js-client",
+  "name": "netlicensing-client",
   "version": "0.1.0",
   "description": "JavaScript wrapper for Labs64 NetLicensing RESTful API",
   "keywords": [
     "labs64",
     "client"
   ],
-  "homepage": "https://github.com/Labs64/NetLicensingClient-javascript",
+  "author": "Labs64 GmbH",
+  "homepage": "https://netlicensing.io/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Labs64/NetLicensingClient-javascript"
+  },
   "bugs": {
     "url": "https://github.com/Labs64/NetLicensingClient-javascript/issues"
   },
   "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://www.opensource.org/licenses/mit-license.php"
-    },
     {
       "type": "Apache-2.0",
       "url": "https://opensource.org/licenses/apache2.0.php"
