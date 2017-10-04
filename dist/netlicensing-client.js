@@ -3673,7 +3673,6 @@ NetLicensing .Service = (function () {
         instance.getLastHttpRequestInfo = function () {
             return Object.assign({}, __httpXHR)
         };
-
         /**
          * Helper method for performing GET request to NetLicensing API services. Finds and returns first suitable item with
          * type resultType from the response.
