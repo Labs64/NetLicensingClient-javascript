@@ -17,13 +17,12 @@ after_success:
   - test "${TRAVIS_NODE_VERSION}" == "node" && test "${TRAVIS_TEST_RESULT}" == "0" && gulp dist
   - ls -la dist/
 
-before_deploy:
-  - echo "Version is ${TRAVIS_TAG}"
-
 jobs:
   include:
     - stage: npm release
       node_js: "node"
+      script:
+        - if [ -n "$TRAVIS_TAG" ]; echo "Tag set"; else echo "Tag not set"; fi
       deploy:
         provider: npm
         email: info@labs64.com
