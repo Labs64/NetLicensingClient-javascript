@@ -23,8 +23,8 @@ jobs:
       node_js: "node"
       script:
        - echo "Deploying version ${TRAVIS_TAG} to npm..."
-       - if [ ${TRAVIS_TAG} != ""]; then
-            echo "Version is ${TRAVIS_TAG}"
+       - if [ "test" != ""]; then
+            echo "Version is test"
          else
             echo "It's not taggable commit"
          fi
