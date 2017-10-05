@@ -24,6 +24,8 @@ jobs:
       script:
         - if [ -n "$TRAVIS_TAG" ]; then
             echo "Yes";
+          else
+            echo "No";
           fi
       deploy:
         provider: npm
