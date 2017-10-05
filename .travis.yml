@@ -21,14 +21,9 @@ jobs:
   include:
     - stage: npm release
       node_js: "node"
-      script:
-       - echo "Deploying version ${TRAVIS_TAG} to npm..."
-       - if [ "test" != ""]; then
-            echo "Version is test"
-         else
-            echo "It's not taggable commit"
-         fi
       deploy:
+        before_deploy:
+          - echo "Version is ${TRAVIS_TAG}"
         provider: npm
         email: info@labs64.com
         api_key:
