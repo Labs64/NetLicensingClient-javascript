@@ -23,6 +23,11 @@ jobs:
       node_js: "node"
       script:
        - echo "Deploying version ${TRAVIS_TAG} to npm..."
+       - if [ ${TRAVIS_TAG} != ""]; then
+            echo "Version is ${TRAVIS_TAG}"
+         else
+            echo "It's not taggable commit"
+         fi
       deploy:
         provider: npm
         email: info@labs64.com
