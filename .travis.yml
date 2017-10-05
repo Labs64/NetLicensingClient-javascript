@@ -25,7 +25,7 @@ jobs:
         - if [ -n "$TRAVIS_TAG" ]; then
             echo "Deploying version ${TRAVIS_TAG} to npm...";
             npm version "${TRAVIS_TAG}";
-            git commit dist/netlicensing-client.js dist/netlicensing-client.min.js;
+            git add dist/netlicensing-client.js dist/netlicensing-client.min.js;
           fi
       deploy:
         provider: npm
