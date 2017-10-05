@@ -21,9 +21,9 @@ jobs:
   include:
     - stage: npm release
       node_js: "node"
+      before_deploy:
+        - echo "Version is ${TRAVIS_TAG}"
       deploy:
-        before_deploy:
-          - echo "Version is ${TRAVIS_TAG}"
         provider: npm
         email: info@labs64.com
         api_key:
