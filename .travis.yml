@@ -15,21 +15,12 @@ after_success:
 - ls -la dist/
 jobs:
   include:
-  - stage: dist commit
-    deploy:
-      provider: releases
-      api_key:
-        secure: a5zafvfptRGdcGp5Vsv60k21e8exDkdiI/37oreCItsuxKpFOwoCxG8WY7k50AfmNnyeOcEPBmf2YVoFDgrXYIGkXxZ/1UpEjQ1M8DZx4EAo4tUzbqzW2Xvq++kU1vWot2oHwFYSbKXjLN/T8J77gacS4FyLqJoAWzcnFeF+j2fvxxLtU0wbcTWQl5MhwISYSn0qauqzk6dPyf7KNMbiq0R4AZWrunPoyKvz8kVo0Rgz4Y9suzWie5lUnvEYXabAPMbzlPueNFcEG9QSdJkdXPEAXspsJgSCJASmEIdmdiH/71XJvE+4wDd6/bJLQDnA7Tmq8HrAkJHhFPcpaNL85GDO4xd+OELkUIoKlS8xb2+vSyQIRrx+E2HblLfGVAscNWAfDbJ8cELHO8+skDT7utRDq0TxHukQK9JRIfv9Wjr0RBBb74zeZ6ebWolfV/ZQ8lrNjyC/1QrfYkovWmr3UxGkaBH4s6D291+9uNMFuH+PfIQWZDMf+sEGlouZGwgIHYwWa0kEuQeE3k1ic8AZ9i+pAkbSoFBkLaSNulqQfeA/zXBklB1+84z6RPbJ/j/NP0VsPUX4TnJrTnAKqTpHzBGaYyNb43RsubGkRTd7iG/iyMTBvRVVylnDEEDyp4NnflPYLaZb9nc1y6kPzpyUFtN3v2sg6nzIDCUKtn9CW9o=
-      file:
-       -  dist/netlicensing-client.min.js
-       -  dist/netlicensing-client.js
-      on:
-        tags: true
   - stage: npm release
     node_js: node
     script:
     - if [ -n "$TRAVIS_TAG" ]; then echo "Deploying version ${TRAVIS_TAG} to npm...";
       npm version "${TRAVIS_TAG}"; fi
+      git commit -a
     deploy:
       provider: npm
       email: info@labs64.com
