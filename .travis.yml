@@ -1,35 +1,36 @@
 language: node_js
-
 node_js:
-  - "node"
-  - "7"
-  - "6"
-
+- node
+- '7'
+- '6'
 before_install:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 script:
-  - gulp travis-test
-
+- gulp travis-test
 after_success:
-  - env
-  - test "${TRAVIS_NODE_VERSION}" == "node" && test "${TRAVIS_TEST_RESULT}" == "0" && gulp dist
-  - ls -la dist/
-
+- env
+- test "${TRAVIS_NODE_VERSION}" == "node" && test "${TRAVIS_TEST_RESULT}" == "0" &&
+  gulp dist
+- ls -la dist/
 jobs:
   include:
-    - stage: npm release
-      node_js: "node"
-      script:
-        - if [ -n "$TRAVIS_TAG" ]; then
-            echo "Deploying version ${TRAVIS_TAG} to npm...";
-            npm version "${TRAVIS_TAG}";
-          fi
-      deploy:
-        provider: npm
-        email: info@labs64.com
-        api_key:
-          secure: U04+JjD7qTnrM9M5lJftYdf1rCLm/MRMu7tLF4HplTJPtfAxw3fDnnbjR97eSxA/0x5vUx4OWbxRNJt8FBoprVQrqB6E5x0wFf5qVGKCg1ky628AuLa0QMvJW56M3L0w/rLg023so/zgJ0v6P2Tx2n1UDnm+XBYlELyJLKYotTaS1SCIeEOpPbmWU9urlvPfuRL1Ycx+xvnzajNlnrUyNMTVyxA+3Fepy595TkZAaQWSEo7dO9ZQ2Uv27Jwu6kO0FauoYJH4a+OTnfuCLYZUqzifmDWWny5yiVqjKY4WEvhWrEYd7HZsWSGliSpYQnHjJmHq5SxJDQw1Sd0eit43G4qhY2G2RXMLNBzZiO+XwtdHjMGfWdjrQtPGEjMorVaA72jdfJKDmwbK45aC8hPasK8nJEa3wBGJ8+zvexD+T4y42vO3GkYppVZD/O/r3PauK9w8WtWJkwDBi6B3eEW/ycVF1ySNyxUnXsacwSnkmII4wS5Qbu21Nj31N9t2ZXcmTsbOtOx4s/Sa9Fai4MugoC2uq7qPVdGs3LBAj1BCIjOEbwcSHlxrY9HeEgRvg9FjRkBFZlWGHVYexlgPY9Vrv/kpWp5RvNUQjAv9eovu7rhhnEib/TQ4sl05R1XPHLws2RtbrN1jhteeFS9lMLlSH+y0MBVslHR05E1DDiVKCsU=
-        on:
-          tags: true
+  - stage: dist commit
+    deploy:
+      provider: releases
+      api_key:
+        secure: a5zafvfptRGdcGp5Vsv60k21e8exDkdiI/37oreCItsuxKpFOwoCxG8WY7k50AfmNnyeOcEPBmf2YVoFDgrXYIGkXxZ/1UpEjQ1M8DZx4EAo4tUzbqzW2Xvq++kU1vWot2oHwFYSbKXjLN/T8J77gacS4FyLqJoAWzcnFeF+j2fvxxLtU0wbcTWQl5MhwISYSn0qauqzk6dPyf7KNMbiq0R4AZWrunPoyKvz8kVo0Rgz4Y9suzWie5lUnvEYXabAPMbzlPueNFcEG9QSdJkdXPEAXspsJgSCJASmEIdmdiH/71XJvE+4wDd6/bJLQDnA7Tmq8HrAkJHhFPcpaNL85GDO4xd+OELkUIoKlS8xb2+vSyQIRrx+E2HblLfGVAscNWAfDbJ8cELHO8+skDT7utRDq0TxHukQK9JRIfv9Wjr0RBBb74zeZ6ebWolfV/ZQ8lrNjyC/1QrfYkovWmr3UxGkaBH4s6D291+9uNMFuH+PfIQWZDMf+sEGlouZGwgIHYwWa0kEuQeE3k1ic8AZ9i+pAkbSoFBkLaSNulqQfeA/zXBklB1+84z6RPbJ/j/NP0VsPUX4TnJrTnAKqTpHzBGaYyNb43RsubGkRTd7iG/iyMTBvRVVylnDEEDyp4NnflPYLaZb9nc1y6kPzpyUFtN3v2sg6nzIDCUKtn9CW9o=
+      on:
+        tags: true
+  - stage: npm release
+    node_js: node
+    script:
+    - if [ -n "$TRAVIS_TAG" ]; then echo "Deploying version ${TRAVIS_TAG} to npm...";
+      npm version "${TRAVIS_TAG}"; fi
+    deploy:
+      provider: npm
+      email: info@labs64.com
+      api_key:
+        secure: U04+JjD7qTnrM9M5lJftYdf1rCLm/MRMu7tLF4HplTJPtfAxw3fDnnbjR97eSxA/0x5vUx4OWbxRNJt8FBoprVQrqB6E5x0wFf5qVGKCg1ky628AuLa0QMvJW56M3L0w/rLg023so/zgJ0v6P2Tx2n1UDnm+XBYlELyJLKYotTaS1SCIeEOpPbmWU9urlvPfuRL1Ycx+xvnzajNlnrUyNMTVyxA+3Fepy595TkZAaQWSEo7dO9ZQ2Uv27Jwu6kO0FauoYJH4a+OTnfuCLYZUqzifmDWWny5yiVqjKY4WEvhWrEYd7HZsWSGliSpYQnHjJmHq5SxJDQw1Sd0eit43G4qhY2G2RXMLNBzZiO+XwtdHjMGfWdjrQtPGEjMorVaA72jdfJKDmwbK45aC8hPasK8nJEa3wBGJ8+zvexD+T4y42vO3GkYppVZD/O/r3PauK9w8WtWJkwDBi6B3eEW/ycVF1ySNyxUnXsacwSnkmII4wS5Qbu21Nj31N9t2ZXcmTsbOtOx4s/Sa9Fai4MugoC2uq7qPVdGs3LBAj1BCIjOEbwcSHlxrY9HeEgRvg9FjRkBFZlWGHVYexlgPY9Vrv/kpWp5RvNUQjAv9eovu7rhhnEib/TQ4sl05R1XPHLws2RtbrN1jhteeFS9lMLlSH+y0MBVslHR05E1DDiVKCsU=
+      on:
+        tags: true
