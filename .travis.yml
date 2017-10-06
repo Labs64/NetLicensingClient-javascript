@@ -10,8 +10,6 @@ script:
 - gulp travis-test
 after_success:
 - env
-- test "${TRAVIS_NODE_VERSION}" == "node" && test "${TRAVIS_TEST_RESULT}" == "0" &&
-  gulp dist
 - ls -la dist/
 jobs:
   include:
@@ -19,9 +17,7 @@ jobs:
     node_js: node
     script:
     - if [ -n "$TRAVIS_TAG" ]; then echo "Deploying version ${TRAVIS_TAG} to npm...";
-      npm version "${TRAVIS_TAG}";
-      git commit -a;
-      fi
+      npm version "${TRAVIS_TAG}";fi
     deploy:
       provider: npm
       email: info@labs64.com
