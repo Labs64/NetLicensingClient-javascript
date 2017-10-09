@@ -21,5 +21,5 @@ fi
 #Start release preparation
 gulp dist
 git commit -a -m "Prepare dist for release $version"
-npm version $version -m "Release $version"
-git push origin master --follow-tags
+npm version $version
+git push origin master $version
