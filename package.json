@@ -54,8 +54,6 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
-    "gulp-prompt": "^0.2.0",
-    "gulp-run": "^1.7.1",
     "gulp-size": "^2.1.0",
     "gulp-uglify": "^3.0.0",
     "jasmine": "^2.8.0",
