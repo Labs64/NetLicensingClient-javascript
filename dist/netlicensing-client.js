@@ -1144,6 +1144,7 @@ NetLicensing .Product = function () {
 
     /**
      * Add discount to product
+     * 
      * @param discount NetLicensing .ProductDiscount
      * @returns {NetLicensing .Product}
      */

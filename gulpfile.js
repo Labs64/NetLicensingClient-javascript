@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     path = require('path'),
     karma = require('karma'),
     karmaParseConfig = require('karma/lib/config').parseConfig,
-    guppy = require('git-guppy')(gulp);
+    prompt = require('gulp-prompt'),
+    run = require('gulp-run');
 
 function runKarma(configFilePath, options, cb) {
 
@@ -83,7 +84,36 @@ gulp.task('dist', function () {
 });
 
 // test & release distribution files
-gulp.task('release', ['test', 'dist']);
+// gulp.task('release', ['test', 'dist']);
 
-// git pre commit with gulp
-gulp.task('pre-commit',['dist']);
+gulp.task('release', function () {
+    var src = [
+        'src/util/*.js',
+        'src/entities/*.js',
+        'src/vo/*.js',
+        'src/services/*.js'
+    ];
+
+    return gulp.src(src)
+        .pipe(prompt.prompt([
+            // {
+            //     type: 'input',
+            //     name: 'test',
+            //     message: 'Do you want run test before release [yes/no]?',
+            //     choices: ['yes', 'no']
+            // },
+            {
+                type: 'input',
+                name: 'version',
+                message: 'Type release version:'
+            }
+        ], function (res) {
+            if (res.test == 'yes' || res.test == 'y') gulp.start('test');
+
+            gulp.start('dist');
+
+            run('git commit -a --message=<Prepare for release ' + res.version+'>').exec();
+            run('npm version ' + res.version).exec()
+        }));
+});
+
