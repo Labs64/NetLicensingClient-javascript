@@ -112,8 +112,9 @@ gulp.task('release', function () {
 
             gulp.start('dist');
 
-            run('git commit -a --message=<Prepare for release ' + res.version+'>').exec();
-            run('npm version ' + res.version).exec()
+            run('git commit -a -m "Prepare for release ' + res.version+'"').exec();
+            run('npm version ' + res.version).exec();
+            run('git push').exec();
         }));
 });
 
