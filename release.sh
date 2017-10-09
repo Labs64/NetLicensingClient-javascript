@@ -18,8 +18,8 @@ if [ "$version" = "" ]; then
      exit 1
 fi
 
-#Start release preparation
+#Start release
 gulp dist
 git commit -a -m "Prepare dist for release $version"
 npm version $version
-git push origin master $version
+git push origin "$version"
