@@ -21,5 +21,6 @@ fi
 #Start release
 gulp dist
 git commit -a -m "Prepare dist for release $version"
+npm config set tag-version-prefix ''
 npm version $version
-git push origin "$version"
+git push origin master
