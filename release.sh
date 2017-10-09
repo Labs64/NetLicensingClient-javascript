@@ -22,5 +22,4 @@ fi
 gulp dist
 git commit -a -m "Prepare dist for release $version"
 npm version $version -m "Release $version"
-git push origin master
-git push origin $version
+git push origin master --follow-tags
