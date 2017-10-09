@@ -18,7 +18,7 @@ jobs:
     node_js: node
     script:
     - if [ -n "$TRAVIS_TAG" ]; then echo "Deploying version ${TRAVIS_TAG} to npm...";
-      npm version "${TRAVIS_TAG}";fi
+      fi
     deploy:
       provider: npm
       email: info@labs64.com
