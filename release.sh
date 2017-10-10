@@ -1,5 +1,8 @@
 #!/bin/sh
 
+#Install dependencies
+npm install
+
 #Check if need testing before release
 
 echo Do you want run test before release [yes/no]?
@@ -10,6 +13,7 @@ if [ "$test" == "y" ] || [ "$test" == "yes" ] ; then
 fi
 
 #Version input
+
 echo Type release version:?
 read version
 
@@ -19,6 +23,7 @@ if [ "$version" = "" ]; then
 fi
 
 #Start release
+
 gulp dist
 git commit -a -m "Prepare dist for release $version"
 npm config set tag-version-prefix ''
