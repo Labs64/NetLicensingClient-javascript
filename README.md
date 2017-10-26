@@ -1,3 +1,5 @@
+<img src="https://netlicensing.io/img/netlicensing-stage-twitter.jpg">
+
 # [Labs64 NetLicensing](https://netlicensing.io) JavaScript Client
 
 [![Build Status](https://travis-ci.org/Labs64/NetLicensingClient-javascript.svg?branch=master)](https://travis-ci.org/Labs64/NetLicensingClient-javascript)
