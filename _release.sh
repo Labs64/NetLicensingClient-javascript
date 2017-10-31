@@ -6,8 +6,8 @@ npm install -g gulp
 
 # check if testing is needed before release
 echo Do you want run test before release start? [yes/no]
-read test
-if [ "$test" == "y" ] || [ "$test" == "yes" ] ; then
+read dotest
+if [ "$dotest" = "y" ] || [ "$dotest" = "yes" ] ; then
   gulp test
 fi
 
