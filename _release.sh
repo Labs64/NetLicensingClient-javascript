@@ -2,6 +2,7 @@
 
 # install dependencies
 npm install
+npm install -g gulp
 
 # check if testing is needed before release
 echo Do you want run test before release start? [yes/no]

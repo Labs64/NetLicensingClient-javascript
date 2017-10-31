@@ -57,6 +57,7 @@
     "gulp-size": "^2.1.0",
     "gulp-uglify": "^3.0.0",
     "jasmine": "^2.8.0",
+    "is-docker": "^1.1.0",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-edge-launcher": "^0.4.1",
