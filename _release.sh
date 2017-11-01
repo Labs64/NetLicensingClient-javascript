@@ -2,7 +2,10 @@
 
 # install dependencies
 npm install
-npm install -g gulp
+if ! type "gulp" > /dev/null; then
+ echo Install gulp globally
+ npm install -g gulp;
+fi
 
 # check outdated dependencies
 npm install -g npm-check-updates
