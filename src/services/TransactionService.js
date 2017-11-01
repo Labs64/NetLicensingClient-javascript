@@ -23,35 +23,35 @@ var NetLicensing  = NetLicensing  || {};
  * @constructor
  */
 
-NetLicensing .TransactionService = function () {
+NetLicensing.TransactionService = function () {
 };
 
 //static constants
-Object.defineProperty(NetLicensing .TransactionService, 'ENDPOINT_PATH', {value: 'transaction'});
+Object.defineProperty(NetLicensing.TransactionService, 'ENDPOINT_PATH', {value: 'transaction'});
 
 /**
  * Creates new transaction object with given properties.See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services#TransactionServices-Createtransaction
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * non-null properties will be taken for the new object, null properties will either stay null, or will
  * be set to a default value, depending on property.
- * @param transaction NetLicensing .Transaction
+ * @param transaction NetLicensing.Transaction
  *
  * return the newly created transaction object in promise
  * @returns {Promise}
  */
-NetLicensing .TransactionService.create = function (context, transaction) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
-    if (!(transaction instanceof NetLicensing .Transaction)) throw new TypeError('transaction must be an instance of NetLicensing .Transaction');
+NetLicensing.TransactionService.create = function (context, transaction) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+    if (!(transaction instanceof NetLicensing.Transaction)) throw new TypeError('transaction must be an instance of NetLicensing.Transaction');
 
-    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing .TransactionService.ENDPOINT_PATH, transaction.asPropertiesMap(), NetLicensing .Transaction);
+        .post(context, NetLicensing.TransactionService.ENDPOINT_PATH, transaction.asPropertiesMap(), NetLicensing.Transaction);
 };
 
 /**
@@ -59,7 +59,7 @@ NetLicensing .TransactionService.create = function (context, transaction) {
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services#TransactionServices-Gettransaction
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * the transaction number
  * @param number string
@@ -67,16 +67,16 @@ NetLicensing .TransactionService.create = function (context, transaction) {
  * return the transaction in promise
  * @returns {Promise}
  */
-NetLicensing .TransactionService.get = function (context, number) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+NetLicensing.TransactionService.get = function (context, number) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    NetLicensing .CheckUtils.paramNotEmpty(number, 'number');
+    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing .TransactionService.ENDPOINT_PATH + '/' + number, {}, NetLicensing .Transaction);
+        .get(context, NetLicensing.TransactionService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Transaction);
 };
 
 /**
@@ -84,7 +84,7 @@ NetLicensing .TransactionService.get = function (context, number) {
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services#TransactionServices-Transactionslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string
@@ -92,21 +92,21 @@ NetLicensing .TransactionService.get = function (context, number) {
  * array of transaction entities or empty array if nothing found in promise.
  * @returns {Promise}
  */
-NetLicensing .TransactionService.list = function (context, filter) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+NetLicensing.TransactionService.list = function (context, filter) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
     if (filter) {
-        if (!NetLicensing .CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!NetLicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing .TransactionService.ENDPOINT_PATH, queryParams, NetLicensing .Transaction);
+        .list(context, NetLicensing.TransactionService.ENDPOINT_PATH, queryParams, NetLicensing.Transaction);
 };
 
 /**
@@ -114,26 +114,26 @@ NetLicensing .TransactionService.list = function (context, filter) {
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services#TransactionServices-Updatetransaction
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * transaction number
  * @param number string
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param transaction NetLicensing .Transaction
+ * @param transaction NetLicensing.Transaction
  *
  * return updated transaction in promise.
  * @returns {Promise}
  */
-NetLicensing .TransactionService.update = function (context, number, transaction) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
-    if (!(transaction instanceof NetLicensing .Transaction)) throw new TypeError('transaction must be an instance of NetLicensing .Transaction');
+NetLicensing.TransactionService.update = function (context, number, transaction) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+    if (!(transaction instanceof NetLicensing.Transaction)) throw new TypeError('transaction must be an instance of NetLicensing.Transaction');
 
-    NetLicensing .CheckUtils.paramNotEmpty(number, 'number');
+    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing .TransactionService.ENDPOINT_PATH + '/' + number, transaction.asPropertiesMap(), NetLicensing .Transaction);
+        .post(context, NetLicensing.TransactionService.ENDPOINT_PATH + '/' + number, transaction.asPropertiesMap(), NetLicensing.Transaction);
 };

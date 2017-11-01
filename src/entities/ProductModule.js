@@ -44,8 +44,8 @@ var NetLicensing  = NetLicensing  || {};
  * @constructor
  */
 
-NetLicensing .ProductModule = function () {
-    NetLicensing .BaseEntity.apply(this, arguments);
+NetLicensing.ProductModule = function () {
+    NetLicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -67,94 +67,94 @@ NetLicensing .ProductModule = function () {
     this.__define('inUse', true);
 
     //make methods not changeable
-    NetLicensing .DefineUtil.notChangeable(this, ['asPropertiesMap']);
+    NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
 //static constants
-Object.defineProperty(NetLicensing .ProductModule, 'LICENSING_MODEL_SUBSCRIPTION', {value: 'Subscription'});
-Object.defineProperty(NetLicensing .ProductModule, 'LICENSING_MODEL_TRY_AND_BUY', {value: 'TryAndBuy'});
-Object.defineProperty(NetLicensing .ProductModule, 'LICENSING_MODEL_RENTAL', {value: 'Rental'});
-Object.defineProperty(NetLicensing .ProductModule, 'LICENSING_MODEL_FLOATING', {value: 'Floating'});
-Object.defineProperty(NetLicensing .ProductModule, 'LICENSING_MODEL_MULTI_FEATURE', {value: 'MultiFeature'});
-Object.defineProperty(NetLicensing .ProductModule, 'LICENSING_MODEL_PAY_PER_USE', {value: 'PayPerUse'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_SUBSCRIPTION', {value: 'Subscription'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_TRY_AND_BUY', {value: 'TryAndBuy'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_RENTAL', {value: 'Rental'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_FLOATING', {value: 'Floating'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_MULTI_FEATURE', {value: 'MultiFeature'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PAY_PER_USE', {value: 'PayPerUse'});
 
 
-NetLicensing .ProductModule.prototype = Object.create(NetLicensing .BaseEntity.prototype);
-NetLicensing .ProductModule.prototype.constructor = NetLicensing .ProductModule;
+NetLicensing.ProductModule.prototype = Object.create(NetLicensing.BaseEntity.prototype);
+NetLicensing.ProductModule.prototype.constructor = NetLicensing.ProductModule;
 
-NetLicensing .ProductModule.prototype.setNumber = function (number) {
+NetLicensing.ProductModule.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-NetLicensing .ProductModule.prototype.getNumber = function (def) {
+NetLicensing.ProductModule.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-NetLicensing .ProductModule.prototype.setActive = function (active) {
+NetLicensing.ProductModule.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-NetLicensing .ProductModule.prototype.getActive = function (def) {
+NetLicensing.ProductModule.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-NetLicensing .ProductModule.prototype.setName = function (name) {
+NetLicensing.ProductModule.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-NetLicensing .ProductModule.prototype.getName = function (def) {
+NetLicensing.ProductModule.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-NetLicensing .ProductModule.prototype.setLicensingModel = function (licensingModel) {
+NetLicensing.ProductModule.prototype.setLicensingModel = function (licensingModel) {
     return this.setProperty('licensingModel', licensingModel);
 };
 
-NetLicensing .ProductModule.prototype.getLicensingModel = function (def) {
+NetLicensing.ProductModule.prototype.getLicensingModel = function (def) {
     return this.getProperty('licensingModel', def);
 };
 
-NetLicensing .ProductModule.prototype.setMaxCheckoutValidity = function (maxCheckoutValidity) {
+NetLicensing.ProductModule.prototype.setMaxCheckoutValidity = function (maxCheckoutValidity) {
     return this.setProperty('maxCheckoutValidity', maxCheckoutValidity);
 };
 
-NetLicensing .ProductModule.prototype.getMaxCheckoutValidity = function (def) {
+NetLicensing.ProductModule.prototype.getMaxCheckoutValidity = function (def) {
     return this.getProperty('maxCheckoutValidity', def);
 };
 
-NetLicensing .ProductModule.prototype.setYellowThreshold = function (yellowThreshold) {
+NetLicensing.ProductModule.prototype.setYellowThreshold = function (yellowThreshold) {
     return this.setProperty('yellowThreshold', yellowThreshold);
 };
 
-NetLicensing .ProductModule.prototype.getYellowThreshold = function (def) {
+NetLicensing.ProductModule.prototype.getYellowThreshold = function (def) {
     return this.getProperty('yellowThreshold', def);
 };
 
-NetLicensing .ProductModule.prototype.setRedThreshold = function (redThreshold) {
+NetLicensing.ProductModule.prototype.setRedThreshold = function (redThreshold) {
     return this.setProperty('redThreshold', redThreshold);
 };
 
-NetLicensing .ProductModule.prototype.getRedThreshold = function (def) {
+NetLicensing.ProductModule.prototype.getRedThreshold = function (def) {
     return this.getProperty('redThreshold', def);
 };
 
-NetLicensing .ProductModule.prototype.setLicenseTemplate = function (licenseTemplate) {
+NetLicensing.ProductModule.prototype.setLicenseTemplate = function (licenseTemplate) {
     return this.setProperty('licenseTemplate', licenseTemplate);
 };
 
-NetLicensing .ProductModule.prototype.getLicenseTemplate = function (def) {
+NetLicensing.ProductModule.prototype.getLicenseTemplate = function (def) {
     return this.getProperty('licenseTemplate', def);
 };
 
-NetLicensing .ProductModule.prototype.getInUse = function (def) {
+NetLicensing.ProductModule.prototype.getInUse = function (def) {
     return this.getProperty('inUse', def);
 };
 
 //make methods not changeable
-NetLicensing .DefineUtil.notChangeable(NetLicensing .ProductModule.prototype, ['constructor']);
+NetLicensing.DefineUtil.notChangeable(NetLicensing.ProductModule.prototype, ['constructor']);
 
 //make methods not enumerable
-NetLicensing .DefineUtil.notEnumerable(NetLicensing .ProductModule.prototype, [
+NetLicensing.DefineUtil.notEnumerable(NetLicensing.ProductModule.prototype, [
     'setNumber',
     'getNumber',
     'setActive',

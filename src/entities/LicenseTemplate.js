@@ -9,7 +9,7 @@
 var NetLicensing  = NetLicensing  || {};
 
 /**
- * License template entity used internally by NetLicensing .
+ * License template entity used internally by NetLicensing.
  *
  * Properties visible via NetLicensing  API:
  *
@@ -59,8 +59,8 @@ var NetLicensing  = NetLicensing  || {};
  * @constructor
  */
 
-NetLicensing .LicenseTemplate = function () {
-    NetLicensing .BaseEntity.apply(this, arguments);
+NetLicensing.LicenseTemplate = function () {
+    NetLicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -85,119 +85,119 @@ NetLicensing .LicenseTemplate = function () {
     this.__define('inUse', true);
 
     //make methods not changeable
-    NetLicensing .DefineUtil.notChangeable(this, ['asPropertiesMap']);
+    NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
 //static constants
-Object.defineProperty(NetLicensing .LicenseTemplate, 'LICENSE_TYPE_FEATURE', {value: 'FEATURE'});
-Object.defineProperty(NetLicensing .LicenseTemplate, 'LICENSE_TYPE_TIMEVOLUME', {value: 'TIMEVOLUME'});
-Object.defineProperty(NetLicensing .LicenseTemplate, 'LICENSE_TYPE_FLOATING', {value: 'FLOATING'});
-Object.defineProperty(NetLicensing .LicenseTemplate, 'LICENSE_TYPE_QUANTITY', {value: 'QUANTITY'});
+Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_FEATURE', {value: 'FEATURE'});
+Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_TIMEVOLUME', {value: 'TIMEVOLUME'});
+Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_FLOATING', {value: 'FLOATING'});
+Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_QUANTITY', {value: 'QUANTITY'});
 
-NetLicensing .LicenseTemplate.prototype = Object.create(NetLicensing .BaseEntity.prototype);
-NetLicensing .LicenseTemplate.prototype.constructor = NetLicensing .LicenseTemplate;
+NetLicensing.LicenseTemplate.prototype = Object.create(NetLicensing.BaseEntity.prototype);
+NetLicensing.LicenseTemplate.prototype.constructor = NetLicensing.LicenseTemplate;
 
-NetLicensing .LicenseTemplate.prototype.setNumber = function (number) {
+NetLicensing.LicenseTemplate.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-NetLicensing .LicenseTemplate.prototype.getNumber = function (def) {
+NetLicensing.LicenseTemplate.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-NetLicensing .LicenseTemplate.prototype.setActive = function (active) {
+NetLicensing.LicenseTemplate.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-NetLicensing .LicenseTemplate.prototype.getActive = function (def) {
+NetLicensing.LicenseTemplate.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-NetLicensing .LicenseTemplate.prototype.setName = function (name) {
+NetLicensing.LicenseTemplate.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-NetLicensing .LicenseTemplate.prototype.getName = function (def) {
+NetLicensing.LicenseTemplate.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-NetLicensing .LicenseTemplate.prototype.setLicenseType = function (licenseType) {
+NetLicensing.LicenseTemplate.prototype.setLicenseType = function (licenseType) {
     return this.setProperty('licenseType', licenseType);
 };
 
-NetLicensing .LicenseTemplate.prototype.getLicenseType = function (def) {
+NetLicensing.LicenseTemplate.prototype.getLicenseType = function (def) {
     return this.getProperty('licenseType', def);
 };
 
-NetLicensing .LicenseTemplate.prototype.setPrice = function (price) {
+NetLicensing.LicenseTemplate.prototype.setPrice = function (price) {
     return this.setProperty('price', price);
 };
 
-NetLicensing .LicenseTemplate.prototype.getPrice = function (def) {
+NetLicensing.LicenseTemplate.prototype.getPrice = function (def) {
     return this.getProperty('price', def);
 };
 
-NetLicensing .LicenseTemplate.prototype.setCurrency = function (currency) {
+NetLicensing.LicenseTemplate.prototype.setCurrency = function (currency) {
     return this.setProperty('currency', currency);
 };
 
-NetLicensing .LicenseTemplate.prototype.getCurrency = function (def) {
+NetLicensing.LicenseTemplate.prototype.getCurrency = function (def) {
     return this.getProperty('currency', def);
 };
 
-NetLicensing .LicenseTemplate.prototype.setAutomatic = function (automatic) {
+NetLicensing.LicenseTemplate.prototype.setAutomatic = function (automatic) {
     return this.setProperty('automatic', automatic);
 };
 
-NetLicensing .LicenseTemplate.prototype.getAutomatic = function (def) {
+NetLicensing.LicenseTemplate.prototype.getAutomatic = function (def) {
     return this.getProperty('automatic', def);
 };
 
-NetLicensing .LicenseTemplate.prototype.setHidden = function (hidden) {
+NetLicensing.LicenseTemplate.prototype.setHidden = function (hidden) {
     return this.setProperty('hidden', hidden);
 };
 
-NetLicensing .LicenseTemplate.prototype.getHidden = function (def) {
+NetLicensing.LicenseTemplate.prototype.getHidden = function (def) {
     return this.getProperty('hidden', def);
 };
 
-NetLicensing .LicenseTemplate.prototype.setHideLicenses = function (hideLicenses) {
+NetLicensing.LicenseTemplate.prototype.setHideLicenses = function (hideLicenses) {
     return this.setProperty('hideLicenses', hideLicenses);
 };
 
-NetLicensing .LicenseTemplate.prototype.getHideLicenses = function (def) {
+NetLicensing.LicenseTemplate.prototype.getHideLicenses = function (def) {
     return this.getProperty('hideLicenses', def);
 };
 
-NetLicensing .LicenseTemplate.prototype.setTimeVolume = function (timeVolume) {
+NetLicensing.LicenseTemplate.prototype.setTimeVolume = function (timeVolume) {
     return this.setProperty('timeVolume', timeVolume);
 };
 
-NetLicensing .LicenseTemplate.prototype.getTimeVolume = function (def) {
+NetLicensing.LicenseTemplate.prototype.getTimeVolume = function (def) {
     return this.getProperty('timeVolume', def);
 };
 
-NetLicensing .LicenseTemplate.prototype.setMaxSessions = function (maxSessions) {
+NetLicensing.LicenseTemplate.prototype.setMaxSessions = function (maxSessions) {
     return this.setProperty('maxSessions', maxSessions);
 };
 
-NetLicensing .LicenseTemplate.prototype.getMaxSessions = function (def) {
+NetLicensing.LicenseTemplate.prototype.getMaxSessions = function (def) {
     return this.getProperty('maxSessions', def);
 };
 
-NetLicensing .LicenseTemplate.prototype.setQuantity = function (quantity) {
+NetLicensing.LicenseTemplate.prototype.setQuantity = function (quantity) {
     return this.setProperty('quantity', quantity);
 };
 
-NetLicensing .LicenseTemplate.prototype.getQuantity = function (def) {
+NetLicensing.LicenseTemplate.prototype.getQuantity = function (def) {
     return this.getProperty('quantity', def);
 };
 
 //make methods not changeable
-NetLicensing .DefineUtil.notChangeable(NetLicensing .LicenseTemplate.prototype, ['constructor']);
+NetLicensing.DefineUtil.notChangeable(NetLicensing.LicenseTemplate.prototype, ['constructor']);
 
 //make methods not enumerable
-NetLicensing .DefineUtil.notEnumerable(NetLicensing .LicenseTemplate.prototype, [
+NetLicensing.DefineUtil.notEnumerable(NetLicensing.LicenseTemplate.prototype, [
     'setNumber',
     'getNumber',
     'setActive',

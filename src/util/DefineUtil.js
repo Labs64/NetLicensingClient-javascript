@@ -9,11 +9,11 @@
 var NetLicensing  = NetLicensing  || {};
 
 
-NetLicensing .DefineUtil = function () {
+NetLicensing.DefineUtil = function () {
 
 };
 
-NetLicensing .DefineUtil.notChangeable = function (object, methods) {
+NetLicensing.DefineUtil.notChangeable = function (object, methods) {
     var noChangeable = {};
 
     methods = Array.isArray(methods) ? methods : [methods];
@@ -26,7 +26,7 @@ NetLicensing .DefineUtil.notChangeable = function (object, methods) {
     Object.defineProperties(object, noChangeable);
 };
 
-NetLicensing .DefineUtil.notEnumerable = function (object, methods) {
+NetLicensing.DefineUtil.notEnumerable = function (object, methods) {
     var noChangeable = {};
 
     methods = Array.isArray(methods) ? methods : [methods];

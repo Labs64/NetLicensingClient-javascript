@@ -2,7 +2,7 @@ describe('entities.ProductDiscountTest', function () {
     var productDiscount;
 
     beforeEach(function () {
-        productDiscount = new NetLicensing .ProductDiscount();
+        productDiscount = new NetLicensing.ProductDiscount();
     });
 
     it('check "totalPrice" property setters/getters', function () {

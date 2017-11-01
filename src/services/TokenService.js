@@ -14,32 +14,32 @@ var NetLicensing  = NetLicensing  || {};
  *
  * @constructor
  */
-NetLicensing .TokenService = function () {
+NetLicensing.TokenService = function () {
 };
 
 //static constants
-Object.defineProperty(NetLicensing .TokenService, 'ENDPOINT_PATH', {value: 'token'});
+Object.defineProperty(NetLicensing.TokenService, 'ENDPOINT_PATH', {value: 'token'});
 
 /**
  * Creates new token.See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services#TokenServices-Createtoken
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param token NetLicensing .Token
+ * @param token NetLicensing.Token
  *
  * return created token in promise
  * @returns {Promise}
  */
-NetLicensing .TokenService.create = function (context, token) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
-    if (!(token instanceof NetLicensing .Token)) throw new TypeError('token must be an instance of NetLicensing .Token');
+NetLicensing.TokenService.create = function (context, token) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+    if (!(token instanceof NetLicensing.Token)) throw new TypeError('token must be an instance of NetLicensing.Token');
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing .TokenService.ENDPOINT_PATH, token.asPropertiesMap(), NetLicensing .Token);
+        .post(context, NetLicensing.TokenService.ENDPOINT_PATH, token.asPropertiesMap(), NetLicensing.Token);
 };
 
 /**
@@ -47,7 +47,7 @@ NetLicensing .TokenService.create = function (context, token) {
  * https://www.labs64.de/conluence/display/NetLicensing PUB/Token+Services#TokenServices-Gettoken
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * the token number
  * @param number
@@ -55,14 +55,14 @@ NetLicensing .TokenService.create = function (context, token) {
  * return the token in promise
  * @returns {Promise}
  */
-NetLicensing .TokenService.get = function (context, number) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+NetLicensing.TokenService.get = function (context, number) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    NetLicensing .CheckUtils.paramNotEmpty(number, 'number');
+    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing .TokenService.ENDPOINT_PATH + '/' + number, {}, NetLicensing .Token);
+        .get(context, NetLicensing.TokenService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Token);
 };
 
 /**
@@ -70,7 +70,7 @@ NetLicensing .TokenService.get = function (context, number) {
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services#TokenServices-Tokenslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string|null
@@ -78,19 +78,19 @@ NetLicensing .TokenService.get = function (context, number) {
  * array of token entities or empty array if nothing found.
  * @return array
  */
-NetLicensing .TokenService.list = function (context, filter) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+NetLicensing.TokenService.list = function (context, filter) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
     var queryParams = {};
 
     if (filter) {
-        if (!NetLicensing .CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!NetLicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing .TokenService.ENDPOINT_PATH, queryParams, NetLicensing .Token);
+        .list(context, NetLicensing.TokenService.ENDPOINT_PATH, queryParams, NetLicensing.Token);
 };
 
 /**
@@ -98,7 +98,7 @@ NetLicensing .TokenService.list = function (context, filter) {
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services#TokenServices-Deletetoken
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  *  the token number
  * @param number string
@@ -106,12 +106,12 @@ NetLicensing .TokenService.list = function (context, filter) {
  * return boolean state of delete in promise
  * @returns {Promise}
  */
-NetLicensing .TokenService.delete = function (context, number) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+NetLicensing.TokenService.delete = function (context, number) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    NetLicensing .CheckUtils.paramNotEmpty(number, 'number');
+    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .delete(context, NetLicensing .TokenService.ENDPOINT_PATH + '/' + number);
+        .delete(context, NetLicensing.TokenService.ENDPOINT_PATH + '/' + number);
 };

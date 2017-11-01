@@ -2,7 +2,7 @@ describe('entities.ProductModuleTest', function () {
     var productModule;
 
     beforeEach(function () {
-        productModule = new NetLicensing .ProductModule();
+        productModule = new NetLicensing.ProductModule();
     });
 
     it('check "number" property setters/getters', function () {

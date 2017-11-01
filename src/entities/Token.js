@@ -35,8 +35,8 @@ var NetLicensing  = NetLicensing  || {};
  * @constructor
  */
 
-NetLicensing .Token = function () {
-    NetLicensing .BaseEntity.apply(this, arguments);
+NetLicensing.Token = function () {
+    NetLicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -60,102 +60,102 @@ NetLicensing .Token = function () {
     this.__defines(['number', 'shopURL'], true);
 
     //make methods not changeable
-    NetLicensing .DefineUtil.notChangeable(this, ['asPropertiesMap']);
+    NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
 //static constants
-Object.defineProperty(NetLicensing .Token, 'TOKEN_TYPE_DEFAULT', {value: 'DEFAULT'});
-Object.defineProperty(NetLicensing .Token, 'TOKEN_TYPE_SHOP', {value: 'SHOP'});
-Object.defineProperty(NetLicensing .Token, 'TOKEN_TYPE_APIKEY', {value: 'APIKEY'});
+Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_DEFAULT', {value: 'DEFAULT'});
+Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_SHOP', {value: 'SHOP'});
+Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_APIKEY', {value: 'APIKEY'});
 
-NetLicensing .Token.prototype = Object.create(NetLicensing .BaseEntity.prototype);
-NetLicensing .Token.prototype.constructor = NetLicensing .Token;
+NetLicensing.Token.prototype = Object.create(NetLicensing.BaseEntity.prototype);
+NetLicensing.Token.prototype.constructor = NetLicensing.Token;
 
-NetLicensing .Token.prototype.getNumber = function (def) {
+NetLicensing.Token.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-NetLicensing .Token.prototype.setActive = function (active) {
+NetLicensing.Token.prototype.setActive = function (active) {
     return this.setProperty('active', active);
 };
 
-NetLicensing .Token.prototype.getActive = function (def) {
+NetLicensing.Token.prototype.getActive = function (def) {
     return this.getProperty('active', def);
 };
 
-NetLicensing .Token.prototype.setExpirationTime = function (expirationTime) {
+NetLicensing.Token.prototype.setExpirationTime = function (expirationTime) {
     return this.setProperty('expirationTime', expirationTime);
 };
 
-NetLicensing .Token.prototype.getExpirationTime = function (def) {
+NetLicensing.Token.prototype.getExpirationTime = function (def) {
     return this.getProperty('expirationTime', def);
 };
 
-NetLicensing .Token.prototype.setVendorNumber = function (vendorNumber) {
+NetLicensing.Token.prototype.setVendorNumber = function (vendorNumber) {
     return this.setProperty('vendorNumber', vendorNumber);
 };
 
-NetLicensing .Token.prototype.getVendorNumber = function (def) {
+NetLicensing.Token.prototype.getVendorNumber = function (def) {
     return this.getProperty('vendorNumber', def);
 };
 
-NetLicensing .Token.prototype.setTokenType = function (tokenType) {
+NetLicensing.Token.prototype.setTokenType = function (tokenType) {
     return this.setProperty('tokenType', tokenType);
 };
 
-NetLicensing .Token.prototype.getTokenType = function (def) {
+NetLicensing.Token.prototype.getTokenType = function (def) {
     return this.getProperty('tokenType', def);
 };
 
-NetLicensing .Token.prototype.setLicenseeNumber = function (licenseeNumber) {
+NetLicensing.Token.prototype.setLicenseeNumber = function (licenseeNumber) {
     return this.setProperty('licenseeNumber', licenseeNumber);
 };
 
-NetLicensing .Token.prototype.getLicenseeNumber = function (def) {
+NetLicensing.Token.prototype.getLicenseeNumber = function (def) {
     return this.getProperty('licenseeNumber', def);
 };
 
-NetLicensing .Token.prototype.setSuccessURL = function (successURL) {
+NetLicensing.Token.prototype.setSuccessURL = function (successURL) {
     return this.setProperty('successURL', successURL);
 };
 
-NetLicensing .Token.prototype.getSuccessURL = function (def) {
+NetLicensing.Token.prototype.getSuccessURL = function (def) {
     return this.getProperty('successURL', def);
 };
 
-NetLicensing .Token.prototype.setSuccessURLTitle = function (successURLTitle) {
+NetLicensing.Token.prototype.setSuccessURLTitle = function (successURLTitle) {
     return this.setProperty('successURLTitle', successURLTitle);
 };
 
-NetLicensing .Token.prototype.getSuccessURLTitle = function (def) {
+NetLicensing.Token.prototype.getSuccessURLTitle = function (def) {
     return this.getProperty('successURLTitle', def);
 };
 
-NetLicensing .Token.prototype.setCancelURL = function (cancelURL) {
+NetLicensing.Token.prototype.setCancelURL = function (cancelURL) {
     return this.setProperty('cancelURL', cancelURL);
 };
 
-NetLicensing .Token.prototype.getCancelURL = function (def) {
+NetLicensing.Token.prototype.getCancelURL = function (def) {
     return this.getProperty('cancelURL', def);
 };
 
-NetLicensing .Token.prototype.setCancelURLTitle = function (cancelURLTitle) {
+NetLicensing.Token.prototype.setCancelURLTitle = function (cancelURLTitle) {
     return this.setProperty('cancelURLTitle', cancelURLTitle);
 };
 
-NetLicensing .Token.prototype.getCancelURLTitle = function (def) {
+NetLicensing.Token.prototype.getCancelURLTitle = function (def) {
     return this.getProperty('cancelURLTitle', def);
 };
 
-NetLicensing .Token.prototype.getShopURL = function (def) {
+NetLicensing.Token.prototype.getShopURL = function (def) {
     return this.getProperty('shopURL', def);
 };
 
 //make methods not changeable
-NetLicensing .DefineUtil.notChangeable(NetLicensing .Token.prototype, ['constructor']);
+NetLicensing.DefineUtil.notChangeable(NetLicensing.Token.prototype, ['constructor']);
 
 //make methods not enumerable
-NetLicensing .DefineUtil.notEnumerable(NetLicensing .Token.prototype, [
+NetLicensing.DefineUtil.notEnumerable(NetLicensing.Token.prototype, [
     'getNumber',
     'setActive',
     'getActive',

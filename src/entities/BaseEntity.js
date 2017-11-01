@@ -8,11 +8,11 @@
 //namespace
 var NetLicensing  = NetLicensing  || {};
 
-NetLicensing .BaseEntity = function (properties) {
+NetLicensing.BaseEntity = function (properties) {
 
     /**
      * Object Handle
-     * @type {NetLicensing .BaseEntity}
+     * @type {NetLicensing.BaseEntity}
      */
     var self = this;
 
@@ -34,7 +34,7 @@ NetLicensing .BaseEntity = function (properties) {
      * Set a given property on the entity.
      * @param property
      * @param value
-     * @returns {NetLicensing .BaseEntity}
+     * @returns {NetLicensing.BaseEntity}
      */
     this.setProperty = function (property, value) {
         this.__checkProperty(property, value);
@@ -59,7 +59,7 @@ NetLicensing .BaseEntity = function (properties) {
      * Alias for setProperty
      * @param property
      * @param value
-     * @returns {NetLicensing .BaseEntity}
+     * @returns {NetLicensing.BaseEntity}
      */
     this.addProperty = function (property, value) {
         return this.setProperty(property, value);
@@ -68,7 +68,7 @@ NetLicensing .BaseEntity = function (properties) {
     /**
      * Set the entity properties.
      * @param properties
-     * @returns {NetLicensing .BaseEntity}
+     * @returns {NetLicensing.BaseEntity}
      */
     this.setProperties = function (properties) {
 
@@ -102,7 +102,7 @@ NetLicensing .BaseEntity = function (properties) {
     /**
      * Remove property
      * @param property
-     * @returns {NetLicensing .BaseEntity}
+     * @returns {NetLicensing.BaseEntity}
      */
     this.removeProperty = function (property) {
         delete __properties[property];
@@ -254,12 +254,12 @@ NetLicensing .BaseEntity = function (properties) {
      * @private
      */
     this.__checkProperty = function (property, value) {
-        if (!NetLicensing .CheckUtils.isValid(property) || typeof property === 'object')  throw new TypeError('Bad property name:' + property);
-        if (!NetLicensing .CheckUtils.isValid(value)) throw new TypeError('Property ' + property + ' has bad value ' + value);
+        if (!NetLicensing.CheckUtils.isValid(property) || typeof property === 'object')  throw new TypeError('Bad property name:' + property);
+        if (!NetLicensing.CheckUtils.isValid(value)) throw new TypeError('Property ' + property + ' has bad value ' + value);
     };
 
     //make methods not changeable
-    NetLicensing .DefineUtil.notChangeable(this, [
+    NetLicensing.DefineUtil.notChangeable(this, [
         'setProperty',
         'addProperty',
         'setProperties',
@@ -287,7 +287,7 @@ NetLicensing .BaseEntity = function (properties) {
 
         for (var key in this) {
             if (!this.hasOwnProperty(key)) continue;
-            if (!NetLicensing .CheckUtils.isValid(this[key])) continue;
+            if (!NetLicensing.CheckUtils.isValid(this[key])) continue;
 
             customProperties[key] = this[key];
         }

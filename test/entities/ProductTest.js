@@ -2,7 +2,7 @@ describe('entities.ProductTest', function () {
     var product;
 
     beforeEach(function () {
-        product = new NetLicensing .Product();
+        product = new NetLicensing.Product();
     });
 
     it('check "number" property setters/getters', function () {
@@ -125,20 +125,20 @@ describe('entities.ProductTest', function () {
     });
 
     it('check "licenseeSecretMode" property setters/getters', function () {
-        product.setProperty('licenseeSecretMode', NetLicensing .Product.LICENSEE_SECRET_MODE_DISABLED);
-        expect(product.getProperty('licenseeSecretMode')).toBe(NetLicensing .Product.LICENSEE_SECRET_MODE_DISABLED);
-        expect(product.getLicenseeSecretMode()).toBe(NetLicensing .Product.LICENSEE_SECRET_MODE_DISABLED);
-        expect(product.licenseeSecretMode).toBe(NetLicensing .Product.LICENSEE_SECRET_MODE_DISABLED);
+        product.setProperty('licenseeSecretMode', NetLicensing.Product.LICENSEE_SECRET_MODE_DISABLED);
+        expect(product.getProperty('licenseeSecretMode')).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_DISABLED);
+        expect(product.getLicenseeSecretMode()).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_DISABLED);
+        expect(product.licenseeSecretMode).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_DISABLED);
 
-        product.setLicenseeSecretMode(NetLicensing .Product.LICENSEE_SECRET_MODE_PREDEFINED);
-        expect(product.getProperty('licenseeSecretMode')).toBe(NetLicensing .Product.LICENSEE_SECRET_MODE_PREDEFINED);
-        expect(product.getLicenseeSecretMode()).toBe(NetLicensing .Product.LICENSEE_SECRET_MODE_PREDEFINED);
-        expect(product.licenseeSecretMode).toBe(NetLicensing .Product.LICENSEE_SECRET_MODE_PREDEFINED);
+        product.setLicenseeSecretMode(NetLicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
+        expect(product.getProperty('licenseeSecretMode')).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
+        expect(product.getLicenseeSecretMode()).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
+        expect(product.licenseeSecretMode).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
 
-        product.licenseeSecretMode = NetLicensing .Product.LICENSEE_SECRET_MODE_CLIENT;
-        expect(product.getProperty('licenseeSecretMode')).toBe(NetLicensing .Product.LICENSEE_SECRET_MODE_CLIENT);
-        expect(product.getLicenseeSecretMode()).toBe(NetLicensing .Product.LICENSEE_SECRET_MODE_CLIENT);
-        expect(product.licenseeSecretMode).toBe(NetLicensing .Product.LICENSEE_SECRET_MODE_CLIENT);
+        product.licenseeSecretMode = NetLicensing.Product.LICENSEE_SECRET_MODE_CLIENT;
+        expect(product.getProperty('licenseeSecretMode')).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_CLIENT);
+        expect(product.getLicenseeSecretMode()).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_CLIENT);
+        expect(product.licenseeSecretMode).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_CLIENT);
     });
 
     it('check "inUse" property getters', function () {
@@ -164,22 +164,22 @@ describe('entities.ProductTest', function () {
     });
 
     it('check "addDiscount" , "getProductDiscounts", "setProductDiscounts" methods', function () {
-        product.addDiscount(new NetLicensing .ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
-        product.addDiscount(new NetLicensing .ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50));
-        product.addDiscount(new NetLicensing .ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25));
-        product.addDiscount(new NetLicensing .ProductDiscount().setTotalPrice(40).setCurrency('EUR').setAmountPercent(34));
-        product.addDiscount(new NetLicensing .ProductDiscount().setTotalPrice(50).setCurrency('EUR').setAmountFix(15));
+        product.addDiscount(new NetLicensing.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
+        product.addDiscount(new NetLicensing.ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50));
+        product.addDiscount(new NetLicensing.ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25));
+        product.addDiscount(new NetLicensing.ProductDiscount().setTotalPrice(40).setCurrency('EUR').setAmountPercent(34));
+        product.addDiscount(new NetLicensing.ProductDiscount().setTotalPrice(50).setCurrency('EUR').setAmountFix(15));
         expect(product.getProductDiscounts().length).toBe(5);
 
         product.setProductDiscounts([
-            new NetLicensing .ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8),
-            new NetLicensing .ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50),
-            new NetLicensing .ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25)
+            new NetLicensing.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8),
+            new NetLicensing.ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50),
+            new NetLicensing.ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25)
         ]);
 
         expect(product.getProductDiscounts().length).toBe(3);
 
-        product.setProductDiscounts(new NetLicensing .ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
+        product.setProductDiscounts(new NetLicensing.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
         expect(product.getProductDiscounts().length).toBe(1);
 
         product.setProductDiscounts(null);
@@ -312,7 +312,7 @@ describe('entities.ProductTest', function () {
         expect(function(){product.licenseeAutoCreate = Infinity}).toThrowError(TypeError);
     });
 
-    it('check throwable error if add not NetLicensing .ProductDiscount in "addDiscount" method', function () {
+    it('check throwable error if add not NetLicensing.ProductDiscount in "addDiscount" method', function () {
         expect(function(){product.addDiscount('discount')}).toThrowError(TypeError);
         expect(function(){product.addDiscount({})}).toThrowError(TypeError);
     });

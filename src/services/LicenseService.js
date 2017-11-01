@@ -14,18 +14,18 @@ var NetLicensing  = NetLicensing  || {};
  *
  * @constructor
  */
-NetLicensing .LicenseService = function () {
+NetLicensing.LicenseService = function () {
 };
 
 //static constants
-Object.defineProperty(NetLicensing .LicenseService, 'ENDPOINT_PATH', {value: 'license'});
+Object.defineProperty(NetLicensing.LicenseService, 'ENDPOINT_PATH', {value: 'license'});
 
 /**
  * Creates new license object with given properties.See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Createlicense
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * parent licensee to which the new license is to be added
  * @param licenseeNumber string
@@ -41,28 +41,28 @@ Object.defineProperty(NetLicensing .LicenseService, 'ENDPOINT_PATH', {value: 'li
  *
  * non-null properties will be taken for the new object, null properties will either stay null, or will
  * be set to a default value, depending on property.
- * @param license NetLicensing .License
+ * @param license NetLicensing.License
  *
  * return the newly created license object in promise
  * @returns {Promise}
  */
-NetLicensing .LicenseService.create = function (context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
-    if (!(license instanceof NetLicensing .License)) throw new TypeError('license must be an instance of NetLicensing .License');
+NetLicensing.LicenseService.create = function (context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+    if (!(license instanceof NetLicensing.License)) throw new TypeError('license must be an instance of NetLicensing.License');
 
-    NetLicensing .CheckUtils.paramNotEmpty(licenseeNumber, 'licenseeNumber');
-    NetLicensing .CheckUtils.paramNotEmpty(licenseTemplateNumber, 'licenseTemplateNumber');
+    NetLicensing.CheckUtils.paramNotEmpty(licenseeNumber, 'licenseeNumber');
+    NetLicensing.CheckUtils.paramNotEmpty(licenseTemplateNumber, 'licenseTemplateNumber');
 
-    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
 
     license.setProperty('licenseeNumber', licenseeNumber);
     license.setProperty('licenseTemplateNumber', licenseTemplateNumber);
 
     if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing .LicenseService.ENDPOINT_PATH, license.asPropertiesMap(), NetLicensing .License);
+        .post(context, NetLicensing.LicenseService.ENDPOINT_PATH, license.asPropertiesMap(), NetLicensing.License);
 };
 
 /**
@@ -70,7 +70,7 @@ NetLicensing .LicenseService.create = function (context, licenseeNumber, license
  * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Getlicense
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * the license number
  * @param number string
@@ -78,16 +78,16 @@ NetLicensing .LicenseService.create = function (context, licenseeNumber, license
  * return the license in promise
  * @returns {Promise}
  */
-NetLicensing .LicenseService.get = function (context, number) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+NetLicensing.LicenseService.get = function (context, number) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    NetLicensing .CheckUtils.paramNotEmpty(number, 'number');
+    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing .LicenseService.ENDPOINT_PATH + '/' + number, {}, NetLicensing .License)
+        .get(context, NetLicensing.LicenseService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.License)
 };
 
 /**
@@ -95,7 +95,7 @@ NetLicensing .LicenseService.get = function (context, number) {
  * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Licenseslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * reserved for the future use, must be omitted / set to NULL
  * @param filter string|null
@@ -103,21 +103,21 @@ NetLicensing .LicenseService.get = function (context, number) {
  * return array of licenses (of all products) or empty array if nothing found in promise.
  * @returns {Promise}
  */
-NetLicensing .LicenseService.list = function (context, filter) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+NetLicensing.LicenseService.list = function (context, filter) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
     if (filter) {
-        if (!NetLicensing .CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!NetLicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing .LicenseService.ENDPOINT_PATH, queryParams, NetLicensing .License);
+        .list(context, NetLicensing.LicenseService.ENDPOINT_PATH, queryParams, NetLicensing.License);
 };
 
 /**
@@ -125,7 +125,7 @@ NetLicensing .LicenseService.list = function (context, filter) {
  * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Updatelicense
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * license number
  * @param number string
@@ -135,24 +135,24 @@ NetLicensing .LicenseService.list = function (context, filter) {
  * @param transactionNumber string|null
  *
  * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param license NetLicensing .License
+ * @param license NetLicensing.License
  *
  * return updated license in promise.
  * @returns {Promise}
  */
-NetLicensing .LicenseService.update = function (context, number, transactionNumber, license) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
-    if (!(license instanceof NetLicensing .License)) throw new TypeError('license must be an instance of NetLicensing .License');
+NetLicensing.LicenseService.update = function (context, number, transactionNumber, license) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+    if (!(license instanceof NetLicensing.License)) throw new TypeError('license must be an instance of NetLicensing.License');
 
-    NetLicensing .CheckUtils.paramNotEmpty(number, 'number');
+    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
 
     if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing .LicenseService.ENDPOINT_PATH + '/' + number, license.asPropertiesMap(), NetLicensing .License);
+        .post(context, NetLicensing.LicenseService.ENDPOINT_PATH + '/' + number, license.asPropertiesMap(), NetLicensing.License);
 };
 
 /**
@@ -162,7 +162,7 @@ NetLicensing .LicenseService.update = function (context, number, transactionNumb
  * When any license is deleted, corresponding transaction is created automatically.
  *
  *  determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * license number
  * @param number string
@@ -173,14 +173,14 @@ NetLicensing .LicenseService.update = function (context, number, transactionNumb
  * return boolean state of delete in promise
  * @returns {Promise}
  */
-NetLicensing .LicenseService.delete = function (context, number, forceCascade) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+NetLicensing.LicenseService.delete = function (context, number, forceCascade) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    NetLicensing .CheckUtils.paramNotEmpty(number, 'number');
+    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
     var queryParams = {forceCascade: Boolean(forceCascade)};
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .delete(context, NetLicensing .LicenseService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, NetLicensing.LicenseService.ENDPOINT_PATH + '/' + number, queryParams);
 };

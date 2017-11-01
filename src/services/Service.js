@@ -8,7 +8,7 @@
 //namespace
 var NetLicensing  = NetLicensing  || {};
 
-NetLicensing .Service = (function () {
+NetLicensing.Service = (function () {
     var instance;
 
     function createInstance() {
@@ -132,7 +132,7 @@ NetLicensing .Service = (function () {
          */
         instance.request = function (context, method, urlTemplate, queryParams) {
 
-            if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+            if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
             urlTemplate = String(urlTemplate);
             queryParams = queryParams || {};
@@ -156,13 +156,13 @@ NetLicensing .Service = (function () {
             var headers = {Accept: 'application/json'};
 
             switch (context.getSecurityMode()) {
-                case NetLicensing .Context.BASIC_AUTHENTICATION:
+                case NetLicensing.Context.BASIC_AUTHENTICATION:
                     if (!context.getUsername()) throw new Error('Missing parameter "username"');
                     if (!context.getPassword()) throw new Error('Missing parameter "password"');
 
                     headers['Authorization'] = 'Basic ' + btoa(context.getUsername() + ':' + context.getPassword());
                     break;
-                case NetLicensing .Context.APIKEY_IDENTIFICATION:
+                case NetLicensing.Context.APIKEY_IDENTIFICATION:
                     if (!context.getApiKey()) throw new Error('Missing parameter "apiKey"');
 
                     headers['Authorization'] = 'Basic ' + btoa('apiKey:' + context.getApiKey());
@@ -172,7 +172,7 @@ NetLicensing .Service = (function () {
                     break;
             }
 
-            return new NetLicensing .HttpRequest().send({
+            return new NetLicensing.HttpRequest().send({
                 url: restUrl,
                 method: method,
                 headers: headers,
@@ -246,8 +246,8 @@ NetLicensing .Service = (function () {
 
             var entity = new resultType();
 
-            if (!(entity instanceof NetLicensing .BaseEntity)) {
-                throw new Error('Invalid entity ' + resultType + ', entity must be instanceof NetLicensing .BaseEntity');
+            if (!(entity instanceof NetLicensing.BaseEntity)) {
+                throw new Error('Invalid entity ' + resultType + ', entity must be instanceof NetLicensing.BaseEntity');
             }
 
             var propertiesLength = properties.length;

@@ -2,7 +2,7 @@ describe('entities.TokenTest', function () {
     var token;
 
     beforeEach(function () {
-        token = new NetLicensing .Token();
+        token = new NetLicensing.Token();
     });
 
     it('check "number" property getters', function () {

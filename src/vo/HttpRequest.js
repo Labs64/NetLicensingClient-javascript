@@ -8,11 +8,11 @@
 //namespace
 var NetLicensing  = NetLicensing  || {};
 
-NetLicensing .HttpRequest = function () {
+NetLicensing.HttpRequest = function () {
 
 };
 
-NetLicensing .HttpRequest.prototype.__serialize = function (data, prefix) {
+NetLicensing.HttpRequest.prototype.__serialize = function (data, prefix) {
     var query = [];
     for (var key in data) {
         if (data.hasOwnProperty(key)) {
@@ -27,7 +27,7 @@ NetLicensing .HttpRequest.prototype.__serialize = function (data, prefix) {
     return query.join("&").replace(/%5B[0-9]+%5D=/g, '=');
 };
 
-NetLicensing .HttpRequest.prototype.__parseQuery = function (url) {
+NetLicensing.HttpRequest.prototype.__parseQuery = function (url) {
     var query = {};
     var queryPos = url.indexOf('?');
     var parts = url.substr(queryPos + 1).split('&');
@@ -41,7 +41,7 @@ NetLicensing .HttpRequest.prototype.__parseQuery = function (url) {
     return query;
 };
 
-NetLicensing .HttpRequest.prototype.__parseHeadersStr = function (headers) {
+NetLicensing.HttpRequest.prototype.__parseHeadersStr = function (headers) {
     if (typeof headers !== 'string') return headers;
     var responseHeaders = {};
     headers = headers.split("\n");
@@ -53,7 +53,7 @@ NetLicensing .HttpRequest.prototype.__parseHeadersStr = function (headers) {
     return responseHeaders;
 };
 
-NetLicensing .HttpRequest.prototype.send = function (config) {
+NetLicensing.HttpRequest.prototype.send = function (config) {
     var self = this;
 
     return new Promise(function (resolve, reject) {
@@ -147,58 +147,58 @@ NetLicensing .HttpRequest.prototype.send = function (config) {
     });
 };
 
-NetLicensing .HttpRequest.prototype.get = function (url, config) {
+NetLicensing.HttpRequest.prototype.get = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'GET'}));
 };
 
-NetLicensing .HttpRequest.prototype.post = function (url, data, config) {
+NetLicensing.HttpRequest.prototype.post = function (url, data, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'POST', data: data}));
 };
 
-NetLicensing .HttpRequest.prototype.patch = function (url, data, config) {
+NetLicensing.HttpRequest.prototype.patch = function (url, data, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'PATCH', data: data}));
 };
 
-NetLicensing .HttpRequest.prototype.head = function (url, config) {
+NetLicensing.HttpRequest.prototype.head = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'HEAD'}));
 };
 
-NetLicensing .HttpRequest.prototype.jsonp = function (url, config) {
+NetLicensing.HttpRequest.prototype.jsonp = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'JSONP'}));
 };
 
-NetLicensing .HttpRequest.prototype.put = function (url, config) {
+NetLicensing.HttpRequest.prototype.put = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'PUT'}));
 };
 
-NetLicensing .HttpRequest.prototype.delete = function (url, config) {
+NetLicensing.HttpRequest.prototype.delete = function (url, config) {
     return this.send(Object.assign({}, config, {url: url, method: 'DELETE'}));
 };
 
-NetLicensing .HttpRequest.get = function (url, config) {
-    return new NetLicensing .HttpRequest().get(url, config);
+NetLicensing.HttpRequest.get = function (url, config) {
+    return new NetLicensing.HttpRequest().get(url, config);
 };
 
-NetLicensing .HttpRequest.post = function (url, data, config) {
-    return new NetLicensing .HttpRequest().post(url, data, config);
+NetLicensing.HttpRequest.post = function (url, data, config) {
+    return new NetLicensing.HttpRequest().post(url, data, config);
 };
 
-NetLicensing .HttpRequest.patch = function (url, data, config) {
-    return new NetLicensing .HttpRequest().patch(url, data, config);
+NetLicensing.HttpRequest.patch = function (url, data, config) {
+    return new NetLicensing.HttpRequest().patch(url, data, config);
 };
 
-NetLicensing .HttpRequest.head = function (url, data, config) {
-    return new NetLicensing .HttpRequest().head(url, data, config);
+NetLicensing.HttpRequest.head = function (url, data, config) {
+    return new NetLicensing.HttpRequest().head(url, data, config);
 };
 
-NetLicensing .HttpRequest.jsonp = function (url, data, config) {
-    return new NetLicensing .HttpRequest().jsonp(url, data, config);
+NetLicensing.HttpRequest.jsonp = function (url, data, config) {
+    return new NetLicensing.HttpRequest().jsonp(url, data, config);
 };
 
-NetLicensing .HttpRequest.put = function (url, data, config) {
-    return new NetLicensing .HttpRequest().put(url, data, config);
+NetLicensing.HttpRequest.put = function (url, data, config) {
+    return new NetLicensing.HttpRequest().put(url, data, config);
 };
 
-NetLicensing .HttpRequest.delete = function (url, data, config) {
-    return new NetLicensing .HttpRequest().delete(url, data, config);
+NetLicensing.HttpRequest.delete = function (url, data, config) {
+    return new NetLicensing.HttpRequest().delete(url, data, config);
 };

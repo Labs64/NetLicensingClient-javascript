@@ -2,9 +2,9 @@ describe('ProductModuleServiceTest', function () {
     var context, promise, product, productModule;
 
     beforeAll(function () {
-        context = new NetLicensing .Context().setUsername('Demo').setPassword('demo');
+        context = new NetLicensing.Context().setUsername('Demo').setPassword('demo');
 
-        product = new NetLicensing .Product()
+        product = new NetLicensing.Product()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true)
@@ -16,10 +16,10 @@ describe('ProductModuleServiceTest', function () {
         promise = Promise.resolve('ProductModuleServiceTest')
             //create product
             .then(function () {
-                return NetLicensing .ProductService.create(context, product)
+                return NetLicensing.ProductService.create(context, product)
             });
 
-        productModule = new NetLicensing .ProductModule()
+        productModule = new NetLicensing.ProductModule()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true)
@@ -28,16 +28,16 @@ describe('ProductModuleServiceTest', function () {
     });
 
     afterAll(function () {
-        NetLicensing .ProductService.delete(context, product.getProperty('number'), true);
+        NetLicensing.ProductService.delete(context, product.getProperty('number'), true);
     });
 
     it('check "create" method', function () {
         return promise
             .then(function () {
-                return NetLicensing .ProductModuleService.create(context, product.getProperty('number'), productModule);
+                return NetLicensing.ProductModuleService.create(context, product.getProperty('number'), productModule);
             })
             .then(function (entity) {
-                expect(entity instanceof NetLicensing .ProductModule).toBe(true);
+                expect(entity instanceof NetLicensing.ProductModule).toBe(true);
 
                 expect(entity.getProperty('number')).toBe(productModule.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(productModule.getProperty('name'));
@@ -50,10 +50,10 @@ describe('ProductModuleServiceTest', function () {
     it('check "get" method', function () {
         return promise
             .then(function () {
-                return NetLicensing .ProductModuleService.get(context, productModule.getProperty('number'));
+                return NetLicensing.ProductModuleService.get(context, productModule.getProperty('number'));
             })
             .then(function (entity) {
-                expect(entity instanceof NetLicensing .ProductModule).toBe(true);
+                expect(entity instanceof NetLicensing.ProductModule).toBe(true);
 
                 expect(entity.getProperty('number')).toBe(productModule.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(productModule.getProperty('name'));
@@ -64,11 +64,11 @@ describe('ProductModuleServiceTest', function () {
     });
 
     it('check "list" method', function () {
-        return NetLicensing .ProductModuleService.list(context)
+        return NetLicensing.ProductModuleService.list(context)
             .then(function (entities) {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
-                expect(entities[0] instanceof NetLicensing .ProductModule).toBe(true);
+                expect(entities[0] instanceof NetLicensing.ProductModule).toBe(true);
             });
     });
 
@@ -80,9 +80,9 @@ describe('ProductModuleServiceTest', function () {
                 productModule.setProperty('licenseTemplate', 'TIMEVOLUME');
                 productModule.setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY-UPDATED');
 
-                return NetLicensing .ProductModuleService.update(context, productModule.getProperty('number'), productModule);
+                return NetLicensing.ProductModuleService.update(context, productModule.getProperty('number'), productModule);
             }).then(function (entity) {
-                expect(entity instanceof NetLicensing .ProductModule).toBe(true);
+                expect(entity instanceof NetLicensing.ProductModule).toBe(true);
 
                 expect(entity.getProperty('name')).toBe(productModule.getProperty('name'));
                 expect(entity.getProperty('licensingModel')).toBe(productModule.getProperty('licensingModel'));
@@ -94,7 +94,7 @@ describe('ProductModuleServiceTest', function () {
     it('check "delete" method', function () {
         return promise
             .then(function () {
-                return NetLicensing .ProductModuleService.delete(context, productModule.getProperty('number'));
+                return NetLicensing.ProductModuleService.delete(context, productModule.getProperty('number'));
             })
             .then(function (state) {
                 expect(state).toBe(true);

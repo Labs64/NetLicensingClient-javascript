@@ -13,30 +13,30 @@ var NetLicensing  = NetLicensing  || {};
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Utility+Services
  * @constructor
  */
-NetLicensing .UtilityService = function () {
+NetLicensing.UtilityService = function () {
 };
 
 //static constants
-Object.defineProperty(NetLicensing .UtilityService, 'ENDPOINT_PATH', {value: 'utility'});
+Object.defineProperty(NetLicensing.UtilityService, 'ENDPOINT_PATH', {value: 'utility'});
 
 /**
  * Returns all license types. See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Utility+Services#UtilityServices-LicenseTypeslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * array of available license types or empty array if nothing found in promise.
  * @returns {Promise}
  */
-NetLicensing .UtilityService.listLicenseTypes = function (context) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+NetLicensing.UtilityService.listLicenseTypes = function (context) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing .UtilityService.ENDPOINT_PATH + '/licenseTypes')
+        .list(context, NetLicensing.UtilityService.ENDPOINT_PATH + '/licenseTypes')
         .then(function (items) {
             var length = items.length;
             var licenseTypes = [];
@@ -54,19 +54,19 @@ NetLicensing .UtilityService.listLicenseTypes = function (context) {
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Utility+Services#UtilityServices-LicensingModelslist
  *
  * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing .Context
+ * @param context NetLicensing.Context
  *
  * array of available license models or empty array if nothing found in promise.
  * @returns {Promise}
  */
-NetLicensing .UtilityService.listLicensingModels = function (context) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+NetLicensing.UtilityService.listLicensingModels = function (context) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing .UtilityService.ENDPOINT_PATH + '/licensingModels')
+        .list(context, NetLicensing.UtilityService.ENDPOINT_PATH + '/licensingModels')
         .then(function (items) {
             var length = items.length;
             var licensingModels = [];
@@ -91,19 +91,19 @@ NetLicensing .UtilityService.listLicensingModels = function (context) {
  * collection of available countries or null/empty list if nothing found in promise.
  * @returns {Promise}
  */
-NetLicensing .UtilityService.listCountries = function (context, filter) {
-    if (!(context instanceof NetLicensing .Context)) throw new TypeError('context must be an instance of NetLicensing .Context');
+NetLicensing.UtilityService.listCountries = function (context, filter) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing .Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
     if (filter) {
-        if (!NetLicensing .CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        if (!NetLicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
         queryParams.filter = filter;
     }
 
-    return NetLicensing .Service
+    return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing .UtilityService.ENDPOINT_PATH + '/countries', queryParams, NetLicensing .Country);
+        .list(context, NetLicensing.UtilityService.ENDPOINT_PATH + '/countries', queryParams, NetLicensing.Country);
 };

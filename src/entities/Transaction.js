@@ -44,8 +44,8 @@ var NetLicensing  = NetLicensing  || {};
  * @constructor
  */
 
-NetLicensing .Transaction = function Transaction() {
-    NetLicensing .BaseEntity.apply(this, arguments);
+NetLicensing.Transaction = function Transaction() {
+    NetLicensing.BaseEntity.apply(this, arguments);
 
     //The attributes that should be cast to native types.
     Object.defineProperty(this, 'casts', {
@@ -69,106 +69,106 @@ NetLicensing .Transaction = function Transaction() {
     this.__define('active', true);
 
     //make methods not changeable
-    NetLicensing .DefineUtil.notChangeable(this, ['asPropertiesMap']);
+    NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
 //static constants
-Object.defineProperty(NetLicensing .Transaction, 'STATUS_CANCELLED', {value: 'CANCELLED'});
-Object.defineProperty(NetLicensing .Transaction, 'STATUS_CLOSED', {value: 'CLOSED'});
-Object.defineProperty(NetLicensing .Transaction, 'STATUS_PENDING', {value: 'PENDING'});
+Object.defineProperty(NetLicensing.Transaction, 'STATUS_CANCELLED', {value: 'CANCELLED'});
+Object.defineProperty(NetLicensing.Transaction, 'STATUS_CLOSED', {value: 'CLOSED'});
+Object.defineProperty(NetLicensing.Transaction, 'STATUS_PENDING', {value: 'PENDING'});
 
-NetLicensing .Transaction.prototype = Object.create(NetLicensing .BaseEntity.prototype);
-NetLicensing .Transaction.prototype.constructor = NetLicensing .Transaction;
+NetLicensing.Transaction.prototype = Object.create(NetLicensing.BaseEntity.prototype);
+NetLicensing.Transaction.prototype.constructor = NetLicensing.Transaction;
 
-NetLicensing .Transaction.prototype.setNumber = function (number) {
+NetLicensing.Transaction.prototype.setNumber = function (number) {
     return this.setProperty('number', number);
 };
 
-NetLicensing .Transaction.prototype.getNumber = function (def) {
+NetLicensing.Transaction.prototype.getNumber = function (def) {
     return this.getProperty('number', def);
 };
 
-NetLicensing .Transaction.prototype.setName = function (name) {
+NetLicensing.Transaction.prototype.setName = function (name) {
     return this.setProperty('name', name);
 };
 
-NetLicensing .Transaction.prototype.getName = function (def) {
+NetLicensing.Transaction.prototype.getName = function (def) {
     return this.getProperty('name', def);
 };
 
-NetLicensing .Transaction.prototype.setStatus = function (status) {
+NetLicensing.Transaction.prototype.setStatus = function (status) {
     return this.setProperty('status', status);
 };
 
-NetLicensing .Transaction.prototype.getStatus = function (def) {
+NetLicensing.Transaction.prototype.getStatus = function (def) {
     return this.getProperty('status', def);
 };
 
-NetLicensing .Transaction.prototype.setSource = function (source) {
+NetLicensing.Transaction.prototype.setSource = function (source) {
     return this.setProperty('source', source);
 };
 
-NetLicensing .Transaction.prototype.getSource = function (def) {
+NetLicensing.Transaction.prototype.getSource = function (def) {
     return this.getProperty('source', def);
 };
 
-NetLicensing .Transaction.prototype.setGrandTotal = function (grandTotal) {
+NetLicensing.Transaction.prototype.setGrandTotal = function (grandTotal) {
     return this.setProperty('grandTotal', grandTotal);
 };
 
-NetLicensing .Transaction.prototype.getGrandTotal = function (def) {
+NetLicensing.Transaction.prototype.getGrandTotal = function (def) {
     return this.getProperty('grandTotal', def);
 };
 
-NetLicensing .Transaction.prototype.setDiscount = function (discount) {
+NetLicensing.Transaction.prototype.setDiscount = function (discount) {
     return this.setProperty('discount', discount);
 };
 
-NetLicensing .Transaction.prototype.getDiscount = function (def) {
+NetLicensing.Transaction.prototype.getDiscount = function (def) {
     return this.getProperty('discount', def);
 };
 
-NetLicensing .Transaction.prototype.setCurrency = function (currency) {
+NetLicensing.Transaction.prototype.setCurrency = function (currency) {
     return this.setProperty('currency', currency);
 };
 
-NetLicensing .Transaction.prototype.getCurrency = function (def) {
+NetLicensing.Transaction.prototype.getCurrency = function (def) {
     return this.getProperty('currency', def);
 };
 
-NetLicensing .Transaction.prototype.setDateCreated = function (dateCreated) {
+NetLicensing.Transaction.prototype.setDateCreated = function (dateCreated) {
     return this.setProperty('dateCreated', dateCreated);
 };
 
-NetLicensing .Transaction.prototype.getDateCreated = function (def) {
+NetLicensing.Transaction.prototype.getDateCreated = function (def) {
     return this.getProperty('dateCreated', def);
 };
 
-NetLicensing .Transaction.prototype.setDateClosed = function (dateClosed) {
+NetLicensing.Transaction.prototype.setDateClosed = function (dateClosed) {
     return this.setProperty('dateClosed', dateClosed);
 };
 
-NetLicensing .Transaction.prototype.getDateClosed = function (def) {
+NetLicensing.Transaction.prototype.getDateClosed = function (def) {
     return this.getProperty('dateClosed', def);
 };
 
-NetLicensing .Transaction.prototype.setPaymentMethod = function (paymentMethod) {
+NetLicensing.Transaction.prototype.setPaymentMethod = function (paymentMethod) {
     return this.setProperty('paymentMethod', paymentMethod);
 };
 
-NetLicensing .Transaction.prototype.getPaymentMethod = function (def) {
+NetLicensing.Transaction.prototype.getPaymentMethod = function (def) {
     return this.getProperty('paymentMethod', def);
 };
 
-NetLicensing .Transaction.prototype.setActive = function () {
+NetLicensing.Transaction.prototype.setActive = function () {
     return this.setProperty('active', true);
 };
 
 //make methods not changeable
-NetLicensing .DefineUtil.notChangeable(NetLicensing .Transaction.prototype, ['constructor']);
+NetLicensing.DefineUtil.notChangeable(NetLicensing.Transaction.prototype, ['constructor']);
 
 //make methods not enumerable
-NetLicensing .DefineUtil.notEnumerable(NetLicensing .Transaction.prototype, [
+NetLicensing.DefineUtil.notEnumerable(NetLicensing.Transaction.prototype, [
     'setNumber',
     'getNumber',
     'setName',

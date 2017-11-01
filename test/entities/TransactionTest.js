@@ -2,7 +2,7 @@ describe('entities.TransactionTest', function () {
     var transaction;
 
     beforeEach(function () {
-        transaction = new NetLicensing .Transaction();
+        transaction = new NetLicensing.Transaction();
     });
 
     it('check "number" property setters/getters', function () {
