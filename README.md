@@ -8,7 +8,7 @@
 
 JavaScript wrapper for Labs64 NetLicensing [RESTful API](http://l64.cc/nl10)
 
-## How To Use
+## How to Use
 
 NetLicensing JavaScript Client was designed to work both in the browser and in Node.js.
 
