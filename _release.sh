@@ -4,6 +4,10 @@
 npm install
 npm install -g gulp
 
+# check outdated dependencies
+npm install -g npm-check-updates
+ncu
+
 # check if testing is needed before release
 echo Do you want run test before release start? [yes/no]
 read dotest
