@@ -26,7 +26,7 @@ var NetLicensingDemo = function () {
         })
         .then(function (listCountries) {
             console.log("UtilityService.listCountries() :", listCountries);
-        })
+        });
 
     // endregion
 
@@ -393,7 +393,7 @@ var NetLicensingDemo = function () {
                 console.log("LicenseeService.list(transfer) :", licenseList);
                 return licenseList;
             })
-    })
+    });
 
     // endregion
 
@@ -403,7 +403,7 @@ var NetLicensingDemo = function () {
         console.log("All done.");
         return NetLicensing.ProductService.delete(context, productNumber, true);
 
-    })
+    });
     // endregion
 };
 

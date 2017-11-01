@@ -62,7 +62,8 @@ gulp.task('dist', function () {
         'src/util/*.js',
         'src/entities/*.js',
         'src/vo/*.js',
-        'src/services/*.js'
+        'src/services/*.js',
+        'src/exports.js'
     ];
 
     var js = gulp.src(src)
