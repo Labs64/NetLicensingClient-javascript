@@ -2269,16 +2269,12 @@ NetLicensing.HttpRequest = function () {
 
 };
 
-NetLicensing.HttpRequest.__setXMLHttpRequest = function(XMLHttpRequest){
-    NetLicensing.HttpRequest.__XMLHttpRequest = XMLHttpRequest;
-};
+NetLicensing.HttpRequest.__getXMLHttpRequest = function () {
 
-NetLicensing.HttpRequest.__getXMLHttpRequest = function() {
-    if(NetLicensing.HttpRequest.__XMLHttpRequest === undefined){
-        return ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
+    if (typeof module !== 'undefined' && module.exports) {
+        return require("xmlhttprequest").XMLHttpRequest;
     }
-
-    return NetLicensing.HttpRequest.__XMLHttpRequest;
+    return ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
 };
 
 NetLicensing.HttpRequest.prototype.__serialize = function (data, prefix) {
@@ -4373,7 +4369,7 @@ NetLicensing.UtilityService.listCountries = function (context, filter) {
         .getInstance()
         .list(context, NetLicensing.UtilityService.ENDPOINT_PATH + '/countries', queryParams, NetLicensing.Country);
 };
-if (typeof module === 'object' && module.exports && NetLicensing) {
+if (typeof module !== 'undefined' && module.exports && NetLicensing) {
     module.exports = function (XMLHttpRequest) {
         NetLicensing.HttpRequest.__setXMLHttpRequest(XMLHttpRequest);
         return NetLicensing;
