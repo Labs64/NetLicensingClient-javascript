@@ -10,6 +10,42 @@ JavaScript wrapper for Labs64 NetLicensing [RESTful API](http://l64.cc/nl10)
 
 ## How To Use
 
+NetLicensing JavaScript Client was designed to work both in the browser and in Node.js.
+
+In order to use NetLicensing JavaScript Client, you must include the compiled and minified JavaScript file in your project. There are multiple options for including these pre-compiled files, also known as a distribution, in your website or application.
+
+### Node.js
+
+```
+$ npm install netlicensing-client
+```
+
+### Using from a CDN
+
+A CDN (Content Delivery Network) is the fastest way to get up and running with NetLicensing JavaScript Client.
+Simply include the following lines of code in the `<head>` section of your page using latest [released version](https://github.com/Labs64/NetLicensingClient-javascript/releases):
+```
+<script src="https://cdn.jsdelivr.net/gh/Labs64/NetLicensingclient-javascript@x.y.z/dist/netlicensing-client.min.js"></script>
+```
+
+### Installing with npm
+
+NetLicensing JavaScript Client is available on [npmjs](https://www.npmjs.com/package/netlicensing-client). Add the following to your `package.json` file and then run `npm install`:
+```
+"dependencies": {
+    "netlicensing-client": "x.y.z"
+}
+```
+
+### Manual installation
+
+We strongly recommend that you use either a CDN or a package manager like npm. This will make it easier for you to deploy your project in different environments, and easily update NetLicensing JavaScript Client when new versions are released. Nonetheless, if you prefer to integrate NetLicensing into your project manually, you can [download the release of your choice](https://github.com/Labs64/NetLicensingClient-javascript/releases) from GitHub and copy the files from the `dist` directory into your project.
+
+Include the compiled files in your page:
+```
+<script src="path/to/netlicensing-client.min.js"></script>
+```
+
 Check out project [wiki](https://github.com/Labs64/NetLicensingClient-javascript/wiki) pages for detailed usage instructions.
 
 ## Online Demo
@@ -18,7 +54,7 @@ Demo web application for this library can be found [here](http://io.labs64.com/N
 
 ## Development
 
-Here is a Docker based local development environment prepared, which provides a very flexible and extensible way of developing Node.js applications.
+Here is a Docker-based local development environment prepared, which provides a very flexible and extensible way of developing Node.js applications.
 
 ### System Requirements
 To be able to run Laravel Boilerplate you have to meet the following requirements:
