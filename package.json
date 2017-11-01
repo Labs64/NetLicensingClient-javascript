@@ -27,12 +27,7 @@
   "bugs": {
     "url": "https://github.com/Labs64/NetLicensingClient-javascript/issues"
   },
-  "licenses": [
-    {
-      "type": "Apache-2.0",
-      "url": "https://opensource.org/licenses/apache2.0.php"
-    }
-  ],
+  "license": "Apache-2.0",
   "main": "dist/netlicensing-client.js",
   "contributors": [
     {
