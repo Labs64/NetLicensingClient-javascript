@@ -4370,8 +4370,5 @@ NetLicensing.UtilityService.listCountries = function (context, filter) {
         .list(context, NetLicensing.UtilityService.ENDPOINT_PATH + '/countries', queryParams, NetLicensing.Country);
 };
 if (typeof module !== 'undefined' && module.exports && NetLicensing) {
-    module.exports = function (XMLHttpRequest) {
-        NetLicensing.HttpRequest.__setXMLHttpRequest(XMLHttpRequest);
-        return NetLicensing;
-    };
+    module.exports = NetLicensing
 }
