@@ -14,12 +14,6 @@ NetLicensing JavaScript Client was designed to work both in the browser and in N
 
 In order to use NetLicensing JavaScript Client, you must include the compiled and minified JavaScript file in your project. There are multiple options for including these pre-compiled files, also known as a distribution, in your website or application.
 
-### Node.js
-
-```
-$ npm install netlicensing-client
-```
-
 ### Using from a CDN
 
 A CDN (Content Delivery Network) is the fastest way to get up and running with NetLicensing JavaScript Client.
@@ -28,13 +22,19 @@ Simply include the following lines of code in the `<head>` section of your page 
 <script src="https://cdn.jsdelivr.net/gh/Labs64/NetLicensingclient-javascript@x.y.z/dist/netlicensing-client.min.js"></script>
 ```
 
-### Installing with npm
+### Installing with Node.js / npm
 
 NetLicensing JavaScript Client is available on [npmjs](https://www.npmjs.com/package/netlicensing-client). Add the following to your `package.json` file and then run `npm install`:
 ```
 "dependencies": {
     "netlicensing-client": "x.y.z"
 }
+```
+
+or execute following command in your Node.js environment:
+
+```
+$ npm install netlicensing-client
 ```
 
 ### Manual installation
