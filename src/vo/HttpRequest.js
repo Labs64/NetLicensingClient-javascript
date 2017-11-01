@@ -12,14 +12,6 @@ NetLicensing.HttpRequest = function () {
 
 };
 
-NetLicensing.HttpRequest.__getXMLHttpRequest = function () {
-
-    if (typeof module !== 'undefined' && module.exports) {
-        return require("xmlhttprequest").XMLHttpRequest;
-    }
-    return ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
-};
-
 NetLicensing.HttpRequest.prototype.__serialize = function (data, prefix) {
     var query = [];
     for (var key in data) {
@@ -64,8 +56,12 @@ NetLicensing.HttpRequest.prototype.__parseHeadersStr = function (headers) {
 NetLicensing.HttpRequest.prototype.send = function (config) {
     var self = this;
 
+    if (typeof module !== 'undefined' && module.exports) {
+        return this.__httpSend(config);
+    }
+
     return new Promise(function (resolve, reject) {
-        var XHR = NetLicensing.HttpRequest.__getXMLHttpRequest();
+        var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
         var xhr = new XHR();
 
         var httpSetup = Object.assign({}, {
@@ -152,6 +148,76 @@ NetLicensing.HttpRequest.prototype.send = function (config) {
         };
 
         xhr.send(httpSetup.data);
+    });
+};
+
+NetLicensing.HttpRequest.prototype.__httpSend = function (config) {
+    var url = require('url');
+    var urlParts = url.parse(config.url);
+    var http = (url.protocol == 'http:') ? require('http') : require('https');
+    var self = this;
+
+    return new Promise(function (resolve, reject) {
+
+        var httpSetup = Object.assign({}, {
+            method: 'GET',
+            url: '/',
+            headers: {},
+            data: {},
+            timeout: 0
+        }, config);
+
+        httpSetup.method = httpSetup.method.toUpperCase();
+        httpSetup.data = self.__serialize(httpSetup.data);
+        httpSetup.headers['Content-Length'] = Buffer.byteLength(httpSetup.data);
+
+        httpSetup.hostname = urlParts.hostname;
+        httpSetup.path = httpSetup.url;
+
+        switch (httpSetup.method) {
+            case 'POST':
+                httpSetup.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+                break;
+        }
+
+        var req = http.request(httpSetup, function (response) {
+
+            var httpXHR = {
+                status: response.statusCode,
+                statusText: response.statusMessage,
+                responseURL: httpSetup.path,
+                requestHeaders: httpSetup.headers,
+                responseHeaders: response.headers
+            };
+
+            response.on('data', function (chunk) {
+                var index = httpXHR.responseHeaders['content-type'].indexOf(';');
+                var contentType = index !== -1
+                    ? httpXHR.responseHeaders['content-type'].substr(0, index).trim()
+                    : httpXHR.responseHeaders['content-type'].trim();
+
+                switch (contentType) {
+                    case 'application/json':
+                        httpXHR.response = JSON.parse(chunk.toString('utf8'));
+                        break;
+                    default:
+                        httpXHR.response = chunk.toString('utf8');
+                        break;
+                }
+
+                (httpXHR.status >= 400)
+                    ? reject(httpXHR)
+                    : resolve(httpXHR);
+            });
+        });
+
+        req.on('error', function (e) {
+            reject(e);
+        });
+
+        req.write(httpSetup.data);
+
+        req.end();
     });
 };
 
