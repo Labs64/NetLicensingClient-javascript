@@ -3,13 +3,12 @@
 # install dependencies
 npm install
 if ! type "gulp" > /dev/null; then
- echo Install gulp globally
+ echo Install gulp globally;
  npm install -g gulp;
 fi
 
 # check outdated dependencies
-npm install -g npm-check-updates
-ncu
+npm outdated
 
 # check if testing is needed before release
 echo Do you want run test before release start? [yes/no]
