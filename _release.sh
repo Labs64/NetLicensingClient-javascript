@@ -3,7 +3,7 @@
 # install dependencies
 npm install
 if ! type "gulp" > /dev/null; then
- echo Install gulp globally;
+ echo "Install gulp globally"
  npm install -g gulp;
 fi
 
