@@ -12,6 +12,18 @@ NetLicensing.HttpRequest = function () {
 
 };
 
+NetLicensing.HttpRequest.__setXMLHttpRequest = function(XMLHttpRequest){
+    NetLicensing.HttpRequest.__XMLHttpRequest = XMLHttpRequest;
+};
+
+NetLicensing.HttpRequest.__getXMLHttpRequest = function() {
+    if(NetLicensing.HttpRequest.__XMLHttpRequest === undefined){
+        return ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
+    }
+
+    return NetLicensing.HttpRequest.__XMLHttpRequest;
+};
+
 NetLicensing.HttpRequest.prototype.__serialize = function (data, prefix) {
     var query = [];
     for (var key in data) {
@@ -57,7 +69,7 @@ NetLicensing.HttpRequest.prototype.send = function (config) {
     var self = this;
 
     return new Promise(function (resolve, reject) {
-        var XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
+        var XHR = NetLicensing.HttpRequest.__getXMLHttpRequest();
         var xhr = new XHR();
 
         var httpSetup = Object.assign({}, {
