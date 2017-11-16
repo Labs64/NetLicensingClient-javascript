@@ -18,6 +18,7 @@ module.exports = function(config) {
       }
     },
     files: [
+      'src/Constants.js',
       'src/util/*.js',
       'src/entities/*.js',
       'src/vo/*.js',

@@ -63,11 +63,6 @@ NetLicensing.Token = function () {
     NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
-//static constants
-Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_DEFAULT', {value: 'DEFAULT'});
-Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_SHOP', {value: 'SHOP'});
-Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_APIKEY', {value: 'APIKEY'});
-
 NetLicensing.Token.prototype = Object.create(NetLicensing.BaseEntity.prototype);
 NetLicensing.Token.prototype.constructor = NetLicensing.Token;
 

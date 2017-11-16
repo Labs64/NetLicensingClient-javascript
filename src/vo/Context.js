@@ -52,7 +52,7 @@ NetLicensing.Context = function (values) {
      */
     var __defaults = {
         baseUrl: 'https://go.netlicensing.io/core/v2/rest',
-        securityMode: NetLicensing.Context.BASIC_AUTHENTICATION
+        securityMode: NetLicensing.Constants.BASIC_AUTHENTICATION
     };
 
     /**
@@ -162,6 +162,7 @@ NetLicensing.Context = function (values) {
      * @protected
      */
     this.__define = function (key, onlyGetter) {
+        var self = this;
         if (this.__hasDefine(key)) return;
 
         //delete property
@@ -236,10 +237,6 @@ NetLicensing.Context = function (values) {
 
     this.setValues(Object.assign({}, __defaults, values));
 };
-
-//Security mode static constants
-Object.defineProperty(NetLicensing.Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
-Object.defineProperty(NetLicensing.Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
 
 NetLicensing.Context.prototype.setBaseUrl = function (baseUrl) {
     return this.setValue('baseUrl', baseUrl);

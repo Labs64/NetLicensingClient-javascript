@@ -32,11 +32,11 @@ NetLicensing.PaymentMethodService.get = function (context, number) {
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing.PaymentMethodService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.PaymentMethod);
+        .get(context, NetLicensing.Constants.PaymentMethod.ENDPOINT_PATH + '/' + number, {}, NetLicensing.PaymentMethod);
 };
 
 
@@ -56,7 +56,7 @@ NetLicensing.PaymentMethodService.get = function (context, number) {
 NetLicensing.PaymentMethodService.list = function (context, filter) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
@@ -67,7 +67,7 @@ NetLicensing.PaymentMethodService.list = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.PaymentMethodService.ENDPOINT_PATH, queryParams, NetLicensing.PaymentMethod);
+        .list(context, NetLicensing.Constants.PaymentMethod.ENDPOINT_PATH, queryParams, NetLicensing.PaymentMethod);
 };
 
 /**
@@ -92,9 +92,9 @@ NetLicensing.PaymentMethodService.update = function (context, number, paymentMet
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.PaymentMethodService.ENDPOINT_PATH + '/' + number, paymentMethod.asPropertiesMap(), NetLicensing.PaymentMethod);
+        .post(context, NetLicensing.Constants.PaymentMethod.ENDPOINT_PATH + '/' + number, paymentMethod.asPropertiesMap(), NetLicensing.PaymentMethod);
 };

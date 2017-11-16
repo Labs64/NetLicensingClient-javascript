@@ -17,9 +17,6 @@ var NetLicensing  = NetLicensing  || {};
 NetLicensing.LicenseTemplateService = function () {
 };
 
-//static constants
-Object.defineProperty(NetLicensing.LicenseTemplateService, 'ENDPOINT_PATH', {value: 'licensetemplate'});
-
 /**
  * Creates new license template object with given properties.See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Createlicensetemplate
@@ -43,13 +40,13 @@ NetLicensing.LicenseTemplateService.create = function (context, productModuleNum
 
     NetLicensing.CheckUtils.paramNotEmpty(productModuleNumber, 'productModuleNumber');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     licenseTemplate.setProperty('productModuleNumber', productModuleNumber);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.LicenseTemplateService.ENDPOINT_PATH, licenseTemplate.asPropertiesMap(), NetLicensing.LicenseTemplate);
+        .post(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH, licenseTemplate.asPropertiesMap(), NetLicensing.LicenseTemplate);
 };
 
 /**
@@ -70,11 +67,11 @@ NetLicensing.LicenseTemplateService.get = function (context, number) {
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing.LicenseTemplateService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.LicenseTemplate);
+        .get(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH + '/' + number, {}, NetLicensing.LicenseTemplate);
 };
 
 /**
@@ -93,7 +90,7 @@ NetLicensing.LicenseTemplateService.get = function (context, number) {
 NetLicensing.LicenseTemplateService.list = function (context, filter) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
@@ -104,7 +101,7 @@ NetLicensing.LicenseTemplateService.list = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.LicenseTemplateService.ENDPOINT_PATH, queryParams, NetLicensing.LicenseTemplate);
+        .list(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH, queryParams, NetLicensing.LicenseTemplate);
 };
 
 /**
@@ -129,11 +126,11 @@ NetLicensing.LicenseTemplateService.update = function (context, number, licenseT
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.LicenseTemplateService.ENDPOINT_PATH + '/' + number, licenseTemplate.asPropertiesMap(), NetLicensing.LicenseTemplate);
+        .post(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH + '/' + number, licenseTemplate.asPropertiesMap(), NetLicensing.LicenseTemplate);
 };
 
 /**
@@ -161,5 +158,5 @@ NetLicensing.LicenseTemplateService.delete = function (context, number, forceCas
 
     return NetLicensing.Service
         .getInstance()
-        .delete(context, NetLicensing.LicenseTemplateService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH + '/' + number, queryParams);
 };

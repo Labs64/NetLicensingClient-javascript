@@ -6,7 +6,7 @@
  */
 
 //namespace
-var NetLicensing  = NetLicensing  || {};
+var NetLicensing = NetLicensing || {};
 
 /**
  * JS representation of the ProductModule Service. See NetLicensingAPI for details:
@@ -16,11 +16,7 @@ var NetLicensing  = NetLicensing  || {};
  */
 
 NetLicensing.ProductModuleService = function () {
-
 };
-
-//static constants
-Object.defineProperty(NetLicensing.ProductModuleService, 'ENDPOINT_PATH', {value: 'productmodule'});
 
 /**
  * Creates new product module object with given properties.See NetLicensingAPI for details:
@@ -45,13 +41,13 @@ NetLicensing.ProductModuleService.create = function (context, productNumber, pro
 
     NetLicensing.CheckUtils.paramNotEmpty(productNumber, 'productNumber');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     productModule.setProperty('productNumber', productNumber);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.ProductModuleService.ENDPOINT_PATH, productModule.asPropertiesMap(), NetLicensing.ProductModule);
+        .post(context, NetLicensing.Constants.ProductModule.ENDPOINT_PATH, productModule.asPropertiesMap(), NetLicensing.ProductModule);
 };
 
 /**
@@ -72,11 +68,11 @@ NetLicensing.ProductModuleService.get = function (context, number) {
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing.ProductModuleService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.ProductModule);
+        .get(context, NetLicensing.Constants.ProductModule.ENDPOINT_PATH + '/' + number, {}, NetLicensing.ProductModule);
 };
 
 /**
@@ -95,7 +91,7 @@ NetLicensing.ProductModuleService.get = function (context, number) {
 NetLicensing.ProductModuleService.list = function (context, filter) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
@@ -106,7 +102,7 @@ NetLicensing.ProductModuleService.list = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.ProductModuleService.ENDPOINT_PATH, queryParams, NetLicensing.ProductModule);
+        .list(context, NetLicensing.Constants.ProductModule.ENDPOINT_PATH, queryParams, NetLicensing.ProductModule);
 };
 
 /**
@@ -131,11 +127,11 @@ NetLicensing.ProductModuleService.update = function (context, number, productMod
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.ProductModuleService.ENDPOINT_PATH + '/' + number, productModule.asPropertiesMap(), NetLicensing.ProductModule);
+        .post(context, NetLicensing.Constants.ProductModule.ENDPOINT_PATH + '/' + number, productModule.asPropertiesMap(), NetLicensing.ProductModule);
 };
 
 /**
@@ -163,5 +159,5 @@ NetLicensing.ProductModuleService.delete = function (context, number, forceCasca
 
     return NetLicensing.Service
         .getInstance()
-        .delete(context, NetLicensing.ProductModuleService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, NetLicensing.Constants.ProductModule.ENDPOINT_PATH + '/' + number, queryParams);
 };

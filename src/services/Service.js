@@ -201,13 +201,13 @@ NetLicensing.Service = (function () {
             var headers = {Accept: 'application/json'};
 
             switch (context.getSecurityMode()) {
-                case NetLicensing.Context.BASIC_AUTHENTICATION:
+                case NetLicensing.Constants.BASIC_AUTHENTICATION:
                     if (!context.getUsername()) throw new Error('Missing parameter "username"');
                     if (!context.getPassword()) throw new Error('Missing parameter "password"');
 
                     headers['Authorization'] = 'Basic ' + base64Encode(context.getUsername() + ':' + context.getPassword());
                     break;
-                case NetLicensing.Context.APIKEY_IDENTIFICATION:
+                case NetLicensing.Constants.APIKEY_IDENTIFICATION:
                     if (!context.getApiKey()) throw new Error('Missing parameter "apiKey"');
 
                     headers['Authorization'] = 'Basic ' + base64Encode('apiKey:' + context.getApiKey());

@@ -6,7 +6,7 @@
  */
 
 //namespace
-var NetLicensing  = NetLicensing  || {};
+var NetLicensing = NetLicensing || {};
 
 /**
  * JS representation of the Token Service. See NetLicensingAPI for details:
@@ -16,9 +16,6 @@ var NetLicensing  = NetLicensing  || {};
  */
 NetLicensing.TokenService = function () {
 };
-
-//static constants
-Object.defineProperty(NetLicensing.TokenService, 'ENDPOINT_PATH', {value: 'token'});
 
 /**
  * Creates new token.See NetLicensingAPI for details:
@@ -39,7 +36,7 @@ NetLicensing.TokenService.create = function (context, token) {
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.TokenService.ENDPOINT_PATH, token.asPropertiesMap(), NetLicensing.Token);
+        .post(context, NetLicensing.Constants.Token.ENDPOINT_PATH, token.asPropertiesMap(), NetLicensing.Token);
 };
 
 /**
@@ -62,7 +59,7 @@ NetLicensing.TokenService.get = function (context, number) {
 
     return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing.TokenService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Token);
+        .get(context, NetLicensing.Constants.Token.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Token);
 };
 
 /**
@@ -90,7 +87,7 @@ NetLicensing.TokenService.list = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.TokenService.ENDPOINT_PATH, queryParams, NetLicensing.Token);
+        .list(context, NetLicensing.Constants.Token.ENDPOINT_PATH, queryParams, NetLicensing.Token);
 };
 
 /**
@@ -113,5 +110,5 @@ NetLicensing.TokenService.delete = function (context, number) {
 
     return NetLicensing.Service
         .getInstance()
-        .delete(context, NetLicensing.TokenService.ENDPOINT_PATH + '/' + number);
+        .delete(context, NetLicensing.Constants.Token.ENDPOINT_PATH + '/' + number);
 };

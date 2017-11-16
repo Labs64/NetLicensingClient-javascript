@@ -88,12 +88,6 @@ NetLicensing.LicenseTemplate = function () {
     NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
-//static constants
-Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_FEATURE', {value: 'FEATURE'});
-Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_TIMEVOLUME', {value: 'TIMEVOLUME'});
-Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_FLOATING', {value: 'FLOATING'});
-Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_QUANTITY', {value: 'QUANTITY'});
-
 NetLicensing.LicenseTemplate.prototype = Object.create(NetLicensing.BaseEntity.prototype);
 NetLicensing.LicenseTemplate.prototype.constructor = NetLicensing.LicenseTemplate;
 

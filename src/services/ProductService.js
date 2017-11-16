@@ -18,9 +18,6 @@ var NetLicensing  = NetLicensing  || {};
 NetLicensing.ProductService = function () {
 };
 
-//static constants
-Object.defineProperty(NetLicensing.ProductService, 'ENDPOINT_PATH', {value: 'product'});
-
 /**
  * Creates new product with given properties.See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Createproduct
@@ -40,11 +37,11 @@ NetLicensing.ProductService.create = function (context, product) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
     if (!(product instanceof NetLicensing.Product)) throw new TypeError('product must be an instance of NetLicensing.Product');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.ProductService.ENDPOINT_PATH, product.asPropertiesMap(), NetLicensing.Product);
+        .post(context, NetLicensing.Constants.Product.ENDPOINT_PATH, product.asPropertiesMap(), NetLicensing.Product);
 };
 
 /**
@@ -65,11 +62,11 @@ NetLicensing.ProductService.get = function (context, number) {
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing.ProductService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Product);
+        .get(context, NetLicensing.Constants.Product.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Product);
 };
 
 /**
@@ -88,7 +85,7 @@ NetLicensing.ProductService.get = function (context, number) {
 NetLicensing.ProductService.list = function (context, filter) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
@@ -99,7 +96,7 @@ NetLicensing.ProductService.list = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.ProductService.ENDPOINT_PATH, queryParams, NetLicensing.Product);
+        .list(context, NetLicensing.Constants.Product.ENDPOINT_PATH, queryParams, NetLicensing.Product);
 };
 
 /**
@@ -124,11 +121,11 @@ NetLicensing.ProductService.update = function (context, number, product) {
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.ProductService.ENDPOINT_PATH + '/' + number, product.asPropertiesMap(), NetLicensing.Product);
+        .post(context, NetLicensing.Constants.Product.ENDPOINT_PATH + '/' + number, product.asPropertiesMap(), NetLicensing.Product);
 };
 
 /**
@@ -156,5 +153,5 @@ NetLicensing.ProductService.delete = function (context, number, forceCascade) {
 
     return NetLicensing.Service
         .getInstance()
-        .delete(context, NetLicensing.ProductService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, NetLicensing.Constants.Product.ENDPOINT_PATH + '/' + number, queryParams);
 };

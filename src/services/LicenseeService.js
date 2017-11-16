@@ -19,13 +19,6 @@ NetLicensing.LicenseeService = function () {
 
 };
 
-//static constants
-Object.defineProperties(NetLicensing.LicenseeService, {
-    'ENDPOINT_PATH': {value: 'licensee'},
-    'ENDPOINT_PATH_VALIDATE': {value: 'validate'},
-    'ENDPOINT_PATH_TRANSFER': {value: 'transfer'},
-});
-
 /**
  * Creates new licensee object with given properties.See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Licensee+Services#LicenseeServices-Createlicensee
@@ -49,13 +42,13 @@ NetLicensing.LicenseeService.create = function (context, productNumber, licensee
 
     NetLicensing.CheckUtils.paramNotEmpty(productNumber, 'productNumber');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     licensee.setProperty('productNumber', productNumber);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.LicenseeService.ENDPOINT_PATH, licensee.asPropertiesMap(), NetLicensing.Licensee);
+        .post(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH, licensee.asPropertiesMap(), NetLicensing.Licensee);
 };
 
 /**
@@ -78,7 +71,7 @@ NetLicensing.LicenseeService.get = function (context, number) {
 
     return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing.LicenseeService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Licensee);
+        .get(context,  NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Licensee);
 };
 
 /**
@@ -106,7 +99,7 @@ NetLicensing.LicenseeService.list = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.LicenseeService.ENDPOINT_PATH, queryParams, NetLicensing.Licensee);
+        .list(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH, queryParams, NetLicensing.Licensee);
 };
 
 /**
@@ -133,7 +126,7 @@ NetLicensing.LicenseeService.update = function (context, number, licensee) {
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.LicenseeService.ENDPOINT_PATH + '/' + number, licensee.asPropertiesMap(), NetLicensing.Licensee);
+        .post(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, licensee.asPropertiesMap(), NetLicensing.Licensee);
 };
 
 /**
@@ -161,7 +154,7 @@ NetLicensing.LicenseeService.delete = function (context, number, forceCascade) {
 
     return NetLicensing.Service
         .getInstance()
-        .delete(context, NetLicensing.LicenseeService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context,NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, queryParams);
 };
 
 /**
@@ -216,7 +209,7 @@ NetLicensing.LicenseeService.validate = function (context, number, validationPar
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.LicenseeService.ENDPOINT_PATH + '/' + number + '/' + NetLicensing.LicenseeService.ENDPOINT_PATH_VALIDATE, queryParams)
+        .post(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH+ '/' + number + '/' + NetLicensing.Constants.Licensee.ENDPOINT_PATH_VALIDATE, queryParams)
         .then(function (item) {
             var data = {};
             var validationResults = new NetLicensing.ValidationResults();
@@ -267,5 +260,5 @@ NetLicensing.LicenseeService.transfer = function (context, number, sourceLicense
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.LicenseeService.ENDPOINT_PATH + '/' + number + '/' + NetLicensing.LicenseeService.ENDPOINT_PATH_TRANSFER, queryParams);
+        .post(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number + '/' + NetLicensing.Constants.Licensee.ENDPOINT_PATH_TRANSFER, queryParams);
 };

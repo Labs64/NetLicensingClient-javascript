@@ -16,9 +16,6 @@ var NetLicensing  = NetLicensing  || {};
 NetLicensing.UtilityService = function () {
 };
 
-//static constants
-Object.defineProperty(NetLicensing.UtilityService, 'ENDPOINT_PATH', {value: 'utility'});
-
 /**
  * Returns all license types. See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Utility+Services#UtilityServices-LicenseTypeslist
@@ -32,11 +29,11 @@ Object.defineProperty(NetLicensing.UtilityService, 'ENDPOINT_PATH', {value: 'uti
 NetLicensing.UtilityService.listLicenseTypes = function (context) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.UtilityService.ENDPOINT_PATH + '/licenseTypes')
+        .list(context, NetLicensing.Constants.Utility.ENDPOINT_PATH + '/licenseTypes')
         .then(function (items) {
             var length = items.length;
             var licenseTypes = [];
@@ -62,11 +59,11 @@ NetLicensing.UtilityService.listLicenseTypes = function (context) {
 NetLicensing.UtilityService.listLicensingModels = function (context) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.UtilityService.ENDPOINT_PATH + '/licensingModels')
+        .list(context, NetLicensing.Constants.Utility.ENDPOINT_PATH + '/licensingModels')
         .then(function (items) {
             var length = items.length;
             var licensingModels = [];
@@ -94,7 +91,7 @@ NetLicensing.UtilityService.listLicensingModels = function (context) {
 NetLicensing.UtilityService.listCountries = function (context, filter) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
@@ -105,5 +102,5 @@ NetLicensing.UtilityService.listCountries = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.UtilityService.ENDPOINT_PATH + '/countries', queryParams, NetLicensing.Country);
+        .list(context, NetLicensing.Constants.Utility.ENDPOINT_PATH + '/countries', queryParams, NetLicensing.Country);
 };

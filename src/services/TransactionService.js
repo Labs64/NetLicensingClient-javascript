@@ -6,7 +6,7 @@
  */
 
 //namespace
-var NetLicensing  = NetLicensing  || {};
+var NetLicensing = NetLicensing || {};
 
 /**
  * JS representation of the Transaction Service. See NetLicensingAPI for details:
@@ -26,9 +26,6 @@ var NetLicensing  = NetLicensing  || {};
 NetLicensing.TransactionService = function () {
 };
 
-//static constants
-Object.defineProperty(NetLicensing.TransactionService, 'ENDPOINT_PATH', {value: 'transaction'});
-
 /**
  * Creates new transaction object with given properties.See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services#TransactionServices-Createtransaction
@@ -47,11 +44,11 @@ NetLicensing.TransactionService.create = function (context, transaction) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
     if (!(transaction instanceof NetLicensing.Transaction)) throw new TypeError('transaction must be an instance of NetLicensing.Transaction');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.TransactionService.ENDPOINT_PATH, transaction.asPropertiesMap(), NetLicensing.Transaction);
+        .post(context, NetLicensing.Constants.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap(), NetLicensing.Transaction);
 };
 
 /**
@@ -72,11 +69,11 @@ NetLicensing.TransactionService.get = function (context, number) {
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing.TransactionService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Transaction);
+        .get(context, NetLicensing.Constants.Transaction.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Transaction);
 };
 
 /**
@@ -95,7 +92,7 @@ NetLicensing.TransactionService.get = function (context, number) {
 NetLicensing.TransactionService.list = function (context, filter) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
@@ -106,7 +103,7 @@ NetLicensing.TransactionService.list = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.TransactionService.ENDPOINT_PATH, queryParams, NetLicensing.Transaction);
+        .list(context, NetLicensing.Constants.Transaction.ENDPOINT_PATH, queryParams, NetLicensing.Transaction);
 };
 
 /**
@@ -131,9 +128,9 @@ NetLicensing.TransactionService.update = function (context, number, transaction)
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.TransactionService.ENDPOINT_PATH + '/' + number, transaction.asPropertiesMap(), NetLicensing.Transaction);
+        .post(context, NetLicensing.Constants.Transaction.ENDPOINT_PATH + '/' + number, transaction.asPropertiesMap(), NetLicensing.Transaction);
 };

@@ -59,6 +59,7 @@ gulp.task('clean', function () {
 // create distribution files
 gulp.task('dist', function () {
     var src = [
+        'src/Constants.js',
         'src/util/*.js',
         'src/entities/*.js',
         'src/vo/*.js',

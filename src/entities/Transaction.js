@@ -72,11 +72,6 @@ NetLicensing.Transaction = function Transaction() {
     NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
-//static constants
-Object.defineProperty(NetLicensing.Transaction, 'STATUS_CANCELLED', {value: 'CANCELLED'});
-Object.defineProperty(NetLicensing.Transaction, 'STATUS_CLOSED', {value: 'CLOSED'});
-Object.defineProperty(NetLicensing.Transaction, 'STATUS_PENDING', {value: 'PENDING'});
-
 NetLicensing.Transaction.prototype = Object.create(NetLicensing.BaseEntity.prototype);
 NetLicensing.Transaction.prototype.constructor = NetLicensing.Transaction;
 
