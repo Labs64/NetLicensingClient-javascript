@@ -59,56 +59,45 @@ NetLicensing.Constants = {
             PREDEFINED: 'PREDEFINED',
             CLIENT: 'CLIENT'
         }
+    },
+
+    Token: {
+        ENDPOINT_PATH: 'token',
+        Type: {
+            DEFAULT: 'DEFAULT',
+            SHOP: 'SHOP',
+            APIKEY: 'APIKEY'
+        }
+    },
+
+    Transaction: {
+        ENDPOINT_PATH: 'transaction',
+        Status: {
+            CANCELLED: 'CANCELLED',
+            CLOSED: 'CLOSED',
+            PENDING: 'PENDING'
+        }
+    },
+
+    Licensee: {
+        ENDPOINT_PATH: 'licensee',
+        ENDPOINT_PATH_VALIDATE: 'validate',
+        ENDPOINT_PATH_TRANSFER: 'transfer'
+    },
+
+    License: {
+        ENDPOINT_PATH: 'license'
+    },
+
+    PaymentMethod: {
+        ENDPOINT_PATH: 'paymentmethod'
+    },
+
+    ProductModule: {
+        ENDPOINT_PATH: 'productmodule'
+    },
+
+    Utility: {
+        ENDPOINT_PATH: 'utility'
     }
-};
-
-NetLicensing.Constants.Product = {
-    ENDPOINT_PATH: 'product',
-    LicenseeSecretMode: {
-        DISABLED: 'DISABLED',
-        PREDEFINED: 'PREDEFINED',
-        CLIENT: 'CLIENT'
-    }
-};
-
-NetLicensing.Constants.Token = {
-    ENDPOINT_PATH: 'token',
-    Type: {
-        DEFAULT: 'DEFAULT',
-        SHOP: 'SHOP',
-        APIKEY: 'APIKEY'
-    }
-};
-
-NetLicensing.Constants.Transaction = {
-    ENDPOINT_PATH: 'transaction',
-    Status: {
-        CANCELLED: 'CANCELLED',
-        CLOSED: 'CLOSED',
-        PENDING: 'PENDING'
-    }
-};
-
-NetLicensing.Constants.Licensee = {
-    ENDPOINT_PATH: 'licensee',
-    ENDPOINT_PATH_VALIDATE: 'validate',
-    ENDPOINT_PATH_TRANSFER: 'transfer'
-};
-
-NetLicensing.Constants.License = {
-    ENDPOINT_PATH: 'license'
-};
-
-NetLicensing.Constants.PaymentMethod = {
-    ENDPOINT_PATH: 'paymentmethod'
-};
-
-
-NetLicensing.Constants.ProductModule = {
-    ENDPOINT_PATH: 'productmodule'
-};
-
-
-NetLicensing.Constants.Utility = {
-    ENDPOINT_PATH: 'utility'
 };
