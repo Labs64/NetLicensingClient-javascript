@@ -90,12 +90,24 @@ NetLicensing.LicenseTemplate = function () {
 
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicenseTemplate.LicenseType.FEATURE instead.
  */
 Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_FEATURE', {value: 'FEATURE'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicenseTemplate.LicenseType.TIMEVOLUME instead.
+ */
 Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_TIMEVOLUME', {value: 'TIMEVOLUME'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicenseTemplate.LicenseType.FLOATING instead.
+ */
 Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_FLOATING', {value: 'FLOATING'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicenseTemplate.LicenseType.QUANTITY instead.
+ */
 Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_QUANTITY', {value: 'QUANTITY'});
 
 NetLicensing.LicenseTemplate.prototype = Object.create(NetLicensing.BaseEntity.prototype);

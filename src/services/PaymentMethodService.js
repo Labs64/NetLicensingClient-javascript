@@ -12,8 +12,8 @@ NetLicensing.PaymentMethodService = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.PaymentMethod.ENDPOINT_PATH instead.
  */
 Object.defineProperty(NetLicensing.PaymentMethodService, 'ENDPOINT_PATH', {value: 'paymentmethod'});
 

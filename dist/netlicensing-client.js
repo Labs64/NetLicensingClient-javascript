@@ -59,58 +59,47 @@ NetLicensing.Constants = {
             PREDEFINED: 'PREDEFINED',
             CLIENT: 'CLIENT'
         }
+    },
+
+    Token: {
+        ENDPOINT_PATH: 'token',
+        Type: {
+            DEFAULT: 'DEFAULT',
+            SHOP: 'SHOP',
+            APIKEY: 'APIKEY'
+        }
+    },
+
+    Transaction: {
+        ENDPOINT_PATH: 'transaction',
+        Status: {
+            CANCELLED: 'CANCELLED',
+            CLOSED: 'CLOSED',
+            PENDING: 'PENDING'
+        }
+    },
+
+    Licensee: {
+        ENDPOINT_PATH: 'licensee',
+        ENDPOINT_PATH_VALIDATE: 'validate',
+        ENDPOINT_PATH_TRANSFER: 'transfer'
+    },
+
+    License: {
+        ENDPOINT_PATH: 'license'
+    },
+
+    PaymentMethod: {
+        ENDPOINT_PATH: 'paymentmethod'
+    },
+
+    ProductModule: {
+        ENDPOINT_PATH: 'productmodule'
+    },
+
+    Utility: {
+        ENDPOINT_PATH: 'utility'
     }
-};
-
-NetLicensing.Constants.Product = {
-    ENDPOINT_PATH: 'product',
-    LicenseeSecretMode: {
-        DISABLED: 'DISABLED',
-        PREDEFINED: 'PREDEFINED',
-        CLIENT: 'CLIENT'
-    }
-};
-
-NetLicensing.Constants.Token = {
-    ENDPOINT_PATH: 'token',
-    Type: {
-        DEFAULT: 'DEFAULT',
-        SHOP: 'SHOP',
-        APIKEY: 'APIKEY'
-    }
-};
-
-NetLicensing.Constants.Transaction = {
-    ENDPOINT_PATH: 'transaction',
-    Status: {
-        CANCELLED: 'CANCELLED',
-        CLOSED: 'CLOSED',
-        PENDING: 'PENDING'
-    }
-};
-
-NetLicensing.Constants.Licensee = {
-    ENDPOINT_PATH: 'licensee',
-    ENDPOINT_PATH_VALIDATE: 'validate',
-    ENDPOINT_PATH_TRANSFER: 'transfer'
-};
-
-NetLicensing.Constants.License = {
-    ENDPOINT_PATH: 'license'
-};
-
-NetLicensing.Constants.PaymentMethod = {
-    ENDPOINT_PATH: 'paymentmethod'
-};
-
-
-NetLicensing.Constants.ProductModule = {
-    ENDPOINT_PATH: 'productmodule'
-};
-
-
-NetLicensing.Constants.Utility = {
-    ENDPOINT_PATH: 'utility'
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -976,12 +965,24 @@ NetLicensing.LicenseTemplate = function () {
 
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicenseTemplate.LicenseType.FEATURE instead.
  */
 Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_FEATURE', {value: 'FEATURE'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicenseTemplate.LicenseType.TIMEVOLUME instead.
+ */
 Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_TIMEVOLUME', {value: 'TIMEVOLUME'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicenseTemplate.LicenseType.FLOATING instead.
+ */
 Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_FLOATING', {value: 'FLOATING'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicenseTemplate.LicenseType.QUANTITY instead.
+ */
 Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_QUANTITY', {value: 'QUANTITY'});
 
 NetLicensing.LicenseTemplate.prototype = Object.create(NetLicensing.BaseEntity.prototype);
@@ -1337,11 +1338,19 @@ NetLicensing.Product = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Product.LicenseeSecretMode.DISABLED instead.
  */
 Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_DISABLED', {value: 'DISABLED'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Product.LicenseeSecretMode.PREDEFINED instead.
+ */
 Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_PREDEFINED', {value: 'PREDEFINED'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Product.LicenseeSecretMode.CLIENT instead.
+ */
 Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_CLIENT', {value: 'CLIENT'});
 
 NetLicensing.Product.prototype = Object.create(NetLicensing.BaseEntity.prototype);
@@ -1612,16 +1621,44 @@ NetLicensing.ProductModule = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.Subscription.NAME instead.
  */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_SUBSCRIPTION', {value: 'Subscription'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.TryAndBuy.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_TRY_AND_BUY', {value: 'TryAndBuy'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.Rental.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_RENTAL', {value: 'Rental'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.Floating.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_FLOATING', {value: 'Floating'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.MultiFeature.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_MULTI_FEATURE', {value: 'MultiFeature'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.PayPerUse.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PAY_PER_USE', {value: 'PayPerUse'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.PricingPlans.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PRICING_PLANS', {value: 'PricingPlans'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.Quota.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_QUOTA', {value: 'Quota'});
 
 
@@ -1785,11 +1822,19 @@ NetLicensing.Token = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Token.Type.DEFAULT instead.
  */
 Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_DEFAULT', {value: 'DEFAULT'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Token.Type.SHOP instead.
+ */
 Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_SHOP', {value: 'SHOP'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Token.Type.APIKEY instead.
+ */
 Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_APIKEY', {value: 'APIKEY'});
 
 NetLicensing.Token.prototype = Object.create(NetLicensing.BaseEntity.prototype);
@@ -1976,11 +2021,19 @@ NetLicensing.Transaction = function Transaction() {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Transaction.Status.CANCELLED instead.
  */
 Object.defineProperty(NetLicensing.Transaction, 'STATUS_CANCELLED', {value: 'CANCELLED'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Transaction.Status.CLOSED instead.
+ */
 Object.defineProperty(NetLicensing.Transaction, 'STATUS_CLOSED', {value: 'CLOSED'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Transaction.Status.PENDING instead.
+ */
 Object.defineProperty(NetLicensing.Transaction, 'STATUS_PENDING', {value: 'PENDING'});
 
 NetLicensing.Transaction.prototype = Object.create(NetLicensing.BaseEntity.prototype);
@@ -2105,7 +2158,7 @@ NetLicensing.DefineUtil.notEnumerable(NetLicensing.Transaction.prototype, [
  */
 
 //namespace
-var NetLicensing  = NetLicensing  || {};
+var NetLicensing = NetLicensing || {};
 
 /**
  * Class Context
@@ -2338,10 +2391,14 @@ NetLicensing.Context = function (values) {
 };
 
 /**
- * Security mode static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.BASIC_AUTHENTICATION instead.
  */
 Object.defineProperty(NetLicensing.Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.APIKEY_IDENTIFICATION instead.
+ */
 Object.defineProperty(NetLicensing.Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
 
 NetLicensing.Context.prototype.setBaseUrl = function (baseUrl) {
@@ -2822,7 +2879,7 @@ NetLicensing.ValidationResults.prototype.toString = function () {
  */
 
 //namespace
-var NetLicensing  = NetLicensing  || {};
+var NetLicensing = NetLicensing || {};
 
 /**
  * JS representation of the Licensee Service. See NetLicensingAPI for details:
@@ -2835,13 +2892,21 @@ NetLicensing.LicenseeService = function () {
 
 };
 
-/**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
- */
 Object.defineProperties(NetLicensing.LicenseeService, {
+    /**
+     * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+     * Use NetLicensing.Constants.Licensee.ENDPOINT_PATH instead.
+     */
     'ENDPOINT_PATH': {value: 'licensee'},
+    /**
+     * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+     * Use NetLicensing.Constants.Licensee.ENDPOINT_PATH_VALIDATE instead.
+     */
     'ENDPOINT_PATH_VALIDATE': {value: 'validate'},
+    /**
+     * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+     * Use NetLicensing.Constants.Licensee.ENDPOINT_PATH_TRANSFER instead.
+     */
     'ENDPOINT_PATH_TRANSFER': {value: 'transfer'},
 });
 
@@ -2897,7 +2962,7 @@ NetLicensing.LicenseeService.get = function (context, number) {
 
     return NetLicensing.Service
         .getInstance()
-        .get(context,  NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Licensee);
+        .get(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Licensee);
 };
 
 /**
@@ -2980,7 +3045,7 @@ NetLicensing.LicenseeService.delete = function (context, number, forceCascade) {
 
     return NetLicensing.Service
         .getInstance()
-        .delete(context,NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, queryParams);
 };
 
 /**
@@ -3035,7 +3100,7 @@ NetLicensing.LicenseeService.validate = function (context, number, validationPar
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH+ '/' + number + '/' + NetLicensing.Constants.Licensee.ENDPOINT_PATH_VALIDATE, queryParams)
+        .post(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number + '/' + NetLicensing.Constants.Licensee.ENDPOINT_PATH_VALIDATE, queryParams)
         .then(function (item) {
             var data = {};
             var validationResults = new NetLicensing.ValidationResults();
@@ -3108,8 +3173,8 @@ NetLicensing.LicenseService = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.License.ENDPOINT_PATH instead.
  */
 Object.defineProperty(NetLicensing .LicenseService, 'ENDPOINT_PATH', {value: 'license'});
 
@@ -3297,8 +3362,8 @@ NetLicensing.LicenseTemplateService = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH instead.
  */
 Object.defineProperty(NetLicensing .LicenseTemplateService, 'ENDPOINT_PATH', {value: 'licensetemplate'});
 
@@ -3459,8 +3524,8 @@ NetLicensing.PaymentMethodService = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.PaymentMethod.ENDPOINT_PATH instead.
  */
 Object.defineProperty(NetLicensing.PaymentMethodService, 'ENDPOINT_PATH', {value: 'paymentmethod'});
 
@@ -3569,8 +3634,8 @@ NetLicensing.ProductModuleService = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.ProductModule.ENDPOINT_PATH instead.
  */
 Object.defineProperty(NetLicensing .ProductModuleService, 'ENDPOINT_PATH', {value: 'productmodule'});
 
@@ -3738,8 +3803,8 @@ NetLicensing.ProductService = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Product.ENDPOINT_PATH instead.
  */
 Object.defineProperty(NetLicensing .ProductService, 'ENDPOINT_PATH', {value: 'product'});
 
@@ -4243,8 +4308,8 @@ NetLicensing.TokenService = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Token.ENDPOINT_PATH instead.
  */
 Object.defineProperty(NetLicensing.TokenService, 'ENDPOINT_PATH', {value: 'token'});
 
@@ -4372,8 +4437,8 @@ NetLicensing.TransactionService = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Transaction.ENDPOINT_PATH instead.
  */
 Object.defineProperty(NetLicensing .TransactionService, 'ENDPOINT_PATH', {value: 'transaction'});
 
@@ -4504,8 +4569,8 @@ NetLicensing.UtilityService = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Utility.ENDPOINT_PATH instead.
  */
 Object.defineProperty(NetLicensing .UtilityService, 'ENDPOINT_PATH', {value: 'utility'});
 

@@ -6,7 +6,7 @@
  */
 
 //namespace
-var NetLicensing  = NetLicensing  || {};
+var NetLicensing = NetLicensing || {};
 
 /**
  * JS representation of the Licensee Service. See NetLicensingAPI for details:
@@ -19,13 +19,21 @@ NetLicensing.LicenseeService = function () {
 
 };
 
-/**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
- */
 Object.defineProperties(NetLicensing.LicenseeService, {
+    /**
+     * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+     * Use NetLicensing.Constants.Licensee.ENDPOINT_PATH instead.
+     */
     'ENDPOINT_PATH': {value: 'licensee'},
+    /**
+     * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+     * Use NetLicensing.Constants.Licensee.ENDPOINT_PATH_VALIDATE instead.
+     */
     'ENDPOINT_PATH_VALIDATE': {value: 'validate'},
+    /**
+     * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+     * Use NetLicensing.Constants.Licensee.ENDPOINT_PATH_TRANSFER instead.
+     */
     'ENDPOINT_PATH_TRANSFER': {value: 'transfer'},
 });
 
@@ -81,7 +89,7 @@ NetLicensing.LicenseeService.get = function (context, number) {
 
     return NetLicensing.Service
         .getInstance()
-        .get(context,  NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Licensee);
+        .get(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Licensee);
 };
 
 /**
@@ -164,7 +172,7 @@ NetLicensing.LicenseeService.delete = function (context, number, forceCascade) {
 
     return NetLicensing.Service
         .getInstance()
-        .delete(context,NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, queryParams);
 };
 
 /**
@@ -219,7 +227,7 @@ NetLicensing.LicenseeService.validate = function (context, number, validationPar
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH+ '/' + number + '/' + NetLicensing.Constants.Licensee.ENDPOINT_PATH_VALIDATE, queryParams)
+        .post(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number + '/' + NetLicensing.Constants.Licensee.ENDPOINT_PATH_VALIDATE, queryParams)
         .then(function (item) {
             var data = {};
             var validationResults = new NetLicensing.ValidationResults();

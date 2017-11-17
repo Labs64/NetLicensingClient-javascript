@@ -19,8 +19,8 @@ NetLicensing.ProductModuleService = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.ProductModule.ENDPOINT_PATH instead.
  */
 Object.defineProperty(NetLicensing .ProductModuleService, 'ENDPOINT_PATH', {value: 'productmodule'});
 

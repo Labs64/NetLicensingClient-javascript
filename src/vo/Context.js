@@ -6,7 +6,7 @@
  */
 
 //namespace
-var NetLicensing  = NetLicensing  || {};
+var NetLicensing = NetLicensing || {};
 
 /**
  * Class Context
@@ -239,10 +239,14 @@ NetLicensing.Context = function (values) {
 };
 
 /**
- * Security mode static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.BASIC_AUTHENTICATION instead.
  */
 Object.defineProperty(NetLicensing.Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.APIKEY_IDENTIFICATION instead.
+ */
 Object.defineProperty(NetLicensing.Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
 
 NetLicensing.Context.prototype.setBaseUrl = function (baseUrl) {

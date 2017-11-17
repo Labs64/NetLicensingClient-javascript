@@ -71,16 +71,44 @@ NetLicensing.ProductModule = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.Subscription.NAME instead.
  */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_SUBSCRIPTION', {value: 'Subscription'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.TryAndBuy.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_TRY_AND_BUY', {value: 'TryAndBuy'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.Rental.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_RENTAL', {value: 'Rental'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.Floating.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_FLOATING', {value: 'Floating'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.MultiFeature.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_MULTI_FEATURE', {value: 'MultiFeature'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.PayPerUse.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PAY_PER_USE', {value: 'PayPerUse'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.PricingPlans.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PRICING_PLANS', {value: 'PricingPlans'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.LicensingModel.Quota.NAME instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_QUOTA', {value: 'Quota'});
 
 

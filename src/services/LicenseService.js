@@ -18,8 +18,8 @@ NetLicensing.LicenseService = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.License.ENDPOINT_PATH instead.
  */
 Object.defineProperty(NetLicensing .LicenseService, 'ENDPOINT_PATH', {value: 'license'});
 

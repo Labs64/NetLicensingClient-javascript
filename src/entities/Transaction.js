@@ -73,11 +73,19 @@ NetLicensing.Transaction = function Transaction() {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Transaction.Status.CANCELLED instead.
  */
 Object.defineProperty(NetLicensing.Transaction, 'STATUS_CANCELLED', {value: 'CANCELLED'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Transaction.Status.CLOSED instead.
+ */
 Object.defineProperty(NetLicensing.Transaction, 'STATUS_CLOSED', {value: 'CLOSED'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Transaction.Status.PENDING instead.
+ */
 Object.defineProperty(NetLicensing.Transaction, 'STATUS_PENDING', {value: 'PENDING'});
 
 NetLicensing.Transaction.prototype = Object.create(NetLicensing.BaseEntity.prototype);

@@ -18,8 +18,8 @@ NetLicensing.TokenService = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Token.ENDPOINT_PATH instead.
  */
 Object.defineProperty(NetLicensing.TokenService, 'ENDPOINT_PATH', {value: 'token'});
 

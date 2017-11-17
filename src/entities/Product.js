@@ -145,11 +145,19 @@ NetLicensing.Product = function () {
 };
 
 /**
- * static constants
- * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Product.LicenseeSecretMode.DISABLED instead.
  */
 Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_DISABLED', {value: 'DISABLED'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Product.LicenseeSecretMode.PREDEFINED instead.
+ */
 Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_PREDEFINED', {value: 'PREDEFINED'});
+/**
+ * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
+ * Use NetLicensing.Constants.Product.LicenseeSecretMode.CLIENT instead.
+ */
 Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_CLIENT', {value: 'CLIENT'});
 
 NetLicensing.Product.prototype = Object.create(NetLicensing.BaseEntity.prototype);
