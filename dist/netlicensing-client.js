@@ -1652,7 +1652,7 @@ Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_MULTI_FEATURE
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PAY_PER_USE', {value: 'PayPerUse'});
 /**
  * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicensingModel.PRICING_TABLE.NAME instead.
+ * Use NetLicensing.Constants.LicensingModel.PricingTable.NAME instead.
  */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PRICING_TABLE', {value: 'PricingTable'});
 /**
