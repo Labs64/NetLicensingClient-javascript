@@ -17,6 +17,12 @@ NetLicensing.UtilityService = function () {
 };
 
 /**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
+Object.defineProperty(NetLicensing .UtilityService, 'ENDPOINT_PATH', {value: 'utility'});
+
+/**
  * Returns all license types. See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Utility+Services#UtilityServices-LicenseTypeslist
  *

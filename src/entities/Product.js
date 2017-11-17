@@ -144,7 +144,10 @@ NetLicensing.Product = function () {
     NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
-//static constants
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
 Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_DISABLED', {value: 'DISABLED'});
 Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_PREDEFINED', {value: 'PREDEFINED'});
 Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_CLIENT', {value: 'CLIENT'});

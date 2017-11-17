@@ -11,7 +11,10 @@ var NetLicensing  = NetLicensing  || {};
 NetLicensing.PaymentMethodService = function () {
 };
 
-//static constants
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
 Object.defineProperty(NetLicensing.PaymentMethodService, 'ENDPOINT_PATH', {value: 'paymentmethod'});
 
 /**

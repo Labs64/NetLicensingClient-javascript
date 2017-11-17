@@ -19,6 +19,12 @@ NetLicensing.ProductService = function () {
 };
 
 /**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
+Object.defineProperty(NetLicensing .ProductService, 'ENDPOINT_PATH', {value: 'product'});
+
+/**
  * Creates new product with given properties.See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Createproduct
  *

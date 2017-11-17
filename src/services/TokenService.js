@@ -18,6 +18,12 @@ NetLicensing.TokenService = function () {
 };
 
 /**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
+Object.defineProperty(NetLicensing.TokenService, 'ENDPOINT_PATH', {value: 'token'});
+
+/**
  * Creates new token.See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services#TokenServices-Createtoken
  *

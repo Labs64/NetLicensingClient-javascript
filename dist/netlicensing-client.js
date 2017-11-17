@@ -6,6 +6,120 @@
  */
 
 //namespace
+var NetLicensing = NetLicensing || {};
+
+NetLicensing.Constants = {
+    BASIC_AUTHENTICATION: 'BASIC_AUTH',
+    APIKEY_IDENTIFICATION: 'APIKEY',
+
+    LicensingModel: {
+        VALID: 'valid',
+        TryAndBuy: {
+            NAME: 'TryAndBuy'
+        },
+        Rental: {
+            NAME: 'Rental',
+            RED_THRESHOLD: 'redThreshold',
+            YELLOW_THRESHOLD: 'yellowThreshold'
+        },
+        Subscription: {
+            NAME: "Subscription"
+        },
+        Floating: {
+            NAME: "Floating"
+        },
+        MultiFeature: {
+            NAME: 'MultiFeature'
+        },
+        PayPerUse: {
+            NAME: 'PayPerUse'
+        },
+        PricingTable: {
+            NAME: 'PricingTable'
+        },
+        Quota: {
+            NAME: 'Quota'
+        }
+    },
+
+    LicenseTemplate: {
+        ENDPOINT_PATH: 'licensetemplate',
+        LicenseType: {
+            FEATURE: 'FEATURE',
+            TIMEVOLUME: 'TIMEVOLUME',
+            FLOATING: 'FLOATING',
+            QUANTITY: 'QUANTITY'
+        }
+    },
+
+    Product: {
+        ENDPOINT_PATH: 'product',
+        LicenseeSecretMode: {
+            DISABLED: 'DISABLED',
+            PREDEFINED: 'PREDEFINED',
+            CLIENT: 'CLIENT'
+        }
+    }
+};
+
+NetLicensing.Constants.Product = {
+    ENDPOINT_PATH: 'product',
+    LicenseeSecretMode: {
+        DISABLED: 'DISABLED',
+        PREDEFINED: 'PREDEFINED',
+        CLIENT: 'CLIENT'
+    }
+};
+
+NetLicensing.Constants.Token = {
+    ENDPOINT_PATH: 'token',
+    Type: {
+        DEFAULT: 'DEFAULT',
+        SHOP: 'SHOP',
+        APIKEY: 'APIKEY'
+    }
+};
+
+NetLicensing.Constants.Transaction = {
+    ENDPOINT_PATH: 'transaction',
+    Status: {
+        CANCELLED: 'CANCELLED',
+        CLOSED: 'CLOSED',
+        PENDING: 'PENDING'
+    }
+};
+
+NetLicensing.Constants.Licensee = {
+    ENDPOINT_PATH: 'licensee',
+    ENDPOINT_PATH_VALIDATE: 'validate',
+    ENDPOINT_PATH_TRANSFER: 'transfer'
+};
+
+NetLicensing.Constants.License = {
+    ENDPOINT_PATH: 'license'
+};
+
+NetLicensing.Constants.PaymentMethod = {
+    ENDPOINT_PATH: 'paymentmethod'
+};
+
+
+NetLicensing.Constants.ProductModule = {
+    ENDPOINT_PATH: 'productmodule'
+};
+
+
+NetLicensing.Constants.Utility = {
+    ENDPOINT_PATH: 'utility'
+};
+/**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      http://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
+
+//namespace
 var NetLicensing  = NetLicensing  || {};
 
 
@@ -655,6 +769,132 @@ NetLicensing.DefineUtil.notEnumerable(NetLicensing.License.prototype, [
 var NetLicensing  = NetLicensing  || {};
 
 /**
+ * Licensee entity used internally by NetLicensing.
+ *
+ * Properties visible via NetLicensing  API:
+ *
+ * Unique number (across all products of a vendor) that identifies the licensee. Vendor can assign this
+ * number when creating a licensee or let NetLicensing  generate one. Read-only after creation of the first license for
+ * the licensee.
+ * @property string number
+ *
+ * Licensee name.
+ * @property string name
+ *
+ * If set to false, the licensee is disabled. Licensee can not obtain new licenses, and validation is
+ * disabled (tbd).
+ * @property boolean active
+ *
+ * Licensee Secret for licensee
+ * @property string licenseeSecret
+ *
+ * Mark licensee for transfer.
+ * @property boolean markedForTransfer
+ *
+ * Arbitrary additional user properties of string type may be associated with each licensee. The name of user property
+ * must not be equal to any of the fixed property names listed above and must be none of id, deleted, productNumber
+ *
+ * @constructor
+ */
+
+NetLicensing.Licensee = function () {
+    NetLicensing.BaseEntity.apply(this, arguments);
+
+    //The attributes that should be cast to native types.
+    Object.defineProperty(this, 'casts', {
+        value: {
+            number: 'string',
+            active: 'boolean',
+            name: 'string',
+            licenseeSecret: 'string',
+            markedForTransfer: 'boolean',
+            inUse: 'boolean'
+        }
+    });
+
+    //define default entity properties
+    this.__defines(['number', 'active', 'name', 'licenseeSecret', 'markedForTransfer']);
+    this.__define('inUse', true);
+
+    //make methods not changeable
+    NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
+};
+
+NetLicensing.Licensee.prototype = Object.create(NetLicensing.BaseEntity.prototype);
+NetLicensing.Licensee.prototype.constructor = NetLicensing.Licensee;
+
+NetLicensing.Licensee.prototype.setNumber = function (number) {
+    return this.setProperty('number', number);
+};
+
+NetLicensing.Licensee.prototype.getNumber = function (def) {
+    return this.getProperty('number', def);
+};
+
+NetLicensing.Licensee.prototype.setActive = function (active) {
+    return this.setProperty('active', active);
+};
+
+NetLicensing.Licensee.prototype.getActive = function (def) {
+    return this.getProperty('active', def);
+};
+
+NetLicensing.Licensee.prototype.setName = function (name) {
+    return this.setProperty('name', name);
+};
+
+NetLicensing.Licensee.prototype.getName = function (def) {
+    return this.getProperty('name', def);
+};
+
+NetLicensing.Licensee.prototype.setLicenseeSecret = function (licenseeSecret) {
+    return this.setProperty('licenseeSecret', licenseeSecret);
+};
+
+NetLicensing.Licensee.prototype.getLicenseeSecret = function (def) {
+    return this.getProperty('licenseeSecret', def);
+};
+
+NetLicensing.Licensee.prototype.setMarkedForTransfer = function (markedForTransfer) {
+    return this.setProperty('markedForTransfer', markedForTransfer);
+};
+
+NetLicensing.Licensee.prototype.getMarkedForTransfer = function (def) {
+    return this.getProperty('markedForTransfer', def);
+};
+
+NetLicensing.Licensee.prototype.getInUse = function (def) {
+    return this.getProperty('inUse', def);
+};
+
+//make methods not changeable
+NetLicensing.DefineUtil.notChangeable(NetLicensing.Licensee.prototype, ['constructor']);
+
+//make methods not enumerable
+NetLicensing.DefineUtil.notEnumerable(NetLicensing.Licensee.prototype, [
+    'setNumber',
+    'getNumber',
+    'setActive',
+    'getActive',
+    'setName',
+    'getName',
+    'setLicenseeSecret',
+    'getLicenseeSecret',
+    'setMarkedForTransfer',
+    'getMarkedForTransfer',
+    'getInUse',
+]);
+/**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      http://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
+
+//namespace
+var NetLicensing  = NetLicensing  || {};
+
+/**
  * License template entity used internally by NetLicensing.
  *
  * Properties visible via NetLicensing  API:
@@ -734,7 +974,11 @@ NetLicensing.LicenseTemplate = function () {
     NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
-//static constants
+
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
 Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_FEATURE', {value: 'FEATURE'});
 Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_TIMEVOLUME', {value: 'TIMEVOLUME'});
 Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_FLOATING', {value: 'FLOATING'});
@@ -868,132 +1112,6 @@ NetLicensing.DefineUtil.notEnumerable(NetLicensing.LicenseTemplate.prototype, [
     'getMaxSessions',
     'setQuantity',
     'getQuantity',
-]);
-/**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      http://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
-
-//namespace
-var NetLicensing  = NetLicensing  || {};
-
-/**
- * Licensee entity used internally by NetLicensing.
- *
- * Properties visible via NetLicensing  API:
- *
- * Unique number (across all products of a vendor) that identifies the licensee. Vendor can assign this
- * number when creating a licensee or let NetLicensing  generate one. Read-only after creation of the first license for
- * the licensee.
- * @property string number
- *
- * Licensee name.
- * @property string name
- *
- * If set to false, the licensee is disabled. Licensee can not obtain new licenses, and validation is
- * disabled (tbd).
- * @property boolean active
- *
- * Licensee Secret for licensee
- * @property string licenseeSecret
- *
- * Mark licensee for transfer.
- * @property boolean markedForTransfer
- *
- * Arbitrary additional user properties of string type may be associated with each licensee. The name of user property
- * must not be equal to any of the fixed property names listed above and must be none of id, deleted, productNumber
- *
- * @constructor
- */
-
-NetLicensing.Licensee = function () {
-    NetLicensing.BaseEntity.apply(this, arguments);
-
-    //The attributes that should be cast to native types.
-    Object.defineProperty(this, 'casts', {
-        value: {
-            number: 'string',
-            active: 'boolean',
-            name: 'string',
-            licenseeSecret: 'string',
-            markedForTransfer: 'boolean',
-            inUse: 'boolean'
-        }
-    });
-
-    //define default entity properties
-    this.__defines(['number', 'active', 'name', 'licenseeSecret', 'markedForTransfer']);
-    this.__define('inUse', true);
-
-    //make methods not changeable
-    NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
-};
-
-NetLicensing.Licensee.prototype = Object.create(NetLicensing.BaseEntity.prototype);
-NetLicensing.Licensee.prototype.constructor = NetLicensing.Licensee;
-
-NetLicensing.Licensee.prototype.setNumber = function (number) {
-    return this.setProperty('number', number);
-};
-
-NetLicensing.Licensee.prototype.getNumber = function (def) {
-    return this.getProperty('number', def);
-};
-
-NetLicensing.Licensee.prototype.setActive = function (active) {
-    return this.setProperty('active', active);
-};
-
-NetLicensing.Licensee.prototype.getActive = function (def) {
-    return this.getProperty('active', def);
-};
-
-NetLicensing.Licensee.prototype.setName = function (name) {
-    return this.setProperty('name', name);
-};
-
-NetLicensing.Licensee.prototype.getName = function (def) {
-    return this.getProperty('name', def);
-};
-
-NetLicensing.Licensee.prototype.setLicenseeSecret = function (licenseeSecret) {
-    return this.setProperty('licenseeSecret', licenseeSecret);
-};
-
-NetLicensing.Licensee.prototype.getLicenseeSecret = function (def) {
-    return this.getProperty('licenseeSecret', def);
-};
-
-NetLicensing.Licensee.prototype.setMarkedForTransfer = function (markedForTransfer) {
-    return this.setProperty('markedForTransfer', markedForTransfer);
-};
-
-NetLicensing.Licensee.prototype.getMarkedForTransfer = function (def) {
-    return this.getProperty('markedForTransfer', def);
-};
-
-NetLicensing.Licensee.prototype.getInUse = function (def) {
-    return this.getProperty('inUse', def);
-};
-
-//make methods not changeable
-NetLicensing.DefineUtil.notChangeable(NetLicensing.Licensee.prototype, ['constructor']);
-
-//make methods not enumerable
-NetLicensing.DefineUtil.notEnumerable(NetLicensing.Licensee.prototype, [
-    'setNumber',
-    'getNumber',
-    'setActive',
-    'getActive',
-    'setName',
-    'getName',
-    'setLicenseeSecret',
-    'getLicenseeSecret',
-    'setMarkedForTransfer',
-    'getMarkedForTransfer',
-    'getInUse',
 ]);
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -1218,7 +1336,10 @@ NetLicensing.Product = function () {
     NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
-//static constants
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
 Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_DISABLED', {value: 'DISABLED'});
 Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_PREDEFINED', {value: 'PREDEFINED'});
 Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_CLIENT', {value: 'CLIENT'});
@@ -1490,13 +1611,18 @@ NetLicensing.ProductModule = function () {
     NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
-//static constants
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_SUBSCRIPTION', {value: 'Subscription'});
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_TRY_AND_BUY', {value: 'TryAndBuy'});
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_RENTAL', {value: 'Rental'});
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_FLOATING', {value: 'Floating'});
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_MULTI_FEATURE', {value: 'MultiFeature'});
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PAY_PER_USE', {value: 'PayPerUse'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PRICING_PLANS', {value: 'PricingPlans'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_QUOTA', {value: 'Quota'});
 
 
 NetLicensing.ProductModule.prototype = Object.create(NetLicensing.BaseEntity.prototype);
@@ -1658,7 +1784,10 @@ NetLicensing.Token = function () {
     NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
-//static constants
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
 Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_DEFAULT', {value: 'DEFAULT'});
 Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_SHOP', {value: 'SHOP'});
 Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_APIKEY', {value: 'APIKEY'});
@@ -1846,7 +1975,10 @@ NetLicensing.Transaction = function Transaction() {
     NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
-//static constants
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
 Object.defineProperty(NetLicensing.Transaction, 'STATUS_CANCELLED', {value: 'CANCELLED'});
 Object.defineProperty(NetLicensing.Transaction, 'STATUS_CLOSED', {value: 'CLOSED'});
 Object.defineProperty(NetLicensing.Transaction, 'STATUS_PENDING', {value: 'PENDING'});
@@ -2019,7 +2151,7 @@ NetLicensing.Context = function (values) {
      */
     var __defaults = {
         baseUrl: 'https://go.netlicensing.io/core/v2/rest',
-        securityMode: NetLicensing.Context.BASIC_AUTHENTICATION
+        securityMode: NetLicensing.Constants.BASIC_AUTHENTICATION
     };
 
     /**
@@ -2129,6 +2261,7 @@ NetLicensing.Context = function (values) {
      * @protected
      */
     this.__define = function (key, onlyGetter) {
+        var self = this;
         if (this.__hasDefine(key)) return;
 
         //delete property
@@ -2204,7 +2337,10 @@ NetLicensing.Context = function (values) {
     this.setValues(Object.assign({}, __defaults, values));
 };
 
-//Security mode static constants
+/**
+ * Security mode static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
 Object.defineProperty(NetLicensing.Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
 Object.defineProperty(NetLicensing.Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
 
@@ -2689,357 +2825,6 @@ NetLicensing.ValidationResults.prototype.toString = function () {
 var NetLicensing  = NetLicensing  || {};
 
 /**
- * JS representation of the License Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services
- *
- * @constructor
- */
-NetLicensing.LicenseService = function () {
-};
-
-//static constants
-Object.defineProperty(NetLicensing.LicenseService, 'ENDPOINT_PATH', {value: 'license'});
-
-/**
- * Creates new license object with given properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Createlicense
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * parent licensee to which the new license is to be added
- * @param licenseeNumber string
- *
- *  license template that the license is created from
- * @param licenseTemplateNumber string
- *
- * For privileged logins specifies transaction for the license creation. For regular logins new
- * transaction always created implicitly, and the operation will be in a separate transaction.
- * Transaction is generated with the provided transactionNumber, or, if transactionNumber is null, with
- * auto-generated number.
- * @param transactionNumber null|string
- *
- * non-null properties will be taken for the new object, null properties will either stay null, or will
- * be set to a default value, depending on property.
- * @param license NetLicensing.License
- *
- * return the newly created license object in promise
- * @returns {Promise}
- */
-NetLicensing.LicenseService.create = function (context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-    if (!(license instanceof NetLicensing.License)) throw new TypeError('license must be an instance of NetLicensing.License');
-
-    NetLicensing.CheckUtils.paramNotEmpty(licenseeNumber, 'licenseeNumber');
-    NetLicensing.CheckUtils.paramNotEmpty(licenseTemplateNumber, 'licenseTemplateNumber');
-
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
-
-    license.setProperty('licenseeNumber', licenseeNumber);
-    license.setProperty('licenseTemplateNumber', licenseTemplateNumber);
-
-    if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
-
-    return NetLicensing.Service
-        .getInstance()
-        .post(context, NetLicensing.LicenseService.ENDPOINT_PATH, license.asPropertiesMap(), NetLicensing.License);
-};
-
-/**
- * Gets license by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Getlicense
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * the license number
- * @param number string
- *
- * return the license in promise
- * @returns {Promise}
- */
-NetLicensing.LicenseService.get = function (context, number) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-
-    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
-
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
-
-    return NetLicensing.Service
-        .getInstance()
-        .get(context, NetLicensing.LicenseService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.License)
-};
-
-/**
- * Returns licenses of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Licenseslist
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * reserved for the future use, must be omitted / set to NULL
- * @param filter string|null
- *
- * return array of licenses (of all products) or empty array if nothing found in promise.
- * @returns {Promise}
- */
-NetLicensing.LicenseService.list = function (context, filter) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
-
-    var queryParams = {};
-
-    if (filter) {
-        if (!NetLicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
-        queryParams.filter = filter;
-    }
-
-    return NetLicensing.Service
-        .getInstance()
-        .list(context, NetLicensing.LicenseService.ENDPOINT_PATH, queryParams, NetLicensing.License);
-};
-
-/**
- * Updates license properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Updatelicense
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * license number
- * @param number string
- *
- * transaction for the license update. Created implicitly if transactionNumber is null. In this case the
- * operation will be in a separate transaction.
- * @param transactionNumber string|null
- *
- * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param license NetLicensing.License
- *
- * return updated license in promise.
- * @returns {Promise}
- */
-NetLicensing.LicenseService.update = function (context, number, transactionNumber, license) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-    if (!(license instanceof NetLicensing.License)) throw new TypeError('license must be an instance of NetLicensing.License');
-
-    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
-
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
-
-    if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
-
-    return NetLicensing.Service
-        .getInstance()
-        .post(context, NetLicensing.LicenseService.ENDPOINT_PATH + '/' + number, license.asPropertiesMap(), NetLicensing.License);
-};
-
-/**
- * Deletes license.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Deletelicense
- *
- * When any license is deleted, corresponding transaction is created automatically.
- *
- *  determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * license number
- * @param number string
- *
- * if true, any entities that depend on the one being deleted will be deleted too
- * @param forceCascade boolean
- *
- * return boolean state of delete in promise
- * @returns {Promise}
- */
-NetLicensing.LicenseService.delete = function (context, number, forceCascade) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-
-    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
-
-    var queryParams = {forceCascade: Boolean(forceCascade)};
-
-    return NetLicensing.Service
-        .getInstance()
-        .delete(context, NetLicensing.LicenseService.ENDPOINT_PATH + '/' + number, queryParams);
-};
-/**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      http://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
-
-//namespace
-var NetLicensing  = NetLicensing  || {};
-
-/**
- * JS representation of the ProductModule Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services
- *
- * @constructor
- */
-NetLicensing.LicenseTemplateService = function () {
-};
-
-//static constants
-Object.defineProperty(NetLicensing.LicenseTemplateService, 'ENDPOINT_PATH', {value: 'licensetemplate'});
-
-/**
- * Creates new license template object with given properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Createlicensetemplate
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * parent product module to which the new license template is to be added
- * @param productModuleNumber
- *
- * non-null properties will be taken for the new object, null properties will either stay null, or will
- * be set to a default value, depending on property.
- * @param licenseTemplate NetLicensing.LicenseTemplate
- *
- * the newly created license template object in promise
- * @returns {Promise}
- */
-NetLicensing.LicenseTemplateService.create = function (context, productModuleNumber, licenseTemplate) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-    if (!(licenseTemplate instanceof NetLicensing.LicenseTemplate)) throw new TypeError('licenseTemplate must be an instance of NetLicensing.LicenseTemplate');
-
-    NetLicensing.CheckUtils.paramNotEmpty(productModuleNumber, 'productModuleNumber');
-
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
-
-    licenseTemplate.setProperty('productModuleNumber', productModuleNumber);
-
-    return NetLicensing.Service
-        .getInstance()
-        .post(context, NetLicensing.LicenseTemplateService.ENDPOINT_PATH, licenseTemplate.asPropertiesMap(), NetLicensing.LicenseTemplate);
-};
-
-/**
- * Gets license template by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Getlicensetemplate
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * the license template number
- * @param number string
- *
- * return the license template object in promise
- * @returns {Promise}
- */
-NetLicensing.LicenseTemplateService.get = function (context, number) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-
-    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
-
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
-
-    return NetLicensing.Service
-        .getInstance()
-        .get(context, NetLicensing.LicenseTemplateService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.LicenseTemplate);
-};
-
-/**
- * Returns all license templates of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Licensetemplateslist
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * reserved for the future use, must be omitted / set to NULL
- * @param filter string|null
- *
- * array of license templates (of all products/modules) or null/empty list if nothing found in promise.
- * @returns {Promise}
- */
-NetLicensing.LicenseTemplateService.list = function (context, filter) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
-
-    var queryParams = {};
-
-    if (filter) {
-        if (!NetLicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
-        queryParams.filter = filter;
-    }
-
-    return NetLicensing.Service
-        .getInstance()
-        .list(context, NetLicensing.LicenseTemplateService.ENDPOINT_PATH, queryParams, NetLicensing.LicenseTemplate);
-};
-
-/**
- * Updates license template properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Updatelicensetemplate
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * license template number
- * @param number string
- *
- * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param licenseTemplate NetLicensing.LicenseTemplate
- *
- * updated license template in promise.
- * @returns {Promise}
- */
-NetLicensing.LicenseTemplateService.update = function (context, number, licenseTemplate) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-    if (!(licenseTemplate instanceof NetLicensing.LicenseTemplate)) throw new TypeError('licenseTemplate must be an instance of NetLicensing.LicenseTemplate');
-
-    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
-
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
-
-    return NetLicensing.Service
-        .getInstance()
-        .post(context, NetLicensing.LicenseTemplateService.ENDPOINT_PATH + '/' + number, licenseTemplate.asPropertiesMap(), NetLicensing.LicenseTemplate);
-};
-
-/**
- * Deletes license template.See NetLicensingAPI JavaDoc for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Deletelicensetemplate
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * license template number
- * @param number string
- *
- * if true, any entities that depend on the one being deleted will be deleted too
- * @param forceCascade boolean
- *
- * return boolean state of delete in promise
- * @returns {Promise}
- */
-NetLicensing.LicenseTemplateService.delete = function (context, number, forceCascade) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-
-    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
-
-    var queryParams = {forceCascade: Boolean(forceCascade)};
-
-    return NetLicensing.Service
-        .getInstance()
-        .delete(context, NetLicensing.LicenseTemplateService.ENDPOINT_PATH + '/' + number, queryParams);
-};
-/**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      http://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
-
-//namespace
-var NetLicensing  = NetLicensing  || {};
-
-/**
  * JS representation of the Licensee Service. See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Licensee+Services
  *
@@ -3050,7 +2835,10 @@ NetLicensing.LicenseeService = function () {
 
 };
 
-//static constants
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
 Object.defineProperties(NetLicensing.LicenseeService, {
     'ENDPOINT_PATH': {value: 'licensee'},
     'ENDPOINT_PATH_VALIDATE': {value: 'validate'},
@@ -3080,13 +2868,13 @@ NetLicensing.LicenseeService.create = function (context, productNumber, licensee
 
     NetLicensing.CheckUtils.paramNotEmpty(productNumber, 'productNumber');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     licensee.setProperty('productNumber', productNumber);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.LicenseeService.ENDPOINT_PATH, licensee.asPropertiesMap(), NetLicensing.Licensee);
+        .post(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH, licensee.asPropertiesMap(), NetLicensing.Licensee);
 };
 
 /**
@@ -3109,7 +2897,7 @@ NetLicensing.LicenseeService.get = function (context, number) {
 
     return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing.LicenseeService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Licensee);
+        .get(context,  NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Licensee);
 };
 
 /**
@@ -3137,7 +2925,7 @@ NetLicensing.LicenseeService.list = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.LicenseeService.ENDPOINT_PATH, queryParams, NetLicensing.Licensee);
+        .list(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH, queryParams, NetLicensing.Licensee);
 };
 
 /**
@@ -3164,7 +2952,7 @@ NetLicensing.LicenseeService.update = function (context, number, licensee) {
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.LicenseeService.ENDPOINT_PATH + '/' + number, licensee.asPropertiesMap(), NetLicensing.Licensee);
+        .post(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, licensee.asPropertiesMap(), NetLicensing.Licensee);
 };
 
 /**
@@ -3192,7 +2980,7 @@ NetLicensing.LicenseeService.delete = function (context, number, forceCascade) {
 
     return NetLicensing.Service
         .getInstance()
-        .delete(context, NetLicensing.LicenseeService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context,NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number, queryParams);
 };
 
 /**
@@ -3247,7 +3035,7 @@ NetLicensing.LicenseeService.validate = function (context, number, validationPar
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.LicenseeService.ENDPOINT_PATH + '/' + number + '/' + NetLicensing.LicenseeService.ENDPOINT_PATH_VALIDATE, queryParams)
+        .post(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH+ '/' + number + '/' + NetLicensing.Constants.Licensee.ENDPOINT_PATH_VALIDATE, queryParams)
         .then(function (item) {
             var data = {};
             var validationResults = new NetLicensing.ValidationResults();
@@ -3298,7 +3086,364 @@ NetLicensing.LicenseeService.transfer = function (context, number, sourceLicense
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.LicenseeService.ENDPOINT_PATH + '/' + number + '/' + NetLicensing.LicenseeService.ENDPOINT_PATH_TRANSFER, queryParams);
+        .post(context, NetLicensing.Constants.Licensee.ENDPOINT_PATH + '/' + number + '/' + NetLicensing.Constants.Licensee.ENDPOINT_PATH_TRANSFER, queryParams);
+};
+/**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      http://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
+
+//namespace
+var NetLicensing = NetLicensing || {};
+
+/**
+ * JS representation of the License Service. See NetLicensingAPI for details:
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services
+ *
+ * @constructor
+ */
+NetLicensing.LicenseService = function () {
+};
+
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
+Object.defineProperty(NetLicensing .LicenseService, 'ENDPOINT_PATH', {value: 'license'});
+
+/**
+ * Creates new license object with given properties.See NetLicensingAPI for details:
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Createlicense
+ *
+ * determines the vendor on whose behalf the call is performed
+ * @param context NetLicensing.Context
+ *
+ * parent licensee to which the new license is to be added
+ * @param licenseeNumber string
+ *
+ *  license template that the license is created from
+ * @param licenseTemplateNumber string
+ *
+ * For privileged logins specifies transaction for the license creation. For regular logins new
+ * transaction always created implicitly, and the operation will be in a separate transaction.
+ * Transaction is generated with the provided transactionNumber, or, if transactionNumber is null, with
+ * auto-generated number.
+ * @param transactionNumber null|string
+ *
+ * non-null properties will be taken for the new object, null properties will either stay null, or will
+ * be set to a default value, depending on property.
+ * @param license NetLicensing.License
+ *
+ * return the newly created license object in promise
+ * @returns {Promise}
+ */
+NetLicensing.LicenseService.create = function (context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+    if (!(license instanceof NetLicensing.License)) throw new TypeError('license must be an instance of NetLicensing.License');
+
+    NetLicensing.CheckUtils.paramNotEmpty(licenseeNumber, 'licenseeNumber');
+    NetLicensing.CheckUtils.paramNotEmpty(licenseTemplateNumber, 'licenseTemplateNumber');
+
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
+
+    license.setProperty('licenseeNumber', licenseeNumber);
+    license.setProperty('licenseTemplateNumber', licenseTemplateNumber);
+
+    if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
+
+    return NetLicensing.Service
+        .getInstance()
+        .post(context, NetLicensing.Constants.License.ENDPOINT_PATH, license.asPropertiesMap(), NetLicensing.License);
+};
+
+/**
+ * Gets license by its number.See NetLicensingAPI for details:
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Getlicense
+ *
+ * determines the vendor on whose behalf the call is performed
+ * @param context NetLicensing.Context
+ *
+ * the license number
+ * @param number string
+ *
+ * return the license in promise
+ * @returns {Promise}
+ */
+NetLicensing.LicenseService.get = function (context, number) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+
+    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
+
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
+
+    return NetLicensing.Service
+        .getInstance()
+        .get(context, NetLicensing.Constants.License.ENDPOINT_PATH + '/' + number, {}, NetLicensing.License)
+};
+
+/**
+ * Returns licenses of a vendor.See NetLicensingAPI for details:
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Licenseslist
+ *
+ * determines the vendor on whose behalf the call is performed
+ * @param context NetLicensing.Context
+ *
+ * reserved for the future use, must be omitted / set to NULL
+ * @param filter string|null
+ *
+ * return array of licenses (of all products) or empty array if nothing found in promise.
+ * @returns {Promise}
+ */
+NetLicensing.LicenseService.list = function (context, filter) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
+
+    var queryParams = {};
+
+    if (filter) {
+        if (!NetLicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        queryParams.filter = filter;
+    }
+
+    return NetLicensing.Service
+        .getInstance()
+        .list(context, NetLicensing.Constants.License.ENDPOINT_PATH, queryParams, NetLicensing.License);
+};
+
+/**
+ * Updates license properties.See NetLicensingAPI for details:
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Updatelicense
+ *
+ * determines the vendor on whose behalf the call is performed
+ * @param context NetLicensing.Context
+ *
+ * license number
+ * @param number string
+ *
+ * transaction for the license update. Created implicitly if transactionNumber is null. In this case the
+ * operation will be in a separate transaction.
+ * @param transactionNumber string|null
+ *
+ * non-null properties will be updated to the provided values, null properties will stay unchanged.
+ * @param license NetLicensing.License
+ *
+ * return updated license in promise.
+ * @returns {Promise}
+ */
+NetLicensing.LicenseService.update = function (context, number, transactionNumber, license) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+    if (!(license instanceof NetLicensing.License)) throw new TypeError('license must be an instance of NetLicensing.License');
+
+    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
+
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
+
+    if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
+
+    return NetLicensing.Service
+        .getInstance()
+        .post(context, NetLicensing.Constants.License.ENDPOINT_PATH + '/' + number, license.asPropertiesMap(), NetLicensing.License);
+};
+
+/**
+ * Deletes license.See NetLicensingAPI for details:
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Services#LicenseServices-Deletelicense
+ *
+ * When any license is deleted, corresponding transaction is created automatically.
+ *
+ *  determines the vendor on whose behalf the call is performed
+ * @param context NetLicensing.Context
+ *
+ * license number
+ * @param number string
+ *
+ * if true, any entities that depend on the one being deleted will be deleted too
+ * @param forceCascade boolean
+ *
+ * return boolean state of delete in promise
+ * @returns {Promise}
+ */
+NetLicensing.LicenseService.delete = function (context, number, forceCascade) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+
+    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
+
+    var queryParams = {forceCascade: Boolean(forceCascade)};
+
+    return NetLicensing.Service
+        .getInstance()
+        .delete(context, NetLicensing.Constants.License.ENDPOINT_PATH + '/' + number, queryParams);
+};
+/**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      http://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
+
+//namespace
+var NetLicensing  = NetLicensing  || {};
+
+/**
+ * JS representation of the ProductModule Service. See NetLicensingAPI for details:
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services
+ *
+ * @constructor
+ */
+NetLicensing.LicenseTemplateService = function () {
+};
+
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
+Object.defineProperty(NetLicensing .LicenseTemplateService, 'ENDPOINT_PATH', {value: 'licensetemplate'});
+
+/**
+ * Creates new license template object with given properties.See NetLicensingAPI for details:
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Createlicensetemplate
+ *
+ * determines the vendor on whose behalf the call is performed
+ * @param context NetLicensing.Context
+ *
+ * parent product module to which the new license template is to be added
+ * @param productModuleNumber
+ *
+ * non-null properties will be taken for the new object, null properties will either stay null, or will
+ * be set to a default value, depending on property.
+ * @param licenseTemplate NetLicensing.LicenseTemplate
+ *
+ * the newly created license template object in promise
+ * @returns {Promise}
+ */
+NetLicensing.LicenseTemplateService.create = function (context, productModuleNumber, licenseTemplate) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+    if (!(licenseTemplate instanceof NetLicensing.LicenseTemplate)) throw new TypeError('licenseTemplate must be an instance of NetLicensing.LicenseTemplate');
+
+    NetLicensing.CheckUtils.paramNotEmpty(productModuleNumber, 'productModuleNumber');
+
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
+
+    licenseTemplate.setProperty('productModuleNumber', productModuleNumber);
+
+    return NetLicensing.Service
+        .getInstance()
+        .post(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH, licenseTemplate.asPropertiesMap(), NetLicensing.LicenseTemplate);
+};
+
+/**
+ * Gets license template by its number.See NetLicensingAPI for details:
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Getlicensetemplate
+ *
+ * determines the vendor on whose behalf the call is performed
+ * @param context NetLicensing.Context
+ *
+ * the license template number
+ * @param number string
+ *
+ * return the license template object in promise
+ * @returns {Promise}
+ */
+NetLicensing.LicenseTemplateService.get = function (context, number) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+
+    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
+
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
+
+    return NetLicensing.Service
+        .getInstance()
+        .get(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH + '/' + number, {}, NetLicensing.LicenseTemplate);
+};
+
+/**
+ * Returns all license templates of a vendor.See NetLicensingAPI for details:
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Licensetemplateslist
+ *
+ * determines the vendor on whose behalf the call is performed
+ * @param context NetLicensing.Context
+ *
+ * reserved for the future use, must be omitted / set to NULL
+ * @param filter string|null
+ *
+ * array of license templates (of all products/modules) or null/empty list if nothing found in promise.
+ * @returns {Promise}
+ */
+NetLicensing.LicenseTemplateService.list = function (context, filter) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
+
+    var queryParams = {};
+
+    if (filter) {
+        if (!NetLicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
+        queryParams.filter = filter;
+    }
+
+    return NetLicensing.Service
+        .getInstance()
+        .list(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH, queryParams, NetLicensing.LicenseTemplate);
+};
+
+/**
+ * Updates license template properties.See NetLicensingAPI for details:
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Updatelicensetemplate
+ *
+ * determines the vendor on whose behalf the call is performed
+ * @param context NetLicensing.Context
+ *
+ * license template number
+ * @param number string
+ *
+ * non-null properties will be updated to the provided values, null properties will stay unchanged.
+ * @param licenseTemplate NetLicensing.LicenseTemplate
+ *
+ * updated license template in promise.
+ * @returns {Promise}
+ */
+NetLicensing.LicenseTemplateService.update = function (context, number, licenseTemplate) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+    if (!(licenseTemplate instanceof NetLicensing.LicenseTemplate)) throw new TypeError('licenseTemplate must be an instance of NetLicensing.LicenseTemplate');
+
+    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
+
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
+
+    return NetLicensing.Service
+        .getInstance()
+        .post(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH + '/' + number, licenseTemplate.asPropertiesMap(), NetLicensing.LicenseTemplate);
+};
+
+/**
+ * Deletes license template.See NetLicensingAPI JavaDoc for details:
+ * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Deletelicensetemplate
+ *
+ * determines the vendor on whose behalf the call is performed
+ * @param context NetLicensing.Context
+ *
+ * license template number
+ * @param number string
+ *
+ * if true, any entities that depend on the one being deleted will be deleted too
+ * @param forceCascade boolean
+ *
+ * return boolean state of delete in promise
+ * @returns {Promise}
+ */
+NetLicensing.LicenseTemplateService.delete = function (context, number, forceCascade) {
+    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+
+    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
+
+    var queryParams = {forceCascade: Boolean(forceCascade)};
+
+    return NetLicensing.Service
+        .getInstance()
+        .delete(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH + '/' + number, queryParams);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -3313,7 +3458,10 @@ var NetLicensing  = NetLicensing  || {};
 NetLicensing.PaymentMethodService = function () {
 };
 
-//static constants
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
 Object.defineProperty(NetLicensing.PaymentMethodService, 'ENDPOINT_PATH', {value: 'paymentmethod'});
 
 /**
@@ -3334,11 +3482,11 @@ NetLicensing.PaymentMethodService.get = function (context, number) {
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing.PaymentMethodService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.PaymentMethod);
+        .get(context, NetLicensing.Constants.PaymentMethod.ENDPOINT_PATH + '/' + number, {}, NetLicensing.PaymentMethod);
 };
 
 
@@ -3358,7 +3506,7 @@ NetLicensing.PaymentMethodService.get = function (context, number) {
 NetLicensing.PaymentMethodService.list = function (context, filter) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
@@ -3369,7 +3517,7 @@ NetLicensing.PaymentMethodService.list = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.PaymentMethodService.ENDPOINT_PATH, queryParams, NetLicensing.PaymentMethod);
+        .list(context, NetLicensing.Constants.PaymentMethod.ENDPOINT_PATH, queryParams, NetLicensing.PaymentMethod);
 };
 
 /**
@@ -3394,11 +3542,11 @@ NetLicensing.PaymentMethodService.update = function (context, number, paymentMet
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.PaymentMethodService.ENDPOINT_PATH + '/' + number, paymentMethod.asPropertiesMap(), NetLicensing.PaymentMethod);
+        .post(context, NetLicensing.Constants.PaymentMethod.ENDPOINT_PATH + '/' + number, paymentMethod.asPropertiesMap(), NetLicensing.PaymentMethod);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -3408,7 +3556,7 @@ NetLicensing.PaymentMethodService.update = function (context, number, paymentMet
  */
 
 //namespace
-var NetLicensing  = NetLicensing  || {};
+var NetLicensing = NetLicensing || {};
 
 /**
  * JS representation of the ProductModule Service. See NetLicensingAPI for details:
@@ -3418,11 +3566,13 @@ var NetLicensing  = NetLicensing  || {};
  */
 
 NetLicensing.ProductModuleService = function () {
-
 };
 
-//static constants
-Object.defineProperty(NetLicensing.ProductModuleService, 'ENDPOINT_PATH', {value: 'productmodule'});
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
+Object.defineProperty(NetLicensing .ProductModuleService, 'ENDPOINT_PATH', {value: 'productmodule'});
 
 /**
  * Creates new product module object with given properties.See NetLicensingAPI for details:
@@ -3447,13 +3597,13 @@ NetLicensing.ProductModuleService.create = function (context, productNumber, pro
 
     NetLicensing.CheckUtils.paramNotEmpty(productNumber, 'productNumber');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     productModule.setProperty('productNumber', productNumber);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.ProductModuleService.ENDPOINT_PATH, productModule.asPropertiesMap(), NetLicensing.ProductModule);
+        .post(context, NetLicensing.Constants.ProductModule.ENDPOINT_PATH, productModule.asPropertiesMap(), NetLicensing.ProductModule);
 };
 
 /**
@@ -3474,11 +3624,11 @@ NetLicensing.ProductModuleService.get = function (context, number) {
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing.ProductModuleService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.ProductModule);
+        .get(context, NetLicensing.Constants.ProductModule.ENDPOINT_PATH + '/' + number, {}, NetLicensing.ProductModule);
 };
 
 /**
@@ -3497,7 +3647,7 @@ NetLicensing.ProductModuleService.get = function (context, number) {
 NetLicensing.ProductModuleService.list = function (context, filter) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
@@ -3508,7 +3658,7 @@ NetLicensing.ProductModuleService.list = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.ProductModuleService.ENDPOINT_PATH, queryParams, NetLicensing.ProductModule);
+        .list(context, NetLicensing.Constants.ProductModule.ENDPOINT_PATH, queryParams, NetLicensing.ProductModule);
 };
 
 /**
@@ -3533,11 +3683,11 @@ NetLicensing.ProductModuleService.update = function (context, number, productMod
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.ProductModuleService.ENDPOINT_PATH + '/' + number, productModule.asPropertiesMap(), NetLicensing.ProductModule);
+        .post(context, NetLicensing.Constants.ProductModule.ENDPOINT_PATH + '/' + number, productModule.asPropertiesMap(), NetLicensing.ProductModule);
 };
 
 /**
@@ -3565,7 +3715,7 @@ NetLicensing.ProductModuleService.delete = function (context, number, forceCasca
 
     return NetLicensing.Service
         .getInstance()
-        .delete(context, NetLicensing.ProductModuleService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, NetLicensing.Constants.ProductModule.ENDPOINT_PATH + '/' + number, queryParams);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -3587,8 +3737,11 @@ var NetLicensing  = NetLicensing  || {};
 NetLicensing.ProductService = function () {
 };
 
-//static constants
-Object.defineProperty(NetLicensing.ProductService, 'ENDPOINT_PATH', {value: 'product'});
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
+Object.defineProperty(NetLicensing .ProductService, 'ENDPOINT_PATH', {value: 'product'});
 
 /**
  * Creates new product with given properties.See NetLicensingAPI for details:
@@ -3609,11 +3762,11 @@ NetLicensing.ProductService.create = function (context, product) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
     if (!(product instanceof NetLicensing.Product)) throw new TypeError('product must be an instance of NetLicensing.Product');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.ProductService.ENDPOINT_PATH, product.asPropertiesMap(), NetLicensing.Product);
+        .post(context, NetLicensing.Constants.Product.ENDPOINT_PATH, product.asPropertiesMap(), NetLicensing.Product);
 };
 
 /**
@@ -3634,11 +3787,11 @@ NetLicensing.ProductService.get = function (context, number) {
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing.ProductService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Product);
+        .get(context, NetLicensing.Constants.Product.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Product);
 };
 
 /**
@@ -3657,7 +3810,7 @@ NetLicensing.ProductService.get = function (context, number) {
 NetLicensing.ProductService.list = function (context, filter) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
@@ -3668,7 +3821,7 @@ NetLicensing.ProductService.list = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.ProductService.ENDPOINT_PATH, queryParams, NetLicensing.Product);
+        .list(context, NetLicensing.Constants.Product.ENDPOINT_PATH, queryParams, NetLicensing.Product);
 };
 
 /**
@@ -3693,11 +3846,11 @@ NetLicensing.ProductService.update = function (context, number, product) {
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.ProductService.ENDPOINT_PATH + '/' + number, product.asPropertiesMap(), NetLicensing.Product);
+        .post(context, NetLicensing.Constants.Product.ENDPOINT_PATH + '/' + number, product.asPropertiesMap(), NetLicensing.Product);
 };
 
 /**
@@ -3725,7 +3878,7 @@ NetLicensing.ProductService.delete = function (context, number, forceCascade) {
 
     return NetLicensing.Service
         .getInstance()
-        .delete(context, NetLicensing.ProductService.ENDPOINT_PATH + '/' + number, queryParams);
+        .delete(context, NetLicensing.Constants.Product.ENDPOINT_PATH + '/' + number, queryParams);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -3930,13 +4083,13 @@ NetLicensing.Service = (function () {
             var headers = {Accept: 'application/json'};
 
             switch (context.getSecurityMode()) {
-                case NetLicensing.Context.BASIC_AUTHENTICATION:
+                case NetLicensing.Constants.BASIC_AUTHENTICATION:
                     if (!context.getUsername()) throw new Error('Missing parameter "username"');
                     if (!context.getPassword()) throw new Error('Missing parameter "password"');
 
                     headers['Authorization'] = 'Basic ' + base64Encode(context.getUsername() + ':' + context.getPassword());
                     break;
-                case NetLicensing.Context.APIKEY_IDENTIFICATION:
+                case NetLicensing.Constants.APIKEY_IDENTIFICATION:
                     if (!context.getApiKey()) throw new Error('Missing parameter "apiKey"');
 
                     headers['Authorization'] = 'Basic ' + base64Encode('apiKey:' + context.getApiKey());
@@ -4078,7 +4231,7 @@ NetLicensing.Service = (function () {
  */
 
 //namespace
-var NetLicensing  = NetLicensing  || {};
+var NetLicensing = NetLicensing || {};
 
 /**
  * JS representation of the Token Service. See NetLicensingAPI for details:
@@ -4089,7 +4242,10 @@ var NetLicensing  = NetLicensing  || {};
 NetLicensing.TokenService = function () {
 };
 
-//static constants
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
 Object.defineProperty(NetLicensing.TokenService, 'ENDPOINT_PATH', {value: 'token'});
 
 /**
@@ -4111,7 +4267,7 @@ NetLicensing.TokenService.create = function (context, token) {
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.TokenService.ENDPOINT_PATH, token.asPropertiesMap(), NetLicensing.Token);
+        .post(context, NetLicensing.Constants.Token.ENDPOINT_PATH, token.asPropertiesMap(), NetLicensing.Token);
 };
 
 /**
@@ -4134,7 +4290,7 @@ NetLicensing.TokenService.get = function (context, number) {
 
     return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing.TokenService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Token);
+        .get(context, NetLicensing.Constants.Token.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Token);
 };
 
 /**
@@ -4162,7 +4318,7 @@ NetLicensing.TokenService.list = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.TokenService.ENDPOINT_PATH, queryParams, NetLicensing.Token);
+        .list(context, NetLicensing.Constants.Token.ENDPOINT_PATH, queryParams, NetLicensing.Token);
 };
 
 /**
@@ -4185,7 +4341,7 @@ NetLicensing.TokenService.delete = function (context, number) {
 
     return NetLicensing.Service
         .getInstance()
-        .delete(context, NetLicensing.TokenService.ENDPOINT_PATH + '/' + number);
+        .delete(context, NetLicensing.Constants.Token.ENDPOINT_PATH + '/' + number);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -4195,7 +4351,7 @@ NetLicensing.TokenService.delete = function (context, number) {
  */
 
 //namespace
-var NetLicensing  = NetLicensing  || {};
+var NetLicensing = NetLicensing || {};
 
 /**
  * JS representation of the Transaction Service. See NetLicensingAPI for details:
@@ -4215,8 +4371,11 @@ var NetLicensing  = NetLicensing  || {};
 NetLicensing.TransactionService = function () {
 };
 
-//static constants
-Object.defineProperty(NetLicensing.TransactionService, 'ENDPOINT_PATH', {value: 'transaction'});
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
+Object.defineProperty(NetLicensing .TransactionService, 'ENDPOINT_PATH', {value: 'transaction'});
 
 /**
  * Creates new transaction object with given properties.See NetLicensingAPI for details:
@@ -4236,11 +4395,11 @@ NetLicensing.TransactionService.create = function (context, transaction) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
     if (!(transaction instanceof NetLicensing.Transaction)) throw new TypeError('transaction must be an instance of NetLicensing.Transaction');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.TransactionService.ENDPOINT_PATH, transaction.asPropertiesMap(), NetLicensing.Transaction);
+        .post(context, NetLicensing.Constants.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap(), NetLicensing.Transaction);
 };
 
 /**
@@ -4261,11 +4420,11 @@ NetLicensing.TransactionService.get = function (context, number) {
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .get(context, NetLicensing.TransactionService.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Transaction);
+        .get(context, NetLicensing.Constants.Transaction.ENDPOINT_PATH + '/' + number, {}, NetLicensing.Transaction);
 };
 
 /**
@@ -4284,7 +4443,7 @@ NetLicensing.TransactionService.get = function (context, number) {
 NetLicensing.TransactionService.list = function (context, filter) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
@@ -4295,7 +4454,7 @@ NetLicensing.TransactionService.list = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.TransactionService.ENDPOINT_PATH, queryParams, NetLicensing.Transaction);
+        .list(context, NetLicensing.Constants.Transaction.ENDPOINT_PATH, queryParams, NetLicensing.Transaction);
 };
 
 /**
@@ -4320,11 +4479,11 @@ NetLicensing.TransactionService.update = function (context, number, transaction)
 
     NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .post(context, NetLicensing.TransactionService.ENDPOINT_PATH + '/' + number, transaction.asPropertiesMap(), NetLicensing.Transaction);
+        .post(context, NetLicensing.Constants.Transaction.ENDPOINT_PATH + '/' + number, transaction.asPropertiesMap(), NetLicensing.Transaction);
 };
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -4344,8 +4503,11 @@ var NetLicensing  = NetLicensing  || {};
 NetLicensing.UtilityService = function () {
 };
 
-//static constants
-Object.defineProperty(NetLicensing.UtilityService, 'ENDPOINT_PATH', {value: 'utility'});
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
+Object.defineProperty(NetLicensing .UtilityService, 'ENDPOINT_PATH', {value: 'utility'});
 
 /**
  * Returns all license types. See NetLicensingAPI for details:
@@ -4360,11 +4522,11 @@ Object.defineProperty(NetLicensing.UtilityService, 'ENDPOINT_PATH', {value: 'uti
 NetLicensing.UtilityService.listLicenseTypes = function (context) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.UtilityService.ENDPOINT_PATH + '/licenseTypes')
+        .list(context, NetLicensing.Constants.Utility.ENDPOINT_PATH + '/licenseTypes')
         .then(function (items) {
             var length = items.length;
             var licenseTypes = [];
@@ -4390,11 +4552,11 @@ NetLicensing.UtilityService.listLicenseTypes = function (context) {
 NetLicensing.UtilityService.listLicensingModels = function (context) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.UtilityService.ENDPOINT_PATH + '/licensingModels')
+        .list(context, NetLicensing.Constants.Utility.ENDPOINT_PATH + '/licensingModels')
         .then(function (items) {
             var length = items.length;
             var licensingModels = [];
@@ -4422,7 +4584,7 @@ NetLicensing.UtilityService.listLicensingModels = function (context) {
 NetLicensing.UtilityService.listCountries = function (context, filter) {
     if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
 
-    context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
 
     var queryParams = {};
 
@@ -4433,7 +4595,7 @@ NetLicensing.UtilityService.listCountries = function (context, filter) {
 
     return NetLicensing.Service
         .getInstance()
-        .list(context, NetLicensing.UtilityService.ENDPOINT_PATH + '/countries', queryParams, NetLicensing.Country);
+        .list(context, NetLicensing.Constants.Utility.ENDPOINT_PATH + '/countries', queryParams, NetLicensing.Country);
 };
 if (typeof module !== 'undefined' && module.exports && NetLicensing) {
     module.exports = NetLicensing

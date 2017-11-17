@@ -18,6 +18,12 @@ NetLicensing.LicenseTemplateService = function () {
 };
 
 /**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
+Object.defineProperty(NetLicensing .LicenseTemplateService, 'ENDPOINT_PATH', {value: 'licensetemplate'});
+
+/**
  * Creates new license template object with given properties.See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Createlicensetemplate
  *

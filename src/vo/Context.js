@@ -238,6 +238,13 @@ NetLicensing.Context = function (values) {
     this.setValues(Object.assign({}, __defaults, values));
 };
 
+/**
+ * Security mode static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
+Object.defineProperty(NetLicensing.Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
+Object.defineProperty(NetLicensing.Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
+
 NetLicensing.Context.prototype.setBaseUrl = function (baseUrl) {
     return this.setValue('baseUrl', baseUrl);
 };

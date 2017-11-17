@@ -70,6 +70,20 @@ NetLicensing.ProductModule = function () {
     NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
 };
 
+/**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_SUBSCRIPTION', {value: 'Subscription'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_TRY_AND_BUY', {value: 'TryAndBuy'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_RENTAL', {value: 'Rental'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_FLOATING', {value: 'Floating'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_MULTI_FEATURE', {value: 'MultiFeature'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PAY_PER_USE', {value: 'PayPerUse'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PRICING_PLANS', {value: 'PricingPlans'});
+Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_QUOTA', {value: 'Quota'});
+
+
 NetLicensing.ProductModule.prototype = Object.create(NetLicensing.BaseEntity.prototype);
 NetLicensing.ProductModule.prototype.constructor = NetLicensing.ProductModule;
 

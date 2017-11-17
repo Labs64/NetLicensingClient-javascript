@@ -20,6 +20,16 @@ NetLicensing.LicenseeService = function () {
 };
 
 /**
+ * static constants
+ * @deprecated No longer used by internal code and not recommended.Use NetLicensing.Constants instead.
+ */
+Object.defineProperties(NetLicensing.LicenseeService, {
+    'ENDPOINT_PATH': {value: 'licensee'},
+    'ENDPOINT_PATH_VALIDATE': {value: 'validate'},
+    'ENDPOINT_PATH_TRANSFER': {value: 'transfer'},
+});
+
+/**
  * Creates new licensee object with given properties.See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Licensee+Services#LicenseeServices-Createlicensee
  *
