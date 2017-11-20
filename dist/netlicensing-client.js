@@ -1650,17 +1650,6 @@ Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_MULTI_FEATURE
  * Use NetLicensing.Constants.LicensingModel.PayPerUse.NAME instead.
  */
 Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PAY_PER_USE', {value: 'PayPerUse'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicensingModel.PricingTable.NAME instead.
- */
-Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PRICING_TABLE', {value: 'PricingTable'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicensingModel.Quota.NAME instead.
- */
-Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_QUOTA', {value: 'Quota'});
-
 
 NetLicensing.ProductModule.prototype = Object.create(NetLicensing.BaseEntity.prototype);
 NetLicensing.ProductModule.prototype.constructor = NetLicensing.ProductModule;
