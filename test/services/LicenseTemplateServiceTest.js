@@ -57,6 +57,7 @@ describe('services.LicenseTemplateServiceTest', () => {
     it('check "create" method', () => {
         LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate)
             .then((entity) => {
+                expect(entity instanceof LicenseTemplate).toBe(true);
                 expect(entity.getProperty('number')).toBe(licenseTemplate.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(licenseTemplate.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(licenseTemplate.getProperty('active'));
@@ -73,6 +74,7 @@ describe('services.LicenseTemplateServiceTest', () => {
         LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate)
             .then(() => LicenseTemplateService.get(context, licenseTemplate.getProperty('number')))
             .then((entity) => {
+                expect(entity instanceof LicenseTemplate).toBe(true);
                 expect(entity.getProperty('number')).toBe(licenseTemplate.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(licenseTemplate.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(licenseTemplate.getProperty('active'));
@@ -91,6 +93,7 @@ describe('services.LicenseTemplateServiceTest', () => {
             .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
+                expect(entities[0] instanceof LicenseTemplate).toBe(true);
             });
     });
 
@@ -104,6 +107,7 @@ describe('services.LicenseTemplateServiceTest', () => {
                 return LicenseTemplateService.update(context, entity.getProperty('number'), licenseTemplate);
             })
             .then((entity) => {
+                expect(entity instanceof LicenseTemplate).toBe(true);
                 expect(entity.getProperty('name')).toBe(licenseTemplate.getProperty('name'));
                 expect(entity.getProperty('price')).toBe(licenseTemplate.getProperty('price'));
                 expect(entity.getProperty('my_custom_property'))

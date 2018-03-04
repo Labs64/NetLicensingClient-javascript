@@ -8,7 +8,7 @@ import LicenseeService from '../../src/services/LicenseeService';
 import TokenService from '../../src/services/TokenService';
 
 
-describe('services.TokenServiceTest', () => {
+describe('TokenServiceTest', () => {
     let context;
     let product;
     let licensee;
@@ -48,6 +48,7 @@ describe('services.TokenServiceTest', () => {
     it('check "create" method', () => {
         TokenService.create(context, token)
             .then((entity) => {
+                expect(entity instanceof Token).toBe(true);
                 expect(entity.getProperty('number')).toBeTruthy();
                 expect(entity.getProperty('tokenType')).toBe(token.getProperty('tokenType'));
                 expect(entity.getProperty('licenseeNumber')).toBe(token.getProperty('licenseeNumber'));
@@ -59,6 +60,8 @@ describe('services.TokenServiceTest', () => {
         TokenService.create(context, token)
             .then(entity => TokenService.get(context, entity.getProperty('number')))
             .then((entity) => {
+                expect(entity instanceof Token).toBe(true);
+
                 expect(entity.getProperty('number')).toBeTruthy();
                 expect(entity.getProperty('tokenType')).toBe(token.getProperty('tokenType'));
                 expect(entity.getProperty('licenseeNumber')).toBe(token.getProperty('licenseeNumber'));

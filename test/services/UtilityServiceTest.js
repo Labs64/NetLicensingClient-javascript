@@ -3,7 +3,7 @@ import Country from '../../src/entities/Country';
 import UtilityService from '../../src/services/UtilityService';
 
 
-describe('services.UtilityServiceTest', () => {
+describe('UtilityServiceTest', () => {
     let context;
 
     beforeAll(() => {
