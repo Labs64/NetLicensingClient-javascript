@@ -48,6 +48,7 @@ describe('services.TokenServiceTest', () => {
     it('check "create" method', () => {
         TokenService.create(context, token)
             .then((entity) => {
+                expect(entity.class).toBe(Token.class);
                 expect(entity.getProperty('number')).toBeTruthy();
                 expect(entity.getProperty('tokenType')).toBe(token.getProperty('tokenType'));
                 expect(entity.getProperty('licenseeNumber')).toBe(token.getProperty('licenseeNumber'));
