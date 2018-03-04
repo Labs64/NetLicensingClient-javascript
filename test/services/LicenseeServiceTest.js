@@ -14,7 +14,7 @@ import LicenseeService from '../../src/services/LicenseeService';
 import LicenseService from '../../src/services/LicenseService';
 
 
-describe('LicenseeServiceTest', () => {
+describe('services.LicenseeServiceTest', () => {
     let context;
     let product;
     let licensee;
@@ -49,7 +49,6 @@ describe('LicenseeServiceTest', () => {
     it('check "create" method', () => {
         LicenseeService.create(context, product.getProperty('number'), licensee)
             .then((entity) => {
-                expect(entity instanceof Licensee).toBe(true);
                 expect(entity.getProperty('number')).toBe(licensee.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(licensee.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(licensee.getProperty('active'));
@@ -61,7 +60,6 @@ describe('LicenseeServiceTest', () => {
         LicenseeService.create(context, product.getProperty('number'), licensee)
             .then(entity => LicenseeService.get(context, entity.getProperty('number')))
             .then((entity) => {
-                expect(entity instanceof Licensee).toBe(true);
                 expect(entity.getProperty('number')).toBe(licensee.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(licensee.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(licensee.getProperty('active'));
@@ -75,7 +73,6 @@ describe('LicenseeServiceTest', () => {
             .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
-                expect(entities[0] instanceof Licensee).toBe(true);
             });
     });
 
@@ -88,7 +85,6 @@ describe('LicenseeServiceTest', () => {
                 return LicenseeService.update(context, licensee.getProperty('number'), licensee);
             })
             .then((entity) => {
-                expect(entity instanceof Licensee).toBe(true);
                 expect(entity.getProperty('name')).toBe(licensee.getProperty('name'));
                 expect(entity.getProperty('my_custom_property')).toBe(licensee.getProperty('my_custom_property'));
             });

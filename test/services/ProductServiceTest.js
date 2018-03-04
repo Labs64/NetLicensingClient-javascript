@@ -43,7 +43,6 @@ describe('services.ProductServiceTest', () => {
     it('check "create" method', () => {
         ProductService.create(context, product)
             .then((entity) => {
-                expect(entity instanceof Product).toBe(true);
                 expect(entity.getProperty('number')).toBe(product.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(product.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(product.getProperty('active'));
@@ -59,7 +58,6 @@ describe('services.ProductServiceTest', () => {
         ProductService.create(context, product)
             .then(() => ProductService.get(context, product.getProperty('number')))
             .then((entity) => {
-                expect(entity instanceof Product).toBe(true);
                 expect(entity.getProperty('number')).toBe(product.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(product.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(product.getProperty('active'));
@@ -78,7 +76,6 @@ describe('services.ProductServiceTest', () => {
             .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
-                expect(entities[0] instanceof Product).toBe(true);
             });
     });
 
@@ -96,7 +93,6 @@ describe('services.ProductServiceTest', () => {
                 return ProductService.update(context, entity.getProperty('number'), entity);
             })
             .then((entity) => {
-                expect(entity instanceof Product).toBe(true);
                 expect(entity.getProperty('name')).toBe(product.getProperty('name'));
                 expect(entity.getProperty('my_custom_property')).toBe(product.getProperty('my_custom_property'));
                 expect(entity.getProductDiscounts().length).toBe(3);

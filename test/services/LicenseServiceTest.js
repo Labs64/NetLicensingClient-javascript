@@ -13,7 +13,7 @@ import LicenseeService from '../../src/services/LicenseeService';
 import LicenseService from '../../src/services/LicenseService';
 
 
-describe('LicenseServiceTest', () => {
+describe('services.LicenseServiceTest', () => {
     let context;
     let product;
     let productModule;
