@@ -1,33 +1,18 @@
 /* global __dirname, require, module */
-
-const webpack = require('webpack');
-
 const path = require('path');
-
 const pkg = require('./package.json');
-
-const { optimize: { UglifyJsPlugin } } = webpack;
 
 const { argv: { env } } = require('yargs');
 
 const libraryName = pkg.name;
 const namespace = 'NetLicensing';
 
-const plugins = [];
-
-let outputFile = `${libraryName}.js`;
-
-if (env === 'build') {
-    plugins.push(new UglifyJsPlugin({ minimize: true }));
-    outputFile = `${libraryName}.min.js`;
-}
-
 const config = {
     entry: `${__dirname}/src/netlicensing-client.js`,
     devtool: 'source-map',
     output: {
         path: `${__dirname}/dist`,
-        filename: outputFile,
+        filename: (env === 'build') ? `${libraryName}.min.js` : `${libraryName}.js`,
         library: namespace,
         libraryTarget: 'umd',
         umdNamedDefine: true,
@@ -50,7 +35,7 @@ const config = {
         modules: [path.resolve('./node_modules'), path.resolve('./src')],
         extensions: ['.json', '.js'],
     },
-    plugins,
+    plugins: [],
 };
 
 module.exports = config;

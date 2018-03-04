@@ -46,6 +46,7 @@ module.exports = function karmaConfig(config) {
         },
         webpack: {
             devtool: 'inline-source-map',
+            mode: 'development',
             module: {
                 rules: [
                     {
