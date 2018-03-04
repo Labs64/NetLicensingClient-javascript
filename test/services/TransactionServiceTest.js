@@ -4,7 +4,7 @@ import Transaction from '../../src/entities/Transaction';
 import TransactionService from '../../src/services/TransactionService';
 
 
-describe('TransactionServiceTest', () => {
+describe('services.TransactionServiceTest', () => {
     let context;
     let transaction;
 
@@ -22,8 +22,6 @@ describe('TransactionServiceTest', () => {
     it('check "create" method', () => {
         TransactionService.create(context, transaction)
             .then((entity) => {
-                expect(entity instanceof Transaction).toBe(true);
-
                 expect(entity.getProperty('number')).toBe(transaction.getProperty('number'));
                 expect(entity.getProperty('status')).toBe(transaction.getProperty('status'));
                 expect(entity.getProperty('source')).toBe(transaction.getProperty('source'));
@@ -34,7 +32,6 @@ describe('TransactionServiceTest', () => {
         TransactionService.create(context, transaction)
             .then(() => TransactionService.get(context, transaction.getProperty('number')))
             .then((entity) => {
-                expect(entity instanceof Transaction).toBe(true);
                 expect(entity.getProperty('number')).toBe(transaction.getProperty('number'));
                 expect(entity.getProperty('status')).toBe(transaction.getProperty('status'));
                 expect(entity.getProperty('source')).toBe(transaction.getProperty('source'));
@@ -55,11 +52,9 @@ describe('TransactionServiceTest', () => {
         TransactionService.create(context, transaction)
             .then((entity) => {
                 entity.setProperty('status', 'CLOSED');
-
                 return TransactionService.update(context, entity.getProperty('number'), transaction);
             })
             .then((entity) => {
-                expect(entity instanceof Transaction).toBe(true);
                 expect(entity.getProperty('status')).toBe(transaction.getProperty('status'));
             });
     });
