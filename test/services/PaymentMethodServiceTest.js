@@ -12,6 +12,7 @@ describe('services.PaymentMethodServiceTest', () => {
     it('check "get" method', () => {
         PaymentMethodService.get(context, 'PAYPAL')
             .then((entity) => {
+                expect(entity instanceof PaymentMethod.class).toBe(true);
                 expect(entity.getProperty('number')).toBe('PAYPAL');
             });
     });
@@ -21,6 +22,7 @@ describe('services.PaymentMethodServiceTest', () => {
             .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
+                expect(entities[0] instanceof PaymentMethod.class).toBe(true);
             });
     });
 });

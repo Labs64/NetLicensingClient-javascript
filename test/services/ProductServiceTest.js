@@ -5,15 +5,16 @@ import ProductDiscount from '../../src/entities/ProductDiscount';
 import ProductService from '../../src/services/ProductService';
 
 describe('services.ProductServiceTest', () => {
+    const products = [];
     let context;
-    let product;
+    let eachProduct;
 
     beforeAll(() => {
         context = new Context().setUsername('Demo').setPassword('demo');
     });
 
     beforeEach(() => {
-        product = new Product()
+        eachProduct = new Product()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', Faker.boolean())
@@ -23,24 +24,28 @@ describe('services.ProductServiceTest', () => {
             .setProperty('licenseeAutoCreate', Faker.boolean())
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
-        product.addDiscount(new ProductDiscount()
+        eachProduct.addDiscount(new ProductDiscount()
             .setProperty('totalPrice', Faker.int(10, 20))
             .setProperty('currency', 'EUR')
             .setProperty('amountFix', Faker.int(1, 5)));
 
-        product.addDiscount(new ProductDiscount()
+        eachProduct.addDiscount(new ProductDiscount()
             .setProperty('totalPrice', Faker.int(30, 40))
             .setProperty('currency', 'EUR')
             .setProperty('amountPercent', Faker.int(1, 5)));
+
+        products.push(eachProduct);
     });
 
-    afterEach(() => {
-        ProductService.delete(context, product.getProperty('number'))
-            .catch(() => {
-            });
+    afterAll(() => {
+        products.forEach((product) => {
+            ProductService.delete(context, product.getProperty('number')).catch(() => {});
+        });
     });
 
     it('check "create" method', () => {
+        const product = eachProduct;
+
         ProductService.create(context, product)
             .then((entity) => {
                 expect(entity.getProperty('number')).toBe(product.getProperty('number'));
@@ -55,6 +60,8 @@ describe('services.ProductServiceTest', () => {
     });
 
     it('check "get" method', () => {
+        const product = eachProduct;
+
         ProductService.create(context, product)
             .then(() => ProductService.get(context, product.getProperty('number')))
             .then((entity) => {
@@ -71,6 +78,8 @@ describe('services.ProductServiceTest', () => {
     });
 
     it('check "list" method', () => {
+        const product = eachProduct;
+
         ProductService.create(context, product)
             .then(() => ProductService.list(context))
             .then((entities) => {
@@ -80,6 +89,8 @@ describe('services.ProductServiceTest', () => {
     });
 
     it('check "update" method', () => {
+        const product = eachProduct;
+
         ProductService.create(context, product)
             .then((entity) => {
                 entity.setProperty('name', Faker.string('JS-NAME-').toUpperCase());
@@ -106,10 +117,13 @@ describe('services.ProductServiceTest', () => {
             })
             .then((entity) => {
                 expect(entity.getProductDiscounts().length).toBe(2);
-            });
+            })
+            .then(() => ProductService.delete(context, product.getProperty('number')));
     });
 
     it('check "delete" method', () => {
+        const product = eachProduct;
+
         ProductService.create(context, product)
             .then(entity => ProductService.delete(context, entity.getProperty('number')))
             .then((state) => {

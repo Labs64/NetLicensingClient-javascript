@@ -17,7 +17,7 @@ import LicenseService from '../../src/services/LicenseService';
 describe('services.LicenseeServiceTest', () => {
     let context;
     let product;
-    let licensee;
+    let eachLicensee;
 
     beforeAll(() => {
         context = new Context().setUsername('Demo').setPassword('demo');
@@ -35,7 +35,7 @@ describe('services.LicenseeServiceTest', () => {
     });
 
     beforeEach(() => {
-        licensee = new Licensee()
+        eachLicensee = new Licensee()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true)
@@ -44,9 +44,12 @@ describe('services.LicenseeServiceTest', () => {
 
     afterAll(() => {
         ProductService.delete(context, product.getProperty('number'), true);
+        ProductService.delete(context, product.getProperty('number'), true);
     });
 
     it('check "create" method', () => {
+        const licensee = eachLicensee;
+
         LicenseeService.create(context, product.getProperty('number'), licensee)
             .then((entity) => {
                 expect(entity.getProperty('number')).toBe(licensee.getProperty('number'));
@@ -57,6 +60,8 @@ describe('services.LicenseeServiceTest', () => {
     });
 
     it('check "get" method', () => {
+        const licensee = eachLicensee;
+
         LicenseeService.create(context, product.getProperty('number'), licensee)
             .then(entity => LicenseeService.get(context, entity.getProperty('number')))
             .then((entity) => {
@@ -68,6 +73,8 @@ describe('services.LicenseeServiceTest', () => {
     });
 
     it('check "list" method', () => {
+        const licensee = eachLicensee;
+
         LicenseeService.create(context, product.getProperty('number'), licensee)
             .then(() => LicenseeService.list(context))
             .then((entities) => {
@@ -77,6 +84,8 @@ describe('services.LicenseeServiceTest', () => {
     });
 
     it('check "update" method', () => {
+        const licensee = eachLicensee;
+
         LicenseeService.create(context, product.getProperty('number'), licensee)
             .then(() => {
                 licensee.setProperty('name', Faker.string('JS-NAME-').toUpperCase());
@@ -91,6 +100,8 @@ describe('services.LicenseeServiceTest', () => {
     });
 
     it('check "validate" method', () => {
+        const licensee = eachLicensee;
+
         const productModule = new ProductModule()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
@@ -129,6 +140,8 @@ describe('services.LicenseeServiceTest', () => {
 
 
     it('check "transfer" method', () => {
+        const licensee = eachLicensee;
+
         const transferToLicensee = new Licensee()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
@@ -144,6 +157,8 @@ describe('services.LicenseeServiceTest', () => {
     });
 
     it('check "delete" method', () => {
+        const licensee = eachLicensee;
+
         LicenseeService.create(context, product.getProperty('number'), licensee)
             .then(() => LicenseeService.delete(context, licensee.getProperty('number'), true))
             .then((state) => {

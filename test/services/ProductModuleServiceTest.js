@@ -8,7 +8,7 @@ import ProductModuleService from '../../src/services/ProductModuleService';
 describe('services.ProductModuleServiceTest', () => {
     let context;
     let product;
-    let productModule;
+    let eachProductModule;
 
     beforeAll(() => {
         context = new Context().setUsername('Demo').setPassword('demo');
@@ -24,7 +24,7 @@ describe('services.ProductModuleServiceTest', () => {
     });
 
     beforeEach(() => {
-        productModule = new ProductModule()
+        eachProductModule = new ProductModule()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true)
@@ -37,6 +37,8 @@ describe('services.ProductModuleServiceTest', () => {
     });
 
     it('check "create" method', () => {
+        const productModule = eachProductModule;
+
         ProductModuleService.create(context, product.getProperty('number'), productModule)
             .then((entity) => {
                 expect(entity.getProperty('number')).toBe(productModule.getProperty('number'));
@@ -48,6 +50,8 @@ describe('services.ProductModuleServiceTest', () => {
     });
 
     it('check "get" method', () => {
+        const productModule = eachProductModule;
+
         ProductModuleService.create(context, product.getNumber(), productModule)
             .then(() => ProductModuleService.get(context, productModule.getProperty('number')))
             .then((entity) => {
@@ -60,6 +64,8 @@ describe('services.ProductModuleServiceTest', () => {
     });
 
     it('check "list" method', () => {
+        const productModule = eachProductModule;
+
         ProductModuleService.create(context, product.getNumber(), productModule)
             .then(() => ProductModuleService.list(context))
             .then((entities) => {
@@ -69,6 +75,8 @@ describe('services.ProductModuleServiceTest', () => {
     });
 
     it('check "update" method', () => {
+        const productModule = eachProductModule;
+
         ProductModuleService.create(context, product.getNumber(), productModule)
             .then(() => {
                 productModule.setProperty('name', Faker.string('JS-NAME-').toUpperCase());
@@ -87,6 +95,8 @@ describe('services.ProductModuleServiceTest', () => {
     });
 
     it('check "delete" method', () => {
+        const productModule = eachProductModule;
+
         ProductModuleService.create(context, product.getNumber(), productModule)
             .then(() => ProductModuleService.delete(context, productModule.getProperty('number')))
             .then((state) => {

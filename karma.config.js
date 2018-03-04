@@ -6,7 +6,6 @@
  * we are also using it with karma-webpack
  * https://github.com/webpack/karma-webpack
  */
-const os = require('os');
 const isDocker = require('is-docker')();
 
 const { argv: { env } } = require('yargs');
@@ -18,7 +17,6 @@ if (env === 'travis-test') {
 } else {
     browsers = ['Chrome'];
     if (!isDocker) browsers.push('Firefox');
-    if (os.platform() === 'win32') browsers.push('Edge');
 }
 
 module.exports = function karmaConfig(config) {

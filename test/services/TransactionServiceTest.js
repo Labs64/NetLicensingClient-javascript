@@ -6,20 +6,22 @@ import TransactionService from '../../src/services/TransactionService';
 
 describe('services.TransactionServiceTest', () => {
     let context;
-    let transaction;
+    let eachTransaction;
 
     beforeAll(() => {
         context = new Context().setUsername('Demo').setPassword('demo');
     });
 
     beforeEach(() => {
-        transaction = new Transaction()
+        eachTransaction = new Transaction()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('status', 'PENDING')
             .setProperty('source', 'SHOP');
     });
 
     it('check "create" method', () => {
+        const transaction = eachTransaction;
+
         TransactionService.create(context, transaction)
             .then((entity) => {
                 expect(entity.getProperty('number')).toBe(transaction.getProperty('number'));
@@ -29,6 +31,8 @@ describe('services.TransactionServiceTest', () => {
     });
 
     it('check "get" method', () => {
+        const transaction = eachTransaction;
+
         TransactionService.create(context, transaction)
             .then(() => TransactionService.get(context, transaction.getProperty('number')))
             .then((entity) => {
@@ -39,6 +43,8 @@ describe('services.TransactionServiceTest', () => {
     });
 
     it('check "list" method', () => {
+        const transaction = eachTransaction;
+
         TransactionService.create(context, transaction)
             .then(() => TransactionService.list(context))
             .then((entities) => {
@@ -49,6 +55,8 @@ describe('services.TransactionServiceTest', () => {
     });
 
     it('check "list" method', () => {
+        const transaction = eachTransaction;
+
         TransactionService.create(context, transaction)
             .then((entity) => {
                 entity.setProperty('status', 'CLOSED');

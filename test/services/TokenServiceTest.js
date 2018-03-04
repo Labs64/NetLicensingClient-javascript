@@ -12,7 +12,7 @@ describe('services.TokenServiceTest', () => {
     let context;
     let product;
     let licensee;
-    let token;
+    let eachToken;
 
     beforeAll(() => {
         context = new Context().setUsername('Demo').setPassword('demo');
@@ -36,7 +36,7 @@ describe('services.TokenServiceTest', () => {
     });
 
     beforeEach(() => {
-        token = new Token()
+        eachToken = new Token()
             .setProperty('tokenType', 'SHOP')
             .setProperty('licenseeNumber', licensee.getProperty('number'));
     });
@@ -46,9 +46,11 @@ describe('services.TokenServiceTest', () => {
     });
 
     it('check "create" method', () => {
+        const token = eachToken;
+
         TokenService.create(context, token)
             .then((entity) => {
-                expect(entity.class).toBe(Token.class);
+                expect(entity instanceof Token.class).toBe(true);
                 expect(entity.getProperty('number')).toBeTruthy();
                 expect(entity.getProperty('tokenType')).toBe(token.getProperty('tokenType'));
                 expect(entity.getProperty('licenseeNumber')).toBe(token.getProperty('licenseeNumber'));
@@ -57,9 +59,12 @@ describe('services.TokenServiceTest', () => {
     });
 
     it('check "get" method', () => {
+        const token = eachToken;
+
         TokenService.create(context, token)
             .then(entity => TokenService.get(context, entity.getProperty('number')))
             .then((entity) => {
+                expect(entity instanceof Token.class).toBe(true);
                 expect(entity.getProperty('number')).toBeTruthy();
                 expect(entity.getProperty('tokenType')).toBe(token.getProperty('tokenType'));
                 expect(entity.getProperty('licenseeNumber')).toBe(token.getProperty('licenseeNumber'));
@@ -68,16 +73,20 @@ describe('services.TokenServiceTest', () => {
     });
 
     it('check "list" method', () => {
+        const token = eachToken;
+
         TokenService.create(context, token)
             .then(() => TokenService.list(context))
             .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
-                expect(entities[0] instanceof Token).toBe(true);
+                expect(entities[0] instanceof Token.class).toBe(true);
             });
     });
 
     it('check "delete" method', () => {
+        const token = eachToken;
+
         TokenService.create(context, token)
             .then(() => TokenService.delete(context, token.getProperty('number')))
             .then((state) => {
