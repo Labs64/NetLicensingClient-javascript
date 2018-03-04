@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import Faker from '../Faker';
+import Faker from '../../test/Faker';
 import Context from '../../src/vo/Context';
 import Product from '../../src/entities/Product';
 import ProductModule from '../../src/entities/ProductModule';

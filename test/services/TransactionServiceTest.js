@@ -1,4 +1,4 @@
-import Faker from '../Faker';
+import Faker from '../../test/Faker';
 import Context from '../../src/vo/Context';
 import Transaction from '../../src/entities/Transaction';
 import TransactionService from '../../src/services/TransactionService';

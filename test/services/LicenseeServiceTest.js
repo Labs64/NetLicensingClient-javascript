@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import Faker from '../Faker';
+import Faker from '../../test/Faker';
 import Context from '../../src/vo/Context';
 import ValidationParameters from '../../src/vo/ValidationParameters';
 import Product from '../../src/entities/Product';
