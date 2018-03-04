@@ -5,54 +5,69 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-//namespace
-var NetLicensing  = NetLicensing  || {};
+import CheckUtils from '../util/CheckUtils';
 
+/**
+ * Validation result map
+ * @type {WeakMap<Object, any>}
+ */
+const vr = new WeakMap();
 
-NetLicensing.ValidationResults = function () {
-
-    var __validators = {};
-    var __ttl;
-
-    this.getValidators = function () {
-        return Object.assign({}, __validators);
-    };
-
-    this.setProductModuleValidation = function (productModuleNumber, productModuleValidation) {
-        if (!NetLicensing.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
-
-        __validators[productModuleNumber] = productModuleValidation;
-
-        return this;
-    };
-
-    this.getProductModuleValidation = function (productModuleNumber) {
-        if (!NetLicensing.CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object')  throw new TypeError('Bad productModuleNumber:' + productModuleNumber);
-
-        return __validators[productModuleNumber];
-    };
-
-    this.setTtl = function (ttl) {
-        if (!NetLicensing.CheckUtils.isValid(ttl) || typeof ttl === 'object')  throw new TypeError('Bad ttl:' + ttl);
-        __ttl = new Date(String(ttl));
-        return this;
-    };
-
-    this.getTtl = function () {
-        return (__ttl) ? new Date(__ttl) : undefined;
-    };
-};
-
-NetLicensing.ValidationResults.prototype.toString = function () {
-    var data = 'ValidationResult [';
-    var validators = this.getValidators();
-
-    for (var productModuleNumber in validators) {
-        data += 'ProductModule<' + productModuleNumber + '>';
-        if (!validators.hasOwnProperty(productModuleNumber))continue;
-        data += JSON.stringify(validators[productModuleNumber]);
+export default class ValidationResults {
+    constructor() {
+        vr.set(this, { validators: {} });
     }
 
-    data += ']';
-    return data;
-};
+    getValidators() {
+        return Object.assign({}, vr.get(this).validators);
+    }
+
+    setProductModuleValidation(productModuleNumber, productModuleValidation) {
+        if (!CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object') {
+            throw new TypeError(`Bad productModuleNumber:${productModuleNumber}`);
+        }
+
+        vr.get(this).validators[productModuleNumber] = productModuleValidation;
+
+        return this;
+    }
+
+    getProductModuleValidation(productModuleNumber) {
+        if (!CheckUtils.isValid(productModuleNumber) || typeof productModuleNumber === 'object') {
+            throw new TypeError(`Bad productModuleNumber:${productModuleNumber}`);
+        }
+
+        return vr.get(this).validators[productModuleNumber];
+    }
+
+    setTtl(ttl) {
+        if (!CheckUtils.isValid(ttl) || typeof ttl === 'object') {
+            throw new TypeError(`Bad ttl:${ttl}`);
+        }
+        vr.get(this).ttl = new Date(String(ttl));
+
+        return this;
+    }
+
+    getTtl() {
+        return (vr.get(this).ttl) ? new Date(vr.get(this).ttl) : undefined;
+    }
+
+    toString() {
+        let data = 'ValidationResult [';
+
+        const validators = this.getValidators();
+        const has = Object.prototype.hasOwnProperty;
+
+        Object.keys(validators).forEach((productModuleNumber) => {
+            data += `ProductModule<${productModuleNumber}>`;
+            if (has.call(validators, productModuleNumber)) {
+                data += JSON.stringify(validators[productModuleNumber]);
+            }
+        });
+
+        data += ']';
+
+        return data;
+    }
+}

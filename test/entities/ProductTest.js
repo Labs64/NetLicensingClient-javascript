@@ -1,11 +1,15 @@
-describe('entities.ProductTest', function () {
-    var product;
+import Product from '../../src/entities/Product';
+import Constants from '../../src/Constants';
+import ProductDiscount from '../../src/entities/ProductDiscount';
 
-    beforeEach(function () {
-        product = new NetLicensing.Product();
+describe('entities.ProductTest', () => {
+    let product;
+
+    beforeEach(() => {
+        product = new Product();
     });
 
-    it('check "number" property setters/getters', function () {
+    it('check "number" property setters/getters', () => {
         product.setProperty('number', 'number_0');
         expect(product.getProperty('number')).toBe('number_0');
         expect(product.getNumber()).toBe('number_0');
@@ -22,7 +26,7 @@ describe('entities.ProductTest', function () {
         expect(product.number).toBe('number_2');
     });
 
-    it('check "name" property setters/getters', function () {
+    it('check "name" property setters/getters', () => {
         product.setProperty('name', 'name_0');
         expect(product.getProperty('name')).toBe('name_0');
         expect(product.getName()).toBe('name_0');
@@ -39,7 +43,7 @@ describe('entities.ProductTest', function () {
         expect(product.name).toBe('name_2');
     });
 
-    it('check "active" property setters/getters', function () {
+    it('check "active" property setters/getters', () => {
         product.setProperty('active', true);
         expect(product.getProperty('active')).toBe(true);
         expect(product.getActive()).toBe(true);
@@ -56,7 +60,7 @@ describe('entities.ProductTest', function () {
         expect(product.active).toBe(true);
     });
 
-    it('check "version" property setters/getters', function () {
+    it('check "version" property setters/getters', () => {
         product.setProperty('version', '1.05');
         expect(product.getProperty('version')).toBe('1.05');
         expect(product.getVersion()).toBe('1.05');
@@ -73,7 +77,7 @@ describe('entities.ProductTest', function () {
         expect(product.version).toBe('1.1');
     });
 
-    it('check "description" property setters/getters', function () {
+    it('check "description" property setters/getters', () => {
         product.setProperty('description', 'description_0');
         expect(product.getProperty('description')).toBe('description_0');
         expect(product.getDescription()).toBe('description_0');
@@ -90,7 +94,7 @@ describe('entities.ProductTest', function () {
         expect(product.description).toBe('description_2');
     });
 
-    it('check "licensingInfo" property setters/getters', function () {
+    it('check "licensingInfo" property setters/getters', () => {
         product.setProperty('licensingInfo', 'licensingInfo_0');
         expect(product.getProperty('licensingInfo')).toBe('licensingInfo_0');
         expect(product.getLicensingInfo()).toBe('licensingInfo_0');
@@ -107,7 +111,7 @@ describe('entities.ProductTest', function () {
         expect(product.licensingInfo).toBe('licensingInfo_2');
     });
 
-    it('check "licenseeAutoCreate" property setters/getters', function () {
+    it('check "licenseeAutoCreate" property setters/getters', () => {
         product.setProperty('licenseeAutoCreate', true);
         expect(product.getProperty('licenseeAutoCreate')).toBe(true);
         expect(product.getLicenseeAutoCreate()).toBe(true);
@@ -124,36 +128,39 @@ describe('entities.ProductTest', function () {
         expect(product.licenseeAutoCreate).toBe(true);
     });
 
-    it('check "licenseeSecretMode" property setters/getters', function () {
-        product.setProperty('licenseeSecretMode', NetLicensing.Product.LICENSEE_SECRET_MODE_DISABLED);
-        expect(product.getProperty('licenseeSecretMode')).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_DISABLED);
-        expect(product.getLicenseeSecretMode()).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_DISABLED);
-        expect(product.licenseeSecretMode).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_DISABLED);
+    it('check "licenseeSecretMode" property setters/getters', () => {
+        product.setProperty('licenseeSecretMode', Constants.Product.LicenseeSecretMode.DISABLED);
+        expect(product.getProperty('licenseeSecretMode')).toBe(Constants.Product.LicenseeSecretMode.DISABLED);
+        expect(product.getLicenseeSecretMode()).toBe(Constants.Product.LicenseeSecretMode.DISABLED);
+        expect(product.licenseeSecretMode).toBe(Constants.Product.LicenseeSecretMode.DISABLED);
 
-        product.setLicenseeSecretMode(NetLicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
-        expect(product.getProperty('licenseeSecretMode')).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
-        expect(product.getLicenseeSecretMode()).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
-        expect(product.licenseeSecretMode).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
+        product.setLicenseeSecretMode(Constants.Product.LicenseeSecretMode.PREDEFINED);
+        expect(product.getProperty('licenseeSecretMode')).toBe(Constants.Product.LicenseeSecretMode.PREDEFINED);
+        expect(product.getLicenseeSecretMode()).toBe(Constants.Product.LicenseeSecretMode.PREDEFINED);
+        expect(product.licenseeSecretMode).toBe(Constants.Product.LicenseeSecretMode.PREDEFINED);
 
-        product.licenseeSecretMode = NetLicensing.Product.LICENSEE_SECRET_MODE_CLIENT;
-        expect(product.getProperty('licenseeSecretMode')).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_CLIENT);
-        expect(product.getLicenseeSecretMode()).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_CLIENT);
-        expect(product.licenseeSecretMode).toBe(NetLicensing.Product.LICENSEE_SECRET_MODE_CLIENT);
+        product.licenseeSecretMode = Constants.Product.LicenseeSecretMode.CLIENT;
+        expect(product.getProperty('licenseeSecretMode')).toBe(Constants.Product.LicenseeSecretMode.CLIENT);
+        expect(product.getLicenseeSecretMode()).toBe(Constants.Product.LicenseeSecretMode.CLIENT);
+        expect(product.licenseeSecretMode).toBe(Constants.Product.LicenseeSecretMode.CLIENT);
     });
 
-    it('check "inUse" property getters', function () {
-        product.inUse = true;
+    it('check "inUse" property setters/getters', () => {
+        expect(() => { product.inUse = true; }).toThrowError(TypeError);
+
         expect(product.getProperty('inUse')).toBe(undefined);
         expect(product.getInUse()).toBe(undefined);
         expect(product.inUse).toBe(undefined);
 
-        product.setProperty('inUse',true);
+        product.setProperty('inUse', true);
         expect(product.getProperty('inUse')).toBe(true);
         expect(product.getInUse()).toBe(true);
         expect(product.inUse).toBe(true);
+
+        expect(() => { product.setProperty('inUse', false); }).toThrowError(TypeError);
     });
 
-    it('check "custom-property" property setters/getters', function () {
+    it('check "custom-property" property setters/getters', () => {
         product.setProperty('custom_property', 'my_custom_property_0');
         expect(product.getProperty('custom_property')).toBe('my_custom_property_0');
         expect(product.custom_property).toBe('my_custom_property_0');
@@ -163,30 +170,30 @@ describe('entities.ProductTest', function () {
         expect(product.custom_property).toBe('my_custom_property_1');
     });
 
-    it('check "addDiscount" , "getProductDiscounts", "setProductDiscounts" methods', function () {
-        product.addDiscount(new NetLicensing.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
-        product.addDiscount(new NetLicensing.ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50));
-        product.addDiscount(new NetLicensing.ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25));
-        product.addDiscount(new NetLicensing.ProductDiscount().setTotalPrice(40).setCurrency('EUR').setAmountPercent(34));
-        product.addDiscount(new NetLicensing.ProductDiscount().setTotalPrice(50).setCurrency('EUR').setAmountFix(15));
+    it('check "addDiscount" , "getProductDiscounts", "setProductDiscounts" methods', () => {
+        product.addDiscount(new ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
+        product.addDiscount(new ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50));
+        product.addDiscount(new ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25));
+        product.addDiscount(new ProductDiscount().setTotalPrice(40).setCurrency('EUR').setAmountPercent(34));
+        product.addDiscount(new ProductDiscount().setTotalPrice(50).setCurrency('EUR').setAmountFix(15));
         expect(product.getProductDiscounts().length).toBe(5);
 
         product.setProductDiscounts([
-            new NetLicensing.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8),
-            new NetLicensing.ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50),
-            new NetLicensing.ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25)
+            new ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8),
+            new ProductDiscount().setTotalPrice(20).setCurrency('EUR').setAmountPercent(50),
+            new ProductDiscount().setTotalPrice(30).setCurrency('EUR').setAmountFix(25),
         ]);
 
         expect(product.getProductDiscounts().length).toBe(3);
 
-        product.setProductDiscounts(new NetLicensing.ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
+        product.setProductDiscounts(new ProductDiscount().setTotalPrice(10).setCurrency('EUR').setAmountFix(8));
         expect(product.getProductDiscounts().length).toBe(1);
 
         product.setProductDiscounts(null);
         expect(product.getProductDiscounts().length).toBe(0);
     });
 
-    it('check cast an properties to a native js type', function () {
+    it('check cast an properties to a native js type', () => {
         product.setProperty('number', 1);
         expect(product.getProperty('number')).toBe('1');
         product.setProperty('number', true);
@@ -196,9 +203,9 @@ describe('entities.ProductTest', function () {
         expect(product.getProperty('active')).toBe(true);
         product.setProperty('active', 0);
         expect(product.getProperty('active')).toBe(false);
-        product.setProperty('active', "");
+        product.setProperty('active', '');
         expect(product.getProperty('active')).toBe(false);
-        product.setProperty('active', "123");
+        product.setProperty('active', '123');
         expect(product.getProperty('active')).toBe(true);
         product.setProperty('active', null);
         expect(product.getProperty('active')).toBe(false);
@@ -225,95 +232,118 @@ describe('entities.ProductTest', function () {
         expect(product.getProperty('licenseeAutoCreate')).toBe(true);
         product.setProperty('licenseeAutoCreate', 0);
         expect(product.getProperty('licenseeAutoCreate')).toBe(false);
-        product.setProperty('licenseeAutoCreate', "");
+        product.setProperty('licenseeAutoCreate', '');
         expect(product.getProperty('licenseeAutoCreate')).toBe(false);
-        product.setProperty('licenseeAutoCreate', "123");
+        product.setProperty('licenseeAutoCreate', '123');
         expect(product.getProperty('licenseeAutoCreate')).toBe(true);
         product.setProperty('licenseeAutoCreate', null);
         expect(product.getProperty('licenseeAutoCreate')).toBe(false);
     });
 
-    it('check throwable error if property value is typeof "function"', function () {
-        var func = function () {
-        };
+    it('check throwable error if property value is typeof "function"', () => {
+        const func = () => {};
 
-        expect(function(){product.setProperty('number',func)}).toThrowError(TypeError);
-        expect(function(){product.setNumber(func)}).toThrowError(TypeError);
-        expect(function(){product.setName(func)}).toThrowError(TypeError);
-        expect(function(){product.setActive(func)}).toThrowError(TypeError);
-        expect(function(){product.setVersion(func)}).toThrowError(TypeError);
-        expect(function(){product.setDescription(func)}).toThrowError(TypeError);
-        expect(function(){product.setLicensingInfo(func)}).toThrowError(TypeError);
-        expect(function(){product.setLicenseeAutoCreate(func)}).toThrowError(TypeError);
+        expect(() => { product.setProperty('number', func); }).toThrowError(TypeError);
+        expect(() => { product.setNumber(func); }).toThrowError(TypeError);
+        expect(() => { product.setName(func); }).toThrowError(TypeError);
+        expect(() => { product.setActive(func); }).toThrowError(TypeError);
+        expect(() => { product.setVersion(func); }).toThrowError(TypeError);
+        expect(() => { product.setDescription(func); }).toThrowError(TypeError);
+        expect(() => { product.setLicensingInfo(func); }).toThrowError(TypeError);
+        expect(() => { product.setLicenseeAutoCreate(func); }).toThrowError(TypeError);
 
-        expect(function(){product.number = func}).toThrowError(TypeError);
-        expect(function(){product.name = func}).toThrowError(TypeError);
-        expect(function(){product.active = func}).toThrowError(TypeError);
-        expect(function(){product.version = func}).toThrowError(TypeError);
-        expect(function(){product.description = func}).toThrowError(TypeError);
-        expect(function(){product.licensingInfo = func}).toThrowError(TypeError);
-        expect(function(){product.licenseeAutoCreate = func}).toThrowError(TypeError);
+        expect(() => { product.number = func; }).toThrowError(TypeError);
+        expect(() => { product.name = func; }).toThrowError(TypeError);
+        expect(() => { product.active = func; }).toThrowError(TypeError);
+        expect(() => { product.version = func; }).toThrowError(TypeError);
+        expect(() => { product.description = func; }).toThrowError(TypeError);
+        expect(() => { product.licensingInfo = func; }).toThrowError(TypeError);
+        expect(() => { product.licenseeAutoCreate = func; }).toThrowError(TypeError);
     });
 
-    it('check throwable error if property value is "undefined"', function () {
-        expect(function(){product.setProperty('number',undefined)}).toThrowError(TypeError);
-        expect(function(){product.setNumber(undefined)}).toThrowError(TypeError);
-        expect(function(){product.setName(undefined)}).toThrowError(TypeError);
-        expect(function(){product.setActive(undefined)}).toThrowError(TypeError);
-        expect(function(){product.setVersion(undefined)}).toThrowError(TypeError);
-        expect(function(){product.setDescription(undefined)}).toThrowError(TypeError);
-        expect(function(){product.setLicensingInfo(undefined)}).toThrowError(TypeError);
-        expect(function(){product.setLicenseeAutoCreate(undefined)}).toThrowError(TypeError);
+    it('check throwable error if property value is "undefined"', () => {
+        expect(() => { product.setProperty('number', undefined); }).toThrowError(TypeError);
+        expect(() => { product.setNumber(undefined); }).toThrowError(TypeError);
+        expect(() => { product.setName(undefined); }).toThrowError(TypeError);
+        expect(() => { product.setActive(undefined); }).toThrowError(TypeError);
+        expect(() => { product.setVersion(undefined); }).toThrowError(TypeError);
+        expect(() => { product.setDescription(undefined); }).toThrowError(TypeError);
+        expect(() => { product.setLicensingInfo(undefined); }).toThrowError(TypeError);
+        expect(() => { product.setLicenseeAutoCreate(undefined); }).toThrowError(TypeError);
 
-        expect(function(){product.number = undefined}).toThrowError(TypeError);
-        expect(function(){product.name = undefined}).toThrowError(TypeError);
-        expect(function(){product.active = undefined}).toThrowError(TypeError);
-        expect(function(){product.version = undefined}).toThrowError(TypeError);
-        expect(function(){product.description = undefined}).toThrowError(TypeError);
-        expect(function(){product.licensingInfo = undefined}).toThrowError(TypeError);
-        expect(function(){product.licenseeAutoCreate = undefined}).toThrowError(TypeError);
+        expect(() => { product.number = undefined; }).toThrowError(TypeError);
+        expect(() => { product.name = undefined; }).toThrowError(TypeError);
+        expect(() => { product.active = undefined; }).toThrowError(TypeError);
+        expect(() => { product.version = undefined; }).toThrowError(TypeError);
+        expect(() => { product.description = undefined; }).toThrowError(TypeError);
+        expect(() => { product.licensingInfo = undefined; }).toThrowError(TypeError);
+        expect(() => { product.licenseeAutoCreate = undefined; }).toThrowError(TypeError);
     });
 
-    it('check throwable error if property value is "NaN"', function () {
-        expect(function(){product.setProperty('number',NaN)}).toThrowError(TypeError);
-        expect(function(){product.setNumber(NaN)}).toThrowError(TypeError);
-        expect(function(){product.setName(NaN)}).toThrowError(TypeError);
-        expect(function(){product.setActive(NaN)}).toThrowError(TypeError);
-        expect(function(){product.setVersion(NaN)}).toThrowError(TypeError);
-        expect(function(){product.setDescription(NaN)}).toThrowError(TypeError);
-        expect(function(){product.setLicensingInfo(NaN)}).toThrowError(TypeError);
-        expect(function(){product.setLicenseeAutoCreate(NaN)}).toThrowError(TypeError);
+    it('check throwable error if property value is "NaN"', () => {
+        expect(() => { product.setProperty('number', NaN); }).toThrowError(TypeError);
+        expect(() => { product.setNumber(NaN); }).toThrowError(TypeError);
+        expect(() => { product.setName(NaN); }).toThrowError(TypeError);
+        expect(() => { product.setActive(NaN); }).toThrowError(TypeError);
+        expect(() => { product.setVersion(NaN); }).toThrowError(TypeError);
+        expect(() => { product.setDescription(NaN); }).toThrowError(TypeError);
+        expect(() => { product.setLicensingInfo(NaN); }).toThrowError(TypeError);
+        expect(() => { product.setLicenseeAutoCreate(NaN); }).toThrowError(TypeError);
 
-        expect(function(){product.number = NaN}).toThrowError(TypeError);
-        expect(function(){product.name = NaN}).toThrowError(TypeError);
-        expect(function(){product.active = NaN}).toThrowError(TypeError);
-        expect(function(){product.version = NaN}).toThrowError(TypeError);
-        expect(function(){product.description = NaN}).toThrowError(TypeError);
-        expect(function(){product.licensingInfo = NaN}).toThrowError(TypeError);
-        expect(function(){product.licenseeAutoCreate = NaN}).toThrowError(TypeError);
+        expect(() => { product.number = NaN; }).toThrowError(TypeError);
+        expect(() => { product.name = NaN; }).toThrowError(TypeError);
+        expect(() => { product.active = NaN; }).toThrowError(TypeError);
+        expect(() => { product.version = NaN; }).toThrowError(TypeError);
+        expect(() => { product.description = NaN; }).toThrowError(TypeError);
+        expect(() => { product.licensingInfo = NaN; }).toThrowError(TypeError);
+        expect(() => { product.licenseeAutoCreate = NaN; }).toThrowError(TypeError);
     });
 
-    it('check throwable error if property value is "Infinity"', function () {
-        expect(function(){product.setProperty('number',Infinity)}).toThrowError(TypeError);
-        expect(function(){product.setNumber(Infinity)}).toThrowError(TypeError);
-        expect(function(){product.setName(Infinity)}).toThrowError(TypeError);
-        expect(function(){product.setActive(Infinity)}).toThrowError(TypeError);
-        expect(function(){product.setVersion(Infinity)}).toThrowError(TypeError);
-        expect(function(){product.setDescription(Infinity)}).toThrowError(TypeError);
-        expect(function(){product.setLicensingInfo(Infinity)}).toThrowError(TypeError);
-        expect(function(){product.setLicenseeAutoCreate(Infinity)}).toThrowError(TypeError);
+    it('check throwable error if property value is "Infinity"', () => {
+        expect(() => { product.setProperty('number', Infinity); }).toThrowError(TypeError);
+        expect(() => { product.setNumber(Infinity); }).toThrowError(TypeError);
+        expect(() => { product.setName(Infinity); }).toThrowError(TypeError);
+        expect(() => { product.setActive(Infinity); }).toThrowError(TypeError);
+        expect(() => { product.setVersion(Infinity); }).toThrowError(TypeError);
+        expect(() => { product.setDescription(Infinity); }).toThrowError(TypeError);
+        expect(() => { product.setLicensingInfo(Infinity); }).toThrowError(TypeError);
+        expect(() => { product.setLicenseeAutoCreate(Infinity); }).toThrowError(TypeError);
 
-        expect(function(){product.number = Infinity}).toThrowError(TypeError);
-        expect(function(){product.name = Infinity}).toThrowError(TypeError);
-        expect(function(){product.active = Infinity}).toThrowError(TypeError);
-        expect(function(){product.version = Infinity}).toThrowError(TypeError);
-        expect(function(){product.description = Infinity}).toThrowError(TypeError);
-        expect(function(){product.licensingInfo = Infinity}).toThrowError(TypeError);
-        expect(function(){product.licenseeAutoCreate = Infinity}).toThrowError(TypeError);
+        expect(() => { product.number = Infinity; }).toThrowError(TypeError);
+        expect(() => { product.name = Infinity; }).toThrowError(TypeError);
+        expect(() => { product.active = Infinity; }).toThrowError(TypeError);
+        expect(() => { product.version = Infinity; }).toThrowError(TypeError);
+        expect(() => { product.description = Infinity; }).toThrowError(TypeError);
+        expect(() => { product.licensingInfo = Infinity; }).toThrowError(TypeError);
+        expect(() => { product.licenseeAutoCreate = Infinity; }).toThrowError(TypeError);
     });
 
-    it('check throwable error if add not NetLicensing.ProductDiscount in "addDiscount" method', function () {
-        expect(function(){product.addDiscount('discount')}).toThrowError(TypeError);
-        expect(function(){product.addDiscount({})}).toThrowError(TypeError);
+    it('check throwable error if add not NetLicensing.ProductDiscount in "addDiscount" method', () => {
+        expect(() => { product.addDiscount('discount'); }).toThrowError(TypeError);
+        expect(() => { product.addDiscount({}); }).toThrowError(TypeError);
+    });
+
+    it('check "removeProperty" method', () => {
+        product.setProperty('number', 'number');
+        product.removeProperty('number');
+
+        expect(product.getProperty('number')).toBe(undefined);
+        expect(product.number).toBe(undefined);
+        expect(product.getNumber()).toBe(undefined);
+    });
+
+    it('check "removeDefine" method', () => {
+        product.setProperty('number', 'number');
+        product.removeDefine('number');
+
+        expect(product.number).toBe(undefined);
+        expect(product.getProperty('number')).toBe('number');
+        expect(product.getNumber()).toBe('number');
+
+        product.number = 'number_1';
+
+        expect(product.number).toBe('number_1');
+        expect(product.getProperty('number')).toBe('number');
+        expect(product.getNumber()).toBe('number');
     });
 });

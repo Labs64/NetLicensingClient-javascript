@@ -1,10 +1,23 @@
-describe('LicenseTemplateServiceTest', function () {
-    var context, promise, product, productModule, licenseTemplate;
+import Faker from '../Faker';
+import Context from '../../src/vo/Context';
+import Product from '../../src/entities/Product';
+import ProductModule from '../../src/entities/ProductModule';
+import LicenseTemplate from '../../src/entities/LicenseTemplate';
+import ProductService from '../../src/services/ProductService';
+import ProductModuleService from '../../src/services/ProductModuleService';
+import LicenseTemplateService from '../../src/services/LicenseTemplateService';
 
-    beforeAll(function () {
-        context = new NetLicensing.Context().setUsername('Demo').setPassword('demo');
 
-        product = new NetLicensing.Product()
+describe('services.LicenseTemplateServiceTest', () => {
+    let context;
+    let product;
+    let productModule;
+    let licenseTemplate;
+
+    beforeAll(() => {
+        context = new Context().setUsername('Demo').setPassword('demo');
+
+        product = new Product()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true)
@@ -13,13 +26,20 @@ describe('LicenseTemplateServiceTest', function () {
             .setProperty('licensingInfo', Faker.string('JS-LICENSING-INFO-').toUpperCase())
             .setProperty('licenseeAutoCreate', Faker.boolean());
 
-        productModule = new NetLicensing.ProductModule()
+        productModule = new ProductModule()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true)
             .setProperty('licensingModel', 'Subscription');
 
-        licenseTemplate = new NetLicensing.LicenseTemplate()
+        // create product
+        ProductService.create(context, product)
+        // create product module
+            .then(entity => ProductModuleService.create(context, entity.getProperty('number'), productModule));
+    });
+
+    beforeEach(() => {
+        licenseTemplate = new LicenseTemplate()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true)
@@ -28,30 +48,16 @@ describe('LicenseTemplateServiceTest', function () {
             .setProperty('price', Faker.float(0, 50))
             .setProperty('currency', 'EUR')
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
-
-        promise = Promise.resolve('LicenseTemplateServiceTest')
-            //create product
-            .then(function(){
-                return NetLicensing.ProductService.create(context, product);
-            })
-            //create product module
-            .then(function(entity){
-                return NetLicensing.ProductModuleService.create(context, entity.getProperty('number'), productModule);
-            });
     });
 
-    afterAll(function () {
-        NetLicensing.ProductService.delete(context, product.getProperty('number'), true);
+    afterAll(() => {
+        ProductService.delete(context, product.getProperty('number'), true);
     });
 
-    it('check "create" method', function () {
-        return promise
-            .then(function () {
-                return NetLicensing.LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate);
-            })
-            .then(function (entity) {
-                expect(entity instanceof NetLicensing.LicenseTemplate).toBe(true);
-
+    it('check "create" method', () => {
+        LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate)
+            .then((entity) => {
+                expect(entity instanceof LicenseTemplate).toBe(true);
                 expect(entity.getProperty('number')).toBe(licenseTemplate.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(licenseTemplate.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(licenseTemplate.getProperty('active'));
@@ -59,18 +65,16 @@ describe('LicenseTemplateServiceTest', function () {
                 expect(entity.getProperty('timeVolume')).toBe(licenseTemplate.getProperty('timeVolume'));
                 expect(entity.getProperty('price')).toBe(licenseTemplate.getProperty('price'));
                 expect(entity.getProperty('currency')).toBe(licenseTemplate.getProperty('currency'));
-                expect(entity.getProperty('my_custom_property')).toBe(licenseTemplate.getProperty('my_custom_property'));
+                expect(entity.getProperty('my_custom_property'))
+                    .toBe(licenseTemplate.getProperty('my_custom_property'));
             });
     });
 
-    it('check "get" method', function () {
-        return promise
-            .then(function () {
-                return NetLicensing.LicenseTemplateService.get(context, licenseTemplate.getProperty('number'));
-            })
-            .then(function (entity) {
-                expect(entity instanceof NetLicensing.LicenseTemplate).toBe(true);
-
+    it('check "get" method', () => {
+        LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate)
+            .then(() => LicenseTemplateService.get(context, licenseTemplate.getProperty('number')))
+            .then((entity) => {
+                expect(entity instanceof LicenseTemplate).toBe(true);
                 expect(entity.getProperty('number')).toBe(licenseTemplate.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(licenseTemplate.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(licenseTemplate.getProperty('active'));
@@ -78,42 +82,43 @@ describe('LicenseTemplateServiceTest', function () {
                 expect(entity.getProperty('timeVolume')).toBe(licenseTemplate.getProperty('timeVolume'));
                 expect(entity.getProperty('price')).toBe(licenseTemplate.getProperty('price'));
                 expect(entity.getProperty('currency')).toBe(licenseTemplate.getProperty('currency'));
-                expect(entity.getProperty('my_custom_property')).toBe(licenseTemplate.getProperty('my_custom_property'));
+                expect(entity.getProperty('my_custom_property'))
+                    .toBe(licenseTemplate.getProperty('my_custom_property'));
             });
     });
 
-    it('check "list" method', function () {
-        return NetLicensing.LicenseTemplateService.list(context)
-            .then(function (entities) {
+    it('check "list" method', () => {
+        LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate)
+            .then(() => LicenseTemplateService.list(context))
+            .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
-                expect(entities[0] instanceof NetLicensing.LicenseTemplate).toBe(true);
+                expect(entities[0] instanceof LicenseTemplate).toBe(true);
             });
     });
 
-    it('check "update" method', function () {
-        return promise
-            .then(function () {
-                licenseTemplate.setProperty('name', Faker.string('JS-NAME-').toUpperCase());
-                licenseTemplate.setProperty('price', Faker.float(100, 200));
-                licenseTemplate.setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY-UPDATED');
+    it('check "update" method', () => {
+        LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate)
+            .then((entity) => {
+                entity.setProperty('name', Faker.string('JS-NAME-').toUpperCase());
+                entity.setProperty('price', Faker.float(100, 200));
+                entity.setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY-UPDATED');
 
-                return NetLicensing.LicenseTemplateService.update(context, licenseTemplate.getProperty('number'), licenseTemplate);
-            }).then(function (entity) {
-                expect(entity instanceof NetLicensing.LicenseTemplate).toBe(true);
-
+                return LicenseTemplateService.update(context, entity.getProperty('number'), licenseTemplate);
+            })
+            .then((entity) => {
+                expect(entity instanceof LicenseTemplate).toBe(true);
                 expect(entity.getProperty('name')).toBe(licenseTemplate.getProperty('name'));
                 expect(entity.getProperty('price')).toBe(licenseTemplate.getProperty('price'));
-                expect(entity.getProperty('my_custom_property')).toBe(licenseTemplate.getProperty('my_custom_property'));
+                expect(entity.getProperty('my_custom_property'))
+                    .toBe(licenseTemplate.getProperty('my_custom_property'));
             });
     });
 
-    it('check "delete" method', function () {
-        return promise
-            .then(function () {
-                return NetLicensing.LicenseTemplateService.delete(context, licenseTemplate.getProperty('number'));
-            })
-            .then(function (state) {
+    it('check "delete" method', () => {
+        LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate)
+            .then(() => LicenseTemplateService.delete(context, licenseTemplate.getProperty('number')))
+            .then((state) => {
                 expect(state).toBe(true);
             });
     });

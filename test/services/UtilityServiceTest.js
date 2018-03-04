@@ -1,32 +1,36 @@
-describe('UtilityServiceTest', function () {
-    var context;
+import Context from '../../src/vo/Context';
+import Country from '../../src/entities/Country';
+import UtilityService from '../../src/services/UtilityService';
 
-    beforeAll(function () {
-        context = new NetLicensing.Context().setUsername('Demo').setPassword('demo');
+
+describe('UtilityServiceTest', () => {
+    let context;
+
+    beforeAll(() => {
+        context = new Context().setUsername('Demo').setPassword('demo');
     });
 
-    it('check "listLicenseTypes" method', function () {
-        return NetLicensing.UtilityService.listLicenseTypes(context)
-            .then(function (licenseTypes) {
+    it('check "listLicenseTypes" method', () => {
+        UtilityService.listLicenseTypes(context)
+            .then((licenseTypes) => {
                 expect(Array.isArray(licenseTypes)).toBe(true);
                 expect(licenseTypes.length).toBeGreaterThanOrEqual(4);
             });
-
     });
 
-    it('check "listLicensingModels" method', function () {
-        return NetLicensing.UtilityService.listLicensingModels(context)
-            .then(function (licensingModels) {
+    it('check "listLicensingModels" method', () => {
+        UtilityService.listLicensingModels(context)
+            .then((licensingModels) => {
                 expect(Array.isArray(licensingModels)).toBe(true);
                 expect(licensingModels.length).toBeGreaterThanOrEqual(6);
             });
     });
 
-    it('check "listCountries" method', function () {
-        return NetLicensing.UtilityService.listCountries(context)
-            .then(function (listCountries) {
+    it('check "listCountries" method', () => {
+        UtilityService.listCountries(context)
+            .then((listCountries) => {
                 expect(Array.isArray(listCountries)).toBe(true);
-                expect(listCountries[0] instanceof NetLicensing.Country).toBe(true);
+                expect(listCountries[0] instanceof Country).toBe(true);
                 expect(listCountries.length).toBeGreaterThanOrEqual(0);
             });
     });

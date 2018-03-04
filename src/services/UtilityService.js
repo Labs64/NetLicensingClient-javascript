@@ -5,108 +5,92 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-//namespace
-var NetLicensing  = NetLicensing  || {};
+import Context from '../vo/Context';
+import Constants from '../Constants';
+import Service from './Service';
+import CheckUtils from '../util/CheckUtils';
+import Country from '../entities/Country';
 
 /**
  * JS representation of the Utility Service. See NetLicensingAPI for details:
  * https://www.labs64.de/confluence/display/NetLicensing PUB/Utility+Services
  * @constructor
  */
-NetLicensing.UtilityService = function () {
-};
 
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.Utility.ENDPOINT_PATH instead.
- */
-Object.defineProperty(NetLicensing .UtilityService, 'ENDPOINT_PATH', {value: 'utility'});
+export default {
+    /**
+     * Returns all license types. See NetLicensingAPI for details:
+     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Utility+Services#UtilityServices-LicenseTypeslist
+     *
+     * determines the vendor on whose behalf the call is performed
+     * @param context NetLicensing.Context
+     *
+     * array of available license types or empty array if nothing found in promise.
+     * @returns {Promise}
+     */
+    listLicenseTypes(context) {
+        if (!(context instanceof Context)) {
+            throw new TypeError('context must be an instance of Context');
+        }
 
-/**
- * Returns all license types. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/Utility+Services#UtilityServices-LicenseTypeslist
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * array of available license types or empty array if nothing found in promise.
- * @returns {Promise}
- */
-NetLicensing.UtilityService.listLicenseTypes = function (context) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
-    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
+        return Service
+            .list(context, `${Constants.Utility.ENDPOINT_PATH}/licenseTypes`)
+            .then(items => items.map(item => item.property[0].value));
+    },
 
-    return NetLicensing.Service
-        .getInstance()
-        .list(context, NetLicensing.Constants.Utility.ENDPOINT_PATH + '/licenseTypes')
-        .then(function (items) {
-            var length = items.length;
-            var licenseTypes = [];
+    /**
+     * Returns all license models. See NetLicensingAPI for details:
+     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Utility+Services#UtilityServices-LicensingModelslist
+     *
+     * determines the vendor on whose behalf the call is performed
+     * @param context NetLicensing.Context
+     *
+     * array of available license models or empty array if nothing found in promise.
+     * @returns {Promise}
+     */
+    listLicensingModels(context) {
+        if (!(context instanceof Context)) {
+            throw new TypeError('context must be an instance of Context');
+        }
 
-            for (var i = 0; i < length; i++) {
-                licenseTypes.push(items[i].property[0].value);
+        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
+
+        return Service
+            .list(context, `${Constants.Utility.ENDPOINT_PATH}/licensingModels`)
+            .then(items => items.map(item => item.property[0].value));
+    },
+
+    /**
+     * Returns all countries.
+     *
+     * determines the vendor on whose behalf the call is performed
+     * @param context
+     *
+     * reserved for the future use, must be omitted / set to NULL
+     * @param filter
+     *
+     * collection of available countries or null/empty list if nothing found in promise.
+     * @returns {Promise}
+     */
+    listCountries(context, filter) {
+        if (!(context instanceof Context)) {
+            throw new TypeError('context must be an instance of Context');
+        }
+
+        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
+
+        const queryParams = {};
+
+        if (filter) {
+            if (!CheckUtils.isValid(filter)) {
+                throw new TypeError(`filter has bad value ${filter}`);
             }
+            queryParams.filter = filter;
+        }
 
-            return licenseTypes;
-        });
-};
-
-/**
- * Returns all license models. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/Utility+Services#UtilityServices-LicensingModelslist
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * array of available license models or empty array if nothing found in promise.
- * @returns {Promise}
- */
-NetLicensing.UtilityService.listLicensingModels = function (context) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-
-    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
-
-    return NetLicensing.Service
-        .getInstance()
-        .list(context, NetLicensing.Constants.Utility.ENDPOINT_PATH + '/licensingModels')
-        .then(function (items) {
-            var length = items.length;
-            var licensingModels = [];
-
-            for (var i = 0; i < length; i++) {
-                licensingModels.push(items[i].property[0].value);
-            }
-
-            return licensingModels;
-        });
-};
-
-/**
- * Returns all countries.
- *
- *  determines the vendor on whose behalf the call is performed
- * @param context
- *
- * reserved for the future use, must be omitted / set to NULL
- * @param filter
- *
- * collection of available countries or null/empty list if nothing found in promise.
- * @returns {Promise}
- */
-NetLicensing.UtilityService.listCountries = function (context, filter) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-
-    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
-
-    var queryParams = {};
-
-    if (filter) {
-        if (!NetLicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
-        queryParams.filter = filter;
-    }
-
-    return NetLicensing.Service
-        .getInstance()
-        .list(context, NetLicensing.Constants.Utility.ENDPOINT_PATH + '/countries', queryParams, NetLicensing.Country);
+        return Service
+            .list(context, `${Constants.Utility.ENDPOINT_PATH}/countries`, queryParams, Country);
+    },
 };

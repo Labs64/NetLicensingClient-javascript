@@ -5,8 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-//namespace
-var NetLicensing  = NetLicensing  || {};
+import BaseEntity from './BaseEntity';
 
 /**
  * Product module entity used internally by NetLicensing.
@@ -34,157 +33,121 @@ var NetLicensing  = NetLicensing  || {};
  *
  * @constructor
  */
+export default class Token extends BaseEntity {
+    constructor(properties) {
+        super({
+            properties,
+            // The attributes that should be cast to native types.
+            casts: {
+                number: 'string',
+                active: 'boolean',
+                expirationTime: 'date',
+                vendorNumber: 'string',
+                tokenType: 'string',
+                licenseeNumber: 'string',
+                successURL: 'string',
+                successURLTitle: 'string',
+                cancelURL: 'string',
+                cancelURLTitle: 'string',
+                shopURL: 'string',
+            },
+            // The attributes that should have read-only access.
+            readOnly: ['number', 'shopURL'],
+        });
 
-NetLicensing.Token = function () {
-    NetLicensing.BaseEntity.apply(this, arguments);
+        // define default entity properties
+        this.defines([
+            'number',
+            'active',
+            'expirationTime',
+            'vendorNumber',
+            'tokenType',
+            'licenseeNumber',
+            'successURL',
+            'successURLTitle',
+            'cancelURL',
+            'cancelURLTitle',
+            'shopURL',
+        ]);
+    }
 
-    //The attributes that should be cast to native types.
-    Object.defineProperty(this, 'casts', {
-        value: {
-            number: 'string',
-            active: 'boolean',
-            expirationTime: 'date',
-            vendorNumber: 'string',
-            tokenType: 'string',
-            licenseeNumber: 'string',
-            successURL: 'string',
-            successURLTitle: 'string',
-            cancelURL: 'string',
-            cancelURLTitle: 'string',
-            shopURL: 'string'
-        }
-    });
+    getNumber(def) {
+        return this.getProperty('number', def);
+    }
 
-    //define default entity properties
-    this.__defines(['active', 'expirationTime', 'vendorNumber', 'tokenType', 'licenseeNumber', 'successURL', 'successURLTitle', 'cancelURL', 'cancelURLTitle']);
-    this.__defines(['number', 'shopURL'], true);
+    setActive(active) {
+        return this.setProperty('active', active);
+    }
 
-    //make methods not changeable
-    NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
-};
+    getActive(def) {
+        return this.getProperty('active', def);
+    }
 
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.Token.Type.DEFAULT instead.
- */
-Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_DEFAULT', {value: 'DEFAULT'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.Token.Type.SHOP instead.
- */
-Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_SHOP', {value: 'SHOP'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.Token.Type.APIKEY instead.
- */
-Object.defineProperty(NetLicensing.Token, 'TOKEN_TYPE_APIKEY', {value: 'APIKEY'});
+    setExpirationTime(expirationTime) {
+        return this.setProperty('expirationTime', expirationTime);
+    }
 
-NetLicensing.Token.prototype = Object.create(NetLicensing.BaseEntity.prototype);
-NetLicensing.Token.prototype.constructor = NetLicensing.Token;
+    getExpirationTime(def) {
+        return this.getProperty('expirationTime', def);
+    }
 
-NetLicensing.Token.prototype.getNumber = function (def) {
-    return this.getProperty('number', def);
-};
+    setVendorNumber(vendorNumber) {
+        return this.setProperty('vendorNumber', vendorNumber);
+    }
 
-NetLicensing.Token.prototype.setActive = function (active) {
-    return this.setProperty('active', active);
-};
+    getVendorNumber(def) {
+        return this.getProperty('vendorNumber', def);
+    }
 
-NetLicensing.Token.prototype.getActive = function (def) {
-    return this.getProperty('active', def);
-};
+    setTokenType(tokenType) {
+        return this.setProperty('tokenType', tokenType);
+    }
 
-NetLicensing.Token.prototype.setExpirationTime = function (expirationTime) {
-    return this.setProperty('expirationTime', expirationTime);
-};
+    getTokenType(def) {
+        return this.getProperty('tokenType', def);
+    }
 
-NetLicensing.Token.prototype.getExpirationTime = function (def) {
-    return this.getProperty('expirationTime', def);
-};
+    setLicenseeNumber(licenseeNumber) {
+        return this.setProperty('licenseeNumber', licenseeNumber);
+    }
 
-NetLicensing.Token.prototype.setVendorNumber = function (vendorNumber) {
-    return this.setProperty('vendorNumber', vendorNumber);
-};
+    getLicenseeNumber(def) {
+        return this.getProperty('licenseeNumber', def);
+    }
 
-NetLicensing.Token.prototype.getVendorNumber = function (def) {
-    return this.getProperty('vendorNumber', def);
-};
+    setSuccessURL(successURL) {
+        return this.setProperty('successURL', successURL);
+    }
 
-NetLicensing.Token.prototype.setTokenType = function (tokenType) {
-    return this.setProperty('tokenType', tokenType);
-};
+    getSuccessURL(def) {
+        return this.getProperty('successURL', def);
+    }
 
-NetLicensing.Token.prototype.getTokenType = function (def) {
-    return this.getProperty('tokenType', def);
-};
+    setSuccessURLTitle(successURLTitle) {
+        return this.setProperty('successURLTitle', successURLTitle);
+    }
 
-NetLicensing.Token.prototype.setLicenseeNumber = function (licenseeNumber) {
-    return this.setProperty('licenseeNumber', licenseeNumber);
-};
+    getSuccessURLTitle(def) {
+        return this.getProperty('successURLTitle', def);
+    }
 
-NetLicensing.Token.prototype.getLicenseeNumber = function (def) {
-    return this.getProperty('licenseeNumber', def);
-};
+    setCancelURL(cancelURL) {
+        return this.setProperty('cancelURL', cancelURL);
+    }
 
-NetLicensing.Token.prototype.setSuccessURL = function (successURL) {
-    return this.setProperty('successURL', successURL);
-};
+    getCancelURL(def) {
+        return this.getProperty('cancelURL', def);
+    }
 
-NetLicensing.Token.prototype.getSuccessURL = function (def) {
-    return this.getProperty('successURL', def);
-};
+    setCancelURLTitle(cancelURLTitle) {
+        return this.setProperty('cancelURLTitle', cancelURLTitle);
+    }
 
-NetLicensing.Token.prototype.setSuccessURLTitle = function (successURLTitle) {
-    return this.setProperty('successURLTitle', successURLTitle);
-};
+    getCancelURLTitle(def) {
+        return this.getProperty('cancelURLTitle', def);
+    }
 
-NetLicensing.Token.prototype.getSuccessURLTitle = function (def) {
-    return this.getProperty('successURLTitle', def);
-};
-
-NetLicensing.Token.prototype.setCancelURL = function (cancelURL) {
-    return this.setProperty('cancelURL', cancelURL);
-};
-
-NetLicensing.Token.prototype.getCancelURL = function (def) {
-    return this.getProperty('cancelURL', def);
-};
-
-NetLicensing.Token.prototype.setCancelURLTitle = function (cancelURLTitle) {
-    return this.setProperty('cancelURLTitle', cancelURLTitle);
-};
-
-NetLicensing.Token.prototype.getCancelURLTitle = function (def) {
-    return this.getProperty('cancelURLTitle', def);
-};
-
-NetLicensing.Token.prototype.getShopURL = function (def) {
-    return this.getProperty('shopURL', def);
-};
-
-//make methods not changeable
-NetLicensing.DefineUtil.notChangeable(NetLicensing.Token.prototype, ['constructor']);
-
-//make methods not enumerable
-NetLicensing.DefineUtil.notEnumerable(NetLicensing.Token.prototype, [
-    'getNumber',
-    'setActive',
-    'getActive',
-    'setExpirationTime',
-    'getExpirationTime',
-    'setVendorNumber',
-    'getVendorNumber',
-    'setTokenType',
-    'getTokenType',
-    'setLicenseeNumber',
-    'getLicenseeNumber',
-    'setSuccessURL',
-    'getSuccessURL',
-    'setSuccessURLTitle',
-    'getSuccessURLTitle',
-    'setCancelURL',
-    'getCancelURL',
-    'setCancelURLTitle',
-    'getCancelURLTitle',
-    'getShopURL',
-]);
+    getShopURL(def) {
+        return this.getProperty('shopURL', def);
+    }
+}

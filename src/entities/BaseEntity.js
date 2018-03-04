@@ -5,82 +5,126 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-//namespace
-var NetLicensing  = NetLicensing  || {};
+import CheckUtils from '../util/CheckUtils';
+import CastsUtils from '../util/CastsUtils';
 
-NetLicensing.BaseEntity = function (properties) {
+/**
+ * The entity properties.
+ * @type {{}}
+ * @private
+ */
+const propertiesMap = new WeakMap();
 
-    /**
-     * Object Handle
-     * @type {NetLicensing.BaseEntity}
-     */
-    var self = this;
+/**
+ * List of properties that was defined
+ * @type {{}}
+ * @private
+ */
 
-    /**
-     * The entity properties.
-     * @type {{}}
-     * @private
-     */
-    var __properties = {};
+const definedMap = new WeakMap();
 
-    /**
-     * List of properties that was defined
-     * @type {{}}
-     * @private
-     */
-    var __defined = {};
+/**
+ * List of properties that need be casts
+ * @type {{}}
+ * @private
+ */
+const castsMap = new WeakMap();
+
+/**
+ * List of properties that has read-only access
+ * @type {{}}
+ * @private
+ */
+const readOnlyMap = new WeakMap();
+
+export default class BaseEntity {
+    constructor({ properties, casts, readOnly }) {
+        propertiesMap.set(this, {});
+        definedMap.set(this, {});
+        castsMap.set(this, casts || []);
+        readOnlyMap.set(this, readOnly || []);
+
+        if (properties) {
+            this.setProperties(properties);
+        }
+    }
 
     /**
      * Set a given property on the entity.
      * @param property
      * @param value
-     * @returns {NetLicensing.BaseEntity}
+     * @returns {BaseEntity}
      */
-    this.setProperty = function (property, value) {
-        this.__checkProperty(property, value);
-
-        value = self.__cast(property, value);
-
-        //check property after cast
-        this.__checkProperty(property, value);
-
-        this.__define(property);
-
-        if (typeof value === 'object') {
-            value = (Array.isArray(value)) ? Object.assign([], value) : (value instanceof Date) ? new Date(value) : Object.assign({}, value);
+    setProperty(property, value) {
+        // if property has read-only access and was initialized at least once
+        if (this.hasProperty(property) && this.isPropertyReadOnly(property)) {
+            throw new TypeError(`Property ${property} has read-only access`);
         }
 
-        __properties[property] = value;
+        // if property name has bad native type
+        if (!CheckUtils.isValid(property) || typeof property === 'object') {
+            throw new TypeError(`Bad property name:${property}`);
+        }
+
+        // if property value has bad native type
+        if (!CheckUtils.isValid(value)) {
+            throw new TypeError(`Property ${property} has bad value ${value}`);
+        }
+
+        const castedValue = this.cast(property, value);
+
+        // check if property value after cast has bad native type
+        if (!CheckUtils.isValid(value)) {
+            throw new TypeError(`Property ${property} has bad cast value ${castedValue}`);
+        }
+
+        // define to property
+        this.define(property);
+
+        // save property to propertiesMap
+        const properties = propertiesMap.get(this);
+        properties[property] = castedValue;
 
         return this;
-    };
+    }
 
     /**
      * Alias for setProperty
      * @param property
      * @param value
-     * @returns {NetLicensing.BaseEntity}
+     * @returns {BaseEntity}
      */
-    this.addProperty = function (property, value) {
+    addProperty(property, value) {
         return this.setProperty(property, value);
-    };
+    }
 
     /**
      * Set the entity properties.
      * @param properties
-     * @returns {NetLicensing.BaseEntity}
+     * @returns {BaseEntity}
      */
-    this.setProperties = function (properties) {
-
+    setProperties(properties) {
         this.removeProperties();
 
-        for (var key in properties) {
-            if (!properties.hasOwnProperty(key)) continue;
-            this.setProperty(key, properties[key]);
-        }
+        const has = Object.prototype.hasOwnProperty;
+
+        Object.keys(properties).forEach((key) => {
+            if (has.call(properties, key)) {
+                this.setProperty(key, properties[key]);
+            }
+        });
 
         return this;
-    };
+    }
+
+    /**
+     * Check if we has property
+     * @param property
+     * @protected
+     */
+    hasProperty(property) {
+        return Object.prototype.hasOwnProperty.call(propertiesMap.get(this), property);
+    }
 
     /**
      * Get an property from the entity.
@@ -88,79 +132,110 @@ NetLicensing.BaseEntity = function (properties) {
      * @param def
      * @returns {*}
      */
-    this.getProperty = function (property, def) {
-        return (__properties.hasOwnProperty(property)) ? __properties[property] : def;
-    };
+    getProperty(property, def) {
+        return Object.prototype.hasOwnProperty.call(propertiesMap.get(this), property)
+            ? propertiesMap.get(this)[property]
+            : def;
+    }
 
     /**
      * Get all of the current properties on the entity.
      */
-    this.getProperties = function () {
-        return Object.assign({}, __properties);
-    };
+    getProperties() {
+        return Object.assign({}, propertiesMap.get(this));
+    }
 
     /**
      * Remove property
      * @param property
-     * @returns {NetLicensing.BaseEntity}
+     * @returns {BaseEntity}
      */
-    this.removeProperty = function (property) {
-        delete __properties[property];
-        this.__removeDefine(property);
+    removeProperty(property) {
+        const properties = propertiesMap.get(this);
+        delete properties[property];
+        this.removeDefine(property);
         return this;
-    };
+    }
 
     /**
      * Remove properties
      * @param properties
      */
-    this.removeProperties = function (properties) {
-        properties = properties || Object.keys(__properties);
+    removeProperties(properties) {
+        const propertiesForRemove = properties || Object.keys(propertiesMap.get(this));
 
-        var length = properties.length;
+        propertiesForRemove.forEach((property) => {
+            this.removeProperty(property);
+        });
+    }
 
-        for (var i = 0; i < length; i++) {
-            this.removeProperty(properties[i]);
-        }
-    };
+    isPropertyReadOnly(property) {
+        return readOnlyMap.get(this).indexOf(property) >= 0;
+    }
+
+    cast(property, value) {
+        if (!castsMap.get(this)[property]) return value;
+
+        return CastsUtils(castsMap.get(this)[property], value);
+    }
 
     /**
      * Check if property has defined
      * @param property
      * @protected
      */
-    this.__hasDefine = function (property) {
-        return Boolean(__defined[property]);
-    };
+    hasDefine(property) {
+        return Boolean(definedMap.get(this)[property]);
+    }
 
     /**
      * Define property getter and setter
      * @param property
-     * @param onlyGetter
      * @protected
      */
-    this.__define = function (property, onlyGetter) {
-        if (this.__hasDefine(property)) return;
+    define(property) {
+        if (this.hasDefine(property)) return;
 
-        //delete property
-        delete this[property];
-
-        var descriptors = {
-            enumerable: true,
-            configurable: true,
-            get: function () {
-                return self.getProperty(property)
-            }
-        };
-
-        if (!onlyGetter) {
-            descriptors.set = function (value) {
-                return self.setProperty(property, value);
-            };
+        if (!CheckUtils.isValid(property) || typeof property === 'object') {
+            throw new TypeError(`Bad property name:${property}`);
         }
 
+        const self = this;
+
+        // delete property
+        delete this[property];
+
+        const descriptors = {
+            enumerable: true,
+            configurable: true,
+            get() {
+                return self.getProperty(property);
+            },
+        };
+
+        if (!this.isPropertyReadOnly(property)) {
+            descriptors.set = value => self.setProperty(property, value);
+        }
+
+        const defined = definedMap.get(this);
+        defined[property] = true;
+
         Object.defineProperty(this, property, descriptors);
-    };
+    }
+
+    /**
+     * Remove property getter and setter
+     * @param property
+     * @protected
+     */
+    removeDefine(property) {
+        if (!this.hasDefine(property)) return;
+
+        const defined = definedMap.get(this);
+        delete defined[property];
+
+        delete this[property];
+    }
 
     /**
      * Define properties getter and setter
@@ -168,132 +243,28 @@ NetLicensing.BaseEntity = function (properties) {
      * @param onlyGetter
      * @protected
      */
-    this.__defines = function (properties, onlyGetter) {
-        var length = properties.length;
-        for (var i = 0; i < length; i++) {
-            this.__define(properties[i], onlyGetter);
-        }
-    };
-
-    /**
-     * Remove property getter and setter
-     * @param property
-     * @protected
-     */
-    this.__removeDefine = function (property) {
-        if (!this.__hasDefine(property)) return;
-        delete this[property];
-        delete __defined[property];
-    };
-
-    /**
-     * Determine whether an property should be cast to a native type.
-     * @param property
-     * @returns {boolean}
-     * @protected
-     */
-    this.__hasCast = function (property) {
-        return (this.casts && this.casts[property]);
-    };
-
-    /**
-     * Get the type of cast for a entity property.
-     * @param property
-     * @returns {string}
-     * @protected
-     */
-    this.__getCastType = function (property) {
-        return this.casts[property].trim().toLowerCase();
-    };
-
-    /**
-     * Cast an property to a native JS type.
-     * @param property
-     * @param value
-     * @returns {*}
-     * @protected
-     */
-    this.__cast = function (property, value) {
-        if (!this.__hasCast(property)) return value;
-
-        switch (this.__getCastType(property)) {
-            case 'str':
-            case 'string':
-                return String(value);
-            case 'int':
-            case 'integer':
-                return parseInt(value, 10);
-            case 'float':
-            case 'double':
-                return parseFloat(value);
-            case 'bool':
-            case 'boolean':
-                switch (value) {
-                    case 'true':
-                    case 'TRUE':
-                        return true;
-                        break;
-                    case 'false':
-                    case 'FALSE':
-                        return false;
-                        break;
-                    default:
-                        return Boolean(value);
-                        break;
-                }
-            case 'date':
-                return (value === 'now') ? 'now' : new Date(String(value));
-        }
-        return value;
-    };
-
-    /**
-     * Check if property is valid
-     * @param property
-     * @param value
-     * @private
-     */
-    this.__checkProperty = function (property, value) {
-        if (!NetLicensing.CheckUtils.isValid(property) || typeof property === 'object')  throw new TypeError('Bad property name:' + property);
-        if (!NetLicensing.CheckUtils.isValid(value)) throw new TypeError('Property ' + property + ' has bad value ' + value);
-    };
-
-    //make methods not changeable
-    NetLicensing.DefineUtil.notChangeable(this, [
-        'setProperty',
-        'addProperty',
-        'setProperties',
-        'getProperty',
-        'getProperties',
-        'removeProperty',
-        'removeProperties',
-        '__hasDefine',
-        '__define',
-        '__defines',
-        '__removeDefine',
-        '__hasCast',
-        '__getCastType',
-        '__cast',
-        '__checkProperty',
-        '__noChangeable'
-    ]);
+    defines(properties, onlyGetter) {
+        properties.forEach((property) => {
+            this.define(property, onlyGetter);
+        });
+    }
 
     /**
      * Get properties map
      */
-    this.asPropertiesMap = function () {
-        var properties = this.getProperties();
-        var customProperties = {};
+    asPropertiesMap() {
+        const properties = this.getProperties();
+        const customProperties = {};
 
-        for (var key in this) {
-            if (!this.hasOwnProperty(key)) continue;
-            if (!NetLicensing.CheckUtils.isValid(this[key])) continue;
+        const has = Object.prototype.hasOwnProperty;
+
+        Object.keys(this).forEach((key) => {
+            if (!has.call(this, key)) return;
+            if (!CheckUtils.isValid(this[key])) return;
 
             customProperties[key] = this[key];
-        }
+        });
 
         return Object.assign({}, customProperties, properties);
-    };
-
-    this.setProperties(properties);
-};
+    }
+}

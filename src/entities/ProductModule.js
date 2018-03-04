@@ -5,8 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-//namespace
-var NetLicensing  = NetLicensing  || {};
+import BaseEntity from './BaseEntity';
 
 /**
  * Product module entity used internally by NetLicensing.
@@ -43,155 +42,105 @@ var NetLicensing  = NetLicensing  || {};
  *
  * @constructor
  */
+export default class ProductModule extends BaseEntity {
+    constructor(properties) {
+        super({
+            properties,
+            // The attributes that should be cast to native types.
+            casts: {
+                number: 'string',
+                active: 'boolean',
+                name: 'string',
+                licensingModel: 'string',
+                maxCheckoutValidity: 'int',
+                yellowThreshold: 'int',
+                redThreshold: 'int',
+                licenseTemplate: 'string',
+                inUse: 'boolean',
+            },
+            // The attributes that should have read-only access.
+            readOnly: ['inUse'],
+        });
 
-NetLicensing.ProductModule = function () {
-    NetLicensing.BaseEntity.apply(this, arguments);
+        // define default entity properties
+        this.defines([
+            'number',
+            'active',
+            'name',
+            'licensingModel',
+            'maxCheckoutValidity',
+            'yellowThreshold',
+            'redThreshold',
+            'licenseTemplate',
+            'inUse',
+        ]);
+    }
 
-    //The attributes that should be cast to native types.
-    Object.defineProperty(this, 'casts', {
-        value: {
-            number: 'string',
-            active: 'boolean',
-            name: 'string',
-            licensingModel: 'string',
-            maxCheckoutValidity: 'int',
-            yellowThreshold: 'int',
-            redThreshold: 'int',
-            licenseTemplate: 'string',
-            inUse: 'boolean'
-        }
-    });
+    setNumber(number) {
+        return this.setProperty('number', number);
+    }
 
-    //define default entity properties
-    this.__defines(['number', 'active', 'name', 'licensingModel', 'maxCheckoutValidity', 'yellowThreshold', 'redThreshold', 'licenseTemplate']);
-    this.__define('inUse', true);
+    getNumber(def) {
+        return this.getProperty('number', def);
+    }
 
-    //make methods not changeable
-    NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
-};
+    setActive(active) {
+        return this.setProperty('active', active);
+    }
 
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicensingModel.Subscription.NAME instead.
- */
-Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_SUBSCRIPTION', {value: 'Subscription'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicensingModel.TryAndBuy.NAME instead.
- */
-Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_TRY_AND_BUY', {value: 'TryAndBuy'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicensingModel.Rental.NAME instead.
- */
-Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_RENTAL', {value: 'Rental'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicensingModel.Floating.NAME instead.
- */
-Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_FLOATING', {value: 'Floating'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicensingModel.MultiFeature.NAME instead.
- */
-Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_MULTI_FEATURE', {value: 'MultiFeature'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicensingModel.PayPerUse.NAME instead.
- */
-Object.defineProperty(NetLicensing.ProductModule, 'LICENSING_MODEL_PAY_PER_USE', {value: 'PayPerUse'});
+    getActive(def) {
+        return this.getProperty('active', def);
+    }
 
-NetLicensing.ProductModule.prototype = Object.create(NetLicensing.BaseEntity.prototype);
-NetLicensing.ProductModule.prototype.constructor = NetLicensing.ProductModule;
+    setName(name) {
+        return this.setProperty('name', name);
+    }
 
-NetLicensing.ProductModule.prototype.setNumber = function (number) {
-    return this.setProperty('number', number);
-};
+    getName(def) {
+        return this.getProperty('name', def);
+    }
 
-NetLicensing.ProductModule.prototype.getNumber = function (def) {
-    return this.getProperty('number', def);
-};
+    setLicensingModel(licensingModel) {
+        return this.setProperty('licensingModel', licensingModel);
+    }
 
-NetLicensing.ProductModule.prototype.setActive = function (active) {
-    return this.setProperty('active', active);
-};
+    getLicensingModel(def) {
+        return this.getProperty('licensingModel', def);
+    }
 
-NetLicensing.ProductModule.prototype.getActive = function (def) {
-    return this.getProperty('active', def);
-};
+    setMaxCheckoutValidity(maxCheckoutValidity) {
+        return this.setProperty('maxCheckoutValidity', maxCheckoutValidity);
+    }
 
-NetLicensing.ProductModule.prototype.setName = function (name) {
-    return this.setProperty('name', name);
-};
+    getMaxCheckoutValidity(def) {
+        return this.getProperty('maxCheckoutValidity', def);
+    }
 
-NetLicensing.ProductModule.prototype.getName = function (def) {
-    return this.getProperty('name', def);
-};
+    setYellowThreshold(yellowThreshold) {
+        return this.setProperty('yellowThreshold', yellowThreshold);
+    }
 
-NetLicensing.ProductModule.prototype.setLicensingModel = function (licensingModel) {
-    return this.setProperty('licensingModel', licensingModel);
-};
+    getYellowThreshold(def) {
+        return this.getProperty('yellowThreshold', def);
+    }
 
-NetLicensing.ProductModule.prototype.getLicensingModel = function (def) {
-    return this.getProperty('licensingModel', def);
-};
+    setRedThreshold(redThreshold) {
+        return this.setProperty('redThreshold', redThreshold);
+    }
 
-NetLicensing.ProductModule.prototype.setMaxCheckoutValidity = function (maxCheckoutValidity) {
-    return this.setProperty('maxCheckoutValidity', maxCheckoutValidity);
-};
+    getRedThreshold(def) {
+        return this.getProperty('redThreshold', def);
+    }
 
-NetLicensing.ProductModule.prototype.getMaxCheckoutValidity = function (def) {
-    return this.getProperty('maxCheckoutValidity', def);
-};
+    setLicenseTemplate(licenseTemplate) {
+        return this.setProperty('licenseTemplate', licenseTemplate);
+    }
 
-NetLicensing.ProductModule.prototype.setYellowThreshold = function (yellowThreshold) {
-    return this.setProperty('yellowThreshold', yellowThreshold);
-};
+    getLicenseTemplate(def) {
+        return this.getProperty('licenseTemplate', def);
+    }
 
-NetLicensing.ProductModule.prototype.getYellowThreshold = function (def) {
-    return this.getProperty('yellowThreshold', def);
-};
-
-NetLicensing.ProductModule.prototype.setRedThreshold = function (redThreshold) {
-    return this.setProperty('redThreshold', redThreshold);
-};
-
-NetLicensing.ProductModule.prototype.getRedThreshold = function (def) {
-    return this.getProperty('redThreshold', def);
-};
-
-NetLicensing.ProductModule.prototype.setLicenseTemplate = function (licenseTemplate) {
-    return this.setProperty('licenseTemplate', licenseTemplate);
-};
-
-NetLicensing.ProductModule.prototype.getLicenseTemplate = function (def) {
-    return this.getProperty('licenseTemplate', def);
-};
-
-NetLicensing.ProductModule.prototype.getInUse = function (def) {
-    return this.getProperty('inUse', def);
-};
-
-//make methods not changeable
-NetLicensing.DefineUtil.notChangeable(NetLicensing.ProductModule.prototype, ['constructor']);
-
-//make methods not enumerable
-NetLicensing.DefineUtil.notEnumerable(NetLicensing.ProductModule.prototype, [
-    'setNumber',
-    'getNumber',
-    'setActive',
-    'getActive',
-    'setName',
-    'getName',
-    'setLicensingModel',
-    'getLicensingModel',
-    'setMaxCheckoutValidity',
-    'getMaxCheckoutValidity',
-    'setYellowThreshold',
-    'getYellowThreshold',
-    'setRedThreshold',
-    'getRedThreshold',
-    'setLicenseTemplate',
-    'getLicenseTemplate',
-    'getInUse',
-]);
+    getInUse(def) {
+        return this.getProperty('inUse', def);
+    }
+}

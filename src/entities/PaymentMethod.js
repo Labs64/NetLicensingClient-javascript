@@ -5,8 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-//namespace
-var NetLicensing  = NetLicensing  || {};
+import BaseEntity from './BaseEntity';
 
 /**
  * PaymentMethod entity used internally by NetLicensing.
@@ -16,62 +15,45 @@ var NetLicensing  = NetLicensing  || {};
  *
  * @constructor
  */
+export default class PaymentMethod extends BaseEntity {
+    constructor(properties) {
+        super({
+            properties,
+            // The attributes that should be cast to native types.
+            casts: {
+                number: 'string',
+                active: 'boolean',
+                'paypal.subject': 'string',
+            },
+            // The attributes that should have read-only access.
+            readOnly: ['inUse'],
+        });
 
-NetLicensing.PaymentMethod = function PaymentMethod() {
-    NetLicensing.BaseEntity.apply(this, arguments);
+        // define default entity properties
+        this.defines(['number', 'active', 'paypal.subject']);
+    }
 
-    //The attributes that should be cast to native types.
-    Object.defineProperty(this, 'casts', {
-        value: {
-            number: 'string',
-            active: 'boolean',
-            'paypal.subject': 'string',
-        }
-    });
+    setNumber(number) {
+        return this.setProperty('number', number);
+    }
 
-    //define default entity properties
-    this.__defines(['number', 'active', 'paypal.subject']);
+    getNumber(def) {
+        return this.getProperty('number', def);
+    }
 
-    //make methods not changeable
-    NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
-};
+    setActive(active) {
+        return this.setProperty('active', active);
+    }
 
-NetLicensing.PaymentMethod.prototype = Object.create(NetLicensing.BaseEntity.prototype);
-NetLicensing.PaymentMethod.prototype.constructor = NetLicensing.PaymentMethod;
+    getActive(def) {
+        return this.getProperty('active', def);
+    }
 
-NetLicensing.PaymentMethod.prototype.setNumber = function (number) {
-    return this.setProperty('number', number);
-};
+    setPaypalSubject(paypalSubject) {
+        return this.setProperty('paypal.subject', paypalSubject);
+    }
 
-NetLicensing.PaymentMethod.prototype.getNumber = function (def) {
-    return this.getProperty('number', def);
-};
-
-NetLicensing.PaymentMethod.prototype.setActive = function (active) {
-    return this.setProperty('active', active);
-};
-
-NetLicensing.PaymentMethod.prototype.getActive = function (def) {
-    return this.getProperty('active', def);
-};
-
-NetLicensing.PaymentMethod.prototype.setPaypalSubject = function (paypalSubject) {
-    return this.setProperty('paypal.subject', paypalSubject);
-};
-
-NetLicensing.PaymentMethod.prototype.getPaypalSubject = function (def) {
-    return this.getProperty('paypal.subject', def);
-};
-
-//make methods not changeable
-NetLicensing.DefineUtil.notChangeable(NetLicensing.PaymentMethod.prototype, ['constructor']);
-
-//make methods not enumerable
-NetLicensing.DefineUtil.notEnumerable(NetLicensing.PaymentMethod.prototype, [
-    'setNumber',
-    'getNumber',
-    'setActive',
-    'getActive',
-    'setPaypalSubject',
-    'getPaypalSubject',
-]);
+    getPaypalSubject(def) {
+        return this.getProperty('paypal.subject', def);
+    }
+}

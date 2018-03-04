@@ -1,31 +1,28 @@
-describe('PaymentMethodServiceTest', function () {
-    var context, promise;
+import Context from '../../src/vo/Context';
+import PaymentMethod from '../../src/entities/PaymentMethod';
+import PaymentMethodService from '../../src/services/PaymentMethodService';
 
-    beforeAll(function () {
-        context = new NetLicensing.Context().setUsername('Demo').setPassword('demo');
+describe('PaymentMethodServiceTest', () => {
+    let context;
 
-        promise = Promise.resolve('PaymentMethodServiceTest');
+    beforeAll(() => {
+        context = new Context().setUsername('Demo').setPassword('demo');
     });
 
-    it('check "get" method', function () {
-        return promise
-            .then(function () {
-                return NetLicensing.PaymentMethodService.get(context, 'PAYPAL');
-            })
-            .then(function (entity) {
-                expect(entity instanceof NetLicensing.PaymentMethod).toBe(true);
-
+    it('check "get" method', () => {
+        PaymentMethodService.get(context, 'PAYPAL')
+            .then((entity) => {
+                expect(entity instanceof PaymentMethod).toBe(true);
                 expect(entity.getProperty('number')).toBe('PAYPAL');
             });
     });
 
-    it('check "list" method', function () {
-        return NetLicensing.PaymentMethodService.list(context)
-            .then(function (entities) {
+    it('check "list" method', () => {
+        PaymentMethodService.list(context)
+            .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
-                expect(entities[0] instanceof NetLicensing.PaymentMethod).toBe(true);
+                expect(entities[0] instanceof PaymentMethod).toBe(true);
             });
     });
-
 });

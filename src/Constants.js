@@ -5,41 +5,38 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-//namespace
-var NetLicensing = NetLicensing || {};
-
-NetLicensing.Constants = {
+export default {
     BASIC_AUTHENTICATION: 'BASIC_AUTH',
     APIKEY_IDENTIFICATION: 'APIKEY',
 
     LicensingModel: {
         VALID: 'valid',
         TryAndBuy: {
-            NAME: 'TryAndBuy'
+            NAME: 'TryAndBuy',
         },
         Rental: {
             NAME: 'Rental',
             RED_THRESHOLD: 'redThreshold',
-            YELLOW_THRESHOLD: 'yellowThreshold'
+            YELLOW_THRESHOLD: 'yellowThreshold',
         },
         Subscription: {
-            NAME: "Subscription"
+            NAME: 'Subscription',
         },
         Floating: {
-            NAME: "Floating"
+            NAME: 'Floating',
         },
         MultiFeature: {
-            NAME: 'MultiFeature'
+            NAME: 'MultiFeature',
         },
         PayPerUse: {
-            NAME: 'PayPerUse'
+            NAME: 'PayPerUse',
         },
         PricingTable: {
-            NAME: 'PricingTable'
+            NAME: 'PricingTable',
         },
         Quota: {
-            NAME: 'Quota'
-        }
+            NAME: 'Quota',
+        },
     },
 
     LicenseTemplate: {
@@ -48,8 +45,8 @@ NetLicensing.Constants = {
             FEATURE: 'FEATURE',
             TIMEVOLUME: 'TIMEVOLUME',
             FLOATING: 'FLOATING',
-            QUANTITY: 'QUANTITY'
-        }
+            QUANTITY: 'QUANTITY',
+        },
     },
 
     Product: {
@@ -57,8 +54,8 @@ NetLicensing.Constants = {
         LicenseeSecretMode: {
             DISABLED: 'DISABLED',
             PREDEFINED: 'PREDEFINED',
-            CLIENT: 'CLIENT'
-        }
+            CLIENT: 'CLIENT',
+        },
     },
 
     Token: {
@@ -66,8 +63,8 @@ NetLicensing.Constants = {
         Type: {
             DEFAULT: 'DEFAULT',
             SHOP: 'SHOP',
-            APIKEY: 'APIKEY'
-        }
+            APIKEY: 'APIKEY',
+        },
     },
 
     Transaction: {
@@ -75,29 +72,29 @@ NetLicensing.Constants = {
         Status: {
             CANCELLED: 'CANCELLED',
             CLOSED: 'CLOSED',
-            PENDING: 'PENDING'
-        }
+            PENDING: 'PENDING',
+        },
     },
 
     Licensee: {
         ENDPOINT_PATH: 'licensee',
         ENDPOINT_PATH_VALIDATE: 'validate',
-        ENDPOINT_PATH_TRANSFER: 'transfer'
+        ENDPOINT_PATH_TRANSFER: 'transfer',
     },
 
     License: {
-        ENDPOINT_PATH: 'license'
+        ENDPOINT_PATH: 'license',
     },
 
     PaymentMethod: {
-        ENDPOINT_PATH: 'paymentmethod'
+        ENDPOINT_PATH: 'paymentmethod',
     },
 
     ProductModule: {
-        ENDPOINT_PATH: 'productmodule'
+        ENDPOINT_PATH: 'productmodule',
     },
 
     Utility: {
-        ENDPOINT_PATH: 'utility'
-    }
+        ENDPOINT_PATH: 'utility',
+    },
 };

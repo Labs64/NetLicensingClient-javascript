@@ -4,71 +4,91 @@
  * @link      http://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-
-//namespace
-var NetLicensing = NetLicensing || {};
+import Constants from '../Constants';
+import CheckUtils from '../util/CheckUtils';
 
 /**
- * Class Context
- *
- * Provides calling context for the NetLicensing API calls.
- * The Context object may differ depending on the level at which NetLicensing API is called.
- * For the internal Java NetLicensing API the Context provides information about the targeted Vendor.
- *
- * @property string $baseUrl
- * Server URL base of the NetLicensing RESTful API. Normally should be "https://go.netlicensing.io".
- *
- * @property  string username
- * Login name of the user sending the requests when securityMode = BASIC_AUTHENTICATION.
- *
- * @property string password
- * Password of the user sending the requests when securityMode = BASIC_AUTHENTICATION.
- *
- * @property string apiKey
- * API Key used to identify the request sender when securityMode = APIKEY_IDENTIFICATION.
- *
- * @property string securityMode
- * Determines the security mode used for accessing the NetLicensing API.
- * See https://www.labs64.de/confluence/x/pwCo#NetLicensingAPI%28RESTful%29-Security for details.
- *
- * @property string vendorNumber
- * External number of the vendor.
- *
- * @constructor
+ * The context values.
+ * @type {{}}
+ * @private
  */
+const valuesMap = new WeakMap();
 
-NetLicensing.Context = function (values) {
+/**
+ * List of values that was defined
+ * @type {{}}
+ * @private
+ */
+const definedMap = new WeakMap();
 
-    if (values === undefined) values = {};
+/**
+ * Context defaults
+ * @type {{baseUrl: string, securityMode}}
+ * @private
+ */
+const defaultsMap = new WeakMap();
 
-    if (typeof values != 'object') {
-        throw new Error('Argument 1 passed to Context() must be of the type object, ' + typeof values + ' given');
+export default class Context {
+    constructor(values) {
+        defaultsMap.set(this, {
+            baseUrl: 'https://go.netlicensing.io/core/v2/rest',
+            securityMode: Constants.BASIC_AUTHENTICATION,
+        });
+
+        valuesMap.set(this, {});
+
+        definedMap.set(this, {});
+
+        this.setValues(Object.assign({}, defaultsMap.get(this), values));
     }
 
-    /**
-     * Context defaults
-     * @type {{baseUrl: string, securityMode}}
-     * @private
-     */
-    var __defaults = {
-        baseUrl: 'https://go.netlicensing.io/core/v2/rest',
-        securityMode: NetLicensing.Constants.BASIC_AUTHENTICATION
-    };
+    setBaseUrl(baseUrl) {
+        return this.setValue('baseUrl', baseUrl);
+    }
 
-    /**
-     * The context values.
-     * @type {{}}
-     * @private
-     */
-    var __values = {};
+    getBaseUrl(def) {
+        return this.getValue('baseUrl', def);
+    }
 
+    setUsername(username) {
+        return this.setValue('username', username);
+    }
 
-    /**
-     * List of values that was defined
-     * @type {{}}
-     * @private
-     */
-    var __defined = {};
+    getUsername(def) {
+        return this.getValue('username', def);
+    }
+
+    setPassword(password) {
+        return this.setValue('password', password);
+    }
+
+    getPassword(def) {
+        return this.getValue('password', def);
+    }
+
+    setApiKey(apiKey) {
+        return this.setValue('apiKey', apiKey);
+    }
+
+    getApiKey(def) {
+        return this.getValue('apiKey', def);
+    }
+
+    setSecurityMode(securityMode) {
+        return this.setValue('securityMode', securityMode);
+    }
+
+    getSecurityMode(def) {
+        return this.getValue('securityMode', def);
+    }
+
+    setVendorNumber(vendorNumber) {
+        return this.setValue('vendorNumber', vendorNumber);
+    }
+
+    getVendorNumber(def) {
+        return this.getValue('vendorNumber', def);
+    }
 
     /**
      * Set a given values on the context.
@@ -76,33 +96,44 @@ NetLicensing.Context = function (values) {
      * @param value
      * @returns {Context}
      */
-    this.setValue = function (key, value) {
-        this.__checkValue(key, value);
-        this.__define(key);
+    setValue(key, value) {
+        // check values
+        if (!CheckUtils.isValid(key) || typeof key === 'object') throw new Error(`Bad value key:${key}`);
+        if (!CheckUtils.isValid(value)) throw new Error(`Value ${key} has wrong value${value}`);
 
-        if (typeof value === 'object')value = (Array.isArray(value)) ? Object.assign([], value) : Object.assign({}, value);
+        // define keys
+        this.define(key);
 
-        __values[key] = value;
+        let copedValue = value;
+
+        if (typeof value === 'object') {
+            copedValue = (Array.isArray(value)) ? Object.assign([], value) : Object.assign({}, value);
+        }
+
+        const values = valuesMap.get(this);
+        values[key] = copedValue;
 
         return this;
-    };
+    }
 
     /**
      * Set the array of context values.
      * @param values
      * @returns {Context}
      */
-    this.setValues = function (values) {
-
+    setValues(values) {
         this.removeValues();
 
-        for (var key in values) {
-            if (!values.hasOwnProperty(key)) continue;
-            this.setValue(key, values[key]);
-        }
+        const has = Object.prototype.hasOwnProperty;
+
+        Object.keys(values).forEach((key) => {
+            if (has.call(values, key)) {
+                this.setValue(key, values[key]);
+            }
+        });
 
         return this;
-    };
+    }
 
     /**
      * Get an value from the context.
@@ -110,189 +141,95 @@ NetLicensing.Context = function (values) {
      * @param def
      * @returns {*}
      */
-    this.getValue = function (key, def) {
-        return __values[key] || def;
-    };
+    getValue(key, def) {
+        return valuesMap.get(this)[key] || def;
+    }
 
     /**
      * Get all of the current value on the context.
      */
-    this.getValues = function () {
-        return Object.assign({}, __values);
-    };
+    getValues() {
+        return Object.assign({}, valuesMap.get(this));
+    }
 
     /**
      * Remove value
      * @param key
-     * @returns {BaseEntity}
+     * @returns {Context}
      */
-    this.removeValue = function (key) {
-        delete __values[key];
-        this.__removeDefine(key);
+    removeValue(key) {
+        const values = valuesMap.get(this);
+        delete values[key];
+
+        this.removeDefine(key);
         return this;
-    };
+    }
 
     /**
      * Remove values
      * @param keys
      */
-    this.removeValues = function (keys) {
-        keys = keys || Object.keys(__values);
-
-        var length = keys.length;
-
-        for (var i = 0; i < length; i++) {
-            this.removeValue(keys[i]);
-        }
-    };
-
-    /**
-     * Check if value has defined
-     * @param key
-     * @protected
-     */
-    this.__hasDefine = function (key) {
-        return Boolean(__defined[key]);
-    };
+    removeValues(keys) {
+        const keysAr = keys || Object.keys(valuesMap.get(this));
+        keysAr.forEach(key => this.removeValue(key));
+    }
 
     /**
      * Define value getter and setter
      * @param key
      * @param onlyGetter
-     * @protected
+     * @private
      */
-    this.__define = function (key, onlyGetter) {
-        var self = this;
-        if (this.__hasDefine(key)) return;
+    define(key, onlyGetter) {
+        if (this.hasDefine(key)) return;
 
-        //delete property
+        if (!CheckUtils.isValid(key) || typeof property === 'object') {
+            throw new TypeError(`Bad value name:${key}`);
+        }
+
+        const self = this;
+
+        // delete property
         delete this[key];
 
-        var descriptors = {
+        const descriptors = {
             enumerable: true,
             configurable: true,
-            get: function () {
-                return self.getValue(key)
-            }
+            get() {
+                return self.getValue(key);
+            },
         };
 
         if (!onlyGetter) {
-            descriptors.set = function (value) {
-                return self.setValue(key, value);
-            };
+            descriptors.set = value => self.setValue(key, value);
         }
+
+        const defined = definedMap.get(this);
+        defined[key] = true;
 
         Object.defineProperty(this, key, descriptors);
-    };
+    }
 
     /**
-     * Define values getter and setter
-     * @param keys
-     * @param onlyGetter
-     * @protected
+     * Check if value has defined
+     * @param key
+     * @private
      */
-    this.__defines = function (keys, onlyGetter) {
-        var length = keys.length;
-        for (var i = 0; i < length; i++) {
-            this.__define(keys[i], onlyGetter);
-        }
-    };
+    hasDefine(key) {
+        return Boolean(definedMap.get(this)[key]);
+    }
 
     /**
      * Remove value getter and setter
      * @param key
-     * @protected
-     */
-    this.__removeDefine = function (key) {
-        if (!this.__hasDefine(key)) return;
-        delete this[key];
-        delete __defined[key];
-    };
-
-    /**
-     * Check if value is valid
-     * @param key
-     * @param value
      * @private
      */
-    this.__checkValue = function (key, value) {
-        if (!NetLicensing.CheckUtils.isValid(key) || typeof key === 'object')  throw new Error('Bad value key:' + key);
-        if (!NetLicensing.CheckUtils.isValid(value)) throw new Error('Value ' + key + ' has wrong value' + value);
-    };
+    removeDefine(key) {
+        if (!this.hasDefine(key)) return;
 
-    //make methods not changeable
-    Object.defineProperties(this, {
-        setValue: {writable: false, enumerable: false, configurable: false},
-        setValues: {writable: false, enumerable: false, configurable: false},
-        getValue: {writable: false, enumerable: false, configurable: false},
-        getValues: {writable: false, enumerable: false, configurable: false},
-        removeValue: {writable: false, enumerable: false, configurable: false},
-        removeValues: {writable: false, enumerable: false, configurable: false},
-        __hasDefine: {writable: false, enumerable: false, configurable: false},
-        __define: {writable: false, enumerable: false, configurable: false},
-        __defines: {writable: false, enumerable: false, configurable: false},
-        __removeDefine: {writable: false, enumerable: false, configurable: false},
-        __checkValue: {writable: false, enumerable: false, configurable: false}
-    });
+        const defined = definedMap.get(this);
+        delete defined[key];
 
-    this.setValues(Object.assign({}, __defaults, values));
-};
-
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.BASIC_AUTHENTICATION instead.
- */
-Object.defineProperty(NetLicensing.Context, 'BASIC_AUTHENTICATION', {value: 'BASIC_AUTH'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.APIKEY_IDENTIFICATION instead.
- */
-Object.defineProperty(NetLicensing.Context, 'APIKEY_IDENTIFICATION', {value: 'APIKEY'});
-
-NetLicensing.Context.prototype.setBaseUrl = function (baseUrl) {
-    return this.setValue('baseUrl', baseUrl);
-};
-
-NetLicensing.Context.prototype.getBaseUrl = function (def) {
-    return this.getValue('baseUrl', def);
-};
-
-NetLicensing.Context.prototype.setUsername = function (username) {
-    return this.setValue('username', username);
-};
-
-NetLicensing.Context.prototype.getUsername = function (def) {
-    return this.getValue('username', def);
-};
-
-NetLicensing.Context.prototype.setPassword = function (password) {
-    return this.setValue('password', password);
-};
-
-NetLicensing.Context.prototype.getPassword = function (def) {
-    return this.getValue('password', def);
-};
-
-NetLicensing.Context.prototype.setApiKey = function (apiKey) {
-    return this.setValue('apiKey', apiKey);
-};
-
-NetLicensing.Context.prototype.getApiKey = function (def) {
-    return this.getValue('apiKey', def);
-};
-
-NetLicensing.Context.prototype.setSecurityMode = function (securityMode) {
-    return this.setValue('securityMode', securityMode);
-};
-
-NetLicensing.Context.prototype.getSecurityMode = function (def) {
-    return this.getValue('securityMode', def);
-};
-
-NetLicensing.Context.prototype.setVendorNumber = function (vendorNumber) {
-    return this.setValue('vendorNumber', vendorNumber);
-};
-
-NetLicensing.Context.prototype.getVendorNumber = function (def) {
-    return this.getValue('vendorNumber', def);
-};
+        delete this[key];
+    }
+}

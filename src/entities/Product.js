@@ -5,8 +5,22 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-//namespace
-var NetLicensing  = NetLicensing  || {};
+import BaseEntity from './BaseEntity';
+import ProductDiscount from './ProductDiscount';
+
+/**
+ * The discounts map
+ * @type {{}}
+ * @private
+ */
+const discountsMap = new WeakMap();
+
+/**
+ * An identifier that show if discounts was touched
+ * @type {{}}
+ * @private
+ */
+const discountsTouched = new WeakMap();
 
 /**
  * NetLicensing  Product entity.
@@ -46,222 +60,182 @@ var NetLicensing  = NetLicensing  || {};
  *
  * @constructor
  */
+export default class Product extends BaseEntity {
+    constructor(properties) {
+        super({
+            properties,
+            // The attributes that should be cast to native types.
+            casts: {
+                number: 'string',
+                active: 'boolean',
+                name: 'string',
+                version: 'string',
+                description: 'string',
+                licensingInfo: 'string',
+                licenseeAutoCreate: 'boolean',
+                licenseeSecretMode: 'string',
+                inUse: 'boolean',
+            },
+            // The attributes that should have read-only access.
+            readOnly: ['inUse'],
+        });
 
-NetLicensing.Product = function () {
-    NetLicensing.BaseEntity.apply(this, arguments);
+        // define default entity properties
+        this.defines([
+            'number',
+            'active',
+            'name',
+            'version',
+            'description',
+            'licensingInfo',
+            'licenseeAutoCreate',
+            'licenseeSecretMode',
+            'inUse',
+        ]);
 
-    //The attributes that should be cast to native types.
-    Object.defineProperty(this, 'casts', {
-        value: {
-            number: 'string',
-            active: 'boolean',
-            name: 'string',
-            version: 'string',
-            description: 'string',
-            licensingInfo: 'string',
-            licenseeAutoCreate: 'boolean',
-            licenseeSecretMode: 'string',
-            inUse: 'boolean'
-        }
-    });
+        discountsMap.set(this, []);
+        discountsTouched.set(this, false);
+    }
 
-    var __productDiscounts = [];
-    var __productDiscountsTouched = false;
+    setNumber(number) {
+        return this.setProperty('number', number);
+    }
+
+    getNumber(def) {
+        return this.getProperty('number', def);
+    }
+
+    setActive(active) {
+        return this.setProperty('active', active);
+    }
+
+    getActive(def) {
+        return this.getProperty('active', def);
+    }
+
+    setName(name) {
+        return this.setProperty('name', name);
+    }
+
+    getName(def) {
+        return this.getProperty('name', def);
+    }
+
+    setVersion(version) {
+        return this.setProperty('version', version);
+    }
+
+    getVersion(def) {
+        return this.getProperty('version', def);
+    }
+
+    setLicenseeAutoCreate(licenseeAutoCreate) {
+        return this.setProperty('licenseeAutoCreate', licenseeAutoCreate);
+    }
+
+    getLicenseeAutoCreate(def) {
+        return this.getProperty('licenseeAutoCreate', def);
+    }
+
+    setLicenseeSecretMode(licenseeSecretMode) {
+        return this.setProperty('licenseeSecretMode', licenseeSecretMode);
+    }
+
+    getLicenseeSecretMode(def) {
+        return this.getProperty('licenseeSecretMode', def);
+    }
+
+    setDescription(description) {
+        return this.setProperty('description', description);
+    }
+
+    getDescription(def) {
+        return this.getProperty('description', def);
+    }
+
+    setLicensingInfo(licensingInfo) {
+        return this.setProperty('licensingInfo', licensingInfo);
+    }
+
+    getLicensingInfo(def) {
+        return this.getProperty('licensingInfo', def);
+    }
+
+    getInUse(def) {
+        return this.getProperty('inUse', def);
+    }
 
     /**
      * Add discount to product
-     * 
+     *
      * @param discount NetLicensing.ProductDiscount
      * @returns {NetLicensing.Product}
      */
-    this.addDiscount = function (discount) {
-        if (!(discount instanceof NetLicensing.ProductDiscount)) {
+    addDiscount(discount) {
+        if (!(discount instanceof ProductDiscount)) {
             throw new TypeError('discount must be an instance of ProductDiscount');
         }
-        __productDiscounts.push(discount);
-        __productDiscountsTouched = true;
+
+        const discounts = discountsMap.get(this);
+        discounts.push(discount);
+        discountsMap.set(this, discounts);
+        discountsTouched.set(this, true);
 
         return this;
-    };
+    }
 
     /**
      * Set discounts to product
      * @param discounts
      */
-    this.setProductDiscounts = function (discounts) {
-        __productDiscounts = [];
-        __productDiscountsTouched = true;
+    setProductDiscounts(discounts) {
+        discountsMap.set(this, []);
+        discountsTouched.set(this, true);
 
         if (!discounts) return this;
 
         if (Array.isArray(discounts)) {
-            var length = discounts.length;
-            for (var i = 0; i < length; i++) {
-                this.addDiscount(discounts[i]);
-            }
+            discounts.forEach((discount) => {
+                this.addDiscount(discount);
+            });
+
             return this;
         }
 
         this.addDiscount(discounts);
 
         return this;
-    };
+    }
 
     /**
      * Get array of objects discounts
      * @returns {Array}
      */
-    this.getProductDiscounts = function () {
-        return __productDiscounts;
-    };
-
-    var parentAsPropertiesMap = this.asPropertiesMap;
-    this.asPropertiesMap = function () {
-
-        var map = parentAsPropertiesMap.call(this);
-
-        var length = __productDiscounts.length;
-
-        if (length) {
-            map.discount = [];
-            for (var i = 0; i < length; i++) {
-                map.discount.push(__productDiscounts[i].toString());
-            }
-        }
-
-        if (!map.discount && __productDiscountsTouched) {
-            map.discount = '';
-        }
-
-        return map;
-    };
-
-    //define default entity properties
-    this.__defines(['number', 'active', 'name', 'version', 'description', 'licensingInfo', 'licenseeAutoCreate', 'licenseeSecretMode']);
-    this.__define('inUse', true);
-
-    //make methods not changeable
-    NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
-};
-
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.Product.LicenseeSecretMode.DISABLED instead.
- */
-Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_DISABLED', {value: 'DISABLED'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.Product.LicenseeSecretMode.PREDEFINED instead.
- */
-Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_PREDEFINED', {value: 'PREDEFINED'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.Product.LicenseeSecretMode.CLIENT instead.
- */
-Object.defineProperty(NetLicensing.Product, 'LICENSEE_SECRET_MODE_CLIENT', {value: 'CLIENT'});
-
-NetLicensing.Product.prototype = Object.create(NetLicensing.BaseEntity.prototype);
-NetLicensing.Product.prototype.constructor = NetLicensing.Product;
-
-NetLicensing.Product.prototype.setNumber = function (number) {
-    return this.setProperty('number', number);
-};
-
-NetLicensing.Product.prototype.getNumber = function (def) {
-    return this.getProperty('number', def);
-};
-
-NetLicensing.Product.prototype.setActive = function (active) {
-    return this.setProperty('active', active);
-};
-
-NetLicensing.Product.prototype.getActive = function (def) {
-    return this.getProperty('active', def);
-};
-
-NetLicensing.Product.prototype.setName = function (name) {
-    return this.setProperty('name', name);
-};
-
-NetLicensing.Product.prototype.getName = function (def) {
-    return this.getProperty('name', def);
-};
-
-NetLicensing.Product.prototype.setVersion = function (version) {
-    return this.setProperty('version', version);
-};
-
-NetLicensing.Product.prototype.getVersion = function (def) {
-    return this.getProperty('version', def);
-};
-
-NetLicensing.Product.prototype.setLicenseeAutoCreate = function (licenseeAutoCreate) {
-    return this.setProperty('licenseeAutoCreate', licenseeAutoCreate);
-};
-
-NetLicensing.Product.prototype.getLicenseeAutoCreate = function (def) {
-    return this.getProperty('licenseeAutoCreate', def);
-};
-
-NetLicensing.Product.prototype.setLicenseeSecretMode = function (licenseeSecretMode) {
-    return this.setProperty('licenseeSecretMode', licenseeSecretMode);
-};
-
-NetLicensing.Product.prototype.getLicenseeSecretMode = function (def) {
-    return this.getProperty('licenseeSecretMode', def);
-};
-
-NetLicensing.Product.prototype.setDescription = function (description) {
-    return this.setProperty('description', description);
-};
-
-NetLicensing.Product.prototype.getDescription = function (def) {
-    return this.getProperty('description', def);
-};
-
-NetLicensing.Product.prototype.setLicensingInfo = function (licensingInfo) {
-    return this.setProperty('licensingInfo', licensingInfo);
-};
-
-NetLicensing.Product.prototype.getLicensingInfo = function (def) {
-    return this.getProperty('licensingInfo', def);
-};
-
-NetLicensing.Product.prototype.getInUse = function (def) {
-    return this.getProperty('inUse', def);
-};
-
-NetLicensing.Product.prototype.__setListDiscount = function (properties) {
-    if (!properties) return;
-    var length = properties.length;
-    var discount = new NetLicensing.ProductDiscount();
-    for (var i = 0; i < length; i++) {
-        discount.setProperty(properties[i].name, properties[i].value);
+    getProductDiscounts() {
+        return Object.assign([], discountsMap.get(this));
     }
-    this.addDiscount(discount);
-    return this;
-};
 
-//make methods not changeable
-NetLicensing.DefineUtil.notChangeable(NetLicensing.Product.prototype, ['constructor', '__setListDiscount']);
+    setListDiscount(properties) {
+        if (!properties) return;
 
-//make methods not enumerable
-NetLicensing.DefineUtil.notEnumerable(NetLicensing.Product.prototype, [
-    'setNumber',
-    'getNumber',
-    'setName',
-    'getName',
-    'setActive',
-    'getActive',
-    'setVersion',
-    'getVersion',
-    'setLicenseeAutoCreate',
-    'getLicenseeAutoCreate',
-    'setLicenseeSecretMode',
-    'getLicenseeSecretMode',
-    'setDescription',
-    'getDescription',
-    'setLicensingInfo',
-    'getLicensingInfo',
-    'getInUse',
-]);
+        const discount = new ProductDiscount();
+        properties.forEach((property) => {
+            discount.setProperty(property.name, property.value);
+        });
+        this.addDiscount(discount);
+    }
+
+    asPropertiesMap() {
+        const propertiesMap = super.asPropertiesMap();
+
+        if (discountsMap.get(this).length) {
+            propertiesMap.discount = discountsMap.get(this).map(discount => discount.toString());
+        }
+
+        if (!propertiesMap.discount && discountsTouched.get(this)) {
+            propertiesMap.discount = '';
+        }
+
+        return propertiesMap;
+    }
+}

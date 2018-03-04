@@ -5,8 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-//namespace
-var NetLicensing  = NetLicensing  || {};
+import BaseEntity from './BaseEntity';
 
 /**
  * Transaction entity used internally by NetLicensing.
@@ -43,162 +42,124 @@ var NetLicensing  = NetLicensing  || {};
  *
  * @constructor
  */
+export default class Transaction extends BaseEntity {
+    constructor(properties) {
+        super({
+            properties,
+            // The attributes that should be cast to native types.
+            casts: {
+                number: 'string',
+                name: 'string',
+                status: 'string',
+                source: 'string',
+                grandTotal: 'float',
+                discount: 'float',
+                currency: 'string',
+                dateCreated: 'date',
+                dateClosed: 'date',
+                active: 'boolean',
+                paymentMethod: 'string',
+            },
+            // The attributes that should have read-only access.
+            readOnly: ['active'],
+        });
 
-NetLicensing.Transaction = function Transaction() {
-    NetLicensing.BaseEntity.apply(this, arguments);
+        // define default entity properties
+        this.defines([
+            'number',
+            'name',
+            'status',
+            'source',
+            'grandTotal',
+            'discount',
+            'currency',
+            'dateCreated',
+            'dateClosed',
+            'paymentMethod',
+        ]);
+    }
 
-    //The attributes that should be cast to native types.
-    Object.defineProperty(this, 'casts', {
-        value: {
-            number: 'string',
-            name: 'string',
-            status: 'string',
-            source: 'string',
-            grandTotal: 'float',
-            discount: 'float',
-            currency: 'string',
-            dateCreated: 'date',
-            dateClosed: 'date',
-            active: 'boolean',
-            paymentMethod: 'string'
-        }
-    });
+    setNumber(number) {
+        return this.setProperty('number', number);
+    }
 
-    //define default entity properties
-    this.__defines(['number', 'name', 'status', 'source', 'grandTotal', 'discount', 'currency', 'dateCreated', 'dateClosed', 'paymentMethod']);
-    this.__define('active', true);
+    getNumber(def) {
+        return this.getProperty('number', def);
+    }
 
-    //make methods not changeable
-    NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
-};
+    setName(name) {
+        return this.setProperty('name', name);
+    }
 
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.Transaction.Status.CANCELLED instead.
- */
-Object.defineProperty(NetLicensing.Transaction, 'STATUS_CANCELLED', {value: 'CANCELLED'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.Transaction.Status.CLOSED instead.
- */
-Object.defineProperty(NetLicensing.Transaction, 'STATUS_CLOSED', {value: 'CLOSED'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.Transaction.Status.PENDING instead.
- */
-Object.defineProperty(NetLicensing.Transaction, 'STATUS_PENDING', {value: 'PENDING'});
+    getName(def) {
+        return this.getProperty('name', def);
+    }
 
-NetLicensing.Transaction.prototype = Object.create(NetLicensing.BaseEntity.prototype);
-NetLicensing.Transaction.prototype.constructor = NetLicensing.Transaction;
+    setStatus(status) {
+        return this.setProperty('status', status);
+    }
 
-NetLicensing.Transaction.prototype.setNumber = function (number) {
-    return this.setProperty('number', number);
-};
+    getStatus(def) {
+        return this.getProperty('status', def);
+    }
 
-NetLicensing.Transaction.prototype.getNumber = function (def) {
-    return this.getProperty('number', def);
-};
+    setSource(source) {
+        return this.setProperty('source', source);
+    }
 
-NetLicensing.Transaction.prototype.setName = function (name) {
-    return this.setProperty('name', name);
-};
+    getSource(def) {
+        return this.getProperty('source', def);
+    }
 
-NetLicensing.Transaction.prototype.getName = function (def) {
-    return this.getProperty('name', def);
-};
+    setGrandTotal(grandTotal) {
+        return this.setProperty('grandTotal', grandTotal);
+    }
 
-NetLicensing.Transaction.prototype.setStatus = function (status) {
-    return this.setProperty('status', status);
-};
+    getGrandTotal(def) {
+        return this.getProperty('grandTotal', def);
+    }
 
-NetLicensing.Transaction.prototype.getStatus = function (def) {
-    return this.getProperty('status', def);
-};
+    setDiscount(discount) {
+        return this.setProperty('discount', discount);
+    }
 
-NetLicensing.Transaction.prototype.setSource = function (source) {
-    return this.setProperty('source', source);
-};
+    getDiscount(def) {
+        return this.getProperty('discount', def);
+    }
 
-NetLicensing.Transaction.prototype.getSource = function (def) {
-    return this.getProperty('source', def);
-};
+    setCurrency(currency) {
+        return this.setProperty('currency', currency);
+    }
 
-NetLicensing.Transaction.prototype.setGrandTotal = function (grandTotal) {
-    return this.setProperty('grandTotal', grandTotal);
-};
+    getCurrency(def) {
+        return this.getProperty('currency', def);
+    }
 
-NetLicensing.Transaction.prototype.getGrandTotal = function (def) {
-    return this.getProperty('grandTotal', def);
-};
+    setDateCreated(dateCreated) {
+        return this.setProperty('dateCreated', dateCreated);
+    }
 
-NetLicensing.Transaction.prototype.setDiscount = function (discount) {
-    return this.setProperty('discount', discount);
-};
+    getDateCreated(def) {
+        return this.getProperty('dateCreated', def);
+    }
 
-NetLicensing.Transaction.prototype.getDiscount = function (def) {
-    return this.getProperty('discount', def);
-};
+    setDateClosed(dateClosed) {
+        return this.setProperty('dateClosed', dateClosed);
+    }
 
-NetLicensing.Transaction.prototype.setCurrency = function (currency) {
-    return this.setProperty('currency', currency);
-};
+    getDateClosed(def) {
+        return this.getProperty('dateClosed', def);
+    }
 
-NetLicensing.Transaction.prototype.getCurrency = function (def) {
-    return this.getProperty('currency', def);
-};
+    setPaymentMethod(paymentMethod) {
+        return this.setProperty('paymentMethod', paymentMethod);
+    }
 
-NetLicensing.Transaction.prototype.setDateCreated = function (dateCreated) {
-    return this.setProperty('dateCreated', dateCreated);
-};
+    getPaymentMethod(def) {
+        return this.getProperty('paymentMethod', def);
+    }
 
-NetLicensing.Transaction.prototype.getDateCreated = function (def) {
-    return this.getProperty('dateCreated', def);
-};
-
-NetLicensing.Transaction.prototype.setDateClosed = function (dateClosed) {
-    return this.setProperty('dateClosed', dateClosed);
-};
-
-NetLicensing.Transaction.prototype.getDateClosed = function (def) {
-    return this.getProperty('dateClosed', def);
-};
-
-NetLicensing.Transaction.prototype.setPaymentMethod = function (paymentMethod) {
-    return this.setProperty('paymentMethod', paymentMethod);
-};
-
-NetLicensing.Transaction.prototype.getPaymentMethod = function (def) {
-    return this.getProperty('paymentMethod', def);
-};
-
-NetLicensing.Transaction.prototype.setActive = function () {
-    return this.setProperty('active', true);
-};
-
-//make methods not changeable
-NetLicensing.DefineUtil.notChangeable(NetLicensing.Transaction.prototype, ['constructor']);
-
-//make methods not enumerable
-NetLicensing.DefineUtil.notEnumerable(NetLicensing.Transaction.prototype, [
-    'setNumber',
-    'getNumber',
-    'setName',
-    'getName',
-    'setStatus',
-    'getStatus',
-    'setSource',
-    'getSource',
-    'setGrandTotal',
-    'getGrandTotal',
-    'setDiscount',
-    'getDiscount',
-    'setCurrency',
-    'getCurrency',
-    'setDateCreated',
-    'getDateCreated',
-    'setDateClosed',
-    'getDateClosed',
-    'setPaymentMethod',
-    'getPaymentMethod',
-    'setActive',
-]);
+    setActive() {
+        return this.setProperty('active', true);
+    }
+}

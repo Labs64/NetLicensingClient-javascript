@@ -5,30 +5,37 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-//namespace
-var NetLicensing  = NetLicensing  || {};
+/**
+ * Validation parameters map
+ *
+ * @type {WeakMap<Object, any>}
+ */
+const vpMap = new WeakMap();
 
-NetLicensing.ValidationParameters = function () {
-    var __productNumber;
-    var __licenseeName;
-    var __licenseeSecret;
-    var __parameters = {};
+export default class ValidationParameters {
+    constructor() {
+        vpMap.set(this, { parameters: {} });
+    }
 
     /**
      * Sets the target product
      *
      * optional productNumber, must be provided in case licensee auto-create is enabled
      * @param productNumber
-     * @returns {NetLicensing.ValidationParameters}
+     * @returns {ValidationParameters}
      */
-    this.setProductNumber = function (productNumber) {
-        __productNumber = productNumber;
+    setProductNumber(productNumber) {
+        vpMap.get(this).productNumber = productNumber;
         return this;
-    };
+    }
 
-    this.getProductNumber = function () {
-        return __productNumber;
-    };
+    /**
+     * Get the target product
+     * @returns {*}
+     */
+    getProductNumber() {
+        return vpMap.get(this).productNumber;
+    }
 
     /**
      * Sets the name for the new licensee
@@ -39,49 +46,60 @@ NetLicensing.ValidationParameters = function () {
      * @param licenseeName
      * @returns {NetLicensing.ValidationParameters}
      */
-    this.setLicenseeName = function (licenseeName) {
-        __licenseeName = licenseeName;
+    setLicenseeName(licenseeName) {
+        vpMap.get(this).licenseeName = licenseeName;
         return this;
-    };
+    }
 
-    this.getLicenseeName = function () {
-        return __licenseeName;
-    };
+    /**
+     * Get the licensee name
+     * @returns {*}
+     */
+    getLicenseeName() {
+        return vpMap.get(this).licenseeName;
+    }
 
     /**
      * Sets the licensee secret
      *
      * licensee secret stored on the client side. Refer to Licensee Secret documentation for details.
      * @param licenseeSecret
-     * @returns {NetLicensing.ValidationParameters}
+     * @returns {ValidationParameters}
      */
-    this.setLicenseeSecret = function (licenseeSecret) {
-        __licenseeSecret = licenseeSecret;
+    setLicenseeSecret(licenseeSecret) {
+        vpMap.get(this).licenseeSecret = licenseeSecret;
         return this;
-    };
+    }
 
-    this.getLicenseeSecret = function () {
-        return __licenseeSecret;
-    };
+    /**
+     * Get the licensee secret
+     * @returns {*}
+     */
+    getLicenseeSecret() {
+        return vpMap.get(this).licenseeSecret;
+    }
 
-    this.getParameters = function () {
-        return Object.assign({}, __parameters);
-    };
+    /**
+     * Get validation parameters
+     * @returns {*}
+     */
+    getParameters() {
+        return Object.assign({}, vpMap.get(this).parameters);
+    }
 
-    this.getProductModuleValidationParameters = function (productModuleNumber) {
+    getProductModuleValidationParameters(productModuleNumber) {
+        return Object.assign({}, vpMap.get(this).parameters[productModuleNumber]);
+    }
 
-        if (__parameters[productModuleNumber] === undefined || !Object.keys(__parameters[productModuleNumber]).length) {
-            __parameters[productModuleNumber] = {};
+    setProductModuleValidationParameters(productModuleNumber, productModuleParameters) {
+        const { parameters } = vpMap.get(this);
+
+        if (parameters[productModuleNumber] === undefined || !Object.keys(parameters[productModuleNumber]).length) {
+            parameters[productModuleNumber] = {};
         }
 
-        return Object.assign({}, __parameters[productModuleNumber]);
-    };
+        parameters[productModuleNumber] = Object.assign(parameters[productModuleNumber], productModuleParameters);
 
-    this.setProductModuleValidationParameters = function (productModuleNumber, productModuleParameters) {
-        if (__parameters[productModuleNumber] === undefined || !Object.keys(__parameters[productModuleNumber]).length) {
-            __parameters[productModuleNumber] = {};
-        }
-        __parameters[productModuleNumber] = Object.assign(__parameters[productModuleNumber], productModuleParameters);
         return this;
-    };
-};
+    }
+}

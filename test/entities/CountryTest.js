@@ -1,11 +1,13 @@
-describe('entities.CountryTest', function () {
-    var country;
+import Country from '../../src/entities/Country';
 
-    beforeEach(function () {
-        country = new NetLicensing.Country();
+describe('entities.CountryTest', () => {
+    let country;
+
+    beforeEach(() => {
+        country = new Country();
     });
 
-    it('check "code" property setters/getters', function () {
+    it('check "code" property setters/getters', () => {
         country.setProperty('code', 'DE');
         expect(country.getProperty('code')).toBe('DE');
         expect(country.getCode()).toBe('DE');
@@ -22,7 +24,7 @@ describe('entities.CountryTest', function () {
         expect(country.code).toBe('UA');
     });
 
-    it('check "name" property setters/getters', function () {
+    it('check "name" property setters/getters', () => {
         country.setProperty('name', 'name_0');
         expect(country.getProperty('name')).toBe('name_0');
         expect(country.getName()).toBe('name_0');
@@ -39,7 +41,7 @@ describe('entities.CountryTest', function () {
         expect(country.name).toBe('name_2');
     });
 
-    it('check "vatPercent" property setters/getters', function () {
+    it('check "vatPercent" property setters/getters', () => {
         country.setProperty('vatPercent', 10);
         expect(country.getProperty('vatPercent')).toBe(10);
         expect(country.getVatPercent()).toBe(10);
@@ -56,7 +58,7 @@ describe('entities.CountryTest', function () {
         expect(country.vatPercent).toBe(30);
     });
 
-    it('check "isEu" property setters/getters', function () {
+    it('check "isEu" property setters/getters', () => {
         country.setProperty('isEu', true);
         expect(country.getProperty('isEu')).toBe(true);
         expect(country.getIsEu()).toBe(true);
@@ -73,7 +75,7 @@ describe('entities.CountryTest', function () {
         expect(country.isEu).toBe(true);
     });
 
-    it('check cast an properties to a native js type', function () {
+    it('check cast an properties to a native js type', () => {
         country.setProperty('code', 1);
         expect(country.getProperty('code')).toBe('1');
         country.setProperty('code', true);
@@ -84,7 +86,7 @@ describe('entities.CountryTest', function () {
         country.setProperty('name', true);
         expect(country.getProperty('name')).toBe('true');
 
-        country.setProperty('vatPercent', "015");
+        country.setProperty('vatPercent', '015');
         expect(country.getProperty('vatPercent')).toBe(15);
         country.setProperty('vatPercent', 15.99);
         expect(country.getProperty('vatPercent')).toBe(15);
@@ -97,70 +99,93 @@ describe('entities.CountryTest', function () {
         expect(country.getProperty('isEu')).toBe(true);
         country.setProperty('isEu', 0);
         expect(country.getProperty('isEu')).toBe(false);
-        country.setProperty('isEu', "");
+        country.setProperty('isEu', '');
         expect(country.getProperty('isEu')).toBe(false);
-        country.setProperty('isEu', "123");
+        country.setProperty('isEu', '123');
         expect(country.getProperty('isEu')).toBe(true);
         country.setProperty('isEu', null);
         expect(country.getProperty('isEu')).toBe(false);
     });
 
-    it('check throwable error if property value is typeof "function"', function () {
-        var func = function () {
-        };
+    it('check throwable error if property value is typeof "function"', () => {
+        const func = () => {};
 
-        expect(function(){country.setProperty('code',func)}).toThrowError(TypeError);
-        expect(function(){country.setCode(func)}).toThrowError(TypeError);
-        expect(function(){country.setName(func)}).toThrowError(TypeError);
-        expect(function(){country.setVatPercent(func)}).toThrowError(TypeError);
-        expect(function(){country.setIsEu(func)}).toThrowError(TypeError);
+        expect(() => { country.setProperty('code', func); }).toThrowError(TypeError);
+        expect(() => { country.setCode(func); }).toThrowError(TypeError);
+        expect(() => { country.setName(func); }).toThrowError(TypeError);
+        expect(() => { country.setVatPercent(func); }).toThrowError(TypeError);
+        expect(() => { country.setIsEu(func); }).toThrowError(TypeError);
 
 
-        expect(function(){country.code = func}).toThrowError(TypeError);
-        expect(function(){country.name = func}).toThrowError(TypeError);
-        expect(function(){country.vatPercent = func}).toThrowError(TypeError);
-        expect(function(){country.isEu = func}).toThrowError(TypeError);
+        expect(() => { country.code = func; }).toThrowError(TypeError);
+        expect(() => { country.name = func; }).toThrowError(TypeError);
+        expect(() => { country.vatPercent = func; }).toThrowError(TypeError);
+        expect(() => { country.isEu = func; }).toThrowError(TypeError);
     });
 
-    it('check throwable error if property value is typeof "undefined"', function () {
-        expect(function(){country.setProperty('code',undefined)}).toThrowError(TypeError);
-        expect(function(){country.setCode(undefined)}).toThrowError(TypeError);
-        expect(function(){country.setName(undefined)}).toThrowError(TypeError);
-        expect(function(){country.setVatPercent(undefined)}).toThrowError(TypeError);
-        expect(function(){country.setIsEu(undefined)}).toThrowError(TypeError);
+    it('check throwable error if property value is typeof "undefined"', () => {
+        expect(() => { country.setProperty('code', undefined); }).toThrowError(TypeError);
+        expect(() => { country.setCode(undefined); }).toThrowError(TypeError);
+        expect(() => { country.setName(undefined); }).toThrowError(TypeError);
+        expect(() => { country.setVatPercent(undefined); }).toThrowError(TypeError);
+        expect(() => { country.setIsEu(undefined); }).toThrowError(TypeError);
 
 
-        expect(function(){country.code = undefined}).toThrowError(TypeError);
-        expect(function(){country.name = undefined}).toThrowError(TypeError);
-        expect(function(){country.vatPercent = undefined}).toThrowError(TypeError);
-        expect(function(){country.isEu = undefined}).toThrowError(TypeError);
+        expect(() => { country.code = undefined; }).toThrowError(TypeError);
+        expect(() => { country.name = undefined; }).toThrowError(TypeError);
+        expect(() => { country.vatPercent = undefined; }).toThrowError(TypeError);
+        expect(() => { country.isEu = undefined; }).toThrowError(TypeError);
     });
 
-    it('check throwable error if property value is typeof "NaN"', function () {
-        expect(function(){country.setProperty('code',NaN)}).toThrowError(TypeError);
-        expect(function(){country.setCode(NaN)}).toThrowError(TypeError);
-        expect(function(){country.setName(NaN)}).toThrowError(TypeError);
-        expect(function(){country.setVatPercent(NaN)}).toThrowError(TypeError);
-        expect(function(){country.setIsEu(NaN)}).toThrowError(TypeError);
+    it('check throwable error if property value is typeof "NaN"', () => {
+        expect(() => { country.setProperty('code', NaN); }).toThrowError(TypeError);
+        expect(() => { country.setCode(NaN); }).toThrowError(TypeError);
+        expect(() => { country.setName(NaN); }).toThrowError(TypeError);
+        expect(() => { country.setVatPercent(NaN); }).toThrowError(TypeError);
+        expect(() => { country.setIsEu(NaN); }).toThrowError(TypeError);
 
 
-        expect(function(){country.code = NaN}).toThrowError(TypeError);
-        expect(function(){country.name = NaN}).toThrowError(TypeError);
-        expect(function(){country.vatPercent = NaN}).toThrowError(TypeError);
-        expect(function(){country.isEu = NaN}).toThrowError(TypeError);
+        expect(() => { country.code = NaN; }).toThrowError(TypeError);
+        expect(() => { country.name = NaN; }).toThrowError(TypeError);
+        expect(() => { country.vatPercent = NaN; }).toThrowError(TypeError);
+        expect(() => { country.isEu = NaN; }).toThrowError(TypeError);
     });
 
-    it('check throwable error if property value is typeof "Infinity"', function () {
-        expect(function(){country.setProperty('code',Infinity)}).toThrowError(TypeError);
-        expect(function(){country.setCode(Infinity)}).toThrowError(TypeError);
-        expect(function(){country.setName(Infinity)}).toThrowError(TypeError);
-        expect(function(){country.setVatPercent(Infinity)}).toThrowError(TypeError);
-        expect(function(){country.setIsEu(Infinity)}).toThrowError(TypeError);
+    it('check throwable error if property value is typeof "Infinity"', () => {
+        expect(() => { country.setProperty('code', Infinity); }).toThrowError(TypeError);
+        expect(() => { country.setCode(Infinity); }).toThrowError(TypeError);
+        expect(() => { country.setName(Infinity); }).toThrowError(TypeError);
+        expect(() => { country.setVatPercent(Infinity); }).toThrowError(TypeError);
+        expect(() => { country.setIsEu(Infinity); }).toThrowError(TypeError);
 
 
-        expect(function(){country.code = Infinity}).toThrowError(TypeError);
-        expect(function(){country.name = Infinity}).toThrowError(TypeError);
-        expect(function(){country.vatPercent = Infinity}).toThrowError(TypeError);
-        expect(function(){country.isEu = Infinity}).toThrowError(TypeError);
+        expect(() => { country.code = Infinity; }).toThrowError(TypeError);
+        expect(() => { country.name = Infinity; }).toThrowError(TypeError);
+        expect(() => { country.vatPercent = Infinity; }).toThrowError(TypeError);
+        expect(() => { country.isEu = Infinity; }).toThrowError(TypeError);
+    });
+
+    it('check "removeProperty" method', () => {
+        country.setProperty('code', 'EU');
+        country.removeProperty('code');
+
+        expect(country.getProperty('code')).toBe(undefined);
+        expect(country.code).toBe(undefined);
+        expect(country.getCode()).toBe(undefined);
+    });
+
+    it('check "removeDefine" method', () => {
+        country.setProperty('code', 'EU');
+        country.removeDefine('code');
+
+        expect(country.code).toBe(undefined);
+        expect(country.getProperty('code')).toBe('EU');
+        expect(country.getCode()).toBe('EU');
+
+        country.code = 'DE';
+
+        expect(country.code).toBe('DE');
+        expect(country.getProperty('code')).toBe('EU');
+        expect(country.getCode()).toBe('EU');
     });
 });

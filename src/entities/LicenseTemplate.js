@@ -5,8 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-//namespace
-var NetLicensing  = NetLicensing  || {};
+import BaseEntity from './BaseEntity';
 
 /**
  * License template entity used internally by NetLicensing.
@@ -14,8 +13,8 @@ var NetLicensing  = NetLicensing  || {};
  * Properties visible via NetLicensing  API:
  *
  * Unique number (across all products of a vendor) that identifies the license template. Vendor can
- * assign this number when creating a license template or let NetLicensing  generate one. Read-only after creation of the
- * first license from this license template.
+ * assign this number when creating a license template or let NetLicensing  generate one.
+ * Read-only after creation of the first license from this license template.
  * @property string number
  *
  * If set to false, the license template is disabled. Licensee can not obtain any new licenses off this
@@ -58,184 +57,145 @@ var NetLicensing  = NetLicensing  || {};
  *
  * @constructor
  */
+export default class LicenseTemplate extends BaseEntity {
+    constructor(properties) {
+        super({
+            properties,
+            // The attributes that should be cast to native types.
+            casts: {
+                number: 'string',
+                active: 'boolean',
+                name: 'string',
+                licenseType: 'string',
+                price: 'double',
+                currency: 'string',
+                automatic: 'boolean',
+                hidden: 'boolean',
+                hideLicenses: 'boolean',
+                timeVolume: 'int',
+                maxSessions: 'int',
+                quantity: 'int',
+                inUse: 'boolean',
+            },
+            // The attributes that should have read-only access.
+            readOnly: ['inUse'],
+        });
 
-NetLicensing.LicenseTemplate = function () {
-    NetLicensing.BaseEntity.apply(this, arguments);
+        // define default entity properties
+        this.defines([
+            'number',
+            'active',
+            'name',
+            'licenseType',
+            'price',
+            'currency',
+            'automatic',
+            'hidden',
+            'hideLicenses',
+            'timeVolume',
+            'maxSessions',
+            'quantity',
+            'inUse',
+        ]);
+    }
 
-    //The attributes that should be cast to native types.
-    Object.defineProperty(this, 'casts', {
-        value: {
-            number: 'string',
-            active: 'boolean',
-            name: 'string',
-            licenseType: 'string',
-            price: 'double',
-            currency: 'string',
-            automatic: 'boolean',
-            hidden: 'boolean',
-            hideLicenses: 'boolean',
-            timeVolume: 'int',
-            maxSessions: 'int',
-            quantity: 'int',
-            inUse: 'boolean',
-        }
-    });
-    //define default entity properties
-    this.__defines(['number', 'active', 'name', 'licenseType', 'price', 'currency', 'automatic', 'hidden', 'hideLicenses', 'timeVolume', 'maxSessions', 'quantity']);
-    this.__define('inUse', true);
+    setNumber(number) {
+        return this.setProperty('number', number);
+    }
 
-    //make methods not changeable
-    NetLicensing.DefineUtil.notChangeable(this, ['asPropertiesMap']);
-};
+    getNumber(def) {
+        return this.getProperty('number', def);
+    }
 
+    setActive(active) {
+        return this.setProperty('active', active);
+    }
 
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicenseTemplate.LicenseType.FEATURE instead.
- */
-Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_FEATURE', {value: 'FEATURE'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicenseTemplate.LicenseType.TIMEVOLUME instead.
- */
-Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_TIMEVOLUME', {value: 'TIMEVOLUME'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicenseTemplate.LicenseType.FLOATING instead.
- */
-Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_FLOATING', {value: 'FLOATING'});
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicenseTemplate.LicenseType.QUANTITY instead.
- */
-Object.defineProperty(NetLicensing.LicenseTemplate, 'LICENSE_TYPE_QUANTITY', {value: 'QUANTITY'});
+    getActive(def) {
+        return this.getProperty('active', def);
+    }
 
-NetLicensing.LicenseTemplate.prototype = Object.create(NetLicensing.BaseEntity.prototype);
-NetLicensing.LicenseTemplate.prototype.constructor = NetLicensing.LicenseTemplate;
+    setName(name) {
+        return this.setProperty('name', name);
+    }
 
-NetLicensing.LicenseTemplate.prototype.setNumber = function (number) {
-    return this.setProperty('number', number);
-};
+    getName(def) {
+        return this.getProperty('name', def);
+    }
 
-NetLicensing.LicenseTemplate.prototype.getNumber = function (def) {
-    return this.getProperty('number', def);
-};
+    setLicenseType(licenseType) {
+        return this.setProperty('licenseType', licenseType);
+    }
 
-NetLicensing.LicenseTemplate.prototype.setActive = function (active) {
-    return this.setProperty('active', active);
-};
+    getLicenseType(def) {
+        return this.getProperty('licenseType', def);
+    }
 
-NetLicensing.LicenseTemplate.prototype.getActive = function (def) {
-    return this.getProperty('active', def);
-};
+    setPrice(price) {
+        return this.setProperty('price', price);
+    }
 
-NetLicensing.LicenseTemplate.prototype.setName = function (name) {
-    return this.setProperty('name', name);
-};
+    getPrice(def) {
+        return this.getProperty('price', def);
+    }
 
-NetLicensing.LicenseTemplate.prototype.getName = function (def) {
-    return this.getProperty('name', def);
-};
+    setCurrency(currency) {
+        return this.setProperty('currency', currency);
+    }
 
-NetLicensing.LicenseTemplate.prototype.setLicenseType = function (licenseType) {
-    return this.setProperty('licenseType', licenseType);
-};
+    getCurrency(def) {
+        return this.getProperty('currency', def);
+    }
 
-NetLicensing.LicenseTemplate.prototype.getLicenseType = function (def) {
-    return this.getProperty('licenseType', def);
-};
+    setAutomatic(automatic) {
+        return this.setProperty('automatic', automatic);
+    }
 
-NetLicensing.LicenseTemplate.prototype.setPrice = function (price) {
-    return this.setProperty('price', price);
-};
+    getAutomatic(def) {
+        return this.getProperty('automatic', def);
+    }
 
-NetLicensing.LicenseTemplate.prototype.getPrice = function (def) {
-    return this.getProperty('price', def);
-};
+    setHidden(hidden) {
+        return this.setProperty('hidden', hidden);
+    }
 
-NetLicensing.LicenseTemplate.prototype.setCurrency = function (currency) {
-    return this.setProperty('currency', currency);
-};
+    getHidden(def) {
+        return this.getProperty('hidden', def);
+    }
 
-NetLicensing.LicenseTemplate.prototype.getCurrency = function (def) {
-    return this.getProperty('currency', def);
-};
+    setHideLicenses(hideLicenses) {
+        return this.setProperty('hideLicenses', hideLicenses);
+    }
 
-NetLicensing.LicenseTemplate.prototype.setAutomatic = function (automatic) {
-    return this.setProperty('automatic', automatic);
-};
+    getHideLicenses(def) {
+        return this.getProperty('hideLicenses', def);
+    }
 
-NetLicensing.LicenseTemplate.prototype.getAutomatic = function (def) {
-    return this.getProperty('automatic', def);
-};
+    setTimeVolume(timeVolume) {
+        return this.setProperty('timeVolume', timeVolume);
+    }
 
-NetLicensing.LicenseTemplate.prototype.setHidden = function (hidden) {
-    return this.setProperty('hidden', hidden);
-};
+    getTimeVolume(def) {
+        return this.getProperty('timeVolume', def);
+    }
 
-NetLicensing.LicenseTemplate.prototype.getHidden = function (def) {
-    return this.getProperty('hidden', def);
-};
+    setMaxSessions(maxSessions) {
+        return this.setProperty('maxSessions', maxSessions);
+    }
 
-NetLicensing.LicenseTemplate.prototype.setHideLicenses = function (hideLicenses) {
-    return this.setProperty('hideLicenses', hideLicenses);
-};
+    getMaxSessions(def) {
+        return this.getProperty('maxSessions', def);
+    }
 
-NetLicensing.LicenseTemplate.prototype.getHideLicenses = function (def) {
-    return this.getProperty('hideLicenses', def);
-};
+    setQuantity(quantity) {
+        return this.setProperty('quantity', quantity);
+    }
 
-NetLicensing.LicenseTemplate.prototype.setTimeVolume = function (timeVolume) {
-    return this.setProperty('timeVolume', timeVolume);
-};
+    getQuantity(def) {
+        return this.getProperty('quantity', def);
+    }
 
-NetLicensing.LicenseTemplate.prototype.getTimeVolume = function (def) {
-    return this.getProperty('timeVolume', def);
-};
-
-NetLicensing.LicenseTemplate.prototype.setMaxSessions = function (maxSessions) {
-    return this.setProperty('maxSessions', maxSessions);
-};
-
-NetLicensing.LicenseTemplate.prototype.getMaxSessions = function (def) {
-    return this.getProperty('maxSessions', def);
-};
-
-NetLicensing.LicenseTemplate.prototype.setQuantity = function (quantity) {
-    return this.setProperty('quantity', quantity);
-};
-
-NetLicensing.LicenseTemplate.prototype.getQuantity = function (def) {
-    return this.getProperty('quantity', def);
-};
-
-//make methods not changeable
-NetLicensing.DefineUtil.notChangeable(NetLicensing.LicenseTemplate.prototype, ['constructor']);
-
-//make methods not enumerable
-NetLicensing.DefineUtil.notEnumerable(NetLicensing.LicenseTemplate.prototype, [
-    'setNumber',
-    'getNumber',
-    'setActive',
-    'getActive',
-    'setName',
-    'getName',
-    'setLicenseType',
-    'getLicenseType',
-    'setPrice',
-    'getPrice',
-    'setCurrency',
-    'getCurrency',
-    'setAutomatic',
-    'getAutomatic',
-    'setHidden',
-    'getHidden',
-    'setHideLicenses',
-    'getHideLicenses',
-    'setTimeVolume',
-    'getTimeVolume',
-    'setMaxSessions',
-    'getMaxSessions',
-    'setQuantity',
-    'getQuantity',
-]);
+    getInUse(def) {
+        return this.getProperty('inUse', def);
+    }
+}

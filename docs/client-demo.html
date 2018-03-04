@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Labs64 NetLicensing JavaScript Client Demo</title>
+        <script src="https://cdn.jsdelivr.net/gh/Labs64/NetLicensingclient-javascript/dist/netlicensing-client.min.js"></script>
+        <script src="client-demo.js"></script>
+        <style>
+            .console-log-div {
+                border: 1px solid gray;
+                padding: 5px 10px;
+                border-radius: 5px;
+                width: 95% !important;
+                background-color: #efefef;
+            }
+        </style>
+    </head>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Labs64 NetLicensing JavaScript Client Demo</title>
-  <script src="https://cdn.jsdelivr.net/gh/Labs64/NetLicensingclient-javascript@1.0.1/dist/netlicensing-client.min.js"></script>
-  <script src="client-demo.js"></script>
-  <style>
-    .console-log-div {
-      border: 1px solid gray;
-      padding: 5px 10px;
-      border-radius: 5px;
-      width: 95% !important;
-      background-color: #efefef;
-    }
-  </style>
-</head>
+    <body>
+        <h1><p align="center"><strong>Labs64 <a href="https://netlicensing.io">NetLicensing</a><br/>JavaScript Client
+            Demo</strong></p></h1>
+        <p align="center">This demo showcases <a href="https://www.labs64.de/confluence/x/pwCo">RESTful API</a> access
+            to NetLicensing’s core features.</p>
+        <p align="center">
+            <input type="button" value="Execute" onclick="NetLicensingDemo();"/>
+            <input type="button" value="Clear" onclick="clearBox('console-log-text')"/>
+        </p>
 
-<body>
-  <h1><p align="center"><strong>Labs64 <a href="https://netlicensing.io">NetLicensing</a><br/>JavaScript Client Demo</strong></p></h1>
-  <p align="center">This demo showcases <a href="https://www.labs64.de/confluence/x/pwCo">RESTful API</a> access to NetLicensing’s core features.</p>
-  <p align="center">
-    <input type="button" value="Execute" onclick="NetLicensingDemo();" />
-    <input type="button" value="Clear" onclick="clearBox('console-log-text')" />
-  </p>
-
-  <script src="https://cdn.jsdelivr.net/npm/console-log-div@0.6.3/console-log-div.min.js"></script>
-</body>
-
+        <script src="https://cdn.jsdelivr.net/npm/console-log-div@0.6.3/console-log-div.min.js"></script>
+    </body>
 </html>

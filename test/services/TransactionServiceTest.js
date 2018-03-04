@@ -1,24 +1,28 @@
-describe('TransactionServiceTest', function () {
-    var context, promise, transaction;
+import Faker from '../Faker';
+import Context from '../../src/vo/Context';
+import Transaction from '../../src/entities/Transaction';
+import TransactionService from '../../src/services/TransactionService';
 
-    beforeAll(function () {
-        context = new NetLicensing.Context().setUsername('Demo').setPassword('demo');
 
-        promise = Promise.resolve('TransactionServiceTest');
+describe('TransactionServiceTest', () => {
+    let context;
+    let transaction;
 
-        transaction = new NetLicensing.Transaction()
+    beforeAll(() => {
+        context = new Context().setUsername('Demo').setPassword('demo');
+    });
+
+    beforeEach(() => {
+        transaction = new Transaction()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('status', 'PENDING')
             .setProperty('source', 'SHOP');
     });
 
-    it('check "create" method', function () {
-        return promise
-            .then(function () {
-                return NetLicensing.TransactionService.create(context, transaction);
-            })
-            .then(function (entity) {
-                expect(entity instanceof NetLicensing.Transaction).toBe(true);
+    it('check "create" method', () => {
+        TransactionService.create(context, transaction)
+            .then((entity) => {
+                expect(entity instanceof Transaction).toBe(true);
 
                 expect(entity.getProperty('number')).toBe(transaction.getProperty('number'));
                 expect(entity.getProperty('status')).toBe(transaction.getProperty('status'));
@@ -26,38 +30,36 @@ describe('TransactionServiceTest', function () {
             });
     });
 
-    it('check "get" method', function () {
-        return promise
-            .then(function () {
-                return NetLicensing.TransactionService.get(context, transaction.getProperty('number'));
-            })
-            .then(function (entity) {
-                expect(entity instanceof NetLicensing.Transaction).toBe(true);
-
+    it('check "get" method', () => {
+        TransactionService.create(context, transaction)
+            .then(() => TransactionService.get(context, transaction.getProperty('number')))
+            .then((entity) => {
+                expect(entity instanceof Transaction).toBe(true);
                 expect(entity.getProperty('number')).toBe(transaction.getProperty('number'));
                 expect(entity.getProperty('status')).toBe(transaction.getProperty('status'));
                 expect(entity.getProperty('source')).toBe(transaction.getProperty('source'));
             });
     });
 
-    it('check "list" method', function () {
-        return NetLicensing.TransactionService.list(context)
-            .then(function (entities) {
+    it('check "list" method', () => {
+        TransactionService.create(context, transaction)
+            .then(() => TransactionService.list(context))
+            .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
-                expect(entities[0] instanceof NetLicensing.Transaction).toBe(true);
+                expect(entities[0] instanceof Transaction).toBe(true);
             });
     });
 
-    it('check "update" method', function () {
-        return promise
-            .then(function () {
-                transaction.setProperty('status', 'CLOSED');
+    it('check "list" method', () => {
+        TransactionService.create(context, transaction)
+            .then((entity) => {
+                entity.setProperty('status', 'CLOSED');
 
-                return NetLicensing.TransactionService.update(context, transaction.getProperty('number'), transaction);
-            }).then(function (entity) {
-                expect(entity instanceof NetLicensing.Transaction).toBe(true);
-
+                return TransactionService.update(context, entity.getProperty('number'), transaction);
+            })
+            .then((entity) => {
+                expect(entity instanceof Transaction).toBe(true);
                 expect(entity.getProperty('status')).toBe(transaction.getProperty('status'));
             });
     });

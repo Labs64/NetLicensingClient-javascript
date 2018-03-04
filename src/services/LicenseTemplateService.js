@@ -5,164 +5,176 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-//namespace
-var NetLicensing  = NetLicensing  || {};
+import Context from '../vo/Context';
+import LicenseTemplate from '../entities/LicenseTemplate';
+import CheckUtils from '../util/CheckUtils';
+import Constants from '../Constants';
+import Service from './Service';
 
 /**
  * JS representation of the ProductModule Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services
+ * https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services
  *
  * @constructor
  */
-NetLicensing.LicenseTemplateService = function () {
-};
 
-/**
- * @deprecated No longer used by internal code and not recommended, will be removed in future versions.
- * Use NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH instead.
- */
-Object.defineProperty(NetLicensing .LicenseTemplateService, 'ENDPOINT_PATH', {value: 'licensetemplate'});
+export default {
+    /**
+     * Creates new license template object with given properties.See NetLicensingAPI for details:
+     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Createlicensetemplate
+     *
+     * determines the vendor on whose behalf the call is performed
+     * @param context NetLicensing.Context
+     *
+     * parent product module to which the new license template is to be added
+     * @param productModuleNumber
+     *
+     * non-null properties will be taken for the new object, null properties will either stay null, or will
+     * be set to a default value, depending on property.
+     * @param licenseTemplate NetLicensing.LicenseTemplate
+     *
+     * the newly created license template object in promise
+     * @returns {Promise}
+     */
+    create(context, productModuleNumber, licenseTemplate) {
+        if (!(context instanceof Context)) {
+            throw new TypeError('context must be an instance of Context');
+        }
 
-/**
- * Creates new license template object with given properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Createlicensetemplate
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * parent product module to which the new license template is to be added
- * @param productModuleNumber
- *
- * non-null properties will be taken for the new object, null properties will either stay null, or will
- * be set to a default value, depending on property.
- * @param licenseTemplate NetLicensing.LicenseTemplate
- *
- * the newly created license template object in promise
- * @returns {Promise}
- */
-NetLicensing.LicenseTemplateService.create = function (context, productModuleNumber, licenseTemplate) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-    if (!(licenseTemplate instanceof NetLicensing.LicenseTemplate)) throw new TypeError('licenseTemplate must be an instance of NetLicensing.LicenseTemplate');
+        if (!(licenseTemplate instanceof LicenseTemplate)) {
+            throw new TypeError('licenseTemplate must be an instance of LicenseTemplate');
+        }
 
-    NetLicensing.CheckUtils.paramNotEmpty(productModuleNumber, 'productModuleNumber');
+        CheckUtils.paramNotEmpty(productModuleNumber, 'productModuleNumber');
 
-    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
+        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
-    licenseTemplate.setProperty('productModuleNumber', productModuleNumber);
+        licenseTemplate.setProperty('productModuleNumber', productModuleNumber);
 
-    return NetLicensing.Service
-        .getInstance()
-        .post(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH, licenseTemplate.asPropertiesMap(), NetLicensing.LicenseTemplate);
-};
+        return Service
+            .post(context, Constants.LicenseTemplate.ENDPOINT_PATH, licenseTemplate.asPropertiesMap(), LicenseTemplate);
+    },
 
-/**
- * Gets license template by its number.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Getlicensetemplate
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * the license template number
- * @param number string
- *
- * return the license template object in promise
- * @returns {Promise}
- */
-NetLicensing.LicenseTemplateService.get = function (context, number) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+    /**
+     * Gets license template by its number.See NetLicensingAPI for details:
+     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Getlicensetemplate
+     *
+     * determines the vendor on whose behalf the call is performed
+     * @param context NetLicensing.Context
+     *
+     * the license template number
+     * @param number string
+     *
+     * return the license template object in promise
+     * @returns {Promise}
+     */
+    get(context, number) {
+        if (!(context instanceof Context)) {
+            throw new TypeError('context must be an instance of Context');
+        }
 
-    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
+        CheckUtils.paramNotEmpty(number, 'number');
 
-    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
+        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
-    return NetLicensing.Service
-        .getInstance()
-        .get(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH + '/' + number, {}, NetLicensing.LicenseTemplate);
-};
+        return Service
+            .get(context, `${Constants.LicenseTemplate.ENDPOINT_PATH}/${number}`, {}, LicenseTemplate);
+    },
 
-/**
- * Returns all license templates of a vendor.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Licensetemplateslist
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * reserved for the future use, must be omitted / set to NULL
- * @param filter string|null
- *
- * array of license templates (of all products/modules) or null/empty list if nothing found in promise.
- * @returns {Promise}
- */
-NetLicensing.LicenseTemplateService.list = function (context, filter) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+    /**
+     * Returns all license templates of a vendor.See NetLicensingAPI for details:
+     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Licensetemplateslist
+     *
+     * determines the vendor on whose behalf the call is performed
+     * @param context NetLicensing.Context
+     *
+     * reserved for the future use, must be omitted / set to NULL
+     * @param filter string|null
+     *
+     * array of license templates (of all products/modules) or null/empty list if nothing found in promise.
+     * @returns {Promise}
+     */
+    list(context, filter) {
+        if (!(context instanceof Context)) {
+            throw new TypeError('context must be an instance of Context');
+        }
 
-    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
+        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
-    var queryParams = {};
+        const queryParams = {};
 
-    if (filter) {
-        if (!NetLicensing.CheckUtils.isValid(filter)) throw new TypeError('filter has bad value ' + filter);
-        queryParams.filter = filter;
-    }
+        if (filter) {
+            if (!CheckUtils.isValid(filter)) {
+                throw new TypeError(`filter has bad value ${filter}`);
+            }
+            queryParams.filter = filter;
+        }
 
-    return NetLicensing.Service
-        .getInstance()
-        .list(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH, queryParams, NetLicensing.LicenseTemplate);
-};
+        return Service
+            .list(context, Constants.LicenseTemplate.ENDPOINT_PATH, queryParams, LicenseTemplate);
+    },
 
-/**
- * Updates license template properties.See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Updatelicensetemplate
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * license template number
- * @param number string
- *
- * non-null properties will be updated to the provided values, null properties will stay unchanged.
- * @param licenseTemplate NetLicensing.LicenseTemplate
- *
- * updated license template in promise.
- * @returns {Promise}
- */
-NetLicensing.LicenseTemplateService.update = function (context, number, licenseTemplate) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-    if (!(licenseTemplate instanceof NetLicensing.LicenseTemplate)) throw new TypeError('licenseTemplate must be an instance of NetLicensing.LicenseTemplate');
+    /**
+     * Updates license template properties.See NetLicensingAPI for details:
+     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Updatelicensetemplate
+     *
+     * determines the vendor on whose behalf the call is performed
+     * @param context NetLicensing.Context
+     *
+     * license template number
+     * @param number string
+     *
+     * non-null properties will be updated to the provided values, null properties will stay unchanged.
+     * @param licenseTemplate NetLicensing.LicenseTemplate
+     *
+     * updated license template in promise.
+     * @returns {Promise}
+     */
+    update(context, number, licenseTemplate) {
+        if (!(context instanceof Context)) {
+            throw new TypeError('context must be an instance of Context');
+        }
 
-    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
+        if (!(licenseTemplate instanceof LicenseTemplate)) {
+            throw new TypeError('licenseTemplate must be an instance of LicenseTemplate');
+        }
 
-    context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
+        CheckUtils.paramNotEmpty(number, 'number');
 
-    return NetLicensing.Service
-        .getInstance()
-        .post(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH + '/' + number, licenseTemplate.asPropertiesMap(), NetLicensing.LicenseTemplate);
-};
+        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
-/**
- * Deletes license template.See NetLicensingAPI JavaDoc for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/License+Template+Services#LicenseTemplateServices-Deletelicensetemplate
- *
- * determines the vendor on whose behalf the call is performed
- * @param context NetLicensing.Context
- *
- * license template number
- * @param number string
- *
- * if true, any entities that depend on the one being deleted will be deleted too
- * @param forceCascade boolean
- *
- * return boolean state of delete in promise
- * @returns {Promise}
- */
-NetLicensing.LicenseTemplateService.delete = function (context, number, forceCascade) {
-    if (!(context instanceof NetLicensing.Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
+        const path = `${Constants.LicenseTemplate.ENDPOINT_PATH}/${number}`;
 
-    NetLicensing.CheckUtils.paramNotEmpty(number, 'number');
+        return Service
+            .post(context, path, licenseTemplate.asPropertiesMap(), LicenseTemplate);
+    },
 
-    var queryParams = {forceCascade: Boolean(forceCascade)};
+    /**
+     * Deletes license template.See NetLicensingAPI JavaDoc for details:
+     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Deletelicensetemplate
+     *
+     * determines the vendor on whose behalf the call is performed
+     * @param context NetLicensing.Context
+     *
+     * license template number
+     * @param number string
+     *
+     * if true, any entities that depend on the one being deleted will be deleted too
+     * @param forceCascade boolean
+     *
+     * return boolean state of delete in promise
+     * @returns {Promise}
+     */
+    delete(context, number, forceCascade) {
+        if (!(context instanceof Context)) {
+            throw new TypeError('context must be an instance of Context');
+        }
 
-    return NetLicensing.Service
-        .getInstance()
-        .delete(context, NetLicensing.Constants.LicenseTemplate.ENDPOINT_PATH + '/' + number, queryParams);
+        CheckUtils.paramNotEmpty(number, 'number');
+
+        const queryParams = { forceCascade: Boolean(forceCascade) };
+
+        return Service
+            .delete(context, `${Constants.LicenseTemplate.ENDPOINT_PATH}/${number}`, queryParams);
+    },
 };
