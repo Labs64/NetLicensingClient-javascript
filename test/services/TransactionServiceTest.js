@@ -24,6 +24,7 @@ describe('services.TransactionServiceTest', () => {
 
         TransactionService.create(context, transaction)
             .then((entity) => {
+                expect(entity instanceof Transaction.class).toBe(true);
                 expect(entity.getProperty('number')).toBe(transaction.getProperty('number'));
                 expect(entity.getProperty('status')).toBe(transaction.getProperty('status'));
                 expect(entity.getProperty('source')).toBe(transaction.getProperty('source'));
@@ -36,6 +37,7 @@ describe('services.TransactionServiceTest', () => {
         TransactionService.create(context, transaction)
             .then(() => TransactionService.get(context, transaction.getProperty('number')))
             .then((entity) => {
+                expect(entity instanceof Transaction.class).toBe(true);
                 expect(entity.getProperty('number')).toBe(transaction.getProperty('number'));
                 expect(entity.getProperty('status')).toBe(transaction.getProperty('status'));
                 expect(entity.getProperty('source')).toBe(transaction.getProperty('source'));
@@ -51,10 +53,11 @@ describe('services.TransactionServiceTest', () => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
                 expect(entities[0] instanceof Transaction).toBe(true);
+                expect(entities[0] instanceof Transaction.class).toBe(true);
             });
     });
 
-    it('check "list" method', () => {
+    it('check "update" method', () => {
         const transaction = eachTransaction;
 
         TransactionService.create(context, transaction)
@@ -63,6 +66,7 @@ describe('services.TransactionServiceTest', () => {
                 return TransactionService.update(context, entity.getProperty('number'), transaction);
             })
             .then((entity) => {
+                expect(entity instanceof Transaction.class).toBe(true);
                 expect(entity.getProperty('status')).toBe(transaction.getProperty('status'));
             });
     });

@@ -32,6 +32,7 @@ describe('services.UtilityServiceTest', () => {
                 expect(Array.isArray(listCountries)).toBe(true);
                 expect(listCountries[0] instanceof Country).toBe(true);
                 expect(listCountries.length).toBeGreaterThanOrEqual(0);
+                expect(listCountries[0] instanceof Country.class).toBe(true);
             });
     });
 });

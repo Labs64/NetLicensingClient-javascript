@@ -19,7 +19,7 @@ describe('services.LicenseServiceTest', () => {
     let productModule;
     let licenseTemplate;
     let licensee;
-    let fakeLicense;
+    let eachLicense;
 
     beforeAll(() => {
         context = new Context().setUsername('Demo').setPassword('demo');
@@ -60,7 +60,7 @@ describe('services.LicenseServiceTest', () => {
     });
 
     beforeEach(() => {
-        fakeLicense = new License()
+        eachLicense = new License()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('startDate', 'now')
@@ -73,7 +73,7 @@ describe('services.LicenseServiceTest', () => {
     });
 
     it('check "create" method', () => {
-        const license = fakeLicense;
+        const license = eachLicense;
 
         LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license)
             .then((entity) => {
@@ -88,12 +88,12 @@ describe('services.LicenseServiceTest', () => {
     });
 
     it('check "get" method', () => {
-        const license = fakeLicense;
+        const license = eachLicense;
 
         LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license)
             .then(entity => LicenseService.get(context, entity.getProperty('number')))
             .then((entity) => {
-                expect(entity instanceof License).toBe(true);
+                expect(entity instanceof License.class).toBe(true);
                 expect(entity.getProperty('number')).toBe(license.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(license.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(license.getProperty('active'));
@@ -104,19 +104,19 @@ describe('services.LicenseServiceTest', () => {
     });
 
     it('check "list" method', () => {
-        const license = fakeLicense;
+        const license = eachLicense;
 
         LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license)
             .then(() => LicenseService.list(context))
             .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
-                expect(entities[0] instanceof License).toBe(true);
+                expect(entities[0] instanceof License.class).toBe(true);
             });
     });
 
     it('check "update" method', () => {
-        const license = fakeLicense;
+        const license = eachLicense;
 
         LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license)
             .then(() => {
@@ -126,14 +126,14 @@ describe('services.LicenseServiceTest', () => {
                 return LicenseService.update(context, license.getProperty('number'), null, license);
             })
             .then((entity) => {
-                expect(entity instanceof License).toBe(true);
+                expect(entity instanceof License.class).toBe(true);
                 expect(entity.getProperty('name')).toBe(license.getProperty('name'));
                 expect(entity.getProperty('my_custom_property')).toBe(license.getProperty('my_custom_property'));
             });
     });
 
     it('check "delete" method', () => {
-        const license = fakeLicense;
+        const license = eachLicense;
 
         LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license)
             .then(entity => LicenseService.delete(context, entity.getProperty('number')))

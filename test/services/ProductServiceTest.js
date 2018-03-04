@@ -5,7 +5,6 @@ import ProductDiscount from '../../src/entities/ProductDiscount';
 import ProductService from '../../src/services/ProductService';
 
 describe('services.ProductServiceTest', () => {
-    const products = [];
     let context;
     let eachProduct;
 
@@ -33,14 +32,6 @@ describe('services.ProductServiceTest', () => {
             .setProperty('totalPrice', Faker.int(30, 40))
             .setProperty('currency', 'EUR')
             .setProperty('amountPercent', Faker.int(1, 5)));
-
-        products.push(eachProduct);
-    });
-
-    afterAll(() => {
-        products.forEach((product) => {
-            ProductService.delete(context, product.getProperty('number')).catch(() => {});
-        });
     });
 
     it('check "create" method', () => {
@@ -48,6 +39,7 @@ describe('services.ProductServiceTest', () => {
 
         ProductService.create(context, product)
             .then((entity) => {
+                expect(entity instanceof Product.class).toBe(true);
                 expect(entity.getProperty('number')).toBe(product.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(product.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(product.getProperty('active'));
@@ -56,7 +48,9 @@ describe('services.ProductServiceTest', () => {
                 expect(entity.getProperty('licensingInfo')).toBe(product.getProperty('licensingInfo'));
                 expect(entity.getProperty('licenseeAutoCreate')).toBe(product.getProperty('licenseeAutoCreate'));
                 expect(entity.getProductDiscounts().length).toBe(2);
-            });
+            })
+            .then(() => ProductService.delete(context, product.getProperty('number')));
+
     });
 
     it('check "get" method', () => {
@@ -65,6 +59,7 @@ describe('services.ProductServiceTest', () => {
         ProductService.create(context, product)
             .then(() => ProductService.get(context, product.getProperty('number')))
             .then((entity) => {
+                expect(entity instanceof Product.class).toBe(true);
                 expect(entity.getProperty('number')).toBe(product.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(product.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(product.getProperty('active'));
@@ -74,7 +69,8 @@ describe('services.ProductServiceTest', () => {
                 expect(entity.getProperty('licenseeAutoCreate')).toBe(product.getProperty('licenseeAutoCreate'));
                 expect(entity.getProperty('my_custom_property')).toBe(product.getProperty('my_custom_property'));
                 expect(entity.getProductDiscounts().length).toBe(2);
-            });
+            })
+            .then(() => ProductService.delete(context, product.getProperty('number')));
     });
 
     it('check "list" method', () => {
@@ -85,7 +81,9 @@ describe('services.ProductServiceTest', () => {
             .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
-            });
+                expect(entities[0] instanceof Product.class).toBe(true);
+            })
+            .then(() => ProductService.delete(context, product.getProperty('number')));
     });
 
     it('check "update" method', () => {
@@ -104,6 +102,7 @@ describe('services.ProductServiceTest', () => {
                 return ProductService.update(context, entity.getProperty('number'), entity);
             })
             .then((entity) => {
+                expect(entity instanceof Product.class).toBe(true);
                 expect(entity.getProperty('name')).toBe(product.getProperty('name'));
                 expect(entity.getProperty('my_custom_property')).toBe(product.getProperty('my_custom_property'));
                 expect(entity.getProductDiscounts().length).toBe(3);

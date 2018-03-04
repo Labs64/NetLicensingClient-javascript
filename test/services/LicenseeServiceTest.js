@@ -12,6 +12,7 @@ import ProductModuleService from '../../src/services/ProductModuleService';
 import LicenseTemplateService from '../../src/services/LicenseTemplateService';
 import LicenseeService from '../../src/services/LicenseeService';
 import LicenseService from '../../src/services/LicenseService';
+import ValidationResults from '../../src/vo/ValidationResults';
 
 
 describe('services.LicenseeServiceTest', () => {
@@ -52,6 +53,7 @@ describe('services.LicenseeServiceTest', () => {
 
         LicenseeService.create(context, product.getProperty('number'), licensee)
             .then((entity) => {
+                expect(entity instanceof Licensee.class).toBe(true);
                 expect(entity.getProperty('number')).toBe(licensee.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(licensee.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(licensee.getProperty('active'));
@@ -65,6 +67,7 @@ describe('services.LicenseeServiceTest', () => {
         LicenseeService.create(context, product.getProperty('number'), licensee)
             .then(entity => LicenseeService.get(context, entity.getProperty('number')))
             .then((entity) => {
+                expect(entity instanceof Licensee.class).toBe(true);
                 expect(entity.getProperty('number')).toBe(licensee.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(licensee.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(licensee.getProperty('active'));
@@ -80,6 +83,7 @@ describe('services.LicenseeServiceTest', () => {
             .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
+                expect(entities[0] instanceof Licensee.class).toBe(true);
             });
     });
 
@@ -94,6 +98,7 @@ describe('services.LicenseeServiceTest', () => {
                 return LicenseeService.update(context, licensee.getProperty('number'), licensee);
             })
             .then((entity) => {
+                expect(entity instanceof Licensee.class).toBe(true);
                 expect(entity.getProperty('name')).toBe(licensee.getProperty('name'));
                 expect(entity.getProperty('my_custom_property')).toBe(licensee.getProperty('my_custom_property'));
             });
@@ -133,6 +138,7 @@ describe('services.LicenseeServiceTest', () => {
             .then(entity => LicenseService.create(context, licensee.getProperty('number'), entity.getProperty('number'), null, license))
             .then(() => LicenseeService.validate(context, licensee.getProperty('number'), validationParameters))
             .then((validationResults) => {
+                expect(validationResults instanceof ValidationResults.class).toBe(true);
                 expect(validationResults.getTtl() instanceof Date).toBe(true);
                 expect(validationResults.getProductModuleValidation(productModule.getProperty('number')).valid).toBe(true);
             });

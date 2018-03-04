@@ -41,6 +41,7 @@ describe('services.ProductModuleServiceTest', () => {
 
         ProductModuleService.create(context, product.getProperty('number'), productModule)
             .then((entity) => {
+                expect(entity instanceof ProductModule.class).toBe(true);
                 expect(entity.getProperty('number')).toBe(productModule.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(productModule.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(productModule.getProperty('active'));
@@ -55,6 +56,7 @@ describe('services.ProductModuleServiceTest', () => {
         ProductModuleService.create(context, product.getNumber(), productModule)
             .then(() => ProductModuleService.get(context, productModule.getProperty('number')))
             .then((entity) => {
+                expect(entity instanceof ProductModule.class).toBe(true);
                 expect(entity.getProperty('number')).toBe(productModule.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(productModule.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(productModule.getProperty('active'));
@@ -71,6 +73,7 @@ describe('services.ProductModuleServiceTest', () => {
             .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
+                expect(entities[0] instanceof ProductModule.class).toBe(true);
             });
     });
 
@@ -87,6 +90,7 @@ describe('services.ProductModuleServiceTest', () => {
                 return ProductModuleService.update(context, productModule.getProperty('number'), productModule);
             })
             .then((entity) => {
+                expect(entity instanceof ProductModule.class).toBe(true);
                 expect(entity.getProperty('name')).toBe(productModule.getProperty('name'));
                 expect(entity.getProperty('licensingModel')).toBe(productModule.getProperty('licensingModel'));
                 expect(entity.getProperty('licenseTemplate')).toBe(productModule.getProperty('licenseTemplate'));
