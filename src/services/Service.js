@@ -6,7 +6,7 @@
  */
 import axios from 'axios';
 import Context from '../vo/Context';
-import Constans from '../Constants';
+import Constants from '../Constants';
 import BaseEntity from '../entities/BaseEntity';
 
 let httpXHR = {};
@@ -168,7 +168,7 @@ export default class Service {
 
         switch (context.getSecurityMode()) {
             // Basic Auth
-            case Constans.BASIC_AUTHENTICATION:
+            case Constants.BASIC_AUTHENTICATION:
                 if (!context.getUsername()) throw new Error('Missing parameter "username"');
                 if (!context.getPassword()) throw new Error('Missing parameter "password"');
 
@@ -178,7 +178,7 @@ export default class Service {
                 };
                 break;
             // ApiKey Auth
-            case Constans.APIKEY_IDENTIFICATION:
+            case Constants.APIKEY_IDENTIFICATION:
                 if (!context.getApiKey()) throw new Error('Missing parameter "apiKey"');
 
                 request.headers.Authorization = `Basic ${btoa(`apiKey:${context.getApiKey()}`)}`;

@@ -63,6 +63,7 @@
         "babel-loader": "^7.1.2",
         "babel-plugin-add-module-exports": "^0.2.1",
         "babel-preset-env": "^1.6.1",
+        "bluebird": "^3.5.1",
         "eslint": "^4.13.1",
         "eslint-config-airbnb-base": "^12.1.0",
         "eslint-loader": "^2.0.0",

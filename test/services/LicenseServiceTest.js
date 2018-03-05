@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import axios from 'axios';
+import Promise from 'bluebird';
 import Faker from '../../test/Faker';
 import Context from '../../src/vo/Context';
 import Product from '../../src/entities/Product';
@@ -56,7 +57,8 @@ describe('services.LicenseServiceTest', () => {
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
             .then(() => LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate))
             .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
@@ -125,7 +127,8 @@ describe('services.LicenseServiceTest', () => {
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
             .then(() => LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate))
             .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
@@ -195,7 +198,8 @@ describe('services.LicenseServiceTest', () => {
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
             .then(() => LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate))
             .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
@@ -261,7 +265,8 @@ describe('services.LicenseServiceTest', () => {
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
             .then(() => LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate))
             .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
@@ -332,7 +337,8 @@ describe('services.LicenseServiceTest', () => {
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
             .then(() => LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate))
             .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))

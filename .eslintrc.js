@@ -20,5 +20,6 @@ module.exports = {
         'max-len': ['error', 120, { ignoreComments: true }],
         'vue/no-template-key': 'off',
         'no-trailing-spaces': 'off',
+        'import/no-extraneous-dependencies': 'off',
     },
 };

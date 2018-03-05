@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Promise from 'bluebird';
 import Faker from '../../test/Faker';
 import Context from '../../src/vo/Context';
 import Product from '../../src/entities/Product';
@@ -32,9 +33,10 @@ describe('services.ProductModuleServiceTest', () => {
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
 
-        // test
+            // test
             .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
             .then((entity) => {
                 expect(entity instanceof ProductModule).toBe(true);
@@ -80,7 +82,8 @@ describe('services.ProductModuleServiceTest', () => {
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
 
             // test
@@ -129,7 +132,8 @@ describe('services.ProductModuleServiceTest', () => {
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
 
             // test
@@ -175,7 +179,8 @@ describe('services.ProductModuleServiceTest', () => {
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
 
             // test
@@ -230,7 +235,8 @@ describe('services.ProductModuleServiceTest', () => {
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
 
             // test

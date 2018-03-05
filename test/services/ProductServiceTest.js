@@ -1,10 +1,12 @@
 import axios from 'axios';
+import Promise from 'bluebird';
 import Faker from '../../test/Faker';
 import Context from '../../src/vo/Context';
 import Product from '../../src/entities/Product';
 import ProductDiscount from '../../src/entities/ProductDiscount';
 import ProductService from '../../src/services/ProductService';
 import Constants from '../../src/Constants';
+
 
 describe('services.ProductServiceTest', () => {
     let context;
@@ -35,7 +37,8 @@ describe('services.ProductServiceTest', () => {
                 .setProperty('amountPercent', Faker.int(1, 5)));
 
         // test
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then((entity) => {
                 expect(entity instanceof Product).toBe(true);
                 expect(entity.getProperty('number')).toBe(product.getProperty('number'));
@@ -87,9 +90,10 @@ describe('services.ProductServiceTest', () => {
                 .setProperty('amountPercent', Faker.int(1, 5)));
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
 
-        // test
+            // test
             .then(() => ProductService.get(context, product.getProperty('number')))
             .then((entity) => {
                 expect(entity instanceof Product).toBe(true);
@@ -133,9 +137,10 @@ describe('services.ProductServiceTest', () => {
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
 
-        // test
+            // test
             .then(() => ProductService.list(context))
             .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
@@ -182,9 +187,10 @@ describe('services.ProductServiceTest', () => {
                 .setProperty('amountPercent', Faker.int(1, 5)));
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
 
-        // test
+            // test
             .then((entity) => {
                 product.setProperty('name', Faker.string('JS-NAME-').toUpperCase());
                 product.setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY-UPDATED');
@@ -242,9 +248,10 @@ describe('services.ProductServiceTest', () => {
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
 
-        // test
+            // test
             .then(entity => ProductService.delete(context, entity.getProperty('number')))
             .then((state) => {
                 expect(state).toBe(true);

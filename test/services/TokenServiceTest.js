@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Promise from 'bluebird';
 import Faker from '../../test/Faker';
 import Context from '../../src/vo/Context';
 import Product from '../../src/entities/Product';
@@ -38,7 +39,8 @@ describe('services.TokenServiceTest', () => {
             .setProperty('licenseeNumber', licensee.getProperty('number'));
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
 
             // test
@@ -88,7 +90,8 @@ describe('services.TokenServiceTest', () => {
             .setProperty('licenseeNumber', licensee.getProperty('number'));
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
             .then(() => TokenService.create(context, token))
 
@@ -140,7 +143,8 @@ describe('services.TokenServiceTest', () => {
             .setProperty('licenseeNumber', licensee.getProperty('number'));
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
             .then(() => TokenService.create(context, token))
 
@@ -190,7 +194,8 @@ describe('services.TokenServiceTest', () => {
             .setProperty('licenseeNumber', licensee.getProperty('number'));
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
             .then(() => TokenService.create(context, token))
 
