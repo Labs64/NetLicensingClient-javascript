@@ -247,7 +247,8 @@ describe('services.LicenseeServiceTest', () => {
             .setProductNumber(product.getProperty('number'));
 
         // setup
-        return ProductService.create(context, product)
+        return Promise.resolve()
+            .then(() => ProductService.create(context, product))
             .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
             .then(() => LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate))
             .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
