@@ -6,7 +6,13 @@ npm install
 # check outdated dependencies
 npm outdated
 
-# version input
+# execute tests
+npm run test
+
+# prepare distribution
+npm run build
+
+# version prompt
 echo Enter release version:
 read version
 if [ "$version" = "" ]; then
@@ -15,8 +21,6 @@ if [ "$version" = "" ]; then
 fi
 
 # start release
-npm run test
-npm run build
 git commit -a -m "Prepare for release $version"
 npm config set tag-version-prefix ''
 npm version $version -m "Release $version"
