@@ -1,3 +1,5 @@
+// Constants
+import Constants from './Constants';
 // VO
 import Context from './vo/Context';
 
@@ -24,6 +26,7 @@ import ProductDiscount from './entities/ProductDiscount';
 import ProductModule from './entities/ProductModule';
 import Token from './entities/Token';
 import Transaction from './entities/Transaction';
+import LicenseTransactionJoin from './entities/LicenseTransactionJoin';
 import ValidationParameters from './vo/ValidationParameters';
 import ValidationResults from './vo/ValidationResults';
 
@@ -34,6 +37,9 @@ import CheckUtils from './util/CheckUtils';
 
 // Create the default instance to be exported
 const NetLicensing = {
+    // Constants
+    Constants,
+
     // Expose VO
     Context,
     ValidationParameters,
@@ -62,6 +68,7 @@ const NetLicensing = {
     ProductModule,
     Token,
     Transaction,
+    LicenseTransactionJoin,
 
     // Expose Utils
     CastsUtils,

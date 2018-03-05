@@ -3014,6 +3014,89 @@ module.exports = exports['default'];
 
 /***/ }),
 
+/***/ "./src/entities/LicenseTransactionJoin.js":
+/*!************************************************!*\
+  !*** ./src/entities/LicenseTransactionJoin.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @link      http://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+
+
+var _Transaction = __webpack_require__(/*! ./Transaction */ "./src/entities/Transaction.js");
+
+var _Transaction2 = _interopRequireDefault(_Transaction);
+
+var _License = __webpack_require__(/*! ./License */ "./src/entities/License.js");
+
+var _License2 = _interopRequireDefault(_License);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// const
+
+var LicenseTransactionJoin = function () {
+    function LicenseTransactionJoin(transaction, license) {
+        _classCallCheck(this, LicenseTransactionJoin);
+
+        this.transaction = transaction;
+        this.license = license;
+    }
+
+    _createClass(LicenseTransactionJoin, [{
+        key: 'setTransaction',
+        value: function setTransaction(transaction) {
+            if (!(transaction instanceof _Transaction2.default)) {
+                throw new TypeError('context must be an instance of Transaction');
+            }
+
+            this.transaction = transaction;
+            return this;
+        }
+    }, {
+        key: 'getTransaction',
+        value: function getTransaction(def) {
+            return this.transaction || def;
+        }
+    }, {
+        key: 'setLicense',
+        value: function setLicense(license) {
+            if (!(license instanceof _License2.default)) {
+                throw new TypeError('context must be an instance of License');
+            }
+            this.license = license;
+            return this;
+        }
+    }, {
+        key: 'getLicense',
+        value: function getLicense(def) {
+            return this.license || def;
+        }
+    }]);
+
+    return LicenseTransactionJoin;
+}();
+
+exports.default = LicenseTransactionJoin;
+module.exports = exports['default'];
+
+/***/ }),
+
 /***/ "./src/entities/Licensee.js":
 /*!**********************************!*\
   !*** ./src/entities/Licensee.js ***!
@@ -4108,6 +4191,14 @@ var _BaseEntity2 = __webpack_require__(/*! ./BaseEntity */ "./src/entities/BaseE
 
 var _BaseEntity3 = _interopRequireDefault(_BaseEntity2);
 
+var _LicenseTransactionJoin = __webpack_require__(/*! ./LicenseTransactionJoin */ "./src/entities/LicenseTransactionJoin.js");
+
+var _LicenseTransactionJoin2 = _interopRequireDefault(_LicenseTransactionJoin);
+
+var _License = __webpack_require__(/*! ./License */ "./src/entities/License.js");
+
+var _License2 = _interopRequireDefault(_License);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4183,7 +4274,7 @@ var Transaction = function (_BaseEntity) {
             readOnly: ['active']
         }));
 
-        _this.defines(['number', 'name', 'status', 'source', 'grandTotal', 'discount', 'currency', 'dateCreated', 'dateClosed', 'paymentMethod']);
+        _this.defines(['number', 'name', 'status', 'source', 'grandTotal', 'discount', 'currency', 'dateCreated', 'dateClosed', 'paymentMethod', 'licenseTransactionJoins']);
         return _this;
     }
 
@@ -4292,6 +4383,37 @@ var Transaction = function (_BaseEntity) {
         value: function setActive() {
             return this.setProperty('active', true);
         }
+    }, {
+        key: 'getLicenseTransactionJoins',
+        value: function getLicenseTransactionJoins(def) {
+            return this.getProperty('licenseTransactionJoins', def);
+        }
+    }, {
+        key: 'setLicenseTransactionJoins',
+        value: function setLicenseTransactionJoins(licenseTransactionJoins) {
+            return this.setProperty('licenseTransactionJoins', licenseTransactionJoins);
+        }
+    }, {
+        key: 'setListLicenseTransactionJoin',
+        value: function setListLicenseTransactionJoin(properties) {
+            if (!properties) return;
+
+            var licenseTransactionJoins = this.getProperty('licenseTransactionJoins', []);
+            var licenseTransactionJoin = new _LicenseTransactionJoin2.default();
+
+            properties.forEach(function (property) {
+                if (property.name === 'licenseNumber') {
+                    licenseTransactionJoin.setLicense(new _License2.default({ number: property.value }));
+                }
+
+                if (property.name === 'transactionNumber') {
+                    licenseTransactionJoin.setTransaction(new Transaction({ number: property.value }));
+                }
+            });
+
+            licenseTransactionJoins.push(licenseTransactionJoin);
+            this.setProperty('licenseTransactionJoins', licenseTransactionJoins);
+        }
     }]);
 
     return Transaction;
@@ -4311,6 +4433,10 @@ module.exports = exports['default'];
 
 "use strict";
 
+
+var _Constants = __webpack_require__(/*! ./Constants */ "./src/Constants.js");
+
+var _Constants2 = _interopRequireDefault(_Constants);
 
 var _Context = __webpack_require__(/*! ./vo/Context */ "./src/vo/Context.js");
 
@@ -4396,6 +4522,10 @@ var _Transaction = __webpack_require__(/*! ./entities/Transaction */ "./src/enti
 
 var _Transaction2 = _interopRequireDefault(_Transaction);
 
+var _LicenseTransactionJoin = __webpack_require__(/*! ./entities/LicenseTransactionJoin */ "./src/entities/LicenseTransactionJoin.js");
+
+var _LicenseTransactionJoin2 = _interopRequireDefault(_LicenseTransactionJoin);
+
 var _ValidationParameters = __webpack_require__(/*! ./vo/ValidationParameters */ "./src/vo/ValidationParameters.js");
 
 var _ValidationParameters2 = _interopRequireDefault(_ValidationParameters);
@@ -4419,12 +4549,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Utils
 
-
-// Entities
-
-
-// Services
+// VO
 var NetLicensing = {
+    // Constants
+    Constants: _Constants2.default,
+
     // Expose VO
     Context: _Context2.default,
     ValidationParameters: _ValidationParameters2.default,
@@ -4453,11 +4582,18 @@ var NetLicensing = {
     ProductModule: _ProductModule2.default,
     Token: _Token2.default,
     Transaction: _Transaction2.default,
+    LicenseTransactionJoin: _LicenseTransactionJoin2.default,
 
     // Expose Utils
     CastsUtils: _CastsUtils2.default,
     CheckUtils: _CheckUtils2.default
-}; // VO
+};
+
+// Entities
+
+
+// Services
+// Constants
 
 
 module.exports = NetLicensing;
@@ -5179,7 +5315,11 @@ exports.default = {
             var validationResults = new _ValidationResults2.default();
 
             item.property.forEach(function (property) {
-                data[property.name] = JSON.parse(property.value);
+                try {
+                    data[property.name] = JSON.parse(property.value);
+                } catch (e) {
+                    data[property.name] = property.value;
+                }
             });
 
             validationResults.setProductModuleValidation(data.productModuleNumber, data).setTtl(_Service2.default.getLastHttpRequestInfo().data.ttl);
@@ -5866,7 +6006,7 @@ var Service = function () {
         key: 'get',
         value: function get(context, urlTemplate, queryParams, resultType) {
             return Service.request(context, 'get', urlTemplate, queryParams).then(function (response) {
-                return response ? Service.getEntity(resultType, response.data.items.item[0]) : null;
+                return response.data ? Service.getEntity(resultType, response.data.items.item[0]) : null;
             });
         }
 
@@ -5894,7 +6034,7 @@ var Service = function () {
         key: 'list',
         value: function list(context, urlTemplate, queryParams, resultType) {
             return Service.request(context, 'get', urlTemplate, queryParams).then(function (response) {
-                return response ? response.data.items.item.map(function (item) {
+                return response.data ? response.data.items.item.map(function (item) {
                     return Service.getEntity(resultType, item);
                 }) : [];
             });
@@ -5923,7 +6063,7 @@ var Service = function () {
         key: 'post',
         value: function post(context, urlTemplate, queryParams, resultType) {
             return Service.request(context, 'post', urlTemplate, queryParams).then(function (response) {
-                return response ? Service.getEntity(resultType, response.data.items.item[0]) : null;
+                return response.data ? Service.getEntity(resultType, response.data.items.item[0]) : null;
             });
         }
 

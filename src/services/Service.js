@@ -38,7 +38,7 @@ export default class Service {
     static get(context, urlTemplate, queryParams, resultType) {
         return Service
             .request(context, 'get', urlTemplate, queryParams)
-            .then(response => ((response) ? Service.getEntity(resultType, response.data.items.item[0]) : null));
+            .then(response => ((response.data) ? Service.getEntity(resultType, response.data.items.item[0]) : null));
     }
 
     /**
@@ -63,7 +63,7 @@ export default class Service {
     static list(context, urlTemplate, queryParams, resultType) {
         return Service
             .request(context, 'get', urlTemplate, queryParams)
-            .then(response => ((response)
+            .then(response => ((response.data)
                 ? response.data.items.item.map(item => Service.getEntity(resultType, item))
                 : []));
     }
@@ -89,7 +89,7 @@ export default class Service {
     static post(context, urlTemplate, queryParams, resultType) {
         return Service
             .request(context, 'post', urlTemplate, queryParams)
-            .then(response => ((response) ? Service.getEntity(resultType, response.data.items.item[0]) : null));
+            .then(response => ((response.data) ? Service.getEntity(resultType, response.data.items.item[0]) : null));
     }
 
     /**

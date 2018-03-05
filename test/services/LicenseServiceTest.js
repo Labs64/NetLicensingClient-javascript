@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import axios from 'axios';
 import Faker from '../../test/Faker';
 import Context from '../../src/vo/Context';
 import Product from '../../src/entities/Product';
@@ -11,35 +12,29 @@ import ProductModuleService from '../../src/services/ProductModuleService';
 import LicenseTemplateService from '../../src/services/LicenseTemplateService';
 import LicenseeService from '../../src/services/LicenseeService';
 import LicenseService from '../../src/services/LicenseService';
-
+import Constants from '../../src/Constants';
 
 describe('services.LicenseServiceTest', () => {
     let context;
-    let product;
-    let productModule;
-    let licenseTemplate;
-    let licensee;
-    let eachLicense;
 
     beforeAll(() => {
         context = new Context().setUsername('Demo').setPassword('demo');
+    });
 
-        product = new Product()
+    it('check "create" method', () => {
+        const product = new Product()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true)
-            .setProperty('version', String(Faker.float(1, 3)))
-            .setProperty('description', Faker.string('JS-DESCRIPTION-').toUpperCase())
-            .setProperty('licensingInfo', Faker.string('JS-LICENSING-INFO-').toUpperCase())
-            .setProperty('licenseeAutoCreate', Faker.boolean());
+            .setProperty('version', 1.0);
 
-        productModule = new ProductModule()
+        const productModule = new ProductModule()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true)
             .setProperty('licensingModel', 'Subscription');
 
-        licenseTemplate = new LicenseTemplate()
+        const licenseTemplate = new LicenseTemplate()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true)
@@ -48,77 +43,231 @@ describe('services.LicenseServiceTest', () => {
             .setProperty('price', Faker.float(0, 50))
             .setProperty('currency', 'EUR');
 
-        licensee = new Licensee()
+        const licensee = new Licensee()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true);
 
-        ProductService.create(context, product)
-            .then(entity => ProductModuleService.create(context, entity.getProperty('number'), productModule))
-            .then(entity => LicenseTemplateService.create(context, entity.getProperty('number'), licenseTemplate))
-            .then(() => LicenseeService.create(context, product.getProperty('number'), licensee));
-    });
-
-    beforeEach(() => {
-        eachLicense = new License()
+        const license = new License()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('startDate', 'now')
             .setProperty('active', true)
             .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
-    });
 
-    afterAll(() => {
-        ProductService.delete(context, product.getProperty('number'), true);
-    });
+        // setup
+        return ProductService.create(context, product)
+            .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
+            .then(() => LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate))
+            .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
 
-    it('check "create" method', () => {
-        const license = eachLicense;
-
-        LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license)
+            // test
+            .then(() => LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license))
             .then((entity) => {
-                expect(entity instanceof License.class).toBe(true);
+                expect(entity instanceof License).toBe(true);
                 expect(entity.getProperty('number')).toBe(license.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(license.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(license.getProperty('active'));
                 expect(entity.getProperty('startDate') instanceof Date).toBe(true);
                 expect(entity.getProperty('startDate')).toBeTruthy();
                 expect(entity.getProperty('my_custom_property')).toBe(license.getProperty('my_custom_property'));
-            });
+            })
+
+            // cleanup
+            .finally(() => axios({
+                url: `${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.getProperty('number')}`,
+                method: 'delete',
+                validateStatus() {
+                    return true;
+                },
+                auth: {
+                    username: context.getUsername(),
+                    password: context.getPassword(),
+                },
+                params: {
+                    forceCascade: true,
+                },
+            }));
     });
 
     it('check "get" method', () => {
-        const license = eachLicense;
+        const product = new Product()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true)
+            .setProperty('version', 1.0);
 
-        LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license)
-            .then(entity => LicenseService.get(context, entity.getProperty('number')))
+        const productModule = new ProductModule()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true)
+            .setProperty('licensingModel', 'Subscription');
+
+        const licenseTemplate = new LicenseTemplate()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true)
+            .setProperty('licenseType', 'TIMEVOLUME')
+            .setProperty('timeVolume', 30)
+            .setProperty('price', Faker.float(0, 50))
+            .setProperty('currency', 'EUR');
+
+        const licensee = new Licensee()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true);
+
+        const license = new License()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('startDate', 'now')
+            .setProperty('active', true)
+            .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
+
+        // setup
+        return ProductService.create(context, product)
+            .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
+            .then(() => LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate))
+            .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
+            .then(() => LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license))
+
+            // test
+            .then(() => LicenseService.get(context, license.getProperty('number')))
             .then((entity) => {
-                expect(entity instanceof License.class).toBe(true);
+                expect(entity instanceof License).toBe(true);
                 expect(entity.getProperty('number')).toBe(license.getProperty('number'));
                 expect(entity.getProperty('name')).toBe(license.getProperty('name'));
                 expect(entity.getProperty('active')).toBe(license.getProperty('active'));
                 expect(entity.getProperty('startDate') instanceof Date).toBe(true);
                 expect(entity.getProperty('startDate')).toBeTruthy();
                 expect(entity.getProperty('my_custom_property')).toBe(license.getProperty('my_custom_property'));
-            });
+            })
+
+            // cleanup
+            .finally(() => axios({
+                url: `${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.getProperty('number')}`,
+                method: 'delete',
+                validateStatus() {
+                    return true;
+                },
+                auth: {
+                    username: context.getUsername(),
+                    password: context.getPassword(),
+                },
+                params: {
+                    forceCascade: true,
+                },
+            }));
     });
 
     it('check "list" method', () => {
-        const license = eachLicense;
+        const product = new Product()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true)
+            .setProperty('version', 1.0);
 
-        LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license)
+        const productModule = new ProductModule()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true)
+            .setProperty('licensingModel', 'Subscription');
+
+        const licenseTemplate = new LicenseTemplate()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true)
+            .setProperty('licenseType', 'TIMEVOLUME')
+            .setProperty('timeVolume', 30)
+            .setProperty('price', Faker.float(0, 50))
+            .setProperty('currency', 'EUR');
+
+        const licensee = new Licensee()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true);
+
+        const license = new License()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('startDate', 'now')
+            .setProperty('active', true)
+            .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
+
+        // setup
+        return ProductService.create(context, product)
+            .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
+            .then(() => LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate))
+            .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
+            .then(() => LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license))
+
+            // test
             .then(() => LicenseService.list(context))
             .then((entities) => {
                 expect(Array.isArray(entities)).toBe(true);
                 expect(entities.length).toBeGreaterThanOrEqual(1);
-                expect(entities[0] instanceof License.class).toBe(true);
-            });
+                expect(entities[0] instanceof License).toBe(true);
+            })
+
+            // cleanup
+            .finally(() => axios({
+                url: `${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.getProperty('number')}`,
+                method: 'delete',
+                validateStatus() {
+                    return true;
+                },
+                auth: {
+                    username: context.getUsername(),
+                    password: context.getPassword(),
+                },
+                params: {
+                    forceCascade: true,
+                },
+            }));
     });
 
     it('check "update" method', () => {
-        const license = eachLicense;
+        const product = new Product()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true)
+            .setProperty('version', 1.0);
 
-        LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license)
+        const productModule = new ProductModule()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true)
+            .setProperty('licensingModel', 'Subscription');
+
+        const licenseTemplate = new LicenseTemplate()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true)
+            .setProperty('licenseType', 'TIMEVOLUME')
+            .setProperty('timeVolume', 30)
+            .setProperty('price', Faker.float(0, 50))
+            .setProperty('currency', 'EUR');
+
+        const licensee = new Licensee()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true);
+
+        const license = new License()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('startDate', 'now')
+            .setProperty('active', true)
+            .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
+
+        // setup
+        return ProductService.create(context, product)
+            .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
+            .then(() => LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate))
+            .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
+            .then(() => LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license))
+
+            // test
             .then(() => {
                 license.setProperty('name', Faker.string('JS-NAME-').toUpperCase());
                 license.setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY-UPDATED');
@@ -126,19 +275,89 @@ describe('services.LicenseServiceTest', () => {
                 return LicenseService.update(context, license.getProperty('number'), null, license);
             })
             .then((entity) => {
-                expect(entity instanceof License.class).toBe(true);
+                expect(entity instanceof License).toBe(true);
                 expect(entity.getProperty('name')).toBe(license.getProperty('name'));
                 expect(entity.getProperty('my_custom_property')).toBe(license.getProperty('my_custom_property'));
-            });
+            })
+
+            // cleanup
+            .finally(() => axios({
+                url: `${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.getProperty('number')}`,
+                method: 'delete',
+                validateStatus() {
+                    return true;
+                },
+                auth: {
+                    username: context.getUsername(),
+                    password: context.getPassword(),
+                },
+                params: {
+                    forceCascade: true,
+                },
+            }));
     });
 
     it('check "delete" method', () => {
-        const license = eachLicense;
+        const product = new Product()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true)
+            .setProperty('version', 1.0);
 
-        LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license)
-            .then(entity => LicenseService.delete(context, entity.getProperty('number')))
+        const productModule = new ProductModule()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true)
+            .setProperty('licensingModel', 'Subscription');
+
+        const licenseTemplate = new LicenseTemplate()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true)
+            .setProperty('licenseType', 'TIMEVOLUME')
+            .setProperty('timeVolume', 30)
+            .setProperty('price', Faker.float(0, 50))
+            .setProperty('currency', 'EUR');
+
+        const licensee = new Licensee()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('active', true);
+
+        const license = new License()
+            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+            .setProperty('startDate', 'now')
+            .setProperty('active', true)
+            .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
+
+        // setup
+        return ProductService.create(context, product)
+            .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
+            .then(() => LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate))
+            .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
+            .then(() => LicenseService.create(context, licensee.getProperty('number'), licenseTemplate.getProperty('number'), null, license))
+
+            // test
+            .then(() => LicenseService.delete(context, license.getProperty('number')))
             .then((state) => {
                 expect(state).toBe(true);
-            });
+            })
+
+            // cleanup
+            .finally(() => axios({
+                url: `${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.getProperty('number')}`,
+                method: 'delete',
+                validateStatus() {
+                    return true;
+                },
+                auth: {
+                    username: context.getUsername(),
+                    password: context.getPassword(),
+                },
+                params: {
+                    forceCascade: true,
+                },
+            }));
     });
 });

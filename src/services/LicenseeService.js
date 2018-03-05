@@ -240,7 +240,11 @@ export default {
                 const validationResults = new ValidationResults();
 
                 item.property.forEach((property) => {
-                    data[property.name] = JSON.parse(property.value);
+                    try {
+                        data[property.name] = JSON.parse(property.value);
+                    } catch (e) {
+                        data[property.name] = property.value;
+                    }
                 });
 
                 validationResults

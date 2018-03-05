@@ -6,6 +6,8 @@
  */
 
 import BaseEntity from './BaseEntity';
+import LicenseTransactionJoin from './LicenseTransactionJoin';
+import License from './License';
 
 /**
  * Transaction entity used internally by NetLicensing.
@@ -76,6 +78,7 @@ export default class Transaction extends BaseEntity {
             'dateCreated',
             'dateClosed',
             'paymentMethod',
+            'licenseTransactionJoins',
         ]);
     }
 
@@ -161,5 +164,33 @@ export default class Transaction extends BaseEntity {
 
     setActive() {
         return this.setProperty('active', true);
+    }
+
+    getLicenseTransactionJoins(def) {
+        return this.getProperty('licenseTransactionJoins', def);
+    }
+
+    setLicenseTransactionJoins(licenseTransactionJoins) {
+        return this.setProperty('licenseTransactionJoins', licenseTransactionJoins);
+    }
+
+    setListLicenseTransactionJoin(properties) {
+        if (!properties) return;
+
+        const licenseTransactionJoins = this.getProperty('licenseTransactionJoins', []);
+        const licenseTransactionJoin = new LicenseTransactionJoin();
+
+        properties.forEach((property) => {
+            if (property.name === 'licenseNumber') {
+                licenseTransactionJoin.setLicense(new License({ number: property.value }));
+            }
+
+            if (property.name === 'transactionNumber') {
+                licenseTransactionJoin.setTransaction(new Transaction({ number: property.value }));
+            }
+        });
+
+        licenseTransactionJoins.push(licenseTransactionJoin);
+        this.setProperty('licenseTransactionJoins', licenseTransactionJoins);
     }
 }
