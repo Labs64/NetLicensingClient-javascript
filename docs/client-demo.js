@@ -51,9 +51,9 @@ var NetLicensingDemo = function () {
                 })
                 .then(function (listProducts) {
                     console.log("ProductService.list() :", listProducts);
-                    console.log("Product.setLicenseeSecretMode() :", NetLicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
+                    console.log("Product.setLicenseeSecretMode() :", NetLicensing.Constants.Product.LicenseeSecretMode.PREDEFINED);
                     product.setProperty("Updated Property", "Property Value");
-                    product.setLicenseeSecretMode(NetLicensing.Product.LICENSEE_SECRET_MODE_PREDEFINED);
+                    product.setLicenseeSecretMode(NetLicensing.Constants.Product.LicenseeSecretMode.PREDEFINED);
                     return NetLicensing.ProductService.update(context, product.getNumber(), product)
                 })
                 .then(function (updatedProduct) {
@@ -79,10 +79,12 @@ var NetLicensingDemo = function () {
 
     // region ********* ProductModule
 
-    var productModule = new NetLicensing.ProductModule()
+
+
+        var productModule = new NetLicensing.ProductModule()
         .setNumber(productModuleNumber)
         .setName(numberWithPrefix("ProductModule-", Math.random().toString(36).slice(2)))
-        .setLicensingModel(NetLicensing.ProductModule.LICENSING_MODEL_TRY_AND_BUY);
+        .setLicensingModel(NetLicensing.Constants.LicensingModel.TryAndBuy.NAME);
 
     var ProductModuleServicePromise = ProductServicePromise.then(function (createdProduct) {
         console.log("==> ProductModuleService");
@@ -126,7 +128,7 @@ var NetLicensingDemo = function () {
     var licenseTemplate = new NetLicensing.LicenseTemplate()
         .setNumber(licenseTemplateNumber)
         .setName(numberWithPrefix("LicenseTemplate-", Math.random().toString(36).slice(2)))
-        .setLicenseType(NetLicensing.LicenseTemplate.LICENSE_TYPE_FEATURE)
+        .setLicenseType(NetLicensing.Constants.LicenseTemplate.LicenseType.FEATURE)
         .setPrice("12.5")
         .setCurrency("EUR")
         .setAutomatic(false)
@@ -278,7 +280,7 @@ var NetLicensingDemo = function () {
             .then(function (createdToken) {
                 console.log("TokenService.create(APIKEY) :", createdToken);
                 context.setApiKey(createdToken.getNumber());
-                context.setSecurityMode(NetLicensing.Context.APIKEY_IDENTIFICATION);
+                context.setSecurityMode(NetLicensing.Constants.APIKEY_IDENTIFICATION);
 
                 token.setTokenType("SHOP");
                 token.setLicenseeNumber(licenseeNumber);
@@ -287,7 +289,7 @@ var NetLicensingDemo = function () {
             })
             .then(function (shopToken) {
                 console.log("TokenService.create(SHOP) :", shopToken);
-                context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+                context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
                 return [shopToken, NetLicensing.TokenService.list(context, "tokenType=SHOP")];
             })
             .then(function (shopTokenArray) {
@@ -324,11 +326,11 @@ var NetLicensingDemo = function () {
         return NetLicensing.LicenseeService.validate(context, licenseeNumber, validationParameters)
             .then(function (validationResult) {
                 console.log("LicenseeService.validate(APIKEY_IDENTIFICATION) :", validationResult.getValidators());
-                context.setSecurityMode(NetLicensing.Context.APIKEY_IDENTIFICATION);
+                context.setSecurityMode(NetLicensing.Constants.APIKEY_IDENTIFICATION);
                 return NetLicensing.LicenseeService.validate(context, licenseeNumber, validationParameters)
             })
             .then(function (validationResult) {
-                context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+                context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
                 console.log("LicenseeService.validate(BASIC_AUTHENTICATION) :", validationResult.getValidators());
                 return validationResult;
             })
@@ -382,11 +384,11 @@ var NetLicensingDemo = function () {
             })
             .then(function (newTransferLicense) {
                 console.log("LicenseeService.create(transfer-to) :", newTransferLicense);
-                context.setSecurityMode(NetLicensing.Context.APIKEY_IDENTIFICATION);
+                context.setSecurityMode(NetLicensing.Constants.APIKEY_IDENTIFICATION);
                 return NetLicensing.LicenseeService.transfer(context, licensee.getNumber(), transferLicenseeWithApiKey.getNumber());
             })
             .then(function (newTransferLicense) {
-                context.setSecurityMode(NetLicensing.Context.BASIC_AUTHENTICATION);
+                context.setSecurityMode(NetLicensing.Constants.BASIC_AUTHENTICATION);
                 return NetLicensing.LicenseService.list(context, "licenseeNumber=" + licensee.getNumber());
             })
             .then(function (licenseList) {
