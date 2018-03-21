@@ -28,6 +28,7 @@ describe('services.LicenseServiceTest', () => {
             .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
             .setProperty('active', true)
             .setProperty('version', 1.0);
+        
 
         const productModule = new ProductModule()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
