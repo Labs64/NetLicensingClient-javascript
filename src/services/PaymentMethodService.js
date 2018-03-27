@@ -10,6 +10,7 @@ import PaymentMethod from '../entities/PaymentMethod';
 import Constants from '../Constants';
 import CheckUtils from '../util/CheckUtils';
 import Service from './Service';
+import FilterUtils from '../util/FilterUtils';
 
 export default {
     /**
@@ -64,7 +65,7 @@ export default {
             if (!CheckUtils.isValid(filter)) {
                 throw new TypeError(`filter has bad value ${filter}`);
             }
-            queryParams.filter = filter;
+            queryParams.filter = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
         }
 
         return Service

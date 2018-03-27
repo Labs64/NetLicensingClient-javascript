@@ -10,6 +10,7 @@ import Context from '../vo/Context';
 import Product from '../entities/Product';
 import Constants from '../Constants';
 import CheckUtils from '../util/CheckUtils';
+import FilterUtils from '../util/FilterUtils';
 
 /**
  * JS representation of the Product Service. See NetLicensingAPI for details:
@@ -101,7 +102,7 @@ export default {
             if (!CheckUtils.isValid(filter)) {
                 throw new TypeError(`filter has bad value ${filter}`);
             }
-            queryParams.filter = filter;
+            queryParams.filter = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
         }
 
         return Service

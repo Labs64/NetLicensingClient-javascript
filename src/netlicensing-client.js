@@ -33,6 +33,7 @@ import ValidationResults from './vo/ValidationResults';
 // Utils
 import CastsUtils from './util/CastsUtils';
 import CheckUtils from './util/CheckUtils';
+import FilterUtils from './util/FilterUtils';
 
 
 // Create the default instance to be exported
@@ -73,6 +74,7 @@ const NetLicensing = {
     // Expose Utils
     CastsUtils,
     CheckUtils,
+    FilterUtils,
 };
 
 module.exports = NetLicensing;

@@ -10,6 +10,7 @@ import License from '../entities/License';
 import CheckUtils from '../util/CheckUtils';
 import Constants from '../Constants';
 import Service from './Service';
+import FilterUtils from '../util/FilterUtils';
 
 /**
  * JS representation of the License Service. See NetLicensingAPI for details:
@@ -121,7 +122,7 @@ export default {
             if (!CheckUtils.isValid(filter)) {
                 throw new TypeError(`filter has bad value ${filter}`);
             }
-            queryParams.filter = filter;
+            queryParams.filter = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
         }
 
         return Service
