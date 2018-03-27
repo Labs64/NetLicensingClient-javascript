@@ -57,11 +57,11 @@ Demo web application for this library can be found [here](http://io.labs64.com/N
 Here is a Docker-based local development environment prepared, which provides a very flexible and extensible way of developing Node.js applications.
 
 ### System Requirements
-To be able to run Laravel Boilerplate you have to meet the following requirements:
+To be able to build this library you have to meet the following requirements:
 * [docker](https://www.docker.com)
 To be able to build this NetLicensing Client you have to meet the following requirements:
 * Node.js > 6.0
-* Gulp > 3.9.1
+* npm > 3.10.x
 
 ### Develop with Docker
 
