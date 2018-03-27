@@ -2,6 +2,7 @@ import Faker from '../../test/Faker';
 import Context from '../../src/vo/Context';
 import Transaction from '../../src/entities/Transaction';
 import TransactionService from '../../src/services/TransactionService';
+import Service from '../../src/services/Service';
 
 
 describe('services.TransactionServiceTest', () => {
@@ -57,6 +58,19 @@ describe('services.TransactionServiceTest', () => {
                 expect(entities[0] instanceof Transaction).toBe(true);
             });
     });
+
+    it('check "filter" in list method', () =>
+        // test
+        // if filter parameter is object
+        TransactionService.list(context, { page: 2, items: 10 })
+            .then(() => {
+                expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=2;items=10');
+            })
+            // if filter parameter is string
+            .then(() => TransactionService.list(context, 'page=3;items=20'))
+            .then(() => {
+                expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
+            }));
 
     it('check "update" method', () => {
         const transaction = new Transaction()

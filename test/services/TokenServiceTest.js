@@ -9,6 +9,7 @@ import ProductService from '../../src/services/ProductService';
 import LicenseeService from '../../src/services/LicenseeService';
 import TokenService from '../../src/services/TokenService';
 import Constants from '../../src/Constants';
+import Service from '../../src/services/Service';
 
 
 describe('services.TokenServiceTest', () => {
@@ -172,6 +173,19 @@ describe('services.TokenServiceTest', () => {
                 },
             }));
     });
+
+    it('check "filter" in list method', () =>
+        // test
+        // if filter parameter is object
+        TokenService.list(context, { page: 2, items: 10 })
+            .then(() => {
+                expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=2;items=10');
+            })
+            // if filter parameter is string
+            .then(() => TokenService.list(context, 'page=3;items=20'))
+            .then(() => {
+                expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
+            }));
 
     it('check "delete" method', () => {
         const product = new Product()

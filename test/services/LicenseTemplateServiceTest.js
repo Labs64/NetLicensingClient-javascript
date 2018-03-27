@@ -9,6 +9,7 @@ import ProductService from '../../src/services/ProductService';
 import ProductModuleService from '../../src/services/ProductModuleService';
 import LicenseTemplateService from '../../src/services/LicenseTemplateService';
 import Constants from '../../src/Constants';
+import Service from '../../src/services/Service';
 
 
 describe('services.LicenseTemplateServiceTest', () => {
@@ -201,6 +202,19 @@ describe('services.LicenseTemplateServiceTest', () => {
                 },
             }));
     });
+
+    it('check "filter" in list method', () =>
+        // test
+        // if filter parameter is object
+        LicenseTemplateService.list(context, { page: 2, items: 10 })
+            .then(() => {
+                expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=2;items=10');
+            })
+            // if filter parameter is string
+            .then(() => LicenseTemplateService.list(context, 'page=3;items=20'))
+            .then(() => {
+                expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
+            }));
 
     it('check "update" method', () => {
         const product = new Product()

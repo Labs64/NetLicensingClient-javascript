@@ -159,6 +159,19 @@ describe('services.LicenseeServiceTest', () => {
             }));
     });
 
+    it('check "filter" in list method', () =>
+        // test
+        // if filter parameter is object
+        LicenseeService.list(context, { page: 2, items: 10 })
+            .then(() => {
+                expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=2;items=10');
+            })
+            // if filter parameter is string
+            .then(() => LicenseeService.list(context, 'page=3;items=20'))
+            .then(() => {
+                expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
+            }));
+
     it('check "update" method', () => {
         const product = new Product()
             .setProperty('number', Faker.string('JS-TEST-').toUpperCase())

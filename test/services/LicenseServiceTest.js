@@ -14,6 +14,7 @@ import LicenseTemplateService from '../../src/services/LicenseTemplateService';
 import LicenseeService from '../../src/services/LicenseeService';
 import LicenseService from '../../src/services/LicenseService';
 import Constants from '../../src/Constants';
+import Service from '../../src/services/Service';
 
 describe('services.LicenseServiceTest', () => {
     let context;
@@ -230,6 +231,19 @@ describe('services.LicenseServiceTest', () => {
                 },
             }));
     });
+
+    it('check "filter" in list method', () =>
+        // test
+        // if filter parameter is object
+        LicenseService.list(context, { page: 2, items: 10 })
+            .then(() => {
+                expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=2;items=10');
+            })
+            // if filter parameter is string
+            .then(() => LicenseService.list(context, 'page=3;items=20'))
+            .then(() => {
+                expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
+            }));
 
     it('check "update" method', () => {
         const product = new Product()
