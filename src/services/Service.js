@@ -157,7 +157,7 @@ export default class Service {
             }],
         };
 
-        if (['put', 'post', 'patch'].indexOf(request.method)) {
+        if (['put', 'post', 'patch'].indexOf(request.method) >= 0) {
             if (request.method === 'post') {
                 request.headers['Content-Type'] = 'application/x-www-form-urlencoded';
             }
