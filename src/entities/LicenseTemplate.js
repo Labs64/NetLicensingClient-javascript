@@ -49,6 +49,9 @@ import BaseEntity from './BaseEntity';
  * Mandatory for 'TIMEVOLUME' license type.
  * @property integer timeVolume
  *
+ * Time volume period for 'TIMEVOLUME' license type. Supported types: "DAY", "WEEK", "MONTH", "YEAR"
+ * @property integer timeVolumePeriod
+ *
  * Mandatory for 'FLOATING' license type.
  * @property integer maxSessions
  *
@@ -73,6 +76,7 @@ export default class LicenseTemplate extends BaseEntity {
                 hidden: 'boolean',
                 hideLicenses: 'boolean',
                 timeVolume: 'int',
+                timeVolumePeriod: 'string',
                 maxSessions: 'int',
                 quantity: 'int',
                 inUse: 'boolean',
@@ -93,6 +97,7 @@ export default class LicenseTemplate extends BaseEntity {
             'hidden',
             'hideLicenses',
             'timeVolume',
+            'timeVolumePeriod',
             'maxSessions',
             'quantity',
             'inUse',
@@ -177,6 +182,14 @@ export default class LicenseTemplate extends BaseEntity {
 
     getTimeVolume(def) {
         return this.getProperty('timeVolume', def);
+    }
+
+    setTimeVolumePeriod(timeVolumePeriod) {
+        return this.setProperty('timeVolumePeriod', timeVolumePeriod);
+    }
+
+    getTimeVolumePeriod(def) {
+        return this.getProperty('timeVolumePeriod', def);
     }
 
     setMaxSessions(maxSessions) {

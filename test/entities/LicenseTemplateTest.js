@@ -177,6 +177,23 @@ describe('entities.LicenseTemplateTest', () => {
         expect(licenseTemplate.timeVolume).toBe(30);
     });
 
+    it('check "timeVolumePeriod" property setters/getters', () => {
+        licenseTemplate.setProperty('timeVolumePeriod', 'DAY');
+        expect(licenseTemplate.getProperty('timeVolumePeriod')).toBe('DAY');
+        expect(licenseTemplate.getTimeVolumePeriod()).toBe('DAY');
+        expect(licenseTemplate.timeVolumePeriod).toBe('DAY');
+
+        licenseTemplate.setTimeVolumePeriod('WEEK');
+        expect(licenseTemplate.getProperty('timeVolumePeriod')).toBe('WEEK');
+        expect(licenseTemplate.getTimeVolumePeriod()).toBe('WEEK');
+        expect(licenseTemplate.timeVolumePeriod).toBe('WEEK');
+
+        licenseTemplate.timeVolumePeriod = 'MONTH';
+        expect(licenseTemplate.getProperty('timeVolumePeriod')).toBe('MONTH');
+        expect(licenseTemplate.getTimeVolumePeriod()).toBe('MONTH');
+        expect(licenseTemplate.timeVolumePeriod).toBe('MONTH');
+    });
+
     it('check "maxSessions" property setters/getters', () => {
         licenseTemplate.setProperty('maxSessions', 10);
         expect(licenseTemplate.getProperty('maxSessions')).toBe(10);
