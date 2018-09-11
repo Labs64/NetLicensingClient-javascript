@@ -150,4 +150,12 @@ export default class Token extends BaseEntity {
     getShopURL(def) {
         return this.getProperty('shopURL', def);
     }
+
+    setRole(role) {
+        return this.setProperty('role', role);
+    }
+
+    getRole(def) {
+        return this.getProperty('role', def);
+    }
 }
