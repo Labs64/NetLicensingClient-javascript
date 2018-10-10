@@ -38,7 +38,9 @@ export default class Service {
     static get(context, urlTemplate, queryParams, resultType) {
         return Service
             .request(context, 'get', urlTemplate, queryParams)
-            .then(response => ((response.data) ? Service.getEntity(resultType, response.data.items.item[0]) : null));
+            .then(response => ((response.data)
+                ? Service.getEntity(resultType, Service.getItem(response, [])[0])
+                : null));
     }
 
     /**
@@ -64,7 +66,7 @@ export default class Service {
         return Service
             .request(context, 'get', urlTemplate, queryParams)
             .then(response => ((response.data)
-                ? response.data.items.item.map(item => Service.getEntity(resultType, item))
+                ? Service.getItem(response, []).map(item => Service.getEntity(resultType, item))
                 : []));
     }
 
@@ -89,7 +91,7 @@ export default class Service {
     static post(context, urlTemplate, queryParams, resultType) {
         return Service
             .request(context, 'post', urlTemplate, queryParams)
-            .then(response => ((response.data) ? Service.getEntity(resultType, response.data.items.item[0]) : null));
+            .then(response => ((response.data) ? Service.getEntity(resultType, Service.getItem(response)[0]) : null));
     }
 
     /**
@@ -198,10 +200,10 @@ export default class Service {
                 if (error.response) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
-                    const info = error.response.data.infos.info[0] || null;
+                    const info = Service.getInfo(error.response, [])[0];
 
-                    if (info && info.id === 'NotFoundException') {
-                        return Promise.resolve(null);
+                    if (Service.isNotFound(error.response)) {
+                        return Promise.resolve({ data: null });
                     }
 
                     const reasonPhrase = info.value || 'Unknown';
@@ -259,6 +261,27 @@ export default class Service {
         }
 
         return entity;
+    }
+
+    static getInfo(response, def) {
+        try {
+            return response.data.infos.info || def;
+        } catch (e) {
+            return def;
+        }
+    }
+
+    static getItem(response, def) {
+        try {
+            return response.data.items.item || def;
+        } catch (e) {
+            return def;
+        }
+    }
+
+    static isNotFound(response) {
+        const info = Service.getInfo(response, [])[0];
+        return (info && info.id === 'NotFoundException');
     }
 
     static isValidUrl(url) {
