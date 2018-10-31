@@ -2087,6 +2087,14 @@ exports.default = {
 
     Utility: {
         ENDPOINT_PATH: 'utility'
+    },
+
+    APIKEY: {
+        ROLE_APIKEY_LICENSEE: 'ROLE_APIKEY_LICENSEE',
+        ROLE_APIKEY_ANALYTICS: 'ROLE_APIKEY_ANALYTICS',
+        ROLE_APIKEY_OPERATION: 'ROLE_APIKEY_OPERATION',
+        ROLE_APIKEY_MAINTENANCE: 'ROLE_APIKEY_MAINTENANCE',
+        ROLE_APIKEY_ADMIN: 'ROLE_APIKEY_ADMIN'
     }
 };
 module.exports = exports['default'];
@@ -4175,6 +4183,16 @@ var Token = function (_BaseEntity) {
         value: function getShopURL(def) {
             return this.getProperty('shopURL', def);
         }
+    }, {
+        key: 'setRole',
+        value: function setRole(role) {
+            return this.setProperty('role', role);
+        }
+    }, {
+        key: 'getRole',
+        value: function getRole(def) {
+            return this.getProperty('role', def);
+        }
     }]);
 
     return Token;
@@ -4438,6 +4456,52 @@ module.exports = exports['default'];
 
 /***/ }),
 
+/***/ "./src/errors/NlicError.js":
+/*!*********************************!*\
+  !*** ./src/errors/NlicError.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NlicError = function (_Error) {
+    _inherits(NlicError, _Error);
+
+    function NlicError() {
+        var _ref;
+
+        _classCallCheck(this, NlicError);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        var _this = _possibleConstructorReturn(this, (_ref = NlicError.__proto__ || Object.getPrototypeOf(NlicError)).call.apply(_ref, [this].concat(args)));
+
+        Error.captureStackTrace(_this, NlicError);
+        return _this;
+    }
+
+    return NlicError;
+}(Error);
+
+exports.default = NlicError;
+module.exports = exports["default"];
+
+/***/ }),
+
 /***/ "./src/netlicensing-client.js":
 /*!************************************!*\
   !*** ./src/netlicensing-client.js ***!
@@ -4560,16 +4624,18 @@ var _FilterUtils = __webpack_require__(/*! ./util/FilterUtils */ "./src/util/Fil
 
 var _FilterUtils2 = _interopRequireDefault(_FilterUtils);
 
+var _NlicError = __webpack_require__(/*! ./errors/NlicError */ "./src/errors/NlicError.js");
+
+var _NlicError2 = _interopRequireDefault(_NlicError);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Create the default instance to be exported
 
 
-// Entities
+// Utils
 
-
-// Services
-// Constants
+// VO
 var NetLicensing = {
     // Constants
     Constants: _Constants2.default,
@@ -4607,12 +4673,20 @@ var NetLicensing = {
     // Expose Utils
     CastsUtils: _CastsUtils2.default,
     CheckUtils: _CheckUtils2.default,
-    FilterUtils: _FilterUtils2.default
+    FilterUtils: _FilterUtils2.default,
+
+    // Errors
+    NlicError: _NlicError2.default
 };
 
-// Utils
+// Errors
 
-// VO
+
+// Entities
+
+
+// Services
+// Constants
 
 
 module.exports = NetLicensing;
@@ -6014,6 +6088,10 @@ var _BaseEntity = __webpack_require__(/*! ../entities/BaseEntity */ "./src/entit
 
 var _BaseEntity2 = _interopRequireDefault(_BaseEntity);
 
+var _NlicError = __webpack_require__(/*! ../errors/NlicError */ "./src/errors/NlicError.js");
+
+var _NlicError2 = _interopRequireDefault(_NlicError);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6055,7 +6133,12 @@ var Service = function () {
         key: 'get',
         value: function get(context, urlTemplate, queryParams, resultType) {
             return Service.request(context, 'get', urlTemplate, queryParams).then(function (response) {
-                return response.data ? Service.getEntity(resultType, response.data.items.item[0]) : null;
+                return response.data ? Service.getEntity(resultType, Service.getItem(response, [])[0]) : null;
+            }).catch(function (e) {
+                if (Service.isNotFound(Service.getLastHttpRequestInfo().response)) {
+                    return Promise.resolve(null);
+                }
+                throw e;
             });
         }
 
@@ -6083,7 +6166,7 @@ var Service = function () {
         key: 'list',
         value: function list(context, urlTemplate, queryParams, resultType) {
             return Service.request(context, 'get', urlTemplate, queryParams).then(function (response) {
-                return response.data ? response.data.items.item.map(function (item) {
+                return response.data ? Service.getItem(response, []).map(function (item) {
                     return Service.getEntity(resultType, item);
                 }) : [];
             });
@@ -6112,7 +6195,7 @@ var Service = function () {
         key: 'post',
         value: function post(context, urlTemplate, queryParams, resultType) {
             return Service.request(context, 'post', urlTemplate, queryParams).then(function (response) {
-                return response.data ? Service.getEntity(resultType, response.data.items.item[0]) : null;
+                return response.data ? Service.getEntity(resultType, Service.getItem(response)[0]) : null;
             });
         }
 
@@ -6226,14 +6309,10 @@ var Service = function () {
                 if (error.response) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
-                    var info = error.response.data.infos.info[0] || null;
+                    var info = Service.getInfo(error.response, [])[0];
+                    var reason = info.value || 'Unknown';
 
-                    if (info && info.id === 'NotFoundException') {
-                        return Promise.resolve(null);
-                    }
-
-                    var reasonPhrase = info.value || 'Unknown';
-                    throw new Error('Unsupported response status code ' + error.response.status + ': ' + reasonPhrase);
+                    throw new _NlicError2.default('Unsupported response status code ' + error.response.status + ': ' + reason);
                 }
 
                 return Promise.reject(error);
@@ -6295,6 +6374,30 @@ var Service = function () {
             }
 
             return entity;
+        }
+    }, {
+        key: 'getInfo',
+        value: function getInfo(response, def) {
+            try {
+                return response.data.infos.info || def;
+            } catch (e) {
+                return def;
+            }
+        }
+    }, {
+        key: 'getItem',
+        value: function getItem(response, def) {
+            try {
+                return response.data.items.item || def;
+            } catch (e) {
+                return def;
+            }
+        }
+    }, {
+        key: 'isNotFound',
+        value: function isNotFound(response) {
+            var info = Service.getInfo(response, [])[0];
+            return info && info.id === 'NotFoundException';
         }
     }, {
         key: 'isValidUrl',

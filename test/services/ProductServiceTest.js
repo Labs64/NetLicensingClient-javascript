@@ -69,60 +69,68 @@ describe('services.ProductServiceTest', () => {
             }));
     });
 
-    it('check "get" method', () => {
-        const product = new Product()
-            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
-            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
-            .setProperty('active', Faker.boolean())
-            .setProperty('version', String(Faker.float(1, 3)))
-            .setProperty('description', Faker.string('JS-DESCRIPTION-').toUpperCase())
-            .setProperty('licensingInfo', Faker.string('JS-LICENSING-INFO-').toUpperCase())
-            .setProperty('licenseeAutoCreate', Faker.boolean())
-            .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY')
+    describe('check "get" method', () => {
+        it('should return entity', () => {
+            const product = new Product()
+                .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+                .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+                .setProperty('active', Faker.boolean())
+                .setProperty('version', String(Faker.float(1, 3)))
+                .setProperty('description', Faker.string('JS-DESCRIPTION-').toUpperCase())
+                .setProperty('licensingInfo', Faker.string('JS-LICENSING-INFO-').toUpperCase())
+                .setProperty('licenseeAutoCreate', Faker.boolean())
+                .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY')
 
-            .addDiscount(new ProductDiscount()
-                .setProperty('totalPrice', Faker.int(10, 20))
-                .setProperty('currency', 'EUR')
-                .setProperty('amountFix', Faker.int(1, 5)))
+                .addDiscount(new ProductDiscount()
+                    .setProperty('totalPrice', Faker.int(10, 20))
+                    .setProperty('currency', 'EUR')
+                    .setProperty('amountFix', Faker.int(1, 5)))
 
-            .addDiscount(new ProductDiscount()
-                .setProperty('totalPrice', Faker.int(30, 40))
-                .setProperty('currency', 'EUR')
-                .setProperty('amountPercent', Faker.int(1, 5)));
+                .addDiscount(new ProductDiscount()
+                    .setProperty('totalPrice', Faker.int(30, 40))
+                    .setProperty('currency', 'EUR')
+                    .setProperty('amountPercent', Faker.int(1, 5)));
 
-        // setup
-        return Promise.resolve()
-            .then(() => ProductService.create(context, product))
+            // setup
+            return Promise.resolve()
+                .then(() => ProductService.create(context, product))
 
-            // test
-            .then(() => ProductService.get(context, product.getProperty('number')))
-            .then((entity) => {
-                expect(entity instanceof Product).toBe(true);
-                expect(entity.getProperty('number')).toBe(product.getProperty('number'));
-                expect(entity.getProperty('name')).toBe(product.getProperty('name'));
-                expect(entity.getProperty('active')).toBe(product.getProperty('active'));
-                expect(entity.getProperty('version')).toBe(product.getProperty('version'));
-                expect(entity.getProperty('description')).toBe(product.getProperty('description'));
-                expect(entity.getProperty('licensingInfo')).toBe(product.getProperty('licensingInfo'));
-                expect(entity.getProperty('licenseeAutoCreate')).toBe(product.getProperty('licenseeAutoCreate'));
-                expect(entity.getProperty('my_custom_property')).toBe(product.getProperty('my_custom_property'));
-                expect(entity.getProductDiscounts().length).toBe(2);
-            })
+                // test
+                .then(() => ProductService.get(context, product.getProperty('number')))
+                .then((entity) => {
+                    expect(entity instanceof Product).toBe(true);
+                    expect(entity.getProperty('number')).toBe(product.getProperty('number'));
+                    expect(entity.getProperty('name')).toBe(product.getProperty('name'));
+                    expect(entity.getProperty('active')).toBe(product.getProperty('active'));
+                    expect(entity.getProperty('version')).toBe(product.getProperty('version'));
+                    expect(entity.getProperty('description')).toBe(product.getProperty('description'));
+                    expect(entity.getProperty('licensingInfo')).toBe(product.getProperty('licensingInfo'));
+                    expect(entity.getProperty('licenseeAutoCreate')).toBe(product.getProperty('licenseeAutoCreate'));
+                    expect(entity.getProperty('my_custom_property')).toBe(product.getProperty('my_custom_property'));
+                    expect(entity.getProductDiscounts().length).toBe(2);
+                })
 
-            // cleanup
-            .finally(() => axios({
-                url: `${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.getProperty('number')}`,
-                method: 'delete',
-                validateStatus() {
-                    return true;
-                },
-                auth: {
-                    username: context.getUsername(),
-                    password: context.getPassword(),
-                },
-                params: {
-                    forceCascade: true,
-                },
+                // cleanup
+                .finally(() => axios({
+                    url: `${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.getProperty('number')}`,
+                    method: 'delete',
+                    validateStatus() {
+                        return true;
+                    },
+                    auth: {
+                        username: context.getUsername(),
+                        password: context.getPassword(),
+                    },
+                    params: {
+                        forceCascade: true,
+                    },
+                }));
+        });
+
+        it('should return null', () => ProductService
+            .get(context, Faker.string('Number-that-does-not-exist-'))
+            .then((result) => {
+                expect(result).toBeNull();
             }));
     });
 

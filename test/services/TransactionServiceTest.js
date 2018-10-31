@@ -27,21 +27,30 @@ describe('services.TransactionServiceTest', () => {
             });
     });
 
-    it('check "get" method', () => {
-        const transaction = new Transaction()
-            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
-            .setProperty('status', 'PENDING')
-            .setProperty('source', 'SHOP');
+    describe('check "get" method', () => {
+        it('should return entity', () => {
+            const transaction = new Transaction()
+                .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+                .setProperty('status', 'PENDING')
+                .setProperty('source', 'SHOP');
 
-        return TransactionService.create(context, transaction)
-            .then(() => TransactionService.get(context, transaction.getProperty('number')))
-            .then((entity) => {
-                expect(entity instanceof Transaction).toBe(true);
-                expect(entity.getProperty('number')).toBe(transaction.getProperty('number'));
-                expect(entity.getProperty('status')).toBe(transaction.getProperty('status'));
-                expect(entity.getProperty('source')).toBe(transaction.getProperty('source'));
-            });
+            return TransactionService.create(context, transaction)
+                .then(() => TransactionService.get(context, transaction.getProperty('number')))
+                .then((entity) => {
+                    expect(entity instanceof Transaction).toBe(true);
+                    expect(entity.getProperty('number')).toBe(transaction.getProperty('number'));
+                    expect(entity.getProperty('status')).toBe(transaction.getProperty('status'));
+                    expect(entity.getProperty('source')).toBe(transaction.getProperty('source'));
+                });
+        });
+
+        it('should return null', () => TransactionService
+            .get(context, Faker.string('Number-that-does-not-exist-'))
+            .then((result) => {
+                expect(result).toBeNull();
+            }));
     });
+
 
     it('check "list" method', () => {
         const transaction = new Transaction()

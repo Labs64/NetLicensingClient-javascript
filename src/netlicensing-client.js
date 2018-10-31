@@ -35,6 +35,8 @@ import CastsUtils from './util/CastsUtils';
 import CheckUtils from './util/CheckUtils';
 import FilterUtils from './util/FilterUtils';
 
+// Errors
+import NlicError from './errors/NlicError';
 
 // Create the default instance to be exported
 const NetLicensing = {
@@ -75,6 +77,9 @@ const NetLicensing = {
     CastsUtils,
     CheckUtils,
     FilterUtils,
+
+    // Errors
+    NlicError,
 };
 
 module.exports = NetLicensing;

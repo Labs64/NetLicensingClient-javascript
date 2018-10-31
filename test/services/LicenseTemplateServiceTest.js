@@ -82,67 +82,78 @@ describe('services.LicenseTemplateServiceTest', () => {
             }));
     });
 
-    it('check "get" method', () => {
-        const product = new Product()
-            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
-            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
-            .setProperty('active', true)
-            .setProperty('version', String(Faker.float(1, 3)))
-            .setProperty('description', Faker.string('JS-DESCRIPTION-').toUpperCase())
-            .setProperty('licensingInfo', Faker.string('JS-LICENSING-INFO-').toUpperCase())
-            .setProperty('licenseeAutoCreate', Faker.boolean());
+    describe('check "get" method', () => {
+        it('should return entity', () => {
+            const product = new Product()
+                .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+                .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+                .setProperty('active', true)
+                .setProperty('version', String(Faker.float(1, 3)))
+                .setProperty('description', Faker.string('JS-DESCRIPTION-').toUpperCase())
+                .setProperty('licensingInfo', Faker.string('JS-LICENSING-INFO-').toUpperCase())
+                .setProperty('licenseeAutoCreate', Faker.boolean());
 
-        const productModule = new ProductModule()
-            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
-            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
-            .setProperty('active', true)
-            .setProperty('licensingModel', 'Subscription');
+            const productModule = new ProductModule()
+                .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+                .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+                .setProperty('active', true)
+                .setProperty('licensingModel', 'Subscription');
 
-        const licenseTemplate = new LicenseTemplate()
-            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
-            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
-            .setProperty('active', true)
-            .setProperty('licenseType', 'TIMEVOLUME')
-            .setProperty('timeVolume', 30)
-            .setProperty('price', Faker.float(0, 50))
-            .setProperty('currency', 'EUR')
-            .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
+            const licenseTemplate = new LicenseTemplate()
+                .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+                .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+                .setProperty('active', true)
+                .setProperty('licenseType', 'TIMEVOLUME')
+                .setProperty('timeVolume', 30)
+                .setProperty('price', Faker.float(0, 50))
+                .setProperty('currency', 'EUR')
+                .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
-        // setup
-        return Promise.resolve()
-            .then(() => ProductService.create(context, product))
-            .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
-            .then(() => LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate))
+            // setup
+            return Promise.resolve()
+                .then(() => ProductService.create(context, product))
+                .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
+                .then(() => LicenseTemplateService.create(
+                    context, productModule.getProperty('number'),
+                    licenseTemplate,
+                ))
 
-            // test
-            .then(() => LicenseTemplateService.get(context, licenseTemplate.getProperty('number')))
-            .then((entity) => {
-                expect(entity instanceof LicenseTemplate).toBe(true);
-                expect(entity.getProperty('number')).toBe(licenseTemplate.getProperty('number'));
-                expect(entity.getProperty('name')).toBe(licenseTemplate.getProperty('name'));
-                expect(entity.getProperty('active')).toBe(licenseTemplate.getProperty('active'));
-                expect(entity.getProperty('licenseType')).toBe(licenseTemplate.getProperty('licenseType'));
-                expect(entity.getProperty('timeVolume')).toBe(licenseTemplate.getProperty('timeVolume'));
-                expect(entity.getProperty('price')).toBe(licenseTemplate.getProperty('price'));
-                expect(entity.getProperty('currency')).toBe(licenseTemplate.getProperty('currency'));
-                expect(entity.getProperty('my_custom_property'))
-                    .toBe(licenseTemplate.getProperty('my_custom_property'));
-            })
+                // test
+                .then(() => LicenseTemplateService.get(context, licenseTemplate.getProperty('number')))
+                .then((entity) => {
+                    expect(entity instanceof LicenseTemplate).toBe(true);
+                    expect(entity.getProperty('number')).toBe(licenseTemplate.getProperty('number'));
+                    expect(entity.getProperty('name')).toBe(licenseTemplate.getProperty('name'));
+                    expect(entity.getProperty('active')).toBe(licenseTemplate.getProperty('active'));
+                    expect(entity.getProperty('licenseType')).toBe(licenseTemplate.getProperty('licenseType'));
+                    expect(entity.getProperty('timeVolume')).toBe(licenseTemplate.getProperty('timeVolume'));
+                    expect(entity.getProperty('price')).toBe(licenseTemplate.getProperty('price'));
+                    expect(entity.getProperty('currency')).toBe(licenseTemplate.getProperty('currency'));
+                    expect(entity.getProperty('my_custom_property'))
+                        .toBe(licenseTemplate.getProperty('my_custom_property'));
+                })
 
-            // cleanup
-            .finally(() => axios({
-                url: `${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.getProperty('number')}`,
-                method: 'delete',
-                validateStatus() {
-                    return true;
-                },
-                auth: {
-                    username: context.getUsername(),
-                    password: context.getPassword(),
-                },
-                params: {
-                    forceCascade: true,
-                },
+                // cleanup
+                .finally(() => axios({
+                    url: `${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.getProperty('number')}`,
+                    method: 'delete',
+                    validateStatus() {
+                        return true;
+                    },
+                    auth: {
+                        username: context.getUsername(),
+                        password: context.getPassword(),
+                    },
+                    params: {
+                        forceCascade: true,
+                    },
+                }));
+        });
+
+        it('should return null', () => LicenseTemplateService
+            .get(context, Faker.string('Number-that-does-not-exist-'))
+            .then((result) => {
+                expect(result).toBeNull();
             }));
     });
 
@@ -176,7 +187,10 @@ describe('services.LicenseTemplateServiceTest', () => {
         return Promise.resolve()
             .then(() => ProductService.create(context, product))
             .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
-            .then(() => LicenseTemplateService.create(context, productModule.getProperty('number'), licenseTemplate))
+            .then(() => LicenseTemplateService.create(
+                context, productModule.getProperty('number'),
+                licenseTemplate,
+            ))
 
             // test
             .then(() => LicenseTemplateService.list(context))
@@ -202,6 +216,7 @@ describe('services.LicenseTemplateServiceTest', () => {
                 },
             }));
     });
+
 
     it('check "filter" in list method', () =>
         // test

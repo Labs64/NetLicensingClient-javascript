@@ -65,53 +65,62 @@ describe('services.ProductModuleServiceTest', () => {
             }));
     });
 
-    it('check "get" method', () => {
-        const product = new Product()
-            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
-            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
-            .setProperty('active', Faker.boolean())
-            .setProperty('version', String(Faker.float(1, 3)))
-            .setProperty('description', Faker.string('JS-DESCRIPTION-').toUpperCase())
-            .setProperty('licensingInfo', Faker.string('JS-LICENSING-INFO-').toUpperCase())
-            .setProperty('licenseeAutoCreate', Faker.boolean());
+    describe('check "get" method', () => {
+        it('should return entity', () => {
+            const product = new Product()
+                .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+                .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+                .setProperty('active', Faker.boolean())
+                .setProperty('version', String(Faker.float(1, 3)))
+                .setProperty('description', Faker.string('JS-DESCRIPTION-').toUpperCase())
+                .setProperty('licensingInfo', Faker.string('JS-LICENSING-INFO-').toUpperCase())
+                .setProperty('licenseeAutoCreate', Faker.boolean());
 
-        const productModule = new ProductModule()
-            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
-            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
-            .setProperty('active', true)
-            .setProperty('licensingModel', 'Subscription')
-            .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
+            const productModule = new ProductModule()
+                .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+                .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+                .setProperty('active', true)
+                .setProperty('licensingModel', 'Subscription')
+                .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
-        // setup
-        return Promise.resolve()
-            .then(() => ProductService.create(context, product))
-            .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
+            // setup
+            return Promise.resolve()
+                .then(() => ProductService.create(context, product))
+                .then(() => ProductModuleService.create(context, product.getProperty('number'), productModule))
 
-            // test
-            .then(() => ProductModuleService.get(context, productModule.getProperty('number')))
-            .then((entity) => {
-                expect(entity instanceof ProductModule).toBe(true);
-                expect(entity.getProperty('number')).toBe(productModule.getProperty('number'));
-                expect(entity.getProperty('name')).toBe(productModule.getProperty('name'));
-                expect(entity.getProperty('active')).toBe(productModule.getProperty('active'));
-                expect(entity.getProperty('licensingModel')).toBe(productModule.getProperty('licensingModel'));
-                expect(entity.getProperty('my_custom_property')).toBe(productModule.getProperty('my_custom_property'));
-            })
+                // test
+                .then(() => ProductModuleService.get(context, productModule.getProperty('number')))
+                .then((entity) => {
+                    expect(entity instanceof ProductModule).toBe(true);
+                    expect(entity.getProperty('number')).toBe(productModule.getProperty('number'));
+                    expect(entity.getProperty('name')).toBe(productModule.getProperty('name'));
+                    expect(entity.getProperty('active')).toBe(productModule.getProperty('active'));
+                    expect(entity.getProperty('licensingModel')).toBe(productModule.getProperty('licensingModel'));
+                    expect(entity.getProperty('my_custom_property'))
+                        .toBe(productModule.getProperty('my_custom_property'));
+                })
 
-            // cleanup
-            .finally(() => axios({
-                url: `${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.getProperty('number')}`,
-                method: 'delete',
-                validateStatus() {
-                    return true;
-                },
-                auth: {
-                    username: context.getUsername(),
-                    password: context.getPassword(),
-                },
-                params: {
-                    forceCascade: true,
-                },
+                // cleanup
+                .finally(() => axios({
+                    url: `${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.getProperty('number')}`,
+                    method: 'delete',
+                    validateStatus() {
+                        return true;
+                    },
+                    auth: {
+                        username: context.getUsername(),
+                        password: context.getPassword(),
+                    },
+                    params: {
+                        forceCascade: true,
+                    },
+                }));
+        });
+
+        it('should return null', () => ProductModuleService
+            .get(context, Faker.string('Number-that-does-not-exist-'))
+            .then((result) => {
+                expect(result).toBeNull();
             }));
     });
 

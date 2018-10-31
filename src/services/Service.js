@@ -8,6 +8,7 @@ import axios from 'axios';
 import Context from '../vo/Context';
 import Constants from '../Constants';
 import BaseEntity from '../entities/BaseEntity';
+import NlicError from '../errors/NlicError';
 
 let httpXHR = {};
 
@@ -40,7 +41,13 @@ export default class Service {
             .request(context, 'get', urlTemplate, queryParams)
             .then(response => ((response.data)
                 ? Service.getEntity(resultType, Service.getItem(response, [])[0])
-                : null));
+                : null))
+            .catch((e) => {
+                if (Service.isNotFound(Service.getLastHttpRequestInfo().response)) {
+                    return Promise.resolve(null);
+                }
+                throw e;
+            });
     }
 
     /**
@@ -201,13 +208,9 @@ export default class Service {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
                     const info = Service.getInfo(error.response, [])[0];
+                    const reason = info.value || 'Unknown';
 
-                    if (Service.isNotFound(error.response)) {
-                        return Promise.resolve({ data: null });
-                    }
-
-                    const reasonPhrase = info.value || 'Unknown';
-                    throw new Error(`Unsupported response status code ${error.response.status}: ${reasonPhrase}`);
+                    throw new NlicError(`Unsupported response status code ${error.response.status}: ${reason}`);
                 }
 
                 return Promise.reject(error);

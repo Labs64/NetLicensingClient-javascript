@@ -70,49 +70,57 @@ describe('services.LicenseeServiceTest', () => {
             }));
     });
 
-    it('check "get" method', () => {
-        const product = new Product()
-            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
-            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
-            .setProperty('active', true)
-            .setProperty('version', 1.0);
+    describe('check "get" method', () => {
+        it('should return entity', () => {
+            const product = new Product()
+                .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+                .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+                .setProperty('active', true)
+                .setProperty('version', 1.0);
 
-        const licensee = new Licensee()
-            .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
-            .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
-            .setProperty('active', true)
-            .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
+            const licensee = new Licensee()
+                .setProperty('number', Faker.string('JS-TEST-').toUpperCase())
+                .setProperty('name', Faker.string('JS-NAME-').toUpperCase())
+                .setProperty('active', true)
+                .setProperty('my_custom_property', 'MY-CUSTOM-PROPERTY');
 
 
-        // setup
-        return Promise.resolve()
-            .then(() => ProductService.create(context, product))
-            .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
+            // setup
+            return Promise.resolve()
+                .then(() => ProductService.create(context, product))
+                .then(() => LicenseeService.create(context, product.getProperty('number'), licensee))
 
-            // test
-            .then(() => LicenseeService.get(context, licensee.getProperty('number')))
-            .then((entity) => {
-                expect(entity instanceof Licensee).toBe(true);
-                expect(entity.getProperty('number')).toBe(licensee.getProperty('number'));
-                expect(entity.getProperty('name')).toBe(licensee.getProperty('name'));
-                expect(entity.getProperty('active')).toBe(licensee.getProperty('active'));
-                expect(entity.getProperty('my_custom_property')).toBe(licensee.getProperty('my_custom_property'));
-            })
+                // test
+                .then(() => LicenseeService.get(context, licensee.getProperty('number')))
+                .then((entity) => {
+                    expect(entity instanceof Licensee).toBe(true);
+                    expect(entity.getProperty('number')).toBe(licensee.getProperty('number'));
+                    expect(entity.getProperty('name')).toBe(licensee.getProperty('name'));
+                    expect(entity.getProperty('active')).toBe(licensee.getProperty('active'));
+                    expect(entity.getProperty('my_custom_property')).toBe(licensee.getProperty('my_custom_property'));
+                })
 
-            // cleanup
-            .finally(() => axios({
-                url: `${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.getProperty('number')}`,
-                method: 'delete',
-                validateStatus() {
-                    return true;
-                },
-                auth: {
-                    username: context.getUsername(),
-                    password: context.getPassword(),
-                },
-                params: {
-                    forceCascade: true,
-                },
+                // cleanup
+                .finally(() => axios({
+                    url: `${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.getProperty('number')}`,
+                    method: 'delete',
+                    validateStatus() {
+                        return true;
+                    },
+                    auth: {
+                        username: context.getUsername(),
+                        password: context.getPassword(),
+                    },
+                    params: {
+                        forceCascade: true,
+                    },
+                }));
+        });
+
+        it('should return null', () => LicenseeService
+            .get(context, Faker.string('Number-that-does-not-exist-'))
+            .then((result) => {
+                expect(result).toBeNull();
             }));
     });
 
