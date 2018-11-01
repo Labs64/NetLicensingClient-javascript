@@ -17,14 +17,12 @@ describe('services.PaymentMethodServiceTest', () => {
                 expect(entity.getProperty('number')).toBe('PAYPAL');
             }));
 
-        it('should throw error when payment method is not supported', (done) => {
-            return PaymentMethodService
+        it('should throw error when payment method is not supported', done => PaymentMethodService
                 .get(context, Faker.string('Payment-that-is-not-supported-'))
                 .catch((e) => {
                     expect(e instanceof Error).toBe(true);
                     done();
-                });
-        });
+                }));
     });
 
     it('check "list" method', () => PaymentMethodService.list(context)
