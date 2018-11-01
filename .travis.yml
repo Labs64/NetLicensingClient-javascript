@@ -11,7 +11,8 @@ script:
 - npm run test-for-travis
 after_success:
 - env
-- test "${TRAVIS_NODE_VERSION}" == "8" && test "${TRAVIS_TEST_RESULT}" == "0" && npm run build
+- test "${TRAVIS_NODE_VERSION}" == "8" && test "${TRAVIS_TEST_RESULT}" == "0" && npm
+  run build
 - ls -la dist/
 jobs:
   include:
@@ -24,6 +25,6 @@ jobs:
       provider: npm
       email: info@labs64.com
       api_key:
-        secure: Z2U2N0FMjpkqFK+YGaGPAADFuuExTB1UJ58FMwD/tz/EnNLXlUxiPHVEIVWvU6PeDXkT6cYZMsvWZDOiGNMcZo00714HWVBX9t7n6Ztd2CVMZ1vkqyXYZiYVhs+p4qe6nH6QYsKe9vCjJd1lSYJQH0dn+PGYtfGF4CZAGc6TBBBDrqEgT4Z7Y1MIE4jqDHRNybUEzH1pMp6E80z8izaHG26qYJ4+gALgfK3GVj+FwpGMF/T9W3XYA4PNEw+c/QaucrZBN15XHIp1QlODgU7aMehnXoNgC2zLwjXHGzKtsidxgjSYPP9MfZ0oSxqsEaMxLXM+L3Oh2jcM1OTs3pn46jtu46vUblyHBgFCLnpQgYJVJrjfJkux+dM7Ux2TF+F3aUFf7st2hUMHa2uOuz4syJn9ZkhKT3ZIWKUC7aYuuhxPVmXhCbb+o9+y+A1lqrduG5/vY21rBM+80IWO098lAkFF1EEn5Q0qzUh7ukUNLttDnuUgF3jcHU6fRAh/EsliqVtpjApkTHP4SA07R/K4v6cHJuZjjWbVOmOvtLlrfSiwvCKbTFGYIdiojMzNvVuvnEE67p0A8Rpa5F/PK0zzMPIYrKMA4VwRPvlCnaDprPUfSpyrVxa5kjbtZ3hRJpDoTuFKRqCSscx9uub/Q2vzQ4t70ll1rTZX/t0B6EmGiJ0=
+        secure: Ap+YAsL47M+RQOI0XIKeeOIvnCkBBFG7w6MdyEIibQjURbI8D9SAhZGEjE2s+ahdmtlwJkcKhPj4hpKNKgPFFSJgrLdtAnfvqoMUuj2LEBc+m7/6eZfUTchV1d7ckKe0PvhvRlQssg04N5ODt65xTPnivRMLiXcPiJDt4AceiR0EwVZQx7YZTSCLx5K48X8HI3VuVwShiWPwxm6zjKGOdoaa6GFO0taUBdUD0wZXHb8bfkHmvgiBz5g/uPoLxs4R6t36mUoXpnte5L9vCwV42Swt1Xmztd1drBUDEjuxmJuLLgNWBZ+Yywn8Z62Zthi+sQ/w99LdFP+CsTExmo+t9CmhakV2OOugonQJmCQdcmh+xWBZNCVCXadjS0yvo/DSm7L+sREiaqn+Y1lCjKAfgcHTi15+fHfDyUOddiW0Yozn2Nje4Oy8zkPjr80X+SoDyoaXa51qM0BV7J7e/e1XBi4sKIqeOOLlRTvJgf2e6/Dqrn/ouMRvqEKafYLynFdPcxszmtoYLuwYt6D8C0blf+Sz6Ofs52oxGZimmMr67am06PiQgMLtUF1Dz5tOlXA1B+aMe6S4Tn+uH4d5pSAPA6vdAXdCYZ62f31Qxd8/M9CsTnLjk87SaOzLd2rF9UV1k1hYlTQl/nKjsbOtKNDQlWzUVCXpvEVXmnRi4HpaYIQ=
       on:
         tags: true
