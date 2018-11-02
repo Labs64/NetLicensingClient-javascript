@@ -4467,7 +4467,7 @@ module.exports = exports['default'];
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4477,24 +4477,15 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var NlicError = function (_Error) {
-    _inherits(NlicError, _Error);
+  _inherits(NlicError, _Error);
 
-    function NlicError() {
-        var _ref;
+  function NlicError() {
+    _classCallCheck(this, NlicError);
 
-        _classCallCheck(this, NlicError);
+    return _possibleConstructorReturn(this, (NlicError.__proto__ || Object.getPrototypeOf(NlicError)).apply(this, arguments));
+  }
 
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
-
-        var _this = _possibleConstructorReturn(this, (_ref = NlicError.__proto__ || Object.getPrototypeOf(NlicError)).call.apply(_ref, [this].concat(args)));
-
-        Error.captureStackTrace(_this, NlicError);
-        return _this;
-    }
-
-    return NlicError;
+  return NlicError;
 }(Error);
 
 exports.default = NlicError;
