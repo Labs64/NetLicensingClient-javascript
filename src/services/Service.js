@@ -43,9 +43,18 @@ export default class Service {
                 ? Service.getEntity(resultType, Service.getItem(response, [])[0])
                 : null))
             .catch((e) => {
-                if (Service.isNotFound(Service.getLastHttpRequestInfo().response)) {
-                    return Promise.resolve(null);
+                const { response } = Service.getLastHttpRequestInfo();
+
+                if (response) {
+                    const { data } = response;
+
+                    if (data) {
+                        if (Service.isNotFound(data)) {
+                            return Promise.resolve(null);
+                        }
+                    }
                 }
+
                 throw e;
             });
     }
@@ -207,10 +216,14 @@ export default class Service {
                 if (error.response) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
-                    const info = Service.getInfo(error.response, [])[0];
-                    const reason = info.value || 'Unknown';
+                    const { data } = error.response;
 
-                    throw new NlicError(`Unsupported response status code ${error.response.status}: ${reason}`);
+                    if (data) {
+                        const info = Service.getInfo(error.response, [])[0];
+                        const reason = info.value || 'Unknown';
+
+                        throw new NlicError(`Unsupported response status code ${error.response.status}: ${reason}`);
+                    }
                 }
 
                 return Promise.reject(error);
@@ -283,7 +296,7 @@ export default class Service {
     }
 
     static isNotFound(response) {
-        const info = Service.getInfo(response, [])[0];
+        const info = Service.getInfo(response, [{}])[0];
         return (info && info.id === 'NotFoundException');
     }
 
