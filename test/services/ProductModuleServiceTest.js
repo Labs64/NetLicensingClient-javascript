@@ -117,6 +117,7 @@ describe('services.ProductModuleServiceTest', () => {
                 }));
         });
 
+
         it('should return null', () => ProductModuleService
             .get(context, Faker.string('Number-that-does-not-exist-'))
             .then((result) => {

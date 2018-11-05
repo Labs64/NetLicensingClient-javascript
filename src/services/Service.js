@@ -43,13 +43,13 @@ export default class Service {
                 ? Service.getEntity(resultType, Service.getItem(response, [])[0])
                 : null))
             .catch((e) => {
-                const { response } = Service.getLastHttpRequestInfo();
+                const { response } = e;
 
                 if (response) {
                     const { data } = response;
 
                     if (data) {
-                        if (Service.isNotFound(data)) {
+                        if (Service.isNotFound(response)) {
                             return Promise.resolve(null);
                         }
                     }
@@ -210,23 +210,24 @@ export default class Service {
                 httpXHR = response;
                 return response;
             })
-            .catch((error) => {
-                httpXHR = error;
+            .catch((e) => {
+                httpXHR = e;
 
-                if (error.response) {
+                const error = new NlicError(e);
+                error.response = e.response;
+
+                if (e.response) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
-                    const { data } = error.response;
+                    const { data } = e.response;
 
                     if (data) {
-                        const info = Service.getInfo(error.response, [])[0];
-                        const reason = info.value || 'Unknown';
-
-                        throw new NlicError(`Unsupported response status code ${error.response.status}: ${reason}`);
+                        const info = Service.getInfo(e.response, [])[0];
+                        error.message = info.value || 'Unknown';
                     }
                 }
 
-                return Promise.reject(error);
+                throw error;
             });
     }
 
