@@ -48,8 +48,6 @@ export default {
 
         CheckUtils.paramNotEmpty(productNumber, 'productNumber');
 
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
-
         productModule.setProperty('productNumber', productNumber);
 
         return Service
@@ -76,8 +74,6 @@ export default {
 
         CheckUtils.paramNotEmpty(number, 'number');
 
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
-
         return Service
             .get(context, `${Constants.ProductModule.ENDPOINT_PATH}/${number}`, {}, ProductModule);
     },
@@ -99,8 +95,6 @@ export default {
         if (!(context instanceof Context)) {
             throw new TypeError('context must be an instance of Context');
         }
-
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
         const queryParams = {};
 
@@ -141,8 +135,6 @@ export default {
         }
 
         CheckUtils.paramNotEmpty(number, 'number');
-
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
         const path = `${Constants.ProductModule.ENDPOINT_PATH}/${number}`;
 

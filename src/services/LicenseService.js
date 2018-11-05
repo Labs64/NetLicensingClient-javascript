@@ -58,8 +58,6 @@ export default {
         CheckUtils.paramNotEmpty(licenseeNumber, 'licenseeNumber');
         CheckUtils.paramNotEmpty(licenseTemplateNumber, 'licenseTemplateNumber');
 
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
-
         license.setProperty('licenseeNumber', licenseeNumber);
         license.setProperty('licenseTemplateNumber', licenseTemplateNumber);
 
@@ -90,8 +88,6 @@ export default {
 
         CheckUtils.paramNotEmpty(number, 'number');
 
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
-
         return Service
             .get(context, `${Constants.License.ENDPOINT_PATH}/${number}`, {}, License);
     },
@@ -113,8 +109,6 @@ export default {
         if (!(context instanceof Context)) {
             throw new TypeError('context must be an instance of Context');
         }
-
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
         const queryParams = {};
 
@@ -159,8 +153,6 @@ export default {
         }
 
         CheckUtils.paramNotEmpty(number, 'number');
-
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
         if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
 

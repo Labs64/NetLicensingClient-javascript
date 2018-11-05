@@ -34,8 +34,6 @@ export default {
             throw new TypeError('context must be an instance of Context');
         }
 
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
-
         return Service
             .list(context, `${Constants.Utility.ENDPOINT_PATH}/licenseTypes`)
             .then(items => items.map(item => item.property[0].value));
@@ -55,8 +53,6 @@ export default {
         if (!(context instanceof Context)) {
             throw new TypeError('context must be an instance of Context');
         }
-
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
         return Service
             .list(context, `${Constants.Utility.ENDPOINT_PATH}/licensingModels`)
@@ -79,8 +75,6 @@ export default {
         if (!(context instanceof Context)) {
             throw new TypeError('context must be an instance of Context');
         }
-
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
         const queryParams = {};
 

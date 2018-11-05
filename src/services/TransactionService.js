@@ -51,8 +51,6 @@ export default {
             throw new TypeError('transaction must be an instance of Transaction');
         }
 
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
-
         return Service
             .post(context, Constants.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap(), Transaction);
     },
@@ -77,8 +75,6 @@ export default {
 
         CheckUtils.paramNotEmpty(number, 'number');
 
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
-
         return Service
             .get(context, `${Constants.Transaction.ENDPOINT_PATH}/${number}`, {}, Transaction);
     },
@@ -100,8 +96,6 @@ export default {
         if (!(context instanceof Context)) {
             throw new TypeError('context must be an instance of Context');
         }
-
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
         const queryParams = {};
 
@@ -142,8 +136,6 @@ export default {
         }
 
         CheckUtils.paramNotEmpty(number, 'number');
-
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
         const path = `${Constants.Transaction.ENDPOINT_PATH}/${number}`;
 

@@ -50,8 +50,6 @@ export default {
 
         CheckUtils.paramNotEmpty(productNumber, 'productNumber');
 
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
-
         licensee.setProperty('productNumber', productNumber);
 
         return Service

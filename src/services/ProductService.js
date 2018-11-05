@@ -44,8 +44,6 @@ export default {
             throw new TypeError('product must be an instance of Product');
         }
 
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
-
         return Service
             .post(context, Constants.Product.ENDPOINT_PATH, product.asPropertiesMap(), Product);
     },
@@ -70,8 +68,6 @@ export default {
 
         CheckUtils.paramNotEmpty(number, 'number');
 
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
-
         return Service
             .get(context, `${Constants.Product.ENDPOINT_PATH}/${number}`, {}, Product);
     },
@@ -93,8 +89,6 @@ export default {
         if (!(context instanceof Context)) {
             throw new TypeError('context must be an instance of Context');
         }
-
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
         const queryParams = {};
 
@@ -135,8 +129,6 @@ export default {
         }
 
         CheckUtils.paramNotEmpty(number, 'number');
-
-        context.setSecurityMode(Constants.BASIC_AUTHENTICATION);
 
         return Service
             .post(context, `${Constants.Product.ENDPOINT_PATH}/${number}`, product.asPropertiesMap(), Product);
