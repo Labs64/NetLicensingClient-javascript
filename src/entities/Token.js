@@ -151,11 +151,31 @@ export default class Token extends BaseEntity {
         return this.getProperty('shopURL', def);
     }
 
+    /**
+     * @deprecated
+     * @alias setApiKeyRole
+     * @param role
+     * @returns {*}
+     */
     setRole(role) {
-        return this.setProperty('role', role);
+        return this.setApiKeyRole(role);
     }
 
+    /**
+     * @deprecated
+     * @alias getApiKeyRole
+     * @param def
+     * @returns {*}
+     */
     getRole(def) {
-        return this.getProperty('role', def);
+        return this.getApiKeyRole(def);
+    }
+
+    setApiKeyRole(apiKeyRole) {
+        return this.setProperty('apiKeyRole', apiKeyRole);
+    }
+
+    getApiKeyRole(def) {
+        return this.getProperty('apiKeyRole', def);
     }
 }

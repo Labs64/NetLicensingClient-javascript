@@ -4467,7 +4467,7 @@ module.exports = exports['default'];
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4477,15 +4477,24 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var NlicError = function (_Error) {
-  _inherits(NlicError, _Error);
+    _inherits(NlicError, _Error);
 
-  function NlicError() {
-    _classCallCheck(this, NlicError);
+    function NlicError() {
+        var _ref;
 
-    return _possibleConstructorReturn(this, (NlicError.__proto__ || Object.getPrototypeOf(NlicError)).apply(this, arguments));
-  }
+        _classCallCheck(this, NlicError);
 
-  return NlicError;
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        var _this = _possibleConstructorReturn(this, (_ref = NlicError.__proto__ || Object.getPrototypeOf(NlicError)).call.apply(_ref, [this].concat(args)));
+
+        _this.response = {};
+        return _this;
+    }
+
+    return NlicError;
 }(Error);
 
 exports.default = NlicError;
@@ -4698,7 +4707,7 @@ module.exports.default = NetLicensing;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+        value: true
 });
 
 var _Context = __webpack_require__(/*! ../vo/Context */ "./src/vo/Context.js");
@@ -4742,182 +4751,174 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 
 exports.default = {
-    /**
-     * Creates new license object with given properties.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Createlicense
-     *
-     * determines the vendor on whose behalf the call is performed
-     * @param context NetLicensing.Context
-     *
-     * parent licensee to which the new license is to be added
-     * @param licenseeNumber string
-     *
-     *  license template that the license is created from
-     * @param licenseTemplateNumber string
-     *
-     * For privileged logins specifies transaction for the license creation. For regular logins new
-     * transaction always created implicitly, and the operation will be in a separate transaction.
-     * Transaction is generated with the provided transactionNumber, or, if transactionNumber is null, with
-     * auto-generated number.
-     * @param transactionNumber null|string
-     *
-     * non-null properties will be taken for the new object, null properties will either stay null, or will
-     * be set to a default value, depending on property.
-     * @param license NetLicensing.License
-     *
-     * return the newly created license object in promise
-     * @returns {Promise}
-     */
-    create: function create(context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
-        if (!(context instanceof _Context2.default)) {
-            throw new TypeError('context must be an instance of Context');
+        /**
+         * Creates new license object with given properties.See NetLicensingAPI for details:
+         * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Createlicense
+         *
+         * determines the vendor on whose behalf the call is performed
+         * @param context NetLicensing.Context
+         *
+         * parent licensee to which the new license is to be added
+         * @param licenseeNumber string
+         *
+         *  license template that the license is created from
+         * @param licenseTemplateNumber string
+         *
+         * For privileged logins specifies transaction for the license creation. For regular logins new
+         * transaction always created implicitly, and the operation will be in a separate transaction.
+         * Transaction is generated with the provided transactionNumber, or, if transactionNumber is null, with
+         * auto-generated number.
+         * @param transactionNumber null|string
+         *
+         * non-null properties will be taken for the new object, null properties will either stay null, or will
+         * be set to a default value, depending on property.
+         * @param license NetLicensing.License
+         *
+         * return the newly created license object in promise
+         * @returns {Promise}
+         */
+        create: function create(context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
+                if (!(context instanceof _Context2.default)) {
+                        throw new TypeError('context must be an instance of Context');
+                }
+
+                if (!(license instanceof _License2.default)) {
+                        throw new TypeError('license must be an instance of License');
+                }
+
+                _CheckUtils2.default.paramNotEmpty(licenseeNumber, 'licenseeNumber');
+                _CheckUtils2.default.paramNotEmpty(licenseTemplateNumber, 'licenseTemplateNumber');
+
+                license.setProperty('licenseeNumber', licenseeNumber);
+                license.setProperty('licenseTemplateNumber', licenseTemplateNumber);
+
+                if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
+
+                return _Service2.default.post(context, _Constants2.default.License.ENDPOINT_PATH, license.asPropertiesMap(), _License2.default);
+        },
+
+
+        /**
+         * Gets license by its number.See NetLicensingAPI for details:
+         * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Getlicense
+         *
+         * determines the vendor on whose behalf the call is performed
+         * @param context NetLicensing.Context
+         *
+         * the license number
+         * @param number string
+         *
+         * return the license in promise
+         * @returns {Promise}
+         */
+        get: function get(context, number) {
+                if (!(context instanceof _Context2.default)) {
+                        throw new TypeError('context must be an instance of Context');
+                }
+
+                _CheckUtils2.default.paramNotEmpty(number, 'number');
+
+                return _Service2.default.get(context, _Constants2.default.License.ENDPOINT_PATH + '/' + number, {}, _License2.default);
+        },
+
+
+        /**
+         * Returns licenses of a vendor.See NetLicensingAPI for details:
+         * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Licenseslist
+         *
+         * determines the vendor on whose behalf the call is performed
+         * @param context NetLicensing.Context
+         *
+         * reserved for the future use, must be omitted / set to NULL
+         * @param filter string|null
+         *
+         * return array of licenses (of all products) or empty array if nothing found in promise.
+         * @returns {Promise}
+         */
+        list: function list(context, filter) {
+                if (!(context instanceof _Context2.default)) {
+                        throw new TypeError('context must be an instance of Context');
+                }
+
+                var queryParams = {};
+
+                if (filter) {
+                        if (!_CheckUtils2.default.isValid(filter)) {
+                                throw new TypeError('filter has bad value ' + filter);
+                        }
+                        queryParams.filter = typeof filter === 'string' ? filter : _FilterUtils2.default.encode(filter);
+                }
+
+                return _Service2.default.list(context, _Constants2.default.License.ENDPOINT_PATH, queryParams, _License2.default);
+        },
+
+
+        /**
+         * Updates license properties.See NetLicensingAPI for details:
+         * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Updatelicense
+         *
+         * determines the vendor on whose behalf the call is performed
+         * @param context NetLicensing.Context
+         *
+         * license number
+         * @param number string
+         *
+         * transaction for the license update. Created implicitly if transactionNumber is null. In this case the
+         * operation will be in a separate transaction.
+         * @param transactionNumber string|null
+         *
+         * non-null properties will be updated to the provided values, null properties will stay unchanged.
+         * @param license NetLicensing.License
+         *
+         * return updated license in promise.
+         * @returns {Promise}
+         */
+        update: function update(context, number, transactionNumber, license) {
+                if (!(context instanceof _Context2.default)) {
+                        throw new TypeError('context must be an instance of Context');
+                }
+
+                if (!(license instanceof _License2.default)) {
+                        throw new TypeError('license must be an instance of License');
+                }
+
+                _CheckUtils2.default.paramNotEmpty(number, 'number');
+
+                if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
+
+                return _Service2.default.post(context, _Constants2.default.License.ENDPOINT_PATH + '/' + number, license.asPropertiesMap(), _License2.default);
+        },
+
+
+        /**
+         * Deletes license.See NetLicensingAPI for details:
+         * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Deletelicense
+         *
+         * When any license is deleted, corresponding transaction is created automatically.
+         *
+         *  determines the vendor on whose behalf the call is performed
+         * @param context NetLicensing.Context
+         *
+         * license number
+         * @param number string
+         *
+         * if true, any entities that depend on the one being deleted will be deleted too
+         * @param forceCascade boolean
+         *
+         * return boolean state of delete in promise
+         * @returns {Promise}
+         */
+        delete: function _delete(context, number, forceCascade) {
+                if (!(context instanceof _Context2.default)) {
+                        throw new TypeError('context must be an instance of Context');
+                }
+
+                _CheckUtils2.default.paramNotEmpty(number, 'number');
+
+                var queryParams = { forceCascade: Boolean(forceCascade) };
+
+                return _Service2.default.delete(context, _Constants2.default.License.ENDPOINT_PATH + '/' + number, queryParams);
         }
-
-        if (!(license instanceof _License2.default)) {
-            throw new TypeError('license must be an instance of License');
-        }
-
-        _CheckUtils2.default.paramNotEmpty(licenseeNumber, 'licenseeNumber');
-        _CheckUtils2.default.paramNotEmpty(licenseTemplateNumber, 'licenseTemplateNumber');
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
-        license.setProperty('licenseeNumber', licenseeNumber);
-        license.setProperty('licenseTemplateNumber', licenseTemplateNumber);
-
-        if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
-
-        return _Service2.default.post(context, _Constants2.default.License.ENDPOINT_PATH, license.asPropertiesMap(), _License2.default);
-    },
-
-
-    /**
-     * Gets license by its number.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Getlicense
-     *
-     * determines the vendor on whose behalf the call is performed
-     * @param context NetLicensing.Context
-     *
-     * the license number
-     * @param number string
-     *
-     * return the license in promise
-     * @returns {Promise}
-     */
-    get: function get(context, number) {
-        if (!(context instanceof _Context2.default)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        _CheckUtils2.default.paramNotEmpty(number, 'number');
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
-        return _Service2.default.get(context, _Constants2.default.License.ENDPOINT_PATH + '/' + number, {}, _License2.default);
-    },
-
-
-    /**
-     * Returns licenses of a vendor.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Licenseslist
-     *
-     * determines the vendor on whose behalf the call is performed
-     * @param context NetLicensing.Context
-     *
-     * reserved for the future use, must be omitted / set to NULL
-     * @param filter string|null
-     *
-     * return array of licenses (of all products) or empty array if nothing found in promise.
-     * @returns {Promise}
-     */
-    list: function list(context, filter) {
-        if (!(context instanceof _Context2.default)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
-        var queryParams = {};
-
-        if (filter) {
-            if (!_CheckUtils2.default.isValid(filter)) {
-                throw new TypeError('filter has bad value ' + filter);
-            }
-            queryParams.filter = typeof filter === 'string' ? filter : _FilterUtils2.default.encode(filter);
-        }
-
-        return _Service2.default.list(context, _Constants2.default.License.ENDPOINT_PATH, queryParams, _License2.default);
-    },
-
-
-    /**
-     * Updates license properties.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Updatelicense
-     *
-     * determines the vendor on whose behalf the call is performed
-     * @param context NetLicensing.Context
-     *
-     * license number
-     * @param number string
-     *
-     * transaction for the license update. Created implicitly if transactionNumber is null. In this case the
-     * operation will be in a separate transaction.
-     * @param transactionNumber string|null
-     *
-     * non-null properties will be updated to the provided values, null properties will stay unchanged.
-     * @param license NetLicensing.License
-     *
-     * return updated license in promise.
-     * @returns {Promise}
-     */
-    update: function update(context, number, transactionNumber, license) {
-        if (!(context instanceof _Context2.default)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        if (!(license instanceof _License2.default)) {
-            throw new TypeError('license must be an instance of License');
-        }
-
-        _CheckUtils2.default.paramNotEmpty(number, 'number');
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
-        if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
-
-        return _Service2.default.post(context, _Constants2.default.License.ENDPOINT_PATH + '/' + number, license.asPropertiesMap(), _License2.default);
-    },
-
-
-    /**
-     * Deletes license.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Deletelicense
-     *
-     * When any license is deleted, corresponding transaction is created automatically.
-     *
-     *  determines the vendor on whose behalf the call is performed
-     * @param context NetLicensing.Context
-     *
-     * license number
-     * @param number string
-     *
-     * if true, any entities that depend on the one being deleted will be deleted too
-     * @param forceCascade boolean
-     *
-     * return boolean state of delete in promise
-     * @returns {Promise}
-     */
-    delete: function _delete(context, number, forceCascade) {
-        if (!(context instanceof _Context2.default)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        _CheckUtils2.default.paramNotEmpty(number, 'number');
-
-        var queryParams = { forceCascade: Boolean(forceCascade) };
-
-        return _Service2.default.delete(context, _Constants2.default.License.ENDPOINT_PATH + '/' + number, queryParams);
-    }
 };
 module.exports = exports['default'];
 
@@ -5006,8 +5007,6 @@ exports.default = {
 
         _CheckUtils2.default.paramNotEmpty(productModuleNumber, 'productModuleNumber');
 
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
         licenseTemplate.setProperty('productModuleNumber', productModuleNumber);
 
         return _Service2.default.post(context, _Constants2.default.LicenseTemplate.ENDPOINT_PATH, licenseTemplate.asPropertiesMap(), _LicenseTemplate2.default);
@@ -5034,8 +5033,6 @@ exports.default = {
 
         _CheckUtils2.default.paramNotEmpty(number, 'number');
 
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
         return _Service2.default.get(context, _Constants2.default.LicenseTemplate.ENDPOINT_PATH + '/' + number, {}, _LicenseTemplate2.default);
     },
 
@@ -5057,8 +5054,6 @@ exports.default = {
         if (!(context instanceof _Context2.default)) {
             throw new TypeError('context must be an instance of Context');
         }
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
 
         var queryParams = {};
 
@@ -5099,8 +5094,6 @@ exports.default = {
         }
 
         _CheckUtils2.default.paramNotEmpty(number, 'number');
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
 
         var path = _Constants2.default.LicenseTemplate.ENDPOINT_PATH + '/' + number;
 
@@ -5230,8 +5223,6 @@ exports.default = {
         }
 
         _CheckUtils2.default.paramNotEmpty(productNumber, 'productNumber');
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
 
         licensee.setProperty('productNumber', productNumber);
 
@@ -5536,8 +5527,6 @@ exports.default = {
 
         _CheckUtils2.default.paramNotEmpty(number, 'number');
 
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
         return _Service2.default.get(context, _Constants2.default.PaymentMethod.ENDPOINT_PATH + '/' + number, {}, _PaymentMethod2.default);
     },
 
@@ -5559,8 +5548,6 @@ exports.default = {
         if (!(context instanceof _Context2.default)) {
             throw new TypeError('context must be an instance of Context');
         }
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
 
         var queryParams = {};
 
@@ -5601,8 +5588,6 @@ exports.default = {
         }
 
         _CheckUtils2.default.paramNotEmpty(number, 'number');
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
 
         var path = _Constants2.default.PaymentMethod.ENDPOINT_PATH + '/' + number;
 
@@ -5696,8 +5681,6 @@ exports.default = {
 
         _CheckUtils2.default.paramNotEmpty(productNumber, 'productNumber');
 
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
         productModule.setProperty('productNumber', productNumber);
 
         return _Service2.default.post(context, _Constants2.default.ProductModule.ENDPOINT_PATH, productModule.asPropertiesMap(), _ProductModule2.default);
@@ -5724,8 +5707,6 @@ exports.default = {
 
         _CheckUtils2.default.paramNotEmpty(number, 'number');
 
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
         return _Service2.default.get(context, _Constants2.default.ProductModule.ENDPOINT_PATH + '/' + number, {}, _ProductModule2.default);
     },
 
@@ -5747,8 +5728,6 @@ exports.default = {
         if (!(context instanceof _Context2.default)) {
             throw new TypeError('context must be an instance of Context');
         }
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
 
         var queryParams = {};
 
@@ -5789,8 +5768,6 @@ exports.default = {
         }
 
         _CheckUtils2.default.paramNotEmpty(number, 'number');
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
 
         var path = _Constants2.default.ProductModule.ENDPOINT_PATH + '/' + number;
 
@@ -5909,8 +5886,6 @@ exports.default = {
             throw new TypeError('product must be an instance of Product');
         }
 
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
         return _Service2.default.post(context, _Constants2.default.Product.ENDPOINT_PATH, product.asPropertiesMap(), _Product2.default);
     },
 
@@ -5935,8 +5910,6 @@ exports.default = {
 
         _CheckUtils2.default.paramNotEmpty(number, 'number');
 
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
         return _Service2.default.get(context, _Constants2.default.Product.ENDPOINT_PATH + '/' + number, {}, _Product2.default);
     },
 
@@ -5958,8 +5931,6 @@ exports.default = {
         if (!(context instanceof _Context2.default)) {
             throw new TypeError('context must be an instance of Context');
         }
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
 
         var queryParams = {};
 
@@ -6000,8 +5971,6 @@ exports.default = {
         }
 
         _CheckUtils2.default.paramNotEmpty(number, 'number');
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
 
         return _Service2.default.post(context, _Constants2.default.Product.ENDPOINT_PATH + '/' + number, product.asPropertiesMap(), _Product2.default);
     },
@@ -6126,9 +6095,20 @@ var Service = function () {
             return Service.request(context, 'get', urlTemplate, queryParams).then(function (response) {
                 return response.data ? Service.getEntity(resultType, Service.getItem(response, [])[0]) : null;
             }).catch(function (e) {
-                if (Service.isNotFound(Service.getLastHttpRequestInfo().response)) {
-                    return Promise.resolve(null);
+                var response = e.response;
+
+
+                if (response) {
+                    var data = response.data;
+
+
+                    if (data) {
+                        if (Service.isNotFound(response)) {
+                            return Promise.resolve(null);
+                        }
+                    }
                 }
+
                 throw e;
             });
         }
@@ -6294,19 +6274,25 @@ var Service = function () {
             return (0, _axios2.default)(request).then(function (response) {
                 httpXHR = response;
                 return response;
-            }).catch(function (error) {
-                httpXHR = error;
+            }).catch(function (e) {
+                httpXHR = e;
 
-                if (error.response) {
+                var error = new _NlicError2.default(e);
+                error.response = e.response;
+
+                if (e.response) {
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
-                    var info = Service.getInfo(error.response, [])[0];
-                    var reason = info.value || 'Unknown';
+                    var data = e.response.data;
 
-                    throw new _NlicError2.default('Unsupported response status code ' + error.response.status + ': ' + reason);
+
+                    if (data) {
+                        var info = Service.getInfo(e.response, [])[0];
+                        error.message = info.value || 'Unknown';
+                    }
                 }
 
-                return Promise.reject(error);
+                throw error;
             });
         }
 
@@ -6387,7 +6373,7 @@ var Service = function () {
     }, {
         key: 'isNotFound',
         value: function isNotFound(response) {
-            var info = Service.getInfo(response, [])[0];
+            var info = Service.getInfo(response, [{}])[0];
             return info && info.id === 'NotFoundException';
         }
     }, {
@@ -6679,8 +6665,6 @@ exports.default = {
             throw new TypeError('transaction must be an instance of Transaction');
         }
 
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
         return _Service2.default.post(context, _Constants2.default.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap(), _Transaction2.default);
     },
 
@@ -6705,8 +6689,6 @@ exports.default = {
 
         _CheckUtils2.default.paramNotEmpty(number, 'number');
 
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
         return _Service2.default.get(context, _Constants2.default.Transaction.ENDPOINT_PATH + '/' + number, {}, _Transaction2.default);
     },
 
@@ -6728,8 +6710,6 @@ exports.default = {
         if (!(context instanceof _Context2.default)) {
             throw new TypeError('context must be an instance of Context');
         }
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
 
         var queryParams = {};
 
@@ -6770,8 +6750,6 @@ exports.default = {
         }
 
         _CheckUtils2.default.paramNotEmpty(number, 'number');
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
 
         var path = _Constants2.default.Transaction.ENDPOINT_PATH + '/' + number;
 
@@ -6851,8 +6829,6 @@ exports.default = {
             throw new TypeError('context must be an instance of Context');
         }
 
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
-
         return _Service2.default.list(context, _Constants2.default.Utility.ENDPOINT_PATH + '/licenseTypes').then(function (items) {
             return items.map(function (item) {
                 return item.property[0].value;
@@ -6875,8 +6851,6 @@ exports.default = {
         if (!(context instanceof _Context2.default)) {
             throw new TypeError('context must be an instance of Context');
         }
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
 
         return _Service2.default.list(context, _Constants2.default.Utility.ENDPOINT_PATH + '/licensingModels').then(function (items) {
             return items.map(function (item) {
@@ -6902,8 +6876,6 @@ exports.default = {
         if (!(context instanceof _Context2.default)) {
             throw new TypeError('context must be an instance of Context');
         }
-
-        context.setSecurityMode(_Constants2.default.BASIC_AUTHENTICATION);
 
         var queryParams = {};
 
