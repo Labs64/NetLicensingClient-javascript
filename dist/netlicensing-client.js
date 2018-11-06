@@ -4183,15 +4183,41 @@ var Token = function (_BaseEntity) {
         value: function getShopURL(def) {
             return this.getProperty('shopURL', def);
         }
+
+        /**
+         * @deprecated
+         * @alias setApiKeyRole
+         * @param role
+         * @returns {*}
+         */
+
     }, {
         key: 'setRole',
         value: function setRole(role) {
-            return this.setProperty('role', role);
+            return this.setApiKeyRole(role);
         }
+
+        /**
+         * @deprecated
+         * @alias getApiKeyRole
+         * @param def
+         * @returns {*}
+         */
+
     }, {
         key: 'getRole',
         value: function getRole(def) {
-            return this.getProperty('role', def);
+            return this.getApiKeyRole(def);
+        }
+    }, {
+        key: 'setApiKeyRole',
+        value: function setApiKeyRole(apiKeyRole) {
+            return this.setProperty('apiKeyRole', apiKeyRole);
+        }
+    }, {
+        key: 'getApiKeyRole',
+        value: function getApiKeyRole(def) {
+            return this.getProperty('apiKeyRole', def);
         }
     }]);
 
@@ -4707,7 +4733,7 @@ module.exports.default = NetLicensing;
 
 
 Object.defineProperty(exports, "__esModule", {
-        value: true
+    value: true
 });
 
 var _Context = __webpack_require__(/*! ../vo/Context */ "./src/vo/Context.js");
@@ -4751,174 +4777,174 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 
 exports.default = {
-        /**
-         * Creates new license object with given properties.See NetLicensingAPI for details:
-         * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Createlicense
-         *
-         * determines the vendor on whose behalf the call is performed
-         * @param context NetLicensing.Context
-         *
-         * parent licensee to which the new license is to be added
-         * @param licenseeNumber string
-         *
-         *  license template that the license is created from
-         * @param licenseTemplateNumber string
-         *
-         * For privileged logins specifies transaction for the license creation. For regular logins new
-         * transaction always created implicitly, and the operation will be in a separate transaction.
-         * Transaction is generated with the provided transactionNumber, or, if transactionNumber is null, with
-         * auto-generated number.
-         * @param transactionNumber null|string
-         *
-         * non-null properties will be taken for the new object, null properties will either stay null, or will
-         * be set to a default value, depending on property.
-         * @param license NetLicensing.License
-         *
-         * return the newly created license object in promise
-         * @returns {Promise}
-         */
-        create: function create(context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
-                if (!(context instanceof _Context2.default)) {
-                        throw new TypeError('context must be an instance of Context');
-                }
-
-                if (!(license instanceof _License2.default)) {
-                        throw new TypeError('license must be an instance of License');
-                }
-
-                _CheckUtils2.default.paramNotEmpty(licenseeNumber, 'licenseeNumber');
-                _CheckUtils2.default.paramNotEmpty(licenseTemplateNumber, 'licenseTemplateNumber');
-
-                license.setProperty('licenseeNumber', licenseeNumber);
-                license.setProperty('licenseTemplateNumber', licenseTemplateNumber);
-
-                if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
-
-                return _Service2.default.post(context, _Constants2.default.License.ENDPOINT_PATH, license.asPropertiesMap(), _License2.default);
-        },
-
-
-        /**
-         * Gets license by its number.See NetLicensingAPI for details:
-         * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Getlicense
-         *
-         * determines the vendor on whose behalf the call is performed
-         * @param context NetLicensing.Context
-         *
-         * the license number
-         * @param number string
-         *
-         * return the license in promise
-         * @returns {Promise}
-         */
-        get: function get(context, number) {
-                if (!(context instanceof _Context2.default)) {
-                        throw new TypeError('context must be an instance of Context');
-                }
-
-                _CheckUtils2.default.paramNotEmpty(number, 'number');
-
-                return _Service2.default.get(context, _Constants2.default.License.ENDPOINT_PATH + '/' + number, {}, _License2.default);
-        },
-
-
-        /**
-         * Returns licenses of a vendor.See NetLicensingAPI for details:
-         * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Licenseslist
-         *
-         * determines the vendor on whose behalf the call is performed
-         * @param context NetLicensing.Context
-         *
-         * reserved for the future use, must be omitted / set to NULL
-         * @param filter string|null
-         *
-         * return array of licenses (of all products) or empty array if nothing found in promise.
-         * @returns {Promise}
-         */
-        list: function list(context, filter) {
-                if (!(context instanceof _Context2.default)) {
-                        throw new TypeError('context must be an instance of Context');
-                }
-
-                var queryParams = {};
-
-                if (filter) {
-                        if (!_CheckUtils2.default.isValid(filter)) {
-                                throw new TypeError('filter has bad value ' + filter);
-                        }
-                        queryParams.filter = typeof filter === 'string' ? filter : _FilterUtils2.default.encode(filter);
-                }
-
-                return _Service2.default.list(context, _Constants2.default.License.ENDPOINT_PATH, queryParams, _License2.default);
-        },
-
-
-        /**
-         * Updates license properties.See NetLicensingAPI for details:
-         * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Updatelicense
-         *
-         * determines the vendor on whose behalf the call is performed
-         * @param context NetLicensing.Context
-         *
-         * license number
-         * @param number string
-         *
-         * transaction for the license update. Created implicitly if transactionNumber is null. In this case the
-         * operation will be in a separate transaction.
-         * @param transactionNumber string|null
-         *
-         * non-null properties will be updated to the provided values, null properties will stay unchanged.
-         * @param license NetLicensing.License
-         *
-         * return updated license in promise.
-         * @returns {Promise}
-         */
-        update: function update(context, number, transactionNumber, license) {
-                if (!(context instanceof _Context2.default)) {
-                        throw new TypeError('context must be an instance of Context');
-                }
-
-                if (!(license instanceof _License2.default)) {
-                        throw new TypeError('license must be an instance of License');
-                }
-
-                _CheckUtils2.default.paramNotEmpty(number, 'number');
-
-                if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
-
-                return _Service2.default.post(context, _Constants2.default.License.ENDPOINT_PATH + '/' + number, license.asPropertiesMap(), _License2.default);
-        },
-
-
-        /**
-         * Deletes license.See NetLicensingAPI for details:
-         * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Deletelicense
-         *
-         * When any license is deleted, corresponding transaction is created automatically.
-         *
-         *  determines the vendor on whose behalf the call is performed
-         * @param context NetLicensing.Context
-         *
-         * license number
-         * @param number string
-         *
-         * if true, any entities that depend on the one being deleted will be deleted too
-         * @param forceCascade boolean
-         *
-         * return boolean state of delete in promise
-         * @returns {Promise}
-         */
-        delete: function _delete(context, number, forceCascade) {
-                if (!(context instanceof _Context2.default)) {
-                        throw new TypeError('context must be an instance of Context');
-                }
-
-                _CheckUtils2.default.paramNotEmpty(number, 'number');
-
-                var queryParams = { forceCascade: Boolean(forceCascade) };
-
-                return _Service2.default.delete(context, _Constants2.default.License.ENDPOINT_PATH + '/' + number, queryParams);
+    /**
+     * Creates new license object with given properties.See NetLicensingAPI for details:
+     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Createlicense
+     *
+     * determines the vendor on whose behalf the call is performed
+     * @param context NetLicensing.Context
+     *
+     * parent licensee to which the new license is to be added
+     * @param licenseeNumber string
+     *
+     *  license template that the license is created from
+     * @param licenseTemplateNumber string
+     *
+     * For privileged logins specifies transaction for the license creation. For regular logins new
+     * transaction always created implicitly, and the operation will be in a separate transaction.
+     * Transaction is generated with the provided transactionNumber, or, if transactionNumber is null, with
+     * auto-generated number.
+     * @param transactionNumber null|string
+     *
+     * non-null properties will be taken for the new object, null properties will either stay null, or will
+     * be set to a default value, depending on property.
+     * @param license NetLicensing.License
+     *
+     * return the newly created license object in promise
+     * @returns {Promise}
+     */
+    create: function create(context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
+        if (!(context instanceof _Context2.default)) {
+            throw new TypeError('context must be an instance of Context');
         }
+
+        if (!(license instanceof _License2.default)) {
+            throw new TypeError('license must be an instance of License');
+        }
+
+        _CheckUtils2.default.paramNotEmpty(licenseeNumber, 'licenseeNumber');
+        _CheckUtils2.default.paramNotEmpty(licenseTemplateNumber, 'licenseTemplateNumber');
+
+        license.setProperty('licenseeNumber', licenseeNumber);
+        license.setProperty('licenseTemplateNumber', licenseTemplateNumber);
+
+        if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
+
+        return _Service2.default.post(context, _Constants2.default.License.ENDPOINT_PATH, license.asPropertiesMap(), _License2.default);
+    },
+
+
+    /**
+     * Gets license by its number.See NetLicensingAPI for details:
+     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Getlicense
+     *
+     * determines the vendor on whose behalf the call is performed
+     * @param context NetLicensing.Context
+     *
+     * the license number
+     * @param number string
+     *
+     * return the license in promise
+     * @returns {Promise}
+     */
+    get: function get(context, number) {
+        if (!(context instanceof _Context2.default)) {
+            throw new TypeError('context must be an instance of Context');
+        }
+
+        _CheckUtils2.default.paramNotEmpty(number, 'number');
+
+        return _Service2.default.get(context, _Constants2.default.License.ENDPOINT_PATH + '/' + number, {}, _License2.default);
+    },
+
+
+    /**
+     * Returns licenses of a vendor.See NetLicensingAPI for details:
+     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Licenseslist
+     *
+     * determines the vendor on whose behalf the call is performed
+     * @param context NetLicensing.Context
+     *
+     * reserved for the future use, must be omitted / set to NULL
+     * @param filter string|null
+     *
+     * return array of licenses (of all products) or empty array if nothing found in promise.
+     * @returns {Promise}
+     */
+    list: function list(context, filter) {
+        if (!(context instanceof _Context2.default)) {
+            throw new TypeError('context must be an instance of Context');
+        }
+
+        var queryParams = {};
+
+        if (filter) {
+            if (!_CheckUtils2.default.isValid(filter)) {
+                throw new TypeError('filter has bad value ' + filter);
+            }
+            queryParams.filter = typeof filter === 'string' ? filter : _FilterUtils2.default.encode(filter);
+        }
+
+        return _Service2.default.list(context, _Constants2.default.License.ENDPOINT_PATH, queryParams, _License2.default);
+    },
+
+
+    /**
+     * Updates license properties.See NetLicensingAPI for details:
+     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Updatelicense
+     *
+     * determines the vendor on whose behalf the call is performed
+     * @param context NetLicensing.Context
+     *
+     * license number
+     * @param number string
+     *
+     * transaction for the license update. Created implicitly if transactionNumber is null. In this case the
+     * operation will be in a separate transaction.
+     * @param transactionNumber string|null
+     *
+     * non-null properties will be updated to the provided values, null properties will stay unchanged.
+     * @param license NetLicensing.License
+     *
+     * return updated license in promise.
+     * @returns {Promise}
+     */
+    update: function update(context, number, transactionNumber, license) {
+        if (!(context instanceof _Context2.default)) {
+            throw new TypeError('context must be an instance of Context');
+        }
+
+        if (!(license instanceof _License2.default)) {
+            throw new TypeError('license must be an instance of License');
+        }
+
+        _CheckUtils2.default.paramNotEmpty(number, 'number');
+
+        if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
+
+        return _Service2.default.post(context, _Constants2.default.License.ENDPOINT_PATH + '/' + number, license.asPropertiesMap(), _License2.default);
+    },
+
+
+    /**
+     * Deletes license.See NetLicensingAPI for details:
+     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Deletelicense
+     *
+     * When any license is deleted, corresponding transaction is created automatically.
+     *
+     *  determines the vendor on whose behalf the call is performed
+     * @param context NetLicensing.Context
+     *
+     * license number
+     * @param number string
+     *
+     * if true, any entities that depend on the one being deleted will be deleted too
+     * @param forceCascade boolean
+     *
+     * return boolean state of delete in promise
+     * @returns {Promise}
+     */
+    delete: function _delete(context, number, forceCascade) {
+        if (!(context instanceof _Context2.default)) {
+            throw new TypeError('context must be an instance of Context');
+        }
+
+        _CheckUtils2.default.paramNotEmpty(number, 'number');
+
+        var queryParams = { forceCascade: Boolean(forceCascade) };
+
+        return _Service2.default.delete(context, _Constants2.default.License.ENDPOINT_PATH + '/' + number, queryParams);
+    }
 };
 module.exports = exports['default'];
 
