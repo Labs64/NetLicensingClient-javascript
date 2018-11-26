@@ -6,7 +6,6 @@
  */
 
 import Service from './Service';
-import Context from '../vo/Context';
 import Product from '../entities/Product';
 import Constants from '../Constants';
 import CheckUtils from '../util/CheckUtils';
@@ -36,14 +35,6 @@ export default {
      */
 
     create(context, product) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        if (!(product instanceof Product)) {
-            throw new TypeError('product must be an instance of Product');
-        }
-
         return Service
             .post(context, Constants.Product.ENDPOINT_PATH, product.asPropertiesMap(), Product);
     },
@@ -62,10 +53,6 @@ export default {
      * @returns {Promise}
      */
     get(context, number) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         return Service
@@ -86,10 +73,6 @@ export default {
      * @returns {Promise}
      */
     list(context, filter) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         const queryParams = {};
 
         if (filter) {
@@ -120,14 +103,6 @@ export default {
      * @returns {Promise}
      */
     update(context, number, product) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        if (!(product instanceof Product)) {
-            throw new TypeError('product must be an instance of Product');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         return Service
@@ -151,10 +126,6 @@ export default {
      * @returns {Promise}
      */
     delete(context, number, forceCascade) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         const queryParams = { forceCascade: Boolean(forceCascade) };

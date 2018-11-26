@@ -5,7 +5,6 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-import Context from '../vo/Context';
 import Transaction from '../entities/Transaction';
 import Constants from '../Constants';
 import Service from './Service';
@@ -43,14 +42,6 @@ export default {
      * @returns {Promise}
      */
     create(context, transaction) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        if (!(transaction instanceof Transaction)) {
-            throw new TypeError('transaction must be an instance of Transaction');
-        }
-
         return Service
             .post(context, Constants.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap(), Transaction);
     },
@@ -69,10 +60,6 @@ export default {
      * @returns {Promise}
      */
     get(context, number) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         return Service
@@ -93,10 +80,6 @@ export default {
      * @returns {Promise}
      */
     list(context, filter) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         const queryParams = {};
 
         if (filter) {
@@ -127,14 +110,6 @@ export default {
      * @returns {Promise}
      */
     update(context, number, transaction) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of NetLicensing.Context');
-        }
-
-        if (!(transaction instanceof Transaction)) {
-            throw new TypeError('transaction must be an instance of NetLicensing.Transaction');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         const path = `${Constants.Transaction.ENDPOINT_PATH}/${number}`;

@@ -172,10 +172,6 @@ export default class Product extends BaseEntity {
      * @returns {NetLicensing.Product}
      */
     addDiscount(discount) {
-        if (!(discount instanceof ProductDiscount)) {
-            throw new TypeError('discount must be an instance of ProductDiscount');
-        }
-
         const discounts = discountsMap.get(this);
         discounts.push(discount);
         discountsMap.set(this, discounts);

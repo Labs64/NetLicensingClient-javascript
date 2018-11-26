@@ -5,7 +5,6 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-import Context from '../vo/Context';
 import PaymentMethod from '../entities/PaymentMethod';
 import Constants from '../Constants';
 import CheckUtils from '../util/CheckUtils';
@@ -27,10 +26,6 @@ export default {
      * @returns {Promise}
      */
     get(context, number) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         return Service
@@ -51,10 +46,6 @@ export default {
      * @returns {Promise}
      */
     list(context, filter) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         const queryParams = {};
 
         if (filter) {
@@ -85,14 +76,6 @@ export default {
      * @returns {Promise}
      */
     update(context, number, paymentMethod) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        if (!(paymentMethod instanceof PaymentMethod)) {
-            throw new TypeError('paymentMethod must be an instance of PaymentMethod');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         const path = `${Constants.PaymentMethod.ENDPOINT_PATH}/${number}`;

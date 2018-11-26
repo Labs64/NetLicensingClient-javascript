@@ -5,9 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 import axios from 'axios';
-import Context from '../vo/Context';
 import Constants from '../Constants';
-import BaseEntity from '../entities/BaseEntity';
 import NlicError from '../errors/NlicError';
 
 let httpXHR = {};
@@ -132,8 +130,6 @@ export default class Service {
      * @returns {Promise}
      */
     static request(context, method, urlTemplate, queryParams) {
-        if (!(context instanceof Context)) throw new TypeError('context must be an instance of NetLicensing.Context');
-
         const template = String(urlTemplate);
         const params = queryParams || {};
 
@@ -246,10 +242,6 @@ export default class Service {
         // eslint-disable-next-line new-cap
         const entity = new resultType();
 
-        if (!(entity instanceof BaseEntity)) {
-            throw new Error(`Invalid entity ${resultType}, entity must be instanceof BaseEntity`);
-        }
-
         properties.forEach(({ name, value }) => {
             entity.setProperty(name, value);
         });
@@ -302,12 +294,12 @@ export default class Service {
     }
 
     static isValidUrl(url) {
-        const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
-            '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-            '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-            '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+        const pattern = new RegExp('^(https?:\\/\\/)?' // protocol
+            + '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' // domain name
+            + '((\\d{1,3}\\.){3}\\d{1,3}))' // OR ip (v4) address
+            + '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' // port and path
+            + '(\\?[;&a-z\\d%_.~+=-]*)?' // query string
+            + '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
 
         return pattern.test(url);
     }
@@ -322,9 +314,9 @@ export default class Service {
                 const k = prefix ? `${prefix}[${key}]` : key;
                 let v = data[key];
                 v = (v instanceof Date) ? v.toISOString() : v;
-                query.push((v !== null && typeof v === 'object') ?
-                    Service.toQueryString(v, k) :
-                    `${encodeURIComponent(k)}=${encodeURIComponent(v)}`);
+                query.push((v !== null && typeof v === 'object')
+                    ? Service.toQueryString(v, k)
+                    : `${encodeURIComponent(k)}=${encodeURIComponent(v)}`);
             }
         });
 

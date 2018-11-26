@@ -5,13 +5,11 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-import Context from '../vo/Context';
 import Licensee from '../entities/Licensee';
 import CheckUtils from '../util/CheckUtils';
 import FilterUtils from '../util/FilterUtils';
 import Constants from '../Constants';
 import Service from './Service';
-import ValidationParameters from '../vo/ValidationParameters';
 import ValidationResults from '../vo/ValidationResults';
 
 /**
@@ -40,14 +38,6 @@ export default {
      * @returns {Promise}
      */
     create(context, productNumber, licensee) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        if (!(licensee instanceof Licensee)) {
-            throw new TypeError('licensee must be an instance of Licensee');
-        }
-
         CheckUtils.paramNotEmpty(productNumber, 'productNumber');
 
         licensee.setProperty('productNumber', productNumber);
@@ -70,10 +60,6 @@ export default {
      * @returns {Promise}
      */
     get(context, number) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         return Service
@@ -94,10 +80,6 @@ export default {
      * @returns {Promise}
      */
     list(context, filter) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         const queryParams = {};
 
         if (filter) {
@@ -128,14 +110,6 @@ export default {
      * @returns {Promise}
      */
     update(context, number, licensee) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        if (!(licensee instanceof Licensee)) {
-            throw new TypeError('licensee must be an instance of Licensee');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         return Service
@@ -159,10 +133,6 @@ export default {
      * @returns {Promise}
      */
     delete(context, number, forceCascade) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         const queryParams = { forceCascade: Boolean(forceCascade) };
@@ -187,14 +157,6 @@ export default {
      * @returns {Promise}
      */
     validate(context, number, validationParameters) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        if (!(validationParameters instanceof ValidationParameters)) {
-            throw new TypeError('validationParameters must be an instance of ValidationParameters');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         const queryParams = {};
@@ -271,10 +233,6 @@ export default {
      * @returns {Promise}
      */
     transfer(context, number, sourceLicenseeNumber) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
         CheckUtils.paramNotEmpty(sourceLicenseeNumber, 'sourceLicenseeNumber');
 

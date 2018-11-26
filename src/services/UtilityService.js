@@ -5,7 +5,6 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-import Context from '../vo/Context';
 import Constants from '../Constants';
 import Service from './Service';
 import CheckUtils from '../util/CheckUtils';
@@ -30,10 +29,6 @@ export default {
      * @returns {Promise}
      */
     listLicenseTypes(context) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         return Service
             .list(context, `${Constants.Utility.ENDPOINT_PATH}/licenseTypes`)
             .then(items => items.map(item => item.property[0].value));
@@ -50,10 +45,6 @@ export default {
      * @returns {Promise}
      */
     listLicensingModels(context) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         return Service
             .list(context, `${Constants.Utility.ENDPOINT_PATH}/licensingModels`)
             .then(items => items.map(item => item.property[0].value));
@@ -72,10 +63,6 @@ export default {
      * @returns {Promise}
      */
     listCountries(context, filter) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         const queryParams = {};
 
         if (filter) {

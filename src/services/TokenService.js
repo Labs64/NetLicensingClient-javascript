@@ -5,7 +5,6 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-import Context from '../vo/Context';
 import Token from '../entities/Token';
 import Constants from '../Constants';
 import Service from './Service';
@@ -34,14 +33,6 @@ export default {
      * @returns {Promise}
      */
     create(context, token) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        if (!(token instanceof Token)) {
-            throw new TypeError('token must be an instance of Token');
-        }
-
         return Service
             .post(context, Constants.Token.ENDPOINT_PATH, token.asPropertiesMap(), Token);
     },
@@ -60,10 +51,6 @@ export default {
      * @returns {Promise}
      */
     get(context, number) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of NetLicensing.Context');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         return Service
@@ -84,10 +71,6 @@ export default {
      * @return array
      */
     list(context, filter) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         const queryParams = {};
 
         if (filter) {
@@ -115,10 +98,6 @@ export default {
      * @returns {Promise}
      */
     delete(context, number) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of NetLicensing.Context');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         return Service

@@ -5,7 +5,6 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-import Context from '../vo/Context';
 import ProductModule from '../entities/ProductModule';
 import CheckUtils from '../util/CheckUtils';
 import Constants from '../Constants';
@@ -38,14 +37,6 @@ export default {
      * @returns {Promise}
      */
     create(context, productNumber, productModule) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        if (!(productModule instanceof ProductModule)) {
-            throw new TypeError('product must be an instance of ProductModule');
-        }
-
         CheckUtils.paramNotEmpty(productNumber, 'productNumber');
 
         productModule.setProperty('productNumber', productNumber);
@@ -68,10 +59,6 @@ export default {
      * @returns {Promise}
      */
     get(context, number) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         return Service
@@ -92,10 +79,6 @@ export default {
      * @returns {Promise}
      */
     list(context, filter) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         const queryParams = {};
 
         if (filter) {
@@ -126,14 +109,6 @@ export default {
      * @returns {Promise}
      */
     update(context, number, productModule) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
-        if (!(productModule instanceof ProductModule)) {
-            throw new TypeError('product must be an instance of ProductModule');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         const path = `${Constants.ProductModule.ENDPOINT_PATH}/${number}`;
@@ -159,10 +134,6 @@ export default {
      * @returns {Promise}
      */
     delete(context, number, forceCascade) {
-        if (!(context instanceof Context)) {
-            throw new TypeError('context must be an instance of Context');
-        }
-
         CheckUtils.paramNotEmpty(number, 'number');
 
         const queryParams = { forceCascade: Boolean(forceCascade) };
