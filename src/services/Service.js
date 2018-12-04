@@ -197,6 +197,9 @@ export default class Service {
 
                 request.headers.Authorization = `Basic ${btoa(`apiKey:${context.getApiKey()}`)}`;
                 break;
+            // without authorization
+            case Constants.ANONYMOUS_IDENTIFICATION:
+                break;
             default:
                 throw new Error('Unknown security mode');
         }

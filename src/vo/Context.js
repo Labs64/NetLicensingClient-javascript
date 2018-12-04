@@ -106,7 +106,7 @@ export default class Context {
 
         let copedValue = value;
 
-        if (typeof value === 'object') {
+        if (typeof value === 'object' && value !== null) {
             copedValue = (Array.isArray(value)) ? Object.assign([], value) : Object.assign({}, value);
         }
 
@@ -142,7 +142,9 @@ export default class Context {
      * @returns {*}
      */
     getValue(key, def) {
-        return valuesMap.get(this)[key] || def;
+        return (key in valuesMap.get(this))
+            ? valuesMap.get(this)[key]
+            : def;
     }
 
     /**

@@ -8,6 +8,7 @@
 export default {
     BASIC_AUTHENTICATION: 'BASIC_AUTH',
     APIKEY_IDENTIFICATION: 'APIKEY',
+    ANONYMOUS_IDENTIFICATION: 'ANONYMOUS',
 
     ACTIVE: 'active',
     NUMBER: 'number',
