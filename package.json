@@ -1,6 +1,6 @@
 {
     "name": "netlicensing-client",
-    "version": "1.2.5",
+    "version": "1.2.6",
     "description": "JavaScript Wrapper for Labs64 NetLicensing RESTful API",
     "keywords": [
         "labs64",
