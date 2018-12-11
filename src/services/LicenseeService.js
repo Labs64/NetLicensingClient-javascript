@@ -197,16 +197,33 @@ export default {
         return Service
             .post(context, path, queryParams)
             .then((item) => {
-                const data = {};
                 const validationResults = new ValidationResults();
 
-                item.property.forEach((property) => {
-                    try {
-                        data[property.name] = JSON.parse(property.value);
-                    } catch (e) {
-                        data[property.name] = property.value;
+                const parse = (source, data = {}) => {
+                    let handler = data;
+                    const { name, property: properties, list } = source;
+
+                    if (name) {
+                        if (!handler[name]) {
+                            handler[name] = {};
+                        }
+                        handler = handler[name];
                     }
-                });
+
+                    properties.forEach((property) => {
+                        handler[property.name] = property.value;
+                    });
+
+                    if (list) {
+                        list.forEach((listItem) => {
+                            parse(listItem, handler);
+                        });
+                    }
+
+                    return handler;
+                };
+
+                const data = parse(item);
 
                 validationResults
                     .setProductModuleValidation(data.productModuleNumber, data)
