@@ -9,8 +9,17 @@ import Constants from '../Constants';
 import NlicError from '../errors/NlicError';
 
 let httpXHR = {};
+let axiosInstance = axios;
 
 export default class Service {
+    static getAxiosInstance() {
+        return axiosInstance;
+    }
+
+    static setAxiosInstance(instanse) {
+        axiosInstance = instanse;
+    }
+
     static getLastHttpRequestInfo() {
         return httpXHR;
     }
@@ -204,7 +213,7 @@ export default class Service {
                 throw new Error('Unknown security mode');
         }
 
-        return axios(request)
+        return Service.getAxiosInstance()(request)
             .then((response) => {
                 httpXHR = response;
                 return response;
