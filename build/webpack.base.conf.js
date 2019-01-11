@@ -21,6 +21,7 @@ module.exports = {
         library: namespace,
         libraryTarget: 'umd',
         umdNamedDefine: true,
+        globalObject: 'this',
     },
     resolve: {
         extensions: ['.js', '.json'],
