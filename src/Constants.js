@@ -133,6 +133,9 @@ export default {
         VAT_MODE: 'vatMode',
         LICENSE_TRANSACTION_JOIN: 'licenseTransactionJoin',
         SOURCE_SHOP_ONLY: 'shopOnly',
+        /**
+         * @deprecated
+         */
         Status: {
             CANCELLED: 'CANCELLED',
             CLOSED: 'CLOSED',
@@ -157,35 +160,24 @@ export default {
         HIDDEN: 'hidden',
     },
 
-
     PaymentMethod: {
         ENDPOINT_PATH: 'paymentmethod',
     },
 
-
     Utility: {
         ENDPOINT_PATH: 'utility',
-        ENDPOINT_PATH_LICENSE_TYPES:
-            'licenseTypes',
-        ENDPOINT_PATH_LICENSING_MODELS:
-            'licensingModels',
-        LICENSING_MODEL_PROPERTIES:
-            'LicensingModelProperties',
-        LICENSE_TYPE:
-            'LicenseType',
+        ENDPOINT_PATH_LICENSE_TYPES: 'licenseTypes',
+        ENDPOINT_PATH_LICENSING_MODELS: 'licensingModels',
+        ENDPOINT_PATH_COUNTRIES: 'countries',
+        LICENSING_MODEL_PROPERTIES: 'LicensingModelProperties',
+        LICENSE_TYPE: 'LicenseType',
     },
-
 
     APIKEY: {
         ROLE_APIKEY_LICENSEE: 'ROLE_APIKEY_LICENSEE',
-        ROLE_APIKEY_ANALYTICS:
-            'ROLE_APIKEY_ANALYTICS',
-        ROLE_APIKEY_OPERATION:
-            'ROLE_APIKEY_OPERATION',
-        ROLE_APIKEY_MAINTENANCE:
-            'ROLE_APIKEY_MAINTENANCE',
-        ROLE_APIKEY_ADMIN:
-            'ROLE_APIKEY_ADMIN',
-    }
-    ,
+        ROLE_APIKEY_ANALYTICS: 'ROLE_APIKEY_ANALYTICS',
+        ROLE_APIKEY_OPERATION: 'ROLE_APIKEY_OPERATION',
+        ROLE_APIKEY_MAINTENANCE: 'ROLE_APIKEY_MAINTENANCE',
+        ROLE_APIKEY_ADMIN: 'ROLE_APIKEY_ADMIN',
+    },
 };

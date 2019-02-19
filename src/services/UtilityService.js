@@ -8,8 +8,10 @@
 import Constants from '../Constants';
 import Service from './Service';
 import CheckUtils from '../util/CheckUtils';
-import Country from '../entities/Country';
 import FilterUtils from '../util/FilterUtils';
+import itemToObject from '../converters/itemToObject';
+import Page from '../vo/Page';
+import itemToCountry from '../converters/itemToCountry';
 
 /**
  * JS representation of the Utility Service. See NetLicensingAPI for details:
@@ -28,10 +30,17 @@ export default {
      * array of available license types or empty array if nothing found in promise.
      * @returns {Promise}
      */
-    listLicenseTypes(context) {
-        return Service
-            .list(context, `${Constants.Utility.ENDPOINT_PATH}/licenseTypes`)
-            .then(items => items.map(item => item.property[0].value));
+    async listLicenseTypes(context) {
+        const { data } = await Service
+            .get(context, `${Constants.Utility.ENDPOINT_PATH}/${Constants.Utility.ENDPOINT_PATH_LICENSE_TYPES}`);
+
+        return Page(
+            data.items.item.map(v => itemToObject(v)),
+            data.items.pagenumber,
+            data.items.itemsnumber,
+            data.items.totalpages,
+            data.items.totalitems,
+        );
     },
 
     /**
@@ -44,10 +53,17 @@ export default {
      * array of available license models or empty array if nothing found in promise.
      * @returns {Promise}
      */
-    listLicensingModels(context) {
-        return Service
-            .list(context, `${Constants.Utility.ENDPOINT_PATH}/licensingModels`)
-            .then(items => items.map(item => item.property[0].value));
+    async listLicensingModels(context) {
+        const { data } = await Service
+            .get(context, `${Constants.Utility.ENDPOINT_PATH}/${Constants.Utility.ENDPOINT_PATH_LICENSING_MODELS}`);
+
+        return Page(
+            data.items.item.map(v => itemToObject(v)),
+            data.items.pagenumber,
+            data.items.itemsnumber,
+            data.items.totalpages,
+            data.items.totalitems,
+        );
     },
 
     /**
@@ -62,17 +78,29 @@ export default {
      * collection of available countries or null/empty list if nothing found in promise.
      * @returns {Promise}
      */
-    listCountries(context, filter) {
+    async listCountries(context, filter) {
         const queryParams = {};
 
         if (filter) {
             if (!CheckUtils.isValid(filter)) {
                 throw new TypeError(`filter has bad value ${filter}`);
             }
-            queryParams.filter = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
+            queryParams[Constants.FILTER] = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
         }
 
-        return Service
-            .list(context, `${Constants.Utility.ENDPOINT_PATH}/countries`, queryParams, Country);
+        const { data } = await Service
+            .get(
+                context,
+                `${Constants.Utility.ENDPOINT_PATH}/${Constants.Utility.ENDPOINT_PATH_COUNTRIES}`,
+                queryParams,
+            );
+
+        return Page(
+            data.items.item.map(v => itemToCountry(v)),
+            data.items.pagenumber,
+            data.items.itemsnumber,
+            data.items.totalpages,
+            data.items.totalitems,
+        );
     },
 };

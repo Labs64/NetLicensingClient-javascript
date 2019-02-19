@@ -5,11 +5,12 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-import ProductModule from '../entities/ProductModule';
 import CheckUtils from '../util/CheckUtils';
 import Constants from '../Constants';
 import Service from './Service';
 import FilterUtils from '../util/FilterUtils';
+import itemToProductModule from '../converters/itemToProductModule';
+import Page from '../vo/Page';
 
 /**
  * JS representation of the ProductModule Service. See NetLicensingAPI for details:
@@ -36,13 +37,15 @@ export default {
      * the newly created product module object in promise
      * @returns {Promise}
      */
-    create(context, productNumber, productModule) {
-        CheckUtils.paramNotEmpty(productNumber, 'productNumber');
+    async create(context, productNumber, productModule) {
+        CheckUtils.paramNotEmpty(productNumber, Constants.Product.PRODUCT_NUMBER);
 
-        productModule.setProperty('productNumber', productNumber);
+        productModule.setProperty(Constants.Product.PRODUCT_NUMBER, productNumber);
 
-        return Service
-            .post(context, Constants.ProductModule.ENDPOINT_PATH, productModule.asPropertiesMap(), ProductModule);
+        const { data: { items: { item: [item] } } } = await Service
+            .post(context, Constants.ProductModule.ENDPOINT_PATH, productModule.asPropertiesMap());
+
+        return itemToProductModule(item);
     },
 
     /**
@@ -58,11 +61,13 @@ export default {
      * return the product module object in promise
      * @returns {Promise}
      */
-    get(context, number) {
-        CheckUtils.paramNotEmpty(number, 'number');
+    async get(context, number) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        return Service
-            .get(context, `${Constants.ProductModule.ENDPOINT_PATH}/${number}`, {}, ProductModule);
+        const { data: { items: { item: [item] } } } = await Service
+            .get(context, `${Constants.ProductModule.ENDPOINT_PATH}/${number}`);
+
+        return itemToProductModule(item);
     },
 
     /**
@@ -78,18 +83,25 @@ export default {
      * array of product modules entities or empty array if nothing found in promise.
      * @returns {Promise}
      */
-    list(context, filter) {
+    async list(context, filter) {
         const queryParams = {};
 
         if (filter) {
             if (!CheckUtils.isValid(filter)) {
                 throw new TypeError(`filter has bad value ${filter}`);
             }
-            queryParams.filter = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
+            queryParams[Constants.FILTER] = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
         }
 
-        return Service
-            .list(context, Constants.ProductModule.ENDPOINT_PATH, queryParams, ProductModule);
+        const { data } = await Service.get(context, Constants.ProductModule.ENDPOINT_PATH, queryParams);
+
+        return Page(
+            data.items.item.map(v => itemToProductModule(v)),
+            data.items.pagenumber,
+            data.items.itemsnumber,
+            data.items.totalpages,
+            data.items.totalitems,
+        );
     },
 
     /**
@@ -108,13 +120,13 @@ export default {
      * updated product module in promise.
      * @returns {Promise}
      */
-    update(context, number, productModule) {
-        CheckUtils.paramNotEmpty(number, 'number');
+    async update(context, number, productModule) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        const path = `${Constants.ProductModule.ENDPOINT_PATH}/${number}`;
+        const { data: { items: { item: [item] } } } = await Service
+            .post(context, `${Constants.ProductModule.ENDPOINT_PATH}/${number}`, productModule.asPropertiesMap());
 
-        return Service
-            .post(context, path, productModule.asPropertiesMap(), ProductModule);
+        return itemToProductModule(item);
     },
 
     /**
@@ -134,11 +146,10 @@ export default {
      * @returns {Promise}
      */
     delete(context, number, forceCascade) {
-        CheckUtils.paramNotEmpty(number, 'number');
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
         const queryParams = { forceCascade: Boolean(forceCascade) };
 
-        return Service
-            .delete(context, `${Constants.ProductModule.ENDPOINT_PATH}/${number}`, queryParams);
+        return Service.delete(context, `${Constants.ProductModule.ENDPOINT_PATH}/${number}`, queryParams);
     },
 };

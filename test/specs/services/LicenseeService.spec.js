@@ -12,6 +12,7 @@ import response from 'test@/mocks/response';
 import error from 'test@/mocks/error';
 import licenseeFactory from 'test@/factories/licensee';
 import validateFactory from 'test@/factories/validate';
+import NlicError from '../../../src/errors/NlicError';
 
 describe('services/LicenseeService', () => {
     let context;
@@ -66,57 +67,79 @@ describe('services/LicenseeService', () => {
             expect(entity.getProperty('custom_property', null)).toBe(fakeLicensee.custom_property);
         });
 
-        it('should return null', async () => {
+        it('should throw error when entity not found', async () => {
             const number = 'Any-number-that-not-exist';
 
             // configure mock for product get request
             mock.onGet(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}/${number}`)
-                .reply(400, error(['NotFoundException', 'Requested licensee does not exist']));
+                .reply(400, error(['NotFoundException', 'Requested licenseTemplate does not exist']));
 
-            const result = await LicenseeService.get(context, number);
-
-            expect(result).toBeNull();
+            try {
+                await LicenseeService.get(context, number);
+                fail('should throw error');
+            } catch (e) {
+                expect(e instanceof NlicError).toBe(true);
+            }
         });
     });
 
-    it('check "list" method', async () => {
-        const fakeLicensees = licenseeFactory(10);
+    describe('check "list" method', () => {
+        it('should return entities array', async () => {
+            const fakeLicensees = licenseeFactory(10);
 
-        // configure mock for list request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}`)
-            .reply(200, response(fakeLicensees));
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}`)
+                .reply(200, response(fakeLicensees));
 
-        const list = await LicenseeService.list(context);
+            const list = await LicenseeService.list(context);
 
-        expect(Array.isArray(list)).toBe(true);
-        expect(list.length).toBe(10);
+            expect(Array.isArray(list)).toBe(true);
+            expect(list.length).toBe(10);
 
-        list.forEach((entity, k) => {
-            const fakeLicensee = fakeLicensees[k];
-            expect(entity instanceof Licensee).toBe(true);
-            expect(entity.getProperty('number', null)).toBe(fakeLicensee.number);
-            expect(entity.getProperty('name', null)).toBe(fakeLicensee.name);
-            expect(entity.getProperty('active', null)).toBe(fakeLicensee.active);
-            expect(entity.getProperty('custom_property', null)).toBe(fakeLicensee.custom_property);
+            list.forEach((entity, k) => {
+                const fakeLicensee = fakeLicensees[k];
+                expect(entity instanceof Licensee).toBe(true);
+                expect(entity.getProperty('number', null)).toBe(fakeLicensee.number);
+                expect(entity.getProperty('name', null)).toBe(fakeLicensee.name);
+                expect(entity.getProperty('active', null)).toBe(fakeLicensee.active);
+                expect(entity.getProperty('custom_property', null)).toBe(fakeLicensee.custom_property);
+            });
         });
-    });
 
-    it('check "filter parameter in list" method', async () => {
-        const fakeLicensees = licenseeFactory(10);
+        it('should has pagination', async () => {
+            const fakeLicensees = licenseeFactory(1000);
 
-        // configure mock for list request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}`)
-            .reply(200, response(fakeLicensees));
+            // configure mock for list request
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}`)
+                .reply(200, response(fakeLicensees));
 
-        // if filter parameter is object
-        await LicenseeService.list(context, { page: 2, items: 10 });
+            const list = await LicenseeService.list(context);
 
-        expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=2;items=10');
+            expect(list.getPageNumber()).toBe(0);
+            expect(list.getItemsNumber()).toBe(100);
+            expect(list.getTotalPages()).toBe(10);
+            expect(list.getTotalItems()).toBe(1000);
+            expect(list.hasNext()).toBe(true);
+        });
 
-        // if filter parameter is string
-        await LicenseeService.list(context, 'page=3;items=20');
+        it('check "filter parameter"', async () => {
+            const fakeLicensees = licenseeFactory(10);
 
-        expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}`)
+                .reply(200, response(fakeLicensees));
+
+            // if filter parameter is object
+            await LicenseeService.list(context, { page: 2, items: 10 });
+
+            expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=2;items=10');
+
+            // if filter parameter is string
+            await LicenseeService.list(context, 'page=3;items=20');
+
+            expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
+        });
     });
 
     it('check "update" method', async () => {
@@ -205,8 +228,8 @@ describe('services/LicenseeService', () => {
         mock.onDelete(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}/${number}`)
             .reply(204);
 
-        const state = await LicenseeService.delete(context, number);
+        await LicenseeService.delete(context, number);
 
-        expect(state).toBe(true);
+        expect(Service.getLastHttpRequestInfo().status).toBe(204);
     });
 });

@@ -9,6 +9,7 @@ import Service from '@/services/Service';
 import response from 'test@/mocks/response';
 import error from 'test@/mocks/error';
 import tokenFactory from 'test@/factories/token';
+import NlicError from '@/errors/NlicError';
 
 describe('services/TokenService', () => {
     let context;
@@ -73,61 +74,81 @@ describe('services/TokenService', () => {
             expect(entity.getProperty('expirationTime', null) instanceof Date).toBe(true);
         });
 
-        it('should return null', async () => {
+        it('should throw error when entity not found', async () => {
             const number = 'Any-number-that-not-exist';
 
             // configure mock for product get request
             mock.onGet(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}/${number}`)
                 .reply(400, error(['NotFoundException', 'Requested token does not exist']));
 
-            const result = await TokenService.get(context, number);
-
-            expect(result).toBeNull();
+            try {
+                await TokenService.get(context, number);
+                fail('should throw error');
+            } catch (e) {
+                expect(e instanceof NlicError).toBe(true);
+            }
         });
     });
 
+    describe('check "list" method', async () => {
+        it('should return entities array', async () => {
+            const fakeTokens = tokenFactory(10);
 
-    it('check "list" method', async () => {
-        const fakeTokens = tokenFactory(10);
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}`)
+                .reply(200, response(fakeTokens));
 
-        // configure mock for list request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}`)
-            .reply(200, response(fakeTokens));
+            const list = await TokenService.list(context);
 
-        const list = await TokenService.list(context);
+            expect(Array.isArray(list)).toBe(true);
+            expect(list.length).toBe(10);
 
-        expect(Array.isArray(list)).toBe(true);
-        expect(list.length).toBe(10);
-
-        list.forEach((entity, k) => {
-            const fakeToken = fakeTokens[k];
-            expect(entity instanceof Token).toBe(true);
-            expect(entity.getProperty('number', null)).toBeTruthy();
-            expect(entity.getProperty('tokenType', null)).toBe(fakeToken.tokenType);
-            expect(entity.getProperty('licenseeNumber', null)).toBe(fakeToken.licenseeNumber);
-            expect(entity.getProperty('expirationTime', null) instanceof Date).toBe(true);
-        });
-    });
-
-    it('check "filter parameter in list" method', async () => {
-        const fakeToken = tokenFactory({
-            tokenType: Constants.Token.Type.SHOP,
-            licenseeNumber: 'some number',
+            list.forEach((entity, k) => {
+                const fakeToken = fakeTokens[k];
+                expect(entity instanceof Token).toBe(true);
+                expect(entity.getProperty('number', null)).toBeTruthy();
+                expect(entity.getProperty('tokenType', null)).toBe(fakeToken.tokenType);
+                expect(entity.getProperty('licenseeNumber', null)).toBe(fakeToken.licenseeNumber);
+                expect(entity.getProperty('expirationTime', null) instanceof Date).toBe(true);
+            });
         });
 
-        // configure mock for list request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}`)
-            .reply(200, response(fakeToken));
+        it('should has pagination', async () => {
+            const fakeTokens = tokenFactory(200);
 
-        // if filter parameter is object
-        await TokenService.list(context, { page: 2, items: 10 });
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}`)
+                .reply(200, response(fakeTokens, 1));
 
-        expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=2;items=10');
+            const list = await TokenService.list(context, { page: 1 });
 
-        // if filter parameter is string
-        await TokenService.list(context, 'page=3;items=20');
+            expect(list.getPageNumber()).toBe(1);
+            expect(list.getItemsNumber()).toBe(100);
+            expect(list.getTotalPages()).toBe(2);
+            expect(list.getTotalItems()).toBe(200);
+            expect(list.hasNext()).toBe(false);
+        });
 
-        expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
+        it('check "filter parameter in list" method', async () => {
+            const fakeToken = tokenFactory({
+                tokenType: Constants.Token.Type.SHOP,
+                licenseeNumber: 'some number',
+            });
+
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}`)
+                .reply(200, response(fakeToken));
+
+            // if filter parameter is object
+            await TokenService.list(context, { page: 2, items: 10 });
+
+            expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=2;items=10');
+
+            // if filter parameter is string
+            await TokenService.list(context, 'page=3;items=20');
+
+            expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
+        });
     });
 
     it('check "delete" method', async () => {
@@ -137,8 +158,8 @@ describe('services/TokenService', () => {
         mock.onDelete(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}/${number}`)
             .reply(204);
 
-        const state = await TokenService.delete(context, number);
+        await TokenService.delete(context, number);
 
-        expect(state).toBe(true);
+        expect(Service.getLastHttpRequestInfo().status).toBe(204);
     });
 });

@@ -9,6 +9,7 @@ import Service from '@/services/Service';
 import response from 'test@/mocks/response';
 import error from 'test@/mocks/error';
 import productModuleFactory from 'test@/factories/productModule';
+import NlicError from '../../../src/errors/NlicError';
 
 describe('services/ProductModuleService', () => {
     let context;
@@ -68,58 +69,80 @@ describe('services/ProductModuleService', () => {
             expect(entity.getProperty('custom_property', null)).toBe(fakeProductModule.custom_property);
         });
 
-        it('should return null', async () => {
+        it('should throw error when entity not found', async () => {
             const number = 'Any-number-that-not-exist';
 
-            // configure mock for product get request
+            // configure mock for get request
             mock.onGet(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}/${number}`)
                 .reply(400, error(['NotFoundException', 'Requested productModule does not exist']));
 
-            const result = await ProductModuleService.get(context, number);
-
-            expect(result).toBeNull();
+            try {
+                await ProductModuleService.get(context, number);
+                fail('should throw error');
+            } catch (e) {
+                expect(e instanceof NlicError).toBe(true);
+            }
         });
     });
 
-    it('check "list" method', async () => {
-        const fakeProductModules = productModuleFactory(10);
+    describe('check "list" method', () => {
+        it('should return entities array', async () => {
+            const fakeProductModules = productModuleFactory(10);
 
-        // configure mock for list request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}`)
-            .reply(200, response(fakeProductModules));
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}`)
+                .reply(200, response(fakeProductModules));
 
-        const list = await ProductModuleService.list(context);
+            const list = await ProductModuleService.list(context);
 
-        expect(Array.isArray(list)).toBe(true);
-        expect(list.length).toBe(10);
+            expect(Array.isArray(list)).toBe(true);
+            expect(list.length).toBe(10);
 
-        list.forEach((entity, k) => {
-            const fakeProductModule = fakeProductModules[k];
-            expect(entity.getProperty('number', null)).toBe(fakeProductModule.number);
-            expect(entity.getProperty('name', null)).toBe(fakeProductModule.name);
-            expect(entity.getProperty('active', null)).toBe(fakeProductModule.active);
-            expect(entity.getProperty('licensingModel', null)).toBe(fakeProductModule.licensingModel);
-            expect(entity.getProperty('custom_property', null)).toBe(fakeProductModule.custom_property);
+            list.forEach((entity, k) => {
+                const fakeProductModule = fakeProductModules[k];
+                expect(entity.getProperty('number', null)).toBe(fakeProductModule.number);
+                expect(entity.getProperty('name', null)).toBe(fakeProductModule.name);
+                expect(entity.getProperty('active', null)).toBe(fakeProductModule.active);
+                expect(entity.getProperty('licensingModel', null)).toBe(fakeProductModule.licensingModel);
+                expect(entity.getProperty('custom_property', null)).toBe(fakeProductModule.custom_property);
+            });
+        });
+
+        it('should has pagination', async () => {
+            const fakeProductModules = productModuleFactory(1050);
+
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}`)
+                .reply(200, response(fakeProductModules, 3, 50));
+
+            const list = await ProductModuleService.list(context, { page: 3, items: 50 });
+
+            expect(list.getPageNumber()).toBe(3);
+            expect(list.getItemsNumber()).toBe(50);
+            expect(list.getTotalPages()).toBe(21);
+            expect(list.getTotalItems()).toBe(1050);
+            expect(list.hasNext()).toBe(true);
+        });
+
+        it('check "filter parameter"', async () => {
+            const fakeProductModules = productModuleFactory(10);
+
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}`)
+                .reply(200, response(fakeProductModules));
+
+            // if filter parameter is object
+            await ProductModuleService.list(context, { page: 2, items: 10 });
+
+            expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=2;items=10');
+
+            // if filter parameter is string
+            await ProductModuleService.list(context, 'page=3;items=20');
+
+            expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
         });
     });
 
-    it('check "filter parameter in list" method', async () => {
-        const fakeProductModules = productModuleFactory(10);
-
-        // configure mock for list request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}`)
-            .reply(200, response(fakeProductModules));
-
-        // if filter parameter is object
-        await ProductModuleService.list(context, { page: 2, items: 10 });
-
-        expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=2;items=10');
-
-        // if filter parameter is string
-        await ProductModuleService.list(context, 'page=3;items=20');
-
-        expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
-    });
 
     it('check "update" method', async () => {
         const fakeProductModule = productModuleFactory();
@@ -154,8 +177,8 @@ describe('services/ProductModuleService', () => {
         mock.onDelete(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}/${number}`)
             .reply(204);
 
-        const state = await ProductModuleService.delete(context, number);
+        await ProductModuleService.delete(context, number);
 
-        expect(state).toBe(true);
+        expect(Service.getLastHttpRequestInfo().status).toBe(204);
     });
 });

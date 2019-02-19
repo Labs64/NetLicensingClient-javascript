@@ -39,59 +39,10 @@ export default class Service {
      * The REST query parameters values. May be null if there are no parameters.
      * @param queryParams
      *
-     * the type of the result
-     * @param resultType
-     *
      * @returns {Promise}
      */
-    static get(context, urlTemplate, queryParams, resultType) {
-        return Service
-            .request(context, 'get', urlTemplate, queryParams)
-            .then(response => ((response.data)
-                ? Service.getEntity(resultType, Service.getItem(response, [])[0])
-                : null))
-            .catch((e) => {
-                const { response } = e;
-
-                if (response) {
-                    const { data } = response;
-
-                    if (data) {
-                        if (Service.isNotFound(response)) {
-                            return Promise.resolve(null);
-                        }
-                    }
-                }
-
-                throw e;
-            });
-    }
-
-    /**
-     * Helper method for performing GET request to NetLicensing API service that returns page of items with type
-     * resultType.
-     *
-     * context for the NetLicensing API call
-     * @param context
-     *
-     * the REST URL template
-     * @param urlTemplate
-     *
-     * The REST query parameters values. May be null if there are no parameters.
-     * @param queryParams
-     *
-     * the type of the result
-     * @param resultType
-     *
-     *
-     * @returns {Promise}
-     */
-    static list(context, urlTemplate, queryParams, resultType) {
-        return Service
-            .request(context, 'get', urlTemplate, queryParams)
-            .then(response => ((response.data)
-                ? Service.getItem(response, []).map(item => Service.getEntity(resultType, item))
-                : []));
+    static get(context, urlTemplate, queryParams) {
+        return Service.request(context, 'get', urlTemplate, queryParams);
     }
 
     /**
@@ -107,15 +58,10 @@ export default class Service {
      * The REST query parameters values. May be null if there are no parameters.
      * @param queryParams
      *
-     * he type of the result
-     * @param resultType
-     *
      * @returns {Promise}
      */
-    static post(context, urlTemplate, queryParams, resultType) {
-        return Service
-            .request(context, 'post', urlTemplate, queryParams)
-            .then(response => ((response.data) ? Service.getEntity(resultType, Service.getItem(response)[0]) : null));
+    static post(context, urlTemplate, queryParams) {
+        return Service.request(context, 'post', urlTemplate, queryParams);
     }
 
     /**
@@ -126,9 +72,7 @@ export default class Service {
      * @returns {Promise}
      */
     static delete(context, urlTemplate, queryParams) {
-        return Service
-            .request(context, 'delete', urlTemplate, queryParams)
-            .then(response => (response.status === 204));
+        return Service.request(context, 'delete', urlTemplate, queryParams);
     }
 
     /**
@@ -247,70 +191,12 @@ export default class Service {
             });
     }
 
-    /**
-     * Create Entity from item
-     * @param resultType
-     * @param item
-     * @returns {*}
-     */
-    static getEntity(resultType, item) {
-        const properties = item.property || null;
-        const lists = item.list || null;
-
-        if (!resultType) return item;
-
-        // eslint-disable-next-line new-cap
-        const entity = new resultType();
-
-        properties.forEach(({ name, value }) => {
-            entity.setProperty(name, value);
-        });
-
-        if (lists) {
-            lists.forEach(({ name, property }) => {
-                const setListMethod = `setList${name.charAt(0).toUpperCase()}${name.substr(1, name.length - 1)}`;
-                const setListsMethod = 'setLists';
-
-                if (typeof entity[setListMethod] !== 'function' && typeof entity[setListsMethod] !== 'function') {
-                    // eslint-disable-next-line no-console
-                    console.warn(`Methods: ${setListMethod},${setListsMethod} not found in ${item.type} 
-                    for list property ${name}`);
-                    return;
-                }
-
-                if (typeof entity[setListMethod] === 'function') {
-                    entity[setListMethod](property);
-                    return;
-                }
-
-                if (typeof entity[setListsMethod] === 'function') {
-                    entity[setListsMethod](name, property);
-                }
-            });
-        }
-
-        return entity;
-    }
-
     static getInfo(response, def) {
         try {
             return response.data.infos.info || def;
         } catch (e) {
             return def;
         }
-    }
-
-    static getItem(response, def) {
-        try {
-            return response.data.items.item || def;
-        } catch (e) {
-            return def;
-        }
-    }
-
-    static isNotFound(response) {
-        const info = Service.getInfo(response, [{}])[0];
-        return (info && info.id === 'NotFoundException');
     }
 
     static isValidUrl(url) {

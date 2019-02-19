@@ -5,11 +5,12 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-import License from '../entities/License';
 import CheckUtils from '../util/CheckUtils';
 import Constants from '../Constants';
 import Service from './Service';
 import FilterUtils from '../util/FilterUtils';
+import itemToLicense from '../converters/itemToLicense';
+import Page from '../vo/Page';
 
 /**
  * JS representation of the License Service. See NetLicensingAPI for details:
@@ -45,17 +46,19 @@ export default {
      * return the newly created license object in promise
      * @returns {Promise}
      */
-    create(context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
-        CheckUtils.paramNotEmpty(licenseeNumber, 'licenseeNumber');
-        CheckUtils.paramNotEmpty(licenseTemplateNumber, 'licenseTemplateNumber');
+    async create(context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
+        CheckUtils.paramNotEmpty(licenseeNumber, Constants.Licensee.LICENSEE_NUMBER);
+        CheckUtils.paramNotEmpty(licenseTemplateNumber, Constants.LicenseTemplate.LICENSE_TEMPLATE_NUMBER);
 
-        license.setProperty('licenseeNumber', licenseeNumber);
-        license.setProperty('licenseTemplateNumber', licenseTemplateNumber);
+        license.setProperty(Constants.Licensee.LICENSEE_NUMBER, licenseeNumber);
+        license.setProperty(Constants.LicenseTemplate.LICENSE_TEMPLATE_NUMBER, licenseTemplateNumber);
 
-        if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
+        if (transactionNumber) license.setProperty(Constants.Transaction.TRANSACTION_NUMBER, transactionNumber);
 
-        return Service
-            .post(context, Constants.License.ENDPOINT_PATH, license.asPropertiesMap(), License);
+        const { data: { items: { item: [item] } } } = await Service
+            .post(context, Constants.License.ENDPOINT_PATH, license.asPropertiesMap());
+
+        return itemToLicense(item);
     },
 
 
@@ -72,11 +75,13 @@ export default {
      * return the license in promise
      * @returns {Promise}
      */
-    get(context, number) {
-        CheckUtils.paramNotEmpty(number, 'number');
+    async get(context, number) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        return Service
-            .get(context, `${Constants.License.ENDPOINT_PATH}/${number}`, {}, License);
+        const { data: { items: { item: [item] } } } = await Service
+            .get(context, `${Constants.License.ENDPOINT_PATH}/${number}`);
+
+        return itemToLicense(item);
     },
 
     /**
@@ -92,18 +97,26 @@ export default {
      * return array of licenses (of all products) or empty array if nothing found in promise.
      * @returns {Promise}
      */
-    list(context, filter) {
+    async list(context, filter) {
         const queryParams = {};
 
         if (filter) {
             if (!CheckUtils.isValid(filter)) {
                 throw new TypeError(`filter has bad value ${filter}`);
             }
-            queryParams.filter = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
+            queryParams[Constants.FILTER] = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
         }
 
-        return Service
-            .list(context, Constants.License.ENDPOINT_PATH, queryParams, License);
+        const { data } = await Service
+            .get(context, Constants.License.ENDPOINT_PATH, queryParams);
+
+        return Page(
+            data.items.item.map(v => itemToLicense(v)),
+            data.items.pagenumber,
+            data.items.itemsnumber,
+            data.items.totalpages,
+            data.items.totalitems,
+        );
     },
 
     /**
@@ -126,13 +139,15 @@ export default {
      * return updated license in promise.
      * @returns {Promise}
      */
-    update(context, number, transactionNumber, license) {
-        CheckUtils.paramNotEmpty(number, 'number');
+    async update(context, number, transactionNumber, license) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        if (transactionNumber) license.setProperty('transactionNumber', transactionNumber);
+        if (transactionNumber) license.setProperty(Constants.Transaction.TRANSACTION_NUMBER, transactionNumber);
 
-        return Service
-            .post(context, `${Constants.License.ENDPOINT_PATH}/${number}`, license.asPropertiesMap(), License);
+        const { data: { items: { item: [item] } } } = await Service
+            .post(context, `${Constants.License.ENDPOINT_PATH}/${number}`, license.asPropertiesMap());
+
+        return itemToLicense(item);
     },
 
     /**
@@ -154,7 +169,7 @@ export default {
      * @returns {Promise}
      */
     delete(context, number, forceCascade) {
-        CheckUtils.paramNotEmpty(number, 'number');
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
         const queryParams = { forceCascade: Boolean(forceCascade) };
 

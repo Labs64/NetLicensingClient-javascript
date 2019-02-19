@@ -5,11 +5,12 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-import Token from '../entities/Token';
 import Constants from '../Constants';
 import Service from './Service';
 import CheckUtils from '../util/CheckUtils';
 import FilterUtils from '../util/FilterUtils';
+import itemToToken from '../converters/itemToToken';
+import Page from '../vo/Page';
 
 /**
  * JS representation of the Token Service. See NetLicensingAPI for details:
@@ -32,9 +33,11 @@ export default {
      * return created token in promise
      * @returns {Promise}
      */
-    create(context, token) {
-        return Service
-            .post(context, Constants.Token.ENDPOINT_PATH, token.asPropertiesMap(), Token);
+    async create(context, token) {
+        const { data: { items: { item: [item] } } } = await Service
+            .post(context, Constants.Token.ENDPOINT_PATH, token.asPropertiesMap());
+
+        return itemToToken(item);
     },
 
     /**
@@ -50,11 +53,13 @@ export default {
      * return the token in promise
      * @returns {Promise}
      */
-    get(context, number) {
-        CheckUtils.paramNotEmpty(number, 'number');
+    async get(context, number) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        return Service
-            .get(context, `${Constants.Token.ENDPOINT_PATH}/${number}`, {}, Token);
+        const { data: { items: { item: [item] } } } = await Service
+            .get(context, `${Constants.Token.ENDPOINT_PATH}/${number}`);
+
+        return itemToToken(item);
     },
 
     /**
@@ -70,18 +75,26 @@ export default {
      * array of token entities or empty array if nothing found.
      * @return array
      */
-    list(context, filter) {
+    async list(context, filter) {
         const queryParams = {};
 
         if (filter) {
             if (!CheckUtils.isValid(filter)) {
                 throw new TypeError(`filter has bad value ${filter}`);
             }
-            queryParams.filter = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
+            queryParams[Constants.FILTER] = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
         }
 
-        return Service
-            .list(context, Constants.Token.ENDPOINT_PATH, queryParams, Token);
+        const { data } = await Service
+            .get(context, Constants.Token.ENDPOINT_PATH, queryParams);
+
+        return Page(
+            data.items.item.map(v => itemToToken(v)),
+            data.items.pagenumber,
+            data.items.itemsnumber,
+            data.items.totalpages,
+            data.items.totalitems,
+        );
     },
 
     /**
@@ -98,7 +111,7 @@ export default {
      * @returns {Promise}
      */
     delete(context, number) {
-        CheckUtils.paramNotEmpty(number, 'number');
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
         return Service
             .delete(context, `${Constants.Token.ENDPOINT_PATH}/${number}`);

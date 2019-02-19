@@ -173,7 +173,14 @@ export default class Product extends BaseEntity {
      */
     addDiscount(discount) {
         const discounts = discountsMap.get(this);
-        discounts.push(discount);
+
+        let productDiscount = discount;
+
+        if (typeof productDiscount !== 'string' && !(productDiscount instanceof ProductDiscount)) {
+            productDiscount = new ProductDiscount(productDiscount);
+        }
+
+        discounts.push(productDiscount);
         discountsMap.set(this, discounts);
         discountsTouched.set(this, true);
 
@@ -209,16 +216,6 @@ export default class Product extends BaseEntity {
      */
     getProductDiscounts() {
         return Object.assign([], discountsMap.get(this));
-    }
-
-    setListDiscount(properties) {
-        if (!properties) return;
-
-        const discount = new ProductDiscount();
-        properties.forEach((property) => {
-            discount.setProperty(property.name, property.value);
-        });
-        this.addDiscount(discount);
     }
 
     asPropertiesMap() {

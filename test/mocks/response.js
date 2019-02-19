@@ -24,16 +24,36 @@ const convertToItem = (item, handler = { property: [], list: [] }) => {
     return handler;
 };
 
-export default (queryParams) => {
-    const template = { items: { item: [] } };
+export default (queryParams, page = 0, perPage = 100) => {
+    const template = {
+        items: {
+            item: [],
+            pagenumber: null,
+            itemsnumber: null,
+            totalpages: null,
+            totalitems: null,
+            hasnext: null,
+        },
+    };
 
     const items = _castArray(queryParams);
 
     if (!_isEmpty(items)) {
-        _each(items, (i) => {
-            template.items.item.push(convertToItem(i));
-        });
+        const lowPageRange = page * perPage;
+        const highPageRange = (page + 1) * perPage;
+
+        for (let i = lowPageRange; i < highPageRange; i += 1) {
+            if (items[i]) {
+                template.items.item.push(convertToItem(items[i]));
+            }
+        }
     }
+
+    template.items.pagenumber = page;
+    template.items.itemsnumber = template.items.item.length;
+    template.items.totalpages = Math.ceil(items.length / perPage);
+    template.items.totalitems = items.length;
+    template.items.hasnext = template.items.totalpages > template.items.pagenumber + 1;
 
     return template;
 };

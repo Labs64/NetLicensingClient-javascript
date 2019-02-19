@@ -7,6 +7,7 @@ import Constants from '@/Constants';
 import response from 'test@/mocks/response';
 import error from 'test@/mocks/error';
 import paymentMethodFactory from 'test@/factories/paymentMethod';
+import NlicError from '@/errors/NlicError';
 
 describe('services/PaymentMethodService', () => {
     let context;
@@ -55,25 +56,58 @@ describe('services/PaymentMethodService', () => {
                 expect(e instanceof Error).toBe(true);
             }
         });
+
+        it('should throw error when entity not found', async () => {
+            const number = 'Any-number-that-not-exist';
+
+            // configure mock for get request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}/${number}`)
+                .reply(400, error(['NotFoundException', 'Requested paymentMethod does not exist']));
+
+            try {
+                await PaymentMethodService.get(context, number);
+                fail('should throw error');
+            } catch (e) {
+                expect(e instanceof NlicError).toBe(true);
+            }
+        });
     });
 
-    it('check "list" method', async () => {
-        const fakePaymentMethods = paymentMethodFactory(3);
+    describe('check "list" method', async () => {
+        it('should return entities array', async () => {
+            const fakePaymentMethods = paymentMethodFactory(3);
 
-        // configure mock for list request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}`)
-            .reply(200, response(fakePaymentMethods));
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}`)
+                .reply(200, response(fakePaymentMethods));
 
-        const list = await PaymentMethodService.list(context);
+            const list = await PaymentMethodService.list(context);
 
-        expect(Array.isArray(list)).toBe(true);
-        expect(list.length).toBe(3);
+            expect(Array.isArray(list)).toBe(true);
+            expect(list.length).toBe(3);
 
-        list.forEach((entity, k) => {
-            const fakePaymentMethod = fakePaymentMethods[k];
-            expect(entity instanceof PaymentMethod).toBe(true);
-            expect(entity.getProperty('number', null)).toBe(fakePaymentMethod.number);
-            expect(entity.getProperty('active', null)).toBe(fakePaymentMethod.active);
+            list.forEach((entity, k) => {
+                const fakePaymentMethod = fakePaymentMethods[k];
+                expect(entity instanceof PaymentMethod).toBe(true);
+                expect(entity.getProperty('number', null)).toBe(fakePaymentMethod.number);
+                expect(entity.getProperty('active', null)).toBe(fakePaymentMethod.active);
+            });
+        });
+
+        it('should has pagination', async () => {
+            const fakePaymentMethods = paymentMethodFactory(3);
+
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}`)
+                .reply(200, response(fakePaymentMethods));
+
+            const list = await PaymentMethodService.list(context);
+
+            expect(list.getPageNumber()).toBe(0);
+            expect(list.getItemsNumber()).toBe(3);
+            expect(list.getTotalPages()).toBe(1);
+            expect(list.getTotalItems()).toBe(3);
+            expect(list.hasNext()).toBe(false);
         });
     });
 });

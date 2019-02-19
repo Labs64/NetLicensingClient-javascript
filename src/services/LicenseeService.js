@@ -5,12 +5,14 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-import Licensee from '../entities/Licensee';
 import CheckUtils from '../util/CheckUtils';
 import FilterUtils from '../util/FilterUtils';
 import Constants from '../Constants';
 import Service from './Service';
 import ValidationResults from '../vo/ValidationResults';
+import itemToLicensee from '../converters/itemToLicensee';
+import Page from '../vo/Page';
+import itemToObject from '../converters/itemToObject';
 
 /**
  * JS representation of the Licensee Service. See NetLicensingAPI for details:
@@ -37,13 +39,15 @@ export default {
      * return the newly created licensee object in promise
      * @returns {Promise}
      */
-    create(context, productNumber, licensee) {
-        CheckUtils.paramNotEmpty(productNumber, 'productNumber');
+    async create(context, productNumber, licensee) {
+        CheckUtils.paramNotEmpty(productNumber, Constants.Product.PRODUCT_NUMBER);
 
-        licensee.setProperty('productNumber', productNumber);
+        licensee.setProperty(Constants.Product.PRODUCT_NUMBER, productNumber);
 
-        return Service
-            .post(context, Constants.Licensee.ENDPOINT_PATH, licensee.asPropertiesMap(), Licensee);
+        const { data: { items: { item: [item] } } } = await Service
+            .post(context, Constants.Licensee.ENDPOINT_PATH, licensee.asPropertiesMap());
+
+        return itemToLicensee(item);
     },
 
     /**
@@ -59,11 +63,13 @@ export default {
      * return the licensee in promise
      * @returns {Promise}
      */
-    get(context, number) {
-        CheckUtils.paramNotEmpty(number, 'number');
+    async get(context, number) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        return Service
-            .get(context, `${Constants.Licensee.ENDPOINT_PATH}/${number}`, {}, Licensee);
+        const { data: { items: { item: [item] } } } = await Service
+            .get(context, `${Constants.Licensee.ENDPOINT_PATH}/${number}`);
+
+        return itemToLicensee(item);
     },
 
     /**
@@ -79,18 +85,26 @@ export default {
      * array of licensees (of all products) or empty array if nothing found in promise.
      * @returns {Promise}
      */
-    list(context, filter) {
+    async list(context, filter) {
         const queryParams = {};
 
         if (filter) {
             if (!CheckUtils.isValid(filter)) {
                 throw new TypeError(`filter has bad value ${filter}`);
             }
-            queryParams.filter = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
+            queryParams[Constants.FILTER] = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
         }
 
-        return Service
-            .list(context, Constants.Licensee.ENDPOINT_PATH, queryParams, Licensee);
+        const { data } = await Service
+            .get(context, Constants.Licensee.ENDPOINT_PATH, queryParams);
+
+        return Page(
+            data.items.item.map(v => itemToLicensee(v)),
+            data.items.pagenumber,
+            data.items.itemsnumber,
+            data.items.totalpages,
+            data.items.totalitems,
+        );
     },
 
     /**
@@ -109,11 +123,13 @@ export default {
      * return updated licensee in promise.
      * @returns {Promise}
      */
-    update(context, number, licensee) {
-        CheckUtils.paramNotEmpty(number, 'number');
+    async update(context, number, licensee) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        return Service
-            .post(context, `${Constants.Licensee.ENDPOINT_PATH}/${number}`, licensee.asPropertiesMap(), Licensee);
+        const { data: { items: { item: [item] } } } = await Service
+            .post(context, `${Constants.Licensee.ENDPOINT_PATH}/${number}`, licensee.asPropertiesMap());
+
+        return itemToLicensee(item);
     },
 
     /**
@@ -133,7 +149,7 @@ export default {
      * @returns {Promise}
      */
     delete(context, number, forceCascade) {
-        CheckUtils.paramNotEmpty(number, 'number');
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
         const queryParams = { forceCascade: Boolean(forceCascade) };
 
@@ -154,10 +170,10 @@ export default {
      * details.
      * @param validationParameters NetLicensing.ValidationParameters.
      *
-     * @returns {Promise}
+     * @returns {ValidationResults}
      */
-    validate(context, number, validationParameters) {
-        CheckUtils.paramNotEmpty(number, 'number');
+    async validate(context, number, validationParameters) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
         const queryParams = {};
 
@@ -179,7 +195,7 @@ export default {
         const has = Object.prototype.hasOwnProperty;
 
         Object.keys(parameters).forEach((productModuleName) => {
-            queryParams[`productModuleNumber${pmIndex}`] = productModuleName;
+            queryParams[`${Constants.ProductModule.PRODUCT_MODULE_NUMBER}${pmIndex}`] = productModuleName;
             if (!has.call(parameters, productModuleName)) return;
 
             const parameter = parameters[productModuleName];
@@ -192,45 +208,21 @@ export default {
             pmIndex += 1;
         });
 
-        const path = `${Constants.Licensee.ENDPOINT_PATH}/${number}/${Constants.Licensee.ENDPOINT_PATH_VALIDATE}`;
+        const { data: { items: { item: items }, ttl } } = await Service.post(
+            context,
+            `${Constants.Licensee.ENDPOINT_PATH}/${number}/${Constants.Licensee.ENDPOINT_PATH_VALIDATE}`,
+            queryParams,
+        );
 
-        return Service
-            .post(context, path, queryParams)
-            .then((item) => {
-                const validationResults = new ValidationResults();
+        const validationResults = new ValidationResults();
+        validationResults.setTtl(ttl);
 
-                const parse = (source, data = {}) => {
-                    let handler = data;
-                    const { name, property: properties, list } = source;
+        items.forEach((v) => {
+            const item = itemToObject(v);
+            validationResults.setProductModuleValidation(item[Constants.ProductModule.PRODUCT_MODULE_NUMBER], item);
+        });
 
-                    if (name) {
-                        if (!handler[name]) {
-                            handler[name] = {};
-                        }
-                        handler = handler[name];
-                    }
-
-                    properties.forEach((property) => {
-                        handler[property.name] = property.value;
-                    });
-
-                    if (list) {
-                        list.forEach((listItem) => {
-                            parse(listItem, handler);
-                        });
-                    }
-
-                    return handler;
-                };
-
-                const data = parse(item);
-
-                validationResults
-                    .setProductModuleValidation(data.productModuleNumber, data)
-                    .setTtl(Service.getLastHttpRequestInfo().data.ttl);
-
-                return validationResults;
-            });
+        return validationResults;
     },
 
 
@@ -250,14 +242,16 @@ export default {
      * @returns {Promise}
      */
     transfer(context, number, sourceLicenseeNumber) {
-        CheckUtils.paramNotEmpty(number, 'number');
-        CheckUtils.paramNotEmpty(sourceLicenseeNumber, 'sourceLicenseeNumber');
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
+        CheckUtils.paramNotEmpty(sourceLicenseeNumber, Constants.Licensee.SOURCE_LICENSEE_NUMBER);
 
         const queryParams = { sourceLicenseeNumber };
 
-        const path = `${Constants.Licensee.ENDPOINT_PATH}/${number}/${Constants.Licensee.ENDPOINT_PATH_TRANSFER}`;
-
         return Service
-            .post(context, path, queryParams);
+            .post(
+                context,
+                `${Constants.Licensee.ENDPOINT_PATH}/${number}/${Constants.Licensee.ENDPOINT_PATH_TRANSFER}`,
+                queryParams,
+            );
     },
 };

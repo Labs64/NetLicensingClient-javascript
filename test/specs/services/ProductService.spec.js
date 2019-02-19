@@ -11,6 +11,7 @@ import response from 'test@/mocks/response';
 import error from 'test@/mocks/error';
 import productFactory from 'test@/factories/product';
 import { fix as discountFixFactory, percent as discountPercentFactory } from 'test@/factories/productDiscount';
+import NlicError from '../../../src/errors/NlicError';
 
 
 describe('services/ProductService', () => {
@@ -94,60 +95,81 @@ describe('services/ProductService', () => {
             expect(entity.getProductDiscounts().length).toBe(2);
         });
 
-        it('should return null', async () => {
+        it('should throw error when entity not found', async () => {
             const number = 'Any-number-that-not-exist';
 
             // configure mock for get request
             mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${number}`)
                 .reply(400, error(['NotFoundException', 'Requested product does not exist']));
 
-            const result = await ProductService.get(context, number);
-
-            expect(result).toBeNull();
+            try {
+                await ProductService.get(context, number);
+                fail('should throw error');
+            } catch (e) {
+                expect(e instanceof NlicError).toBe(true);
+            }
         });
     });
 
-    it('check "list" method', async () => {
-        const fakeProducts = productFactory(10);
+    describe('check "list" method', () => {
+        it('should return entities array', async () => {
+            const fakeProducts = productFactory(10);
 
-        // configure mock for list request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}`)
-            .reply(200, response(fakeProducts));
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}`)
+                .reply(200, response(fakeProducts));
 
-        const list = await ProductService.list(context);
+            const list = await ProductService.list(context);
 
-        expect(Array.isArray(list)).toBe(true);
-        expect(list.length).toBe(10);
+            expect(Array.isArray(list)).toBe(true);
+            expect(list.length).toBe(10);
 
-        list.forEach((entity, k) => {
-            const fakeProduct = fakeProducts[k];
-            expect(entity.getProperty('number', null)).toBe(fakeProduct.number);
-            expect(entity.getProperty('name', null)).toBe(fakeProduct.name);
-            expect(entity.getProperty('active', null)).toBe(fakeProduct.active);
-            expect(entity.getProperty('version', null)).toBe(fakeProduct.version);
-            expect(entity.getProperty('description', null)).toBe(fakeProduct.description);
-            expect(entity.getProperty('licensingInfo', null)).toBe(fakeProduct.licensingInfo);
-            expect(entity.getProperty('licenseeAutoCreate', null)).toBe(fakeProduct.licenseeAutoCreate);
-            expect(entity.getProperty('custom_property', null)).toBe(fakeProduct.custom_property);
+            list.forEach((entity, k) => {
+                const fakeProduct = fakeProducts[k];
+                expect(entity.getProperty('number', null)).toBe(fakeProduct.number);
+                expect(entity.getProperty('name', null)).toBe(fakeProduct.name);
+                expect(entity.getProperty('active', null)).toBe(fakeProduct.active);
+                expect(entity.getProperty('version', null)).toBe(fakeProduct.version);
+                expect(entity.getProperty('description', null)).toBe(fakeProduct.description);
+                expect(entity.getProperty('licensingInfo', null)).toBe(fakeProduct.licensingInfo);
+                expect(entity.getProperty('licenseeAutoCreate', null)).toBe(fakeProduct.licenseeAutoCreate);
+                expect(entity.getProperty('custom_property', null)).toBe(fakeProduct.custom_property);
+            });
         });
-    });
 
-    it('check "filter parameter in list" method', async () => {
-        const fakeProducts = productFactory(10);
+        it('should has pagination', async () => {
+            const fakeProducts = productFactory(1000);
 
-        // configure mock for list request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}`)
-            .reply(200, response(fakeProducts));
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}`)
+                .reply(200, response(fakeProducts, 2, 10));
 
-        // if filter parameter is object
-        await ProductService.list(context, { page: 2, items: 10 });
+            const list = await ProductService.list(context, { page: 2, items: 10 });
 
-        expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=2;items=10');
+            expect(list.getPageNumber()).toBe(2);
+            expect(list.getItemsNumber()).toBe(10);
+            expect(list.getTotalPages()).toBe(100);
+            expect(list.getTotalItems()).toBe(1000);
+            expect(list.hasNext()).toBe(true);
+        });
 
-        // if filter parameter is string
-        await ProductService.list(context, 'page=3;items=20');
+        it('check filter', async () => {
+            const fakeProducts = productFactory(10);
 
-        expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
+            // configure mock for list request
+            mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}`)
+                .reply(200, response(fakeProducts));
+
+            // if filter parameter is object
+            await ProductService.list(context, { page: 2, items: 10 });
+
+            expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=2;items=10');
+
+            // if filter parameter is string
+            await ProductService.list(context, 'page=3;items=20');
+
+            expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
+        });
     });
 
     it('check "update" method', async () => {
@@ -200,8 +222,8 @@ describe('services/ProductService', () => {
         mock.onDelete(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${number}`)
             .reply(204);
 
-        const state = await ProductService.delete(context, number);
+        await ProductService.delete(context, number);
 
-        expect(state).toBe(true);
+        expect(Service.getLastHttpRequestInfo().status).toBe(204);
     });
 });

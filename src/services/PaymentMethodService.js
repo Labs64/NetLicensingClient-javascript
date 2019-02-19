@@ -5,11 +5,12 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-import PaymentMethod from '../entities/PaymentMethod';
 import Constants from '../Constants';
 import CheckUtils from '../util/CheckUtils';
 import Service from './Service';
 import FilterUtils from '../util/FilterUtils';
+import itemToPaymentMethod from '../converters/itemToPaymentMethod';
+import Page from '../vo/Page';
 
 export default {
     /**
@@ -25,11 +26,13 @@ export default {
      * return the payment method in promise
      * @returns {Promise}
      */
-    get(context, number) {
-        CheckUtils.paramNotEmpty(number, 'number');
+    async get(context, number) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        return Service
-            .get(context, `${Constants.PaymentMethod.ENDPOINT_PATH}/${number}`, {}, PaymentMethod);
+        const { data: { items: { item: [item] } } } = await Service
+            .get(context, `${Constants.PaymentMethod.ENDPOINT_PATH}/${number}`);
+
+        return itemToPaymentMethod(item);
     },
 
     /**
@@ -45,18 +48,26 @@ export default {
      * array of payment method entities or empty array if nothing found in promise.
      * @returns {Promise}
      */
-    list(context, filter) {
+    async list(context, filter) {
         const queryParams = {};
 
         if (filter) {
             if (!CheckUtils.isValid(filter)) {
                 throw new TypeError(`filter has bad value ${filter}`);
             }
-            queryParams.filter = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
+            queryParams[Constants.FILTER] = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
         }
 
-        return Service
-            .list(context, Constants.PaymentMethod.ENDPOINT_PATH, queryParams, PaymentMethod);
+        const { data } = await Service
+            .get(context, Constants.PaymentMethod.ENDPOINT_PATH, queryParams);
+
+        return Page(
+            data.items.item.map(v => itemToPaymentMethod(v)),
+            data.items.pagenumber,
+            data.items.itemsnumber,
+            data.items.totalpages,
+            data.items.totalitems,
+        );
     },
 
     /**
@@ -75,12 +86,14 @@ export default {
      * return updated payment method in promise.
      * @returns {Promise}
      */
-    update(context, number, paymentMethod) {
-        CheckUtils.paramNotEmpty(number, 'number');
+    async update(context, number, paymentMethod) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
         const path = `${Constants.PaymentMethod.ENDPOINT_PATH}/${number}`;
 
-        return Service
-            .post(context, path, paymentMethod.asPropertiesMap(), PaymentMethod);
+        const { data: { items: { item: [item] } } } = await Service
+            .post(context, path, paymentMethod.asPropertiesMap());
+
+        return itemToPaymentMethod(item);
     },
 };

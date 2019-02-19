@@ -6,10 +6,11 @@
  */
 
 import Service from './Service';
-import Product from '../entities/Product';
 import Constants from '../Constants';
 import CheckUtils from '../util/CheckUtils';
 import FilterUtils from '../util/FilterUtils';
+import itemToProduct from '../converters/itemToProduct';
+import Page from '../vo/Page';
 
 /**
  * JS representation of the Product Service. See NetLicensingAPI for details:
@@ -34,9 +35,10 @@ export default {
      * @returns {Promise}
      */
 
-    create(context, product) {
-        return Service
-            .post(context, Constants.Product.ENDPOINT_PATH, product.asPropertiesMap(), Product);
+    async create(context, product) {
+        const { data: { items: { item: [item] } } } = await Service
+            .post(context, Constants.Product.ENDPOINT_PATH, product.asPropertiesMap());
+        return itemToProduct(item);
     },
 
     /**
@@ -52,11 +54,11 @@ export default {
      * return the product object in promise
      * @returns {Promise}
      */
-    get(context, number) {
-        CheckUtils.paramNotEmpty(number, 'number');
-
-        return Service
-            .get(context, `${Constants.Product.ENDPOINT_PATH}/${number}`, {}, Product);
+    async get(context, number) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
+        const { data: { items: { item: [item] } } } = await Service
+            .get(context, `${Constants.Product.ENDPOINT_PATH}/${number}`);
+        return itemToProduct(item);
     },
 
     /**
@@ -72,18 +74,23 @@ export default {
      * array of product entities or empty array if nothing found in promise.
      * @returns {Promise}
      */
-    list(context, filter) {
+    async list(context, filter) {
         const queryParams = {};
 
         if (filter) {
-            if (!CheckUtils.isValid(filter)) {
-                throw new TypeError(`filter has bad value ${filter}`);
-            }
-            queryParams.filter = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
+            if (!CheckUtils.isValid(filter)) throw new TypeError(`filter has bad value ${filter}`);
+            queryParams[Constants.FILTER] = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
         }
 
-        return Service
-            .list(context, Constants.Product.ENDPOINT_PATH, queryParams, Product);
+        const { data } = await Service.get(context, Constants.Product.ENDPOINT_PATH, queryParams);
+
+        return Page(
+            data.items.item.map(v => itemToProduct(v)),
+            data.items.pagenumber,
+            data.items.itemsnumber,
+            data.items.totalpages,
+            data.items.totalitems,
+        );
     },
 
     /**
@@ -102,11 +109,13 @@ export default {
      * updated product in promise.
      * @returns {Promise}
      */
-    update(context, number, product) {
-        CheckUtils.paramNotEmpty(number, 'number');
+    async update(context, number, product) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        return Service
-            .post(context, `${Constants.Product.ENDPOINT_PATH}/${number}`, product.asPropertiesMap(), Product);
+        const { data: { items: { item: [item] } } } = await Service
+            .post(context, `${Constants.Product.ENDPOINT_PATH}/${number}`, product.asPropertiesMap());
+
+        return itemToProduct(item);
     },
 
     /**
@@ -126,11 +135,10 @@ export default {
      * @returns {Promise}
      */
     delete(context, number, forceCascade) {
-        CheckUtils.paramNotEmpty(number, 'number');
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
         const queryParams = { forceCascade: Boolean(forceCascade) };
 
-        return Service
-            .delete(context, `${Constants.Product.ENDPOINT_PATH}/${number}`, queryParams);
+        return Service.delete(context, `${Constants.Product.ENDPOINT_PATH}/${number}`, queryParams);
     },
 };

@@ -5,11 +5,12 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-import Transaction from '../entities/Transaction';
 import Constants from '../Constants';
 import Service from './Service';
 import CheckUtils from '../util/CheckUtils';
 import FilterUtils from '../util/FilterUtils';
+import itemToTransaction from '../converters/itemToTransaction';
+import Page from '../vo/Page';
 
 /**
  * JS representation of the Transaction Service. See NetLicensingAPI for details:
@@ -41,9 +42,11 @@ export default {
      * return the newly created transaction object in promise
      * @returns {Promise}
      */
-    create(context, transaction) {
-        return Service
-            .post(context, Constants.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap(), Transaction);
+    async create(context, transaction) {
+        const { data: { items: { item: [item] } } } = await Service
+            .post(context, Constants.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap());
+
+        return itemToTransaction(item);
     },
 
     /**
@@ -59,11 +62,13 @@ export default {
      * return the transaction in promise
      * @returns {Promise}
      */
-    get(context, number) {
-        CheckUtils.paramNotEmpty(number, 'number');
+    async get(context, number) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        return Service
-            .get(context, `${Constants.Transaction.ENDPOINT_PATH}/${number}`, {}, Transaction);
+        const { data: { items: { item: [item] } } } = await Service
+            .get(context, `${Constants.Transaction.ENDPOINT_PATH}/${number}`);
+
+        return itemToTransaction(item);
     },
 
     /**
@@ -79,18 +84,26 @@ export default {
      * array of transaction entities or empty array if nothing found in promise.
      * @returns {Promise}
      */
-    list(context, filter) {
+    async list(context, filter) {
         const queryParams = {};
 
         if (filter) {
             if (!CheckUtils.isValid(filter)) {
                 throw new TypeError(`filter has bad value ${filter}`);
             }
-            queryParams.filter = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
+            queryParams[Constants.FILTER] = typeof filter === 'string' ? filter : FilterUtils.encode(filter);
         }
 
-        return Service
-            .list(context, Constants.Transaction.ENDPOINT_PATH, queryParams, Transaction);
+        const { data } = await Service
+            .get(context, Constants.Transaction.ENDPOINT_PATH, queryParams);
+
+        return Page(
+            data.items.item.map(v => itemToTransaction(v)),
+            data.items.pagenumber,
+            data.items.itemsnumber,
+            data.items.totalpages,
+            data.items.totalitems,
+        );
     },
 
     /**
@@ -109,12 +122,12 @@ export default {
      * return updated transaction in promise.
      * @returns {Promise}
      */
-    update(context, number, transaction) {
-        CheckUtils.paramNotEmpty(number, 'number');
+    async update(context, number, transaction) {
+        CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        const path = `${Constants.Transaction.ENDPOINT_PATH}/${number}`;
+        const { data: { items: { item: [item] } } } = await Service
+            .post(context, `${Constants.Transaction.ENDPOINT_PATH}/${number}`, transaction.asPropertiesMap());
 
-        return Service
-            .post(context, path, transaction.asPropertiesMap(), Transaction);
+        return itemToTransaction(item);
     },
 };
