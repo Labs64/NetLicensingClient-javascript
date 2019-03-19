@@ -99,21 +99,8 @@ export default class Service {
             throw new Error('Base url must be specified');
         }
 
-        if (!Service.isValidUrl(String(context.getBaseUrl()))) {
-            throw new Error(`Base url "${context.getBaseUrl()}" is not a valid URL`);
-        }
-
-        let restUrl = `${context.getBaseUrl()}/${urlTemplate}`;
-
-        restUrl = restUrl.replace(/([^:]\/)\/+/g, '$1');
-
-        // validate baseUrl +  urlTemplate
-        if (!Service.isValidUrl(String(restUrl))) {
-            throw new Error(`Rest url "${restUrl}" is not a valid URL`);
-        }
-
         const request = {
-            url: restUrl,
+            url: encodeURI(`${context.getBaseUrl()}/${template}`),
             method: method.toLowerCase(),
             responseType: 'json',
             headers: {},
