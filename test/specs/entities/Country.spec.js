@@ -107,64 +107,6 @@ describe('entities/Country', () => {
         expect(country.getProperty('isEu')).toBe(false);
     });
 
-    it('check throwable error if property value is typeof "function"', () => {
-        const func = () => {};
-
-        expect(() => { country.setProperty('code', func); }).toThrowError(TypeError);
-        expect(() => { country.setCode(func); }).toThrowError(TypeError);
-        expect(() => { country.setName(func); }).toThrowError(TypeError);
-        expect(() => { country.setVatPercent(func); }).toThrowError(TypeError);
-        expect(() => { country.setIsEu(func); }).toThrowError(TypeError);
-
-
-        expect(() => { country.code = func; }).toThrowError(TypeError);
-        expect(() => { country.name = func; }).toThrowError(TypeError);
-        expect(() => { country.vatPercent = func; }).toThrowError(TypeError);
-        expect(() => { country.isEu = func; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "undefined"', () => {
-        expect(() => { country.setProperty('code', undefined); }).toThrowError(TypeError);
-        expect(() => { country.setCode(undefined); }).toThrowError(TypeError);
-        expect(() => { country.setName(undefined); }).toThrowError(TypeError);
-        expect(() => { country.setVatPercent(undefined); }).toThrowError(TypeError);
-        expect(() => { country.setIsEu(undefined); }).toThrowError(TypeError);
-
-
-        expect(() => { country.code = undefined; }).toThrowError(TypeError);
-        expect(() => { country.name = undefined; }).toThrowError(TypeError);
-        expect(() => { country.vatPercent = undefined; }).toThrowError(TypeError);
-        expect(() => { country.isEu = undefined; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "NaN"', () => {
-        expect(() => { country.setProperty('code', NaN); }).toThrowError(TypeError);
-        expect(() => { country.setCode(NaN); }).toThrowError(TypeError);
-        expect(() => { country.setName(NaN); }).toThrowError(TypeError);
-        expect(() => { country.setVatPercent(NaN); }).toThrowError(TypeError);
-        expect(() => { country.setIsEu(NaN); }).toThrowError(TypeError);
-
-
-        expect(() => { country.code = NaN; }).toThrowError(TypeError);
-        expect(() => { country.name = NaN; }).toThrowError(TypeError);
-        expect(() => { country.vatPercent = NaN; }).toThrowError(TypeError);
-        expect(() => { country.isEu = NaN; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "Infinity"', () => {
-        expect(() => { country.setProperty('code', Infinity); }).toThrowError(TypeError);
-        expect(() => { country.setCode(Infinity); }).toThrowError(TypeError);
-        expect(() => { country.setName(Infinity); }).toThrowError(TypeError);
-        expect(() => { country.setVatPercent(Infinity); }).toThrowError(TypeError);
-        expect(() => { country.setIsEu(Infinity); }).toThrowError(TypeError);
-
-
-        expect(() => { country.code = Infinity; }).toThrowError(TypeError);
-        expect(() => { country.name = Infinity; }).toThrowError(TypeError);
-        expect(() => { country.vatPercent = Infinity; }).toThrowError(TypeError);
-        expect(() => { country.isEu = Infinity; }).toThrowError(TypeError);
-    });
-
     it('check "removeProperty" method', () => {
         country.setProperty('code', 'EU');
         country.removeProperty('code');

@@ -48,8 +48,6 @@ export default class Licensee extends BaseEntity {
                 markedForTransfer: 'boolean',
                 inUse: 'boolean',
             },
-            // The attributes that should have read-only access.
-            readOnly: ['inUse'],
         });
 
         // define default entity properties

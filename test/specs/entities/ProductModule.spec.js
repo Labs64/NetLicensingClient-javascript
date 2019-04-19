@@ -144,18 +144,10 @@ describe('entities/ProductModule', () => {
     });
 
     it('check "inUse" property setters/getters', () => {
-        expect(() => { productModule.inUse = true; }).toThrowError(TypeError);
-
-        expect(productModule.getProperty('inUse')).toBe(undefined);
-        expect(productModule.getInUse()).toBe(undefined);
-        expect(productModule.inUse).toBe(undefined);
-
         productModule.setProperty('inUse', true);
         expect(productModule.getProperty('inUse')).toBe(true);
         expect(productModule.getInUse()).toBe(true);
         expect(productModule.inUse).toBe(true);
-
-        expect(() => { productModule.setProperty('inUse', true); }).toThrowError(TypeError);
     });
 
     it('check "custom-property" property setters/getters', () => {
@@ -226,92 +218,6 @@ describe('entities/ProductModule', () => {
         expect(productModule.getProperty('licenseTemplate')).toBe('1');
         productModule.setProperty('licenseTemplate', true);
         expect(productModule.getProperty('licenseTemplate')).toBe('true');
-    });
-
-    it('check throwable error if property value is typeof "function"', () => {
-        const func = () => {};
-
-        expect(() => { productModule.setProperty('number', func); }).toThrowError(TypeError);
-        expect(() => { productModule.setNumber(func); }).toThrowError(TypeError);
-        expect(() => { productModule.setName(func); }).toThrowError(TypeError);
-        expect(() => { productModule.setActive(func); }).toThrowError(TypeError);
-        expect(() => { productModule.setLicensingModel(func); }).toThrowError(TypeError);
-        expect(() => { productModule.setMaxCheckoutValidity(func); }).toThrowError(TypeError);
-        expect(() => { productModule.setYellowThreshold(func); }).toThrowError(TypeError);
-        expect(() => { productModule.setRedThreshold(func); }).toThrowError(TypeError);
-        expect(() => { productModule.setLicenseTemplate(func); }).toThrowError(TypeError);
-
-        expect(() => { productModule.number = func; }).toThrowError(TypeError);
-        expect(() => { productModule.name = func; }).toThrowError(TypeError);
-        expect(() => { productModule.active = func; }).toThrowError(TypeError);
-        expect(() => { productModule.licensingModel = func; }).toThrowError(TypeError);
-        expect(() => { productModule.maxCheckoutValidity = func; }).toThrowError(TypeError);
-        expect(() => { productModule.yellowThreshold = func; }).toThrowError(TypeError);
-        expect(() => { productModule.redThreshold = func; }).toThrowError(TypeError);
-        expect(() => { productModule.licenseTemplate = func; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is "undefined"', () => {
-        expect(() => { productModule.setProperty('number', undefined); }).toThrowError(TypeError);
-        expect(() => { productModule.setNumber(undefined); }).toThrowError(TypeError);
-        expect(() => { productModule.setName(undefined); }).toThrowError(TypeError);
-        expect(() => { productModule.setActive(undefined); }).toThrowError(TypeError);
-        expect(() => { productModule.setLicensingModel(undefined); }).toThrowError(TypeError);
-        expect(() => { productModule.setMaxCheckoutValidity(undefined); }).toThrowError(TypeError);
-        expect(() => { productModule.setYellowThreshold(undefined); }).toThrowError(TypeError);
-        expect(() => { productModule.setRedThreshold(undefined); }).toThrowError(TypeError);
-        expect(() => { productModule.setLicenseTemplate(undefined); }).toThrowError(TypeError);
-
-        expect(() => { productModule.number = undefined; }).toThrowError(TypeError);
-        expect(() => { productModule.name = undefined; }).toThrowError(TypeError);
-        expect(() => { productModule.active = undefined; }).toThrowError(TypeError);
-        expect(() => { productModule.licensingModel = undefined; }).toThrowError(TypeError);
-        expect(() => { productModule.maxCheckoutValidity = undefined; }).toThrowError(TypeError);
-        expect(() => { productModule.yellowThreshold = undefined; }).toThrowError(TypeError);
-        expect(() => { productModule.redThreshold = undefined; }).toThrowError(TypeError);
-        expect(() => { productModule.licenseTemplate = undefined; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is "NaN"', () => {
-        expect(() => { productModule.setProperty('number', NaN); }).toThrowError(TypeError);
-        expect(() => { productModule.setNumber(NaN); }).toThrowError(TypeError);
-        expect(() => { productModule.setName(NaN); }).toThrowError(TypeError);
-        expect(() => { productModule.setActive(NaN); }).toThrowError(TypeError);
-        expect(() => { productModule.setLicensingModel(NaN); }).toThrowError(TypeError);
-        expect(() => { productModule.setMaxCheckoutValidity(NaN); }).toThrowError(TypeError);
-        expect(() => { productModule.setYellowThreshold(NaN); }).toThrowError(TypeError);
-        expect(() => { productModule.setRedThreshold(NaN); }).toThrowError(TypeError);
-        expect(() => { productModule.setLicenseTemplate(NaN); }).toThrowError(TypeError);
-
-        expect(() => { productModule.number = NaN; }).toThrowError(TypeError);
-        expect(() => { productModule.name = NaN; }).toThrowError(TypeError);
-        expect(() => { productModule.active = NaN; }).toThrowError(TypeError);
-        expect(() => { productModule.licensingModel = NaN; }).toThrowError(TypeError);
-        expect(() => { productModule.maxCheckoutValidity = NaN; }).toThrowError(TypeError);
-        expect(() => { productModule.yellowThreshold = NaN; }).toThrowError(TypeError);
-        expect(() => { productModule.redThreshold = NaN; }).toThrowError(TypeError);
-        expect(() => { productModule.licenseTemplate = NaN; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is "Infinity"', () => {
-        expect(() => { productModule.setProperty('number', Infinity); }).toThrowError(TypeError);
-        expect(() => { productModule.setNumber(Infinity); }).toThrowError(TypeError);
-        expect(() => { productModule.setName(Infinity); }).toThrowError(TypeError);
-        expect(() => { productModule.setActive(Infinity); }).toThrowError(TypeError);
-        expect(() => { productModule.setLicensingModel(Infinity); }).toThrowError(TypeError);
-        expect(() => { productModule.setMaxCheckoutValidity(Infinity); }).toThrowError(TypeError);
-        expect(() => { productModule.setYellowThreshold(Infinity); }).toThrowError(TypeError);
-        expect(() => { productModule.setRedThreshold(Infinity); }).toThrowError(TypeError);
-        expect(() => { productModule.setLicenseTemplate(Infinity); }).toThrowError(TypeError);
-
-        expect(() => { productModule.number = Infinity; }).toThrowError(TypeError);
-        expect(() => { productModule.name = Infinity; }).toThrowError(TypeError);
-        expect(() => { productModule.active = Infinity; }).toThrowError(TypeError);
-        expect(() => { productModule.licensingModel = Infinity; }).toThrowError(TypeError);
-        expect(() => { productModule.maxCheckoutValidity = Infinity; }).toThrowError(TypeError);
-        expect(() => { productModule.yellowThreshold = Infinity; }).toThrowError(TypeError);
-        expect(() => { productModule.redThreshold = Infinity; }).toThrowError(TypeError);
-        expect(() => { productModule.licenseTemplate = Infinity; }).toThrowError(TypeError);
     });
 
     it('check "removeProperty" method', () => {

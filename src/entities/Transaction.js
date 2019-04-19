@@ -62,24 +62,7 @@ export default class Transaction extends BaseEntity {
                 active: 'boolean',
                 paymentMethod: 'string',
             },
-            // The attributes that should have read-only access.
-            readOnly: ['active'],
         });
-
-        // define default entity properties
-        this.defines([
-            'number',
-            'name',
-            'status',
-            'source',
-            'grandTotal',
-            'discount',
-            'currency',
-            'dateCreated',
-            'dateClosed',
-            'paymentMethod',
-            'licenseTransactionJoins',
-        ]);
     }
 
     setNumber(number) {

@@ -58,22 +58,7 @@ export default class ProductModule extends BaseEntity {
                 licenseTemplate: 'string',
                 inUse: 'boolean',
             },
-            // The attributes that should have read-only access.
-            readOnly: ['inUse'],
         });
-
-        // define default entity properties
-        this.defines([
-            'number',
-            'active',
-            'name',
-            'licensingModel',
-            'maxCheckoutValidity',
-            'yellowThreshold',
-            'redThreshold',
-            'licenseTemplate',
-            'inUse',
-        ]);
     }
 
     setNumber(number) {

@@ -81,52 +81,6 @@ describe('entities/PaymentMethod', () => {
         expect(paymentMethod.getProperty('paypal.subject')).toBe('true');
     });
 
-    it('check throwable error if property value is typeof "function"', () => {
-        const func = () => {};
-
-        expect(() => { paymentMethod.setProperty('number', func); }).toThrowError(TypeError);
-        expect(() => { paymentMethod.setNumber(func); }).toThrowError(TypeError);
-        expect(() => { paymentMethod.setActive(func); }).toThrowError(TypeError);
-        expect(() => { paymentMethod.setPaypalSubject(func); }).toThrowError(TypeError);
-
-        expect(() => { paymentMethod.number = func; }).toThrowError(TypeError);
-        expect(() => { paymentMethod.active = func; }).toThrowError(TypeError);
-        expect(() => { paymentMethod['paypal.subject'] = func; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is "undefined"', () => {
-        expect(() => { paymentMethod.setProperty('number', undefined); }).toThrowError(TypeError);
-        expect(() => { paymentMethod.setNumber(undefined); }).toThrowError(TypeError);
-        expect(() => { paymentMethod.setActive(undefined); }).toThrowError(TypeError);
-        expect(() => { paymentMethod.setPaypalSubject(undefined); }).toThrowError(TypeError);
-
-        expect(() => { paymentMethod.number = undefined; }).toThrowError(TypeError);
-        expect(() => { paymentMethod.active = undefined; }).toThrowError(TypeError);
-        expect(() => { paymentMethod['paypal.subject'] = undefined; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is "NaN"', () => {
-        expect(() => { paymentMethod.setProperty('number', NaN); }).toThrowError(TypeError);
-        expect(() => { paymentMethod.setNumber(NaN); }).toThrowError(TypeError);
-        expect(() => { paymentMethod.setActive(NaN); }).toThrowError(TypeError);
-        expect(() => { paymentMethod.setPaypalSubject(NaN); }).toThrowError(TypeError);
-
-        expect(() => { paymentMethod.number = NaN; }).toThrowError(TypeError);
-        expect(() => { paymentMethod.active = NaN; }).toThrowError(TypeError);
-        expect(() => { paymentMethod['paypal.subject'] = NaN; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is "Infinity"', () => {
-        expect(() => { paymentMethod.setProperty('number', Infinity); }).toThrowError(TypeError);
-        expect(() => { paymentMethod.setNumber(Infinity); }).toThrowError(TypeError);
-        expect(() => { paymentMethod.setActive(Infinity); }).toThrowError(TypeError);
-        expect(() => { paymentMethod.setPaypalSubject(Infinity); }).toThrowError(TypeError);
-
-        expect(() => { paymentMethod.number = Infinity; }).toThrowError(TypeError);
-        expect(() => { paymentMethod.active = Infinity; }).toThrowError(TypeError);
-        expect(() => { paymentMethod['paypal.subject'] = Infinity; }).toThrowError(TypeError);
-    });
-
     it('check "removeProperty" method', () => {
         paymentMethod.setProperty('number', 'number');
         paymentMethod.removeProperty('number');

@@ -38,11 +38,10 @@ const castsMap = new WeakMap();
 const readOnlyMap = new WeakMap();
 
 export default class BaseEntity {
-    constructor({ properties, casts, readOnly }) {
+    constructor({ properties, casts }) {
         propertiesMap.set(this, {});
         definedMap.set(this, {});
         castsMap.set(this, casts || []);
-        readOnlyMap.set(this, readOnly || []);
 
         if (properties) {
             this.setProperties(properties);
@@ -56,27 +55,12 @@ export default class BaseEntity {
      * @returns {BaseEntity}
      */
     setProperty(property, value) {
-        // if property has read-only access and was initialized at least once
-        if (this.hasProperty(property) && this.isPropertyReadOnly(property)) {
-            throw new TypeError(`Property ${property} has read-only access`);
-        }
-
         // if property name has bad native type
         if (!CheckUtils.isValid(property) || typeof property === 'object') {
             throw new TypeError(`Bad property name:${property}`);
         }
 
-        // if property value has bad native type
-        if (!CheckUtils.isValid(value)) {
-            throw new TypeError(`Property ${property} has bad value ${value}`);
-        }
-
         const castedValue = this.cast(property, value);
-
-        // check if property value after cast has bad native type
-        if (!CheckUtils.isValid(value)) {
-            throw new TypeError(`Property ${property} has bad cast value ${castedValue}`);
-        }
 
         // define to property
         this.define(property);
@@ -169,10 +153,6 @@ export default class BaseEntity {
         });
     }
 
-    isPropertyReadOnly(property) {
-        return readOnlyMap.get(this).indexOf(property) >= 0;
-    }
-
     cast(property, value) {
         if (!castsMap.get(this)[property]) return value;
 
@@ -213,9 +193,7 @@ export default class BaseEntity {
             },
         };
 
-        if (!this.isPropertyReadOnly(property)) {
-            descriptors.set = value => self.setProperty(property, value);
-        }
+        descriptors.set = value => self.setProperty(property, value);
 
         const defined = definedMap.get(this);
         defined[property] = true;
@@ -260,7 +238,6 @@ export default class BaseEntity {
 
         Object.keys(this).forEach((key) => {
             if (!has.call(this, key)) return;
-            if (!CheckUtils.isValid(this[key])) return;
 
             customProperties[key] = this[key];
         });

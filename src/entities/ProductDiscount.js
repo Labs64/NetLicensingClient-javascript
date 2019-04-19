@@ -18,9 +18,6 @@ export default class ProductDiscount extends BaseEntity {
                 amountPercent: 'int',
             },
         });
-
-        // define default entity properties
-        this.defines(['totalPrice', 'currency', 'amountFix', 'amountPercent']);
     }
 
     setTotalPrice(totalPrice) {

@@ -121,60 +121,6 @@ describe('entities/ProductDiscount', () => {
         expect(productDiscount.getProperty('amountPercent')).toBe(15);
     });
 
-    it('check throwable error if property value is typeof "function"', () => {
-        const func = () => {};
-
-        expect(() => { productDiscount.setTotalPrice(func); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setNumber(func); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setCurrency(func); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setAmountFix(func); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setAmountPercent(func); }).toThrowError(TypeError);
-
-        expect(() => { productDiscount.totalPrice = func; }).toThrowError(TypeError);
-        expect(() => { productDiscount.currency = func; }).toThrowError(TypeError);
-        expect(() => { productDiscount.amountFix = func; }).toThrowError(TypeError);
-        expect(() => { productDiscount.amountPercent = func; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "undefined"', () => {
-        expect(() => { productDiscount.setTotalPrice(undefined); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setNumber(undefined); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setCurrency(undefined); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setAmountFix(undefined); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setAmountPercent(undefined); }).toThrowError(TypeError);
-
-        expect(() => { productDiscount.totalPrice = undefined; }).toThrowError(TypeError);
-        expect(() => { productDiscount.currency = undefined; }).toThrowError(TypeError);
-        expect(() => { productDiscount.amountFix = undefined; }).toThrowError(TypeError);
-        expect(() => { productDiscount.amountPercent = undefined; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "NaN"', () => {
-        expect(() => { productDiscount.setTotalPrice(NaN); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setNumber(NaN); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setCurrency(NaN); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setAmountFix(NaN); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setAmountPercent(NaN); }).toThrowError(TypeError);
-
-        expect(() => { productDiscount.totalPrice = NaN; }).toThrowError(TypeError);
-        expect(() => { productDiscount.currency = NaN; }).toThrowError(TypeError);
-        expect(() => { productDiscount.amountFix = NaN; }).toThrowError(TypeError);
-        expect(() => { productDiscount.amountPercent = NaN; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "Infinity"', () => {
-        expect(() => { productDiscount.setTotalPrice(Infinity); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setNumber(Infinity); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setCurrency(Infinity); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setAmountFix(Infinity); }).toThrowError(TypeError);
-        expect(() => { productDiscount.setAmountPercent(Infinity); }).toThrowError(TypeError);
-
-        expect(() => { productDiscount.totalPrice = Infinity; }).toThrowError(TypeError);
-        expect(() => { productDiscount.currency = Infinity; }).toThrowError(TypeError);
-        expect(() => { productDiscount.amountFix = Infinity; }).toThrowError(TypeError);
-        expect(() => { productDiscount.amountPercent = Infinity; }).toThrowError(TypeError);
-    });
-
     it('check "removeProperty" method', () => {
         productDiscount.setProperty('totalPrice', 10);
         productDiscount.removeProperty('totalPrice');

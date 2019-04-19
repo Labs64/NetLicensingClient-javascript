@@ -229,18 +229,10 @@ describe('entities/LicenseTemplate', () => {
     });
 
     it('check "inUse" property setters/getters', () => {
-        expect(() => { licenseTemplate.inUse = true; }).toThrowError(TypeError);
-
-        expect(licenseTemplate.getProperty('inUse')).toBe(undefined);
-        expect(licenseTemplate.getInUse()).toBe(undefined);
-        expect(licenseTemplate.inUse).toBe(undefined);
-
         licenseTemplate.setProperty('inUse', true);
         expect(licenseTemplate.getProperty('inUse')).toBe(true);
         expect(licenseTemplate.getInUse()).toBe(true);
         expect(licenseTemplate.inUse).toBe(true);
-
-        expect(() => { licenseTemplate.setProperty('inUse', false); }).toThrowError(TypeError);
     });
 
     it('check "custom-property" property setters/getters', () => {
@@ -348,124 +340,6 @@ describe('entities/LicenseTemplate', () => {
         expect(licenseTemplate.getProperty('quantity')).toBe(15);
         licenseTemplate.setProperty('quantity', '15e2');
         expect(licenseTemplate.getProperty('quantity')).toBe(15);
-    });
-
-    it('check throwable error if property value is typeof "function"', () => {
-        const func = () => {};
-
-        expect(() => { licenseTemplate.setProperty('number', func); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setNumber(func); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setName(func); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setActive(func); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setLicenseType(func); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setPrice(func); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setCurrency(func); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setAutomatic(func); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setHidden(func); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setHideLicenses(func); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setTimeVolume(func); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setMaxSessions(func); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setQuantity(func); }).toThrowError(TypeError);
-
-        expect(() => { licenseTemplate.number = func; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.name = func; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.active = func; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.licenseType = func; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.price = func; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.currency = func; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.automatic = func; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.hidden = func; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.hideLicenses = func; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.timeVolume = func; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.maxSessions = func; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.quantity = func; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "undefined"', () => {
-        expect(() => { licenseTemplate.setProperty('number', undefined); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setNumber(undefined); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setName(undefined); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setActive(undefined); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setLicenseType(undefined); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setPrice(undefined); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setCurrency(undefined); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setAutomatic(undefined); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setHidden(undefined); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setHideLicenses(undefined); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setTimeVolume(undefined); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setMaxSessions(undefined); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setQuantity(undefined); }).toThrowError(TypeError);
-
-        expect(() => { licenseTemplate.number = undefined; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.name = undefined; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.active = undefined; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.licenseType = undefined; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.price = undefined; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.currency = undefined; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.automatic = undefined; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.hidden = undefined; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.hideLicenses = undefined; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.timeVolume = undefined; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.maxSessions = undefined; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.quantity = undefined; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "NaN"', () => {
-        expect(() => { licenseTemplate.setProperty('number', NaN); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setNumber(NaN); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setName(NaN); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setActive(NaN); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setLicenseType(NaN); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setPrice(NaN); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setCurrency(NaN); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setAutomatic(NaN); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setHidden(NaN); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setHideLicenses(NaN); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setTimeVolume(NaN); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setMaxSessions(NaN); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setQuantity(NaN); }).toThrowError(TypeError);
-
-        expect(() => { licenseTemplate.number = NaN; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.name = NaN; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.active = NaN; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.licenseType = NaN; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.price = NaN; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.currency = NaN; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.automatic = NaN; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.hidden = NaN; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.hideLicenses = NaN; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.timeVolume = NaN; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.maxSessions = NaN; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.quantity = NaN; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "Infinity"', () => {
-        expect(() => { licenseTemplate.setProperty('number', Infinity); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setNumber(Infinity); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setName(Infinity); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setActive(Infinity); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setLicenseType(Infinity); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setPrice(Infinity); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setCurrency(Infinity); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setAutomatic(Infinity); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setHidden(Infinity); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setHideLicenses(Infinity); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setTimeVolume(Infinity); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setMaxSessions(Infinity); }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.setQuantity(Infinity); }).toThrowError(TypeError);
-
-        expect(() => { licenseTemplate.number = Infinity; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.name = Infinity; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.active = Infinity; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.licenseType = Infinity; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.price = Infinity; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.currency = Infinity; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.automatic = Infinity; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.hidden = Infinity; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.hideLicenses = Infinity; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.timeVolume = Infinity; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.maxSessions = Infinity; }).toThrowError(TypeError);
-        expect(() => { licenseTemplate.quantity = Infinity; }).toThrowError(TypeError);
     });
 
     it('check "removeProperty" method', () => {

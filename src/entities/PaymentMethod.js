@@ -25,12 +25,7 @@ export default class PaymentMethod extends BaseEntity {
                 active: 'boolean',
                 'paypal.subject': 'string',
             },
-            // The attributes that should have read-only access.
-            readOnly: ['inUse'],
         });
-
-        // define default entity properties
-        this.defines(['number', 'active', 'paypal.subject']);
     }
 
     setNumber(number) {

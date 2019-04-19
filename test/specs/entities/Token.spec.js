@@ -168,18 +168,10 @@ describe('entities/Token', () => {
     });
 
     it('check "shopURL" property setters/getters', () => {
-        expect(() => { token.shopURL = 'http://shop_url_example.com'; }).toThrowError(TypeError);
-
-        expect(token.getProperty('shopURL')).toBe(undefined);
-        expect(token.getShopURL()).toBe(undefined);
-        expect(token.shopURL).toBe(undefined);
-
         token.setProperty('shopURL', 'http://shop_url_example.com');
         expect(token.getProperty('shopURL')).toBe('http://shop_url_example.com');
         expect(token.getShopURL()).toBe('http://shop_url_example.com');
         expect(token.shopURL).toBe('http://shop_url_example.com');
-
-        expect(() => { token.setProperty('shopURL', 'http://shop_url_example.com'); }).toThrowError(TypeError);
     });
 
     it('check cast an properties to a native js type', () => {
@@ -247,104 +239,6 @@ describe('entities/Token', () => {
         token = new Token();
         token.setProperty('shopURL', true);
         expect(token.getProperty('shopURL')).toBe('true');
-    });
-
-    it('check throwable error if property value is typeof "function"', () => {
-        const func = () => {};
-
-        expect(() => { token.setProperty('number', func); }).toThrowError(TypeError);
-        expect(() => { token.setActive(func); }).toThrowError(TypeError);
-        expect(() => { token.setExpirationTime(func); }).toThrowError(TypeError);
-        expect(() => { token.setVendorNumber(func); }).toThrowError(TypeError);
-        expect(() => { token.setTokenType(func); }).toThrowError(TypeError);
-        expect(() => { token.setLicenseeNumber(func); }).toThrowError(TypeError);
-        expect(() => { token.setSuccessURL(func); }).toThrowError(TypeError);
-        expect(() => { token.setSuccessURLTitle(func); }).toThrowError(TypeError);
-        expect(() => { token.setCancelURL(func); }).toThrowError(TypeError);
-        expect(() => { token.setCancelURLTitle(func); }).toThrowError(TypeError);
-        expect(() => { token.setProperty('shopURL', func); }).toThrowError(TypeError);
-
-        expect(() => { token.active = func; }).toThrowError(TypeError);
-        expect(() => { token.expirationTime = func; }).toThrowError(TypeError);
-        expect(() => { token.vendorNumber = func; }).toThrowError(TypeError);
-        expect(() => { token.tokenType = func; }).toThrowError(TypeError);
-        expect(() => { token.licenseeNumber = func; }).toThrowError(TypeError);
-        expect(() => { token.successURL = func; }).toThrowError(TypeError);
-        expect(() => { token.successURLTitle = func; }).toThrowError(TypeError);
-        expect(() => { token.cancelURL = func; }).toThrowError(TypeError);
-        expect(() => { token.cancelURLTitle = func; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "undefined"', () => {
-        expect(() => { token.setProperty('number', undefined); }).toThrowError(TypeError);
-        expect(() => { token.setActive(undefined); }).toThrowError(TypeError);
-        expect(() => { token.setExpirationTime(undefined); }).toThrowError(TypeError);
-        expect(() => { token.setVendorNumber(undefined); }).toThrowError(TypeError);
-        expect(() => { token.setTokenType(undefined); }).toThrowError(TypeError);
-        expect(() => { token.setLicenseeNumber(undefined); }).toThrowError(TypeError);
-        expect(() => { token.setSuccessURL(undefined); }).toThrowError(TypeError);
-        expect(() => { token.setSuccessURLTitle(undefined); }).toThrowError(TypeError);
-        expect(() => { token.setCancelURL(undefined); }).toThrowError(TypeError);
-        expect(() => { token.setCancelURLTitle(undefined); }).toThrowError(TypeError);
-        expect(() => { token.setProperty('shopURL', undefined); }).toThrowError(TypeError);
-
-        expect(() => { token.active = undefined; }).toThrowError(TypeError);
-        expect(() => { token.expirationTime = undefined; }).toThrowError(TypeError);
-        expect(() => { token.vendorNumber = undefined; }).toThrowError(TypeError);
-        expect(() => { token.tokenType = undefined; }).toThrowError(TypeError);
-        expect(() => { token.licenseeNumber = undefined; }).toThrowError(TypeError);
-        expect(() => { token.successURL = undefined; }).toThrowError(TypeError);
-        expect(() => { token.successURLTitle = undefined; }).toThrowError(TypeError);
-        expect(() => { token.cancelURL = undefined; }).toThrowError(TypeError);
-        expect(() => { token.cancelURLTitle = undefined; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "NaN"', () => {
-        expect(() => { token.setProperty('number', NaN); }).toThrowError(TypeError);
-        expect(() => { token.setActive(NaN); }).toThrowError(TypeError);
-        expect(() => { token.setExpirationTime(NaN); }).toThrowError(TypeError);
-        expect(() => { token.setVendorNumber(NaN); }).toThrowError(TypeError);
-        expect(() => { token.setTokenType(NaN); }).toThrowError(TypeError);
-        expect(() => { token.setLicenseeNumber(NaN); }).toThrowError(TypeError);
-        expect(() => { token.setSuccessURL(NaN); }).toThrowError(TypeError);
-        expect(() => { token.setSuccessURLTitle(NaN); }).toThrowError(TypeError);
-        expect(() => { token.setCancelURL(NaN); }).toThrowError(TypeError);
-        expect(() => { token.setCancelURLTitle(NaN); }).toThrowError(TypeError);
-        expect(() => { token.setProperty('shopURL', NaN); }).toThrowError(TypeError);
-
-        expect(() => { token.active = NaN; }).toThrowError(TypeError);
-        expect(() => { token.expirationTime = NaN; }).toThrowError(TypeError);
-        expect(() => { token.vendorNumber = NaN; }).toThrowError(TypeError);
-        expect(() => { token.tokenType = NaN; }).toThrowError(TypeError);
-        expect(() => { token.licenseeNumber = NaN; }).toThrowError(TypeError);
-        expect(() => { token.successURL = NaN; }).toThrowError(TypeError);
-        expect(() => { token.successURLTitle = NaN; }).toThrowError(TypeError);
-        expect(() => { token.cancelURL = NaN; }).toThrowError(TypeError);
-        expect(() => { token.cancelURLTitle = NaN; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "Infinity"', () => {
-        expect(() => { token.setProperty('number', Infinity); }).toThrowError(TypeError);
-        expect(() => { token.setActive(Infinity); }).toThrowError(TypeError);
-        expect(() => { token.setExpirationTime(Infinity); }).toThrowError(TypeError);
-        expect(() => { token.setVendorNumber(Infinity); }).toThrowError(TypeError);
-        expect(() => { token.setTokenType(Infinity); }).toThrowError(TypeError);
-        expect(() => { token.setLicenseeNumber(Infinity); }).toThrowError(TypeError);
-        expect(() => { token.setSuccessURL(Infinity); }).toThrowError(TypeError);
-        expect(() => { token.setSuccessURLTitle(Infinity); }).toThrowError(TypeError);
-        expect(() => { token.setCancelURL(Infinity); }).toThrowError(TypeError);
-        expect(() => { token.setCancelURLTitle(Infinity); }).toThrowError(TypeError);
-        expect(() => { token.setProperty('shopURL', Infinity); }).toThrowError(TypeError);
-
-        expect(() => { token.active = Infinity; }).toThrowError(TypeError);
-        expect(() => { token.expirationTime = Infinity; }).toThrowError(TypeError);
-        expect(() => { token.vendorNumber = Infinity; }).toThrowError(TypeError);
-        expect(() => { token.tokenType = Infinity; }).toThrowError(TypeError);
-        expect(() => { token.licenseeNumber = Infinity; }).toThrowError(TypeError);
-        expect(() => { token.successURL = Infinity; }).toThrowError(TypeError);
-        expect(() => { token.successURLTitle = Infinity; }).toThrowError(TypeError);
-        expect(() => { token.cancelURL = Infinity; }).toThrowError(TypeError);
-        expect(() => { token.cancelURLTitle = Infinity; }).toThrowError(TypeError);
     });
 
     it('check "removeProperty" method', () => {

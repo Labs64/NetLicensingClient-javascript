@@ -93,18 +93,10 @@ describe('entities/Licensee', () => {
     });
 
     it('check "inUse" property setters/getters', () => {
-        expect(() => { licensee.inUse = true; }).toThrowError(TypeError);
-
-        expect(licensee.getProperty('inUse')).toBe(undefined);
-        expect(licensee.getInUse()).toBe(undefined);
-        expect(licensee.inUse).toBe(undefined);
-
         licensee.setProperty('inUse', true);
         expect(licensee.getProperty('inUse')).toBe(true);
         expect(licensee.getInUse()).toBe(true);
         expect(licensee.inUse).toBe(true);
-
-        expect(() => { licensee.setProperty('inUse', false); }).toThrowError(TypeError);
     });
 
     it('check "custom-property" property setters/getters', () => {
@@ -154,68 +146,6 @@ describe('entities/Licensee', () => {
         expect(licensee.getProperty('markedForTransfer')).toBe(true);
         licensee.setProperty('markedForTransfer', null);
         expect(licensee.getProperty('markedForTransfer')).toBe(false);
-    });
-
-    it('check throwable error if property value is typeof "function"', () => {
-        const func = () => {};
-
-        expect(() => { licensee.setProperty('number', func); }).toThrowError(TypeError);
-        expect(() => { licensee.setNumber(func); }).toThrowError(TypeError);
-        expect(() => { licensee.setName(func); }).toThrowError(TypeError);
-        expect(() => { licensee.setActive(func); }).toThrowError(TypeError);
-        expect(() => { licensee.setLicenseeSecret(func); }).toThrowError(TypeError);
-        expect(() => { licensee.setMarkedForTransfer(func); }).toThrowError(TypeError);
-
-        expect(() => { licensee.number = func; }).toThrowError(TypeError);
-        expect(() => { licensee.name = func; }).toThrowError(TypeError);
-        expect(() => { licensee.active = func; }).toThrowError(TypeError);
-        expect(() => { licensee.licenseeSecret = func; }).toThrowError(TypeError);
-        expect(() => { licensee.markedForTransfer = func; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "undefined"', () => {
-        expect(() => { licensee.setProperty('number', undefined); }).toThrowError(TypeError);
-        expect(() => { licensee.setNumber(undefined); }).toThrowError(TypeError);
-        expect(() => { licensee.setName(undefined); }).toThrowError(TypeError);
-        expect(() => { licensee.setActive(undefined); }).toThrowError(TypeError);
-        expect(() => { licensee.setLicenseeSecret(undefined); }).toThrowError(TypeError);
-        expect(() => { licensee.setMarkedForTransfer(undefined); }).toThrowError(TypeError);
-
-        expect(() => { licensee.number = undefined; }).toThrowError(TypeError);
-        expect(() => { licensee.name = undefined; }).toThrowError(TypeError);
-        expect(() => { licensee.active = undefined; }).toThrowError(TypeError);
-        expect(() => { licensee.licenseeSecret = undefined; }).toThrowError(TypeError);
-        expect(() => { licensee.markedForTransfer = undefined; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "NaN"', () => {
-        expect(() => { licensee.setProperty('number', NaN); }).toThrowError(TypeError);
-        expect(() => { licensee.setNumber(NaN); }).toThrowError(TypeError);
-        expect(() => { licensee.setName(NaN); }).toThrowError(TypeError);
-        expect(() => { licensee.setActive(NaN); }).toThrowError(TypeError);
-        expect(() => { licensee.setLicenseeSecret(NaN); }).toThrowError(TypeError);
-        expect(() => { licensee.setMarkedForTransfer(NaN); }).toThrowError(TypeError);
-
-        expect(() => { licensee.number = NaN; }).toThrowError(TypeError);
-        expect(() => { licensee.name = NaN; }).toThrowError(TypeError);
-        expect(() => { licensee.active = NaN; }).toThrowError(TypeError);
-        expect(() => { licensee.licenseeSecret = NaN; }).toThrowError(TypeError);
-        expect(() => { licensee.markedForTransfer = NaN; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is typeof "Infinity"', () => {
-        expect(() => { licensee.setProperty('number', Infinity); }).toThrowError(TypeError);
-        expect(() => { licensee.setNumber(Infinity); }).toThrowError(TypeError);
-        expect(() => { licensee.setName(Infinity); }).toThrowError(TypeError);
-        expect(() => { licensee.setActive(Infinity); }).toThrowError(TypeError);
-        expect(() => { licensee.setLicenseeSecret(Infinity); }).toThrowError(TypeError);
-        expect(() => { licensee.setMarkedForTransfer(Infinity); }).toThrowError(TypeError);
-
-        expect(() => { licensee.number = Infinity; }).toThrowError(TypeError);
-        expect(() => { licensee.name = Infinity; }).toThrowError(TypeError);
-        expect(() => { licensee.active = Infinity; }).toThrowError(TypeError);
-        expect(() => { licensee.licenseeSecret = Infinity; }).toThrowError(TypeError);
-        expect(() => { licensee.markedForTransfer = Infinity; }).toThrowError(TypeError);
     });
 
     it('check "removeProperty" method', () => {

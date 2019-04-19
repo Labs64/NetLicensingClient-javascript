@@ -32,9 +32,6 @@ export default class Country extends BaseEntity {
                 isEu: 'boolean',
             },
         });
-
-        // define default entity properties
-        this.defines(['code', 'name', 'vatPercent', 'isEu']);
     }
 
     setCode(code) {

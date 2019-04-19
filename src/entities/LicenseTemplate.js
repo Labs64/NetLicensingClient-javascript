@@ -81,8 +81,6 @@ export default class LicenseTemplate extends BaseEntity {
                 quantity: 'int',
                 inUse: 'boolean',
             },
-            // The attributes that should have read-only access.
-            readOnly: ['inUse'],
         });
 
         // define default entity properties

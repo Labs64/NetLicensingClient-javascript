@@ -58,8 +58,6 @@ export default class License extends BaseEntity {
                 startDate: 'date',
                 inUse: 'boolean',
             },
-            // The attributes that should have read-only access.
-            readOnly: ['inUse', 'currency', 'price'],
         });
 
         // define default entity properties

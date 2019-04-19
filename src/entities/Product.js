@@ -76,22 +76,7 @@ export default class Product extends BaseEntity {
                 licenseeSecretMode: 'string',
                 inUse: 'boolean',
             },
-            // The attributes that should have read-only access.
-            readOnly: ['inUse'],
         });
-
-        // define default entity properties
-        this.defines([
-            'number',
-            'active',
-            'name',
-            'version',
-            'description',
-            'licensingInfo',
-            'licenseeAutoCreate',
-            'licenseeSecretMode',
-            'inUse',
-        ]);
 
         discountsMap.set(this, []);
         discountsTouched.set(this, false);

@@ -146,18 +146,10 @@ describe('entities/Product', () => {
     });
 
     it('check "inUse" property setters/getters', () => {
-        expect(() => { product.inUse = true; }).toThrowError(TypeError);
-
-        expect(product.getProperty('inUse')).toBe(undefined);
-        expect(product.getInUse()).toBe(undefined);
-        expect(product.inUse).toBe(undefined);
-
         product.setProperty('inUse', true);
         expect(product.getProperty('inUse')).toBe(true);
         expect(product.getInUse()).toBe(true);
         expect(product.inUse).toBe(true);
-
-        expect(() => { product.setProperty('inUse', false); }).toThrowError(TypeError);
     });
 
     it('check "custom-property" property setters/getters', () => {
@@ -238,84 +230,6 @@ describe('entities/Product', () => {
         expect(product.getProperty('licenseeAutoCreate')).toBe(true);
         product.setProperty('licenseeAutoCreate', null);
         expect(product.getProperty('licenseeAutoCreate')).toBe(false);
-    });
-
-    it('check throwable error if property value is typeof "function"', () => {
-        const func = () => {};
-
-        expect(() => { product.setProperty('number', func); }).toThrowError(TypeError);
-        expect(() => { product.setNumber(func); }).toThrowError(TypeError);
-        expect(() => { product.setName(func); }).toThrowError(TypeError);
-        expect(() => { product.setActive(func); }).toThrowError(TypeError);
-        expect(() => { product.setVersion(func); }).toThrowError(TypeError);
-        expect(() => { product.setDescription(func); }).toThrowError(TypeError);
-        expect(() => { product.setLicensingInfo(func); }).toThrowError(TypeError);
-        expect(() => { product.setLicenseeAutoCreate(func); }).toThrowError(TypeError);
-
-        expect(() => { product.number = func; }).toThrowError(TypeError);
-        expect(() => { product.name = func; }).toThrowError(TypeError);
-        expect(() => { product.active = func; }).toThrowError(TypeError);
-        expect(() => { product.version = func; }).toThrowError(TypeError);
-        expect(() => { product.description = func; }).toThrowError(TypeError);
-        expect(() => { product.licensingInfo = func; }).toThrowError(TypeError);
-        expect(() => { product.licenseeAutoCreate = func; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is "undefined"', () => {
-        expect(() => { product.setProperty('number', undefined); }).toThrowError(TypeError);
-        expect(() => { product.setNumber(undefined); }).toThrowError(TypeError);
-        expect(() => { product.setName(undefined); }).toThrowError(TypeError);
-        expect(() => { product.setActive(undefined); }).toThrowError(TypeError);
-        expect(() => { product.setVersion(undefined); }).toThrowError(TypeError);
-        expect(() => { product.setDescription(undefined); }).toThrowError(TypeError);
-        expect(() => { product.setLicensingInfo(undefined); }).toThrowError(TypeError);
-        expect(() => { product.setLicenseeAutoCreate(undefined); }).toThrowError(TypeError);
-
-        expect(() => { product.number = undefined; }).toThrowError(TypeError);
-        expect(() => { product.name = undefined; }).toThrowError(TypeError);
-        expect(() => { product.active = undefined; }).toThrowError(TypeError);
-        expect(() => { product.version = undefined; }).toThrowError(TypeError);
-        expect(() => { product.description = undefined; }).toThrowError(TypeError);
-        expect(() => { product.licensingInfo = undefined; }).toThrowError(TypeError);
-        expect(() => { product.licenseeAutoCreate = undefined; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is "NaN"', () => {
-        expect(() => { product.setProperty('number', NaN); }).toThrowError(TypeError);
-        expect(() => { product.setNumber(NaN); }).toThrowError(TypeError);
-        expect(() => { product.setName(NaN); }).toThrowError(TypeError);
-        expect(() => { product.setActive(NaN); }).toThrowError(TypeError);
-        expect(() => { product.setVersion(NaN); }).toThrowError(TypeError);
-        expect(() => { product.setDescription(NaN); }).toThrowError(TypeError);
-        expect(() => { product.setLicensingInfo(NaN); }).toThrowError(TypeError);
-        expect(() => { product.setLicenseeAutoCreate(NaN); }).toThrowError(TypeError);
-
-        expect(() => { product.number = NaN; }).toThrowError(TypeError);
-        expect(() => { product.name = NaN; }).toThrowError(TypeError);
-        expect(() => { product.active = NaN; }).toThrowError(TypeError);
-        expect(() => { product.version = NaN; }).toThrowError(TypeError);
-        expect(() => { product.description = NaN; }).toThrowError(TypeError);
-        expect(() => { product.licensingInfo = NaN; }).toThrowError(TypeError);
-        expect(() => { product.licenseeAutoCreate = NaN; }).toThrowError(TypeError);
-    });
-
-    it('check throwable error if property value is "Infinity"', () => {
-        expect(() => { product.setProperty('number', Infinity); }).toThrowError(TypeError);
-        expect(() => { product.setNumber(Infinity); }).toThrowError(TypeError);
-        expect(() => { product.setName(Infinity); }).toThrowError(TypeError);
-        expect(() => { product.setActive(Infinity); }).toThrowError(TypeError);
-        expect(() => { product.setVersion(Infinity); }).toThrowError(TypeError);
-        expect(() => { product.setDescription(Infinity); }).toThrowError(TypeError);
-        expect(() => { product.setLicensingInfo(Infinity); }).toThrowError(TypeError);
-        expect(() => { product.setLicenseeAutoCreate(Infinity); }).toThrowError(TypeError);
-
-        expect(() => { product.number = Infinity; }).toThrowError(TypeError);
-        expect(() => { product.name = Infinity; }).toThrowError(TypeError);
-        expect(() => { product.active = Infinity; }).toThrowError(TypeError);
-        expect(() => { product.version = Infinity; }).toThrowError(TypeError);
-        expect(() => { product.description = Infinity; }).toThrowError(TypeError);
-        expect(() => { product.licensingInfo = Infinity; }).toThrowError(TypeError);
-        expect(() => { product.licenseeAutoCreate = Infinity; }).toThrowError(TypeError);
     });
 
     it('check "removeProperty" method', () => {

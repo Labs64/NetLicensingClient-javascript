@@ -51,24 +51,7 @@ export default class Token extends BaseEntity {
                 cancelURLTitle: 'string',
                 shopURL: 'string',
             },
-            // The attributes that should have read-only access.
-            readOnly: ['number', 'shopURL'],
         });
-
-        // define default entity properties
-        this.defines([
-            'number',
-            'active',
-            'expirationTime',
-            'vendorNumber',
-            'tokenType',
-            'licenseeNumber',
-            'successURL',
-            'successURLTitle',
-            'cancelURL',
-            'cancelURLTitle',
-            'shopURL',
-        ]);
     }
 
     getNumber(def) {
