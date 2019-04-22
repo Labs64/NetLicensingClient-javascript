@@ -51,7 +51,8 @@
         "release": "npm run build && npm run test",
         "dev": "webpack --progress --colors --watch --config build/webpack.dev.conf.js",
         "test": "karma start test/karma.conf.js --single-run",
-        "test-for-travis": "karma start test/karma.conf.js --single-run --browsers Firefox"
+        "test-for-travis": "karma start test/karma.conf.js --single-run --browsers Firefox",
+        "lint": "eslint --ext .js,.vue src test/specs"
     },
     "dependencies": {
         "axios": "^0.18.0",

@@ -30,13 +30,6 @@ const definedMap = new WeakMap();
  */
 const castsMap = new WeakMap();
 
-/**
- * List of properties that has read-only access
- * @type {{}}
- * @private
- */
-const readOnlyMap = new WeakMap();
-
 export default class BaseEntity {
     constructor({ properties, casts }) {
         propertiesMap.set(this, {});
