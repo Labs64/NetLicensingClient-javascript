@@ -184,9 +184,11 @@ export default class BaseEntity {
             get() {
                 return self.getProperty(property);
             },
-        };
 
-        descriptors.set = value => self.setProperty(property, value);
+            set(value) {
+                self.setProperty(property, value);
+            },
+        };
 
         const defined = definedMap.get(this);
         defined[property] = true;
@@ -206,18 +208,6 @@ export default class BaseEntity {
         delete defined[property];
 
         delete this[property];
-    }
-
-    /**
-     * Define properties getter and setter
-     * @param properties
-     * @param onlyGetter
-     * @protected
-     */
-    defines(properties, onlyGetter) {
-        properties.forEach((property) => {
-            this.define(property, onlyGetter);
-        });
     }
 
     /**
