@@ -49,9 +49,6 @@ export default class Licensee extends BaseEntity {
                 inUse: 'boolean',
             },
         });
-
-        // define default entity properties
-        this.defines(['number', 'active', 'name', 'licenseeSecret', 'markedForTransfer', 'inUse']);
     }
 
     setNumber(number) {

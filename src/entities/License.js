@@ -59,20 +59,6 @@ export default class License extends BaseEntity {
                 inUse: 'boolean',
             },
         });
-
-        // define default entity properties
-        this.defines([
-            'number',
-            'active',
-            'name',
-            'hidden',
-            'parentfeature',
-            'timeVolume',
-            'startDate',
-            'inUse',
-            'currency',
-            'price',
-        ]);
     }
 
     setNumber(number) {

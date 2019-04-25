@@ -82,24 +82,6 @@ export default class LicenseTemplate extends BaseEntity {
                 inUse: 'boolean',
             },
         });
-
-        // define default entity properties
-        this.defines([
-            'number',
-            'active',
-            'name',
-            'licenseType',
-            'price',
-            'currency',
-            'automatic',
-            'hidden',
-            'hideLicenses',
-            'timeVolume',
-            'timeVolumePeriod',
-            'maxSessions',
-            'quantity',
-            'inUse',
-        ]);
     }
 
     setNumber(number) {

@@ -162,7 +162,7 @@ export default {
         SOURCE_LICENSEE_NUMBER: 'sourceLicenseeNumber',
         PROP_LICENSEE_NAME: 'licenseeName',
         /**
-         * @deprecated use License#PROP_LICENSEE_SECRET
+         * @deprecated use License.PROP_LICENSEE_SECRET
          */
         PROP_LICENSEE_SECRET: 'licenseeSecret',
         PROP_MARKED_FOR_TRANSFER: 'markedForTransfer',
