@@ -51,9 +51,7 @@ var NetLicensingDemo = function () {
                 })
                 .then(function (listProducts) {
                     console.log("ProductService.list() :", listProducts);
-                    console.log("Product.setLicenseeSecretMode() :", NetLicensing.Constants.Product.LicenseeSecretMode.PREDEFINED);
                     product.setProperty("Updated Property", "Property Value");
-                    product.setLicenseeSecretMode(NetLicensing.Constants.Product.LicenseeSecretMode.PREDEFINED);
                     return NetLicensing.ProductService.update(context, product.getNumber(), product)
                 })
                 .then(function (updatedProduct) {
@@ -191,7 +189,6 @@ var NetLicensingDemo = function () {
                 console.log("LicenseeService.list() :", listLicensee);
 
                 licensee.setProperty("Updated Property", "Updated Value");
-                licensee.setLicenseeSecret(numberWithPrefix("secret", randomNumber));
                 return NetLicensing.LicenseeService.update(context, licenseeNumber, licensee);
             })
             .then(function (updatedLicensee) {
@@ -205,7 +202,6 @@ var NetLicensingDemo = function () {
             .then(function (listLicensees) {
                 console.log("LicenseeService.list() :", listLicensees);
                 // Create Licensee for later use
-                licensee.setLicenseeSecret(numberWithPrefix("secret", randomNumber));
                 return NetLicensing.LicenseeService.create(context, productNumber, licensee);
             }).then(function (createdLicensee) {
                 console.log("LicenseeService.create() :", createdLicensee);
@@ -313,7 +309,6 @@ var NetLicensingDemo = function () {
     var validationParameters = new NetLicensing.ValidationParameters()
         .setProductNumber(productNumber)
         .setLicenseeName(numberWithPrefix("Licensee-", Math.random().toString(36).slice(2)))
-        .setLicenseeSecret(numberWithPrefix("secret", randomNumber))
         .setProductModuleValidationParameters(productModuleNumber, {
             key: "paramKey",
             value: "paramValue"

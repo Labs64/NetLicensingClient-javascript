@@ -54,6 +54,9 @@ export default {
         Quota: {
             NAME: 'Quota',
         },
+        NodeLocked: {
+            NAME: 'NodeLocked',
+        },
     },
 
     Vendor: {
@@ -68,6 +71,9 @@ export default {
         DESCRIPTION: 'description',
         LICENSING_INFO: 'licensingInfo',
         DISCOUNTS: 'discounts',
+        /**
+         * @deprecated use ProductModule.PROP_LICENSEE_SECRET_MODE instead
+         */
         PROP_LICENSEE_SECRET_MODE: 'licenseeSecretMode',
         PROP_VAT_MODE: 'vatMode',
 
@@ -78,6 +84,9 @@ export default {
         },
 
         LicenseeSecretMode: {
+            /**
+             * @deprecated DISABLED mode is deprecated
+             */
             DISABLED: 'DISABLED',
             PREDEFINED: 'PREDEFINED',
             CLIENT: 'CLIENT',
@@ -89,6 +98,7 @@ export default {
         PRODUCT_MODULE_NUMBER: 'productModuleNumber',
         PRODUCT_MODULE_NAME: 'productModuleName',
         LICENSING_MODEL: 'licensingModel',
+        PROP_LICENSEE_SECRET_MODE: 'licenseeSecretMode',
     },
 
     LicenseTemplate: {
@@ -98,6 +108,7 @@ export default {
         AUTOMATIC: 'automatic',
         HIDDEN: 'hidden',
         HIDE_LICENSES: 'hideLicenses',
+        PROP_LICENSEE_SECRET: 'licenseeSecret',
         LicenseType: {
             FEATURE: 'FEATURE',
             TIMEVOLUME: 'TIMEVOLUME',
@@ -150,6 +161,9 @@ export default {
         LICENSEE_NUMBER: 'licenseeNumber',
         SOURCE_LICENSEE_NUMBER: 'sourceLicenseeNumber',
         PROP_LICENSEE_NAME: 'licenseeName',
+        /**
+         * @deprecated use License#PROP_LICENSEE_SECRET
+         */
         PROP_LICENSEE_SECRET: 'licenseeSecret',
         PROP_MARKED_FOR_TRANSFER: 'markedForTransfer',
     },
@@ -158,6 +172,7 @@ export default {
         ENDPOINT_PATH: 'license',
         LICENSE_NUMBER: 'licenseNumber',
         HIDDEN: 'hidden',
+        PROP_LICENSEE_SECRET: 'licenseeSecret',
     },
 
     PaymentMethod: {

@@ -40,6 +40,9 @@ import BaseEntity from './BaseEntity';
  * License template. Mandatory for 'Try & Buy' licensing model. Supported types: "TIMEVOLUME", "FEATURE".
  * @property string licenseTemplate
  *
+ * Licensee secret mode for product.Supported types: "PREDEFINED", "CLIENT"
+ * @property boolean licenseeSecretMode
+ *
  * @constructor
  */
 export default class ProductModule extends BaseEntity {
@@ -57,6 +60,7 @@ export default class ProductModule extends BaseEntity {
                 redThreshold: 'int',
                 licenseTemplate: 'string',
                 inUse: 'boolean',
+                licenseeSecretMode: 'string',
             },
         });
     }
@@ -127,5 +131,13 @@ export default class ProductModule extends BaseEntity {
 
     getInUse(def) {
         return this.getProperty('inUse', def);
+    }
+
+    setLicenseeSecretMode(licenseeSecretMode) {
+        return this.setProperty('licenseeSecretMode', licenseeSecretMode);
+    }
+
+    getLicenseeSecretMode(def) {
+        return this.getProperty('licenseeSecretMode', def);
     }
 }

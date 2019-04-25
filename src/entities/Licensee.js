@@ -78,10 +78,16 @@ export default class Licensee extends BaseEntity {
         return this.getProperty('name', def);
     }
 
+    /**
+     * @deprecated
+     */
     setLicenseeSecret(licenseeSecret) {
         return this.setProperty('licenseeSecret', licenseeSecret);
     }
 
+    /**
+     * @deprecated
+     */
     getLicenseeSecret(def) {
         return this.getProperty('licenseeSecret', def);
     }

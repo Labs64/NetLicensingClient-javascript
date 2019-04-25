@@ -122,10 +122,16 @@ export default class Product extends BaseEntity {
         return this.getProperty('licenseeAutoCreate', def);
     }
 
+    /**
+     * @deprecated use ProductModule.setLicenseeSecretMode instead
+     */
     setLicenseeSecretMode(licenseeSecretMode) {
         return this.setProperty('licenseeSecretMode', licenseeSecretMode);
     }
 
+    /**
+     * @deprecated use ProductModule.getLicenseeSecretMode instead
+     */
     getLicenseeSecretMode(def) {
         return this.getProperty('licenseeSecretMode', def);
     }

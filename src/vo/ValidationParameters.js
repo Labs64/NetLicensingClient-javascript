@@ -65,6 +65,7 @@ export default class ValidationParameters {
      * licensee secret stored on the client side. Refer to Licensee Secret documentation for details.
      * @param licenseeSecret
      * @returns {ValidationParameters}
+     * @deprecated use 'NodeLocked' licensingModel instead
      */
     setLicenseeSecret(licenseeSecret) {
         vpMap.get(this).licenseeSecret = licenseeSecret;
@@ -74,6 +75,7 @@ export default class ValidationParameters {
     /**
      * Get the licensee secret
      * @returns {*}
+     * @deprecated use 'NodeLocked' licensingModel instead
      */
     getLicenseeSecret() {
         return vpMap.get(this).licenseeSecret;
