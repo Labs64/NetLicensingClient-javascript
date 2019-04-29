@@ -7,7 +7,6 @@
 import axios from 'axios';
 import Constants from '../Constants';
 import NlicError from '../errors/NlicError';
-import pkg from '../../package.json';
 
 let httpXHR = {};
 let axiosInstance = axios;
@@ -107,12 +106,6 @@ export default class Service {
             transformRequest: [(data, headers) => {
                 if (headers['Content-Type'] === 'application/x-www-form-urlencoded') {
                     return Service.toQueryString(data);
-                }
-
-                if (!headers['User-agent']) {
-                    const host = (typeof (window) !== 'undefined') ? window.location.origin : 'unknown';
-                    // eslint-disable-next-line no-param-reassign
-                    headers['User-agent'] = `NetLicensing/Javascript ${pkg.version} (${host})`;
                 }
 
                 return data;
