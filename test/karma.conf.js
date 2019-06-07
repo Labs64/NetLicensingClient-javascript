@@ -28,7 +28,7 @@ module.exports = function karmaConfig(config) {
             },
         },
         frameworks: ['jasmine'],
-        reporters: ['spec', 'coverage'],
+        reporters: ['spec'],
         files: [
             './index.js',
         ],

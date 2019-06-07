@@ -354,7 +354,7 @@ module.exports = _inherits;
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
-    default: obj
+    "default": obj
   };
 }
 
@@ -602,7 +602,7 @@ module.exports = _wrapNativeSuper;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime-module.js");
+module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
 
 
 /***/ }),
@@ -2567,10 +2567,10 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./node_modules/regenerator-runtime/runtime-module.js":
-/*!************************************************************!*\
-  !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
-  \************************************************************/
+/***/ "./node_modules/regenerator-runtime/runtime.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2581,55 +2581,7 @@ process.umask = function() { return 0; };
  * LICENSE file in the root directory of this source tree.
  */
 
-// This method of obtaining a reference to the global object needs to be
-// kept identical to the way it is obtained in runtime.js
-var g = (function() {
-  return this || (typeof self === "object" && self);
-})() || Function("return this")();
-
-// Use `getOwnPropertyNames` because not all browsers support calling
-// `hasOwnProperty` on the global `self` object in a worker. See #183.
-var hadRuntime = g.regeneratorRuntime &&
-  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
-
-// Save the old regeneratorRuntime in case it needs to be restored later.
-var oldRuntime = hadRuntime && g.regeneratorRuntime;
-
-// Force reevalutation of runtime.js.
-g.regeneratorRuntime = undefined;
-
-module.exports = __webpack_require__(/*! ./runtime */ "./node_modules/regenerator-runtime/runtime.js");
-
-if (hadRuntime) {
-  // Restore the original runtime.
-  g.regeneratorRuntime = oldRuntime;
-} else {
-  // Remove the global property added by runtime.js.
-  try {
-    delete g.regeneratorRuntime;
-  } catch(e) {
-    g.regeneratorRuntime = undefined;
-  }
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/regenerator-runtime/runtime.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/regenerator-runtime/runtime.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-!(function(global) {
+var runtime = (function (exports) {
   "use strict";
 
   var Op = Object.prototype;
@@ -2639,23 +2591,6 @@ if (hadRuntime) {
   var iteratorSymbol = $Symbol.iterator || "@@iterator";
   var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
   var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
-  var inModule = typeof module === "object";
-  var runtime = global.regeneratorRuntime;
-  if (runtime) {
-    if (inModule) {
-      // If regeneratorRuntime is defined globally and we're in a module,
-      // make the exports object identical to regeneratorRuntime.
-      module.exports = runtime;
-    }
-    // Don't bother evaluating the rest of this file if the runtime was
-    // already defined globally.
-    return;
-  }
-
-  // Define the runtime globally (as expected by generated code) as either
-  // module.exports (if we're in a module) or a new, empty object.
-  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
 
   function wrap(innerFn, outerFn, self, tryLocsList) {
     // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
@@ -2669,7 +2604,7 @@ if (hadRuntime) {
 
     return generator;
   }
-  runtime.wrap = wrap;
+  exports.wrap = wrap;
 
   // Try/catch helper to minimize deoptimizations. Returns a completion
   // record like context.tryEntries[i].completion. This interface could
@@ -2740,7 +2675,7 @@ if (hadRuntime) {
     });
   }
 
-  runtime.isGeneratorFunction = function(genFun) {
+  exports.isGeneratorFunction = function(genFun) {
     var ctor = typeof genFun === "function" && genFun.constructor;
     return ctor
       ? ctor === GeneratorFunction ||
@@ -2750,7 +2685,7 @@ if (hadRuntime) {
       : false;
   };
 
-  runtime.mark = function(genFun) {
+  exports.mark = function(genFun) {
     if (Object.setPrototypeOf) {
       Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
     } else {
@@ -2767,7 +2702,7 @@ if (hadRuntime) {
   // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
   // `hasOwn.call(value, "__await")` to determine if the yielded value is
   // meant to be awaited.
-  runtime.awrap = function(arg) {
+  exports.awrap = function(arg) {
     return { __await: arg };
   };
 
@@ -2842,17 +2777,17 @@ if (hadRuntime) {
   AsyncIterator.prototype[asyncIteratorSymbol] = function () {
     return this;
   };
-  runtime.AsyncIterator = AsyncIterator;
+  exports.AsyncIterator = AsyncIterator;
 
   // Note that simple async functions are implemented on top of
   // AsyncIterator objects; they just return a Promise for the value of
   // the final result produced by the iterator.
-  runtime.async = function(innerFn, outerFn, self, tryLocsList) {
+  exports.async = function(innerFn, outerFn, self, tryLocsList) {
     var iter = new AsyncIterator(
       wrap(innerFn, outerFn, self, tryLocsList)
     );
 
-    return runtime.isGeneratorFunction(outerFn)
+    return exports.isGeneratorFunction(outerFn)
       ? iter // If outerFn is a generator, return the full iterator.
       : iter.next().then(function(result) {
           return result.done ? result.value : iter.next();
@@ -2949,7 +2884,8 @@ if (hadRuntime) {
       context.delegate = null;
 
       if (context.method === "throw") {
-        if (delegate.iterator.return) {
+        // Note: ["return"] must be used for ES3 parsing compatibility.
+        if (delegate.iterator["return"]) {
           // If the delegate iterator has a return method, give it a
           // chance to clean up.
           context.method = "return";
@@ -3069,7 +3005,7 @@ if (hadRuntime) {
     this.reset(true);
   }
 
-  runtime.keys = function(object) {
+  exports.keys = function(object) {
     var keys = [];
     for (var key in object) {
       keys.push(key);
@@ -3130,7 +3066,7 @@ if (hadRuntime) {
     // Return an iterator with no values.
     return { next: doneResult };
   }
-  runtime.values = values;
+  exports.values = values;
 
   function doneResult() {
     return { value: undefined, done: true };
@@ -3335,14 +3271,35 @@ if (hadRuntime) {
       return ContinueSentinel;
     }
   };
-})(
-  // In sloppy mode, unbound `this` refers to the global object, fallback to
-  // Function constructor if we're in global strict mode. That is sadly a form
-  // of indirect eval which violates Content Security Policy.
-  (function() {
-    return this || (typeof self === "object" && self);
-  })() || Function("return this")()
-);
+
+  // Regardless of whether this script is executing as a CommonJS module
+  // or not, return the runtime object so that we can declare the variable
+  // regeneratorRuntime in the outer scope, which allows this module to be
+  // injected easily by `bin/regenerator --include-runtime script.js`.
+  return exports;
+
+}(
+  // If this script is executing as a CommonJS module, use module.exports
+  // as the regeneratorRuntime namespace. Otherwise create a new empty
+  // object. Either way, the resulting object will be used to initialize
+  // the regeneratorRuntime variable at the top of this file.
+   true ? module.exports : undefined
+));
+
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  // This module should not be running in strict mode, so the above
+  // assignment should always work unless something is misconfigured. Just
+  // in case runtime.js accidentally runs in strict mode, we can escape
+  // strict mode using a global Function call. This could conceivably fail
+  // if a Content Security Policy forbids using Function, but in that case
+  // the proper solution is to fix the accidental strict mode problem. If
+  // you've misconfigured your bundler to force strict mode and applied a
+  // CSP to forbid Function, and you're not willing to fix either of those
+  // problems, please detail your unique predicament in a GitHub issue.
+  Function("r", "regeneratorRuntime = r")(runtime);
+}
 
 
 /***/ }),
@@ -3354,7 +3311,7 @@ if (hadRuntime) {
 /*! exports provided: name, version, description, keywords, author, homepage, repository, bugs, license, main, contributors, scripts, dependencies, devDependencies, engines, browserslist, default */
 /***/ (function(module) {
 
-module.exports = {"name":"netlicensing-client","version":"1.2.12","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"author":"Labs64 GmbH","homepage":"https://netlicensing.io/","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"license":"Apache-2.0","main":"dist/netlicensing-client.js","contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"scripts":{"build":"node build/build.js","release":"npm run build && npm run test","dev":"webpack --progress --colors --watch --config build/webpack.dev.conf.js","test":"karma start test/karma.conf.js --single-run","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test/specs"},"dependencies":{"axios":"^0.19","es6-promise":"^4.2.5","karma-firefox-launcher":"^1.1.0","save-dev":"^2.0.0"},"devDependencies":{"@babel/core":"^7.1.6","@babel/plugin-proposal-class-properties":"^7.1.0","@babel/plugin-proposal-decorators":"^7.1.6","@babel/plugin-proposal-export-namespace-from":"^7.0.0","@babel/plugin-proposal-function-sent":"^7.1.0","@babel/plugin-proposal-json-strings":"^7.0.0","@babel/plugin-proposal-numeric-separator":"^7.0.0","@babel/plugin-proposal-throw-expressions":"^7.0.0","@babel/plugin-syntax-dynamic-import":"^7.0.0","@babel/plugin-syntax-import-meta":"^7.0.0","@babel/plugin-transform-modules-commonjs":"^7.2.0","@babel/plugin-transform-runtime":"^7.1.0","@babel/preset-env":"^7.1.6","@babel/runtime":"^7.1.5","axios-mock-adapter":"^1.15.0","babel-eslint":"^10.0.1","babel-loader":"^8.0.4","chalk":"^2.4.1","eslint":"^5.9.0","eslint-config-airbnb-base":"^13.1.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.10.1","eslint-loader":"^2.1.1","eslint-plugin-import":"^2.14.0","eslint-plugin-jasmine":"^2.10.1","faker":"^4.1.0","is-docker":"^1.1.0","jasmine":"^3.3.0","jasmine-core":"^3.3.0","karma":"^3.1.1","karma-chrome-launcher":"^2.2.0","karma-coverage":"^1.1.2","karma-jasmine":"^2.0.1","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.32","karma-webpack":"^4.0.0-rc.3","lodash":"^4.17.11","ora":"^3.0.0","query-string":"^6.2.0","rimraf":"^2.6.2","uglifyjs-webpack-plugin":"^1.3.0","webpack":"^4.26.0","webpack-cli":"^3.1.2","webpack-merge":"^4.1.4"},"engines":{"node":">= 6.0.0","npm":">= 3.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]};
+module.exports = {"name":"netlicensing-client","version":"1.2.12","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"author":"Labs64 GmbH","homepage":"https://netlicensing.io/","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"license":"Apache-2.0","main":"dist/netlicensing-client.js","contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"scripts":{"build":"node build/build.js","release":"npm run build && npm run test","dev":"webpack --progress --colors --watch --config build/webpack.dev.conf.js","test":"karma start test/karma.conf.js --single-run","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test/specs"},"dependencies":{"axios":"^0.19","es6-promise":"^4.2.8","karma-firefox-launcher":"^1.1.0","save-dev":"^2.0.0"},"devDependencies":{"@babel/core":"^7.4.5","@babel/plugin-proposal-class-properties":"^7.4.4","@babel/plugin-proposal-decorators":"^7.4.4","@babel/plugin-proposal-export-namespace-from":"^7.2.0","@babel/plugin-proposal-function-sent":"^7.2.0","@babel/plugin-proposal-json-strings":"^7.2.0","@babel/plugin-proposal-numeric-separator":"^7.2.0","@babel/plugin-proposal-throw-expressions":"^7.2.0","@babel/plugin-syntax-dynamic-import":"^7.2.0","@babel/plugin-syntax-import-meta":"^7.2.0","@babel/plugin-transform-modules-commonjs":"^7.4.4","@babel/plugin-transform-runtime":"^7.4.4","@babel/preset-env":"^7.4.5","@babel/runtime":"^7.4.5","axios-mock-adapter":"^1.16.0","babel-eslint":"^10.0.1","babel-loader":"^8.0.6","chalk":"^2.4.2","eslint":"^5.16.0","eslint-config-airbnb-base":"^13.1.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.11.1","eslint-loader":"^2.1.2","eslint-plugin-import":"^2.17.3","eslint-plugin-jasmine":"^2.10.1","faker":"^4.1.0","is-docker":"^1.1.0","jasmine":"^3.4.0","jasmine-core":"^3.4.0","karma":"^3.1.4","karma-chrome-launcher":"^2.2.0","karma-jasmine":"^2.0.1","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.32","karma-webpack":"^4.0.0-rc.6","lodash":"^4.17.11","ora":"^3.4.0","query-string":"^6.6.0","rimraf":"^2.6.3","uglifyjs-webpack-plugin":"^1.3.0","webpack":"^4.33.0","webpack-cli":"^3.3.3","webpack-merge":"^4.2.1"},"engines":{"node":">= 6.0.0","npm":">= 3.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]};
 
 /***/ }),
 
@@ -5087,13 +5044,13 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtim
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js"));
 
+var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/assertThisInitialized.js"));
+
 var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js"));
 
 var _get2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/get */ "./node_modules/@babel/runtime/helpers/get.js"));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js"));
-
-var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/assertThisInitialized.js"));
 
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(/*! ./BaseEntity */ "./src/entities/BaseEntity.js"));
 
@@ -5182,8 +5139,8 @@ function (_BaseEntity) {
         inUse: 'boolean'
       }
     }));
-    discountsMap.set((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), []);
-    discountsTouched.set((0, _assertThisInitialized2.default)((0, _assertThisInitialized2.default)(_this)), false);
+    discountsMap.set((0, _assertThisInitialized2.default)(_this), []);
+    discountsTouched.set((0, _assertThisInitialized2.default)(_this), false);
     return _this;
   }
 
@@ -6478,12 +6435,14 @@ var _default = {
               return _context.stop();
           }
         }
-      }, _callee, this);
+      }, _callee);
     }));
 
-    return function create(_x, _x2, _x3, _x4, _x5) {
+    function create(_x, _x2, _x3, _x4, _x5) {
       return _create.apply(this, arguments);
-    };
+    }
+
+    return create;
   }(),
 
   /**
@@ -6525,12 +6484,14 @@ var _default = {
               return _context2.stop();
           }
         }
-      }, _callee2, this);
+      }, _callee2);
     }));
 
-    return function get(_x6, _x7) {
+    function get(_x6, _x7) {
       return _get.apply(this, arguments);
-    };
+    }
+
+    return get;
   }(),
 
   /**
@@ -6589,12 +6550,14 @@ var _default = {
               return _context3.stop();
           }
         }
-      }, _callee3, this);
+      }, _callee3);
     }));
 
-    return function list(_x8, _x9) {
+    function list(_x8, _x9) {
       return _list.apply(this, arguments);
-    };
+    }
+
+    return list;
   }(),
 
   /**
@@ -6644,12 +6607,14 @@ var _default = {
               return _context4.stop();
           }
         }
-      }, _callee4, this);
+      }, _callee4);
     }));
 
-    return function update(_x10, _x11, _x12, _x13) {
+    function update(_x10, _x11, _x12, _x13) {
       return _update.apply(this, arguments);
-    };
+    }
+
+    return update;
   }(),
 
   /**
@@ -6776,12 +6741,14 @@ var _default = {
               return _context.stop();
           }
         }
-      }, _callee, this);
+      }, _callee);
     }));
 
-    return function create(_x, _x2, _x3) {
+    function create(_x, _x2, _x3) {
       return _create.apply(this, arguments);
-    };
+    }
+
+    return create;
   }(),
 
   /**
@@ -6823,12 +6790,14 @@ var _default = {
               return _context2.stop();
           }
         }
-      }, _callee2, this);
+      }, _callee2);
     }));
 
-    return function get(_x4, _x5) {
+    function get(_x4, _x5) {
       return _get.apply(this, arguments);
-    };
+    }
+
+    return get;
   }(),
 
   /**
@@ -6887,12 +6856,14 @@ var _default = {
               return _context3.stop();
           }
         }
-      }, _callee3, this);
+      }, _callee3);
     }));
 
-    return function list(_x6, _x7) {
+    function list(_x6, _x7) {
       return _list.apply(this, arguments);
-    };
+    }
+
+    return list;
   }(),
 
   /**
@@ -6938,12 +6909,14 @@ var _default = {
               return _context4.stop();
           }
         }
-      }, _callee4, this);
+      }, _callee4);
     }));
 
-    return function update(_x8, _x9, _x10) {
+    function update(_x8, _x9, _x10) {
       return _update.apply(this, arguments);
-    };
+    }
+
+    return update;
   }(),
 
   /**
@@ -7072,12 +7045,14 @@ var _default = {
               return _context.stop();
           }
         }
-      }, _callee, this);
+      }, _callee);
     }));
 
-    return function create(_x, _x2, _x3) {
+    function create(_x, _x2, _x3) {
       return _create.apply(this, arguments);
-    };
+    }
+
+    return create;
   }(),
 
   /**
@@ -7119,12 +7094,14 @@ var _default = {
               return _context2.stop();
           }
         }
-      }, _callee2, this);
+      }, _callee2);
     }));
 
-    return function get(_x4, _x5) {
+    function get(_x4, _x5) {
       return _get.apply(this, arguments);
-    };
+    }
+
+    return get;
   }(),
 
   /**
@@ -7183,12 +7160,14 @@ var _default = {
               return _context3.stop();
           }
         }
-      }, _callee3, this);
+      }, _callee3);
     }));
 
-    return function list(_x6, _x7) {
+    function list(_x6, _x7) {
       return _list.apply(this, arguments);
-    };
+    }
+
+    return list;
   }(),
 
   /**
@@ -7233,12 +7212,14 @@ var _default = {
               return _context4.stop();
           }
         }
-      }, _callee4, this);
+      }, _callee4);
     }));
 
-    return function update(_x8, _x9, _x10) {
+    function update(_x8, _x9, _x10) {
       return _update.apply(this, arguments);
-    };
+    }
+
+    return update;
   }(),
 
   /**
@@ -7342,12 +7323,14 @@ var _default = {
               return _context5.stop();
           }
         }
-      }, _callee5, this);
+      }, _callee5);
     }));
 
-    return function validate(_x11, _x12, _x13) {
+    function validate(_x11, _x12, _x13) {
       return _validate.apply(this, arguments);
-    };
+    }
+
+    return validate;
   }(),
 
   /**
@@ -7461,12 +7444,14 @@ var _default = {
               return _context.stop();
           }
         }
-      }, _callee, this);
+      }, _callee);
     }));
 
-    return function get(_x, _x2) {
+    function get(_x, _x2) {
       return _get.apply(this, arguments);
-    };
+    }
+
+    return get;
   }(),
 
   /**
@@ -7525,12 +7510,14 @@ var _default = {
               return _context2.stop();
           }
         }
-      }, _callee2, this);
+      }, _callee2);
     }));
 
-    return function list(_x3, _x4) {
+    function list(_x3, _x4) {
       return _list.apply(this, arguments);
-    };
+    }
+
+    return list;
   }(),
 
   /**
@@ -7576,12 +7563,14 @@ var _default = {
               return _context3.stop();
           }
         }
-      }, _callee3, this);
+      }, _callee3);
     }));
 
-    return function update(_x5, _x6, _x7) {
+    function update(_x5, _x6, _x7) {
       return _update.apply(this, arguments);
-    };
+    }
+
+    return update;
   }()
 };
 exports.default = _default;
@@ -7681,12 +7670,14 @@ var _default = {
               return _context.stop();
           }
         }
-      }, _callee, this);
+      }, _callee);
     }));
 
-    return function create(_x, _x2, _x3) {
+    function create(_x, _x2, _x3) {
       return _create.apply(this, arguments);
-    };
+    }
+
+    return create;
   }(),
 
   /**
@@ -7728,12 +7719,14 @@ var _default = {
               return _context2.stop();
           }
         }
-      }, _callee2, this);
+      }, _callee2);
     }));
 
-    return function get(_x4, _x5) {
+    function get(_x4, _x5) {
       return _get.apply(this, arguments);
-    };
+    }
+
+    return get;
   }(),
 
   /**
@@ -7792,12 +7785,14 @@ var _default = {
               return _context3.stop();
           }
         }
-      }, _callee3, this);
+      }, _callee3);
     }));
 
-    return function list(_x6, _x7) {
+    function list(_x6, _x7) {
       return _list.apply(this, arguments);
-    };
+    }
+
+    return list;
   }(),
 
   /**
@@ -7842,12 +7837,14 @@ var _default = {
               return _context4.stop();
           }
         }
-      }, _callee4, this);
+      }, _callee4);
     }));
 
-    return function update(_x8, _x9, _x10) {
+    function update(_x8, _x9, _x10) {
       return _update.apply(this, arguments);
-    };
+    }
+
+    return update;
   }(),
 
   /**
@@ -7966,12 +7963,14 @@ var _default = {
               return _context.stop();
           }
         }
-      }, _callee, this);
+      }, _callee);
     }));
 
-    return function create(_x, _x2) {
+    function create(_x, _x2) {
       return _create.apply(this, arguments);
-    };
+    }
+
+    return create;
   }(),
 
   /**
@@ -8013,12 +8012,14 @@ var _default = {
               return _context2.stop();
           }
         }
-      }, _callee2, this);
+      }, _callee2);
     }));
 
-    return function get(_x3, _x4) {
+    function get(_x3, _x4) {
       return _get.apply(this, arguments);
-    };
+    }
+
+    return get;
   }(),
 
   /**
@@ -8077,12 +8078,14 @@ var _default = {
               return _context3.stop();
           }
         }
-      }, _callee3, this);
+      }, _callee3);
     }));
 
-    return function list(_x5, _x6) {
+    function list(_x5, _x6) {
       return _list.apply(this, arguments);
-    };
+    }
+
+    return list;
   }(),
 
   /**
@@ -8127,12 +8130,14 @@ var _default = {
               return _context4.stop();
           }
         }
-      }, _callee4, this);
+      }, _callee4);
     }));
 
-    return function update(_x7, _x8, _x9) {
+    function update(_x7, _x8, _x9) {
       return _update.apply(this, arguments);
-    };
+    }
+
+    return update;
   }(),
 
   /**
@@ -8520,12 +8525,14 @@ var _default = {
               return _context.stop();
           }
         }
-      }, _callee, this);
+      }, _callee);
     }));
 
-    return function create(_x, _x2) {
+    function create(_x, _x2) {
       return _create.apply(this, arguments);
-    };
+    }
+
+    return create;
   }(),
 
   /**
@@ -8567,12 +8574,14 @@ var _default = {
               return _context2.stop();
           }
         }
-      }, _callee2, this);
+      }, _callee2);
     }));
 
-    return function get(_x3, _x4) {
+    function get(_x3, _x4) {
       return _get.apply(this, arguments);
-    };
+    }
+
+    return get;
   }(),
 
   /**
@@ -8631,12 +8640,14 @@ var _default = {
               return _context3.stop();
           }
         }
-      }, _callee3, this);
+      }, _callee3);
     }));
 
-    return function list(_x5, _x6) {
+    function list(_x5, _x6) {
       return _list.apply(this, arguments);
-    };
+    }
+
+    return list;
   }(),
 
   /**
@@ -8757,12 +8768,14 @@ var _default = {
               return _context.stop();
           }
         }
-      }, _callee, this);
+      }, _callee);
     }));
 
-    return function create(_x, _x2) {
+    function create(_x, _x2) {
       return _create.apply(this, arguments);
-    };
+    }
+
+    return create;
   }(),
 
   /**
@@ -8804,12 +8817,14 @@ var _default = {
               return _context2.stop();
           }
         }
-      }, _callee2, this);
+      }, _callee2);
     }));
 
-    return function get(_x3, _x4) {
+    function get(_x3, _x4) {
       return _get.apply(this, arguments);
-    };
+    }
+
+    return get;
   }(),
 
   /**
@@ -8868,12 +8883,14 @@ var _default = {
               return _context3.stop();
           }
         }
-      }, _callee3, this);
+      }, _callee3);
     }));
 
-    return function list(_x5, _x6) {
+    function list(_x5, _x6) {
       return _list.apply(this, arguments);
-    };
+    }
+
+    return list;
   }(),
 
   /**
@@ -8918,12 +8935,14 @@ var _default = {
               return _context4.stop();
           }
         }
-      }, _callee4, this);
+      }, _callee4);
     }));
 
-    return function update(_x7, _x8, _x9) {
+    function update(_x7, _x8, _x9) {
       return _update.apply(this, arguments);
-    };
+    }
+
+    return update;
   }()
 };
 exports.default = _default;
@@ -9013,12 +9032,14 @@ var _default = {
               return _context.stop();
           }
         }
-      }, _callee, this);
+      }, _callee);
     }));
 
-    return function listLicenseTypes(_x) {
+    function listLicenseTypes(_x) {
       return _listLicenseTypes.apply(this, arguments);
-    };
+    }
+
+    return listLicenseTypes;
   }(),
 
   /**
@@ -9056,12 +9077,14 @@ var _default = {
               return _context2.stop();
           }
         }
-      }, _callee2, this);
+      }, _callee2);
     }));
 
-    return function listLicensingModels(_x2) {
+    function listLicensingModels(_x2) {
       return _listLicensingModels.apply(this, arguments);
-    };
+    }
+
+    return listLicensingModels;
   }(),
 
   /**
@@ -9119,12 +9142,14 @@ var _default = {
               return _context3.stop();
           }
         }
-      }, _callee3, this);
+      }, _callee3);
     }));
 
-    return function listCountries(_x3, _x4) {
+    function listCountries(_x3, _x4) {
       return _listCountries.apply(this, arguments);
-    };
+    }
+
+    return listCountries;
   }()
 };
 exports.default = _default;
