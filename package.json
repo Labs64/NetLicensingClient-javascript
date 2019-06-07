@@ -55,7 +55,7 @@
         "lint": "eslint --ext .js,.vue src test/specs"
     },
     "dependencies": {
-        "axios": "^0.18.0",
+        "axios": "^0.19",
         "es6-promise": "^4.2.5",
         "karma-firefox-launcher": "^1.1.0",
         "save-dev": "^2.0.0"

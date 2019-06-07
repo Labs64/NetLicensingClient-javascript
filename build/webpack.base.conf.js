@@ -2,7 +2,6 @@ const path = require('path');
 const eslintFriendlyFormatter = require('eslint-friendly-formatter');
 const pkg = require('../package.json');
 
-const { name } = pkg;
 const namespace = 'NetLicensing';
 
 function resolve(dir) {
@@ -11,10 +10,6 @@ function resolve(dir) {
 
 module.exports = {
     context: path.resolve(__dirname, '../'),
-    entry: {
-        [name]: './src',
-        [`${name}.min`]: './src',
-    },
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: '[name].js',

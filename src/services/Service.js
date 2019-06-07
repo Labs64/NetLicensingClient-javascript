@@ -7,13 +7,14 @@
 import axios from 'axios';
 import Constants from '../Constants';
 import NlicError from '../errors/NlicError';
+import pkg from '../../package.json';
 
 let httpXHR = {};
-let axiosInstance = axios;
+let axiosInstance = null;
 
 export default class Service {
     static getAxiosInstance() {
-        return axiosInstance;
+        return axiosInstance || axios;
     }
 
     static setAxiosInstance(instanse) {
@@ -107,10 +108,14 @@ export default class Service {
                 if (headers['Content-Type'] === 'application/x-www-form-urlencoded') {
                     return Service.toQueryString(data);
                 }
-
                 return data;
             }],
         };
+
+        // only node.js has a process variable that is of [[Class]] process
+        if (!typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
+            request.headers['User-agent'] = `NetLicensing/Javascript ${pkg.version}/node&${process.version}`;
+        }
 
         if (['put', 'post', 'patch'].indexOf(request.method) >= 0) {
             if (request.method === 'post') {
@@ -153,10 +158,17 @@ export default class Service {
             .catch((e) => {
                 httpXHR = e;
 
-                const error = new NlicError(e);
-                error.response = e.response;
-
                 if (e.response) {
+                    // The request was made and the server responded with a status code
+                    // that falls out of the range of 2xx
+
+                    const error = new NlicError(e);
+
+                    error.config = e.config;
+                    error.code = e.code;
+                    error.request = e.request;
+                    error.response = e.response;
+
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
                     const { data } = e.response;
@@ -165,9 +177,11 @@ export default class Service {
                         const info = Service.getInfo(e.response, [])[0];
                         error.message = info.value || 'Unknown';
                     }
+
+                    throw error;
                 }
 
-                throw error;
+                throw e;
             });
     }
 

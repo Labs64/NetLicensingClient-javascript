@@ -7,7 +7,4 @@ const webpackConfig = merge(baseWebpackConfig, {
     devtool: '#inline-source-map',
 });
 
-// no need for app entry during tests
-delete webpackConfig.entry;
-
 module.exports = webpackConfig;
