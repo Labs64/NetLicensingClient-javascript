@@ -483,19 +483,6 @@ module.exports = {
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports) {
-
-function _getPrototypeOf(o) {
-  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-module.exports = _getPrototypeOf;
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -694,7 +681,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -727,6 +714,19 @@ var _default = {
   }
 };
 exports.default = _default;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+function _getPrototypeOf(o) {
+  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+module.exports = _getPrototypeOf;
 
 /***/ }),
 /* 7 */
@@ -831,7 +831,7 @@ var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
-var _CheckUtils = _interopRequireDefault(__webpack_require__(6));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 var _CastsUtils = _interopRequireDefault(__webpack_require__(40));
 
@@ -1156,7 +1156,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
 var _axios = _interopRequireDefault(__webpack_require__(60));
 
-var _Constants = _interopRequireDefault(__webpack_require__(5));
+var _Constants = _interopRequireDefault(__webpack_require__(4));
 
 var _NlicError = _interopRequireDefault(__webpack_require__(36));
 
@@ -1555,7 +1555,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(4));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(9));
 
@@ -1917,7 +1917,7 @@ var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
-var _CheckUtils = _interopRequireDefault(__webpack_require__(6));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -2898,7 +2898,7 @@ var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8));
 
-var _getPrototypeOf3 = _interopRequireDefault(__webpack_require__(4));
+var _getPrototypeOf3 = _interopRequireDefault(__webpack_require__(6));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(9));
 
@@ -2996,7 +2996,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(4));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(9));
 
@@ -3253,7 +3253,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(4));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(9));
 
@@ -3533,7 +3533,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(4));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(9));
 
@@ -3652,7 +3652,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(4));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(9));
 
@@ -3880,7 +3880,7 @@ var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8))
 
 var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(37));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(4));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _get2 = _interopRequireDefault(__webpack_require__(104));
 
@@ -4170,7 +4170,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(4));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(9));
 
@@ -4301,7 +4301,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(4));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(9));
 
@@ -4528,7 +4528,7 @@ var _License = _interopRequireDefault(__webpack_require__(18));
 
 var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(22));
 
-var _Constants = _interopRequireDefault(__webpack_require__(5));
+var _Constants = _interopRequireDefault(__webpack_require__(4));
 
 var _default = function _default(item) {
   var object = (0, _itemToObject.default)(item);
@@ -4576,7 +4576,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(4));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(9));
 
@@ -4841,7 +4841,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8));
 
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(4));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(9));
 
@@ -4941,7 +4941,7 @@ exports.default = Country;
 
 var _interopRequireDefault = __webpack_require__(0);
 
-var _Constants = _interopRequireDefault(__webpack_require__(5));
+var _Constants = _interopRequireDefault(__webpack_require__(4));
 
 var _Context = _interopRequireDefault(__webpack_require__(58));
 
@@ -5017,7 +5017,7 @@ var _itemToTransaction = _interopRequireDefault(__webpack_require__(53));
 
 var _CastsUtils = _interopRequireDefault(__webpack_require__(40));
 
-var _CheckUtils = _interopRequireDefault(__webpack_require__(6));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
@@ -5105,9 +5105,9 @@ var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
-var _Constants = _interopRequireDefault(__webpack_require__(5));
+var _Constants = _interopRequireDefault(__webpack_require__(4));
 
-var _CheckUtils = _interopRequireDefault(__webpack_require__(6));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -6942,7 +6942,7 @@ module.exports = require("zlib");
 /* 81 */
 /***/ (function(module) {
 
-module.exports = {"_args":[["axios@0.19.0","D:\\OSPanel\\domains\\nlic-js-library"]],"_from":"axios@0.19.0","_id":"axios@0.19.0","_inBundle":false,"_integrity":"sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.19.0","name":"axios","escapedName":"axios","rawSpec":"0.19.0","saveSpec":null,"fetchSpec":"0.19.0"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.19.0.tgz","_spec":"0.19.0","_where":"D:\\OSPanel\\domains\\nlic-js-library","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"1.5.10","is-buffer":"^2.0.2"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"bundlesize":"^0.17.0","coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.0.2","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^20.1.0","grunt-karma":"^2.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^1.0.18","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^1.3.0","karma-chrome-launcher":"^2.2.0","karma-coverage":"^1.1.1","karma-firefox-launcher":"^1.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-opera-launcher":"^1.0.0","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^1.2.0","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.7","karma-webpack":"^1.7.0","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^5.2.0","sinon":"^4.5.0","typescript":"^2.8.1","url-search-params":"^0.10.0","webpack":"^1.13.1","webpack-dev-server":"^1.14.1"},"homepage":"https://github.com/axios/axios","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test && bundlesize","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","version":"0.19.0"};
+module.exports = JSON.parse("{\"_from\":\"axios@^0.19\",\"_id\":\"axios@0.19.0\",\"_inBundle\":false,\"_integrity\":\"sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==\",\"_location\":\"/axios\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"range\",\"registry\":true,\"raw\":\"axios@^0.19\",\"name\":\"axios\",\"escapedName\":\"axios\",\"rawSpec\":\"^0.19\",\"saveSpec\":null,\"fetchSpec\":\"^0.19\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/axios/-/axios-0.19.0.tgz\",\"_shasum\":\"8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8\",\"_spec\":\"axios@^0.19\",\"_where\":\"/Users/alexey/work/projects/NetLicensingClient-javascript\",\"author\":{\"name\":\"Matt Zabriskie\"},\"browser\":{\"./lib/adapters/http.js\":\"./lib/adapters/xhr.js\"},\"bugs\":{\"url\":\"https://github.com/axios/axios/issues\"},\"bundleDependencies\":false,\"bundlesize\":[{\"path\":\"./dist/axios.min.js\",\"threshold\":\"5kB\"}],\"dependencies\":{\"follow-redirects\":\"1.5.10\",\"is-buffer\":\"^2.0.2\"},\"deprecated\":false,\"description\":\"Promise based HTTP client for the browser and node.js\",\"devDependencies\":{\"bundlesize\":\"^0.17.0\",\"coveralls\":\"^3.0.0\",\"es6-promise\":\"^4.2.4\",\"grunt\":\"^1.0.2\",\"grunt-banner\":\"^0.6.0\",\"grunt-cli\":\"^1.2.0\",\"grunt-contrib-clean\":\"^1.1.0\",\"grunt-contrib-watch\":\"^1.0.0\",\"grunt-eslint\":\"^20.1.0\",\"grunt-karma\":\"^2.0.0\",\"grunt-mocha-test\":\"^0.13.3\",\"grunt-ts\":\"^6.0.0-beta.19\",\"grunt-webpack\":\"^1.0.18\",\"istanbul-instrumenter-loader\":\"^1.0.0\",\"jasmine-core\":\"^2.4.1\",\"karma\":\"^1.3.0\",\"karma-chrome-launcher\":\"^2.2.0\",\"karma-coverage\":\"^1.1.1\",\"karma-firefox-launcher\":\"^1.1.0\",\"karma-jasmine\":\"^1.1.1\",\"karma-jasmine-ajax\":\"^0.1.13\",\"karma-opera-launcher\":\"^1.0.0\",\"karma-safari-launcher\":\"^1.0.0\",\"karma-sauce-launcher\":\"^1.2.0\",\"karma-sinon\":\"^1.0.5\",\"karma-sourcemap-loader\":\"^0.3.7\",\"karma-webpack\":\"^1.7.0\",\"load-grunt-tasks\":\"^3.5.2\",\"minimist\":\"^1.2.0\",\"mocha\":\"^5.2.0\",\"sinon\":\"^4.5.0\",\"typescript\":\"^2.8.1\",\"url-search-params\":\"^0.10.0\",\"webpack\":\"^1.13.1\",\"webpack-dev-server\":\"^1.14.1\"},\"homepage\":\"https://github.com/axios/axios\",\"keywords\":[\"xhr\",\"http\",\"ajax\",\"promise\",\"node\"],\"license\":\"MIT\",\"main\":\"index.js\",\"name\":\"axios\",\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/axios/axios.git\"},\"scripts\":{\"build\":\"NODE_ENV=production grunt build\",\"coveralls\":\"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js\",\"examples\":\"node ./examples/server.js\",\"fix\":\"eslint --fix lib/**/*.js\",\"postversion\":\"git push && git push --tags\",\"preversion\":\"npm test\",\"start\":\"node ./sandbox/server.js\",\"test\":\"grunt test && bundlesize\",\"version\":\"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json\"},\"typings\":\"./index.d.ts\",\"version\":\"0.19.0\"}");
 
 /***/ }),
 /* 82 */
@@ -7464,7 +7464,7 @@ module.exports = function spread(callback) {
 /* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getPrototypeOf = __webpack_require__(4);
+var getPrototypeOf = __webpack_require__(6);
 
 var setPrototypeOf = __webpack_require__(21);
 
@@ -7560,7 +7560,7 @@ module.exports = _construct;
 /* 93 */
 /***/ (function(module) {
 
-module.exports = {"name":"netlicensing-client","version":"1.2.12","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"author":"Labs64 GmbH","homepage":"https://netlicensing.io/","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"license":"Apache-2.0","main":"dist/netlicensing-client.js","contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"scripts":{"build":"node build/build.js","release":"npm run build && npm run test","dev":"webpack --progress --colors --watch --config build/webpack.dev.conf.js","test":"karma start test/karma.conf.js --single-run","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test/specs"},"dependencies":{"axios":"^0.19","es6-promise":"^4.2.8","karma-firefox-launcher":"^1.1.0","save-dev":"^2.0.0"},"devDependencies":{"@babel/core":"^7.4.5","@babel/plugin-proposal-class-properties":"^7.4.4","@babel/plugin-proposal-decorators":"^7.4.4","@babel/plugin-proposal-export-namespace-from":"^7.2.0","@babel/plugin-proposal-function-sent":"^7.2.0","@babel/plugin-proposal-json-strings":"^7.2.0","@babel/plugin-proposal-numeric-separator":"^7.2.0","@babel/plugin-proposal-throw-expressions":"^7.2.0","@babel/plugin-syntax-dynamic-import":"^7.2.0","@babel/plugin-syntax-import-meta":"^7.2.0","@babel/plugin-transform-modules-commonjs":"^7.4.4","@babel/plugin-transform-runtime":"^7.4.4","@babel/preset-env":"^7.4.5","@babel/runtime":"^7.4.5","axios-mock-adapter":"^1.16.0","babel-eslint":"^10.0.1","babel-loader":"^8.0.6","chalk":"^2.4.2","eslint":"^5.16.0","eslint-config-airbnb-base":"^13.1.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.11.1","eslint-loader":"^2.1.2","eslint-plugin-import":"^2.17.3","eslint-plugin-jasmine":"^2.10.1","faker":"^4.1.0","is-docker":"^1.1.0","jasmine":"^3.4.0","jasmine-core":"^3.4.0","karma":"^3.1.4","karma-chrome-launcher":"^2.2.0","karma-jasmine":"^2.0.1","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.32","karma-webpack":"^4.0.0-rc.6","lodash":"^4.17.11","ora":"^3.4.0","query-string":"^6.6.0","rimraf":"^2.6.3","uglifyjs-webpack-plugin":"^1.3.0","webpack":"^4.33.0","webpack-cli":"^3.3.3","webpack-merge":"^4.2.1"},"engines":{"node":">= 6.0.0","npm":">= 3.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]};
+module.exports = JSON.parse("{\"name\":\"netlicensing-client\",\"version\":\"1.2.12\",\"description\":\"JavaScript Wrapper for Labs64 NetLicensing RESTful API\",\"keywords\":[\"labs64\",\"netlicensing\",\"licensing\",\"licensing-as-a-service\",\"license\",\"license-management\",\"software-license\",\"client\",\"restful\",\"restful-api\",\"javascript\",\"wrapper\",\"api\",\"client\"],\"author\":\"Labs64 GmbH\",\"homepage\":\"https://netlicensing.io/\",\"repository\":{\"type\":\"git\",\"url\":\"https://github.com/Labs64/NetLicensingClient-javascript\"},\"bugs\":{\"url\":\"https://github.com/Labs64/NetLicensingClient-javascript/issues\"},\"license\":\"Apache-2.0\",\"main\":\"dist/netlicensing-client.js\",\"contributors\":[{\"name\":\"Ready Brown\",\"email\":\"ready.brown@hotmail.de\",\"url\":\"https://github.com/r-brown\"},{\"name\":\"Viacheslav Rudkovskiy\",\"email\":\"viachaslau.rudkovski@labs64.de\",\"url\":\"https://github.com/v-rudkovskiy\"},{\"name\":\"Andrei Yushkevich\",\"email\":\"yushkevich@me.com\",\"url\":\"https://github.com/yushkevich\"}],\"scripts\":{\"build\":\"node build/build.js\",\"release\":\"npm run build && npm run test\",\"dev\":\"webpack --progress --colors --watch --config build/webpack.dev.conf.js\",\"test\":\"karma start test/karma.conf.js --single-run\",\"test-for-travis\":\"karma start test/karma.conf.js --single-run --browsers Firefox\",\"lint\":\"eslint --ext .js,.vue src test/specs\"},\"dependencies\":{\"axios\":\"^0.19\",\"es6-promise\":\"^4.2.8\",\"karma-firefox-launcher\":\"^1.1.0\",\"save-dev\":\"^2.0.0\"},\"devDependencies\":{\"@babel/core\":\"^7.4.5\",\"@babel/plugin-proposal-class-properties\":\"^7.4.4\",\"@babel/plugin-proposal-decorators\":\"^7.4.4\",\"@babel/plugin-proposal-export-namespace-from\":\"^7.2.0\",\"@babel/plugin-proposal-function-sent\":\"^7.2.0\",\"@babel/plugin-proposal-json-strings\":\"^7.2.0\",\"@babel/plugin-proposal-numeric-separator\":\"^7.2.0\",\"@babel/plugin-proposal-throw-expressions\":\"^7.2.0\",\"@babel/plugin-syntax-dynamic-import\":\"^7.2.0\",\"@babel/plugin-syntax-import-meta\":\"^7.2.0\",\"@babel/plugin-transform-modules-commonjs\":\"^7.4.4\",\"@babel/plugin-transform-runtime\":\"^7.4.4\",\"@babel/preset-env\":\"^7.4.5\",\"@babel/runtime\":\"^7.4.5\",\"axios-mock-adapter\":\"^1.16.0\",\"babel-eslint\":\"^10.0.1\",\"babel-loader\":\"^8.0.6\",\"chalk\":\"^2.4.2\",\"eslint\":\"^5.16.0\",\"eslint-config-airbnb-base\":\"^13.1.0\",\"eslint-friendly-formatter\":\"^4.0.1\",\"eslint-import-resolver-webpack\":\"^0.11.1\",\"eslint-loader\":\"^2.1.2\",\"eslint-plugin-import\":\"^2.17.3\",\"eslint-plugin-jasmine\":\"^2.10.1\",\"faker\":\"^4.1.0\",\"is-docker\":\"^1.1.0\",\"jasmine\":\"^3.4.0\",\"jasmine-core\":\"^3.4.0\",\"karma\":\"^3.1.4\",\"karma-chrome-launcher\":\"^2.2.0\",\"karma-jasmine\":\"^2.0.1\",\"karma-sourcemap-loader\":\"^0.3.7\",\"karma-spec-reporter\":\"0.0.32\",\"karma-webpack\":\"^4.0.0-rc.6\",\"lodash\":\"^4.17.11\",\"ora\":\"^3.4.0\",\"query-string\":\"^6.6.0\",\"rimraf\":\"^2.6.3\",\"uglifyjs-webpack-plugin\":\"^1.3.0\",\"webpack\":\"^4.33.0\",\"webpack-cli\":\"^3.3.3\",\"webpack-merge\":\"^4.2.1\"},\"engines\":{\"node\":\">= 6.0.0\",\"npm\":\">= 3.0.0\"},\"browserslist\":[\"> 1%\",\"last 2 versions\",\"not ie <= 10\"]}");
 
 /***/ }),
 /* 94 */
@@ -7582,11 +7582,11 @@ var _slicedToArray2 = _interopRequireDefault(__webpack_require__(15));
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(16));
 
-var _CheckUtils = _interopRequireDefault(__webpack_require__(6));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
-var _Constants = _interopRequireDefault(__webpack_require__(5));
+var _Constants = _interopRequireDefault(__webpack_require__(4));
 
 var _Service = _interopRequireDefault(__webpack_require__(12));
 
@@ -8776,9 +8776,9 @@ var _slicedToArray2 = _interopRequireDefault(__webpack_require__(15));
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(16));
 
-var _CheckUtils = _interopRequireDefault(__webpack_require__(6));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
-var _Constants = _interopRequireDefault(__webpack_require__(5));
+var _Constants = _interopRequireDefault(__webpack_require__(4));
 
 var _Service = _interopRequireDefault(__webpack_require__(12));
 
@@ -9090,9 +9090,9 @@ var _slicedToArray2 = _interopRequireDefault(__webpack_require__(15));
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(16));
 
-var _CheckUtils = _interopRequireDefault(__webpack_require__(6));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
-var _Constants = _interopRequireDefault(__webpack_require__(5));
+var _Constants = _interopRequireDefault(__webpack_require__(4));
 
 var _Service = _interopRequireDefault(__webpack_require__(12));
 
@@ -9385,9 +9385,9 @@ var _slicedToArray2 = _interopRequireDefault(__webpack_require__(15));
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(16));
 
-var _Constants = _interopRequireDefault(__webpack_require__(5));
+var _Constants = _interopRequireDefault(__webpack_require__(4));
 
-var _CheckUtils = _interopRequireDefault(__webpack_require__(6));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 var _Service = _interopRequireDefault(__webpack_require__(12));
 
@@ -9594,9 +9594,9 @@ var _slicedToArray2 = _interopRequireDefault(__webpack_require__(15));
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(16));
 
-var _CheckUtils = _interopRequireDefault(__webpack_require__(6));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
-var _Constants = _interopRequireDefault(__webpack_require__(5));
+var _Constants = _interopRequireDefault(__webpack_require__(4));
 
 var _Service = _interopRequireDefault(__webpack_require__(12));
 
@@ -9890,9 +9890,9 @@ var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(16));
 
 var _Service = _interopRequireDefault(__webpack_require__(12));
 
-var _Constants = _interopRequireDefault(__webpack_require__(5));
+var _Constants = _interopRequireDefault(__webpack_require__(4));
 
-var _CheckUtils = _interopRequireDefault(__webpack_require__(6));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
@@ -10160,8 +10160,6 @@ exports.default = _default;
 /* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getPrototypeOf = __webpack_require__(4);
-
 var superPropBase = __webpack_require__(105);
 
 function _get(target, property, receiver) {
@@ -10190,7 +10188,7 @@ module.exports = _get;
 /* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getPrototypeOf = __webpack_require__(4);
+var getPrototypeOf = __webpack_require__(6);
 
 function _superPropBase(object, property) {
   while (!Object.prototype.hasOwnProperty.call(object, property)) {
@@ -10223,11 +10221,11 @@ var _slicedToArray2 = _interopRequireDefault(__webpack_require__(15));
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(16));
 
-var _Constants = _interopRequireDefault(__webpack_require__(5));
+var _Constants = _interopRequireDefault(__webpack_require__(4));
 
 var _Service = _interopRequireDefault(__webpack_require__(12));
 
-var _CheckUtils = _interopRequireDefault(__webpack_require__(6));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
@@ -10452,11 +10450,11 @@ var _slicedToArray2 = _interopRequireDefault(__webpack_require__(15));
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(16));
 
-var _Constants = _interopRequireDefault(__webpack_require__(5));
+var _Constants = _interopRequireDefault(__webpack_require__(4));
 
 var _Service = _interopRequireDefault(__webpack_require__(12));
 
-var _CheckUtils = _interopRequireDefault(__webpack_require__(6));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
@@ -10721,11 +10719,11 @@ var _regenerator = _interopRequireDefault(__webpack_require__(14));
 
 var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(16));
 
-var _Constants = _interopRequireDefault(__webpack_require__(5));
+var _Constants = _interopRequireDefault(__webpack_require__(4));
 
 var _Service = _interopRequireDefault(__webpack_require__(12));
 
-var _CheckUtils = _interopRequireDefault(__webpack_require__(6));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
