@@ -89,7 +89,7 @@ export default {
             .get(context, Constants.Token.ENDPOINT_PATH, queryParams);
 
         return Page(
-            data.items.item.map(v => itemToToken(v)),
+            data.items.item.map((v) => itemToToken(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,

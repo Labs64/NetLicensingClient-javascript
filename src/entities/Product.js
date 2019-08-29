@@ -213,7 +213,7 @@ export default class Product extends BaseEntity {
         const propertiesMap = super.asPropertiesMap();
 
         if (discountsMap.get(this).length) {
-            propertiesMap.discount = discountsMap.get(this).map(discount => discount.toString());
+            propertiesMap.discount = discountsMap.get(this).map((discount) => discount.toString());
         }
 
         if (!propertiesMap.discount && discountsTouched.get(this)) {

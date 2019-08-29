@@ -1,6 +1,10 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
 import query from 'query-string';
+import response from 'test@/mocks/response';
+import error from 'test@/mocks/error';
+import licenseeFactory from 'test@/factories/licensee';
+import validateFactory from 'test@/factories/validate';
 import Context from '@/vo/Context';
 import ValidationParameters from '@/vo/ValidationParameters';
 import Licensee from '@/entities/Licensee';
@@ -8,11 +12,7 @@ import LicenseeService from '@/services/LicenseeService';
 import ValidationResults from '@/vo/ValidationResults';
 import Constants from '@/Constants';
 import Service from '@/services/Service';
-import response from 'test@/mocks/response';
-import error from 'test@/mocks/error';
-import licenseeFactory from 'test@/factories/licensee';
-import validateFactory from 'test@/factories/validate';
-import NlicError from '../../../src/errors/NlicError';
+import NlicError from '@/errors/NlicError';
 
 describe('services/LicenseeService', () => {
     let context;
@@ -159,7 +159,7 @@ describe('services/LicenseeService', () => {
 
         // configure mock for update request
         mock.onPost(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}/${fakeLicensee.number}`)
-            .reply(config => [200, response(query.parse(config.data))]);
+            .reply((config) => [200, response(query.parse(config.data))]);
 
         const updated = await LicenseeService.update(context, licensee.getProperty('number'), licensee);
 

@@ -1,15 +1,15 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
 import query from 'query-string';
+import response from 'test@/mocks/response';
+import error from 'test@/mocks/error';
+import licenseFactory from 'test@/factories/license';
 import Context from '@/vo/Context';
 import License from '@/entities/License';
 import LicenseService from '@/services/LicenseService';
 import Constants from '@/Constants';
 import Service from '@/services/Service';
-import response from 'test@/mocks/response';
-import error from 'test@/mocks/error';
-import licenseFactory from 'test@/factories/license';
-import NlicError from '../../../src/errors/NlicError';
+import NlicError from '@/errors/NlicError';
 
 describe('services/LicenseService', () => {
     let context;

@@ -19,7 +19,7 @@ export default class ValidationResults {
     }
 
     getValidators() {
-        return Object.assign({}, vr.get(this).validators);
+        return { ...vr.get(this).validators };
     }
 
     setProductModuleValidation(productModuleNumber, productModuleValidation) {

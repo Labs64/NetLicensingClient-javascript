@@ -119,7 +119,7 @@ export default class BaseEntity {
      * Get all of the current properties on the entity.
      */
     getProperties() {
-        return Object.assign({}, propertiesMap.get(this));
+        return { ...propertiesMap.get(this) };
     }
 
     /**
@@ -225,6 +225,6 @@ export default class BaseEntity {
             customProperties[key] = this[key];
         });
 
-        return Object.assign({}, customProperties, properties);
+        return { ...customProperties, ...properties };
     }
 }

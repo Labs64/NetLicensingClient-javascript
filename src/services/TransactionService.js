@@ -98,7 +98,7 @@ export default {
             .get(context, Constants.Transaction.ENDPOINT_PATH, queryParams);
 
         return Page(
-            data.items.item.map(v => itemToTransaction(v)),
+            data.items.item.map((v) => itemToTransaction(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,

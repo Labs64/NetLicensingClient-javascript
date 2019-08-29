@@ -62,7 +62,7 @@ export default {
             .get(context, Constants.PaymentMethod.ENDPOINT_PATH, queryParams);
 
         return Page(
-            data.items.item.map(v => itemToPaymentMethod(v)),
+            data.items.item.map((v) => itemToPaymentMethod(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,

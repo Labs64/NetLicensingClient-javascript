@@ -86,11 +86,11 @@ export default class ValidationParameters {
      * @returns {*}
      */
     getParameters() {
-        return Object.assign({}, vpMap.get(this).parameters);
+        return { ...vpMap.get(this).parameters };
     }
 
     getProductModuleValidationParameters(productModuleNumber) {
-        return Object.assign({}, vpMap.get(this).parameters[productModuleNumber]);
+        return { ...vpMap.get(this).parameters[productModuleNumber] };
     }
 
     setProductModuleValidationParameters(productModuleNumber, productModuleParameters) {

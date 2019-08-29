@@ -1,11 +1,11 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
+import response from 'test@/mocks/response';
+import { licenseType as licenseTypeFactory, licensingModel as licensingModelFactory } from 'test@/factories/utility';
 import Context from '@/vo/Context';
 import UtilityService from '@/services/UtilityService';
 import Service from '@/services/Service';
 import Constants from '@/Constants';
-import response from 'test@/mocks/response';
-import { licenseType as licenseTypeFactory, licensingModel as licensingModelFactory } from 'test@/factories/utility';
 
 describe('services/UtilityService', () => {
     let context;

@@ -35,7 +35,7 @@ export default {
             .get(context, `${Constants.Utility.ENDPOINT_PATH}/${Constants.Utility.ENDPOINT_PATH_LICENSE_TYPES}`);
 
         return Page(
-            data.items.item.map(v => itemToObject(v)),
+            data.items.item.map((v) => itemToObject(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,
@@ -58,7 +58,7 @@ export default {
             .get(context, `${Constants.Utility.ENDPOINT_PATH}/${Constants.Utility.ENDPOINT_PATH_LICENSING_MODELS}`);
 
         return Page(
-            data.items.item.map(v => itemToObject(v)),
+            data.items.item.map((v) => itemToObject(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,
@@ -96,7 +96,7 @@ export default {
             );
 
         return Page(
-            data.items.item.map(v => itemToCountry(v)),
+            data.items.item.map((v) => itemToCountry(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,

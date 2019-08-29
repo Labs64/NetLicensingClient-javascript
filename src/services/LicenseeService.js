@@ -99,7 +99,7 @@ export default {
             .get(context, Constants.Licensee.ENDPOINT_PATH, queryParams);
 
         return Page(
-            data.items.item.map(v => itemToLicensee(v)),
+            data.items.item.map((v) => itemToLicensee(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,

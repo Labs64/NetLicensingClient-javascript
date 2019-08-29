@@ -1,12 +1,12 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
+import response from 'test@/mocks/response';
+import error from 'test@/mocks/error';
+import paymentMethodFactory from 'test@/factories/paymentMethod';
 import Context from '@/vo/Context';
 import PaymentMethod from '@/entities/PaymentMethod';
 import PaymentMethodService from '@/services/PaymentMethodService';
 import Constants from '@/Constants';
-import response from 'test@/mocks/response';
-import error from 'test@/mocks/error';
-import paymentMethodFactory from 'test@/factories/paymentMethod';
 import NlicError from '@/errors/NlicError';
 
 describe('services/PaymentMethodService', () => {

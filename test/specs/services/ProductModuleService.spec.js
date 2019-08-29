@@ -1,15 +1,15 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
 import query from 'query-string';
+import response from 'test@/mocks/response';
+import error from 'test@/mocks/error';
+import productModuleFactory from 'test@/factories/productModule';
 import Context from '@/vo/Context';
 import ProductModule from '@/entities/ProductModule';
 import ProductModuleService from '@/services/ProductModuleService';
 import Constants from '@/Constants';
 import Service from '@/services/Service';
-import response from 'test@/mocks/response';
-import error from 'test@/mocks/error';
-import productModuleFactory from 'test@/factories/productModule';
-import NlicError from '../../../src/errors/NlicError';
+import NlicError from '@/errors/NlicError';
 
 describe('services/ProductModuleService', () => {
     let context;
@@ -161,7 +161,7 @@ describe('services/ProductModuleService', () => {
 
         // configure mock for update request
         mock.onPost(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}/${fakeProductModule.number}`)
-            .reply(config => [200, response(query.parse(config.data))]);
+            .reply((config) => [200, response(query.parse(config.data))]);
 
         const updated = await ProductModuleService.update(context, productModule.getProperty('number'), productModule);
 

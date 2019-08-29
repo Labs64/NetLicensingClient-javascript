@@ -97,7 +97,7 @@ export default {
             .get(context, Constants.LicenseTemplate.ENDPOINT_PATH, queryParams);
 
         return Page(
-            data.items.item.map(v => itemToLicenseTemplate(v)),
+            data.items.item.map((v) => itemToLicenseTemplate(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,

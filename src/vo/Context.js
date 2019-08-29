@@ -39,7 +39,7 @@ export default class Context {
 
         definedMap.set(this, {});
 
-        this.setValues(Object.assign({}, defaultsMap.get(this), values));
+        this.setValues({ ...defaultsMap.get(this), ...values });
     }
 
     setBaseUrl(baseUrl) {
@@ -107,7 +107,7 @@ export default class Context {
         let copedValue = value;
 
         if (typeof value === 'object' && value !== null) {
-            copedValue = (Array.isArray(value)) ? Object.assign([], value) : Object.assign({}, value);
+            copedValue = (Array.isArray(value)) ? Object.assign([], value) : ({ ...value });
         }
 
         const values = valuesMap.get(this);
@@ -151,7 +151,7 @@ export default class Context {
      * Get all of the current value on the context.
      */
     getValues() {
-        return Object.assign({}, valuesMap.get(this));
+        return { ...valuesMap.get(this) };
     }
 
     /**
@@ -173,7 +173,7 @@ export default class Context {
      */
     removeValues(keys) {
         const keysAr = keys || Object.keys(valuesMap.get(this));
-        keysAr.forEach(key => this.removeValue(key));
+        keysAr.forEach((key) => this.removeValue(key));
     }
 
     /**
@@ -203,7 +203,7 @@ export default class Context {
         };
 
         if (!onlyGetter) {
-            descriptors.set = value => self.setValue(key, value);
+            descriptors.set = (value) => self.setValue(key, value);
         }
 
         const defined = definedMap.get(this);

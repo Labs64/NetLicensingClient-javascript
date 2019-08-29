@@ -96,7 +96,7 @@ export default {
         const { data } = await Service.get(context, Constants.ProductModule.ENDPOINT_PATH, queryParams);
 
         return Page(
-            data.items.item.map(v => itemToProductModule(v)),
+            data.items.item.map((v) => itemToProductModule(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,

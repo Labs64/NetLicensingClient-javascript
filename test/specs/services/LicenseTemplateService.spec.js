@@ -1,15 +1,15 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
 import query from 'query-string';
+import response from 'test@/mocks/response';
+import error from 'test@/mocks/error';
+import licenseTemplateFactory from 'test@/factories/licenseTemplate';
 import Context from '@/vo/Context';
 import LicenseTemplate from '@/entities/LicenseTemplate';
 import LicenseTemplateService from '@/services/LicenseTemplateService';
 import Constants from '@/Constants';
 import Service from '@/services/Service';
-import response from 'test@/mocks/response';
-import error from 'test@/mocks/error';
-import licenseTemplateFactory from 'test@/factories/licenseTemplate';
-import NlicError from '../../../src/errors/NlicError';
+import NlicError from '@/errors/NlicError';
 
 
 describe('services/LicenseTemplateService', () => {
@@ -180,7 +180,7 @@ describe('services/LicenseTemplateService', () => {
 
         // configure mock for update request
         mock.onPost(`${context.getBaseUrl()}/${Constants.LicenseTemplate.ENDPOINT_PATH}/${fakeLicenseTemplate.number}`)
-            .reply(config => [200, response(query.parse(config.data))]);
+            .reply((config) => [200, response(query.parse(config.data))]);
 
         const updated = await LicenseTemplateService
             .update(context, licenseTemplate.getProperty('number'), licenseTemplate);

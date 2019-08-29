@@ -1,14 +1,14 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
 import query from 'query-string';
+import response from 'test@/mocks/response';
+import error from 'test@/mocks/error';
+import tokenFactory from 'test@/factories/token';
 import Context from '@/vo/Context';
 import Token from '@/entities/Token';
 import TokenService from '@/services/TokenService';
 import Constants from '@/Constants';
 import Service from '@/services/Service';
-import response from 'test@/mocks/response';
-import error from 'test@/mocks/error';
-import tokenFactory from 'test@/factories/token';
 import NlicError from '@/errors/NlicError';
 
 describe('services/TokenService', () => {
