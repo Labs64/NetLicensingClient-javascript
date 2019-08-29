@@ -33,7 +33,19 @@ module.exports = function karmaConfig(config) {
             './index.js',
         ],
         preprocessors: {
-            './index.js': ['webpack', 'sourcemap'],
+            './index.js': ['babel', 'webpack', 'sourcemap'],
+        },
+        babelPreprocessor: {
+            options: {
+                presets: ['@babel/preset-env'],
+                sourceMap: 'inline',
+            },
+            filename(file) {
+                return file.originalPath.replace(/\.js$/, '.es5.js');
+            },
+            sourceFileName(file) {
+                return file.originalPath;
+            },
         },
         webpack: webpackConfig,
         webpackMiddleware: {
