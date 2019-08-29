@@ -2,7 +2,7 @@ import faker from 'faker';
 import factory from './factory';
 import Constants from '@/Constants';
 
-const randomItem = array => array[Math.floor(Math.random() * array.length)];
+const randomItem = (array) => array[Math.floor(Math.random() * array.length)];
 
 export default factory(() => {
     const token = {

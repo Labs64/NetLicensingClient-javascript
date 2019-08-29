@@ -2,7 +2,7 @@
 import _defaults from 'lodash/defaults';
 import isPlainObject from 'lodash/isPlainObject';
 
-export default factory => (count = 1, data = {}) => {
+export default (factory) => (count = 1, data = {}) => {
     if (isPlainObject(count)) {
         data = count;
         count = 1;
