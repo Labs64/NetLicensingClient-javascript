@@ -6,7 +6,7 @@ export default {
         const has = Object.prototype.hasOwnProperty;
         Object.keys(filter).forEach((key) => {
             if (has.call(filter, key)) {
-                query.push(`${encodeURIComponent(key)}${this.FILTER_PAIR_DELIMITER}${encodeURIComponent(filter[key])}`);
+                query.push(`${key}${this.FILTER_PAIR_DELIMITER}${filter[key]}`);
             }
         });
         return query.join(this.FILTER_DELIMITER);
