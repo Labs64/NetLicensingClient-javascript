@@ -46,6 +46,9 @@ import BaseEntity from './BaseEntity';
  * participate in validation.
  * @property boolean hideLicenses
  *
+ * If set to true, this license template defines grace period of validity granted after subscription expiration.
+ * @property boolean gracePeriod
+ *
  * Mandatory for 'TIMEVOLUME' license type.
  * @property integer timeVolume
  *
@@ -75,6 +78,7 @@ export default class LicenseTemplate extends BaseEntity {
                 automatic: 'boolean',
                 hidden: 'boolean',
                 hideLicenses: 'boolean',
+                gracePeriod: 'boolean',
                 timeVolume: 'int',
                 timeVolumePeriod: 'string',
                 maxSessions: 'int',
