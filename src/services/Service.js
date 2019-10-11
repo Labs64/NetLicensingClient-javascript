@@ -108,6 +108,11 @@ export default class Service {
                 if (headers['Content-Type'] === 'application/x-www-form-urlencoded') {
                     return Service.toQueryString(data);
                 }
+
+                if (!headers['NetLicensing-Origin']) {
+                    // eslint-disable-next-line no-param-reassign
+                    headers['NetLicensing-Origin'] = `NetLicensing/Javascript ${pkg.version}`;
+                }
                 return data;
             }],
         };
@@ -209,17 +214,19 @@ export default class Service {
 
         const has = Object.prototype.hasOwnProperty;
 
-        Object.keys(data).forEach((key) => {
-            if (has.call(data, key)) {
-                const k = prefix ? `${prefix}[${key}]` : key;
-                let v = data[key];
-                v = (v instanceof Date) ? v.toISOString() : v;
-                query.push((v !== null && typeof v === 'object')
-                    ? Service.toQueryString(v, k)
-                    : `${encodeURIComponent(k)}=${encodeURIComponent(v)}`);
-            }
-        });
+        Object.keys(data)
+            .forEach((key) => {
+                if (has.call(data, key)) {
+                    const k = prefix ? `${prefix}[${key}]` : key;
+                    let v = data[key];
+                    v = (v instanceof Date) ? v.toISOString() : v;
+                    query.push((v !== null && typeof v === 'object')
+                        ? Service.toQueryString(v, k)
+                        : `${encodeURIComponent(k)}=${encodeURIComponent(v)}`);
+                }
+            });
 
-        return query.join('&').replace(/%5B[0-9]+%5D=/g, '=');
+        return query.join('&')
+            .replace(/%5B[0-9]+%5D=/g, '=');
     }
 }
