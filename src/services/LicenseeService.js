@@ -16,7 +16,7 @@ import itemToObject from '../converters/itemToObject';
 
 /**
  * JS representation of the Licensee Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services
+ * https://netlicensing.io/wiki/licensee-services
  *
  * @constructor
  */
@@ -24,7 +24,7 @@ import itemToObject from '../converters/itemToObject';
 export default {
     /**
      * Creates new licensee object with given properties.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Createlicensee
+     * @see https://netlicensing.io/wiki/licensee-services#create-licensee
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -52,7 +52,7 @@ export default {
 
     /**
      * Gets licensee by its number.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Getlicensee
+     * @see https://netlicensing.io/wiki/licensee-services#get-licensee
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -74,7 +74,7 @@ export default {
 
     /**
      * Returns all licensees of a vendor.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Licenseeslist
+     * @see https://netlicensing.io/wiki/licensee-services#licensees-list
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -109,7 +109,7 @@ export default {
 
     /**
      * Updates licensee properties.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Updatelicensee
+     * @see https://netlicensing.io/wiki/licensee-services#update-licensee
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -134,7 +134,7 @@ export default {
 
     /**
      * Deletes licensee.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Deletelicensee
+     * @see https://netlicensing.io/wiki/licensee-services#delete-licensee
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -159,7 +159,7 @@ export default {
 
     /**
      * Validates active licenses of the licensee. See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Validatelicensee
+     * @see https://netlicensing.io/wiki/licensee-services#validate-licensee
      *
      * @param context NetLicensing.Context
      *
@@ -228,7 +228,7 @@ export default {
 
     /**
      * Transfer licenses between licensees.
-     * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Transferlicensee
+     * @see https://netlicensing.io/wiki/licensee-services#transfer-licenses
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
