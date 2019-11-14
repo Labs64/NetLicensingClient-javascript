@@ -1,7 +1,7 @@
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -15,7 +15,7 @@ import Page from '../vo/Page';
 export default {
     /**
      * Gets payment method by its number.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Payment+Method+Services#PaymentMethodServices-Getpaymentmethod
+     * @see https://netlicensing.io/wiki/payment-method-services#get-payment-method
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -37,7 +37,7 @@ export default {
 
     /**
      * Returns payment methods of a vendor.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Payment+Method+Services#PaymentMethodServices-Paymentmethodslist
+     * @see https://netlicensing.io/wiki/payment-method-services#payment-methods-list
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -72,7 +72,7 @@ export default {
 
     /**
      * Updates payment method properties.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Payment+Method+Services#PaymentMethodServices-Updatepaymentmethod
+     * @see https://netlicensing.io/wiki/payment-method-services#update-payment-method
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context

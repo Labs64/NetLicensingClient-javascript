@@ -1,7 +1,7 @@
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -14,7 +14,7 @@ import Page from '../vo/Page';
 
 /**
  * JS representation of the Token Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services
+ * https://netlicensing.io/wiki/token-services
  *
  * @constructor
  */
@@ -22,7 +22,7 @@ import Page from '../vo/Page';
 export default {
     /**
      * Creates new token.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services#TokenServices-Createtoken
+     * @see https://netlicensing.io/wiki/token-services#create-token
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -42,7 +42,7 @@ export default {
 
     /**
      * Gets token by its number..See NetLicensingAPI for details:
-     * @see https://www.labs64.de/conluence/display/NetLicensing PUB/Token+Services#TokenServices-Gettoken
+     * @see https://netlicensing.io/wiki/token-services#get-token
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -64,7 +64,7 @@ export default {
 
     /**
      * Returns tokens of a vendor.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services#TokenServices-Tokenslist
+     * @see https://netlicensing.io/wiki/token-services#tokens-list
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -99,7 +99,7 @@ export default {
 
     /**
      * Delete token by its number.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services#TokenServices-Deletetoken
+     * @see https://netlicensing.io/wiki/token-services#delete-token
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context

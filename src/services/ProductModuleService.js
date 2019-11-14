@@ -1,7 +1,7 @@
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -14,7 +14,7 @@ import Page from '../vo/Page';
 
 /**
  * JS representation of the ProductModule Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Module+Services
+ * https://netlicensing.io/wiki/product-module-services
  *
  * @constructor
  */
@@ -22,7 +22,7 @@ import Page from '../vo/Page';
 export default {
     /**
      * Creates new product module object with given properties.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Module+Services#ProductModuleServices-Createproductmodule
+     * @see https://netlicensing.io/wiki/product-module-services#create-product-module
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -50,7 +50,7 @@ export default {
 
     /**
      * Gets product module by its number.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Module+Services#ProductModuleServices-Getproductmodule
+     * @see https://netlicensing.io/wiki/product-module-services#get-product-module
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -72,7 +72,7 @@ export default {
 
     /**
      * Returns products of a vendor.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Productslist
+     * @see https://netlicensing.io/wiki/product-module-services#product-modules-list
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -106,7 +106,7 @@ export default {
 
     /**
      * Updates product module properties.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Module+Services#ProductModuleServices-Updateproductmodule
+     * @see https://netlicensing.io/wiki/product-module-services#update-product-module
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -131,7 +131,7 @@ export default {
 
     /**
      * Deletes product module.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Module+Services#ProductModuleServices-Deleteproductmodule
+     * @see https://netlicensing.io/wiki/product-module-services#delete-product-module
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context

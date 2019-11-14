@@ -1,7 +1,7 @@
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -14,7 +14,7 @@ import Page from '../vo/Page';
 
 /**
  * JS representation of the Transaction Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services
+ * https://netlicensing.io/wiki/transaction-services
  *
  * Transaction is created each time change to  LicenseService licenses happens. For instance licenses are
  * obtained by a licensee, licenses disabled by vendor, licenses deleted, etc. Transaction is created no matter what
@@ -30,7 +30,7 @@ import Page from '../vo/Page';
 export default {
     /**
      * Creates new transaction object with given properties.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services#TransactionServices-Createtransaction
+     * @see https://netlicensing.io/wiki/transaction-services#create-transaction
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -51,7 +51,7 @@ export default {
 
     /**
      * Gets transaction by its number.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services#TransactionServices-Gettransaction
+     * @see https://netlicensing.io/wiki/transaction-services#get-transaction
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -73,7 +73,7 @@ export default {
 
     /**
      * Returns all transactions of a vendor.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services#TransactionServices-Transactionslist
+     * @see https://netlicensing.io/wiki/transaction-services#transactions-list
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -108,7 +108,7 @@ export default {
 
     /**
      * Updates transaction properties.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services#TransactionServices-Updatetransaction
+     * @see https://netlicensing.io/wiki/transaction-services#update-transaction
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context

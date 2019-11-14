@@ -155,7 +155,7 @@ exports.default = void 0;
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 var _default = {
@@ -354,7 +354,7 @@ exports.default = void 0;
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 var _default = {
@@ -1164,7 +1164,7 @@ var _package = _interopRequireDefault(__webpack_require__(76));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 var httpXHR = {};
@@ -1585,7 +1585,7 @@ var _BaseEntity2 = _interopRequireDefault(__webpack_require__(10));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -1775,7 +1775,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 var LicenseTransactionJoin =
@@ -2736,7 +2736,7 @@ var _BaseEntity2 = _interopRequireDefault(__webpack_require__(10));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -2873,7 +2873,7 @@ exports.default = void 0;
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 // Cast an attribute to a native JS type.
@@ -2993,7 +2993,7 @@ var _BaseEntity2 = _interopRequireDefault(__webpack_require__(10));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -3277,7 +3277,7 @@ var _BaseEntity2 = _interopRequireDefault(__webpack_require__(10));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -3396,7 +3396,7 @@ var _BaseEntity2 = _interopRequireDefault(__webpack_require__(10));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -3628,7 +3628,7 @@ var _ProductDiscount = _interopRequireDefault(__webpack_require__(46));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -3914,7 +3914,7 @@ var _BaseEntity2 = _interopRequireDefault(__webpack_require__(10));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 var ProductDiscount =
@@ -4045,7 +4045,7 @@ var _BaseEntity2 = _interopRequireDefault(__webpack_require__(10));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -4324,7 +4324,7 @@ var _License = _interopRequireDefault(__webpack_require__(19));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -4585,7 +4585,7 @@ var _BaseEntity2 = _interopRequireDefault(__webpack_require__(10));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -5135,7 +5135,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -6197,7 +6197,7 @@ var _itemToObject = _interopRequireDefault(__webpack_require__(7));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -7387,7 +7387,7 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -7701,7 +7701,7 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -7996,7 +7996,7 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 var _default = {
@@ -8205,7 +8205,7 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -8499,7 +8499,7 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -8832,7 +8832,7 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -9061,7 +9061,7 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -9332,7 +9332,7 @@ var _itemToCountry = _interopRequireDefault(__webpack_require__(51));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 

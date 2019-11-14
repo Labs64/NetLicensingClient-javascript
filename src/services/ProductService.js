@@ -1,7 +1,7 @@
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
- * @link      http://netlicensing.io
+ * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
 
@@ -43,7 +43,7 @@ export default {
 
     /**
      * Gets product by its number.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Getproduct
+     * @see https://netlicensing.io/wiki/product-services#get-product
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
