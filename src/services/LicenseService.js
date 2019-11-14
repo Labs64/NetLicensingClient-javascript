@@ -14,7 +14,7 @@ import Page from '../vo/Page';
 
 /**
  * JS representation of the License Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Services
+ * https://netlicensing.io/wiki/license-services
  *
  * @constructor
  */
@@ -22,7 +22,7 @@ import Page from '../vo/Page';
 export default {
     /**
      * Creates new license object with given properties.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Createlicense
+     * @see https://netlicensing.io/wiki/license-services#create-license
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -64,7 +64,7 @@ export default {
 
     /**
      * Gets license by its number.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Getlicense
+     * @see https://netlicensing.io/wiki/license-services#get-license
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -86,7 +86,7 @@ export default {
 
     /**
      * Returns licenses of a vendor.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Licenseslist
+     * @see https://netlicensing.io/wiki/license-services#licenses-list
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -121,7 +121,7 @@ export default {
 
     /**
      * Updates license properties.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Updatelicense
+     * @see https://netlicensing.io/wiki/license-services#update-license
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -152,7 +152,7 @@ export default {
 
     /**
      * Deletes license.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Deletelicense
+     * @see https://netlicensing.io/wiki/license-services#delete-license
      *
      * When any license is deleted, corresponding transaction is created automatically.
      *
