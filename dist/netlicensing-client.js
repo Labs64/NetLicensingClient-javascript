@@ -1283,6 +1283,11 @@ function () {
             return Service.toQueryString(data);
           }
 
+          if (!headers['NetLicensing-Origin']) {
+            // eslint-disable-next-line no-param-reassign
+            headers['NetLicensing-Origin'] = "NetLicensing/Javascript ".concat(_package.default.version);
+          }
+
           return data;
         }]
       }; // only node.js has a process variable that is of [[Class]] process
@@ -6156,7 +6161,7 @@ module.exports = _construct;
 /* 76 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"netlicensing-client\",\"version\":\"1.2.17\",\"description\":\"JavaScript Wrapper for Labs64 NetLicensing RESTful API\",\"keywords\":[\"labs64\",\"netlicensing\",\"licensing\",\"licensing-as-a-service\",\"license\",\"license-management\",\"software-license\",\"client\",\"restful\",\"restful-api\",\"javascript\",\"wrapper\",\"api\",\"client\"],\"author\":\"Labs64 GmbH\",\"homepage\":\"https://netlicensing.io/\",\"repository\":{\"type\":\"git\",\"url\":\"https://github.com/Labs64/NetLicensingClient-javascript\"},\"bugs\":{\"url\":\"https://github.com/Labs64/NetLicensingClient-javascript/issues\"},\"license\":\"Apache-2.0\",\"main\":\"dist/netlicensing-client.js\",\"contributors\":[{\"name\":\"Ready Brown\",\"email\":\"ready.brown@hotmail.de\",\"url\":\"https://github.com/r-brown\"},{\"name\":\"Viacheslav Rudkovskiy\",\"email\":\"viachaslau.rudkovski@labs64.de\",\"url\":\"https://github.com/v-rudkovskiy\"},{\"name\":\"Andrei Yushkevich\",\"email\":\"yushkevich@me.com\",\"url\":\"https://github.com/yushkevich\"}],\"scripts\":{\"build\":\"node build/build.js\",\"release\":\"npm run build && npm run test\",\"dev\":\"webpack --progress --colors --watch --config build/webpack.dev.conf.js\",\"test\":\"karma start test/karma.conf.js --single-run\",\"test-for-travis\":\"karma start test/karma.conf.js --single-run --browsers Firefox\",\"lint\":\"eslint --ext .js,.vue src test\"},\"dependencies\":{\"axios\":\"^0.19\",\"es6-promise\":\"^4.2.8\",\"karma-firefox-launcher\":\"^1.2.0\"},\"devDependencies\":{\"@babel/core\":\"^7.5.5\",\"@babel/plugin-proposal-class-properties\":\"^7.5.5\",\"@babel/plugin-proposal-decorators\":\"^7.4.4\",\"@babel/plugin-proposal-export-namespace-from\":\"^7.5.2\",\"@babel/plugin-proposal-function-sent\":\"^7.5.0\",\"@babel/plugin-proposal-json-strings\":\"^7.2.0\",\"@babel/plugin-proposal-numeric-separator\":\"^7.2.0\",\"@babel/plugin-proposal-throw-expressions\":\"^7.2.0\",\"@babel/plugin-syntax-dynamic-import\":\"^7.2.0\",\"@babel/plugin-syntax-import-meta\":\"^7.2.0\",\"@babel/plugin-transform-modules-commonjs\":\"^7.5.0\",\"@babel/plugin-transform-runtime\":\"^7.5.5\",\"@babel/preset-env\":\"^7.5.5\",\"@babel/runtime\":\"^7.5.5\",\"axios-mock-adapter\":\"^1.17.0\",\"babel-eslint\":\"^10.0.3\",\"babel-loader\":\"^8.0.6\",\"chalk\":\"^2.4.2\",\"eslint\":\"^5.16.0\",\"eslint-config-airbnb-base\":\"^14.0.0\",\"eslint-friendly-formatter\":\"^4.0.1\",\"eslint-import-resolver-webpack\":\"^0.11.1\",\"eslint-loader\":\"^2.2.1\",\"eslint-plugin-import\":\"^2.18.2\",\"eslint-plugin-jasmine\":\"^2.10.1\",\"faker\":\"^4.1.0\",\"is-docker\":\"^2.0.0\",\"jasmine\":\"^3.4.0\",\"jasmine-core\":\"^3.4.0\",\"karma\":\"^3.1.4\",\"karma-babel-preprocessor\":\"^8.0.1\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-jasmine\":\"^2.0.1\",\"karma-sourcemap-loader\":\"^0.3.7\",\"karma-spec-reporter\":\"0.0.32\",\"karma-webpack\":\"^4.0.2\",\"lodash\":\"^4.17.15\",\"ora\":\"^3.4.0\",\"query-string\":\"^6.8.2\",\"rimraf\":\"^3.0.0\",\"uglifyjs-webpack-plugin\":\"^1.3.0\",\"webpack\":\"^4.39.3\",\"webpack-cli\":\"^3.3.7\",\"webpack-merge\":\"^4.2.2\"},\"engines\":{\"node\":\">= 6.0.0\",\"npm\":\">= 3.0.0\"},\"browserslist\":[\"> 1%\",\"last 2 versions\",\"not ie <= 10\"]}");
+module.exports = JSON.parse("{\"name\":\"netlicensing-client\",\"version\":\"1.2.18\",\"description\":\"JavaScript Wrapper for Labs64 NetLicensing RESTful API\",\"keywords\":[\"labs64\",\"netlicensing\",\"licensing\",\"licensing-as-a-service\",\"license\",\"license-management\",\"software-license\",\"client\",\"restful\",\"restful-api\",\"javascript\",\"wrapper\",\"api\",\"client\"],\"author\":\"Labs64 GmbH\",\"homepage\":\"https://netlicensing.io/\",\"repository\":{\"type\":\"git\",\"url\":\"https://github.com/Labs64/NetLicensingClient-javascript\"},\"bugs\":{\"url\":\"https://github.com/Labs64/NetLicensingClient-javascript/issues\"},\"license\":\"Apache-2.0\",\"main\":\"dist/netlicensing-client.js\",\"contributors\":[{\"name\":\"Ready Brown\",\"email\":\"ready.brown@hotmail.de\",\"url\":\"https://github.com/r-brown\"},{\"name\":\"Viacheslav Rudkovskiy\",\"email\":\"viachaslau.rudkovski@labs64.de\",\"url\":\"https://github.com/v-rudkovskiy\"},{\"name\":\"Andrei Yushkevich\",\"email\":\"yushkevich@me.com\",\"url\":\"https://github.com/yushkevich\"}],\"scripts\":{\"build\":\"node build/build.js\",\"release\":\"npm run build && npm run test\",\"dev\":\"webpack --progress --colors --watch --config build/webpack.dev.conf.js\",\"test\":\"karma start test/karma.conf.js --single-run\",\"test-for-travis\":\"karma start test/karma.conf.js --single-run --browsers Firefox\",\"lint\":\"eslint --ext .js,.vue src test\"},\"dependencies\":{\"axios\":\"^0.19\",\"es6-promise\":\"^4.2.8\",\"karma-firefox-launcher\":\"^1.2.0\"},\"devDependencies\":{\"@babel/core\":\"^7.5.5\",\"@babel/plugin-proposal-class-properties\":\"^7.5.5\",\"@babel/plugin-proposal-decorators\":\"^7.4.4\",\"@babel/plugin-proposal-export-namespace-from\":\"^7.5.2\",\"@babel/plugin-proposal-function-sent\":\"^7.5.0\",\"@babel/plugin-proposal-json-strings\":\"^7.2.0\",\"@babel/plugin-proposal-numeric-separator\":\"^7.2.0\",\"@babel/plugin-proposal-throw-expressions\":\"^7.2.0\",\"@babel/plugin-syntax-dynamic-import\":\"^7.2.0\",\"@babel/plugin-syntax-import-meta\":\"^7.2.0\",\"@babel/plugin-transform-modules-commonjs\":\"^7.5.0\",\"@babel/plugin-transform-runtime\":\"^7.5.5\",\"@babel/preset-env\":\"^7.5.5\",\"@babel/runtime\":\"^7.5.5\",\"axios-mock-adapter\":\"^1.17.0\",\"babel-eslint\":\"^10.0.3\",\"babel-loader\":\"^8.0.6\",\"chalk\":\"^2.4.2\",\"eslint\":\"^5.16.0\",\"eslint-config-airbnb-base\":\"^14.0.0\",\"eslint-friendly-formatter\":\"^4.0.1\",\"eslint-import-resolver-webpack\":\"^0.11.1\",\"eslint-loader\":\"^2.2.1\",\"eslint-plugin-import\":\"^2.18.2\",\"eslint-plugin-jasmine\":\"^2.10.1\",\"faker\":\"^4.1.0\",\"is-docker\":\"^2.0.0\",\"jasmine\":\"^3.4.0\",\"jasmine-core\":\"^3.4.0\",\"karma\":\"^3.1.4\",\"karma-babel-preprocessor\":\"^8.0.1\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-jasmine\":\"^2.0.1\",\"karma-sourcemap-loader\":\"^0.3.7\",\"karma-spec-reporter\":\"0.0.32\",\"karma-webpack\":\"^4.0.2\",\"lodash\":\"^4.17.15\",\"ora\":\"^3.4.0\",\"query-string\":\"^6.8.2\",\"rimraf\":\"^3.0.0\",\"uglifyjs-webpack-plugin\":\"^1.3.0\",\"webpack\":\"^4.39.3\",\"webpack-cli\":\"^3.3.7\",\"webpack-merge\":\"^4.2.2\"},\"engines\":{\"node\":\">= 6.0.0\",\"npm\":\">= 3.0.0\"},\"browserslist\":[\"> 1%\",\"last 2 versions\",\"not ie <= 10\"]}");
 
 /***/ }),
 /* 77 */
@@ -6203,14 +6208,14 @@ var _itemToObject = _interopRequireDefault(__webpack_require__(7));
 
 /**
  * JS representation of the Licensee Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services
+ * https://netlicensing.io/wiki/licensee-services
  *
  * @constructor
  */
 var _default = {
   /**
    * Creates new licensee object with given properties.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Createlicensee
+   * @see https://netlicensing.io/wiki/licensee-services#create-licensee
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -6264,7 +6269,7 @@ var _default = {
 
   /**
    * Gets licensee by its number.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Getlicensee
+   * @see https://netlicensing.io/wiki/licensee-services#get-licensee
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -6313,7 +6318,7 @@ var _default = {
 
   /**
    * Returns all licensees of a vendor.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Licenseeslist
+   * @see https://netlicensing.io/wiki/licensee-services#licensees-list
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -6379,7 +6384,7 @@ var _default = {
 
   /**
    * Updates licensee properties.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Updatelicensee
+   * @see https://netlicensing.io/wiki/licensee-services#update-licensee
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -6431,7 +6436,7 @@ var _default = {
 
   /**
    * Deletes licensee.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Deletelicensee
+   * @see https://netlicensing.io/wiki/licensee-services#delete-licensee
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -6456,7 +6461,7 @@ var _default = {
 
   /**
    * Validates active licenses of the licensee. See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Validatelicensee
+   * @see https://netlicensing.io/wiki/licensee-services#validate-licensee
    *
    * @param context NetLicensing.Context
    *
@@ -6542,7 +6547,7 @@ var _default = {
 
   /**
    * Transfer licenses between licensees.
-   * @see https://www.labs64.de/confluence/display/NLICPUB/Licensee+Services#LicenseeServices-Transferlicensee
+   * @see https://netlicensing.io/wiki/licensee-services#transfer-licenses
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -7393,14 +7398,14 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 
 /**
  * JS representation of the License Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Services
+ * https://netlicensing.io/wiki/license-services
  *
  * @constructor
  */
 var _default = {
   /**
    * Creates new license object with given properties.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Createlicense
+   * @see https://netlicensing.io/wiki/license-services#create-license
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -7467,7 +7472,7 @@ var _default = {
 
   /**
    * Gets license by its number.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Getlicense
+   * @see https://netlicensing.io/wiki/license-services#get-license
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -7516,7 +7521,7 @@ var _default = {
 
   /**
    * Returns licenses of a vendor.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Licenseslist
+   * @see https://netlicensing.io/wiki/license-services#licenses-list
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -7582,7 +7587,7 @@ var _default = {
 
   /**
    * Updates license properties.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Updatelicense
+   * @see https://netlicensing.io/wiki/license-services#update-license
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -7639,7 +7644,7 @@ var _default = {
 
   /**
    * Deletes license.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/License+Services#LicenseServices-Deletelicense
+   * @see https://netlicensing.io/wiki/license-services#delete-license
    *
    * When any license is deleted, corresponding transaction is created automatically.
    *
@@ -7707,14 +7712,14 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 
 /**
  * JS representation of the ProductModule Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services
+ * https://netlicensing.io/wiki/license-template-services
  *
  * @constructor
  */
 var _default = {
   /**
    * Creates new license template object with given properties.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Createlicensetemplate
+   * @see https://netlicensing.io/wiki/license-template-services#create-license-template
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -7768,7 +7773,7 @@ var _default = {
 
   /**
    * Gets license template by its number.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Getlicensetemplate
+   * @see https://netlicensing.io/wiki/license-template-services#get-license-template
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -7817,7 +7822,7 @@ var _default = {
 
   /**
    * Returns all license templates of a vendor.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Licensetemplateslist
+   * @see https://netlicensing.io/wiki/license-template-services#license-templates-list
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -7883,7 +7888,7 @@ var _default = {
 
   /**
    * Updates license template properties.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Updatelicensetemplate
+   * @see https://netlicensing.io/wiki/license-template-services#update-license-template
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -7936,7 +7941,7 @@ var _default = {
 
   /**
    * Deletes license template.See NetLicensingAPI JavaDoc for details:
-   * @see https://www.labs64.de/confluence/display/NLICPUB/License+Template+Services#LicenseTemplateServices-Deletelicensetemplate
+   * @see https://netlicensing.io/wiki/license-template-services#delete-license-template
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8002,7 +8007,7 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 var _default = {
   /**
    * Gets payment method by its number.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Payment+Method+Services#PaymentMethodServices-Getpaymentmethod
+   * @see https://netlicensing.io/wiki/payment-method-services#get-payment-method
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8051,7 +8056,7 @@ var _default = {
 
   /**
    * Returns payment methods of a vendor.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Payment+Method+Services#PaymentMethodServices-Paymentmethodslist
+   * @see https://netlicensing.io/wiki/payment-method-services#payment-methods-list
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8117,7 +8122,7 @@ var _default = {
 
   /**
    * Updates payment method properties.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Payment+Method+Services#PaymentMethodServices-Updatepaymentmethod
+   * @see https://netlicensing.io/wiki/payment-method-services#update-payment-method
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8211,14 +8216,14 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 
 /**
  * JS representation of the ProductModule Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Module+Services
+ * https://netlicensing.io/wiki/product-module-services
  *
  * @constructor
  */
 var _default = {
   /**
    * Creates new product module object with given properties.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Module+Services#ProductModuleServices-Createproductmodule
+   * @see https://netlicensing.io/wiki/product-module-services#create-product-module
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8272,7 +8277,7 @@ var _default = {
 
   /**
    * Gets product module by its number.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Module+Services#ProductModuleServices-Getproductmodule
+   * @see https://netlicensing.io/wiki/product-module-services#get-product-module
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8321,7 +8326,7 @@ var _default = {
 
   /**
    * Returns products of a vendor.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Productslist
+   * @see https://netlicensing.io/wiki/product-module-services#product-modules-list
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8387,7 +8392,7 @@ var _default = {
 
   /**
    * Updates product module properties.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Module+Services#ProductModuleServices-Updateproductmodule
+   * @see https://netlicensing.io/wiki/product-module-services#update-product-module
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8439,7 +8444,7 @@ var _default = {
 
   /**
    * Deletes product module.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Module+Services#ProductModuleServices-Deleteproductmodule
+   * @see https://netlicensing.io/wiki/product-module-services#delete-product-module
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8505,14 +8510,14 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 
 /**
  * JS representation of the Product Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services
+ * https://netlicensing.io/wiki/product-services
  *
  * @constructor
  */
 var _default = {
   /**
    * Creates new product with given properties.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Createproduct
+   * @see https://netlicensing.io/wiki/product-services#create-product
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8560,7 +8565,7 @@ var _default = {
 
   /**
    * Gets product by its number.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Getproduct
+   * @see https://netlicensing.io/wiki/product-services#get-product
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8609,7 +8614,7 @@ var _default = {
 
   /**
    * Returns products of a vendor.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Productslist
+   * @see https://netlicensing.io/wiki/product-services#products-list
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8675,7 +8680,7 @@ var _default = {
 
   /**
    * Updates product properties.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Updateproduct
+   * @see https://netlicensing.io/wiki/product-services#update-product
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8727,7 +8732,7 @@ var _default = {
 
   /**
    * Deletes product.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Deleteproduct
+   * @see https://netlicensing.io/wiki/product-services#delete-product
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8838,14 +8843,14 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 
 /**
  * JS representation of the Token Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services
+ * https://netlicensing.io/wiki/token-services
  *
  * @constructor
  */
 var _default = {
   /**
    * Creates new token.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services#TokenServices-Createtoken
+   * @see https://netlicensing.io/wiki/token-services#create-token
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8892,7 +8897,7 @@ var _default = {
 
   /**
    * Gets token by its number..See NetLicensingAPI for details:
-   * @see https://www.labs64.de/conluence/display/NetLicensing PUB/Token+Services#TokenServices-Gettoken
+   * @see https://netlicensing.io/wiki/token-services#get-token
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -8941,7 +8946,7 @@ var _default = {
 
   /**
    * Returns tokens of a vendor.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services#TokenServices-Tokenslist
+   * @see https://netlicensing.io/wiki/token-services#tokens-list
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -9007,7 +9012,7 @@ var _default = {
 
   /**
    * Delete token by its number.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Token+Services#TokenServices-Deletetoken
+   * @see https://netlicensing.io/wiki/token-services#delete-token
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -9067,7 +9072,7 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 
 /**
  * JS representation of the Transaction Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services
+ * https://netlicensing.io/wiki/transaction-services
  *
  * Transaction is created each time change to  LicenseService licenses happens. For instance licenses are
  * obtained by a licensee, licenses disabled by vendor, licenses deleted, etc. Transaction is created no matter what
@@ -9082,7 +9087,7 @@ var _Page = _interopRequireDefault(__webpack_require__(11));
 var _default = {
   /**
    * Creates new transaction object with given properties.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services#TransactionServices-Createtransaction
+   * @see https://netlicensing.io/wiki/transaction-services#create-transaction
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -9130,7 +9135,7 @@ var _default = {
 
   /**
    * Gets transaction by its number.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services#TransactionServices-Gettransaction
+   * @see https://netlicensing.io/wiki/transaction-services#get-transaction
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -9179,7 +9184,7 @@ var _default = {
 
   /**
    * Returns all transactions of a vendor.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services#TransactionServices-Transactionslist
+   * @see https://netlicensing.io/wiki/transaction-services#transactions-list
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -9245,7 +9250,7 @@ var _default = {
 
   /**
    * Updates transaction properties.See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Transaction+Services#TransactionServices-Updatetransaction
+   * @see https://netlicensing.io/wiki/transaction-services#update-transaction
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -9338,13 +9343,13 @@ var _itemToCountry = _interopRequireDefault(__webpack_require__(51));
 
 /**
  * JS representation of the Utility Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/Utility+Services
+ * https://netlicensing.io/wiki/utility-services
  * @constructor
  */
 var _default = {
   /**
    * Returns all license types. See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Utility+Services#UtilityServices-LicenseTypeslist
+   * @see https://netlicensing.io/wiki/utility-services#license-types-list
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
@@ -9389,7 +9394,7 @@ var _default = {
 
   /**
    * Returns all license models. See NetLicensingAPI for details:
-   * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Utility+Services#UtilityServices-LicensingModelslist
+   * @see https://netlicensing.io/wiki/utility-services#licensing-models-list
    *
    * determines the vendor on whose behalf the call is performed
    * @param context NetLicensing.Context
