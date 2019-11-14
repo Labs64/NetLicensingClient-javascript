@@ -14,7 +14,7 @@ import Page from '../vo/Page';
 
 /**
  * JS representation of the Product Service. See NetLicensingAPI for details:
- * https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services
+ * https://netlicensing.io/wiki/product-services
  *
  * @constructor
  */
@@ -22,7 +22,7 @@ import Page from '../vo/Page';
 export default {
     /**
      * Creates new product with given properties.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Createproduct
+     * @see https://netlicensing.io/wiki/product-services#create-product
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -63,7 +63,7 @@ export default {
 
     /**
      * Returns products of a vendor.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Productslist
+     * @see https://netlicensing.io/wiki/product-services#products-list
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -95,7 +95,7 @@ export default {
 
     /**
      * Updates product properties.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Updateproduct
+     * @see https://netlicensing.io/wiki/product-services#update-product
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
@@ -120,7 +120,7 @@ export default {
 
     /**
      * Deletes product.See NetLicensingAPI for details:
-     * @see https://www.labs64.de/confluence/display/NetLicensing PUB/Product+Services#ProductServices-Deleteproduct
+     * @see https://netlicensing.io/wiki/product-services#delete-product
      *
      * determines the vendor on whose behalf the call is performed
      * @param context NetLicensing.Context
