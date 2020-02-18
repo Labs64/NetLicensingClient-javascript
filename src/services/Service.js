@@ -104,7 +104,9 @@ export default class Service {
             url: encodeURI(`${context.getBaseUrl()}/${template}`),
             method: method.toLowerCase(),
             responseType: 'json',
-            headers: {},
+            headers: {
+                Accept: 'application/json',
+            },
             transformRequest: [(data, headers) => {
                 if (headers['Content-Type'] === 'application/x-www-form-urlencoded') {
                     return Service.toQueryString(data);

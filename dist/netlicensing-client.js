@@ -1289,7 +1289,9 @@ function () {
         url: encodeURI("".concat(context.getBaseUrl(), "/").concat(template)),
         method: method.toLowerCase(),
         responseType: 'json',
-        headers: {},
+        headers: {
+          Accept: 'application/json'
+        },
         transformRequest: [function (data, headers) {
           if (headers['Content-Type'] === 'application/x-www-form-urlencoded') {
             return Service.toQueryString(data);
