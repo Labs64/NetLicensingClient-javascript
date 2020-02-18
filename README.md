@@ -2,7 +2,7 @@
 
 # [Labs64 NetLicensing](https://netlicensing.io) Client (JavaScript)
 
-[![Build Status](https://travis-ci.org/Labs64/NetLicensingClient-javascript.svg?branch=master)](https://travis-ci.org/Labs64/NetLicensingClient-javascript)
+[![Build Status](https://github.com/Labs64/NetLicensingClient-javascript/workflows/NetLicensing%20Client%20CI/badge.svg)](https://github.com/Labs64/GuideChimp/actions?query=workflow%3A%22NetLicensing+Client+CI%22)
 [![npm version](https://badge.fury.io/js/netlicensing-client.svg)](https://badge.fury.io/js/netlicensing-client)
 [![](https://data.jsdelivr.com/v1/package/npm/netlicensing-client/badge)](https://www.jsdelivr.com/package/npm/netlicensing-client)
 

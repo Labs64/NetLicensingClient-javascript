@@ -1,4 +1,4 @@
-name: GuideChimp Release
+name: NetLicensing Client Release
 
 on:
   release:
