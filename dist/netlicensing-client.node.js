@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 58);
+/******/ 	return __webpack_require__(__webpack_require__.s = 59);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -148,7 +148,6 @@ module.exports = _createClass;
 
 
 var bind = __webpack_require__(25);
-var isBuffer = __webpack_require__(63);
 
 /*global toString:true*/
 
@@ -164,6 +163,27 @@ var toString = Object.prototype.toString;
  */
 function isArray(val) {
   return toString.call(val) === '[object Array]';
+}
+
+/**
+ * Determine if a value is undefined
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if the value is undefined, otherwise false
+ */
+function isUndefined(val) {
+  return typeof val === 'undefined';
+}
+
+/**
+ * Determine if a value is a Buffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Buffer, otherwise false
+ */
+function isBuffer(val) {
+  return val !== null && !isUndefined(val) && val.constructor !== null && !isUndefined(val.constructor)
+    && typeof val.constructor.isBuffer === 'function' && val.constructor.isBuffer(val);
 }
 
 /**
@@ -220,16 +240,6 @@ function isString(val) {
  */
 function isNumber(val) {
   return typeof val === 'number';
-}
-
-/**
- * Determine if a value is undefined
- *
- * @param {Object} val The value to test
- * @returns {boolean} True if the value is undefined, otherwise false
- */
-function isUndefined(val) {
-  return typeof val === 'undefined';
 }
 
 /**
@@ -776,7 +786,7 @@ exports.default = _default;
 
 var _typeof = __webpack_require__(17);
 
-var assertThisInitialized = __webpack_require__(38);
+var assertThisInitialized = __webpack_require__(39);
 
 function _possibleConstructorReturn(self, call) {
   if (call && (_typeof(call) === "object" || typeof call === "function")) {
@@ -835,11 +845,11 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
-var _CastsUtils = _interopRequireDefault(__webpack_require__(41));
+var _CastsUtils = _interopRequireDefault(__webpack_require__(42));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 /**
  * The entity properties.
@@ -1153,13 +1163,15 @@ var _classCallCheck2 = _interopRequireDefault(__webpack_require__(1));
 
 var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
-var _axios = _interopRequireDefault(__webpack_require__(61));
+var _axios = _interopRequireDefault(__webpack_require__(62));
+
+var _btoa = _interopRequireDefault(__webpack_require__(91));
 
 var _Constants = _interopRequireDefault(__webpack_require__(4));
 
-var _NlicError = _interopRequireDefault(__webpack_require__(37));
+var _NlicError = _interopRequireDefault(__webpack_require__(38));
 
-var _package = _interopRequireDefault(__webpack_require__(94));
+var _package = _interopRequireDefault(__webpack_require__(95));
 
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -1320,7 +1332,7 @@ function () {
 
         case _Constants.default.APIKEY_IDENTIFICATION:
           if (!context.getApiKey()) throw new Error('Missing parameter "apiKey"');
-          request.headers.Authorization = "Basic ".concat(btoa("apiKey:".concat(context.getApiKey())));
+          request.headers.Authorization = "Basic ".concat((0, _btoa.default)("apiKey:".concat(context.getApiKey())));
           break;
         // without authorization
 
@@ -1350,7 +1362,7 @@ function () {
           var data = e.response.data;
 
           if (data) {
-            var info = Service.getInfo(e.response, [])[0];
+            var info = Service.getInfo(e.response, [])[0] || {};
             error.message = info.value || 'Unknown';
           }
 
@@ -1456,18 +1468,18 @@ exports.default = _default;
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(96);
+module.exports = __webpack_require__(97);
 
 
 /***/ }),
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayWithHoles = __webpack_require__(97);
+var arrayWithHoles = __webpack_require__(98);
 
-var iterableToArrayLimit = __webpack_require__(98);
+var iterableToArrayLimit = __webpack_require__(99);
 
-var nonIterableRest = __webpack_require__(99);
+var nonIterableRest = __webpack_require__(100);
 
 function _slicedToArray(arr, i) {
   return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || nonIterableRest();
@@ -1521,16 +1533,16 @@ module.exports = _asyncToGenerator;
 /* 17 */
 /***/ (function(module, exports) {
 
-function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
-
 function _typeof(obj) {
-  if (typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol") {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
     module.exports = _typeof = function _typeof(obj) {
-      return _typeof2(obj);
+      return typeof obj;
     };
   } else {
     module.exports = _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : _typeof2(obj);
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
     };
   }
 
@@ -1948,7 +1960,7 @@ var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 /**
  * Validation result map
@@ -2079,13 +2091,12 @@ function setContentTypeIfUnset(headers, value) {
 
 function getDefaultAdapter() {
   var adapter;
-  // Only Node.JS has a process variable that is of [[Class]] process
-  if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
-    // For node use HTTP adapter
-    adapter = __webpack_require__(69);
-  } else if (typeof XMLHttpRequest !== 'undefined') {
+  if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(83);
+    adapter = __webpack_require__(69);
+  } else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(75);
   }
   return adapter;
 }
@@ -2245,26 +2256,53 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 /***/ }),
 /* 30 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = require("http");
+"use strict";
+
+
+var isAbsoluteURL = __webpack_require__(70);
+var combineURLs = __webpack_require__(71);
+
+/**
+ * Creates a new URL by combining the baseURL with the requestedURL,
+ * only when the requestedURL is not already an absolute URL.
+ * If the requestURL is absolute, this function returns the requestedURL untouched.
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} requestedURL Absolute or relative URL to combine
+ * @returns {string} The combined full path
+ */
+module.exports = function buildFullPath(baseURL, requestedURL) {
+  if (baseURL && !isAbsoluteURL(requestedURL)) {
+    return combineURLs(baseURL, requestedURL);
+  }
+  return requestedURL;
+};
+
 
 /***/ }),
 /* 31 */
 /***/ (function(module, exports) {
 
-module.exports = require("https");
+module.exports = require("http");
 
 /***/ }),
 /* 32 */
+/***/ (function(module, exports) {
+
+module.exports = require("https");
+
+/***/ }),
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var url = __webpack_require__(33);
-var http = __webpack_require__(30);
-var https = __webpack_require__(31);
-var assert = __webpack_require__(70);
-var Writable = __webpack_require__(71).Writable;
-var debug = __webpack_require__(72)("follow-redirects");
+var url = __webpack_require__(34);
+var http = __webpack_require__(31);
+var https = __webpack_require__(32);
+var assert = __webpack_require__(76);
+var Writable = __webpack_require__(77).Writable;
+var debug = __webpack_require__(78)("follow-redirects");
 
 // RFC7231§4.2.1: Of the request methods defined by this specification,
 // the GET, HEAD, OPTIONS, and TRACE methods are defined to be safe.
@@ -2584,13 +2622,13 @@ module.exports.wrap = wrap;
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports) {
 
 module.exports = require("url");
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -2606,7 +2644,7 @@ exports.coerce = coerce;
 exports.disable = disable;
 exports.enable = enable;
 exports.enabled = enabled;
-exports.humanize = __webpack_require__(74);
+exports.humanize = __webpack_require__(80);
 
 /**
  * Active `debug` instances.
@@ -2821,7 +2859,7 @@ function coerce(val) {
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2842,13 +2880,23 @@ module.exports = function mergeConfig(config1, config2) {
   config2 = config2 || {};
   var config = {};
 
-  utils.forEach(['url', 'method', 'params', 'data'], function valueFromConfig2(prop) {
+  var valueFromConfig2Keys = ['url', 'method', 'params', 'data'];
+  var mergeDeepPropertiesKeys = ['headers', 'auth', 'proxy'];
+  var defaultToConfig2Keys = [
+    'baseURL', 'url', 'transformRequest', 'transformResponse', 'paramsSerializer',
+    'timeout', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName',
+    'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress',
+    'maxContentLength', 'validateStatus', 'maxRedirects', 'httpAgent',
+    'httpsAgent', 'cancelToken', 'socketPath'
+  ];
+
+  utils.forEach(valueFromConfig2Keys, function valueFromConfig2(prop) {
     if (typeof config2[prop] !== 'undefined') {
       config[prop] = config2[prop];
     }
   });
 
-  utils.forEach(['headers', 'auth', 'proxy'], function mergeDeepProperties(prop) {
+  utils.forEach(mergeDeepPropertiesKeys, function mergeDeepProperties(prop) {
     if (utils.isObject(config2[prop])) {
       config[prop] = utils.deepMerge(config1[prop], config2[prop]);
     } else if (typeof config2[prop] !== 'undefined') {
@@ -2860,13 +2908,25 @@ module.exports = function mergeConfig(config1, config2) {
     }
   });
 
-  utils.forEach([
-    'baseURL', 'transformRequest', 'transformResponse', 'paramsSerializer',
-    'timeout', 'withCredentials', 'adapter', 'responseType', 'xsrfCookieName',
-    'xsrfHeaderName', 'onUploadProgress', 'onDownloadProgress', 'maxContentLength',
-    'validateStatus', 'maxRedirects', 'httpAgent', 'httpsAgent', 'cancelToken',
-    'socketPath'
-  ], function defaultToConfig2(prop) {
+  utils.forEach(defaultToConfig2Keys, function defaultToConfig2(prop) {
+    if (typeof config2[prop] !== 'undefined') {
+      config[prop] = config2[prop];
+    } else if (typeof config1[prop] !== 'undefined') {
+      config[prop] = config1[prop];
+    }
+  });
+
+  var axiosKeys = valueFromConfig2Keys
+    .concat(mergeDeepPropertiesKeys)
+    .concat(defaultToConfig2Keys);
+
+  var otherKeys = Object
+    .keys(config2)
+    .filter(function filterAxiosKeys(key) {
+      return axiosKeys.indexOf(key) === -1;
+    });
+
+  utils.forEach(otherKeys, function otherKeysDefaultToConfig2(prop) {
     if (typeof config2[prop] !== 'undefined') {
       config[prop] = config2[prop];
     } else if (typeof config1[prop] !== 'undefined') {
@@ -2879,7 +2939,7 @@ module.exports = function mergeConfig(config1, config2) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2905,7 +2965,7 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2926,7 +2986,7 @@ var _getPrototypeOf3 = _interopRequireDefault(__webpack_require__(6));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(9));
 
-var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(91));
+var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(92));
 
 var NlicError =
 /*#__PURE__*/
@@ -2960,7 +3020,7 @@ function (_Error) {
 exports.default = NlicError;
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports) {
 
 function _assertThisInitialized(self) {
@@ -2974,7 +3034,7 @@ function _assertThisInitialized(self) {
 module.exports = _assertThisInitialized;
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2989,7 +3049,7 @@ exports.default = void 0;
 
 var _itemToObject = _interopRequireDefault(__webpack_require__(7));
 
-var _Licensee = _interopRequireDefault(__webpack_require__(40));
+var _Licensee = _interopRequireDefault(__webpack_require__(41));
 
 var _default = function _default(item) {
   return new _Licensee.default((0, _itemToObject.default)(item));
@@ -2998,7 +3058,7 @@ var _default = function _default(item) {
 exports.default = _default;
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3149,7 +3209,7 @@ function (_BaseEntity) {
 exports.default = Licensee;
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3207,7 +3267,7 @@ var _default = function _default(key, value) {
 exports.default = _default;
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3231,7 +3291,7 @@ var _default = function _default(item) {
 exports.default = _default;
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3246,7 +3306,7 @@ exports.default = void 0;
 
 var _itemToObject = _interopRequireDefault(__webpack_require__(7));
 
-var _LicenseTemplate = _interopRequireDefault(__webpack_require__(44));
+var _LicenseTemplate = _interopRequireDefault(__webpack_require__(45));
 
 var _default = function _default(item) {
   return new _LicenseTemplate.default((0, _itemToObject.default)(item));
@@ -3255,7 +3315,7 @@ var _default = function _default(item) {
 exports.default = _default;
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3515,7 +3575,7 @@ function (_BaseEntity) {
 exports.default = LicenseTemplate;
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3530,7 +3590,7 @@ exports.default = void 0;
 
 var _itemToObject = _interopRequireDefault(__webpack_require__(7));
 
-var _PaymentMethod = _interopRequireDefault(__webpack_require__(46));
+var _PaymentMethod = _interopRequireDefault(__webpack_require__(47));
 
 var _default = function _default(item) {
   return new _PaymentMethod.default((0, _itemToObject.default)(item));
@@ -3539,7 +3599,7 @@ var _default = function _default(item) {
 exports.default = _default;
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3634,7 +3694,7 @@ function (_BaseEntity) {
 exports.default = PaymentMethod;
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3649,7 +3709,7 @@ exports.default = void 0;
 
 var _itemToObject = _interopRequireDefault(__webpack_require__(7));
 
-var _ProductModule = _interopRequireDefault(__webpack_require__(48));
+var _ProductModule = _interopRequireDefault(__webpack_require__(49));
 
 var _default = function _default(item) {
   return new _ProductModule.default((0, _itemToObject.default)(item));
@@ -3658,7 +3718,7 @@ var _default = function _default(item) {
 exports.default = _default;
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3855,7 +3915,7 @@ function (_BaseEntity) {
 exports.default = ProductModule;
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3870,7 +3930,7 @@ exports.default = void 0;
 
 var _itemToObject = _interopRequireDefault(__webpack_require__(7));
 
-var _Product = _interopRequireDefault(__webpack_require__(50));
+var _Product = _interopRequireDefault(__webpack_require__(51));
 
 var _default = function _default(item) {
   var object = (0, _itemToObject.default)(item);
@@ -3884,7 +3944,7 @@ var _default = function _default(item) {
 exports.default = _default;
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3903,17 +3963,17 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8));
 
-var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(38));
+var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(39));
 
 var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(6));
 
-var _get2 = _interopRequireDefault(__webpack_require__(105));
+var _get2 = _interopRequireDefault(__webpack_require__(106));
 
 var _inherits2 = _interopRequireDefault(__webpack_require__(9));
 
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(10));
 
-var _ProductDiscount = _interopRequireDefault(__webpack_require__(51));
+var _ProductDiscount = _interopRequireDefault(__webpack_require__(52));
 
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -4176,7 +4236,7 @@ function (_BaseEntity) {
 exports.default = Product;
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4283,7 +4343,7 @@ function (_BaseEntity) {
 exports.default = ProductDiscount;
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4298,7 +4358,7 @@ exports.default = void 0;
 
 var _itemToObject = _interopRequireDefault(__webpack_require__(7));
 
-var _Token = _interopRequireDefault(__webpack_require__(53));
+var _Token = _interopRequireDefault(__webpack_require__(54));
 
 var _default = function _default(item) {
   return new _Token.default((0, _itemToObject.default)(item));
@@ -4307,7 +4367,7 @@ var _default = function _default(item) {
 exports.default = _default;
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4532,7 +4592,7 @@ function (_BaseEntity) {
 exports.default = Token;
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4547,7 +4607,7 @@ exports.default = void 0;
 
 var _itemToObject = _interopRequireDefault(__webpack_require__(7));
 
-var _Transaction = _interopRequireDefault(__webpack_require__(55));
+var _Transaction = _interopRequireDefault(__webpack_require__(56));
 
 var _License = _interopRequireDefault(__webpack_require__(19));
 
@@ -4582,7 +4642,7 @@ var _default = function _default(item) {
 exports.default = _default;
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4823,7 +4883,7 @@ function (_BaseEntity) {
 exports.default = Transaction;
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4838,7 +4898,7 @@ exports.default = void 0;
 
 var _itemToObject = _interopRequireDefault(__webpack_require__(7));
 
-var _Country = _interopRequireDefault(__webpack_require__(57));
+var _Country = _interopRequireDefault(__webpack_require__(58));
 
 var _default = function _default(item) {
   return new _Country.default((0, _itemToObject.default)(item));
@@ -4847,7 +4907,7 @@ var _default = function _default(item) {
 exports.default = _default;
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4958,7 +5018,7 @@ function (_BaseEntity) {
 exports.default = Country;
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4968,85 +5028,85 @@ var _interopRequireDefault = __webpack_require__(0);
 
 var _Constants = _interopRequireDefault(__webpack_require__(4));
 
-var _Context = _interopRequireDefault(__webpack_require__(59));
+var _Context = _interopRequireDefault(__webpack_require__(60));
 
 var _Page = _interopRequireDefault(__webpack_require__(11));
 
-var _ValidationParameters = _interopRequireDefault(__webpack_require__(60));
+var _ValidationParameters = _interopRequireDefault(__webpack_require__(61));
 
 var _ValidationResults = _interopRequireDefault(__webpack_require__(24));
 
 var _Service = _interopRequireDefault(__webpack_require__(12));
 
-var _LicenseeService = _interopRequireDefault(__webpack_require__(95));
+var _LicenseeService = _interopRequireDefault(__webpack_require__(96));
 
-var _LicenseService = _interopRequireDefault(__webpack_require__(100));
+var _LicenseService = _interopRequireDefault(__webpack_require__(101));
 
-var _LicenseTemplateService = _interopRequireDefault(__webpack_require__(101));
+var _LicenseTemplateService = _interopRequireDefault(__webpack_require__(102));
 
-var _PaymentMethodService = _interopRequireDefault(__webpack_require__(102));
+var _PaymentMethodService = _interopRequireDefault(__webpack_require__(103));
 
-var _ProductModuleService = _interopRequireDefault(__webpack_require__(103));
+var _ProductModuleService = _interopRequireDefault(__webpack_require__(104));
 
-var _ProductService = _interopRequireDefault(__webpack_require__(104));
+var _ProductService = _interopRequireDefault(__webpack_require__(105));
 
-var _TokenService = _interopRequireDefault(__webpack_require__(107));
+var _TokenService = _interopRequireDefault(__webpack_require__(108));
 
-var _TransactionService = _interopRequireDefault(__webpack_require__(108));
+var _TransactionService = _interopRequireDefault(__webpack_require__(109));
 
-var _UtilityService = _interopRequireDefault(__webpack_require__(109));
+var _UtilityService = _interopRequireDefault(__webpack_require__(110));
 
 var _BaseEntity = _interopRequireDefault(__webpack_require__(10));
 
-var _Country = _interopRequireDefault(__webpack_require__(57));
+var _Country = _interopRequireDefault(__webpack_require__(58));
 
 var _License = _interopRequireDefault(__webpack_require__(19));
 
-var _Licensee = _interopRequireDefault(__webpack_require__(40));
+var _Licensee = _interopRequireDefault(__webpack_require__(41));
 
-var _LicenseTemplate = _interopRequireDefault(__webpack_require__(44));
+var _LicenseTemplate = _interopRequireDefault(__webpack_require__(45));
 
-var _PaymentMethod = _interopRequireDefault(__webpack_require__(46));
+var _PaymentMethod = _interopRequireDefault(__webpack_require__(47));
 
-var _Product = _interopRequireDefault(__webpack_require__(50));
+var _Product = _interopRequireDefault(__webpack_require__(51));
 
-var _ProductDiscount = _interopRequireDefault(__webpack_require__(51));
+var _ProductDiscount = _interopRequireDefault(__webpack_require__(52));
 
-var _ProductModule = _interopRequireDefault(__webpack_require__(48));
+var _ProductModule = _interopRequireDefault(__webpack_require__(49));
 
-var _Token = _interopRequireDefault(__webpack_require__(53));
+var _Token = _interopRequireDefault(__webpack_require__(54));
 
-var _Transaction = _interopRequireDefault(__webpack_require__(55));
+var _Transaction = _interopRequireDefault(__webpack_require__(56));
 
 var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(23));
 
-var _itemToCountry = _interopRequireDefault(__webpack_require__(56));
+var _itemToCountry = _interopRequireDefault(__webpack_require__(57));
 
-var _itemToLicense = _interopRequireDefault(__webpack_require__(42));
+var _itemToLicense = _interopRequireDefault(__webpack_require__(43));
 
-var _itemToLicensee = _interopRequireDefault(__webpack_require__(39));
+var _itemToLicensee = _interopRequireDefault(__webpack_require__(40));
 
-var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(43));
+var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(44));
 
 var _itemToObject = _interopRequireDefault(__webpack_require__(7));
 
-var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(45));
+var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(46));
 
-var _itemToProduct = _interopRequireDefault(__webpack_require__(49));
+var _itemToProduct = _interopRequireDefault(__webpack_require__(50));
 
-var _itemToProductModule = _interopRequireDefault(__webpack_require__(47));
+var _itemToProductModule = _interopRequireDefault(__webpack_require__(48));
 
-var _itemToToken = _interopRequireDefault(__webpack_require__(52));
+var _itemToToken = _interopRequireDefault(__webpack_require__(53));
 
-var _itemToTransaction = _interopRequireDefault(__webpack_require__(54));
+var _itemToTransaction = _interopRequireDefault(__webpack_require__(55));
 
-var _CastsUtils = _interopRequireDefault(__webpack_require__(41));
+var _CastsUtils = _interopRequireDefault(__webpack_require__(42));
 
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
-var _NlicError = _interopRequireDefault(__webpack_require__(37));
+var _NlicError = _interopRequireDefault(__webpack_require__(38));
 
 // Constants
 // VO
@@ -5111,7 +5171,7 @@ module.exports = NetLicensing; // Allow use of default import syntax in TypeScri
 module.exports.default = NetLicensing;
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5138,7 +5198,7 @@ var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 /**
  * The context values.
@@ -5399,7 +5459,7 @@ function () {
 exports.default = Context;
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5420,7 +5480,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(2));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -5557,13 +5617,13 @@ function () {
 exports.default = ValidationParameters;
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(62);
+module.exports = __webpack_require__(63);
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5572,7 +5632,7 @@ module.exports = __webpack_require__(62);
 var utils = __webpack_require__(3);
 var bind = __webpack_require__(25);
 var Axios = __webpack_require__(64);
-var mergeConfig = __webpack_require__(35);
+var mergeConfig = __webpack_require__(36);
 var defaults = __webpack_require__(27);
 
 /**
@@ -5606,7 +5666,7 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(36);
+axios.Cancel = __webpack_require__(37);
 axios.CancelToken = __webpack_require__(89);
 axios.isCancel = __webpack_require__(26);
 
@@ -5623,23 +5683,6 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 63 */
-/***/ (function(module, exports) {
-
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
-module.exports = function isBuffer (obj) {
-  return obj != null && obj.constructor != null &&
-    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
-}
-
-
-/***/ }),
 /* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5650,7 +5693,7 @@ var utils = __webpack_require__(3);
 var buildURL = __webpack_require__(20);
 var InterceptorManager = __webpack_require__(65);
 var dispatchRequest = __webpack_require__(66);
-var mergeConfig = __webpack_require__(35);
+var mergeConfig = __webpack_require__(36);
 
 /**
  * Create a new instance of Axios
@@ -5681,7 +5724,15 @@ Axios.prototype.request = function request(config) {
   }
 
   config = mergeConfig(this.defaults, config);
-  config.method = config.method ? config.method.toLowerCase() : 'get';
+
+  // Set config.method
+  if (config.method) {
+    config.method = config.method.toLowerCase();
+  } else if (this.defaults.method) {
+    config.method = this.defaults.method.toLowerCase();
+  } else {
+    config.method = 'get';
+  }
 
   // Hook up interceptors middleware
   var chain = [dispatchRequest, undefined];
@@ -5802,8 +5853,6 @@ var utils = __webpack_require__(3);
 var transformData = __webpack_require__(67);
 var isCancel = __webpack_require__(26);
 var defaults = __webpack_require__(27);
-var isAbsoluteURL = __webpack_require__(87);
-var combineURLs = __webpack_require__(88);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -5823,11 +5872,6 @@ function throwIfCancellationRequested(config) {
 module.exports = function dispatchRequest(config) {
   throwIfCancellationRequested(config);
 
-  // Support baseURL config
-  if (config.baseURL && !isAbsoluteURL(config.url)) {
-    config.url = combineURLs(config.baseURL, config.url);
-  }
-
   // Ensure headers exist
   config.headers = config.headers || {};
 
@@ -5842,7 +5886,7 @@ module.exports = function dispatchRequest(config) {
   config.headers = utils.merge(
     config.headers.common || {},
     config.headers[config.method] || {},
-    config.headers || {}
+    config.headers
   );
 
   utils.forEach(
@@ -5940,13 +5984,438 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 var utils = __webpack_require__(3);
 var settle = __webpack_require__(28);
 var buildURL = __webpack_require__(20);
-var http = __webpack_require__(30);
-var https = __webpack_require__(31);
-var httpFollow = __webpack_require__(32).http;
-var httpsFollow = __webpack_require__(32).https;
-var url = __webpack_require__(33);
-var zlib = __webpack_require__(81);
-var pkg = __webpack_require__(82);
+var buildFullPath = __webpack_require__(30);
+var parseHeaders = __webpack_require__(72);
+var isURLSameOrigin = __webpack_require__(73);
+var createError = __webpack_require__(21);
+
+module.exports = function xhrAdapter(config) {
+  return new Promise(function dispatchXhrRequest(resolve, reject) {
+    var requestData = config.data;
+    var requestHeaders = config.headers;
+
+    if (utils.isFormData(requestData)) {
+      delete requestHeaders['Content-Type']; // Let the browser set it
+    }
+
+    var request = new XMLHttpRequest();
+
+    // HTTP basic authentication
+    if (config.auth) {
+      var username = config.auth.username || '';
+      var password = config.auth.password || '';
+      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+    }
+
+    var fullPath = buildFullPath(config.baseURL, config.url);
+    request.open(config.method.toUpperCase(), buildURL(fullPath, config.params, config.paramsSerializer), true);
+
+    // Set the request timeout in MS
+    request.timeout = config.timeout;
+
+    // Listen for ready state
+    request.onreadystatechange = function handleLoad() {
+      if (!request || request.readyState !== 4) {
+        return;
+      }
+
+      // The request errored out and we didn't get a response, this will be
+      // handled by onerror instead
+      // With one exception: request that using file: protocol, most browsers
+      // will return status as 0 even though it's a successful request
+      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+        return;
+      }
+
+      // Prepare the response
+      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
+      var response = {
+        data: responseData,
+        status: request.status,
+        statusText: request.statusText,
+        headers: responseHeaders,
+        config: config,
+        request: request
+      };
+
+      settle(resolve, reject, response);
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle browser request cancellation (as opposed to a manual cancellation)
+    request.onabort = function handleAbort() {
+      if (!request) {
+        return;
+      }
+
+      reject(createError('Request aborted', config, 'ECONNABORTED', request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle low level network errors
+    request.onerror = function handleError() {
+      // Real errors are hidden from us by the browser
+      // onerror should only fire if it's a network error
+      reject(createError('Network Error', config, null, request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle timeout
+    request.ontimeout = function handleTimeout() {
+      var timeoutErrorMessage = 'timeout of ' + config.timeout + 'ms exceeded';
+      if (config.timeoutErrorMessage) {
+        timeoutErrorMessage = config.timeoutErrorMessage;
+      }
+      reject(createError(timeoutErrorMessage, config, 'ECONNABORTED',
+        request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Add xsrf header
+    // This is only done if running in a standard browser environment.
+    // Specifically not if we're in a web worker, or react-native.
+    if (utils.isStandardBrowserEnv()) {
+      var cookies = __webpack_require__(74);
+
+      // Add xsrf header
+      var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
+        cookies.read(config.xsrfCookieName) :
+        undefined;
+
+      if (xsrfValue) {
+        requestHeaders[config.xsrfHeaderName] = xsrfValue;
+      }
+    }
+
+    // Add headers to the request
+    if ('setRequestHeader' in request) {
+      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
+        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+          // Remove Content-Type if data is undefined
+          delete requestHeaders[key];
+        } else {
+          // Otherwise add header to the request
+          request.setRequestHeader(key, val);
+        }
+      });
+    }
+
+    // Add withCredentials to request if needed
+    if (!utils.isUndefined(config.withCredentials)) {
+      request.withCredentials = !!config.withCredentials;
+    }
+
+    // Add responseType to request if needed
+    if (config.responseType) {
+      try {
+        request.responseType = config.responseType;
+      } catch (e) {
+        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
+        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
+        if (config.responseType !== 'json') {
+          throw e;
+        }
+      }
+    }
+
+    // Handle progress if needed
+    if (typeof config.onDownloadProgress === 'function') {
+      request.addEventListener('progress', config.onDownloadProgress);
+    }
+
+    // Not all browsers support upload events
+    if (typeof config.onUploadProgress === 'function' && request.upload) {
+      request.upload.addEventListener('progress', config.onUploadProgress);
+    }
+
+    if (config.cancelToken) {
+      // Handle cancellation
+      config.cancelToken.promise.then(function onCanceled(cancel) {
+        if (!request) {
+          return;
+        }
+
+        request.abort();
+        reject(cancel);
+        // Clean up request
+        request = null;
+      });
+    }
+
+    if (requestData === undefined) {
+      requestData = null;
+    }
+
+    // Send the request
+    request.send(requestData);
+  });
+};
+
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Determines whether the specified URL is absolute
+ *
+ * @param {string} url The URL to test
+ * @returns {boolean} True if the specified URL is absolute, otherwise false
+ */
+module.exports = function isAbsoluteURL(url) {
+  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+  // by any combination of letters, digits, plus, period, or hyphen.
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+};
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Creates a new URL by combining the specified URLs
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} relativeURL The relative URL
+ * @returns {string} The combined URL
+ */
+module.exports = function combineURLs(baseURL, relativeURL) {
+  return relativeURL
+    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+    : baseURL;
+};
+
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(3);
+
+// Headers whose duplicates are ignored by node
+// c.f. https://nodejs.org/api/http.html#http_message_headers
+var ignoreDuplicateOf = [
+  'age', 'authorization', 'content-length', 'content-type', 'etag',
+  'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
+  'last-modified', 'location', 'max-forwards', 'proxy-authorization',
+  'referer', 'retry-after', 'user-agent'
+];
+
+/**
+ * Parse headers into an object
+ *
+ * ```
+ * Date: Wed, 27 Aug 2014 08:58:49 GMT
+ * Content-Type: application/json
+ * Connection: keep-alive
+ * Transfer-Encoding: chunked
+ * ```
+ *
+ * @param {String} headers Headers needing to be parsed
+ * @returns {Object} Headers parsed into an object
+ */
+module.exports = function parseHeaders(headers) {
+  var parsed = {};
+  var key;
+  var val;
+  var i;
+
+  if (!headers) { return parsed; }
+
+  utils.forEach(headers.split('\n'), function parser(line) {
+    i = line.indexOf(':');
+    key = utils.trim(line.substr(0, i)).toLowerCase();
+    val = utils.trim(line.substr(i + 1));
+
+    if (key) {
+      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
+        return;
+      }
+      if (key === 'set-cookie') {
+        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
+      } else {
+        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+      }
+    }
+  });
+
+  return parsed;
+};
+
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(3);
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs have full support of the APIs needed to test
+  // whether the request URL is of the same origin as current location.
+    (function standardBrowserEnv() {
+      var msie = /(msie|trident)/i.test(navigator.userAgent);
+      var urlParsingNode = document.createElement('a');
+      var originURL;
+
+      /**
+    * Parse a URL to discover it's components
+    *
+    * @param {String} url The URL to be parsed
+    * @returns {Object}
+    */
+      function resolveURL(url) {
+        var href = url;
+
+        if (msie) {
+        // IE needs attribute set twice to normalize properties
+          urlParsingNode.setAttribute('href', href);
+          href = urlParsingNode.href;
+        }
+
+        urlParsingNode.setAttribute('href', href);
+
+        // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+        return {
+          href: urlParsingNode.href,
+          protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+          host: urlParsingNode.host,
+          search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+          hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+          hostname: urlParsingNode.hostname,
+          port: urlParsingNode.port,
+          pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+            urlParsingNode.pathname :
+            '/' + urlParsingNode.pathname
+        };
+      }
+
+      originURL = resolveURL(window.location.href);
+
+      /**
+    * Determine if a URL shares the same origin as the current location
+    *
+    * @param {String} requestURL The URL to test
+    * @returns {boolean} True if URL shares the same origin, otherwise false
+    */
+      return function isURLSameOrigin(requestURL) {
+        var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+        return (parsed.protocol === originURL.protocol &&
+            parsed.host === originURL.host);
+      };
+    })() :
+
+  // Non standard browser envs (web workers, react-native) lack needed support.
+    (function nonStandardBrowserEnv() {
+      return function isURLSameOrigin() {
+        return true;
+      };
+    })()
+);
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(3);
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs support document.cookie
+    (function standardBrowserEnv() {
+      return {
+        write: function write(name, value, expires, path, domain, secure) {
+          var cookie = [];
+          cookie.push(name + '=' + encodeURIComponent(value));
+
+          if (utils.isNumber(expires)) {
+            cookie.push('expires=' + new Date(expires).toGMTString());
+          }
+
+          if (utils.isString(path)) {
+            cookie.push('path=' + path);
+          }
+
+          if (utils.isString(domain)) {
+            cookie.push('domain=' + domain);
+          }
+
+          if (secure === true) {
+            cookie.push('secure');
+          }
+
+          document.cookie = cookie.join('; ');
+        },
+
+        read: function read(name) {
+          var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+          return (match ? decodeURIComponent(match[3]) : null);
+        },
+
+        remove: function remove(name) {
+          this.write(name, '', Date.now() - 86400000);
+        }
+      };
+    })() :
+
+  // Non standard browser env (web workers, react-native) lack needed support.
+    (function nonStandardBrowserEnv() {
+      return {
+        write: function write() {},
+        read: function read() { return null; },
+        remove: function remove() {}
+      };
+    })()
+);
+
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(3);
+var settle = __webpack_require__(28);
+var buildFullPath = __webpack_require__(30);
+var buildURL = __webpack_require__(20);
+var http = __webpack_require__(31);
+var https = __webpack_require__(32);
+var httpFollow = __webpack_require__(33).http;
+var httpsFollow = __webpack_require__(33).https;
+var url = __webpack_require__(34);
+var zlib = __webpack_require__(87);
+var pkg = __webpack_require__(88);
 var createError = __webpack_require__(21);
 var enhanceError = __webpack_require__(29);
 
@@ -5955,13 +6424,10 @@ var isHttps = /https:?/;
 /*eslint consistent-return:0*/
 module.exports = function httpAdapter(config) {
   return new Promise(function dispatchHttpRequest(resolvePromise, rejectPromise) {
-    var timer;
     var resolve = function resolve(value) {
-      clearTimeout(timer);
       resolvePromise(value);
     };
     var reject = function reject(value) {
-      clearTimeout(timer);
       rejectPromise(value);
     };
     var data = config.data;
@@ -6001,7 +6467,8 @@ module.exports = function httpAdapter(config) {
     }
 
     // Parse url
-    var parsed = url.parse(config.url);
+    var fullPath = buildFullPath(config.baseURL, config.url);
+    var parsed = url.parse(fullPath);
     var protocol = parsed.protocol || 'http:';
 
     if (!auth && parsed.auth) {
@@ -6023,6 +6490,7 @@ module.exports = function httpAdapter(config) {
       method: config.method.toUpperCase(),
       headers: headers,
       agent: agent,
+      agents: { http: config.httpAgent, https: config.httpsAgent },
       auth: auth
     };
 
@@ -6055,8 +6523,7 @@ module.exports = function httpAdapter(config) {
               return true;
             }
             if (proxyElement[0] === '.' &&
-                parsed.hostname.substr(parsed.hostname.length - proxyElement.length) === proxyElement &&
-                proxyElement.match(/\./g).length === parsed.hostname.match(/\./g).length) {
+                parsed.hostname.substr(parsed.hostname.length - proxyElement.length) === proxyElement) {
               return true;
             }
 
@@ -6184,10 +6651,15 @@ module.exports = function httpAdapter(config) {
 
     // Handle request timeout
     if (config.timeout) {
-      timer = setTimeout(function handleRequestTimeout() {
+      // Sometime, the response will be very slow, and does not respond, the connect event will be block by event loop system.
+      // And timer callback will be fired, and abort() will be invoked before connection, then get "socket hang up" and code ECONNRESET.
+      // At this time, if we have a large number of request, nodejs will hang up some socket on background. and the number will up and up.
+      // And then these socket which be hang up will devoring CPU little by little.
+      // ClientRequest.setTimeout will be fired on the specify milliseconds, and can make sure that abort() will be fired after connect.
+      req.setTimeout(config.timeout, function handleRequestTimeout() {
         req.abort();
         reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED', req));
-      }, config.timeout);
+      });
     }
 
     if (config.cancelToken) {
@@ -6213,19 +6685,19 @@ module.exports = function httpAdapter(config) {
 
 
 /***/ }),
-/* 70 */
+/* 76 */
 /***/ (function(module, exports) {
 
 module.exports = require("assert");
 
 /***/ }),
-/* 71 */
+/* 77 */
 /***/ (function(module, exports) {
 
 module.exports = require("stream");
 
 /***/ }),
-/* 72 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -6234,14 +6706,14 @@ module.exports = require("stream");
  */
 
 if (typeof process === 'undefined' || process.type === 'renderer') {
-  module.exports = __webpack_require__(73);
+  module.exports = __webpack_require__(79);
 } else {
-  module.exports = __webpack_require__(75);
+  module.exports = __webpack_require__(81);
 }
 
 
 /***/ }),
-/* 73 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -6250,7 +6722,7 @@ if (typeof process === 'undefined' || process.type === 'renderer') {
  * Expose `debug()` as the module.
  */
 
-exports = module.exports = __webpack_require__(34);
+exports = module.exports = __webpack_require__(35);
 exports.log = log;
 exports.formatArgs = formatArgs;
 exports.save = save;
@@ -6442,7 +6914,7 @@ function localstorage() {
 
 
 /***/ }),
-/* 74 */
+/* 80 */
 /***/ (function(module, exports) {
 
 /**
@@ -6600,15 +7072,15 @@ function plural(ms, n, name) {
 
 
 /***/ }),
-/* 75 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
  * Module dependencies.
  */
 
-var tty = __webpack_require__(76);
-var util = __webpack_require__(77);
+var tty = __webpack_require__(82);
+var util = __webpack_require__(83);
 
 /**
  * This is the Node.js implementation of `debug()`.
@@ -6616,7 +7088,7 @@ var util = __webpack_require__(77);
  * Expose `debug()` as the module.
  */
 
-exports = module.exports = __webpack_require__(34);
+exports = module.exports = __webpack_require__(35);
 exports.init = init;
 exports.log = log;
 exports.formatArgs = formatArgs;
@@ -6631,7 +7103,7 @@ exports.useColors = useColors;
 exports.colors = [ 6, 2, 3, 4, 5, 1 ];
 
 try {
-  var supportsColor = __webpack_require__(78);
+  var supportsColor = __webpack_require__(84);
   if (supportsColor && supportsColor.level >= 2) {
     exports.colors = [
       20, 21, 26, 27, 32, 33, 38, 39, 40, 41, 42, 43, 44, 45, 56, 57, 62, 63, 68,
@@ -6792,25 +7264,25 @@ exports.enable(load());
 
 
 /***/ }),
-/* 76 */
+/* 82 */
 /***/ (function(module, exports) {
 
 module.exports = require("tty");
 
 /***/ }),
-/* 77 */
+/* 83 */
 /***/ (function(module, exports) {
 
 module.exports = require("util");
 
 /***/ }),
-/* 78 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-const os = __webpack_require__(79);
-const hasFlag = __webpack_require__(80);
+const os = __webpack_require__(85);
+const hasFlag = __webpack_require__(86);
 
 const env = process.env;
 
@@ -6942,13 +7414,13 @@ module.exports = {
 
 
 /***/ }),
-/* 79 */
+/* 85 */
 /***/ (function(module, exports) {
 
 module.exports = require("os");
 
 /***/ }),
-/* 80 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6963,434 +7435,16 @@ module.exports = (flag, argv) => {
 
 
 /***/ }),
-/* 81 */
+/* 87 */
 /***/ (function(module, exports) {
 
 module.exports = require("zlib");
 
 /***/ }),
-/* 82 */
+/* 88 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_from\":\"axios@^0.19\",\"_id\":\"axios@0.19.0\",\"_inBundle\":false,\"_integrity\":\"sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==\",\"_location\":\"/axios\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"range\",\"registry\":true,\"raw\":\"axios@^0.19\",\"name\":\"axios\",\"escapedName\":\"axios\",\"rawSpec\":\"^0.19\",\"saveSpec\":null,\"fetchSpec\":\"^0.19\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/axios/-/axios-0.19.0.tgz\",\"_shasum\":\"8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8\",\"_spec\":\"axios@^0.19\",\"_where\":\"/Users/alexey/work/projects/NetLicensingClient-javascript\",\"author\":{\"name\":\"Matt Zabriskie\"},\"browser\":{\"./lib/adapters/http.js\":\"./lib/adapters/xhr.js\"},\"bugs\":{\"url\":\"https://github.com/axios/axios/issues\"},\"bundleDependencies\":false,\"bundlesize\":[{\"path\":\"./dist/axios.min.js\",\"threshold\":\"5kB\"}],\"dependencies\":{\"follow-redirects\":\"1.5.10\",\"is-buffer\":\"^2.0.2\"},\"deprecated\":false,\"description\":\"Promise based HTTP client for the browser and node.js\",\"devDependencies\":{\"bundlesize\":\"^0.17.0\",\"coveralls\":\"^3.0.0\",\"es6-promise\":\"^4.2.4\",\"grunt\":\"^1.0.2\",\"grunt-banner\":\"^0.6.0\",\"grunt-cli\":\"^1.2.0\",\"grunt-contrib-clean\":\"^1.1.0\",\"grunt-contrib-watch\":\"^1.0.0\",\"grunt-eslint\":\"^20.1.0\",\"grunt-karma\":\"^2.0.0\",\"grunt-mocha-test\":\"^0.13.3\",\"grunt-ts\":\"^6.0.0-beta.19\",\"grunt-webpack\":\"^1.0.18\",\"istanbul-instrumenter-loader\":\"^1.0.0\",\"jasmine-core\":\"^2.4.1\",\"karma\":\"^1.3.0\",\"karma-chrome-launcher\":\"^2.2.0\",\"karma-coverage\":\"^1.1.1\",\"karma-firefox-launcher\":\"^1.1.0\",\"karma-jasmine\":\"^1.1.1\",\"karma-jasmine-ajax\":\"^0.1.13\",\"karma-opera-launcher\":\"^1.0.0\",\"karma-safari-launcher\":\"^1.0.0\",\"karma-sauce-launcher\":\"^1.2.0\",\"karma-sinon\":\"^1.0.5\",\"karma-sourcemap-loader\":\"^0.3.7\",\"karma-webpack\":\"^1.7.0\",\"load-grunt-tasks\":\"^3.5.2\",\"minimist\":\"^1.2.0\",\"mocha\":\"^5.2.0\",\"sinon\":\"^4.5.0\",\"typescript\":\"^2.8.1\",\"url-search-params\":\"^0.10.0\",\"webpack\":\"^1.13.1\",\"webpack-dev-server\":\"^1.14.1\"},\"homepage\":\"https://github.com/axios/axios\",\"keywords\":[\"xhr\",\"http\",\"ajax\",\"promise\",\"node\"],\"license\":\"MIT\",\"main\":\"index.js\",\"name\":\"axios\",\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/axios/axios.git\"},\"scripts\":{\"build\":\"NODE_ENV=production grunt build\",\"coveralls\":\"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js\",\"examples\":\"node ./examples/server.js\",\"fix\":\"eslint --fix lib/**/*.js\",\"postversion\":\"git push && git push --tags\",\"preversion\":\"npm test\",\"start\":\"node ./sandbox/server.js\",\"test\":\"grunt test && bundlesize\",\"version\":\"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json\"},\"typings\":\"./index.d.ts\",\"version\":\"0.19.0\"}");
-
-/***/ }),
-/* 83 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(3);
-var settle = __webpack_require__(28);
-var buildURL = __webpack_require__(20);
-var parseHeaders = __webpack_require__(84);
-var isURLSameOrigin = __webpack_require__(85);
-var createError = __webpack_require__(21);
-
-module.exports = function xhrAdapter(config) {
-  return new Promise(function dispatchXhrRequest(resolve, reject) {
-    var requestData = config.data;
-    var requestHeaders = config.headers;
-
-    if (utils.isFormData(requestData)) {
-      delete requestHeaders['Content-Type']; // Let the browser set it
-    }
-
-    var request = new XMLHttpRequest();
-
-    // HTTP basic authentication
-    if (config.auth) {
-      var username = config.auth.username || '';
-      var password = config.auth.password || '';
-      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
-    }
-
-    request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
-
-    // Set the request timeout in MS
-    request.timeout = config.timeout;
-
-    // Listen for ready state
-    request.onreadystatechange = function handleLoad() {
-      if (!request || request.readyState !== 4) {
-        return;
-      }
-
-      // The request errored out and we didn't get a response, this will be
-      // handled by onerror instead
-      // With one exception: request that using file: protocol, most browsers
-      // will return status as 0 even though it's a successful request
-      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
-        return;
-      }
-
-      // Prepare the response
-      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
-      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
-      var response = {
-        data: responseData,
-        status: request.status,
-        statusText: request.statusText,
-        headers: responseHeaders,
-        config: config,
-        request: request
-      };
-
-      settle(resolve, reject, response);
-
-      // Clean up request
-      request = null;
-    };
-
-    // Handle browser request cancellation (as opposed to a manual cancellation)
-    request.onabort = function handleAbort() {
-      if (!request) {
-        return;
-      }
-
-      reject(createError('Request aborted', config, 'ECONNABORTED', request));
-
-      // Clean up request
-      request = null;
-    };
-
-    // Handle low level network errors
-    request.onerror = function handleError() {
-      // Real errors are hidden from us by the browser
-      // onerror should only fire if it's a network error
-      reject(createError('Network Error', config, null, request));
-
-      // Clean up request
-      request = null;
-    };
-
-    // Handle timeout
-    request.ontimeout = function handleTimeout() {
-      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED',
-        request));
-
-      // Clean up request
-      request = null;
-    };
-
-    // Add xsrf header
-    // This is only done if running in a standard browser environment.
-    // Specifically not if we're in a web worker, or react-native.
-    if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(86);
-
-      // Add xsrf header
-      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
-        cookies.read(config.xsrfCookieName) :
-        undefined;
-
-      if (xsrfValue) {
-        requestHeaders[config.xsrfHeaderName] = xsrfValue;
-      }
-    }
-
-    // Add headers to the request
-    if ('setRequestHeader' in request) {
-      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
-        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
-          // Remove Content-Type if data is undefined
-          delete requestHeaders[key];
-        } else {
-          // Otherwise add header to the request
-          request.setRequestHeader(key, val);
-        }
-      });
-    }
-
-    // Add withCredentials to request if needed
-    if (config.withCredentials) {
-      request.withCredentials = true;
-    }
-
-    // Add responseType to request if needed
-    if (config.responseType) {
-      try {
-        request.responseType = config.responseType;
-      } catch (e) {
-        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
-        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
-        if (config.responseType !== 'json') {
-          throw e;
-        }
-      }
-    }
-
-    // Handle progress if needed
-    if (typeof config.onDownloadProgress === 'function') {
-      request.addEventListener('progress', config.onDownloadProgress);
-    }
-
-    // Not all browsers support upload events
-    if (typeof config.onUploadProgress === 'function' && request.upload) {
-      request.upload.addEventListener('progress', config.onUploadProgress);
-    }
-
-    if (config.cancelToken) {
-      // Handle cancellation
-      config.cancelToken.promise.then(function onCanceled(cancel) {
-        if (!request) {
-          return;
-        }
-
-        request.abort();
-        reject(cancel);
-        // Clean up request
-        request = null;
-      });
-    }
-
-    if (requestData === undefined) {
-      requestData = null;
-    }
-
-    // Send the request
-    request.send(requestData);
-  });
-};
-
-
-/***/ }),
-/* 84 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(3);
-
-// Headers whose duplicates are ignored by node
-// c.f. https://nodejs.org/api/http.html#http_message_headers
-var ignoreDuplicateOf = [
-  'age', 'authorization', 'content-length', 'content-type', 'etag',
-  'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
-  'last-modified', 'location', 'max-forwards', 'proxy-authorization',
-  'referer', 'retry-after', 'user-agent'
-];
-
-/**
- * Parse headers into an object
- *
- * ```
- * Date: Wed, 27 Aug 2014 08:58:49 GMT
- * Content-Type: application/json
- * Connection: keep-alive
- * Transfer-Encoding: chunked
- * ```
- *
- * @param {String} headers Headers needing to be parsed
- * @returns {Object} Headers parsed into an object
- */
-module.exports = function parseHeaders(headers) {
-  var parsed = {};
-  var key;
-  var val;
-  var i;
-
-  if (!headers) { return parsed; }
-
-  utils.forEach(headers.split('\n'), function parser(line) {
-    i = line.indexOf(':');
-    key = utils.trim(line.substr(0, i)).toLowerCase();
-    val = utils.trim(line.substr(i + 1));
-
-    if (key) {
-      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
-        return;
-      }
-      if (key === 'set-cookie') {
-        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
-      } else {
-        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
-      }
-    }
-  });
-
-  return parsed;
-};
-
-
-/***/ }),
-/* 85 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(3);
-
-module.exports = (
-  utils.isStandardBrowserEnv() ?
-
-  // Standard browser envs have full support of the APIs needed to test
-  // whether the request URL is of the same origin as current location.
-    (function standardBrowserEnv() {
-      var msie = /(msie|trident)/i.test(navigator.userAgent);
-      var urlParsingNode = document.createElement('a');
-      var originURL;
-
-      /**
-    * Parse a URL to discover it's components
-    *
-    * @param {String} url The URL to be parsed
-    * @returns {Object}
-    */
-      function resolveURL(url) {
-        var href = url;
-
-        if (msie) {
-        // IE needs attribute set twice to normalize properties
-          urlParsingNode.setAttribute('href', href);
-          href = urlParsingNode.href;
-        }
-
-        urlParsingNode.setAttribute('href', href);
-
-        // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
-        return {
-          href: urlParsingNode.href,
-          protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
-          host: urlParsingNode.host,
-          search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
-          hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
-          hostname: urlParsingNode.hostname,
-          port: urlParsingNode.port,
-          pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
-            urlParsingNode.pathname :
-            '/' + urlParsingNode.pathname
-        };
-      }
-
-      originURL = resolveURL(window.location.href);
-
-      /**
-    * Determine if a URL shares the same origin as the current location
-    *
-    * @param {String} requestURL The URL to test
-    * @returns {boolean} True if URL shares the same origin, otherwise false
-    */
-      return function isURLSameOrigin(requestURL) {
-        var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
-        return (parsed.protocol === originURL.protocol &&
-            parsed.host === originURL.host);
-      };
-    })() :
-
-  // Non standard browser envs (web workers, react-native) lack needed support.
-    (function nonStandardBrowserEnv() {
-      return function isURLSameOrigin() {
-        return true;
-      };
-    })()
-);
-
-
-/***/ }),
-/* 86 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(3);
-
-module.exports = (
-  utils.isStandardBrowserEnv() ?
-
-  // Standard browser envs support document.cookie
-    (function standardBrowserEnv() {
-      return {
-        write: function write(name, value, expires, path, domain, secure) {
-          var cookie = [];
-          cookie.push(name + '=' + encodeURIComponent(value));
-
-          if (utils.isNumber(expires)) {
-            cookie.push('expires=' + new Date(expires).toGMTString());
-          }
-
-          if (utils.isString(path)) {
-            cookie.push('path=' + path);
-          }
-
-          if (utils.isString(domain)) {
-            cookie.push('domain=' + domain);
-          }
-
-          if (secure === true) {
-            cookie.push('secure');
-          }
-
-          document.cookie = cookie.join('; ');
-        },
-
-        read: function read(name) {
-          var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
-          return (match ? decodeURIComponent(match[3]) : null);
-        },
-
-        remove: function remove(name) {
-          this.write(name, '', Date.now() - 86400000);
-        }
-      };
-    })() :
-
-  // Non standard browser env (web workers, react-native) lack needed support.
-    (function nonStandardBrowserEnv() {
-      return {
-        write: function write() {},
-        read: function read() { return null; },
-        remove: function remove() {}
-      };
-    })()
-);
-
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Determines whether the specified URL is absolute
- *
- * @param {string} url The URL to test
- * @returns {boolean} True if the specified URL is absolute, otherwise false
- */
-module.exports = function isAbsoluteURL(url) {
-  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
-  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
-  // by any combination of letters, digits, plus, period, or hyphen.
-  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
-};
-
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Creates a new URL by combining the specified URLs
- *
- * @param {string} baseURL The base URL
- * @param {string} relativeURL The relative URL
- * @returns {string} The combined URL
- */
-module.exports = function combineURLs(baseURL, relativeURL) {
-  return relativeURL
-    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
-    : baseURL;
-};
-
+module.exports = JSON.parse("{\"_from\":\"axios@0.19.2\",\"_id\":\"axios@0.19.2\",\"_inBundle\":false,\"_integrity\":\"sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==\",\"_location\":\"/axios\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"axios@0.19.2\",\"name\":\"axios\",\"escapedName\":\"axios\",\"rawSpec\":\"0.19.2\",\"saveSpec\":null,\"fetchSpec\":\"0.19.2\"},\"_requiredBy\":[\"#USER\",\"/\"],\"_resolved\":\"https://registry.npmjs.org/axios/-/axios-0.19.2.tgz\",\"_shasum\":\"3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27\",\"_spec\":\"axios@0.19.2\",\"_where\":\"D:\\\\OSPanel\\\\domains\\\\nlic-js-library\",\"author\":{\"name\":\"Matt Zabriskie\"},\"browser\":{\"./lib/adapters/http.js\":\"./lib/adapters/xhr.js\"},\"bugs\":{\"url\":\"https://github.com/axios/axios/issues\"},\"bundleDependencies\":false,\"bundlesize\":[{\"path\":\"./dist/axios.min.js\",\"threshold\":\"5kB\"}],\"dependencies\":{\"follow-redirects\":\"1.5.10\"},\"deprecated\":false,\"description\":\"Promise based HTTP client for the browser and node.js\",\"devDependencies\":{\"bundlesize\":\"^0.17.0\",\"coveralls\":\"^3.0.0\",\"es6-promise\":\"^4.2.4\",\"grunt\":\"^1.0.2\",\"grunt-banner\":\"^0.6.0\",\"grunt-cli\":\"^1.2.0\",\"grunt-contrib-clean\":\"^1.1.0\",\"grunt-contrib-watch\":\"^1.0.0\",\"grunt-eslint\":\"^20.1.0\",\"grunt-karma\":\"^2.0.0\",\"grunt-mocha-test\":\"^0.13.3\",\"grunt-ts\":\"^6.0.0-beta.19\",\"grunt-webpack\":\"^1.0.18\",\"istanbul-instrumenter-loader\":\"^1.0.0\",\"jasmine-core\":\"^2.4.1\",\"karma\":\"^1.3.0\",\"karma-chrome-launcher\":\"^2.2.0\",\"karma-coverage\":\"^1.1.1\",\"karma-firefox-launcher\":\"^1.1.0\",\"karma-jasmine\":\"^1.1.1\",\"karma-jasmine-ajax\":\"^0.1.13\",\"karma-opera-launcher\":\"^1.0.0\",\"karma-safari-launcher\":\"^1.0.0\",\"karma-sauce-launcher\":\"^1.2.0\",\"karma-sinon\":\"^1.0.5\",\"karma-sourcemap-loader\":\"^0.3.7\",\"karma-webpack\":\"^1.7.0\",\"load-grunt-tasks\":\"^3.5.2\",\"minimist\":\"^1.2.0\",\"mocha\":\"^5.2.0\",\"sinon\":\"^4.5.0\",\"typescript\":\"^2.8.1\",\"url-search-params\":\"^0.10.0\",\"webpack\":\"^1.13.1\",\"webpack-dev-server\":\"^1.14.1\"},\"homepage\":\"https://github.com/axios/axios\",\"keywords\":[\"xhr\",\"http\",\"ajax\",\"promise\",\"node\"],\"license\":\"MIT\",\"main\":\"index.js\",\"name\":\"axios\",\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/axios/axios.git\"},\"scripts\":{\"build\":\"NODE_ENV=production grunt build\",\"coveralls\":\"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js\",\"examples\":\"node ./examples/server.js\",\"fix\":\"eslint --fix lib/**/*.js\",\"postversion\":\"git push && git push --tags\",\"preversion\":\"npm test\",\"start\":\"node ./sandbox/server.js\",\"test\":\"grunt test && bundlesize\",\"version\":\"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json\"},\"typings\":\"./index.d.ts\",\"version\":\"0.19.2\"}");
 
 /***/ }),
 /* 89 */
@@ -7399,7 +7453,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(36);
+var Cancel = __webpack_require__(37);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -7492,15 +7546,38 @@ module.exports = function spread(callback) {
 
 /***/ }),
 /* 91 */
+/***/ (function(module, exports) {
+
+(function () {
+  "use strict";
+
+  function btoa(str) {
+    var buffer;
+
+    if (str instanceof Buffer) {
+      buffer = str;
+    } else {
+      buffer = Buffer.from(str.toString(), 'binary');
+    }
+
+    return buffer.toString('base64');
+  }
+
+  module.exports = btoa;
+}());
+
+
+/***/ }),
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getPrototypeOf = __webpack_require__(6);
 
 var setPrototypeOf = __webpack_require__(22);
 
-var isNativeFunction = __webpack_require__(92);
+var isNativeFunction = __webpack_require__(93);
 
-var construct = __webpack_require__(93);
+var construct = __webpack_require__(94);
 
 function _wrapNativeSuper(Class) {
   var _cache = typeof Map === "function" ? new Map() : undefined;
@@ -7539,7 +7616,7 @@ function _wrapNativeSuper(Class) {
 module.exports = _wrapNativeSuper;
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports) {
 
 function _isNativeFunction(fn) {
@@ -7549,7 +7626,7 @@ function _isNativeFunction(fn) {
 module.exports = _isNativeFunction;
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var setPrototypeOf = __webpack_require__(22);
@@ -7587,13 +7664,13 @@ function _construct(Parent, args, Class) {
 module.exports = _construct;
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"name\":\"netlicensing-client\",\"version\":\"1.2.18\",\"description\":\"JavaScript Wrapper for Labs64 NetLicensing RESTful API\",\"keywords\":[\"labs64\",\"netlicensing\",\"licensing\",\"licensing-as-a-service\",\"license\",\"license-management\",\"software-license\",\"client\",\"restful\",\"restful-api\",\"javascript\",\"wrapper\",\"api\",\"client\"],\"author\":\"Labs64 GmbH\",\"homepage\":\"https://netlicensing.io/\",\"repository\":{\"type\":\"git\",\"url\":\"https://github.com/Labs64/NetLicensingClient-javascript\"},\"bugs\":{\"url\":\"https://github.com/Labs64/NetLicensingClient-javascript/issues\"},\"license\":\"Apache-2.0\",\"main\":\"dist/netlicensing-client.js\",\"contributors\":[{\"name\":\"Ready Brown\",\"email\":\"ready.brown@hotmail.de\",\"url\":\"https://github.com/r-brown\"},{\"name\":\"Viacheslav Rudkovskiy\",\"email\":\"viachaslau.rudkovski@labs64.de\",\"url\":\"https://github.com/v-rudkovskiy\"},{\"name\":\"Andrei Yushkevich\",\"email\":\"yushkevich@me.com\",\"url\":\"https://github.com/yushkevich\"}],\"scripts\":{\"build\":\"node build/build.js\",\"release\":\"npm run build && npm run test\",\"dev\":\"webpack --progress --colors --watch --config build/webpack.dev.conf.js\",\"test\":\"karma start test/karma.conf.js --single-run\",\"test-for-travis\":\"karma start test/karma.conf.js --single-run --browsers Firefox\",\"lint\":\"eslint --ext .js,.vue src test\"},\"dependencies\":{\"axios\":\"^0.19\",\"es6-promise\":\"^4.2.8\",\"karma-firefox-launcher\":\"^1.2.0\"},\"devDependencies\":{\"@babel/core\":\"^7.5.5\",\"@babel/plugin-proposal-class-properties\":\"^7.5.5\",\"@babel/plugin-proposal-decorators\":\"^7.4.4\",\"@babel/plugin-proposal-export-namespace-from\":\"^7.5.2\",\"@babel/plugin-proposal-function-sent\":\"^7.5.0\",\"@babel/plugin-proposal-json-strings\":\"^7.2.0\",\"@babel/plugin-proposal-numeric-separator\":\"^7.2.0\",\"@babel/plugin-proposal-throw-expressions\":\"^7.2.0\",\"@babel/plugin-syntax-dynamic-import\":\"^7.2.0\",\"@babel/plugin-syntax-import-meta\":\"^7.2.0\",\"@babel/plugin-transform-modules-commonjs\":\"^7.5.0\",\"@babel/plugin-transform-runtime\":\"^7.5.5\",\"@babel/preset-env\":\"^7.5.5\",\"@babel/runtime\":\"^7.5.5\",\"axios-mock-adapter\":\"^1.17.0\",\"babel-eslint\":\"^10.0.3\",\"babel-loader\":\"^8.0.6\",\"chalk\":\"^2.4.2\",\"eslint\":\"^5.16.0\",\"eslint-config-airbnb-base\":\"^14.0.0\",\"eslint-friendly-formatter\":\"^4.0.1\",\"eslint-import-resolver-webpack\":\"^0.11.1\",\"eslint-loader\":\"^2.2.1\",\"eslint-plugin-import\":\"^2.18.2\",\"eslint-plugin-jasmine\":\"^2.10.1\",\"faker\":\"^4.1.0\",\"is-docker\":\"^2.0.0\",\"jasmine\":\"^3.4.0\",\"jasmine-core\":\"^3.4.0\",\"karma\":\"^3.1.4\",\"karma-babel-preprocessor\":\"^8.0.1\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-jasmine\":\"^2.0.1\",\"karma-sourcemap-loader\":\"^0.3.7\",\"karma-spec-reporter\":\"0.0.32\",\"karma-webpack\":\"^4.0.2\",\"lodash\":\"^4.17.15\",\"ora\":\"^3.4.0\",\"query-string\":\"^6.8.2\",\"rimraf\":\"^3.0.0\",\"uglifyjs-webpack-plugin\":\"^1.3.0\",\"webpack\":\"^4.39.3\",\"webpack-cli\":\"^3.3.7\",\"webpack-merge\":\"^4.2.2\"},\"engines\":{\"node\":\">= 6.0.0\",\"npm\":\">= 3.0.0\"},\"browserslist\":[\"> 1%\",\"last 2 versions\",\"not ie <= 10\"]}");
+module.exports = JSON.parse("{\"name\":\"netlicensing-client\",\"version\":\"1.2.19\",\"description\":\"JavaScript Wrapper for Labs64 NetLicensing RESTful API\",\"keywords\":[\"labs64\",\"netlicensing\",\"licensing\",\"licensing-as-a-service\",\"license\",\"license-management\",\"software-license\",\"client\",\"restful\",\"restful-api\",\"javascript\",\"wrapper\",\"api\",\"client\"],\"author\":\"Labs64 GmbH\",\"homepage\":\"https://netlicensing.io/\",\"repository\":{\"type\":\"git\",\"url\":\"https://github.com/Labs64/NetLicensingClient-javascript\"},\"bugs\":{\"url\":\"https://github.com/Labs64/NetLicensingClient-javascript/issues\"},\"license\":\"Apache-2.0\",\"main\":\"dist/netlicensing-client.js\",\"contributors\":[{\"name\":\"Ready Brown\",\"email\":\"ready.brown@hotmail.de\",\"url\":\"https://github.com/r-brown\"},{\"name\":\"Viacheslav Rudkovskiy\",\"email\":\"viachaslau.rudkovski@labs64.de\",\"url\":\"https://github.com/v-rudkovskiy\"},{\"name\":\"Andrei Yushkevich\",\"email\":\"yushkevich@me.com\",\"url\":\"https://github.com/yushkevich\"}],\"scripts\":{\"build\":\"node build/build.js\",\"release\":\"npm run build && npm run test\",\"dev\":\"webpack --progress --colors --watch --config build/webpack.dev.conf.js\",\"test\":\"karma start test/karma.conf.js --single-run\",\"test-for-travis\":\"karma start test/karma.conf.js --single-run --browsers Firefox\",\"lint\":\"eslint --ext .js,.vue src test\"},\"dependencies\":{\"axios\":\"^0.19.2\",\"btoa\":\"^1.2.1\",\"es6-promise\":\"^4.2.8\"},\"devDependencies\":{\"@babel/core\":\"^7.8.4\",\"@babel/plugin-proposal-class-properties\":\"^7.8.3\",\"@babel/plugin-proposal-decorators\":\"^7.8.3\",\"@babel/plugin-proposal-export-namespace-from\":\"^7.8.3\",\"@babel/plugin-proposal-function-sent\":\"^7.8.3\",\"@babel/plugin-proposal-json-strings\":\"^7.8.3\",\"@babel/plugin-proposal-numeric-separator\":\"^7.8.3\",\"@babel/plugin-proposal-throw-expressions\":\"^7.8.3\",\"@babel/plugin-syntax-dynamic-import\":\"^7.8.3\",\"@babel/plugin-syntax-import-meta\":\"^7.8.3\",\"@babel/plugin-transform-modules-commonjs\":\"^7.8.3\",\"@babel/plugin-transform-runtime\":\"^7.8.3\",\"@babel/preset-env\":\"^7.8.4\",\"@babel/runtime\":\"^7.8.4\",\"axios-mock-adapter\":\"^1.17.0\",\"babel-eslint\":\"^10.0.3\",\"babel-loader\":\"^8.0.6\",\"chalk\":\"^2.4.2\",\"eslint\":\"^5.16.0\",\"eslint-config-airbnb-base\":\"^14.0.0\",\"eslint-friendly-formatter\":\"^4.0.1\",\"eslint-import-resolver-webpack\":\"^0.11.1\",\"eslint-loader\":\"^2.2.1\",\"eslint-plugin-import\":\"^2.20.1\",\"eslint-plugin-jasmine\":\"^2.10.1\",\"faker\":\"^4.1.0\",\"is-docker\":\"^2.0.0\",\"jasmine\":\"^3.5.0\",\"jasmine-core\":\"^3.5.0\",\"karma\":\"^3.1.4\",\"karma-babel-preprocessor\":\"^8.0.1\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-firefox-launcher\":\"^1.3.0\",\"karma-jasmine\":\"^2.0.1\",\"karma-sourcemap-loader\":\"^0.3.7\",\"karma-spec-reporter\":\"0.0.32\",\"karma-webpack\":\"^4.0.2\",\"lodash\":\"^4.17.15\",\"ora\":\"^3.4.0\",\"query-string\":\"^6.11.0\",\"rimraf\":\"^3.0.2\",\"uglifyjs-webpack-plugin\":\"^1.3.0\",\"webpack\":\"^4.41.6\",\"webpack-cli\":\"^3.3.11\",\"webpack-merge\":\"^4.2.2\"},\"engines\":{\"node\":\">= 8.0.0\",\"npm\":\">= 6.0.0\"},\"browserslist\":[\"> 1%\",\"last 2 versions\",\"not ie <= 10\"]}");
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7622,7 +7699,7 @@ var _Service = _interopRequireDefault(__webpack_require__(12));
 
 var _ValidationResults = _interopRequireDefault(__webpack_require__(24));
 
-var _itemToLicensee = _interopRequireDefault(__webpack_require__(39));
+var _itemToLicensee = _interopRequireDefault(__webpack_require__(40));
 
 var _Page = _interopRequireDefault(__webpack_require__(11));
 
@@ -7659,10 +7736,10 @@ var _default = {
    * return the newly created licensee object in promise
    * @returns {Promise}
    */
-  create: function () {
-    var _create = (0, _asyncToGenerator2.default)(
+  create: function create(context, productNumber, licensee) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee(context, productNumber, licensee) {
+    _regenerator.default.mark(function _callee() {
       var _ref, _ref$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee$(_context) {
@@ -7687,14 +7764,8 @@ var _default = {
           }
         }
       }, _callee);
-    }));
-
-    function create(_x, _x2, _x3) {
-      return _create.apply(this, arguments);
-    }
-
-    return create;
-  }(),
+    }))();
+  },
 
   /**
    * Gets licensee by its number.See NetLicensingAPI for details:
@@ -7709,10 +7780,10 @@ var _default = {
    * return the licensee in promise
    * @returns {Promise}
    */
-  get: function () {
-    var _get = (0, _asyncToGenerator2.default)(
+  get: function get(context, number) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee2(context, number) {
+    _regenerator.default.mark(function _callee2() {
       var _ref2, _ref2$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee2$(_context2) {
@@ -7736,14 +7807,8 @@ var _default = {
           }
         }
       }, _callee2);
-    }));
-
-    function get(_x4, _x5) {
-      return _get.apply(this, arguments);
-    }
-
-    return get;
-  }(),
+    }))();
+  },
 
   /**
    * Returns all licensees of a vendor.See NetLicensingAPI for details:
@@ -7758,10 +7823,10 @@ var _default = {
    * array of licensees (of all products) or empty array if nothing found in promise.
    * @returns {Promise}
    */
-  list: function () {
-    var _list = (0, _asyncToGenerator2.default)(
+  list: function list(context, filter) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee3(context, filter) {
+    _regenerator.default.mark(function _callee3() {
       var queryParams, _ref3, data;
 
       return _regenerator.default.wrap(function _callee3$(_context3) {
@@ -7802,14 +7867,8 @@ var _default = {
           }
         }
       }, _callee3);
-    }));
-
-    function list(_x6, _x7) {
-      return _list.apply(this, arguments);
-    }
-
-    return list;
-  }(),
+    }))();
+  },
 
   /**
    * Updates licensee properties.See NetLicensingAPI for details:
@@ -7827,10 +7886,10 @@ var _default = {
    * return updated licensee in promise.
    * @returns {Promise}
    */
-  update: function () {
-    var _update = (0, _asyncToGenerator2.default)(
+  update: function update(context, number, licensee) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee4(context, number, licensee) {
+    _regenerator.default.mark(function _callee4() {
       var _ref4, _ref4$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee4$(_context4) {
@@ -7854,14 +7913,8 @@ var _default = {
           }
         }
       }, _callee4);
-    }));
-
-    function update(_x8, _x9, _x10) {
-      return _update.apply(this, arguments);
-    }
-
-    return update;
-  }(),
+    }))();
+  },
 
   /**
    * Deletes licensee.See NetLicensingAPI for details:
@@ -7903,10 +7956,10 @@ var _default = {
    *
    * @returns {ValidationResults}
    */
-  validate: function () {
-    var _validate = (0, _asyncToGenerator2.default)(
+  validate: function validate(context, number, validationParameters) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee5(context, number, validationParameters) {
+    _regenerator.default.mark(function _callee5() {
       var queryParams, pmIndex, parameters, has, _ref5, _ref5$data, items, ttl, validationResults;
 
       return _regenerator.default.wrap(function _callee5$(_context5) {
@@ -7965,14 +8018,8 @@ var _default = {
           }
         }
       }, _callee5);
-    }));
-
-    function validate(_x11, _x12, _x13) {
-      return _validate.apply(this, arguments);
-    }
-
-    return validate;
-  }(),
+    }))();
+  },
 
   /**
    * Transfer licenses between licensees.
@@ -8003,7 +8050,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -8735,7 +8782,7 @@ try {
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports) {
 
 function _arrayWithHoles(arr) {
@@ -8745,10 +8792,14 @@ function _arrayWithHoles(arr) {
 module.exports = _arrayWithHoles;
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports) {
 
 function _iterableToArrayLimit(arr, i) {
+  if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
+    return;
+  }
+
   var _arr = [];
   var _n = true;
   var _d = false;
@@ -8777,7 +8828,7 @@ function _iterableToArrayLimit(arr, i) {
 module.exports = _iterableToArrayLimit;
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports) {
 
 function _nonIterableRest() {
@@ -8787,7 +8838,7 @@ function _nonIterableRest() {
 module.exports = _nonIterableRest;
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8814,7 +8865,7 @@ var _Service = _interopRequireDefault(__webpack_require__(12));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
-var _itemToLicense = _interopRequireDefault(__webpack_require__(42));
+var _itemToLicense = _interopRequireDefault(__webpack_require__(43));
 
 var _Page = _interopRequireDefault(__webpack_require__(11));
 
@@ -8858,10 +8909,10 @@ var _default = {
    * return the newly created license object in promise
    * @returns {Promise}
    */
-  create: function () {
-    var _create = (0, _asyncToGenerator2.default)(
+  create: function create(context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee(context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
+    _regenerator.default.mark(function _callee() {
       var _ref, _ref$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee$(_context) {
@@ -8890,14 +8941,8 @@ var _default = {
           }
         }
       }, _callee);
-    }));
-
-    function create(_x, _x2, _x3, _x4, _x5) {
-      return _create.apply(this, arguments);
-    }
-
-    return create;
-  }(),
+    }))();
+  },
 
   /**
    * Gets license by its number.See NetLicensingAPI for details:
@@ -8912,10 +8957,10 @@ var _default = {
    * return the license in promise
    * @returns {Promise}
    */
-  get: function () {
-    var _get = (0, _asyncToGenerator2.default)(
+  get: function get(context, number) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee2(context, number) {
+    _regenerator.default.mark(function _callee2() {
       var _ref2, _ref2$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee2$(_context2) {
@@ -8939,14 +8984,8 @@ var _default = {
           }
         }
       }, _callee2);
-    }));
-
-    function get(_x6, _x7) {
-      return _get.apply(this, arguments);
-    }
-
-    return get;
-  }(),
+    }))();
+  },
 
   /**
    * Returns licenses of a vendor.See NetLicensingAPI for details:
@@ -8961,10 +9000,10 @@ var _default = {
    * return array of licenses (of all products) or empty array if nothing found in promise.
    * @returns {Promise}
    */
-  list: function () {
-    var _list = (0, _asyncToGenerator2.default)(
+  list: function list(context, filter) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee3(context, filter) {
+    _regenerator.default.mark(function _callee3() {
       var queryParams, _ref3, data;
 
       return _regenerator.default.wrap(function _callee3$(_context3) {
@@ -9005,14 +9044,8 @@ var _default = {
           }
         }
       }, _callee3);
-    }));
-
-    function list(_x8, _x9) {
-      return _list.apply(this, arguments);
-    }
-
-    return list;
-  }(),
+    }))();
+  },
 
   /**
    * Updates license properties.See NetLicensingAPI for details:
@@ -9034,10 +9067,10 @@ var _default = {
    * return updated license in promise.
    * @returns {Promise}
    */
-  update: function () {
-    var _update = (0, _asyncToGenerator2.default)(
+  update: function update(context, number, transactionNumber, license) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee4(context, number, transactionNumber, license) {
+    _regenerator.default.mark(function _callee4() {
       var _ref4, _ref4$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee4$(_context4) {
@@ -9062,14 +9095,8 @@ var _default = {
           }
         }
       }, _callee4);
-    }));
-
-    function update(_x10, _x11, _x12, _x13) {
-      return _update.apply(this, arguments);
-    }
-
-    return update;
-  }(),
+    }))();
+  },
 
   /**
    * Deletes license.See NetLicensingAPI for details:
@@ -9101,7 +9128,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9128,7 +9155,7 @@ var _Service = _interopRequireDefault(__webpack_require__(12));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
-var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(43));
+var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(44));
 
 var _Page = _interopRequireDefault(__webpack_require__(11));
 
@@ -9163,10 +9190,10 @@ var _default = {
    * the newly created license template object in promise
    * @returns {Promise}
    */
-  create: function () {
-    var _create = (0, _asyncToGenerator2.default)(
+  create: function create(context, productModuleNumber, licenseTemplate) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee(context, productModuleNumber, licenseTemplate) {
+    _regenerator.default.mark(function _callee() {
       var _ref, _ref$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee$(_context) {
@@ -9191,14 +9218,8 @@ var _default = {
           }
         }
       }, _callee);
-    }));
-
-    function create(_x, _x2, _x3) {
-      return _create.apply(this, arguments);
-    }
-
-    return create;
-  }(),
+    }))();
+  },
 
   /**
    * Gets license template by its number.See NetLicensingAPI for details:
@@ -9213,10 +9234,10 @@ var _default = {
    * return the license template object in promise
    * @returns {Promise}
    */
-  get: function () {
-    var _get = (0, _asyncToGenerator2.default)(
+  get: function get(context, number) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee2(context, number) {
+    _regenerator.default.mark(function _callee2() {
       var _ref2, _ref2$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee2$(_context2) {
@@ -9240,14 +9261,8 @@ var _default = {
           }
         }
       }, _callee2);
-    }));
-
-    function get(_x4, _x5) {
-      return _get.apply(this, arguments);
-    }
-
-    return get;
-  }(),
+    }))();
+  },
 
   /**
    * Returns all license templates of a vendor.See NetLicensingAPI for details:
@@ -9262,10 +9277,10 @@ var _default = {
    * array of license templates (of all products/modules) or null/empty list if nothing found in promise.
    * @returns {Promise}
    */
-  list: function () {
-    var _list = (0, _asyncToGenerator2.default)(
+  list: function list(context, filter) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee3(context, filter) {
+    _regenerator.default.mark(function _callee3() {
       var queryParams, _ref3, data;
 
       return _regenerator.default.wrap(function _callee3$(_context3) {
@@ -9306,14 +9321,8 @@ var _default = {
           }
         }
       }, _callee3);
-    }));
-
-    function list(_x6, _x7) {
-      return _list.apply(this, arguments);
-    }
-
-    return list;
-  }(),
+    }))();
+  },
 
   /**
    * Updates license template properties.See NetLicensingAPI for details:
@@ -9331,10 +9340,10 @@ var _default = {
    * updated license template in promise.
    * @returns {Promise}
    */
-  update: function () {
-    var _update = (0, _asyncToGenerator2.default)(
+  update: function update(context, number, licenseTemplate) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee4(context, number, licenseTemplate) {
+    _regenerator.default.mark(function _callee4() {
       var path, _ref4, _ref4$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee4$(_context4) {
@@ -9359,14 +9368,8 @@ var _default = {
           }
         }
       }, _callee4);
-    }));
-
-    function update(_x8, _x9, _x10) {
-      return _update.apply(this, arguments);
-    }
-
-    return update;
-  }(),
+    }))();
+  },
 
   /**
    * Deletes license template.See NetLicensingAPI JavaDoc for details:
@@ -9396,7 +9399,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9423,7 +9426,7 @@ var _Service = _interopRequireDefault(__webpack_require__(12));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
-var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(45));
+var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(46));
 
 var _Page = _interopRequireDefault(__webpack_require__(11));
 
@@ -9447,10 +9450,10 @@ var _default = {
    * return the payment method in promise
    * @returns {Promise}
    */
-  get: function () {
-    var _get = (0, _asyncToGenerator2.default)(
+  get: function get(context, number) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee(context, number) {
+    _regenerator.default.mark(function _callee() {
       var _ref, _ref$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee$(_context) {
@@ -9474,14 +9477,8 @@ var _default = {
           }
         }
       }, _callee);
-    }));
-
-    function get(_x, _x2) {
-      return _get.apply(this, arguments);
-    }
-
-    return get;
-  }(),
+    }))();
+  },
 
   /**
    * Returns payment methods of a vendor.See NetLicensingAPI for details:
@@ -9496,10 +9493,10 @@ var _default = {
    * array of payment method entities or empty array if nothing found in promise.
    * @returns {Promise}
    */
-  list: function () {
-    var _list = (0, _asyncToGenerator2.default)(
+  list: function list(context, filter) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee2(context, filter) {
+    _regenerator.default.mark(function _callee2() {
       var queryParams, _ref2, data;
 
       return _regenerator.default.wrap(function _callee2$(_context2) {
@@ -9540,14 +9537,8 @@ var _default = {
           }
         }
       }, _callee2);
-    }));
-
-    function list(_x3, _x4) {
-      return _list.apply(this, arguments);
-    }
-
-    return list;
-  }(),
+    }))();
+  },
 
   /**
    * Updates payment method properties.See NetLicensingAPI for details:
@@ -9565,10 +9556,10 @@ var _default = {
    * return updated payment method in promise.
    * @returns {Promise}
    */
-  update: function () {
-    var _update = (0, _asyncToGenerator2.default)(
+  update: function update(context, number, paymentMethod) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee3(context, number, paymentMethod) {
+    _regenerator.default.mark(function _callee3() {
       var path, _ref3, _ref3$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee3$(_context3) {
@@ -9593,19 +9584,13 @@ var _default = {
           }
         }
       }, _callee3);
-    }));
-
-    function update(_x5, _x6, _x7) {
-      return _update.apply(this, arguments);
-    }
-
-    return update;
-  }()
+    }))();
+  }
 };
 exports.default = _default;
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9632,7 +9617,7 @@ var _Service = _interopRequireDefault(__webpack_require__(12));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
-var _itemToProductModule = _interopRequireDefault(__webpack_require__(47));
+var _itemToProductModule = _interopRequireDefault(__webpack_require__(48));
 
 var _Page = _interopRequireDefault(__webpack_require__(11));
 
@@ -9667,10 +9652,10 @@ var _default = {
    * the newly created product module object in promise
    * @returns {Promise}
    */
-  create: function () {
-    var _create = (0, _asyncToGenerator2.default)(
+  create: function create(context, productNumber, productModule) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee(context, productNumber, productModule) {
+    _regenerator.default.mark(function _callee() {
       var _ref, _ref$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee$(_context) {
@@ -9695,14 +9680,8 @@ var _default = {
           }
         }
       }, _callee);
-    }));
-
-    function create(_x, _x2, _x3) {
-      return _create.apply(this, arguments);
-    }
-
-    return create;
-  }(),
+    }))();
+  },
 
   /**
    * Gets product module by its number.See NetLicensingAPI for details:
@@ -9717,10 +9696,10 @@ var _default = {
    * return the product module object in promise
    * @returns {Promise}
    */
-  get: function () {
-    var _get = (0, _asyncToGenerator2.default)(
+  get: function get(context, number) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee2(context, number) {
+    _regenerator.default.mark(function _callee2() {
       var _ref2, _ref2$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee2$(_context2) {
@@ -9744,14 +9723,8 @@ var _default = {
           }
         }
       }, _callee2);
-    }));
-
-    function get(_x4, _x5) {
-      return _get.apply(this, arguments);
-    }
-
-    return get;
-  }(),
+    }))();
+  },
 
   /**
    * Returns products of a vendor.See NetLicensingAPI for details:
@@ -9766,10 +9739,10 @@ var _default = {
    * array of product modules entities or empty array if nothing found in promise.
    * @returns {Promise}
    */
-  list: function () {
-    var _list = (0, _asyncToGenerator2.default)(
+  list: function list(context, filter) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee3(context, filter) {
+    _regenerator.default.mark(function _callee3() {
       var queryParams, _ref3, data;
 
       return _regenerator.default.wrap(function _callee3$(_context3) {
@@ -9810,14 +9783,8 @@ var _default = {
           }
         }
       }, _callee3);
-    }));
-
-    function list(_x6, _x7) {
-      return _list.apply(this, arguments);
-    }
-
-    return list;
-  }(),
+    }))();
+  },
 
   /**
    * Updates product module properties.See NetLicensingAPI for details:
@@ -9835,10 +9802,10 @@ var _default = {
    * updated product module in promise.
    * @returns {Promise}
    */
-  update: function () {
-    var _update = (0, _asyncToGenerator2.default)(
+  update: function update(context, number, productModule) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee4(context, number, productModule) {
+    _regenerator.default.mark(function _callee4() {
       var _ref4, _ref4$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee4$(_context4) {
@@ -9862,14 +9829,8 @@ var _default = {
           }
         }
       }, _callee4);
-    }));
-
-    function update(_x8, _x9, _x10) {
-      return _update.apply(this, arguments);
-    }
-
-    return update;
-  }(),
+    }))();
+  },
 
   /**
    * Deletes product module.See NetLicensingAPI for details:
@@ -9899,7 +9860,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9926,7 +9887,7 @@ var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
-var _itemToProduct = _interopRequireDefault(__webpack_require__(49));
+var _itemToProduct = _interopRequireDefault(__webpack_require__(50));
 
 var _Page = _interopRequireDefault(__webpack_require__(11));
 
@@ -9958,10 +9919,10 @@ var _default = {
    * return the newly created product object in promise
    * @returns {Promise}
    */
-  create: function () {
-    var _create = (0, _asyncToGenerator2.default)(
+  create: function create(context, product) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee(context, product) {
+    _regenerator.default.mark(function _callee() {
       var _ref, _ref$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee$(_context) {
@@ -9983,14 +9944,8 @@ var _default = {
           }
         }
       }, _callee);
-    }));
-
-    function create(_x, _x2) {
-      return _create.apply(this, arguments);
-    }
-
-    return create;
-  }(),
+    }))();
+  },
 
   /**
    * Gets product by its number.See NetLicensingAPI for details:
@@ -10005,10 +9960,10 @@ var _default = {
    * return the product object in promise
    * @returns {Promise}
    */
-  get: function () {
-    var _get = (0, _asyncToGenerator2.default)(
+  get: function get(context, number) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee2(context, number) {
+    _regenerator.default.mark(function _callee2() {
       var _ref2, _ref2$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee2$(_context2) {
@@ -10032,14 +9987,8 @@ var _default = {
           }
         }
       }, _callee2);
-    }));
-
-    function get(_x3, _x4) {
-      return _get.apply(this, arguments);
-    }
-
-    return get;
-  }(),
+    }))();
+  },
 
   /**
    * Returns products of a vendor.See NetLicensingAPI for details:
@@ -10054,10 +10003,10 @@ var _default = {
    * array of product entities or empty array if nothing found in promise.
    * @returns {Promise}
    */
-  list: function () {
-    var _list = (0, _asyncToGenerator2.default)(
+  list: function list(context, filter) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee3(context, filter) {
+    _regenerator.default.mark(function _callee3() {
       var queryParams, _ref3, data;
 
       return _regenerator.default.wrap(function _callee3$(_context3) {
@@ -10098,14 +10047,8 @@ var _default = {
           }
         }
       }, _callee3);
-    }));
-
-    function list(_x5, _x6) {
-      return _list.apply(this, arguments);
-    }
-
-    return list;
-  }(),
+    }))();
+  },
 
   /**
    * Updates product properties.See NetLicensingAPI for details:
@@ -10123,10 +10066,10 @@ var _default = {
    * updated product in promise.
    * @returns {Promise}
    */
-  update: function () {
-    var _update = (0, _asyncToGenerator2.default)(
+  update: function update(context, number, product) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee4(context, number, product) {
+    _regenerator.default.mark(function _callee4() {
       var _ref4, _ref4$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee4$(_context4) {
@@ -10150,14 +10093,8 @@ var _default = {
           }
         }
       }, _callee4);
-    }));
-
-    function update(_x7, _x8, _x9) {
-      return _update.apply(this, arguments);
-    }
-
-    return update;
-  }(),
+    }))();
+  },
 
   /**
    * Deletes product.See NetLicensingAPI for details:
@@ -10187,10 +10124,10 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var superPropBase = __webpack_require__(106);
+var superPropBase = __webpack_require__(107);
 
 function _get(target, property, receiver) {
   if (typeof Reflect !== "undefined" && Reflect.get) {
@@ -10215,7 +10152,7 @@ function _get(target, property, receiver) {
 module.exports = _get;
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getPrototypeOf = __webpack_require__(6);
@@ -10232,7 +10169,7 @@ function _superPropBase(object, property) {
 module.exports = _superPropBase;
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10259,7 +10196,7 @@ var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
-var _itemToToken = _interopRequireDefault(__webpack_require__(52));
+var _itemToToken = _interopRequireDefault(__webpack_require__(53));
 
 var _Page = _interopRequireDefault(__webpack_require__(11));
 
@@ -10290,10 +10227,10 @@ var _default = {
    * return created token in promise
    * @returns {Promise}
    */
-  create: function () {
-    var _create = (0, _asyncToGenerator2.default)(
+  create: function create(context, token) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee(context, token) {
+    _regenerator.default.mark(function _callee() {
       var _ref, _ref$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee$(_context) {
@@ -10315,14 +10252,8 @@ var _default = {
           }
         }
       }, _callee);
-    }));
-
-    function create(_x, _x2) {
-      return _create.apply(this, arguments);
-    }
-
-    return create;
-  }(),
+    }))();
+  },
 
   /**
    * Gets token by its number..See NetLicensingAPI for details:
@@ -10337,10 +10268,10 @@ var _default = {
    * return the token in promise
    * @returns {Promise}
    */
-  get: function () {
-    var _get = (0, _asyncToGenerator2.default)(
+  get: function get(context, number) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee2(context, number) {
+    _regenerator.default.mark(function _callee2() {
       var _ref2, _ref2$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee2$(_context2) {
@@ -10364,14 +10295,8 @@ var _default = {
           }
         }
       }, _callee2);
-    }));
-
-    function get(_x3, _x4) {
-      return _get.apply(this, arguments);
-    }
-
-    return get;
-  }(),
+    }))();
+  },
 
   /**
    * Returns tokens of a vendor.See NetLicensingAPI for details:
@@ -10386,10 +10311,10 @@ var _default = {
    * array of token entities or empty array if nothing found.
    * @return array
    */
-  list: function () {
-    var _list = (0, _asyncToGenerator2.default)(
+  list: function list(context, filter) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee3(context, filter) {
+    _regenerator.default.mark(function _callee3() {
       var queryParams, _ref3, data;
 
       return _regenerator.default.wrap(function _callee3$(_context3) {
@@ -10430,14 +10355,8 @@ var _default = {
           }
         }
       }, _callee3);
-    }));
-
-    function list(_x5, _x6) {
-      return _list.apply(this, arguments);
-    }
-
-    return list;
-  }(),
+    }))();
+  },
 
   /**
    * Delete token by its number.See NetLicensingAPI for details:
@@ -10461,7 +10380,7 @@ var _default = {
 exports.default = _default;
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10488,7 +10407,7 @@ var _CheckUtils = _interopRequireDefault(__webpack_require__(5));
 
 var _FilterUtils = _interopRequireDefault(__webpack_require__(13));
 
-var _itemToTransaction = _interopRequireDefault(__webpack_require__(54));
+var _itemToTransaction = _interopRequireDefault(__webpack_require__(55));
 
 var _Page = _interopRequireDefault(__webpack_require__(11));
 
@@ -10528,10 +10447,10 @@ var _default = {
    * return the newly created transaction object in promise
    * @returns {Promise}
    */
-  create: function () {
-    var _create = (0, _asyncToGenerator2.default)(
+  create: function create(context, transaction) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee(context, transaction) {
+    _regenerator.default.mark(function _callee() {
       var _ref, _ref$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee$(_context) {
@@ -10553,14 +10472,8 @@ var _default = {
           }
         }
       }, _callee);
-    }));
-
-    function create(_x, _x2) {
-      return _create.apply(this, arguments);
-    }
-
-    return create;
-  }(),
+    }))();
+  },
 
   /**
    * Gets transaction by its number.See NetLicensingAPI for details:
@@ -10575,10 +10488,10 @@ var _default = {
    * return the transaction in promise
    * @returns {Promise}
    */
-  get: function () {
-    var _get = (0, _asyncToGenerator2.default)(
+  get: function get(context, number) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee2(context, number) {
+    _regenerator.default.mark(function _callee2() {
       var _ref2, _ref2$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee2$(_context2) {
@@ -10602,14 +10515,8 @@ var _default = {
           }
         }
       }, _callee2);
-    }));
-
-    function get(_x3, _x4) {
-      return _get.apply(this, arguments);
-    }
-
-    return get;
-  }(),
+    }))();
+  },
 
   /**
    * Returns all transactions of a vendor.See NetLicensingAPI for details:
@@ -10624,10 +10531,10 @@ var _default = {
    * array of transaction entities or empty array if nothing found in promise.
    * @returns {Promise}
    */
-  list: function () {
-    var _list = (0, _asyncToGenerator2.default)(
+  list: function list(context, filter) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee3(context, filter) {
+    _regenerator.default.mark(function _callee3() {
       var queryParams, _ref3, data;
 
       return _regenerator.default.wrap(function _callee3$(_context3) {
@@ -10668,14 +10575,8 @@ var _default = {
           }
         }
       }, _callee3);
-    }));
-
-    function list(_x5, _x6) {
-      return _list.apply(this, arguments);
-    }
-
-    return list;
-  }(),
+    }))();
+  },
 
   /**
    * Updates transaction properties.See NetLicensingAPI for details:
@@ -10693,10 +10594,10 @@ var _default = {
    * return updated transaction in promise.
    * @returns {Promise}
    */
-  update: function () {
-    var _update = (0, _asyncToGenerator2.default)(
+  update: function update(context, number, transaction) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee4(context, number, transaction) {
+    _regenerator.default.mark(function _callee4() {
       var _ref4, _ref4$data$items$item, item;
 
       return _regenerator.default.wrap(function _callee4$(_context4) {
@@ -10720,19 +10621,13 @@ var _default = {
           }
         }
       }, _callee4);
-    }));
-
-    function update(_x7, _x8, _x9) {
-      return _update.apply(this, arguments);
-    }
-
-    return update;
-  }()
+    }))();
+  }
 };
 exports.default = _default;
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10761,7 +10656,7 @@ var _itemToObject = _interopRequireDefault(__webpack_require__(7));
 
 var _Page = _interopRequireDefault(__webpack_require__(11));
 
-var _itemToCountry = _interopRequireDefault(__webpack_require__(56));
+var _itemToCountry = _interopRequireDefault(__webpack_require__(57));
 
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -10786,10 +10681,10 @@ var _default = {
    * array of available license types or empty array if nothing found in promise.
    * @returns {Promise}
    */
-  listLicenseTypes: function () {
-    var _listLicenseTypes = (0, _asyncToGenerator2.default)(
+  listLicenseTypes: function listLicenseTypes(context) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee(context) {
+    _regenerator.default.mark(function _callee() {
       var _ref, data;
 
       return _regenerator.default.wrap(function _callee$(_context) {
@@ -10812,14 +10707,8 @@ var _default = {
           }
         }
       }, _callee);
-    }));
-
-    function listLicenseTypes(_x) {
-      return _listLicenseTypes.apply(this, arguments);
-    }
-
-    return listLicenseTypes;
-  }(),
+    }))();
+  },
 
   /**
    * Returns all license models. See NetLicensingAPI for details:
@@ -10831,10 +10720,10 @@ var _default = {
    * array of available license models or empty array if nothing found in promise.
    * @returns {Promise}
    */
-  listLicensingModels: function () {
-    var _listLicensingModels = (0, _asyncToGenerator2.default)(
+  listLicensingModels: function listLicensingModels(context) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee2(context) {
+    _regenerator.default.mark(function _callee2() {
       var _ref2, data;
 
       return _regenerator.default.wrap(function _callee2$(_context2) {
@@ -10857,14 +10746,8 @@ var _default = {
           }
         }
       }, _callee2);
-    }));
-
-    function listLicensingModels(_x2) {
-      return _listLicensingModels.apply(this, arguments);
-    }
-
-    return listLicensingModels;
-  }(),
+    }))();
+  },
 
   /**
    * Returns all countries.
@@ -10878,10 +10761,10 @@ var _default = {
    * collection of available countries or null/empty list if nothing found in promise.
    * @returns {Promise}
    */
-  listCountries: function () {
-    var _listCountries = (0, _asyncToGenerator2.default)(
+  listCountries: function listCountries(context, filter) {
+    return (0, _asyncToGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee3(context, filter) {
+    _regenerator.default.mark(function _callee3() {
       var queryParams, _ref3, data;
 
       return _regenerator.default.wrap(function _callee3$(_context3) {
@@ -10922,14 +10805,8 @@ var _default = {
           }
         }
       }, _callee3);
-    }));
-
-    function listCountries(_x3, _x4) {
-      return _listCountries.apply(this, arguments);
-    }
-
-    return listCountries;
-  }()
+    }))();
+  }
 };
 exports.default = _default;
 

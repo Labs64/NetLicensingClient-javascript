@@ -5,6 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 import axios from 'axios';
+import btoa from 'btoa';
 import Constants from '../Constants';
 import NlicError from '../errors/NlicError';
 import pkg from '../../package.json';
@@ -179,7 +180,7 @@ export default class Service {
                     const { data } = e.response;
 
                     if (data) {
-                        const info = Service.getInfo(e.response, [])[0];
+                        const info = Service.getInfo(e.response, [])[0] || {};
                         error.message = info.value || 'Unknown';
                     }
 
