@@ -18,8 +18,9 @@
         "api",
         "client"
     ],
+    "license": "Apache-2.0",
     "author": "Labs64 GmbH",
-    "homepage": "https://netlicensing.io/",
+    "homepage": "https://netlicensing.io",
     "repository": {
         "type": "git",
         "url": "https://github.com/Labs64/NetLicensingClient-javascript"
@@ -27,8 +28,6 @@
     "bugs": {
         "url": "https://github.com/Labs64/NetLicensingClient-javascript/issues"
     },
-    "license": "Apache-2.0",
-    "main": "dist/netlicensing-client.js",
     "contributors": [
         {
             "name": "Ready Brown",
@@ -45,6 +44,10 @@
             "email": "yushkevich@me.com",
             "url": "https://github.com/yushkevich"
         }
+    ],
+    "main": "dist/netlicensing-client.js",
+    "files": [
+        "dist"
     ],
     "scripts": {
         "build": "node build/build.js",
