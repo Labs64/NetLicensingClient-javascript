@@ -62,8 +62,8 @@ Here is a Docker-based local development environment prepared, which provides a 
 To be able to build this library you have to meet the following requirements:
 * [docker](https://www.docker.com)
 To be able to build this NetLicensing Client you have to meet the following requirements:
-* Node.js > 6.0
-* npm > 3.10.x
+* Node.js >= 8.x
+* npm >= 6.x
 
 ### Develop with Docker
 
@@ -91,7 +91,7 @@ $ git config --global user.name "User Name"
 ## How to Contribute
 
 Everyone is welcome to contribute to this project!
-Once you're done with your changes send a pull request and check [CI validation status](https://travis-ci.org/Labs64/NetLicensingClient-javascript).
+Once you're done with your changes send a pull request and check [CI Status](https://github.com/Labs64/NetLicensingClient-javascript/actions?query=workflow%3A%22NetLicensing+Client+CI%22).
 Thanks!
 
 ## Bugs and Feedback
