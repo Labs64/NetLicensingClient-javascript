@@ -20,14 +20,14 @@ In order to use NetLicensing JavaScript Client, you must include the compiled an
 
 A CDN (Content Delivery Network) is the fastest way to get up and running with NetLicensing JavaScript Client.
 Simply include the following lines of code in the `<head>` section of your page using latest [released version](https://github.com/Labs64/NetLicensingClient-javascript/releases):
-```
+```html
 <script src="https://cdn.jsdelivr.net/gh/Labs64/NetLicensingclient-javascript@x.y.z/dist/netlicensing-client.min.js"></script>
 ```
 
 ### Installing with Node.js / npm
 
 NetLicensing JavaScript Client is available on [npmjs](https://www.npmjs.com/package/netlicensing-client). Add the following to your `package.json` file and then run `npm install`:
-```
+```json
 "dependencies": {
     "netlicensing-client": "x.y.z"
 }
@@ -35,7 +35,7 @@ NetLicensing JavaScript Client is available on [npmjs](https://www.npmjs.com/pac
 
 or execute following command in your Node.js environment:
 
-```
+```bash
 $ npm install netlicensing-client
 ```
 
@@ -44,8 +44,8 @@ $ npm install netlicensing-client
 We strongly recommend that you use either a CDN or a package manager like npm. This will make it easier for you to deploy your project in different environments, and easily update NetLicensing JavaScript Client when new versions are released. Nonetheless, if you prefer to integrate NetLicensing into your project manually, you can [download the release of your choice](https://github.com/Labs64/NetLicensingClient-javascript/releases) from GitHub and copy the files from the `dist` directory into your project.
 
 Include the compiled files in your page:
-```
-<script src="path/to/netlicensing-client.min.js"></script>
+```html
+<script src="netlicensing-client/dist/netlicensing-client.min.js"></script>
 ```
 
 Check out project [wiki](https://github.com/Labs64/NetLicensingClient-javascript/wiki) pages for detailed usage instructions.
@@ -68,22 +68,22 @@ To be able to build this NetLicensing Client you have to meet the following requ
 ### Develop with Docker
 
 1. Clone repository
-```
+```bash
 $ git clone https://github.com/Labs64/NetLicensingClient-javascript.git
 ```
 
 2. Prepare docker image
-```
+```bash
 $ docker build -t labs64/nodejs .
 ```
 
 3. Start local development environment
-```
+```bash
 $ docker run -v $(pwd):/opt/NetLicensingClient-javascript -i -t labs64/nodejs /bin/bash
 ```
 
 4. Configure git using your eMail and Username
-```
+```bash
 $ git config --global user.email "eMail"
 $ git config --global user.name "User Name"
 ```
