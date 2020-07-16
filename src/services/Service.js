@@ -106,6 +106,7 @@ export default class Service {
             responseType: 'json',
             headers: {
                 Accept: 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
             },
             transformRequest: [(data, headers) => {
                 if (headers['Content-Type'] === 'application/x-www-form-urlencoded') {
