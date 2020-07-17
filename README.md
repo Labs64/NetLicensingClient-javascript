@@ -56,6 +56,11 @@ Demo web application for this library can be found [here](http://io.labs64.com/N
 
 ## Development
 
+Useful commands:
+- ```npm run dev``` - build and track all changes to your resources
+- ```npm run test```- run unit tests
+- ```npm run lint``` - syntax check
+
 Here is a Docker-based local development environment prepared, which provides a very flexible and extensible way of developing Node.js applications.
 
 ### System Requirements
