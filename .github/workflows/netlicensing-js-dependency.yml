@@ -5,7 +5,7 @@ name: JavaScript Client - Dependency Test
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/30 * * * *'
 
 jobs:
   build:
@@ -24,6 +24,7 @@ jobs:
     - run: |
         npm init -y
         npm install netlicensing-client
+        less package.json
 
     - name: Install CDN dependencies
       run: |
