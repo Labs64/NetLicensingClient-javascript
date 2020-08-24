@@ -2,8 +2,9 @@
 
 # [Labs64 NetLicensing](https://netlicensing.io) Client (JavaScript)
 
-[![Build Status](https://github.com/Labs64/NetLicensingClient-javascript/workflows/NetLicensing%20Client%20CI/badge.svg)](https://github.com/Labs64/NetLicensingClient-javascript/actions?query=workflow%3A%22NetLicensing+Client+CI%22)
-[![npm version](https://badge.fury.io/js/netlicensing-client.svg)](https://badge.fury.io/js/netlicensing-client)
+[![Build Status](https://github.com/Labs64/NetLicensingClient-javascript/workflows/NetLicensing%20Client%20CI/badge.svg)](https://github.com/Labs64/NetLicensingClient-javascript/actions?query=workflow%3A%22JavaScript+Client+-+CI%22)
+[![npm version](https://img.shields.io/npm/v/netlicensing-client)](https://www.npmjs.com/package/netlicensing-client)
+[![npm downloads](https://img.shields.io/npm/dt/netlicensing-client)](https://www.npmjs.com/package/netlicensing-client)
 [![](https://data.jsdelivr.com/v1/package/npm/netlicensing-client/badge)](https://www.jsdelivr.com/package/npm/netlicensing-client)
 
 JavaScript wrapper for Labs64 NetLicensing [RESTful API](http://l64.cc/nl10)
