@@ -1,4 +1,4 @@
-name: NetLicensing Client CI
+name: JavaScript Client - CI
 
 on: [push]
 
