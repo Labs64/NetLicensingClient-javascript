@@ -6,6 +6,7 @@
 [![npm version](https://img.shields.io/npm/v/netlicensing-client)](https://www.npmjs.com/package/netlicensing-client)
 [![npm downloads](https://img.shields.io/npm/dt/netlicensing-client)](https://www.npmjs.com/package/netlicensing-client)
 [![jsDelivr](https://data.jsdelivr.com/v1/package/npm/netlicensing-client/badge)](https://www.jsdelivr.com/package/npm/netlicensing-client)
+<br>
 [![Apache License 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Labs64/NetLicensingClient-javascript/blob/master/LICENSE)
 [![📖 Documentation](https://img.shields.io/badge/📖%20Documentation-Wiki-AB6543.svg)](https://netlicensing.io/wiki/restful-api)
 [![NetLicensing @ LinkedIn](https://img.shields.io/badge/NetLicensing-0077B5.svg?logo=LinkedIn)](https://www.linkedin.com/showcase/netlicensing)
@@ -100,7 +101,7 @@ $ git config --global user.name "User Name"
 ## How to Contribute
 
 Everyone is welcome to contribute to this project!
-Once you're done with your changes send a pull request and check [CI Status](https://github.com/Labs64/NetLicensingClient-javascript/actions?query=workflow%3A%22NetLicensing+Client+CI%22).
+Once you're done with your changes send a pull request and check [CI Status](https://github.com/Labs64/NetLicensingClient-javascript/actions?query=workflow%3A%22JavaScript+Client+-+CI%22).
 Thanks!
 
 ## Bugs and Feedback
