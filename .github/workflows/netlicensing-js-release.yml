@@ -1,4 +1,4 @@
-name: NetLicensing Client Release
+name: JavaScript Client - Release
 
 on:
   release:
