@@ -17,12 +17,13 @@ jobs:
         node-version: [10.x, 12.x, 14.x]
 
     steps:
-    - uses: actions/checkout@v2
     - name: Install Node.js ${{ matrix.node-version }} dependencies
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install netlicensing-client
+    - run: |
+        npm init -y
+        npm install netlicensing-client
 
     - name: Install CDN dependencies
       run: |
