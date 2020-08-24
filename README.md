@@ -5,9 +5,12 @@
 [![Build Status](https://github.com/Labs64/NetLicensingClient-javascript/workflows/NetLicensing%20Client%20CI/badge.svg)](https://github.com/Labs64/NetLicensingClient-javascript/actions?query=workflow%3A%22JavaScript+Client+-+CI%22)
 [![npm version](https://img.shields.io/npm/v/netlicensing-client)](https://www.npmjs.com/package/netlicensing-client)
 [![npm downloads](https://img.shields.io/npm/dt/netlicensing-client)](https://www.npmjs.com/package/netlicensing-client)
-[![](https://data.jsdelivr.com/v1/package/npm/netlicensing-client/badge)](https://www.jsdelivr.com/package/npm/netlicensing-client)
+[![jsDelivr](https://data.jsdelivr.com/v1/package/npm/netlicensing-client/badge)](https://www.jsdelivr.com/package/npm/netlicensing-client)
+[![Apache License 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Labs64/NetLicensingClient-javascript/blob/master/LICENSE)
+[![📖 Documentation](https://img.shields.io/badge/📖%20Documentation-Wiki-AB6543.svg)](https://netlicensing.io/wiki/restful-api)
+[![NetLicensing @ LinkedIn](https://img.shields.io/badge/NetLicensing-0077B5.svg?logo=LinkedIn)](https://www.linkedin.com/showcase/netlicensing)
 
-JavaScript wrapper for Labs64 NetLicensing [RESTful API](http://l64.cc/nl10)
+JavaScript wrapper for Labs64 NetLicensing [RESTful API](https://netlicensing.io/wiki/restful-api)
 
 Visit Labs64 NetLicensing at https://netlicensing.io
 
