@@ -5,7 +5,7 @@ name: JavaScript Client - Dependency Test
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   build:
@@ -21,6 +21,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+
+    - name: Init project
     - run: |
         npm init -y
         npm install netlicensing-client
