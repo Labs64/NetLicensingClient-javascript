@@ -158,7 +158,10 @@ export default {
     },
 
     /**
-     * Validates active licenses of the licensee. See NetLicensingAPI for details:
+     * Validates active licenses of the licensee.
+     * In the case of multiple product modules validation,
+     * required parameters indexes will be added automatically.
+     * See NetLicensingAPI for details:
      * @see https://netlicensing.io/wiki/licensee-services#validate-licensee
      *
      * @param context NetLicensing.Context
