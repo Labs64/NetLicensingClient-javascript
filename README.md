@@ -53,7 +53,7 @@ Include the compiled files in your page:
 <script src="netlicensing-client/dist/netlicensing-client.min.js"></script>
 ```
 
-Check out project [wiki](https://github.com/Labs64/NetLicensingClient-javascript/wiki) pages for detailed usage instructions.
+Check [NetLicensing Wiki](https://netlicensing.io/wiki/) or [NetLicensing Community Support](https://github.com/Labs64/NetLicensing-Community/issues?q=is%3Aissue+javascript) for detailed usage instructions.
 
 ## Online Demo
 
