@@ -75,6 +75,14 @@ export default class Licensee extends BaseEntity {
         return this.getProperty('name', def);
     }
 
+    setProductNumber(productNumber) {
+        return this.setProperty('productNumber', productNumber);
+    }
+
+    getProductNumber(def) {
+        return this.getProperty('productNumber', def);
+    }
+
     /**
      * @deprecated
      */

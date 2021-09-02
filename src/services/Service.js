@@ -165,9 +165,9 @@ export default class Service {
                 return response;
             })
             .catch((e) => {
-                httpXHR = e;
-
                 if (e.response) {
+                    httpXHR = e.response;
+
                     // The request was made and the server responded with a status code
                     // that falls out of the range of 2xx
 

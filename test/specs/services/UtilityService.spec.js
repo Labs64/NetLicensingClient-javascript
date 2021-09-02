@@ -1,11 +1,13 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
-import response from 'test@/mocks/response';
 import { licenseType as licenseTypeFactory, licensingModel as licensingModelFactory } from 'test@/factories/utility';
 import Context from '@/vo/Context';
 import UtilityService from '@/services/UtilityService';
 import Service from '@/services/Service';
+import Country from '@/entities/Country';
 import Constants from '@/Constants';
+import Item from 'test@/response/Item';
+import Response from 'test@/response';
 
 describe('services/UtilityService', () => {
     let context;
@@ -21,12 +23,12 @@ describe('services/UtilityService', () => {
 
     describe('check "listLicenseTypes" method', async () => {
         it('should return entities array', async () => {
-            const fakeLicenseTypes = licenseTypeFactory(10);
+            const licenseTypes = licenseTypeFactory(10);
 
             // configure mock for list request
             // eslint-disable-next-line max-len
             mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/${Constants.Utility.ENDPOINT_PATH_LICENSE_TYPES}`)
-                .reply(200, response(fakeLicenseTypes));
+                .reply(200, new Response(licenseTypes.map((v) => new Item(v, 'LicenseType'))));
 
             const list = await UtilityService.listLicenseTypes(context);
 
@@ -35,12 +37,12 @@ describe('services/UtilityService', () => {
         });
 
         it('should has pagination', async () => {
-            const fakeLicenseTypes = licenseTypeFactory(10);
+            const licenseTypes = licenseTypeFactory(10);
 
             // configure mock for list request
             // eslint-disable-next-line max-len
             mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/${Constants.Utility.ENDPOINT_PATH_LICENSE_TYPES}`)
-                .reply(200, response(fakeLicenseTypes));
+                .reply(200, new Response(licenseTypes.map((v) => new Item(v, 'LicenseType'))));
 
             const list = await UtilityService.listLicenseTypes(context);
 
@@ -54,12 +56,12 @@ describe('services/UtilityService', () => {
 
     describe('check "listLicensingModels" method', async () => {
         it('should return entities array', async () => {
-            const fakeLicenseModels = licensingModelFactory(10);
+            const licenseModels = licensingModelFactory(10);
 
             // configure mock for list request
             // eslint-disable-next-line max-len
             mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/${Constants.Utility.ENDPOINT_PATH_LICENSING_MODELS}`)
-                .reply(200, response(fakeLicenseModels));
+                .reply(200, new Response(licenseModels.map((v) => new Item(v, 'LicensingModelProperties'))));
 
             const list = await UtilityService.listLicensingModels(context);
 
@@ -68,12 +70,12 @@ describe('services/UtilityService', () => {
         });
 
         it('should has pagination', async () => {
-            const fakeLicenseModels = licensingModelFactory(10);
+            const licenseModels = licensingModelFactory(10);
 
             // configure mock for list request
             // eslint-disable-next-line max-len
             mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/${Constants.Utility.ENDPOINT_PATH_LICENSING_MODELS}`)
-                .reply(200, response(fakeLicenseModels));
+                .reply(200, new Response(licenseModels.map((v) => new Item(v, 'LicensingModelProperties'))));
 
             const list = await UtilityService.listLicensingModels(context);
 
@@ -87,30 +89,30 @@ describe('services/UtilityService', () => {
 
     describe('check "listCountries" method', () => {
         it('should return entities array', async () => {
-            const fakeCountries = [
-                {
+            const countries = [
+                new Country({
                     code: 'AF',
                     name: 'AFGHANISTAN',
                     vatPercent: 0,
                     isEu: false,
-                },
-                {
+                }),
+                new Country({
                     code: 'DE',
                     name: 'GERMANY',
                     vatPercent: 19,
                     isEu: true,
-                },
-                {
+                }),
+                new Country({
                     code: 'AT',
                     name: 'AUSTRIA',
                     vatPercent: 20,
                     isEu: true,
-                },
+                }),
             ];
 
             // configure mock for list request
             mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/countries`)
-                .reply(200, response(fakeCountries));
+                .reply(200, new Response(countries.map((v) => new Item(v))));
 
             const list = await UtilityService.listCountries(context);
 
@@ -119,30 +121,30 @@ describe('services/UtilityService', () => {
         });
 
         it('should has pagination', async () => {
-            const fakeCountries = [
-                {
+            const countries = [
+                new Country({
                     code: 'AF',
                     name: 'AFGHANISTAN',
                     vatPercent: 0,
                     isEu: false,
-                },
-                {
+                }),
+                new Country({
                     code: 'DE',
                     name: 'GERMANY',
                     vatPercent: 19,
                     isEu: true,
-                },
-                {
+                }),
+                new Country({
                     code: 'AT',
                     name: 'AUSTRIA',
                     vatPercent: 20,
                     isEu: true,
-                },
+                }),
             ];
 
             // configure mock for list request
             mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/countries`)
-                .reply(200, response(fakeCountries));
+                .reply(200, new Response(countries.map((v) => new Item(v))));
 
             const list = await UtilityService.listCountries(context);
 
@@ -154,30 +156,30 @@ describe('services/UtilityService', () => {
         });
 
         it('check "filter parameter in list" method', async () => {
-            const fakeCountries = [
-                {
+            const countries = [
+                new Country({
                     code: 'AF',
                     name: 'AFGHANISTAN',
                     vatPercent: 0,
                     isEu: false,
-                },
-                {
+                }),
+                new Country({
                     code: 'DE',
                     name: 'GERMANY',
                     vatPercent: 19,
                     isEu: true,
-                },
-                {
+                }),
+                new Country({
                     code: 'AT',
                     name: 'AUSTRIA',
                     vatPercent: 20,
                     isEu: true,
-                },
+                }),
             ];
 
             // configure mock for list request
             mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/countries`)
-                .reply(200, response(fakeCountries));
+                .reply(200, new Response(countries.map((v) => new Item(v))));
 
             // if filter parameter is object
             await UtilityService.listCountries(context, { page: 2, items: 10 });

@@ -44,8 +44,10 @@ export default {
 
         licensee.setProperty(Constants.Product.PRODUCT_NUMBER, productNumber);
 
-        const { data: { items: { item: [item] } } } = await Service
+        const { data: { items: { item: items } } } = await Service
             .post(context, Constants.Licensee.ENDPOINT_PATH, licensee.asPropertiesMap());
+
+        const [item] = items.filter(({ type }) => type === 'Licensee');
 
         return itemToLicensee(item);
     },
@@ -66,8 +68,10 @@ export default {
     async get(context, number) {
         CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        const { data: { items: { item: [item] } } } = await Service
+        const { data: { items: { item: items } } } = await Service
             .get(context, `${Constants.Licensee.ENDPOINT_PATH}/${number}`);
+
+        const [item] = items.filter(({ type }) => type === 'Licensee');
 
         return itemToLicensee(item);
     },
@@ -99,7 +103,7 @@ export default {
             .get(context, Constants.Licensee.ENDPOINT_PATH, queryParams);
 
         return Page(
-            data.items.item.map((v) => itemToLicensee(v)),
+            data.items.item.filter(({ type }) => type === 'Licensee').map((v) => itemToLicensee(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,
@@ -126,8 +130,10 @@ export default {
     async update(context, number, licensee) {
         CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        const { data: { items: { item: [item] } } } = await Service
+        const { data: { items: { item: items } } } = await Service
             .post(context, `${Constants.Licensee.ENDPOINT_PATH}/${number}`, licensee.asPropertiesMap());
+
+        const [item] = items.filter(({ type }) => type === 'Licensee');
 
         return itemToLicensee(item);
     },
@@ -220,7 +226,7 @@ export default {
         const validationResults = new ValidationResults();
         validationResults.setTtl(ttl);
 
-        items.forEach((v) => {
+        items.filter(({ type }) => type === 'ProductModuleValidation').forEach((v) => {
             const item = itemToObject(v);
             validationResults.setProductModuleValidation(item[Constants.ProductModule.PRODUCT_MODULE_NUMBER], item);
         });

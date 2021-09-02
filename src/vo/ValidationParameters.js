@@ -5,16 +5,9 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
-/**
- * Validation parameters map
- *
- * @type {WeakMap<Object, any>}
- */
-const vpMap = new WeakMap();
-
 export default class ValidationParameters {
     constructor() {
-        vpMap.set(this, { parameters: {} });
+        this.parameters = {};
     }
 
     /**
@@ -25,7 +18,7 @@ export default class ValidationParameters {
      * @returns {ValidationParameters}
      */
     setProductNumber(productNumber) {
-        vpMap.get(this).productNumber = productNumber;
+        this.productNumber = productNumber;
         return this;
     }
 
@@ -34,7 +27,7 @@ export default class ValidationParameters {
      * @returns {*}
      */
     getProductNumber() {
-        return vpMap.get(this).productNumber;
+        return this.productNumber;
     }
 
     /**
@@ -44,10 +37,10 @@ export default class ValidationParameters {
      * be the name, but can be used to store any other useful string information with new licensees, up to
      * 1000 characters.
      * @param licenseeName
-     * @returns {NetLicensing.ValidationParameters}
+     * @returns {ValidationParameters}
      */
     setLicenseeName(licenseeName) {
-        vpMap.get(this).licenseeName = licenseeName;
+        this.licenseeName = licenseeName;
         return this;
     }
 
@@ -56,7 +49,7 @@ export default class ValidationParameters {
      * @returns {*}
      */
     getLicenseeName() {
-        return vpMap.get(this).licenseeName;
+        return this.licenseeName;
     }
 
     /**
@@ -68,7 +61,7 @@ export default class ValidationParameters {
      * @deprecated use 'NodeLocked' licensingModel instead
      */
     setLicenseeSecret(licenseeSecret) {
-        vpMap.get(this).licenseeSecret = licenseeSecret;
+        this.licenseeSecret = licenseeSecret;
         return this;
     }
 
@@ -78,7 +71,21 @@ export default class ValidationParameters {
      * @deprecated use 'NodeLocked' licensingModel instead
      */
     getLicenseeSecret() {
-        return vpMap.get(this).licenseeSecret;
+        return this.licenseeSecret;
+    }
+
+    /**
+     * Indicates, that the validation response is intended the offline use
+     *
+     * @param forOfflineUse
+     *            if "true", validation response will be extended with data required for the offline use
+     */
+    setForOfflineUse(forOfflineUse) {
+        this.forOfflineUse = forOfflineUse;
+    }
+
+    isForOfflineUse() {
+        return this.forOfflineUse;
     }
 
     /**
@@ -86,21 +93,20 @@ export default class ValidationParameters {
      * @returns {*}
      */
     getParameters() {
-        return { ...vpMap.get(this).parameters };
+        return { ...this.parameters };
     }
 
     getProductModuleValidationParameters(productModuleNumber) {
-        return { ...vpMap.get(this).parameters[productModuleNumber] };
+        return { ...this.parameters[productModuleNumber] };
     }
 
     setProductModuleValidationParameters(productModuleNumber, productModuleParameters) {
-        const { parameters } = vpMap.get(this);
-
-        if (parameters[productModuleNumber] === undefined || !Object.keys(parameters[productModuleNumber]).length) {
-            parameters[productModuleNumber] = {};
+        if (this.parameters[productModuleNumber] === undefined
+            || !Object.keys(this.parameters[productModuleNumber]).length) {
+            this.parameters[productModuleNumber] = {};
         }
 
-        parameters[productModuleNumber] = Object.assign(parameters[productModuleNumber], productModuleParameters);
+        this.parameters[productModuleNumber] = { ...this.parameters[productModuleNumber], ...productModuleParameters };
 
         return this;
     }

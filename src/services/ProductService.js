@@ -36,8 +36,11 @@ export default {
      */
 
     async create(context, product) {
-        const { data: { items: { item: [item] } } } = await Service
+        const { data: { items: { item: items } } } = await Service
             .post(context, Constants.Product.ENDPOINT_PATH, product.asPropertiesMap());
+
+        const [item] = items.filter(({ type }) => type === 'Product');
+
         return itemToProduct(item);
     },
 
@@ -56,8 +59,12 @@ export default {
      */
     async get(context, number) {
         CheckUtils.paramNotEmpty(number, Constants.NUMBER);
-        const { data: { items: { item: [item] } } } = await Service
+
+        const { data: { items: { item: items } } } = await Service
             .get(context, `${Constants.Product.ENDPOINT_PATH}/${number}`);
+
+        const [item] = items.filter(({ type }) => type === 'Product');
+
         return itemToProduct(item);
     },
 
@@ -85,7 +92,7 @@ export default {
         const { data } = await Service.get(context, Constants.Product.ENDPOINT_PATH, queryParams);
 
         return Page(
-            data.items.item.map((v) => itemToProduct(v)),
+            data.items.item.filter(({ type }) => type === 'Product').map((v) => itemToProduct(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,
@@ -112,8 +119,10 @@ export default {
     async update(context, number, product) {
         CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        const { data: { items: { item: [item] } } } = await Service
+        const { data: { items: { item: items } } } = await Service
             .post(context, `${Constants.Product.ENDPOINT_PATH}/${number}`, product.asPropertiesMap());
+
+        const [item] = items.filter(({ type }) => type === 'Product');
 
         return itemToProduct(item);
     },

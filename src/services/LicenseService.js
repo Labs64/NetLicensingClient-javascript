@@ -55,8 +55,10 @@ export default {
 
         if (transactionNumber) license.setProperty(Constants.Transaction.TRANSACTION_NUMBER, transactionNumber);
 
-        const { data: { items: { item: [item] } } } = await Service
+        const { data: { items: { item: items } } } = await Service
             .post(context, Constants.License.ENDPOINT_PATH, license.asPropertiesMap());
+
+        const [item] = items.filter(({ type }) => type === 'License');
 
         return itemToLicense(item);
     },
@@ -78,8 +80,10 @@ export default {
     async get(context, number) {
         CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        const { data: { items: { item: [item] } } } = await Service
+        const { data: { items: { item: items } } } = await Service
             .get(context, `${Constants.License.ENDPOINT_PATH}/${number}`);
+
+        const [item] = items.filter(({ type }) => type === 'License');
 
         return itemToLicense(item);
     },
@@ -111,7 +115,7 @@ export default {
             .get(context, Constants.License.ENDPOINT_PATH, queryParams);
 
         return Page(
-            data.items.item.map((v) => itemToLicense(v)),
+            data.items.item.filter(({ type }) => type === 'License').map((v) => itemToLicense(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,
@@ -144,8 +148,10 @@ export default {
 
         if (transactionNumber) license.setProperty(Constants.Transaction.TRANSACTION_NUMBER, transactionNumber);
 
-        const { data: { items: { item: [item] } } } = await Service
+        const { data: { items: { item: items } } } = await Service
             .post(context, `${Constants.License.ENDPOINT_PATH}/${number}`, license.asPropertiesMap());
+
+        const [item] = items.filter(({ type }) => type === 'License');
 
         return itemToLicense(item);
     },

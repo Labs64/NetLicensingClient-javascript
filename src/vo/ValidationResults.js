@@ -7,19 +7,13 @@
 
 import CheckUtils from '../util/CheckUtils';
 
-/**
- * Validation result map
- * @type {WeakMap<Object, any>}
- */
-const vr = new WeakMap();
-
 export default class ValidationResults {
     constructor() {
-        vr.set(this, { validators: {} });
+        this.validators = {};
     }
 
     getValidators() {
-        return { ...vr.get(this).validators };
+        return { ...this.validators };
     }
 
     setProductModuleValidation(productModuleNumber, productModuleValidation) {
@@ -27,7 +21,7 @@ export default class ValidationResults {
             throw new TypeError(`Bad productModuleNumber:${productModuleNumber}`);
         }
 
-        vr.get(this).validators[productModuleNumber] = productModuleValidation;
+        this.validators[productModuleNumber] = productModuleValidation;
 
         return this;
     }
@@ -37,20 +31,20 @@ export default class ValidationResults {
             throw new TypeError(`Bad productModuleNumber:${productModuleNumber}`);
         }
 
-        return vr.get(this).validators[productModuleNumber];
+        return this.validators[productModuleNumber];
     }
 
     setTtl(ttl) {
         if (!CheckUtils.isValid(ttl) || typeof ttl === 'object') {
             throw new TypeError(`Bad ttl:${ttl}`);
         }
-        vr.get(this).ttl = new Date(String(ttl));
+        this.ttl = new Date(String(ttl));
 
         return this;
     }
 
     getTtl() {
-        return (vr.get(this).ttl) ? new Date(vr.get(this).ttl) : undefined;
+        return (this.ttl) ? new Date(this.ttl) : undefined;
     }
 
     toString() {

@@ -1,8 +1,5 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
-import query from 'query-string';
-import response from 'test@/mocks/response';
-import error from 'test@/mocks/error';
 import licenseFactory from 'test@/factories/license';
 import Context from '@/vo/Context';
 import License from '@/entities/License';
@@ -10,6 +7,9 @@ import LicenseService from '@/services/LicenseService';
 import Constants from '@/Constants';
 import Service from '@/services/Service';
 import NlicError from '@/errors/NlicError';
+import Item from 'test@/response/Item';
+import Info from 'test@/response/Info';
+import Response from 'test@/response';
 
 describe('services/LicenseService', () => {
     let context;
@@ -24,25 +24,14 @@ describe('services/LicenseService', () => {
     });
 
     it('check "create" method', async () => {
-        const fakeLicense = licenseFactory({
+        const license = licenseFactory({
             licenseeNumber: 'some number',
             licenseTemplateNumber: 'some number',
         });
 
-        const license = new License(fakeLicense);
-
         // configure mock for create request
         mock.onPost(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}`)
-            .reply((config) => {
-                const params = query.parse(config.data);
-                if (!params[Constants.Licensee.LICENSEE_NUMBER]) {
-                    return [400, error(['MalformedRequestException', 'Licensee number is not provided'])];
-                }
-                if (!params[Constants.LicenseTemplate.LICENSE_TEMPLATE_NUMBER]) {
-                    return [400, error(['MalformedRequestException', 'License template number is not provided'])];
-                }
-                return [200, response(params)];
-            });
+            .reply(200, new Response(new Item(license)));
 
         const entity = await LicenseService.create(
             context,
@@ -53,27 +42,27 @@ describe('services/LicenseService', () => {
         );
 
         expect(entity instanceof License).toBe(true);
-        expect(entity.getProperty('number', null)).toBe(fakeLicense.number);
-        expect(entity.getProperty('name', null)).toBe(fakeLicense.name);
-        expect(entity.getProperty('active', null)).toBe(fakeLicense.active);
-        expect(entity.getProperty('custom_property', null)).toBe(fakeLicense.custom_property);
+        expect(entity.getProperty('number', null)).toBe(license.number);
+        expect(entity.getProperty('name', null)).toBe(license.name);
+        expect(entity.getProperty('active', null)).toBe(license.active);
+        expect(entity.getProperty('custom_property', null)).toBe(license.custom_property);
     });
 
     describe('check "get" method', () => {
         it('should return entity', async () => {
-            const fakeLicense = licenseFactory();
+            const license = licenseFactory();
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}/${fakeLicense.number}`)
-                .reply(200, response(fakeLicense));
+            mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}/${license.number}`)
+                .reply(200, new Response(new Item(license)));
 
-            const entity = await LicenseService.get(context, fakeLicense.number);
+            const entity = await LicenseService.get(context, license.number);
 
             expect(entity instanceof License).toBe(true);
-            expect(entity.getProperty('number', null)).toBe(fakeLicense.number);
-            expect(entity.getProperty('name', null)).toBe(fakeLicense.name);
-            expect(entity.getProperty('active', null)).toBe(fakeLicense.active);
-            expect(entity.getProperty('custom_property', null)).toBe(fakeLicense.custom_property);
+            expect(entity.getProperty('number', null)).toBe(license.number);
+            expect(entity.getProperty('name', null)).toBe(license.name);
+            expect(entity.getProperty('active', null)).toBe(license.active);
+            expect(entity.getProperty('custom_property', null)).toBe(license.custom_property);
         });
 
         it('should throw error when entity not found', async () => {
@@ -81,7 +70,9 @@ describe('services/LicenseService', () => {
 
             // configure mock for product get request
             mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}/${number}`)
-                .reply(400, error(['NotFoundException', 'Requested license does not exist']));
+                .reply(400, new Response(
+                    new Info('Requested license does not exist', 'NotFoundException'),
+                ));
 
             try {
                 await LicenseService.get(context, number);
@@ -94,11 +85,11 @@ describe('services/LicenseService', () => {
 
     describe('check "list" method', async () => {
         it('should return entities array', async () => {
-            const fakeLicenses = licenseFactory(10);
+            const licenses = licenseFactory(10);
 
             // configure mock for list request
             mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}`)
-                .reply(200, response(fakeLicenses));
+                .reply(200, new Response(licenses.map((v) => new Item(v))));
 
             const list = await LicenseService.list(context);
 
@@ -106,21 +97,21 @@ describe('services/LicenseService', () => {
             expect(list.length).toBe(10);
 
             list.forEach((entity, k) => {
-                const fakeLicense = fakeLicenses[k];
+                const license = licenses[k];
                 expect(entity instanceof License).toBe(true);
-                expect(entity.getProperty('number', null)).toBe(fakeLicense.number);
-                expect(entity.getProperty('name', null)).toBe(fakeLicense.name);
-                expect(entity.getProperty('active', null)).toBe(fakeLicense.active);
-                expect(entity.getProperty('custom_property', null)).toBe(fakeLicense.custom_property);
+                expect(entity.getProperty('number', null)).toBe(license.number);
+                expect(entity.getProperty('name', null)).toBe(license.name);
+                expect(entity.getProperty('active', null)).toBe(license.active);
+                expect(entity.getProperty('custom_property', null)).toBe(license.custom_property);
             });
         });
 
         it('should has pagination', async () => {
-            const fakeLicenses = licenseFactory(100);
+            const licenses = licenseFactory(100);
 
             // configure mock for list request
             mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}`)
-                .reply(200, response(fakeLicenses));
+                .reply(200, new Response(licenses.map((v) => new Item(v))));
 
             const list = await LicenseService.list(context);
 
@@ -132,11 +123,11 @@ describe('services/LicenseService', () => {
         });
 
         it('check "filter parameter"', async () => {
-            const fakeLicenses = licenseFactory(10);
+            const licenses = licenseFactory(10);
 
             // configure mock for list request
             mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}`)
-                .reply(200, response(fakeLicenses));
+                .reply(200, new Response(licenses.map((v) => new Item(v))));
 
             // if filter parameter is object
             await LicenseService.list(context, { page: 2, items: 10 });
@@ -151,30 +142,20 @@ describe('services/LicenseService', () => {
     });
 
     it('check "update" method', async () => {
-        const fakeLicense = licenseFactory();
+        let license = licenseFactory();
 
         // configure mock for get request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}/${fakeLicense.number}`)
-            .reply(200, response(fakeLicense));
+        mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}/${license.number}`)
+            .reply(200, new Response(new Item(license)));
 
-        const license = await LicenseService.get(context, fakeLicense.number);
+        license = await LicenseService.get(context, license.number);
 
         license.setProperty('name', 'MY-NAME-UPDATED');
-        fakeLicense.name = 'MY-NAME-UPDATED';
-
         license.setProperty('custom_property', 'MY-CUSTOM-PROPERTY-UPDATED');
-        fakeLicense.custom_property = 'MY-CUSTOM-PROPERTY-UPDATED';
 
         // configure mock for update request
-        mock.onPost(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}/${fakeLicense.number}`)
-            .reply((config) => {
-                // remove properties that can not be changed by user
-                const params = query.parse(config.data);
-                delete params.price;
-                delete params.currency;
-
-                return [200, response(params)];
-            });
+        mock.onPost(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}/${license.number}`)
+            .reply(200, new Response(new Item(license)));
 
         const updated = await LicenseService.update(
             context,
@@ -184,8 +165,8 @@ describe('services/LicenseService', () => {
         );
 
         expect(updated instanceof License).toBe(true);
-        expect(updated.getProperty('name', null)).toBe(fakeLicense.name);
-        expect(updated.getProperty('custom_property', null)).toBe(fakeLicense.custom_property);
+        expect(updated.getProperty('name', null)).toBe(license.name);
+        expect(updated.getProperty('custom_property', null)).toBe(license.custom_property);
     });
 
     it('check "delete" method', async () => {
