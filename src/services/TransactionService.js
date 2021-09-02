@@ -43,8 +43,10 @@ export default {
      * @returns {Promise}
      */
     async create(context, transaction) {
-        const { data: { items: { item: [item] } } } = await Service
+        const { data: { items: { item: items } } } = await Service
             .post(context, Constants.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap());
+
+        const [item] = items.filter(({ type }) => type === 'Transaction');
 
         return itemToTransaction(item);
     },
@@ -65,8 +67,10 @@ export default {
     async get(context, number) {
         CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        const { data: { items: { item: [item] } } } = await Service
+        const { data: { items: { item: items } } } = await Service
             .get(context, `${Constants.Transaction.ENDPOINT_PATH}/${number}`);
+
+        const [item] = items.filter(({ type }) => type === 'Transaction');
 
         return itemToTransaction(item);
     },
@@ -98,7 +102,7 @@ export default {
             .get(context, Constants.Transaction.ENDPOINT_PATH, queryParams);
 
         return Page(
-            data.items.item.map((v) => itemToTransaction(v)),
+            data.items.item.filter(({ type }) => type === 'Transaction').map((v) => itemToTransaction(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,
@@ -125,8 +129,10 @@ export default {
     async update(context, number, transaction) {
         CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        const { data: { items: { item: [item] } } } = await Service
+        const { data: { items: { item: items } } } = await Service
             .post(context, `${Constants.Transaction.ENDPOINT_PATH}/${number}`, transaction.asPropertiesMap());
+
+        const [item] = items.filter(({ type }) => type === 'Transaction');
 
         return itemToTransaction(item);
     },

@@ -195,4 +195,8 @@ export default {
         ROLE_APIKEY_MAINTENANCE: 'ROLE_APIKEY_MAINTENANCE',
         ROLE_APIKEY_ADMIN: 'ROLE_APIKEY_ADMIN',
     },
+
+    Validation: {
+        FOR_OFFLINE_USE: 'forOfflineUse',
+    },
 };

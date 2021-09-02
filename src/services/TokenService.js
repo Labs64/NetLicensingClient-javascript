@@ -34,8 +34,10 @@ export default {
      * @returns {Promise}
      */
     async create(context, token) {
-        const { data: { items: { item: [item] } } } = await Service
+        const { data: { items: { item: items } } } = await Service
             .post(context, Constants.Token.ENDPOINT_PATH, token.asPropertiesMap());
+
+        const [item] = items.filter(({ type }) => type === 'Token');
 
         return itemToToken(item);
     },
@@ -56,8 +58,10 @@ export default {
     async get(context, number) {
         CheckUtils.paramNotEmpty(number, Constants.NUMBER);
 
-        const { data: { items: { item: [item] } } } = await Service
+        const { data: { items: { item: items } } } = await Service
             .get(context, `${Constants.Token.ENDPOINT_PATH}/${number}`);
+
+        const [item] = items.filter(({ type }) => type === 'Token');
 
         return itemToToken(item);
     },
@@ -89,7 +93,7 @@ export default {
             .get(context, Constants.Token.ENDPOINT_PATH, queryParams);
 
         return Page(
-            data.items.item.map((v) => itemToToken(v)),
+            data.items.item.filter(({ type }) => type === 'Token').map((v) => itemToToken(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,

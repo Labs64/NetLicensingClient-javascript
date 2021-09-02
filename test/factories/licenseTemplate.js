@@ -1,7 +1,8 @@
 import faker from 'faker';
+import LicenseTemplate from '@/entities/LicenseTemplate';
 import factory from './factory';
 
-export default factory(() => ({
+export default factory((data = {}) => new LicenseTemplate({
     number: Math.random().toString(36).substr(2, 9),
     name: faker.lorem.words(),
     active: faker.random.boolean(),
@@ -10,4 +11,6 @@ export default factory(() => ({
     price: parseFloat(faker.commerce.price()),
     currency: 'EUR',
     custom_property: faker.lorem.words(),
+
+    ...data,
 }));

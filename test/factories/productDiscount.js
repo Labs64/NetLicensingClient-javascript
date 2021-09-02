@@ -1,16 +1,21 @@
 import faker from 'faker';
+import ProductDiscount from '@/entities/ProductDiscount';
 import factory from './factory';
 
-export const fix = factory(() => ({
+export const fix = factory((data = {}) => new ProductDiscount({
     totalPrice: faker.commerce.price(50),
     currency: 'EUR',
     amountFix: faker.random.number({ min: 1, max: 10 }),
+
+    ...data,
 }));
 
-export const percent = factory(() => ({
+export const percent = factory((data = {}) => new ProductDiscount({
     totalPrice: faker.commerce.price(50),
     currency: 'EUR',
     amountPercent: faker.random.number({ min: 1, max: 10 }),
+
+    ...data,
 }));
 
 export default {

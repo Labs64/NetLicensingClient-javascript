@@ -1,18 +1,16 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
-import query from 'query-string';
-import response from 'test@/mocks/response';
-import error from 'test@/mocks/error';
 import productFactory from 'test@/factories/product';
 import { fix as discountFixFactory, percent as discountPercentFactory } from 'test@/factories/productDiscount';
 import Context from '@/vo/Context';
 import Product from '@/entities/Product';
-import ProductDiscount from '@/entities/ProductDiscount';
 import ProductService from '@/services/ProductService';
 import Constants from '@/Constants';
 import Service from '@/services/Service';
 import NlicError from '@/errors/NlicError';
-
+import Item from 'test@/response/Item';
+import Info from 'test@/response/Info';
+import Response from 'test@/response';
 
 describe('services/ProductService', () => {
     let context;
@@ -27,71 +25,59 @@ describe('services/ProductService', () => {
     });
 
     it('check "create" method', async () => {
-        const fakeProduct = productFactory();
-        const fakeFixDiscount = discountFixFactory();
-        const fakePercentDiscount = discountPercentFactory();
+        const product = productFactory();
+        const fixDiscount = discountFixFactory();
+        const percentDiscount = discountPercentFactory();
 
-        const product = new Product(fakeProduct);
-
-        product.addDiscount(new ProductDiscount(fakeFixDiscount));
-        product.addDiscount(new ProductDiscount(fakePercentDiscount));
+        product.addDiscount(fixDiscount);
+        product.addDiscount(percentDiscount);
 
         // configure mock for create request
         mock.onPost(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}`)
-            .reply((config) => {
-                const params = query.parse(config.data);
-
-                if (!params[Constants.NAME]) {
-                    return [400, error('MalformedRequestException', 'Product name is required')];
-                }
-
-                const discount = params.discount.map((v) => {
-                    const [totalPrice, currency, amount] = v.split(';');
-                    if (amount.indexOf('%') > -1) {
-                        return { totalPrice, currency, amountPercent: amount };
-                    }
-
-                    return { totalPrice, currency, amountFix: amount };
-                });
-
-                return [200, response({ ...params, discount })];
-            });
+            .reply(200, new Response(
+                new Item({ ...product, discount: [fixDiscount, percentDiscount] }, 'Product'),
+            ));
 
         const entity = await ProductService.create(context, product);
 
         expect(entity instanceof Product).toBe(true);
-        expect(entity.getProperty('number', null)).toBe(fakeProduct.number);
-        expect(entity.getProperty('name', null)).toBe(fakeProduct.name);
-        expect(entity.getProperty('active', null)).toBe(fakeProduct.active);
-        expect(entity.getProperty('version', null)).toBe(fakeProduct.version);
-        expect(entity.getProperty('description', null)).toBe(fakeProduct.description);
-        expect(entity.getProperty('licensingInfo', null)).toBe(fakeProduct.licensingInfo);
-        expect(entity.getProperty('licenseeAutoCreate', null)).toBe(fakeProduct.licenseeAutoCreate);
-        expect(entity.getProperty('custom_property', null)).toBe(fakeProduct.custom_property);
+        expect(entity.getProperty('number', null)).toBe(product.number);
+        expect(entity.getProperty('name', null)).toBe(product.name);
+        expect(entity.getProperty('active', null)).toBe(product.active);
+        expect(entity.getProperty('version', null)).toBe(product.version);
+        expect(entity.getProperty('description', null)).toBe(product.description);
+        expect(entity.getProperty('licensingInfo', null)).toBe(product.licensingInfo);
+        expect(entity.getProperty('licenseeAutoCreate', null)).toBe(product.licenseeAutoCreate);
+        expect(entity.getProperty('custom_property', null)).toBe(product.custom_property);
         expect(entity.getProductDiscounts().length).toBe(2);
     });
 
     describe('check "get" method', () => {
         it('should return entity', async () => {
-            const fakeProduct = productFactory();
-            const fakeFixDiscount = discountFixFactory();
-            const fakePercentDiscount = discountPercentFactory();
+            const product = productFactory();
+            const fixDiscount = discountFixFactory();
+            const percentDiscount = discountPercentFactory();
+
+            product.addDiscount(fixDiscount);
+            product.addDiscount(percentDiscount);
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${fakeProduct.number}`)
-                .reply(200, response({ ...fakeProduct, discount: [fakeFixDiscount, fakePercentDiscount] }));
+            mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.number}`)
+                .reply(200, new Response(
+                    new Item({ ...product, discount: [fixDiscount, percentDiscount] }, 'Product'),
+                ));
 
-            const entity = await ProductService.get(context, fakeProduct.number);
+            const entity = await ProductService.get(context, product.number);
 
             expect(entity instanceof Product).toBe(true);
-            expect(entity.getProperty('number', null)).toBe(fakeProduct.number);
-            expect(entity.getProperty('name', null)).toBe(fakeProduct.name);
-            expect(entity.getProperty('active', null)).toBe(fakeProduct.active);
-            expect(entity.getProperty('version', null)).toBe(fakeProduct.version);
-            expect(entity.getProperty('description', null)).toBe(fakeProduct.description);
-            expect(entity.getProperty('licensingInfo', null)).toBe(fakeProduct.licensingInfo);
-            expect(entity.getProperty('licenseeAutoCreate', null)).toBe(fakeProduct.licenseeAutoCreate);
-            expect(entity.getProperty('custom_property', null)).toBe(fakeProduct.custom_property);
+            expect(entity.getProperty('number', null)).toBe(product.number);
+            expect(entity.getProperty('name', null)).toBe(product.name);
+            expect(entity.getProperty('active', null)).toBe(product.active);
+            expect(entity.getProperty('version', null)).toBe(product.version);
+            expect(entity.getProperty('description', null)).toBe(product.description);
+            expect(entity.getProperty('licensingInfo', null)).toBe(product.licensingInfo);
+            expect(entity.getProperty('licenseeAutoCreate', null)).toBe(product.licenseeAutoCreate);
+            expect(entity.getProperty('custom_property', null)).toBe(product.custom_property);
             expect(entity.getProductDiscounts().length).toBe(2);
         });
 
@@ -100,8 +86,9 @@ describe('services/ProductService', () => {
 
             // configure mock for get request
             mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${number}`)
-                .reply(400, error(['NotFoundException', 'Requested product does not exist']));
-
+                .reply(400, new Response(
+                    new Info('Requested product does not exist', 'NotFoundException'),
+                ));
             try {
                 await ProductService.get(context, number);
                 fail('should throw error');
@@ -113,11 +100,11 @@ describe('services/ProductService', () => {
 
     describe('check "list" method', () => {
         it('should return entities array', async () => {
-            const fakeProducts = productFactory(10);
+            const products = productFactory(10);
 
             // configure mock for list request
             mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}`)
-                .reply(200, response(fakeProducts));
+                .reply(200, new Response(products.map((v) => new Item(v))));
 
             const list = await ProductService.list(context);
 
@@ -125,24 +112,29 @@ describe('services/ProductService', () => {
             expect(list.length).toBe(10);
 
             list.forEach((entity, k) => {
-                const fakeProduct = fakeProducts[k];
-                expect(entity.getProperty('number', null)).toBe(fakeProduct.number);
-                expect(entity.getProperty('name', null)).toBe(fakeProduct.name);
-                expect(entity.getProperty('active', null)).toBe(fakeProduct.active);
-                expect(entity.getProperty('version', null)).toBe(fakeProduct.version);
-                expect(entity.getProperty('description', null)).toBe(fakeProduct.description);
-                expect(entity.getProperty('licensingInfo', null)).toBe(fakeProduct.licensingInfo);
-                expect(entity.getProperty('licenseeAutoCreate', null)).toBe(fakeProduct.licenseeAutoCreate);
-                expect(entity.getProperty('custom_property', null)).toBe(fakeProduct.custom_property);
+                const product = products[k];
+                expect(entity.getProperty('number', null)).toBe(product.number);
+                expect(entity.getProperty('name', null)).toBe(product.name);
+                expect(entity.getProperty('active', null)).toBe(product.active);
+                expect(entity.getProperty('version', null)).toBe(product.version);
+                expect(entity.getProperty('description', null)).toBe(product.description);
+                expect(entity.getProperty('licensingInfo', null)).toBe(product.licensingInfo);
+                expect(entity.getProperty('licenseeAutoCreate', null)).toBe(product.licenseeAutoCreate);
+                expect(entity.getProperty('custom_property', null)).toBe(product.custom_property);
             });
         });
 
         it('should has pagination', async () => {
-            const fakeProducts = productFactory(1000);
+            const products = productFactory(10);
 
             // configure mock for list request
             mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}`)
-                .reply(200, response(fakeProducts, 2, 10));
+                .reply(() => {
+                    const response = new Response(products.map((v) => new Item(v)));
+                    response.setPage(2, 10, 1000);
+
+                    return [200, response];
+                });
 
             const list = await ProductService.list(context, { page: 2, items: 10 });
 
@@ -154,11 +146,11 @@ describe('services/ProductService', () => {
         });
 
         it('check filter', async () => {
-            const fakeProducts = productFactory(10);
+            const products = productFactory(10);
 
             // configure mock for list request
             mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}`)
-                .reply(200, response(fakeProducts));
+                .reply(200, new Response(products.map((v) => new Item(v))));
 
             // if filter parameter is object
             await ProductService.list(context, { page: 2, items: 10 });
@@ -173,45 +165,38 @@ describe('services/ProductService', () => {
     });
 
     it('check "update" method', async () => {
-        const fakeProduct = productFactory();
-        const fakeFixDiscount = discountFixFactory();
-        const fakePercentDiscount = discountPercentFactory();
-        const fakeDiscountForUpdate = discountFixFactory();
+        let product = productFactory();
+        const fixDiscount = discountFixFactory();
+        const percentDiscount = discountPercentFactory();
+        const discountForUpdate = discountFixFactory();
+
+        product.addDiscount(fixDiscount);
+        product.addDiscount(percentDiscount);
 
         // configure mock for get request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${fakeProduct.number}`)
-            .reply(200, response({ ...fakeProduct, discount: [fakeFixDiscount, fakePercentDiscount] }));
+        mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.number}`)
+            .reply(200, new Response(
+                new Item({ ...product, discount: [fixDiscount, percentDiscount] }, 'Product'),
+            ));
 
-        const product = await ProductService.get(context, fakeProduct.number);
+        product = await ProductService.get(context, product.number);
 
         product.setProperty('name', 'MY-NAME-UPDATED');
-        fakeProduct.name = 'MY-NAME-UPDATED';
-
         product.setProperty('custom_property', 'MY-CUSTOM-PROPERTY-UPDATED');
-        fakeProduct.custom_property = 'MY-CUSTOM-PROPERTY-UPDATED';
 
-        product.addDiscount(new ProductDiscount(fakeDiscountForUpdate));
+        product.addDiscount(discountForUpdate);
 
         // configure mock for update request
-        mock.onPost(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${fakeProduct.number}`)
-            .reply((config) => {
-                const params = query.parse(config.data);
-                const discount = params.discount.map((v) => {
-                    const [totalPrice, currency, amount] = v.split(';');
-                    if (amount.indexOf('%') > -1) {
-                        return { totalPrice, currency, amountPercent: amount };
-                    }
-                    return { totalPrice, currency, amountFix: amount };
-                });
-
-                return [200, response({ ...params, discount })];
-            });
+        mock.onPost(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.number}`)
+            .reply(200, new Response(
+                new Item({ ...product, discount: [fixDiscount, percentDiscount, discountForUpdate] }, 'Product'),
+            ));
 
         const updated = await ProductService.update(context, product.getProperty('number'), product);
 
         expect(updated instanceof Product).toBe(true);
-        expect(updated.getProperty('name', null)).toBe(fakeProduct.name);
-        expect(updated.getProperty('custom_property', null)).toBe(fakeProduct.custom_property);
+        expect(updated.getProperty('name', null)).toBe(product.name);
+        expect(updated.getProperty('custom_property', null)).toBe(product.custom_property);
         expect(updated.getProductDiscounts().length).toBe(3);
     });
 

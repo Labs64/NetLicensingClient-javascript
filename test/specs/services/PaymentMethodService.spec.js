@@ -1,13 +1,14 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
-import response from 'test@/mocks/response';
-import error from 'test@/mocks/error';
 import paymentMethodFactory from 'test@/factories/paymentMethod';
 import Context from '@/vo/Context';
 import PaymentMethod from '@/entities/PaymentMethod';
 import PaymentMethodService from '@/services/PaymentMethodService';
 import Constants from '@/Constants';
 import NlicError from '@/errors/NlicError';
+import Item from 'test@/response/Item';
+import Info from 'test@/response/Info';
+import Response from 'test@/response';
 
 describe('services/PaymentMethodService', () => {
     let context;
@@ -23,16 +24,16 @@ describe('services/PaymentMethodService', () => {
 
     describe('check "get" method', () => {
         it('should return entity', async () => {
-            const fakePaymentMethod = paymentMethodFactory();
+            const paymentMethod = paymentMethodFactory();
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}/${fakePaymentMethod.number}`)
-                .reply(200, response(fakePaymentMethod));
+            mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}/${paymentMethod.number}`)
+                .reply(200, new Response(new Item(paymentMethod)));
 
-            const entity = await PaymentMethodService.get(context, fakePaymentMethod.number);
+            const entity = await PaymentMethodService.get(context, paymentMethod.number);
 
             expect(entity instanceof PaymentMethod).toBe(true);
-            expect(entity.getProperty('number', null)).toBe(fakePaymentMethod.number);
+            expect(entity.getProperty('number', null)).toBe(paymentMethod.number);
         });
 
         it('should throw error when payment method is not supported', async () => {
@@ -42,10 +43,12 @@ describe('services/PaymentMethodService', () => {
             mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}/${number}`)
                 .reply(() => {
                     if (['PAYPAL', 'PAYPAL_SANDBOX', 'STRIPE'].indexOf(number) === -1) {
-                        return [400, error('MalformedRequestException', 'Requested payment method is not supported')];
+                        return [400, new Response(
+                            new Info('Requested payment method is not supported', 'MalformedRequestException'),
+                        )];
                     }
 
-                    return [200, response(paymentMethodFactory({ number }))];
+                    return [200, new Response(new Item(paymentMethodFactory({ number })))];
                 });
 
             try {
@@ -62,7 +65,9 @@ describe('services/PaymentMethodService', () => {
 
             // configure mock for get request
             mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}/${number}`)
-                .reply(400, error(['NotFoundException', 'Requested paymentMethod does not exist']));
+                .reply(400, new Response(
+                    new Info('Requested paymentMethod does not exist', 'NotFoundException'),
+                ));
 
             try {
                 await PaymentMethodService.get(context, number);
@@ -75,11 +80,11 @@ describe('services/PaymentMethodService', () => {
 
     describe('check "list" method', async () => {
         it('should return entities array', async () => {
-            const fakePaymentMethods = paymentMethodFactory(3);
+            const paymentMethods = paymentMethodFactory(3);
 
             // configure mock for list request
             mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}`)
-                .reply(200, response(fakePaymentMethods));
+                .reply(200, new Response(paymentMethods.map((v) => new Item(v))));
 
             const list = await PaymentMethodService.list(context);
 
@@ -87,19 +92,19 @@ describe('services/PaymentMethodService', () => {
             expect(list.length).toBe(3);
 
             list.forEach((entity, k) => {
-                const fakePaymentMethod = fakePaymentMethods[k];
+                const paymentMethod = paymentMethods[k];
                 expect(entity instanceof PaymentMethod).toBe(true);
-                expect(entity.getProperty('number', null)).toBe(fakePaymentMethod.number);
-                expect(entity.getProperty('active', null)).toBe(fakePaymentMethod.active);
+                expect(entity.getProperty('number', null)).toBe(paymentMethod.number);
+                expect(entity.getProperty('active', null)).toBe(paymentMethod.active);
             });
         });
 
         it('should has pagination', async () => {
-            const fakePaymentMethods = paymentMethodFactory(3);
+            const paymentMethods = paymentMethodFactory(3);
 
             // configure mock for list request
             mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}`)
-                .reply(200, response(fakePaymentMethods));
+                .reply(200, new Response(paymentMethods.map((v) => new Item(v))));
 
             const list = await PaymentMethodService.list(context);
 
