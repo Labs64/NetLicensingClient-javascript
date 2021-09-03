@@ -2,15 +2,15 @@ import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
 import productFactory from 'test@/factories/product';
 import { fix as discountFixFactory, percent as discountPercentFactory } from 'test@/factories/productDiscount';
+import Item from 'test@/response/Item';
+import Info from 'test@/response/Info';
+import Response from 'test@/response';
 import Context from '@/vo/Context';
 import Product from '@/entities/Product';
 import ProductService from '@/services/ProductService';
 import Constants from '@/Constants';
 import Service from '@/services/Service';
 import NlicError from '@/errors/NlicError';
-import Item from 'test@/response/Item';
-import Info from 'test@/response/Info';
-import Response from 'test@/response';
 
 describe('services/ProductService', () => {
     let context;

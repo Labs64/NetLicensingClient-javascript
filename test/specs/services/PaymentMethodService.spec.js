@@ -1,14 +1,14 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
 import paymentMethodFactory from 'test@/factories/paymentMethod';
+import Item from 'test@/response/Item';
+import Info from 'test@/response/Info';
+import Response from 'test@/response';
 import Context from '@/vo/Context';
 import PaymentMethod from '@/entities/PaymentMethod';
 import PaymentMethodService from '@/services/PaymentMethodService';
 import Constants from '@/Constants';
 import NlicError from '@/errors/NlicError';
-import Item from 'test@/response/Item';
-import Info from 'test@/response/Info';
-import Response from 'test@/response';
 
 describe('services/PaymentMethodService', () => {
     let context;

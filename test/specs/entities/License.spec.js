@@ -167,7 +167,6 @@ describe('entities/License', () => {
         license.setProperty('name', true);
         expect(license.getProperty('name')).toBe('true');
 
-
         license.setProperty('price', '3.14');
         expect(license.getProperty('price')).toBe(3.14);
 

@@ -6,13 +6,15 @@ const isDocker = require('is-docker')();
 
 const webpackConfig = require('../build/webpack.test.conf');
 
+delete webpackConfig.output;
+
 const browsers = ['Chrome'];
 
 if (!isDocker) {
     // browsers.push('Firefox');
 }
 
-module.exports = function karmaConfig(config) {
+module.exports = (config) => {
     config.set({
         // to run in additional browsers:
         // 1. install corresponding karma launcher
@@ -27,30 +29,25 @@ module.exports = function karmaConfig(config) {
                 flags: isDocker ? ['--no-sandbox'] : [],
             },
         },
-        frameworks: ['jasmine'],
+
+        frameworks: ['jasmine', 'webpack'],
+
         reporters: ['spec'],
+
         files: [
             './index.js',
         ],
+
         preprocessors: {
-            './index.js': ['babel', 'webpack', 'sourcemap'],
+            './index.js': ['webpack', 'sourcemap'],
         },
-        babelPreprocessor: {
-            options: {
-                presets: ['@babel/preset-env'],
-                sourceMap: 'inline',
-            },
-            filename(file) {
-                return file.originalPath.replace(/\.js$/, '.es5.js');
-            },
-            sourceFileName(file) {
-                return file.originalPath;
-            },
-        },
+
         webpack: webpackConfig,
+
         webpackMiddleware: {
             noInfo: true,
         },
+
         coverageReporter: {
             dir: './coverage',
             reporters: [

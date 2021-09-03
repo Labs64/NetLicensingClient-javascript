@@ -63,7 +63,6 @@ export default {
         return itemToLicense(item);
     },
 
-
     /**
      * Gets license by its number.See NetLicensingAPI for details:
      * @see https://netlicensing.io/wiki/license-services#get-license
