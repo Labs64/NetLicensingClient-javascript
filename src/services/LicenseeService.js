@@ -234,7 +234,6 @@ export default {
         return validationResults;
     },
 
-
     /**
      * Transfer licenses between licensees.
      * @see https://netlicensing.io/wiki/licensee-services#transfer-licenses

@@ -7,8 +7,8 @@ const randomItem = (array) => array[Math.floor(Math.random() * array.length)];
 
 export default factory((data = {}) => {
     const token = new Token({
-        number: faker.random.uuid(),
-        active: faker.random.boolean(),
+        number: faker.datatype.uuid(),
+        active: faker.datatype.boolean(),
         expirationTime: faker.date.future(),
         tokenType: randomItem(Object.values(Constants.Token.Type)),
 
@@ -16,7 +16,7 @@ export default factory((data = {}) => {
     });
 
     if (!token.licenseeNumber && token.tokenType === Constants.Token.Type.SHOP) {
-        token.licenseeNumber = faker.random.uuid();
+        token.licenseeNumber = faker.datatype.uuid();
     }
 
     return token;

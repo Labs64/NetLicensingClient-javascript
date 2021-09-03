@@ -1,8 +1,10 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
-import query from 'query-string';
 import licenseeFactory from 'test@/factories/licensee';
 import validateFactory from 'test@/factories/validate';
+import Item from 'test@/response/Item';
+import Info from 'test@/response/Info';
+import Response from 'test@/response';
 import Context from '@/vo/Context';
 import ValidationParameters from '@/vo/ValidationParameters';
 import Licensee from '@/entities/Licensee';
@@ -11,9 +13,6 @@ import ValidationResults from '@/vo/ValidationResults';
 import Constants from '@/Constants';
 import Service from '@/services/Service';
 import NlicError from '@/errors/NlicError';
-import Item from 'test@/response/Item';
-import Info from 'test@/response/Info';
-import Response from 'test@/response';
 
 describe('services/LicenseeService', () => {
     let context;
@@ -154,7 +153,7 @@ describe('services/LicenseeService', () => {
 
         // configure mock for update request
         mock.onPost(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}/${licensee.number}`)
-            .reply((config) => [200, new Response(new Item(query.parse(config.data), 'Licensee'))]);
+            .reply(200, new Response(new Item(licensee)));
 
         const updated = await LicenseeService.update(context, licensee.getProperty('number'), licensee);
 
@@ -173,20 +172,7 @@ describe('services/LicenseeService', () => {
 
         mock.onPost(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}`
             + `/${licensee.number}/${Constants.Licensee.ENDPOINT_PATH_VALIDATE}`)
-            .reply((config) => {
-                const params = query.parse(config.data);
-
-                if (licensee.productNumber !== params.productNumber) {
-                    return [400, new Response(
-                        new Info('Unexpected value of parameter productNumber', 'UnexpectedValueException'),
-                    )];
-                }
-                if (licensee.name !== params.licenseeName) {
-                    return [400, new Response(
-                        new Info('Unexpected value of parameter licenseeName', 'UnexpectedValueException'),
-                    )];
-                }
-
+            .reply(() => {
                 const res = new Response(new Item(validate, 'ProductModuleValidation'));
                 res.ttl = new Date();
 

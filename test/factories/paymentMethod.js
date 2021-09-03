@@ -6,7 +6,7 @@ const randomItem = (array) => array[Math.floor(Math.random() * array.length)];
 
 export default factory((data = {}) => new PaymentMethod({
     number: randomItem(['PAYPAL', 'PAYPAL_SANDBOX', 'STRIPE']),
-    active: faker.random.boolean(),
+    active: faker.datatype.boolean(),
 
     ...data,
 }));

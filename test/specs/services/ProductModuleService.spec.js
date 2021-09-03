@@ -1,15 +1,15 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
 import productModuleFactory from 'test@/factories/productModule';
+import Item from 'test@/response/Item';
+import Info from 'test@/response/Info';
+import Response from 'test@/response';
 import Context from '@/vo/Context';
 import ProductModule from '@/entities/ProductModule';
 import ProductModuleService from '@/services/ProductModuleService';
 import Constants from '@/Constants';
 import Service from '@/services/Service';
 import NlicError from '@/errors/NlicError';
-import Item from 'test@/response/Item';
-import Info from 'test@/response/Info';
-import Response from 'test@/response';
 
 describe('services/ProductModuleService', () => {
     let context;
@@ -137,7 +137,6 @@ describe('services/ProductModuleService', () => {
             expect(Service.getLastHttpRequestInfo().config.params.filter).toBe('page=3;items=20');
         });
     });
-
 
     it('check "update" method', async () => {
         let productModule = productModuleFactory();

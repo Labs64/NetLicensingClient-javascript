@@ -1,6 +1,7 @@
 const path = require('path');
 
-const ora = require('ora');
+const ora   = require('ora');
+
 const rm = require('rimraf');
 const chalk = require('chalk');
 const webpack = require('webpack');
@@ -23,10 +24,10 @@ rm(path.resolve(__dirname, '../dist'), (e) => {
         })}\n\n`);
 
         if (stats.hasErrors()) {
-            console.log(chalk.red('  Build failed with errors.\n'));
+            spinner.fail(chalk.red('Build failed with errors.\n'))
             process.exit(1);
         }
 
-        console.log(chalk.cyan('  Build complete.\n'));
+        spinner.succeed(chalk.cyan('Build complete.\n'))
     });
 });

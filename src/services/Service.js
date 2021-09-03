@@ -122,7 +122,7 @@ export default class Service {
         };
 
         // only node.js has a process variable that is of [[Class]] process
-        if (!typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
+        if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
             request.headers['User-agent'] = `NetLicensing/Javascript ${pkg.version}/node&${process.version}`;
         }
 

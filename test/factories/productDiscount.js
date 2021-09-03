@@ -5,7 +5,7 @@ import factory from './factory';
 export const fix = factory((data = {}) => new ProductDiscount({
     totalPrice: faker.commerce.price(50),
     currency: 'EUR',
-    amountFix: faker.random.number({ min: 1, max: 10 }),
+    amountFix: faker.datatype.number({ min: 1, max: 10 }),
 
     ...data,
 }));
@@ -13,7 +13,7 @@ export const fix = factory((data = {}) => new ProductDiscount({
 export const percent = factory((data = {}) => new ProductDiscount({
     totalPrice: faker.commerce.price(50),
     currency: 'EUR',
-    amountPercent: faker.random.number({ min: 1, max: 10 }),
+    amountPercent: faker.datatype.number({ min: 1, max: 10 }),
 
     ...data,
 }));

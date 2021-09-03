@@ -1,15 +1,15 @@
 import axios from 'axios';
 import AxiosMockAdapter from 'axios-mock-adapter';
 import tokenFactory from 'test@/factories/token';
+import Item from 'test@/response/Item';
+import Info from 'test@/response/Info';
+import Response from 'test@/response';
 import Context from '@/vo/Context';
 import Token from '@/entities/Token';
 import TokenService from '@/services/TokenService';
 import Constants from '@/Constants';
 import Service from '@/services/Service';
 import NlicError from '@/errors/NlicError';
-import Item from 'test@/response/Item';
-import Info from 'test@/response/Info';
-import Response from 'test@/response';
 
 describe('services/TokenService', () => {
     let context;
