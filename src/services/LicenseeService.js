@@ -198,6 +198,14 @@ export default {
             queryParams.licenseeSecret = validationParameters.getLicenseeSecret();
         }
 
+        if (validationParameters.isForOfflineUse()) {
+            queryParams.forOfflineUse = true;
+        }
+
+        if (validationParameters.getDryRun()) {
+            queryParams.dryRun = true;
+        }
+
         let pmIndex = 0;
         const parameters = validationParameters.getParameters();
 

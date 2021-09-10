@@ -12,11 +12,15 @@ export default (key, value) => {
         case 'string':
             return String(value);
         case 'int':
-        case 'integer':
-            return parseInt(value, 10);
+        case 'integer': {
+            const n = parseInt(value, 10);
+            return Number.isNaN(n) ? value : n;
+        }
         case 'float':
-        case 'double':
-            return parseFloat(value);
+        case 'double': {
+            const n = parseFloat(value);
+            return Number.isNaN(n) ? value : n;
+        }
         case 'bool':
         case 'boolean':
             switch (value) {
