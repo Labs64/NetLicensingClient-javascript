@@ -81,11 +81,21 @@ export default class ValidationParameters {
      *            if "true", validation response will be extended with data required for the offline use
      */
     setForOfflineUse(forOfflineUse) {
-        this.forOfflineUse = forOfflineUse;
+        this.forOfflineUse = !!forOfflineUse;
+        return this;
     }
 
     isForOfflineUse() {
-        return this.forOfflineUse;
+        return !!this.forOfflineUse;
+    }
+
+    setDryRun(dryRun) {
+        this.dryRun = !!dryRun;
+        return this;
+    }
+
+    getDryRun(def) {
+        return this.dryRun || def;
     }
 
     /**
