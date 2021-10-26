@@ -1,5 +1,5 @@
 const { merge } = require('webpack-merge');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 const webWebpackConfig = require('./webpack.web.conf');
 const nodeWebpackConfig = require('./webpack.node.conf');
 
@@ -9,13 +9,9 @@ const webpackConfig = {
     performance: { hints: false },
     optimization: {
         minimizer: [
-            new UglifyJsPlugin({
-                include: /\.min\.js$/,
-                uglifyOptions: {
-                    warnings: false,
-                },
-                sourceMap: true,
+            new TerserPlugin({
                 parallel: true,
+                test: /\.min\.js$/,
             }),
         ],
     },
