@@ -199,4 +199,10 @@ export default {
     Validation: {
         FOR_OFFLINE_USE: 'forOfflineUse',
     },
+
+    WarningLevel: {
+        GREEN: 'GREEN',
+        YELLOW: 'YELLOW',
+        RED: 'RED',
+    },
 };
