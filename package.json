@@ -52,14 +52,14 @@
     "scripts": {
         "build": "node build/build.js",
         "release": "npm run build && npm run test",
-        "dev": "webpack --progress --colors --watch --config build/webpack.dev.conf.js",
+        "dev": "webpack --progress --watch --config build/webpack.dev.conf.js",
         "test": "karma start test/karma.conf.js --single-run",
         "test-mocha": "webpack --config build/webpack.test.conf.js",
         "test-for-travis": "karma start test/karma.conf.js --single-run --browsers Firefox",
         "lint": "eslint --ext .js,.vue src test"
     },
     "dependencies": {
-        "axios": "^0.21.1",
+        "axios": "^0.24.0",
         "btoa": "^1.2.1",
         "es6-promise": "^4.2.8"
     },
@@ -103,7 +103,7 @@
         "lodash": "^4.17.21",
         "ora": "^5.4.1",
         "rimraf": "^3.0.2",
-        "uglifyjs-webpack-plugin": "^2.2.0",
+        "terser-webpack-plugin": "^5.2.4",
         "webpack": "^5.51.2",
         "webpack-cli": "^4.8.0",
         "webpack-merge": "^5.8.0"
