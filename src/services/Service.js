@@ -161,6 +161,18 @@ export default class Service {
 
         return Service.getAxiosInstance()(request)
             .then((response) => {
+                response.infos = Service.getInfo(response, []);
+
+                const errors = response.infos.filter(({ type }) => type === 'ERROR');
+
+                if (errors.length) {
+                    const error = new Error(errors[0].value);
+                    error.config = response.config;
+                    error.request = response.request;
+                    error.response = response;
+                    throw error;
+                }
+
                 httpXHR = response;
                 return response;
             })
@@ -183,7 +195,9 @@ export default class Service {
                     const { data } = e.response;
 
                     if (data) {
-                        const info = Service.getInfo(e.response, [])[0] || {};
+                        error.infos = Service.getInfo(e.response, []);
+
+                        const [info = {}] = error.infos.filter(({ type }) => type === 'ERROR');
                         error.message = info.value || 'Unknown';
                     }
 
