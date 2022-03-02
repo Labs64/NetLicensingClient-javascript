@@ -368,7 +368,7 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 /***/ 8585:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var _typeof = (__webpack_require__(8)["default"]);
+var _typeof = __webpack_require__(8)["default"];
 
 var assertThisInitialized = __webpack_require__(1506);
 
@@ -823,7 +823,7 @@ axios.Axios = Axios;
 axios.Cancel = __webpack_require__(5263);
 axios.CancelToken = __webpack_require__(4972);
 axios.isCancel = __webpack_require__(6502);
-axios.VERSION = (__webpack_require__(7288).version);
+axios.VERSION = __webpack_require__(7288).version;
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -1041,14 +1041,14 @@ function Axios(instanceConfig) {
  *
  * @param {Object} config The config specific for this request (merged with this.defaults)
  */
-Axios.prototype.request = function request(config) {
+Axios.prototype.request = function request(configOrUrl, config) {
   /*eslint no-param-reassign:0*/
   // Allow for axios('example/url'[, config]) a la fetch API
-  if (typeof config === 'string') {
-    config = arguments[1] || {};
-    config.url = arguments[0];
-  } else {
+  if (typeof configOrUrl === 'string') {
     config = config || {};
+    config.url = configOrUrl;
+  } else {
+    config = configOrUrl || {};
   }
 
   config = mergeConfig(this.defaults, config);
@@ -1743,7 +1743,7 @@ module.exports = defaults;
 /***/ ((module) => {
 
 module.exports = {
-  "version": "0.24.0"
+  "version": "0.26.0"
 };
 
 /***/ }),
@@ -1944,17 +1944,19 @@ module.exports = function isAbsoluteURL(url) {
   // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
   // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
   // by any combination of letters, digits, plus, period, or hyphen.
-  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+  return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(url);
 };
 
 
 /***/ }),
 
 /***/ 6268:
-/***/ ((module) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
+
+var utils = __webpack_require__(4867);
 
 /**
  * Determines whether the payload is an error thrown by Axios
@@ -1963,7 +1965,7 @@ module.exports = function isAbsoluteURL(url) {
  * @returns {boolean} True if the payload is an error thrown by Axios, otherwise false
  */
 module.exports = function isAxiosError(payload) {
-  return (typeof payload === 'object') && (payload.isAxiosError === true);
+  return utils.isObject(payload) && (payload.isAxiosError === true);
 };
 
 
@@ -2167,7 +2169,7 @@ module.exports = function spread(callback) {
 "use strict";
 
 
-var VERSION = (__webpack_require__(7288).version);
+var VERSION = __webpack_require__(7288).version;
 
 var validators = {};
 
@@ -2270,7 +2272,7 @@ var toString = Object.prototype.toString;
  * @returns {boolean} True if value is an Array, otherwise false
  */
 function isArray(val) {
-  return toString.call(val) === '[object Array]';
+  return Array.isArray(val);
 }
 
 /**
@@ -2311,7 +2313,7 @@ function isArrayBuffer(val) {
  * @returns {boolean} True if value is an FormData, otherwise false
  */
 function isFormData(val) {
-  return (typeof FormData !== 'undefined') && (val instanceof FormData);
+  return toString.call(val) === '[object FormData]';
 }
 
 /**
@@ -2325,7 +2327,7 @@ function isArrayBufferView(val) {
   if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
     result = ArrayBuffer.isView(val);
   } else {
-    result = (val) && (val.buffer) && (val.buffer instanceof ArrayBuffer);
+    result = (val) && (val.buffer) && (isArrayBuffer(val.buffer));
   }
   return result;
 }
@@ -2432,7 +2434,7 @@ function isStream(val) {
  * @returns {boolean} True if value is a URLSearchParams object, otherwise false
  */
 function isURLSearchParams(val) {
-  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
+  return toString.call(val) === '[object URLSearchParams]';
 }
 
 /**
@@ -9742,7 +9744,7 @@ try {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"netlicensing-client","version":"1.2.26","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.js","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.js","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.js","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^0.24.0","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.15.4","@babel/plugin-proposal-class-properties":"^7.14.5","@babel/plugin-proposal-decorators":"^7.15.4","@babel/plugin-proposal-export-namespace-from":"^7.14.5","@babel/plugin-proposal-function-sent":"^7.14.5","@babel/plugin-proposal-json-strings":"^7.14.5","@babel/plugin-proposal-numeric-separator":"^7.14.5","@babel/plugin-proposal-throw-expressions":"^7.14.5","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.15.4","@babel/plugin-transform-runtime":"^7.15.0","@babel/preset-env":"^7.15.4","@babel/runtime":"^7.15.4","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^8.2.2","chalk":"^4.1.2","eslint":"^7.32.0","eslint-config-airbnb-base":"^14.2.1","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-loader":"^4.0.2","eslint-plugin-import":"^2.24.2","eslint-plugin-jasmine":"^4.1.2","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^3.9.0","jasmine-core":"^3.9.0","karma":"^6.3.4","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.1","karma-jasmine":"^4.0.1","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.32","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.2.4","webpack":"^5.51.2","webpack-cli":"^4.8.0","webpack-merge":"^5.8.0"},"engines":{"node":">= 10.0.0","npm":">= 6.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
+module.exports = JSON.parse('{"name":"netlicensing-client","version":"1.2.27","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.js","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.js","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.js","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^0.26.0","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.15.4","@babel/plugin-proposal-class-properties":"^7.14.5","@babel/plugin-proposal-decorators":"^7.15.4","@babel/plugin-proposal-export-namespace-from":"^7.14.5","@babel/plugin-proposal-function-sent":"^7.14.5","@babel/plugin-proposal-json-strings":"^7.14.5","@babel/plugin-proposal-numeric-separator":"^7.14.5","@babel/plugin-proposal-throw-expressions":"^7.14.5","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.15.4","@babel/plugin-transform-runtime":"^7.15.0","@babel/preset-env":"^7.15.4","@babel/runtime":"^7.15.4","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^8.2.2","chalk":"^4.1.2","eslint":"^7.32.0","eslint-config-airbnb-base":"^14.2.1","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-loader":"^4.0.2","eslint-plugin-import":"^2.24.2","eslint-plugin-jasmine":"^4.1.2","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^3.9.0","jasmine-core":"^3.9.0","karma":"^6.3.17","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.2","karma-jasmine":"^4.0.1","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.33","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.2.4","webpack":"^5.51.2","webpack-cli":"^4.8.0","webpack-merge":"^5.8.0"},"engines":{"node":">= 10.0.0","npm":">= 6.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
 
 /***/ })
 
