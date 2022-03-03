@@ -2,7 +2,7 @@ name: JavaScript Client - Dependency Test
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '0 0 */7 * *'
 
 jobs:
   build:
