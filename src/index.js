@@ -111,7 +111,7 @@ const NetLicensing = {
     NlicError,
 };
 
-module.exports = NetLicensing;
+// module.exports = NetLicensing;
 
 // Allow use of default import syntax in TypeScript
-module.exports.default = NetLicensing;
+export default NetLicensing;

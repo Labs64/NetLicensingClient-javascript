@@ -1,7 +1,7 @@
 const { merge } = require('webpack-merge');
 const TerserPlugin = require("terser-webpack-plugin");
-const webWebpackConfig = require('./webpack.web.conf');
-const nodeWebpackConfig = require('./webpack.node.conf');
+const webWebpackConfig = require('./webpack.web.conf.cjs');
+const nodeWebpackConfig = require('./webpack.node.conf.cjs');
 
 const webpackConfig = {
     mode: 'production',
