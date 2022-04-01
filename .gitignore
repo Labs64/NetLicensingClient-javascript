@@ -4,4 +4,3 @@ npm-debug.log
 .build*
 .idea
 index.html
-dist/
