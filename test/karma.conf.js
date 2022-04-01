@@ -4,7 +4,7 @@
 //   https://github.com/webpack/karma-webpack
 const isDocker = require('is-docker')();
 
-const webpackConfig = require('../build/webpack.test.conf');
+const webpackConfig = require('../build/webpack.test.conf.cjs');
 
 delete webpackConfig.output;
 

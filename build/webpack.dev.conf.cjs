@@ -1,5 +1,5 @@
 const { merge } = require('webpack-merge');
-const webWebpackConfig = require('./webpack.web.conf');
+const webWebpackConfig = require('./webpack.web.conf.cjs');
 
 const webpackConfig = merge(webWebpackConfig, {
     mode: 'development',
@@ -7,4 +7,3 @@ const webpackConfig = merge(webWebpackConfig, {
 });
 
 module.exports = webpackConfig;
-

@@ -1,5 +1,6 @@
 const path = require('path');
 const eslintFriendlyFormatter = require('eslint-friendly-formatter');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const pkg = require('../package.json');
 
 const namespace = 'NetLicensing';
@@ -33,15 +34,16 @@ module.exports = {
                 exclude: /node_modules/,
                 include: [resolve('src'), resolve('test')],
             },
-            {
-                test: /(\.jsx|\.js)$/,
-                loader: 'eslint-loader',
-                include: [resolve('src'), resolve('test')],
-                options: {
-                    formatter: eslintFriendlyFormatter,
-                    emitWarning: true,
-                },
-            },
+            // {
+            //     test: /(\.jsx|\.js)$/,
+            //     loader: 'eslint-loader',
+            //     include: [resolve('src'), resolve('test')],
+            //     options: {
+            //         formatter: eslintFriendlyFormatter,
+            //         emitWarning: true,
+            //     },
+            // },
         ],
     },
+    plugins: [new ESLintPlugin()],
 };
