@@ -7,7 +7,7 @@
 		exports["NetLicensing"] = factory();
 	else
 		root["NetLicensing"] = factory();
-})(this, function() {
+})(this, () => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
