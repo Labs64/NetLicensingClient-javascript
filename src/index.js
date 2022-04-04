@@ -54,7 +54,8 @@ import FilterUtils from './util/FilterUtils';
 import NlicError from './errors/NlicError';
 
 // Create the default instance to be exported
-const NetLicensing = {
+// eslint-disable-next-line import/prefer-default-export
+export {
     // Constants
     Constants,
 
@@ -114,4 +115,3 @@ const NetLicensing = {
 // module.exports = NetLicensing;
 
 // Allow use of default import syntax in TypeScript
-export default NetLicensing;
