@@ -11850,7 +11850,252 @@ var _interopRequireDefault = __webpack_require__(5318);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports["default"] = void 0;
+Object.defineProperty(exports, "BaseEntity", ({
+  enumerable: true,
+  get: function get() {
+    return _BaseEntity.default;
+  }
+}));
+Object.defineProperty(exports, "CastsUtils", ({
+  enumerable: true,
+  get: function get() {
+    return _CastsUtils.default;
+  }
+}));
+Object.defineProperty(exports, "CheckUtils", ({
+  enumerable: true,
+  get: function get() {
+    return _CheckUtils.default;
+  }
+}));
+Object.defineProperty(exports, "Constants", ({
+  enumerable: true,
+  get: function get() {
+    return _Constants.default;
+  }
+}));
+Object.defineProperty(exports, "Context", ({
+  enumerable: true,
+  get: function get() {
+    return _Context.default;
+  }
+}));
+Object.defineProperty(exports, "Country", ({
+  enumerable: true,
+  get: function get() {
+    return _Country.default;
+  }
+}));
+Object.defineProperty(exports, "FilterUtils", ({
+  enumerable: true,
+  get: function get() {
+    return _FilterUtils.default;
+  }
+}));
+Object.defineProperty(exports, "License", ({
+  enumerable: true,
+  get: function get() {
+    return _License.default;
+  }
+}));
+Object.defineProperty(exports, "LicenseService", ({
+  enumerable: true,
+  get: function get() {
+    return _LicenseService.default;
+  }
+}));
+Object.defineProperty(exports, "LicenseTemplate", ({
+  enumerable: true,
+  get: function get() {
+    return _LicenseTemplate.default;
+  }
+}));
+Object.defineProperty(exports, "LicenseTemplateService", ({
+  enumerable: true,
+  get: function get() {
+    return _LicenseTemplateService.default;
+  }
+}));
+Object.defineProperty(exports, "LicenseTransactionJoin", ({
+  enumerable: true,
+  get: function get() {
+    return _LicenseTransactionJoin.default;
+  }
+}));
+Object.defineProperty(exports, "Licensee", ({
+  enumerable: true,
+  get: function get() {
+    return _Licensee.default;
+  }
+}));
+Object.defineProperty(exports, "LicenseeService", ({
+  enumerable: true,
+  get: function get() {
+    return _LicenseeService.default;
+  }
+}));
+Object.defineProperty(exports, "NlicError", ({
+  enumerable: true,
+  get: function get() {
+    return _NlicError.default;
+  }
+}));
+Object.defineProperty(exports, "Page", ({
+  enumerable: true,
+  get: function get() {
+    return _Page.default;
+  }
+}));
+Object.defineProperty(exports, "PaymentMethod", ({
+  enumerable: true,
+  get: function get() {
+    return _PaymentMethod.default;
+  }
+}));
+Object.defineProperty(exports, "PaymentMethodService", ({
+  enumerable: true,
+  get: function get() {
+    return _PaymentMethodService.default;
+  }
+}));
+Object.defineProperty(exports, "Product", ({
+  enumerable: true,
+  get: function get() {
+    return _Product.default;
+  }
+}));
+Object.defineProperty(exports, "ProductDiscount", ({
+  enumerable: true,
+  get: function get() {
+    return _ProductDiscount.default;
+  }
+}));
+Object.defineProperty(exports, "ProductModule", ({
+  enumerable: true,
+  get: function get() {
+    return _ProductModule.default;
+  }
+}));
+Object.defineProperty(exports, "ProductModuleService", ({
+  enumerable: true,
+  get: function get() {
+    return _ProductModuleService.default;
+  }
+}));
+Object.defineProperty(exports, "ProductService", ({
+  enumerable: true,
+  get: function get() {
+    return _ProductService.default;
+  }
+}));
+Object.defineProperty(exports, "Service", ({
+  enumerable: true,
+  get: function get() {
+    return _Service.default;
+  }
+}));
+Object.defineProperty(exports, "Token", ({
+  enumerable: true,
+  get: function get() {
+    return _Token.default;
+  }
+}));
+Object.defineProperty(exports, "TokenService", ({
+  enumerable: true,
+  get: function get() {
+    return _TokenService.default;
+  }
+}));
+Object.defineProperty(exports, "Transaction", ({
+  enumerable: true,
+  get: function get() {
+    return _Transaction.default;
+  }
+}));
+Object.defineProperty(exports, "TransactionService", ({
+  enumerable: true,
+  get: function get() {
+    return _TransactionService.default;
+  }
+}));
+Object.defineProperty(exports, "UtilityService", ({
+  enumerable: true,
+  get: function get() {
+    return _UtilityService.default;
+  }
+}));
+Object.defineProperty(exports, "ValidationParameters", ({
+  enumerable: true,
+  get: function get() {
+    return _ValidationParameters.default;
+  }
+}));
+Object.defineProperty(exports, "ValidationResults", ({
+  enumerable: true,
+  get: function get() {
+    return _ValidationResults.default;
+  }
+}));
+Object.defineProperty(exports, "itemToCountry", ({
+  enumerable: true,
+  get: function get() {
+    return _itemToCountry.default;
+  }
+}));
+Object.defineProperty(exports, "itemToLicense", ({
+  enumerable: true,
+  get: function get() {
+    return _itemToLicense.default;
+  }
+}));
+Object.defineProperty(exports, "itemToLicenseTemplate", ({
+  enumerable: true,
+  get: function get() {
+    return _itemToLicenseTemplate.default;
+  }
+}));
+Object.defineProperty(exports, "itemToLicensee", ({
+  enumerable: true,
+  get: function get() {
+    return _itemToLicensee.default;
+  }
+}));
+Object.defineProperty(exports, "itemToObject", ({
+  enumerable: true,
+  get: function get() {
+    return _itemToObject.default;
+  }
+}));
+Object.defineProperty(exports, "itemToPaymentMethod", ({
+  enumerable: true,
+  get: function get() {
+    return _itemToPaymentMethod.default;
+  }
+}));
+Object.defineProperty(exports, "itemToProduct", ({
+  enumerable: true,
+  get: function get() {
+    return _itemToProduct.default;
+  }
+}));
+Object.defineProperty(exports, "itemToProductModule", ({
+  enumerable: true,
+  get: function get() {
+    return _itemToProductModule.default;
+  }
+}));
+Object.defineProperty(exports, "itemToToken", ({
+  enumerable: true,
+  get: function get() {
+    return _itemToToken.default;
+  }
+}));
+Object.defineProperty(exports, "itemToTransaction", ({
+  enumerable: true,
+  get: function get() {
+    return _itemToTransaction.default;
+  }
+}));
 
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
 
@@ -11933,69 +12178,6 @@ var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
 var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
 
 var _NlicError = _interopRequireDefault(__webpack_require__(2986));
-
-// Constants
-// VO
-// Services
-// Entities
-// Converters
-// Utils
-// Errors
-// Create the default instance to be exported
-var NetLicensing = {
-  // Constants
-  Constants: _Constants.default,
-  // Expose VO
-  Context: _Context.default,
-  Page: _Page.default,
-  ValidationParameters: _ValidationParameters.default,
-  ValidationResults: _ValidationResults.default,
-  // Expose Services
-  Service: _Service.default,
-  LicenseeService: _LicenseeService.default,
-  LicenseService: _LicenseService.default,
-  LicenseTemplateService: _LicenseTemplateService.default,
-  PaymentMethodService: _PaymentMethodService.default,
-  ProductModuleService: _ProductModuleService.default,
-  ProductService: _ProductService.default,
-  TokenService: _TokenService.default,
-  TransactionService: _TransactionService.default,
-  UtilityService: _UtilityService.default,
-  // Expose Entities
-  BaseEntity: _BaseEntity.default,
-  Country: _Country.default,
-  License: _License.default,
-  Licensee: _Licensee.default,
-  LicenseTemplate: _LicenseTemplate.default,
-  PaymentMethod: _PaymentMethod.default,
-  Product: _Product.default,
-  ProductDiscount: _ProductDiscount.default,
-  ProductModule: _ProductModule.default,
-  Token: _Token.default,
-  Transaction: _Transaction.default,
-  LicenseTransactionJoin: _LicenseTransactionJoin.default,
-  // Expose Converters
-  itemToCountry: _itemToCountry.default,
-  itemToLicense: _itemToLicense.default,
-  itemToLicensee: _itemToLicensee.default,
-  itemToLicenseTemplate: _itemToLicenseTemplate.default,
-  itemToObject: _itemToObject.default,
-  itemToPaymentMethod: _itemToPaymentMethod.default,
-  itemToProduct: _itemToProduct.default,
-  itemToProductModule: _itemToProductModule.default,
-  itemToToken: _itemToToken.default,
-  itemToTransaction: _itemToTransaction.default,
-  // Expose Utils
-  CastsUtils: _CastsUtils.default,
-  CheckUtils: _CheckUtils.default,
-  FilterUtils: _FilterUtils.default,
-  // Errors
-  NlicError: _NlicError.default
-}; // module.exports = NetLicensing;
-// Allow use of default import syntax in TypeScript
-
-var _default = NetLicensing;
-exports["default"] = _default;
 })();
 
 /******/ 	return __webpack_exports__;
