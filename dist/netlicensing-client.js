@@ -6234,13 +6234,9 @@ var _default = {
                 queryParams.productNumber = validationParameters.getProductNumber();
               }
 
-              if (validationParameters.getLicenseeName()) {
-                queryParams.licenseeName = validationParameters.getLicenseeName();
-              }
-
-              if (validationParameters.getLicenseeSecret()) {
-                queryParams.licenseeSecret = validationParameters.getLicenseeSecret();
-              }
+              Object.keys(validationParameters.getLicenseeProperties()).forEach(function (key) {
+                queryParams[key] = validationParameters.getLicenseeProperty(key);
+              });
 
               if (validationParameters.isForOfflineUse()) {
                 queryParams.forOfflineUse = true;
@@ -6264,10 +6260,10 @@ var _default = {
                 });
                 pmIndex += 1;
               });
-              _context5.next = 13;
+              _context5.next = 12;
               return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number, "/").concat(_Constants.default.Licensee.ENDPOINT_PATH_VALIDATE), queryParams);
 
-            case 13:
+            case 12:
               _yield$Service$post3 = _context5.sent;
               _yield$Service$post3$ = _yield$Service$post3.data;
               items = _yield$Service$post3$.items.item;
@@ -6283,7 +6279,7 @@ var _default = {
               });
               return _context5.abrupt("return", validationResults);
 
-            case 21:
+            case 20:
             case "end":
               return _context5.stop();
           }
@@ -8527,6 +8523,7 @@ var ValidationParameters = /*#__PURE__*/function () {
   function ValidationParameters() {
     (0, _classCallCheck2.default)(this, ValidationParameters);
     this.parameters = {};
+    this.licenseeProperties = {};
   }
   /**
    * Sets the target product
@@ -8566,7 +8563,7 @@ var ValidationParameters = /*#__PURE__*/function () {
   }, {
     key: "setLicenseeName",
     value: function setLicenseeName(licenseeName) {
-      this.licenseeName = licenseeName;
+      this.licenseeProperties.licenseeName = licenseeName;
       return this;
     }
     /**
@@ -8577,7 +8574,7 @@ var ValidationParameters = /*#__PURE__*/function () {
   }, {
     key: "getLicenseeName",
     value: function getLicenseeName() {
-      return this.licenseeName;
+      return this.licenseeProperties.licenseeName;
     }
     /**
      * Sets the licensee secret
@@ -8591,7 +8588,7 @@ var ValidationParameters = /*#__PURE__*/function () {
   }, {
     key: "setLicenseeSecret",
     value: function setLicenseeSecret(licenseeSecret) {
-      this.licenseeSecret = licenseeSecret;
+      this.licenseeProperties.licenseeSecret = licenseeSecret;
       return this;
     }
     /**
@@ -8603,7 +8600,38 @@ var ValidationParameters = /*#__PURE__*/function () {
   }, {
     key: "getLicenseeSecret",
     value: function getLicenseeSecret() {
-      return this.licenseeSecret;
+      return this.licenseeProperties.licenseeSecret;
+    }
+    /**
+     * Get all licensee properties
+     */
+
+  }, {
+    key: "getLicenseeProperties",
+    value: function getLicenseeProperties() {
+      return this.licenseeProperties;
+    }
+    /**
+     * Set licensee property
+     * @param key
+     * @param value
+     */
+
+  }, {
+    key: "setLicenseeProperty",
+    value: function setLicenseeProperty(key, value) {
+      this.licenseeProperties[key] = value;
+      return this;
+    }
+    /**
+     * Get licensee property
+     * @param key
+     */
+
+  }, {
+    key: "getLicenseeProperty",
+    value: function getLicenseeProperty(key, def) {
+      return this.licenseeProperties[key] || def;
     }
     /**
      * Indicates, that the validation response is intended the offline use

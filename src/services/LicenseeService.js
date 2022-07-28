@@ -190,13 +190,9 @@ export default {
             queryParams.productNumber = validationParameters.getProductNumber();
         }
 
-        if (validationParameters.getLicenseeName()) {
-            queryParams.licenseeName = validationParameters.getLicenseeName();
-        }
-
-        if (validationParameters.getLicenseeSecret()) {
-            queryParams.licenseeSecret = validationParameters.getLicenseeSecret();
-        }
+        Object.keys(validationParameters.getLicenseeProperties()).forEach((key) => {
+            queryParams[key] = validationParameters.getLicenseeProperty(key);
+        });
 
         if (validationParameters.isForOfflineUse()) {
             queryParams.forOfflineUse = true;
