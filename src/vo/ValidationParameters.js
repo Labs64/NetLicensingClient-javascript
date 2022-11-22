@@ -8,6 +8,7 @@
 export default class ValidationParameters {
     constructor() {
         this.parameters = {};
+        this.licenseeProperties = {};
     }
 
     /**
@@ -40,7 +41,7 @@ export default class ValidationParameters {
      * @returns {ValidationParameters}
      */
     setLicenseeName(licenseeName) {
-        this.licenseeName = licenseeName;
+        this.licenseeProperties.licenseeName = licenseeName;
         return this;
     }
 
@@ -49,7 +50,7 @@ export default class ValidationParameters {
      * @returns {*}
      */
     getLicenseeName() {
-        return this.licenseeName;
+        return this.licenseeProperties.licenseeName;
     }
 
     /**
@@ -61,7 +62,7 @@ export default class ValidationParameters {
      * @deprecated use 'NodeLocked' licensingModel instead
      */
     setLicenseeSecret(licenseeSecret) {
-        this.licenseeSecret = licenseeSecret;
+        this.licenseeProperties.licenseeSecret = licenseeSecret;
         return this;
     }
 
@@ -71,7 +72,32 @@ export default class ValidationParameters {
      * @deprecated use 'NodeLocked' licensingModel instead
      */
     getLicenseeSecret() {
-        return this.licenseeSecret;
+        return this.licenseeProperties.licenseeSecret;
+    }
+
+    /**
+     * Get all licensee properties
+     */
+    getLicenseeProperties() {
+        return this.licenseeProperties;
+    }
+
+    /**
+     * Set licensee property
+     * @param key
+     * @param value
+     */
+    setLicenseeProperty(key, value) {
+        this.licenseeProperties[key] = value;
+        return this;
+    }
+
+    /**
+     * Get licensee property
+     * @param key
+     */
+    getLicenseeProperty(key, def) {
+        return this.licenseeProperties[key] || def;
     }
 
     /**

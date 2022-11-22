@@ -7,7 +7,7 @@
 		exports["NetLicensing"] = factory();
 	else
 		root["NetLicensing"] = factory();
-})(this, () => {
+})(this, function() {
 return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -6234,13 +6234,9 @@ var _default = {
                 queryParams.productNumber = validationParameters.getProductNumber();
               }
 
-              if (validationParameters.getLicenseeName()) {
-                queryParams.licenseeName = validationParameters.getLicenseeName();
-              }
-
-              if (validationParameters.getLicenseeSecret()) {
-                queryParams.licenseeSecret = validationParameters.getLicenseeSecret();
-              }
+              Object.keys(validationParameters.getLicenseeProperties()).forEach(function (key) {
+                queryParams[key] = validationParameters.getLicenseeProperty(key);
+              });
 
               if (validationParameters.isForOfflineUse()) {
                 queryParams.forOfflineUse = true;
@@ -6264,10 +6260,10 @@ var _default = {
                 });
                 pmIndex += 1;
               });
-              _context5.next = 13;
+              _context5.next = 12;
               return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number, "/").concat(_Constants.default.Licensee.ENDPOINT_PATH_VALIDATE), queryParams);
 
-            case 13:
+            case 12:
               _yield$Service$post3 = _context5.sent;
               _yield$Service$post3$ = _yield$Service$post3.data;
               items = _yield$Service$post3$.items.item;
@@ -6283,7 +6279,7 @@ var _default = {
               });
               return _context5.abrupt("return", validationResults);
 
-            case 21:
+            case 20:
             case "end":
               return _context5.stop();
           }
@@ -8527,6 +8523,7 @@ var ValidationParameters = /*#__PURE__*/function () {
   function ValidationParameters() {
     (0, _classCallCheck2.default)(this, ValidationParameters);
     this.parameters = {};
+    this.licenseeProperties = {};
   }
   /**
    * Sets the target product
@@ -8566,7 +8563,7 @@ var ValidationParameters = /*#__PURE__*/function () {
   }, {
     key: "setLicenseeName",
     value: function setLicenseeName(licenseeName) {
-      this.licenseeName = licenseeName;
+      this.licenseeProperties.licenseeName = licenseeName;
       return this;
     }
     /**
@@ -8577,7 +8574,7 @@ var ValidationParameters = /*#__PURE__*/function () {
   }, {
     key: "getLicenseeName",
     value: function getLicenseeName() {
-      return this.licenseeName;
+      return this.licenseeProperties.licenseeName;
     }
     /**
      * Sets the licensee secret
@@ -8591,7 +8588,7 @@ var ValidationParameters = /*#__PURE__*/function () {
   }, {
     key: "setLicenseeSecret",
     value: function setLicenseeSecret(licenseeSecret) {
-      this.licenseeSecret = licenseeSecret;
+      this.licenseeProperties.licenseeSecret = licenseeSecret;
       return this;
     }
     /**
@@ -8603,7 +8600,38 @@ var ValidationParameters = /*#__PURE__*/function () {
   }, {
     key: "getLicenseeSecret",
     value: function getLicenseeSecret() {
-      return this.licenseeSecret;
+      return this.licenseeProperties.licenseeSecret;
+    }
+    /**
+     * Get all licensee properties
+     */
+
+  }, {
+    key: "getLicenseeProperties",
+    value: function getLicenseeProperties() {
+      return this.licenseeProperties;
+    }
+    /**
+     * Set licensee property
+     * @param key
+     * @param value
+     */
+
+  }, {
+    key: "setLicenseeProperty",
+    value: function setLicenseeProperty(key, value) {
+      this.licenseeProperties[key] = value;
+      return this;
+    }
+    /**
+     * Get licensee property
+     * @param key
+     */
+
+  }, {
+    key: "getLicenseeProperty",
+    value: function getLicenseeProperty(key, def) {
+      return this.licenseeProperties[key] || def;
     }
     /**
      * Indicates, that the validation response is intended the offline use
@@ -9552,7 +9580,7 @@ try {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"netlicensing-client","version":"1.2.29","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.cjs","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.cjs","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.cjs","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^0.26.1","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.17.8","@babel/plugin-proposal-class-properties":"^7.16.7","@babel/plugin-proposal-decorators":"^7.17.8","@babel/plugin-proposal-export-namespace-from":"^7.16.7","@babel/plugin-proposal-function-sent":"^7.16.7","@babel/plugin-proposal-json-strings":"^7.16.7","@babel/plugin-proposal-numeric-separator":"^7.16.7","@babel/plugin-proposal-throw-expressions":"^7.16.7","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.17.7","@babel/plugin-transform-runtime":"^7.17.0","@babel/preset-env":"^7.16.11","@babel/runtime":"^7.17.8","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^8.2.2","chalk":"^4.1.2","eslint":"^8.12.0","eslint-config-airbnb-base":"^15.0.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-plugin-import":"^2.25.4","eslint-plugin-jasmine":"^4.1.3","eslint-webpack-plugin":"^3.1.1","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^4.0.2","jasmine-core":"^4.0.1","karma":"^6.3.17","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.2","karma-jasmine":"^4.0.2","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.33","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.3.1","webpack":"^5.70.0","webpack-cli":"^4.9.2","webpack-merge":"^5.8.0"},"engines":{"node":">= 12.0.0","npm":">= 6.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
+module.exports = JSON.parse('{"name":"netlicensing-client","version":"1.2.30","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.cjs","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.cjs","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.cjs","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^0.26.1","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.17.8","@babel/plugin-proposal-class-properties":"^7.16.7","@babel/plugin-proposal-decorators":"^7.17.8","@babel/plugin-proposal-export-namespace-from":"^7.16.7","@babel/plugin-proposal-function-sent":"^7.16.7","@babel/plugin-proposal-json-strings":"^7.16.7","@babel/plugin-proposal-numeric-separator":"^7.16.7","@babel/plugin-proposal-throw-expressions":"^7.16.7","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.17.7","@babel/plugin-transform-runtime":"^7.17.0","@babel/preset-env":"^7.16.11","@babel/runtime":"^7.17.8","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^8.2.2","chalk":"^4.1.2","eslint":"^8.12.0","eslint-config-airbnb-base":"^15.0.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-plugin-import":"^2.25.4","eslint-plugin-jasmine":"^4.1.3","eslint-webpack-plugin":"^3.1.1","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^4.0.2","jasmine-core":"^4.0.1","karma":"^6.3.17","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.2","karma-jasmine":"^4.0.2","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.33","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.3.1","webpack":"^5.70.0","webpack-cli":"^4.9.2","webpack-merge":"^5.8.0"},"engines":{"node":">= 12.0.0","npm":">= 6.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
 
 /***/ })
 
