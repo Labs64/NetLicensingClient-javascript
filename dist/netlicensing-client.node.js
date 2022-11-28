@@ -7,510 +7,9 @@
 		exports["NetLicensing"] = factory();
 	else
 		root["NetLicensing"] = factory();
-})(this, function() {
+})(this, () => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
-
-/***/ 7228:
-/***/ ((module) => {
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 2858:
-/***/ ((module) => {
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 1506:
-/***/ ((module) => {
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-module.exports = _assertThisInitialized, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 8926:
-/***/ ((module) => {
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
-}
-
-module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 4575:
-/***/ ((module) => {
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 9100:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var setPrototypeOf = __webpack_require__(9489);
-
-var isNativeReflectConstruct = __webpack_require__(7067);
-
-function _construct(Parent, args, Class) {
-  if (isNativeReflectConstruct()) {
-    module.exports = _construct = Reflect.construct, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  } else {
-    module.exports = _construct = function _construct(Parent, args, Class) {
-      var a = [null];
-      a.push.apply(a, args);
-      var Constructor = Function.bind.apply(Parent, a);
-      var instance = new Constructor();
-      if (Class) setPrototypeOf(instance, Class.prototype);
-      return instance;
-    }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  }
-
-  return _construct.apply(null, arguments);
-}
-
-module.exports = _construct, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 3913:
-/***/ ((module) => {
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  Object.defineProperty(Constructor, "prototype", {
-    writable: false
-  });
-  return Constructor;
-}
-
-module.exports = _createClass, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 9713:
-/***/ ((module) => {
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-module.exports = _defineProperty, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 6525:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var superPropBase = __webpack_require__(8331);
-
-function _get() {
-  if (typeof Reflect !== "undefined" && Reflect.get) {
-    module.exports = _get = Reflect.get, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  } else {
-    module.exports = _get = function _get(target, property, receiver) {
-      var base = superPropBase(target, property);
-      if (!base) return;
-      var desc = Object.getOwnPropertyDescriptor(base, property);
-
-      if (desc.get) {
-        return desc.get.call(arguments.length < 3 ? target : receiver);
-      }
-
-      return desc.value;
-    }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  }
-
-  return _get.apply(this, arguments);
-}
-
-module.exports = _get, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 9754:
-/***/ ((module) => {
-
-function _getPrototypeOf(o) {
-  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  return _getPrototypeOf(o);
-}
-
-module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 2205:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var setPrototypeOf = __webpack_require__(9489);
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  Object.defineProperty(subClass, "prototype", {
-    writable: false
-  });
-  if (superClass) setPrototypeOf(subClass, superClass);
-}
-
-module.exports = _inherits, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 5318:
-/***/ ((module) => {
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-
-module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 430:
-/***/ ((module) => {
-
-function _isNativeFunction(fn) {
-  return Function.toString.call(fn).indexOf("[native code]") !== -1;
-}
-
-module.exports = _isNativeFunction, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 7067:
-/***/ ((module) => {
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-module.exports = _isNativeReflectConstruct, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 3884:
-/***/ ((module) => {
-
-function _iterableToArrayLimit(arr, i) {
-  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
-
-  if (_i == null) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-
-  var _s, _e;
-
-  try {
-    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 521:
-/***/ ((module) => {
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-module.exports = _nonIterableRest, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 8585:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var _typeof = (__webpack_require__(8)["default"]);
-
-var assertThisInitialized = __webpack_require__(1506);
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  } else if (call !== void 0) {
-    throw new TypeError("Derived constructors may only return object or undefined");
-  }
-
-  return assertThisInitialized(self);
-}
-
-module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 9489:
-/***/ ((module) => {
-
-function _setPrototypeOf(o, p) {
-  module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  return _setPrototypeOf(o, p);
-}
-
-module.exports = _setPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 3038:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var arrayWithHoles = __webpack_require__(2858);
-
-var iterableToArrayLimit = __webpack_require__(3884);
-
-var unsupportedIterableToArray = __webpack_require__(379);
-
-var nonIterableRest = __webpack_require__(521);
-
-function _slicedToArray(arr, i) {
-  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
-}
-
-module.exports = _slicedToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 8331:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var getPrototypeOf = __webpack_require__(9754);
-
-function _superPropBase(object, property) {
-  while (!Object.prototype.hasOwnProperty.call(object, property)) {
-    object = getPrototypeOf(object);
-    if (object === null) break;
-  }
-
-  return object;
-}
-
-module.exports = _superPropBase, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 8:
-/***/ ((module) => {
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
-}
-
-module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 379:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var arrayLikeToArray = __webpack_require__(7228);
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
-}
-
-module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 5957:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var getPrototypeOf = __webpack_require__(9754);
-
-var setPrototypeOf = __webpack_require__(9489);
-
-var isNativeFunction = __webpack_require__(430);
-
-var construct = __webpack_require__(9100);
-
-function _wrapNativeSuper(Class) {
-  var _cache = typeof Map === "function" ? new Map() : undefined;
-
-  module.exports = _wrapNativeSuper = function _wrapNativeSuper(Class) {
-    if (Class === null || !isNativeFunction(Class)) return Class;
-
-    if (typeof Class !== "function") {
-      throw new TypeError("Super expression must either be null or a function");
-    }
-
-    if (typeof _cache !== "undefined") {
-      if (_cache.has(Class)) return _cache.get(Class);
-
-      _cache.set(Class, Wrapper);
-    }
-
-    function Wrapper() {
-      return construct(Class, arguments, getPrototypeOf(this).constructor);
-    }
-
-    Wrapper.prototype = Object.create(Class.prototype, {
-      constructor: {
-        value: Wrapper,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-    return setPrototypeOf(Wrapper, Class);
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  return _wrapNativeSuper(Class);
-}
-
-module.exports = _wrapNativeSuper, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 7757:
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__(5666);
-
-
-/***/ }),
 
 /***/ 9669:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
@@ -3006,7 +2505,6 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -3075,7 +2573,6 @@ var _default = {
     DESCRIPTION: 'description',
     LICENSING_INFO: 'licensingInfo',
     DISCOUNTS: 'discounts',
-
     /**
      * @deprecated use ProductModule.PROP_LICENSEE_SECRET_MODE instead
      */
@@ -3143,7 +2640,6 @@ var _default = {
     VAT_MODE: 'vatMode',
     LICENSE_TRANSACTION_JOIN: 'licenseTransactionJoin',
     SOURCE_SHOP_ONLY: 'shopOnly',
-
     /**
      * @deprecated
      */
@@ -3160,7 +2656,6 @@ var _default = {
     LICENSEE_NUMBER: 'licenseeNumber',
     SOURCE_LICENSEE_NUMBER: 'sourceLicenseeNumber',
     PROP_LICENSEE_NAME: 'licenseeName',
-
     /**
      * @deprecated use License.PROP_LICENSEE_SECRET
      */
@@ -3210,21 +2705,16 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
-
 var _Country = _interopRequireDefault(__webpack_require__(187));
-
 var _default = function _default(item) {
   return new _Country.default((0, _itemToObject.default)(item));
 };
-
 exports["default"] = _default;
 
 /***/ }),
@@ -3235,21 +2725,16 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
-
 var _License = _interopRequireDefault(__webpack_require__(9763));
-
 var _default = function _default(item) {
   return new _License.default((0, _itemToObject.default)(item));
 };
-
 exports["default"] = _default;
 
 /***/ }),
@@ -3260,21 +2745,16 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
-
 var _LicenseTemplate = _interopRequireDefault(__webpack_require__(767));
-
 var _default = function _default(item) {
   return new _LicenseTemplate.default((0, _itemToObject.default)(item));
 };
-
 exports["default"] = _default;
 
 /***/ }),
@@ -3285,21 +2765,16 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
-
 var _Licensee = _interopRequireDefault(__webpack_require__(2948));
-
 var _default = function _default(item) {
   return new _Licensee.default((0, _itemToObject.default)(item));
 };
-
 exports["default"] = _default;
 
 /***/ }),
@@ -3314,34 +2789,28 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 var itemToObject = function itemToObject(item) {
   var object = {};
   var property = item.property,
-      list = item.list;
-
+    list = item.list;
   if (property && Array.isArray(property)) {
     property.forEach(function (p) {
       var name = p.name,
-          value = p.value;
+        value = p.value;
       if (name) object[name] = value;
     });
   }
-
   if (list && Array.isArray(list)) {
     list.forEach(function (l) {
       var name = l.name;
-
       if (name) {
         object[name] = object[name] || [];
         object[name].push(itemToObject(l));
       }
     });
   }
-
   return object;
 };
-
 var _default = itemToObject;
 exports["default"] = _default;
 
@@ -3353,21 +2822,16 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
-
 var _PaymentMethod = _interopRequireDefault(__webpack_require__(5088));
-
 var _default = function _default(item) {
   return new _PaymentMethod.default((0, _itemToObject.default)(item));
 };
-
 exports["default"] = _default;
 
 /***/ }),
@@ -3378,17 +2842,13 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
-
 var _Product = _interopRequireDefault(__webpack_require__(7143));
-
 var _default = function _default(item) {
   var object = (0, _itemToObject.default)(item);
   var discounts = object.discount;
@@ -3397,7 +2857,6 @@ var _default = function _default(item) {
   product.setProductDiscounts(discounts);
   return product;
 };
-
 exports["default"] = _default;
 
 /***/ }),
@@ -3408,21 +2867,16 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
-
 var _ProductModule = _interopRequireDefault(__webpack_require__(3886));
-
 var _default = function _default(item) {
   return new _ProductModule.default((0, _itemToObject.default)(item));
 };
-
 exports["default"] = _default;
 
 /***/ }),
@@ -3433,21 +2887,16 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
-
 var _Token = _interopRequireDefault(__webpack_require__(8132));
-
 var _default = function _default(item) {
   return new _Token.default((0, _itemToObject.default)(item));
 };
-
 exports["default"] = _default;
 
 /***/ }),
@@ -3458,29 +2907,21 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
-
 var _Transaction = _interopRequireDefault(__webpack_require__(4880));
-
 var _License = _interopRequireDefault(__webpack_require__(9763));
-
 var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3089));
-
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-
 var _default = function _default(item) {
   var object = (0, _itemToObject.default)(item);
   var licenseTransactionJoin = object.licenseTransactionJoin;
   delete object.licenseTransactionJoin;
   var transaction = new _Transaction.default(object);
-
   if (licenseTransactionJoin) {
     var joins = [];
     licenseTransactionJoin.forEach(function (v) {
@@ -3495,10 +2936,8 @@ var _default = function _default(item) {
     });
     transaction.setLicenseTransactionJoins(joins);
   }
-
   return transaction;
 };
-
 exports["default"] = _default;
 
 /***/ }),
@@ -3509,35 +2948,26 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(9713));
-
-var _typeof2 = _interopRequireDefault(__webpack_require__(8));
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _typeof2 = _interopRequireDefault(__webpack_require__(8698));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-
 var _CastsUtils = _interopRequireDefault(__webpack_require__(553));
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
 /**
  * The entity properties.
  * @type {{}}
  * @private
  */
 var propertiesMap = new WeakMap();
+
 /**
  * List of properties that was defined
  * @type {{}}
@@ -3545,35 +2975,32 @@ var propertiesMap = new WeakMap();
  */
 
 var definedMap = new WeakMap();
+
 /**
  * List of properties that need be casts
  * @type {{}}
  * @private
  */
-
 var castsMap = new WeakMap();
-
 var BaseEntity = /*#__PURE__*/function () {
   function BaseEntity(_ref) {
     var properties = _ref.properties,
-        casts = _ref.casts;
+      casts = _ref.casts;
     (0, _classCallCheck2.default)(this, BaseEntity);
     propertiesMap.set(this, {});
     definedMap.set(this, {});
     castsMap.set(this, casts || []);
-
     if (properties) {
       this.setProperties(properties);
     }
   }
+
   /**
    * Set a given property on the entity.
    * @param property
    * @param value
    * @returns {BaseEntity}
    */
-
-
   (0, _createClass2.default)(BaseEntity, [{
     key: "setProperty",
     value: function setProperty(property, value) {
@@ -3581,38 +3008,38 @@ var BaseEntity = /*#__PURE__*/function () {
       if (!_CheckUtils.default.isValid(property) || (0, _typeof2.default)(property) === 'object') {
         throw new TypeError("Bad property name:".concat(property));
       }
+      var castedValue = this.cast(property, value);
 
-      var castedValue = this.cast(property, value); // define to property
+      // define to property
+      this.define(property);
 
-      this.define(property); // save property to propertiesMap
-
+      // save property to propertiesMap
       var properties = propertiesMap.get(this);
       properties[property] = castedValue;
       return this;
     }
+
     /**
      * Alias for setProperty
      * @param property
      * @param value
      * @returns {BaseEntity}
      */
-
   }, {
     key: "addProperty",
     value: function addProperty(property, value) {
       return this.setProperty(property, value);
     }
+
     /**
      * Set the entity properties.
      * @param properties
      * @returns {BaseEntity}
      */
-
   }, {
     key: "setProperties",
     value: function setProperties(properties) {
       var _this = this;
-
       this.removeProperties();
       var has = Object.prototype.hasOwnProperty;
       Object.keys(properties).forEach(function (key) {
@@ -3622,44 +3049,44 @@ var BaseEntity = /*#__PURE__*/function () {
       });
       return this;
     }
+
     /**
      * Check if we has property
      * @param property
      * @protected
      */
-
   }, {
     key: "hasProperty",
     value: function hasProperty(property) {
       return Object.prototype.hasOwnProperty.call(propertiesMap.get(this), property);
     }
+
     /**
      * Get an property from the entity.
      * @param property
      * @param def
      * @returns {*}
      */
-
   }, {
     key: "getProperty",
     value: function getProperty(property, def) {
       return Object.prototype.hasOwnProperty.call(propertiesMap.get(this), property) ? propertiesMap.get(this)[property] : def;
     }
+
     /**
      * Get all of the current properties on the entity.
      */
-
   }, {
     key: "getProperties",
     value: function getProperties() {
       return _objectSpread({}, propertiesMap.get(this));
     }
+
     /**
      * Remove property
      * @param property
      * @returns {BaseEntity}
      */
-
   }, {
     key: "removeProperty",
     value: function removeProperty(property) {
@@ -3668,16 +3095,15 @@ var BaseEntity = /*#__PURE__*/function () {
       this.removeDefine(property);
       return this;
     }
+
     /**
      * Remove properties
      * @param properties
      */
-
   }, {
     key: "removeProperties",
     value: function removeProperties(properties) {
       var _this2 = this;
-
       var propertiesForRemove = properties || Object.keys(propertiesMap.get(this));
       propertiesForRemove.forEach(function (property) {
         _this2.removeProperty(property);
@@ -3689,34 +3115,33 @@ var BaseEntity = /*#__PURE__*/function () {
       if (!castsMap.get(this)[property]) return value;
       return (0, _CastsUtils.default)(castsMap.get(this)[property], value);
     }
+
     /**
      * Check if property has defined
      * @param property
      * @protected
      */
-
   }, {
     key: "hasDefine",
     value: function hasDefine(property) {
       return Boolean(definedMap.get(this)[property]);
     }
+
     /**
      * Define property getter and setter
      * @param property
      * @protected
      */
-
   }, {
     key: "define",
     value: function define(property) {
       if (this.hasDefine(property)) return;
-
       if (!_CheckUtils.default.isValid(property) || (0, _typeof2.default)(property) === 'object') {
         throw new TypeError("Bad property name:".concat(property));
       }
+      var self = this;
 
-      var self = this; // delete property
-
+      // delete property
       delete this[property];
       var descriptors = {
         enumerable: true,
@@ -3732,12 +3157,12 @@ var BaseEntity = /*#__PURE__*/function () {
       defined[property] = true;
       Object.defineProperty(this, property, descriptors);
     }
+
     /**
      * Remove property getter and setter
      * @param property
      * @protected
      */
-
   }, {
     key: "removeDefine",
     value: function removeDefine(property) {
@@ -3746,15 +3171,14 @@ var BaseEntity = /*#__PURE__*/function () {
       delete defined[property];
       delete this[property];
     }
+
     /**
      * Get properties map
      */
-
   }, {
     key: "asPropertiesMap",
     value: function asPropertiesMap() {
       var _this3 = this;
-
       var properties = this.getProperties();
       var customProperties = {};
       var has = Object.prototype.hasOwnProperty;
@@ -3767,7 +3191,6 @@ var BaseEntity = /*#__PURE__*/function () {
   }]);
   return BaseEntity;
 }();
-
 exports["default"] = BaseEntity;
 
 /***/ }),
@@ -3778,29 +3201,19 @@ exports["default"] = BaseEntity;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(2205));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8585));
-
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(9754));
-
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
-
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 /**
  * Country entity used internally by NetLicensing.
  *
@@ -3816,9 +3229,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  */
 var Country = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(Country, _BaseEntity);
-
   var _super = _createSuper(Country);
-
   function Country(properties) {
     (0, _classCallCheck2.default)(this, Country);
     return _super.call(this, {
@@ -3832,7 +3243,6 @@ var Country = /*#__PURE__*/function (_BaseEntity) {
       }
     });
   }
-
   (0, _createClass2.default)(Country, [{
     key: "setCode",
     value: function setCode(code) {
@@ -3876,7 +3286,6 @@ var Country = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return Country;
 }(_BaseEntity2.default);
-
 exports["default"] = Country;
 
 /***/ }),
@@ -3887,29 +3296,19 @@ exports["default"] = Country;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(2205));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8585));
-
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(9754));
-
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
-
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 /**
  * License entity used internally by NetLicensing.
  *
@@ -3947,9 +3346,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  */
 var License = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(License, _BaseEntity);
-
   var _super = _createSuper(License);
-
   function License(properties) {
     (0, _classCallCheck2.default)(this, License);
     return _super.call(this, {
@@ -3968,7 +3365,6 @@ var License = /*#__PURE__*/function (_BaseEntity) {
       }
     });
   }
-
   (0, _createClass2.default)(License, [{
     key: "setNumber",
     value: function setNumber(number) {
@@ -4057,7 +3453,6 @@ var License = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return License;
 }(_BaseEntity2.default);
-
 exports["default"] = License;
 
 /***/ }),
@@ -4068,29 +3463,19 @@ exports["default"] = License;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(2205));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8585));
-
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(9754));
-
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
-
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 /**
  * License template entity used internally by NetLicensing.
  *
@@ -4149,9 +3534,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  */
 var LicenseTemplate = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(LicenseTemplate, _BaseEntity);
-
   var _super = _createSuper(LicenseTemplate);
-
   function LicenseTemplate(properties) {
     (0, _classCallCheck2.default)(this, LicenseTemplate);
     return _super.call(this, {
@@ -4176,7 +3559,6 @@ var LicenseTemplate = /*#__PURE__*/function (_BaseEntity) {
       }
     });
   }
-
   (0, _createClass2.default)(LicenseTemplate, [{
     key: "setNumber",
     value: function setNumber(number) {
@@ -4315,7 +3697,6 @@ var LicenseTemplate = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return LicenseTemplate;
 }(_BaseEntity2.default);
-
 exports["default"] = LicenseTemplate;
 
 /***/ }),
@@ -4326,17 +3707,13 @@ exports["default"] = LicenseTemplate;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -4349,7 +3726,6 @@ var LicenseTransactionJoin = /*#__PURE__*/function () {
     this.transaction = transaction;
     this.license = license;
   }
-
   (0, _createClass2.default)(LicenseTransactionJoin, [{
     key: "setTransaction",
     value: function setTransaction(transaction) {
@@ -4375,7 +3751,6 @@ var LicenseTransactionJoin = /*#__PURE__*/function () {
   }]);
   return LicenseTransactionJoin;
 }();
-
 exports["default"] = LicenseTransactionJoin;
 
 /***/ }),
@@ -4386,29 +3761,19 @@ exports["default"] = LicenseTransactionJoin;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(2205));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8585));
-
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(9754));
-
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
-
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 /**
  * Licensee entity used internally by NetLicensing.
  *
@@ -4439,9 +3804,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  */
 var Licensee = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(Licensee, _BaseEntity);
-
   var _super = _createSuper(Licensee);
-
   function Licensee(properties) {
     (0, _classCallCheck2.default)(this, Licensee);
     return _super.call(this, {
@@ -4457,7 +3820,6 @@ var Licensee = /*#__PURE__*/function (_BaseEntity) {
       }
     });
   }
-
   (0, _createClass2.default)(Licensee, [{
     key: "setNumber",
     value: function setNumber(number) {
@@ -4498,19 +3860,19 @@ var Licensee = /*#__PURE__*/function (_BaseEntity) {
     value: function getProductNumber(def) {
       return this.getProperty('productNumber', def);
     }
+
     /**
      * @deprecated
      */
-
   }, {
     key: "setLicenseeSecret",
     value: function setLicenseeSecret(licenseeSecret) {
       return this.setProperty('licenseeSecret', licenseeSecret);
     }
+
     /**
      * @deprecated
      */
-
   }, {
     key: "getLicenseeSecret",
     value: function getLicenseeSecret(def) {
@@ -4534,7 +3896,6 @@ var Licensee = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return Licensee;
 }(_BaseEntity2.default);
-
 exports["default"] = Licensee;
 
 /***/ }),
@@ -4545,29 +3906,19 @@ exports["default"] = Licensee;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(2205));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8585));
-
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(9754));
-
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
-
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 /**
  * PaymentMethod entity used internally by NetLicensing.
  *
@@ -4578,9 +3929,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  */
 var PaymentMethod = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(PaymentMethod, _BaseEntity);
-
   var _super = _createSuper(PaymentMethod);
-
   function PaymentMethod(properties) {
     (0, _classCallCheck2.default)(this, PaymentMethod);
     return _super.call(this, {
@@ -4593,7 +3942,6 @@ var PaymentMethod = /*#__PURE__*/function (_BaseEntity) {
       }
     });
   }
-
   (0, _createClass2.default)(PaymentMethod, [{
     key: "setNumber",
     value: function setNumber(number) {
@@ -4627,7 +3975,6 @@ var PaymentMethod = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return PaymentMethod;
 }(_BaseEntity2.default);
-
 exports["default"] = PaymentMethod;
 
 /***/ }),
@@ -4638,48 +3985,36 @@ exports["default"] = PaymentMethod;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
-var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(1506));
-
-var _get2 = _interopRequireDefault(__webpack_require__(6525));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(2205));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8585));
-
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(9754));
-
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(6115));
+var _get2 = _interopRequireDefault(__webpack_require__(1588));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
-
 var _ProductDiscount = _interopRequireDefault(__webpack_require__(3144));
-
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 /**
  * The discounts map
  * @type {{}}
  * @private
  */
 var discountsMap = new WeakMap();
+
 /**
  * An identifier that show if discounts was touched
  * @type {{}}
  * @private
  */
-
 var discountsTouched = new WeakMap();
+
 /**
  * NetLicensing  Product entity.
  *
@@ -4718,15 +4053,11 @@ var discountsTouched = new WeakMap();
  *
  * @constructor
  */
-
 var Product = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(Product, _BaseEntity);
-
   var _super = _createSuper(Product);
-
   function Product(properties) {
     var _this;
-
     (0, _classCallCheck2.default)(this, Product);
     _this = _super.call(this, {
       properties: properties,
@@ -4747,7 +4078,6 @@ var Product = /*#__PURE__*/function (_BaseEntity) {
     discountsTouched.set((0, _assertThisInitialized2.default)(_this), false);
     return _this;
   }
-
   (0, _createClass2.default)(Product, [{
     key: "setNumber",
     value: function setNumber(number) {
@@ -4798,19 +4128,19 @@ var Product = /*#__PURE__*/function (_BaseEntity) {
     value: function getLicenseeAutoCreate(def) {
       return this.getProperty('licenseeAutoCreate', def);
     }
+
     /**
      * @deprecated use ProductModule.setLicenseeSecretMode instead
      */
-
   }, {
     key: "setLicenseeSecretMode",
     value: function setLicenseeSecretMode(licenseeSecretMode) {
       return this.setProperty('licenseeSecretMode', licenseeSecretMode);
     }
+
     /**
      * @deprecated use ProductModule.getLicenseeSecretMode instead
      */
-
   }, {
     key: "getLicenseeSecretMode",
     value: function getLicenseeSecretMode(def) {
@@ -4841,57 +4171,52 @@ var Product = /*#__PURE__*/function (_BaseEntity) {
     value: function getInUse(def) {
       return this.getProperty('inUse', def);
     }
+
     /**
      * Add discount to product
      *
      * @param discount NetLicensing.ProductDiscount
      * @returns {NetLicensing.Product}
      */
-
   }, {
     key: "addDiscount",
     value: function addDiscount(discount) {
       var discounts = discountsMap.get(this);
       var productDiscount = discount;
-
       if (typeof productDiscount !== 'string' && !(productDiscount instanceof _ProductDiscount.default)) {
         productDiscount = new _ProductDiscount.default(productDiscount);
       }
-
       discounts.push(productDiscount);
       discountsMap.set(this, discounts);
       discountsTouched.set(this, true);
       return this;
     }
+
     /**
      * Set discounts to product
      * @param discounts
      */
-
   }, {
     key: "setProductDiscounts",
     value: function setProductDiscounts(discounts) {
       var _this2 = this;
-
       discountsMap.set(this, []);
       discountsTouched.set(this, true);
       if (!discounts) return this;
-
       if (Array.isArray(discounts)) {
         discounts.forEach(function (discount) {
           _this2.addDiscount(discount);
         });
         return this;
       }
-
       this.addDiscount(discounts);
       return this;
     }
+
     /**
      * Get array of objects discounts
      * @returns {Array}
      */
-
   }, {
     key: "getProductDiscounts",
     value: function getProductDiscounts() {
@@ -4901,23 +4226,19 @@ var Product = /*#__PURE__*/function (_BaseEntity) {
     key: "asPropertiesMap",
     value: function asPropertiesMap() {
       var propertiesMap = (0, _get2.default)((0, _getPrototypeOf2.default)(Product.prototype), "asPropertiesMap", this).call(this);
-
       if (discountsMap.get(this).length) {
         propertiesMap.discount = discountsMap.get(this).map(function (discount) {
           return discount.toString();
         });
       }
-
       if (!propertiesMap.discount && discountsTouched.get(this)) {
         propertiesMap.discount = '';
       }
-
       return propertiesMap;
     }
   }]);
   return Product;
 }(_BaseEntity2.default);
-
 exports["default"] = Product;
 
 /***/ }),
@@ -4928,34 +4249,22 @@ exports["default"] = Product;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(2205));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8585));
-
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(9754));
-
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
-
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 var ProductDiscount = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(ProductDiscount, _BaseEntity);
-
   var _super = _createSuper(ProductDiscount);
-
   function ProductDiscount(properties) {
     (0, _classCallCheck2.default)(this, ProductDiscount);
     return _super.call(this, {
@@ -4969,7 +4278,6 @@ var ProductDiscount = /*#__PURE__*/function (_BaseEntity) {
       }
     });
   }
-
   (0, _createClass2.default)(ProductDiscount, [{
     key: "setTotalPrice",
     value: function setTotalPrice(totalPrice) {
@@ -5023,7 +4331,6 @@ var ProductDiscount = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return ProductDiscount;
 }(_BaseEntity2.default);
-
 exports["default"] = ProductDiscount;
 
 /***/ }),
@@ -5034,29 +4341,19 @@ exports["default"] = ProductDiscount;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(2205));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8585));
-
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(9754));
-
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
-
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 /**
  * Product module entity used internally by NetLicensing.
  *
@@ -5097,9 +4394,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  */
 var ProductModule = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(ProductModule, _BaseEntity);
-
   var _super = _createSuper(ProductModule);
-
   function ProductModule(properties) {
     (0, _classCallCheck2.default)(this, ProductModule);
     return _super.call(this, {
@@ -5119,7 +4414,6 @@ var ProductModule = /*#__PURE__*/function (_BaseEntity) {
       }
     });
   }
-
   (0, _createClass2.default)(ProductModule, [{
     key: "setNumber",
     value: function setNumber(number) {
@@ -5218,7 +4512,6 @@ var ProductModule = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return ProductModule;
 }(_BaseEntity2.default);
-
 exports["default"] = ProductModule;
 
 /***/ }),
@@ -5229,29 +4522,19 @@ exports["default"] = ProductModule;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(2205));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8585));
-
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(9754));
-
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
-
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 /**
  * Product module entity used internally by NetLicensing.
  *
@@ -5280,9 +4563,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  */
 var Token = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(Token, _BaseEntity);
-
   var _super = _createSuper(Token);
-
   function Token(properties) {
     (0, _classCallCheck2.default)(this, Token);
     return _super.call(this, {
@@ -5303,7 +4584,6 @@ var Token = /*#__PURE__*/function (_BaseEntity) {
       }
     });
   }
-
   (0, _createClass2.default)(Token, [{
     key: "getNumber",
     value: function getNumber(def) {
@@ -5404,25 +4684,25 @@ var Token = /*#__PURE__*/function (_BaseEntity) {
     value: function getShopURL(def) {
       return this.getProperty('shopURL', def);
     }
+
     /**
      * @deprecated
      * @alias setApiKeyRole
      * @param role
      * @returns {*}
      */
-
   }, {
     key: "setRole",
     value: function setRole(role) {
       return this.setApiKeyRole(role);
     }
+
     /**
      * @deprecated
      * @alias getApiKeyRole
      * @param def
      * @returns {*}
      */
-
   }, {
     key: "getRole",
     value: function getRole(def) {
@@ -5441,7 +4721,6 @@ var Token = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return Token;
 }(_BaseEntity2.default);
-
 exports["default"] = Token;
 
 /***/ }),
@@ -5452,33 +4731,21 @@ exports["default"] = Token;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(2205));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8585));
-
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(9754));
-
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
-
 var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3089));
-
 var _License = _interopRequireDefault(__webpack_require__(9763));
-
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 /**
  * Transaction entity used internally by NetLicensing.
  *
@@ -5516,9 +4783,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  */
 var Transaction = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(Transaction, _BaseEntity);
-
   var _super = _createSuper(Transaction);
-
   function Transaction(properties) {
     (0, _classCallCheck2.default)(this, Transaction);
     return _super.call(this, {
@@ -5539,7 +4804,6 @@ var Transaction = /*#__PURE__*/function (_BaseEntity) {
       }
     });
   }
-
   (0, _createClass2.default)(Transaction, [{
     key: "setNumber",
     value: function setNumber(number) {
@@ -5667,7 +4931,6 @@ var Transaction = /*#__PURE__*/function (_BaseEntity) {
             number: property.value
           }));
         }
-
         if (property.name === 'transactionNumber') {
           licenseTransactionJoin.setTransaction(new Transaction({
             number: property.value
@@ -5680,7 +4943,6 @@ var Transaction = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return Transaction;
 }(_BaseEntity2.default);
-
 exports["default"] = Transaction;
 
 /***/ }),
@@ -5691,43 +4953,28 @@ exports["default"] = Transaction;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
-var _inherits2 = _interopRequireDefault(__webpack_require__(2205));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8585));
-
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(9754));
-
-var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(5957));
-
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(3496));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
 var NlicError = /*#__PURE__*/function (_Error) {
   (0, _inherits2.default)(NlicError, _Error);
-
   var _super = _createSuper(NlicError);
-
   function NlicError() {
     var _this;
-
     (0, _classCallCheck2.default)(this, NlicError);
-
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
-
     _this = _super.call.apply(_super, [this].concat(args));
     _this.config = {};
     _this.response = {};
@@ -5737,7 +4984,6 @@ var NlicError = /*#__PURE__*/function (_Error) {
     _this.isAxiosError = true;
     return _this;
   }
-
   (0, _createClass2.default)(NlicError, [{
     key: "toJSON",
     value: function toJSON() {
@@ -5761,7 +5007,6 @@ var NlicError = /*#__PURE__*/function (_Error) {
   }]);
   return NlicError;
 }( /*#__PURE__*/(0, _wrapNativeSuper2.default)(Error));
-
 exports["default"] = NlicError;
 
 /***/ }),
@@ -5772,38 +5017,26 @@ exports["default"] = NlicError;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _regenerator = _interopRequireDefault(__webpack_require__(7757));
-
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(3038));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(8926));
-
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-
 var _Service = _interopRequireDefault(__webpack_require__(393));
-
 var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
-
 var _itemToLicense = _interopRequireDefault(__webpack_require__(3887));
-
 var _Page = _interopRequireDefault(__webpack_require__(9407));
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-
 /**
  * JS representation of the License Service. See NetLicensingAPI for details:
  * https://netlicensing.io/wiki/license-services
@@ -5840,21 +5073,17 @@ var _default = {
   create: function create(context, licenseeNumber, licenseTemplateNumber, transactionNumber, license) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
-
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(licenseeNumber, _Constants.default.Licensee.LICENSEE_NUMBER);
-
               _CheckUtils.default.paramNotEmpty(licenseTemplateNumber, _Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER);
-
               license.setProperty(_Constants.default.Licensee.LICENSEE_NUMBER, licenseeNumber);
               license.setProperty(_Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER, licenseTemplateNumber);
               if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
               _context.next = 7;
               return _Service.default.post(context, _Constants.default.License.ENDPOINT_PATH, license.asPropertiesMap());
-
             case 7:
               _yield$Service$post = _context.sent;
               items = _yield$Service$post.data.items.item;
@@ -5863,7 +5092,6 @@ var _default = {
                 return type === 'License';
               }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
               return _context.abrupt("return", (0, _itemToLicense.default)(item));
-
             case 11:
             case "end":
               return _context.stop();
@@ -5872,7 +5100,6 @@ var _default = {
       }, _callee);
     }))();
   },
-
   /**
    * Gets license by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-services#get-license
@@ -5889,16 +5116,13 @@ var _default = {
   get: function get(context, number) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
-
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               _context2.next = 3;
               return _Service.default.get(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number));
-
             case 3:
               _yield$Service$get = _context2.sent;
               items = _yield$Service$get.data.items.item;
@@ -5907,7 +5131,6 @@ var _default = {
                 return type === 'License';
               }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
               return _context2.abrupt("return", (0, _itemToLicense.default)(item));
-
             case 7:
             case "end":
               return _context2.stop();
@@ -5916,7 +5139,6 @@ var _default = {
       }, _callee2);
     }))();
   },
-
   /**
    * Returns licenses of a vendor.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-services#licenses-list
@@ -5933,32 +5155,25 @@ var _default = {
   list: function list(context, filter) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
-
       return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               queryParams = {};
-
               if (!filter) {
                 _context3.next = 5;
                 break;
               }
-
               if (_CheckUtils.default.isValid(filter)) {
                 _context3.next = 4;
                 break;
               }
-
               throw new TypeError("filter has bad value ".concat(filter));
-
             case 4:
               queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-
             case 5:
               _context3.next = 7;
               return _Service.default.get(context, _Constants.default.License.ENDPOINT_PATH, queryParams);
-
             case 7:
               _yield$Service$get2 = _context3.sent;
               data = _yield$Service$get2.data;
@@ -5968,7 +5183,6 @@ var _default = {
               }).map(function (v) {
                 return (0, _itemToLicense.default)(v);
               }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-
             case 10:
             case "end":
               return _context3.stop();
@@ -5977,7 +5191,6 @@ var _default = {
       }, _callee3);
     }))();
   },
-
   /**
    * Updates license properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-services#update-license
@@ -6001,17 +5214,14 @@ var _default = {
   update: function update(context, number, transactionNumber, license) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
-
       return _regenerator.default.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
               _context4.next = 4;
               return _Service.default.post(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number), license.asPropertiesMap());
-
             case 4:
               _yield$Service$post2 = _context4.sent;
               items = _yield$Service$post2.data.items.item;
@@ -6020,7 +5230,6 @@ var _default = {
                 return type === 'License';
               }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
               return _context4.abrupt("return", (0, _itemToLicense.default)(item));
-
             case 8:
             case "end":
               return _context4.stop();
@@ -6029,7 +5238,6 @@ var _default = {
       }, _callee4);
     }))();
   },
-
   /**
    * Deletes license.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-services#delete-license
@@ -6050,7 +5258,6 @@ var _default = {
    */
   delete: function _delete(context, number, forceCascade) {
     _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
     var queryParams = {
       forceCascade: Boolean(forceCascade)
     };
@@ -6067,38 +5274,26 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _regenerator = _interopRequireDefault(__webpack_require__(7757));
-
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(3038));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(8926));
-
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-
 var _Service = _interopRequireDefault(__webpack_require__(393));
-
 var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
-
 var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(3255));
-
 var _Page = _interopRequireDefault(__webpack_require__(9407));
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-
 /**
  * JS representation of the ProductModule Service. See NetLicensingAPI for details:
  * https://netlicensing.io/wiki/license-template-services
@@ -6126,17 +5321,14 @@ var _default = {
   create: function create(context, productModuleNumber, licenseTemplate) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
-
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(productModuleNumber, _Constants.default.ProductModule.PRODUCT_MODULE_NUMBER);
-
               licenseTemplate.setProperty(_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER, productModuleNumber);
               _context.next = 4;
               return _Service.default.post(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, licenseTemplate.asPropertiesMap());
-
             case 4:
               _yield$Service$post = _context.sent;
               items = _yield$Service$post.data.items.item;
@@ -6145,7 +5337,6 @@ var _default = {
                 return type === 'LicenseTemplate';
               }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
               return _context.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
-
             case 8:
             case "end":
               return _context.stop();
@@ -6154,7 +5345,6 @@ var _default = {
       }, _callee);
     }))();
   },
-
   /**
    * Gets license template by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-template-services#get-license-template
@@ -6171,16 +5361,13 @@ var _default = {
   get: function get(context, number) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
-
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               _context2.next = 3;
               return _Service.default.get(context, "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number));
-
             case 3:
               _yield$Service$get = _context2.sent;
               items = _yield$Service$get.data.items.item;
@@ -6189,7 +5376,6 @@ var _default = {
                 return type === 'LicenseTemplate';
               }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
               return _context2.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
-
             case 7:
             case "end":
               return _context2.stop();
@@ -6198,7 +5384,6 @@ var _default = {
       }, _callee2);
     }))();
   },
-
   /**
    * Returns all license templates of a vendor.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-template-services#license-templates-list
@@ -6215,32 +5400,25 @@ var _default = {
   list: function list(context, filter) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
-
       return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               queryParams = {};
-
               if (!filter) {
                 _context3.next = 5;
                 break;
               }
-
               if (_CheckUtils.default.isValid(filter)) {
                 _context3.next = 4;
                 break;
               }
-
               throw new TypeError("filter has bad value ".concat(filter));
-
             case 4:
               queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-
             case 5:
               _context3.next = 7;
               return _Service.default.get(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, queryParams);
-
             case 7:
               _yield$Service$get2 = _context3.sent;
               data = _yield$Service$get2.data;
@@ -6250,7 +5428,6 @@ var _default = {
               }).map(function (v) {
                 return (0, _itemToLicenseTemplate.default)(v);
               }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-
             case 10:
             case "end":
               return _context3.stop();
@@ -6259,7 +5436,6 @@ var _default = {
       }, _callee3);
     }))();
   },
-
   /**
    * Updates license template properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-template-services#update-license-template
@@ -6279,17 +5455,14 @@ var _default = {
   update: function update(context, number, licenseTemplate) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var path, _yield$Service$post2, items, _items$filter5, _items$filter6, item;
-
       return _regenerator.default.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               path = "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number);
               _context4.next = 4;
               return _Service.default.post(context, path, licenseTemplate.asPropertiesMap());
-
             case 4:
               _yield$Service$post2 = _context4.sent;
               items = _yield$Service$post2.data.items.item;
@@ -6298,7 +5471,6 @@ var _default = {
                 return type === 'LicenseTemplate';
               }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
               return _context4.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
-
             case 8:
             case "end":
               return _context4.stop();
@@ -6307,7 +5479,6 @@ var _default = {
       }, _callee4);
     }))();
   },
-
   /**
    * Deletes license template.See NetLicensingAPI JavaDoc for details:
    * @see https://netlicensing.io/wiki/license-template-services#delete-license-template
@@ -6326,7 +5497,6 @@ var _default = {
    */
   delete: function _delete(context, number, forceCascade) {
     _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
     var queryParams = {
       forceCascade: Boolean(forceCascade)
     };
@@ -6343,42 +5513,28 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _regenerator = _interopRequireDefault(__webpack_require__(7757));
-
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(3038));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(8926));
-
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-
 var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
-
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-
 var _Service = _interopRequireDefault(__webpack_require__(393));
-
 var _ValidationResults = _interopRequireDefault(__webpack_require__(3735));
-
 var _itemToLicensee = _interopRequireDefault(__webpack_require__(6463));
-
 var _Page = _interopRequireDefault(__webpack_require__(9407));
-
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-
 /**
  * JS representation of the Licensee Service. See NetLicensingAPI for details:
  * https://netlicensing.io/wiki/licensee-services
@@ -6406,17 +5562,14 @@ var _default = {
   create: function create(context, productNumber, licensee) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
-
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
-
               licensee.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
               _context.next = 4;
               return _Service.default.post(context, _Constants.default.Licensee.ENDPOINT_PATH, licensee.asPropertiesMap());
-
             case 4:
               _yield$Service$post = _context.sent;
               items = _yield$Service$post.data.items.item;
@@ -6425,7 +5578,6 @@ var _default = {
                 return type === 'Licensee';
               }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
               return _context.abrupt("return", (0, _itemToLicensee.default)(item));
-
             case 8:
             case "end":
               return _context.stop();
@@ -6434,7 +5586,6 @@ var _default = {
       }, _callee);
     }))();
   },
-
   /**
    * Gets licensee by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/licensee-services#get-licensee
@@ -6451,16 +5602,13 @@ var _default = {
   get: function get(context, number) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
-
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               _context2.next = 3;
               return _Service.default.get(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number));
-
             case 3:
               _yield$Service$get = _context2.sent;
               items = _yield$Service$get.data.items.item;
@@ -6469,7 +5617,6 @@ var _default = {
                 return type === 'Licensee';
               }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
               return _context2.abrupt("return", (0, _itemToLicensee.default)(item));
-
             case 7:
             case "end":
               return _context2.stop();
@@ -6478,7 +5625,6 @@ var _default = {
       }, _callee2);
     }))();
   },
-
   /**
    * Returns all licensees of a vendor.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/licensee-services#licensees-list
@@ -6495,32 +5641,25 @@ var _default = {
   list: function list(context, filter) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
-
       return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               queryParams = {};
-
               if (!filter) {
                 _context3.next = 5;
                 break;
               }
-
               if (_CheckUtils.default.isValid(filter)) {
                 _context3.next = 4;
                 break;
               }
-
               throw new TypeError("filter has bad value ".concat(filter));
-
             case 4:
               queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-
             case 5:
               _context3.next = 7;
               return _Service.default.get(context, _Constants.default.Licensee.ENDPOINT_PATH, queryParams);
-
             case 7:
               _yield$Service$get2 = _context3.sent;
               data = _yield$Service$get2.data;
@@ -6530,7 +5669,6 @@ var _default = {
               }).map(function (v) {
                 return (0, _itemToLicensee.default)(v);
               }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-
             case 10:
             case "end":
               return _context3.stop();
@@ -6539,7 +5677,6 @@ var _default = {
       }, _callee3);
     }))();
   },
-
   /**
    * Updates licensee properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/licensee-services#update-licensee
@@ -6559,16 +5696,13 @@ var _default = {
   update: function update(context, number, licensee) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
-
       return _regenerator.default.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               _context4.next = 3;
               return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number), licensee.asPropertiesMap());
-
             case 3:
               _yield$Service$post2 = _context4.sent;
               items = _yield$Service$post2.data.items.item;
@@ -6577,7 +5711,6 @@ var _default = {
                 return type === 'Licensee';
               }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
               return _context4.abrupt("return", (0, _itemToLicensee.default)(item));
-
             case 7:
             case "end":
               return _context4.stop();
@@ -6586,7 +5719,6 @@ var _default = {
       }, _callee4);
     }))();
   },
-
   /**
    * Deletes licensee.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/licensee-services#delete-licensee
@@ -6605,13 +5737,11 @@ var _default = {
    */
   delete: function _delete(context, number, forceCascade) {
     _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
     var queryParams = {
       forceCascade: Boolean(forceCascade)
     };
     return _Service.default.delete(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number), queryParams);
   },
-
   /**
    * Validates active licenses of the licensee.
    * In the case of multiple product modules validation,
@@ -6633,31 +5763,24 @@ var _default = {
   validate: function validate(context, number, validationParameters) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5() {
       var queryParams, pmIndex, parameters, has, _yield$Service$post3, _yield$Service$post3$, items, ttl, validationResults;
-
       return _regenerator.default.wrap(function _callee5$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               queryParams = {};
-
               if (validationParameters.getProductNumber()) {
                 queryParams.productNumber = validationParameters.getProductNumber();
               }
-
               Object.keys(validationParameters.getLicenseeProperties()).forEach(function (key) {
                 queryParams[key] = validationParameters.getLicenseeProperty(key);
               });
-
               if (validationParameters.isForOfflineUse()) {
                 queryParams.forOfflineUse = true;
               }
-
               if (validationParameters.getDryRun()) {
                 queryParams.dryRun = true;
               }
-
               pmIndex = 0;
               parameters = validationParameters.getParameters();
               has = Object.prototype.hasOwnProperty;
@@ -6674,7 +5797,6 @@ var _default = {
               });
               _context5.next = 12;
               return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number, "/").concat(_Constants.default.Licensee.ENDPOINT_PATH_VALIDATE), queryParams);
-
             case 12:
               _yield$Service$post3 = _context5.sent;
               _yield$Service$post3$ = _yield$Service$post3.data;
@@ -6690,7 +5812,6 @@ var _default = {
                 validationResults.setProductModuleValidation(item[_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER], item);
               });
               return _context5.abrupt("return", validationResults);
-
             case 20:
             case "end":
               return _context5.stop();
@@ -6699,7 +5820,6 @@ var _default = {
       }, _callee5);
     }))();
   },
-
   /**
    * Transfer licenses between licensees.
    * @see https://netlicensing.io/wiki/licensee-services#transfer-licenses
@@ -6717,9 +5837,7 @@ var _default = {
    */
   transfer: function transfer(context, number, sourceLicenseeNumber) {
     _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
     _CheckUtils.default.paramNotEmpty(sourceLicenseeNumber, _Constants.default.Licensee.SOURCE_LICENSEE_NUMBER);
-
     var queryParams = {
       sourceLicenseeNumber: sourceLicenseeNumber
     };
@@ -6736,31 +5854,20 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _regenerator = _interopRequireDefault(__webpack_require__(7757));
-
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(3038));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(8926));
-
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-
 var _Service = _interopRequireDefault(__webpack_require__(393));
-
 var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
-
 var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(797));
-
 var _Page = _interopRequireDefault(__webpack_require__(9407));
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -6784,16 +5891,13 @@ var _default = {
   get: function get(context, number) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$get, items, _items$filter, _items$filter2, item;
-
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               _context.next = 3;
               return _Service.default.get(context, "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number));
-
             case 3:
               _yield$Service$get = _context.sent;
               items = _yield$Service$get.data.items.item;
@@ -6802,7 +5906,6 @@ var _default = {
                 return type === 'PaymentMethod';
               }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
               return _context.abrupt("return", (0, _itemToPaymentMethod.default)(item));
-
             case 7:
             case "end":
               return _context.stop();
@@ -6811,7 +5914,6 @@ var _default = {
       }, _callee);
     }))();
   },
-
   /**
    * Returns payment methods of a vendor.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/payment-method-services#payment-methods-list
@@ -6828,32 +5930,25 @@ var _default = {
   list: function list(context, filter) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var queryParams, _yield$Service$get2, data;
-
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               queryParams = {};
-
               if (!filter) {
                 _context2.next = 5;
                 break;
               }
-
               if (_CheckUtils.default.isValid(filter)) {
                 _context2.next = 4;
                 break;
               }
-
               throw new TypeError("filter has bad value ".concat(filter));
-
             case 4:
               queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-
             case 5:
               _context2.next = 7;
               return _Service.default.get(context, _Constants.default.PaymentMethod.ENDPOINT_PATH, queryParams);
-
             case 7:
               _yield$Service$get2 = _context2.sent;
               data = _yield$Service$get2.data;
@@ -6863,7 +5958,6 @@ var _default = {
               }).map(function (v) {
                 return (0, _itemToPaymentMethod.default)(v);
               }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-
             case 10:
             case "end":
               return _context2.stop();
@@ -6872,7 +5966,6 @@ var _default = {
       }, _callee2);
     }))();
   },
-
   /**
    * Updates payment method properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/payment-method-services#update-payment-method
@@ -6892,17 +5985,14 @@ var _default = {
   update: function update(context, number, paymentMethod) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var path, _yield$Service$post, items, _items$filter3, _items$filter4, item;
-
       return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               path = "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number);
               _context3.next = 4;
               return _Service.default.post(context, path, paymentMethod.asPropertiesMap());
-
             case 4:
               _yield$Service$post = _context3.sent;
               items = _yield$Service$post.data.items.item;
@@ -6911,7 +6001,6 @@ var _default = {
                 return type === 'PaymentMethod';
               }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
               return _context3.abrupt("return", (0, _itemToPaymentMethod.default)(item));
-
             case 8:
             case "end":
               return _context3.stop();
@@ -6931,38 +6020,26 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _regenerator = _interopRequireDefault(__webpack_require__(7757));
-
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(3038));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(8926));
-
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-
 var _Service = _interopRequireDefault(__webpack_require__(393));
-
 var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
-
 var _itemToProductModule = _interopRequireDefault(__webpack_require__(2514));
-
 var _Page = _interopRequireDefault(__webpack_require__(9407));
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-
 /**
  * JS representation of the ProductModule Service. See NetLicensingAPI for details:
  * https://netlicensing.io/wiki/product-module-services
@@ -6990,17 +6067,14 @@ var _default = {
   create: function create(context, productNumber, productModule) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
-
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
-
               productModule.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
               _context.next = 4;
               return _Service.default.post(context, _Constants.default.ProductModule.ENDPOINT_PATH, productModule.asPropertiesMap());
-
             case 4:
               _yield$Service$post = _context.sent;
               items = _yield$Service$post.data.items.item;
@@ -7009,7 +6083,6 @@ var _default = {
                 return type === 'ProductModule';
               }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
               return _context.abrupt("return", (0, _itemToProductModule.default)(item));
-
             case 8:
             case "end":
               return _context.stop();
@@ -7018,7 +6091,6 @@ var _default = {
       }, _callee);
     }))();
   },
-
   /**
    * Gets product module by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-module-services#get-product-module
@@ -7035,16 +6107,13 @@ var _default = {
   get: function get(context, number) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
-
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               _context2.next = 3;
               return _Service.default.get(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number));
-
             case 3:
               _yield$Service$get = _context2.sent;
               items = _yield$Service$get.data.items.item;
@@ -7053,7 +6122,6 @@ var _default = {
                 return type === 'ProductModule';
               }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
               return _context2.abrupt("return", (0, _itemToProductModule.default)(item));
-
             case 7:
             case "end":
               return _context2.stop();
@@ -7062,7 +6130,6 @@ var _default = {
       }, _callee2);
     }))();
   },
-
   /**
    * Returns products of a vendor.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-module-services#product-modules-list
@@ -7079,32 +6146,25 @@ var _default = {
   list: function list(context, filter) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
-
       return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               queryParams = {};
-
               if (!filter) {
                 _context3.next = 5;
                 break;
               }
-
               if (_CheckUtils.default.isValid(filter)) {
                 _context3.next = 4;
                 break;
               }
-
               throw new TypeError("filter has bad value ".concat(filter));
-
             case 4:
               queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-
             case 5:
               _context3.next = 7;
               return _Service.default.get(context, _Constants.default.ProductModule.ENDPOINT_PATH, queryParams);
-
             case 7:
               _yield$Service$get2 = _context3.sent;
               data = _yield$Service$get2.data;
@@ -7114,7 +6174,6 @@ var _default = {
               }).map(function (v) {
                 return (0, _itemToProductModule.default)(v);
               }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-
             case 10:
             case "end":
               return _context3.stop();
@@ -7123,7 +6182,6 @@ var _default = {
       }, _callee3);
     }))();
   },
-
   /**
    * Updates product module properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-module-services#update-product-module
@@ -7143,16 +6201,13 @@ var _default = {
   update: function update(context, number, productModule) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
-
       return _regenerator.default.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               _context4.next = 3;
               return _Service.default.post(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number), productModule.asPropertiesMap());
-
             case 3:
               _yield$Service$post2 = _context4.sent;
               items = _yield$Service$post2.data.items.item;
@@ -7161,7 +6216,6 @@ var _default = {
                 return type === 'ProductModule';
               }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
               return _context4.abrupt("return", (0, _itemToProductModule.default)(item));
-
             case 7:
             case "end":
               return _context4.stop();
@@ -7170,7 +6224,6 @@ var _default = {
       }, _callee4);
     }))();
   },
-
   /**
    * Deletes product module.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-module-services#delete-product-module
@@ -7189,7 +6242,6 @@ var _default = {
    */
   delete: function _delete(context, number, forceCascade) {
     _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
     var queryParams = {
       forceCascade: Boolean(forceCascade)
     };
@@ -7206,38 +6258,26 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _regenerator = _interopRequireDefault(__webpack_require__(7757));
-
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(3038));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(8926));
-
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
 var _Service = _interopRequireDefault(__webpack_require__(393));
-
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-
 var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
-
 var _itemToProduct = _interopRequireDefault(__webpack_require__(1255));
-
 var _Page = _interopRequireDefault(__webpack_require__(9407));
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-
 /**
  * JS representation of the Product Service. See NetLicensingAPI for details:
  * https://netlicensing.io/wiki/product-services
@@ -7262,14 +6302,12 @@ var _default = {
   create: function create(context, product) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
-
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
               return _Service.default.post(context, _Constants.default.Product.ENDPOINT_PATH, product.asPropertiesMap());
-
             case 2:
               _yield$Service$post = _context.sent;
               items = _yield$Service$post.data.items.item;
@@ -7278,7 +6316,6 @@ var _default = {
                 return type === 'Product';
               }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
               return _context.abrupt("return", (0, _itemToProduct.default)(item));
-
             case 6:
             case "end":
               return _context.stop();
@@ -7287,7 +6324,6 @@ var _default = {
       }, _callee);
     }))();
   },
-
   /**
    * Gets product by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-services#get-product
@@ -7304,16 +6340,13 @@ var _default = {
   get: function get(context, number) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
-
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               _context2.next = 3;
               return _Service.default.get(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number));
-
             case 3:
               _yield$Service$get = _context2.sent;
               items = _yield$Service$get.data.items.item;
@@ -7322,7 +6355,6 @@ var _default = {
                 return type === 'Product';
               }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
               return _context2.abrupt("return", (0, _itemToProduct.default)(item));
-
             case 7:
             case "end":
               return _context2.stop();
@@ -7331,7 +6363,6 @@ var _default = {
       }, _callee2);
     }))();
   },
-
   /**
    * Returns products of a vendor.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-services#products-list
@@ -7348,32 +6379,25 @@ var _default = {
   list: function list(context, filter) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
-
       return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               queryParams = {};
-
               if (!filter) {
                 _context3.next = 5;
                 break;
               }
-
               if (_CheckUtils.default.isValid(filter)) {
                 _context3.next = 4;
                 break;
               }
-
               throw new TypeError("filter has bad value ".concat(filter));
-
             case 4:
               queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-
             case 5:
               _context3.next = 7;
               return _Service.default.get(context, _Constants.default.Product.ENDPOINT_PATH, queryParams);
-
             case 7:
               _yield$Service$get2 = _context3.sent;
               data = _yield$Service$get2.data;
@@ -7383,7 +6407,6 @@ var _default = {
               }).map(function (v) {
                 return (0, _itemToProduct.default)(v);
               }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-
             case 10:
             case "end":
               return _context3.stop();
@@ -7392,7 +6415,6 @@ var _default = {
       }, _callee3);
     }))();
   },
-
   /**
    * Updates product properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-services#update-product
@@ -7412,16 +6434,13 @@ var _default = {
   update: function update(context, number, product) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
-
       return _regenerator.default.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               _context4.next = 3;
               return _Service.default.post(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number), product.asPropertiesMap());
-
             case 3:
               _yield$Service$post2 = _context4.sent;
               items = _yield$Service$post2.data.items.item;
@@ -7430,7 +6449,6 @@ var _default = {
                 return type === 'Product';
               }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
               return _context4.abrupt("return", (0, _itemToProduct.default)(item));
-
             case 7:
             case "end":
               return _context4.stop();
@@ -7439,7 +6457,6 @@ var _default = {
       }, _callee4);
     }))();
   },
-
   /**
    * Deletes product.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-services#delete-product
@@ -7458,7 +6475,6 @@ var _default = {
    */
   delete: function _delete(context, number, forceCascade) {
     _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
     var queryParams = {
       forceCascade: Boolean(forceCascade)
     };
@@ -7475,45 +6491,33 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _typeof2 = _interopRequireDefault(__webpack_require__(8));
-
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(3038));
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
+var _typeof2 = _interopRequireDefault(__webpack_require__(8698));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 var _axios = _interopRequireDefault(__webpack_require__(9669));
-
 var _btoa = _interopRequireDefault(__webpack_require__(706));
-
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-
 var _NlicError = _interopRequireDefault(__webpack_require__(2986));
-
 var _package = _interopRequireDefault(__webpack_require__(4147));
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
+
 var httpXHR = {};
 var axiosInstance = null;
-
 var Service = /*#__PURE__*/function () {
   function Service() {
     (0, _classCallCheck2.default)(this, Service);
   }
-
   (0, _createClass2.default)(Service, null, [{
     key: "getAxiosInstance",
     value: function getAxiosInstance() {
@@ -7529,6 +6533,7 @@ var Service = /*#__PURE__*/function () {
     value: function getLastHttpRequestInfo() {
       return httpXHR;
     }
+
     /**
      * Helper method for performing GET request to N
      etLicensing API services. Finds and returns first suitable item with
@@ -7545,12 +6550,12 @@ var Service = /*#__PURE__*/function () {
      *
      * @returns {Promise}
      */
-
   }, {
     key: "get",
     value: function get(context, urlTemplate, queryParams) {
       return Service.request(context, 'get', urlTemplate, queryParams);
     }
+
     /**
      * Helper method for performing POST request to NetLicensing API services. Finds and returns first suitable item
      * with type resultType from the response.
@@ -7566,12 +6571,12 @@ var Service = /*#__PURE__*/function () {
      *
      * @returns {Promise}
      */
-
   }, {
     key: "post",
     value: function post(context, urlTemplate, queryParams) {
       return Service.request(context, 'post', urlTemplate, queryParams);
     }
+
     /**
      *
      * @param context
@@ -7579,12 +6584,12 @@ var Service = /*#__PURE__*/function () {
      * @param queryParams
      * @returns {Promise}
      */
-
   }, {
     key: "delete",
     value: function _delete(context, urlTemplate, queryParams) {
       return Service.request(context, 'delete', urlTemplate, queryParams);
     }
+
     /**
      * Send request to NetLicensing  RestApi
      * @param context
@@ -7593,23 +6598,22 @@ var Service = /*#__PURE__*/function () {
      * @param queryParams
      * @returns {Promise}
      */
-
   }, {
     key: "request",
     value: function request(context, method, urlTemplate, queryParams) {
       var template = String(urlTemplate);
       var params = queryParams || {};
-      if (!template) throw new TypeError('Url template must be specified'); // validate http method
+      if (!template) throw new TypeError('Url template must be specified');
 
+      // validate http method
       if (['get', 'post', 'delete'].indexOf(method.toLowerCase()) < 0) {
         throw new Error("Invalid request type:".concat(method, ", allowed requests types: GET, POST, DELETE."));
-      } // validate context
+      }
 
-
+      // validate context
       if (!context.getBaseUrl(null)) {
         throw new Error('Base url must be specified');
       }
-
       var request = {
         url: encodeURI("".concat(context.getBaseUrl(), "/").concat(template)),
         method: method.toLowerCase(),
@@ -7622,30 +6626,26 @@ var Service = /*#__PURE__*/function () {
           if (headers['Content-Type'] === 'application/x-www-form-urlencoded') {
             return Service.toQueryString(data);
           }
-
           if (!headers['NetLicensing-Origin']) {
             // eslint-disable-next-line no-param-reassign
             headers['NetLicensing-Origin'] = "NetLicensing/Javascript ".concat(_package.default.version);
           }
-
           return data;
         }]
-      }; // only node.js has a process variable that is of [[Class]] process
+      };
 
+      // only node.js has a process variable that is of [[Class]] process
       if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
         request.headers['User-agent'] = "NetLicensing/Javascript ".concat(_package.default.version, "/node&").concat(process.version);
       }
-
       if (['put', 'post', 'patch'].indexOf(request.method) >= 0) {
         if (request.method === 'post') {
           request.headers['Content-Type'] = 'application/x-www-form-urlencoded';
         }
-
         request.data = params;
       } else {
         request.params = params;
       }
-
       switch (context.getSecurityMode()) {
         // Basic Auth
         case _Constants.default.BASIC_AUTHENTICATION:
@@ -7657,27 +6657,22 @@ var Service = /*#__PURE__*/function () {
           };
           break;
         // ApiKey Auth
-
         case _Constants.default.APIKEY_IDENTIFICATION:
           if (!context.getApiKey()) throw new Error('Missing parameter "apiKey"');
           request.headers.Authorization = "Basic ".concat((0, _btoa.default)("apiKey:".concat(context.getApiKey())));
           break;
         // without authorization
-
         case _Constants.default.ANONYMOUS_IDENTIFICATION:
           break;
-
         default:
           throw new Error('Unknown security mode');
       }
-
       return Service.getAxiosInstance()(request).then(function (response) {
         response.infos = Service.getInfo(response, []);
         var errors = response.infos.filter(function (_ref) {
           var type = _ref.type;
           return type === 'ERROR';
         });
-
         if (errors.length) {
           var error = new Error(errors[0].value);
           error.config = response.config;
@@ -7685,40 +6680,37 @@ var Service = /*#__PURE__*/function () {
           error.response = response;
           throw error;
         }
-
         httpXHR = response;
         return response;
       }).catch(function (e) {
         if (e.response) {
-          httpXHR = e.response; // The request was made and the server responded with a status code
+          httpXHR = e.response;
+
+          // The request was made and the server responded with a status code
           // that falls out of the range of 2xx
 
           var error = new _NlicError.default(e);
           error.config = e.config;
           error.code = e.code;
           error.request = e.request;
-          error.response = e.response; // The request was made and the server responded with a status code
+          error.response = e.response;
+
+          // The request was made and the server responded with a status code
           // that falls out of the range of 2xx
-
           var data = e.response.data;
-
           if (data) {
             error.infos = Service.getInfo(e.response, []);
-
             var _error$infos$filter = error.infos.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'ERROR';
-            }),
-                _error$infos$filter2 = (0, _slicedToArray2.default)(_error$infos$filter, 1),
-                _error$infos$filter2$ = _error$infos$filter2[0],
-                info = _error$infos$filter2$ === void 0 ? {} : _error$infos$filter2$;
-
+                var type = _ref2.type;
+                return type === 'ERROR';
+              }),
+              _error$infos$filter2 = (0, _slicedToArray2.default)(_error$infos$filter, 1),
+              _error$infos$filter2$ = _error$infos$filter2[0],
+              info = _error$infos$filter2$ === void 0 ? {} : _error$infos$filter2$;
             error.message = info.value || 'Unknown';
           }
-
           throw error;
         }
-
         throw e;
       });
     }
@@ -7749,7 +6741,6 @@ var Service = /*#__PURE__*/function () {
   }]);
   return Service;
 }();
-
 exports["default"] = Service;
 
 /***/ }),
@@ -7760,38 +6751,26 @@ exports["default"] = Service;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _regenerator = _interopRequireDefault(__webpack_require__(7757));
-
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(3038));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(8926));
-
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-
 var _Service = _interopRequireDefault(__webpack_require__(393));
-
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-
 var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
-
 var _itemToToken = _interopRequireDefault(__webpack_require__(4073));
-
 var _Page = _interopRequireDefault(__webpack_require__(9407));
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-
 /**
  * JS representation of the Token Service. See NetLicensingAPI for details:
  * https://netlicensing.io/wiki/token-services
@@ -7815,14 +6794,12 @@ var _default = {
   create: function create(context, token) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
-
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
               return _Service.default.post(context, _Constants.default.Token.ENDPOINT_PATH, token.asPropertiesMap());
-
             case 2:
               _yield$Service$post = _context.sent;
               items = _yield$Service$post.data.items.item;
@@ -7831,7 +6808,6 @@ var _default = {
                 return type === 'Token';
               }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
               return _context.abrupt("return", (0, _itemToToken.default)(item));
-
             case 6:
             case "end":
               return _context.stop();
@@ -7840,7 +6816,6 @@ var _default = {
       }, _callee);
     }))();
   },
-
   /**
    * Gets token by its number..See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/token-services#get-token
@@ -7857,16 +6832,13 @@ var _default = {
   get: function get(context, number) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
-
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               _context2.next = 3;
               return _Service.default.get(context, "".concat(_Constants.default.Token.ENDPOINT_PATH, "/").concat(number));
-
             case 3:
               _yield$Service$get = _context2.sent;
               items = _yield$Service$get.data.items.item;
@@ -7875,7 +6847,6 @@ var _default = {
                 return type === 'Token';
               }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
               return _context2.abrupt("return", (0, _itemToToken.default)(item));
-
             case 7:
             case "end":
               return _context2.stop();
@@ -7884,7 +6855,6 @@ var _default = {
       }, _callee2);
     }))();
   },
-
   /**
    * Returns tokens of a vendor.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/token-services#tokens-list
@@ -7901,32 +6871,25 @@ var _default = {
   list: function list(context, filter) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
-
       return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               queryParams = {};
-
               if (!filter) {
                 _context3.next = 5;
                 break;
               }
-
               if (_CheckUtils.default.isValid(filter)) {
                 _context3.next = 4;
                 break;
               }
-
               throw new TypeError("filter has bad value ".concat(filter));
-
             case 4:
               queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-
             case 5:
               _context3.next = 7;
               return _Service.default.get(context, _Constants.default.Token.ENDPOINT_PATH, queryParams);
-
             case 7:
               _yield$Service$get2 = _context3.sent;
               data = _yield$Service$get2.data;
@@ -7936,7 +6899,6 @@ var _default = {
               }).map(function (v) {
                 return (0, _itemToToken.default)(v);
               }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-
             case 10:
             case "end":
               return _context3.stop();
@@ -7945,7 +6907,6 @@ var _default = {
       }, _callee3);
     }))();
   },
-
   /**
    * Delete token by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/token-services#delete-token
@@ -7961,7 +6922,6 @@ var _default = {
    */
   delete: function _delete(context, number) {
     _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
     return _Service.default.delete(context, "".concat(_Constants.default.Token.ENDPOINT_PATH, "/").concat(number));
   }
 };
@@ -7975,38 +6935,26 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _regenerator = _interopRequireDefault(__webpack_require__(7757));
-
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(3038));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(8926));
-
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-
 var _Service = _interopRequireDefault(__webpack_require__(393));
-
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-
 var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
-
 var _itemToTransaction = _interopRequireDefault(__webpack_require__(1198));
-
 var _Page = _interopRequireDefault(__webpack_require__(9407));
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-
 /**
  * JS representation of the Transaction Service. See NetLicensingAPI for details:
  * https://netlicensing.io/wiki/transaction-services
@@ -8039,14 +6987,12 @@ var _default = {
   create: function create(context, transaction) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
-
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
               return _Service.default.post(context, _Constants.default.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap());
-
             case 2:
               _yield$Service$post = _context.sent;
               items = _yield$Service$post.data.items.item;
@@ -8055,7 +7001,6 @@ var _default = {
                 return type === 'Transaction';
               }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
               return _context.abrupt("return", (0, _itemToTransaction.default)(item));
-
             case 6:
             case "end":
               return _context.stop();
@@ -8064,7 +7009,6 @@ var _default = {
       }, _callee);
     }))();
   },
-
   /**
    * Gets transaction by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/transaction-services#get-transaction
@@ -8081,16 +7025,13 @@ var _default = {
   get: function get(context, number) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
-
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               _context2.next = 3;
               return _Service.default.get(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number));
-
             case 3:
               _yield$Service$get = _context2.sent;
               items = _yield$Service$get.data.items.item;
@@ -8099,7 +7040,6 @@ var _default = {
                 return type === 'Transaction';
               }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
               return _context2.abrupt("return", (0, _itemToTransaction.default)(item));
-
             case 7:
             case "end":
               return _context2.stop();
@@ -8108,7 +7048,6 @@ var _default = {
       }, _callee2);
     }))();
   },
-
   /**
    * Returns all transactions of a vendor.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/transaction-services#transactions-list
@@ -8125,32 +7064,25 @@ var _default = {
   list: function list(context, filter) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
-
       return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               queryParams = {};
-
               if (!filter) {
                 _context3.next = 5;
                 break;
               }
-
               if (_CheckUtils.default.isValid(filter)) {
                 _context3.next = 4;
                 break;
               }
-
               throw new TypeError("filter has bad value ".concat(filter));
-
             case 4:
               queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-
             case 5:
               _context3.next = 7;
               return _Service.default.get(context, _Constants.default.Transaction.ENDPOINT_PATH, queryParams);
-
             case 7:
               _yield$Service$get2 = _context3.sent;
               data = _yield$Service$get2.data;
@@ -8160,7 +7092,6 @@ var _default = {
               }).map(function (v) {
                 return (0, _itemToTransaction.default)(v);
               }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-
             case 10:
             case "end":
               return _context3.stop();
@@ -8169,7 +7100,6 @@ var _default = {
       }, _callee3);
     }))();
   },
-
   /**
    * Updates transaction properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/transaction-services#update-transaction
@@ -8189,16 +7119,13 @@ var _default = {
   update: function update(context, number, transaction) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
-
       return _regenerator.default.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
               _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-
               _context4.next = 3;
               return _Service.default.post(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number), transaction.asPropertiesMap());
-
             case 3:
               _yield$Service$post2 = _context4.sent;
               items = _yield$Service$post2.data.items.item;
@@ -8207,7 +7134,6 @@ var _default = {
                 return type === 'Transaction';
               }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
               return _context4.abrupt("return", (0, _itemToTransaction.default)(item));
-
             case 7:
             case "end":
               return _context4.stop();
@@ -8227,38 +7153,26 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _regenerator = _interopRequireDefault(__webpack_require__(7757));
-
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(8926));
-
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-
 var _Service = _interopRequireDefault(__webpack_require__(393));
-
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-
 var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
-
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
-
 var _Page = _interopRequireDefault(__webpack_require__(9407));
-
 var _itemToCountry = _interopRequireDefault(__webpack_require__(3213));
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-
 /**
  * JS representation of the Utility Service. See NetLicensingAPI for details:
  * https://netlicensing.io/wiki/utility-services
@@ -8278,14 +7192,12 @@ var _default = {
   listLicenseTypes: function listLicenseTypes(context) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$get, data;
-
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
               return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSE_TYPES));
-
             case 2:
               _yield$Service$get = _context.sent;
               data = _yield$Service$get.data;
@@ -8295,7 +7207,6 @@ var _default = {
               }).map(function (v) {
                 return (0, _itemToObject.default)(v);
               }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-
             case 5:
             case "end":
               return _context.stop();
@@ -8304,7 +7215,6 @@ var _default = {
       }, _callee);
     }))();
   },
-
   /**
    * Returns all license models. See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/utility-services#licensing-models-list
@@ -8318,14 +7228,12 @@ var _default = {
   listLicensingModels: function listLicensingModels(context) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get2, data;
-
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
               return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSING_MODELS));
-
             case 2:
               _yield$Service$get2 = _context2.sent;
               data = _yield$Service$get2.data;
@@ -8335,7 +7243,6 @@ var _default = {
               }).map(function (v) {
                 return (0, _itemToObject.default)(v);
               }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-
             case 5:
             case "end":
               return _context2.stop();
@@ -8344,7 +7251,6 @@ var _default = {
       }, _callee2);
     }))();
   },
-
   /**
    * Returns all countries.
    *
@@ -8360,32 +7266,25 @@ var _default = {
   listCountries: function listCountries(context, filter) {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get3, data;
-
       return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
               queryParams = {};
-
               if (!filter) {
                 _context3.next = 5;
                 break;
               }
-
               if (_CheckUtils.default.isValid(filter)) {
                 _context3.next = 4;
                 break;
               }
-
               throw new TypeError("filter has bad value ".concat(filter));
-
             case 4:
               queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-
             case 5:
               _context3.next = 7;
               return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_COUNTRIES), queryParams);
-
             case 7:
               _yield$Service$get3 = _context3.sent;
               data = _yield$Service$get3.data;
@@ -8395,7 +7294,6 @@ var _default = {
               }).map(function (v) {
                 return (0, _itemToCountry.default)(v);
               }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-
             case 10:
             case "end":
               return _context3.stop();
@@ -8419,7 +7317,6 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -8432,45 +7329,36 @@ var _default = function _default(key, value) {
     case 'str':
     case 'string':
       return String(value);
-
     case 'int':
     case 'integer':
       {
         var n = parseInt(value, 10);
         return Number.isNaN(n) ? value : n;
       }
-
     case 'float':
     case 'double':
       {
         var _n = parseFloat(value);
-
         return Number.isNaN(_n) ? value : _n;
       }
-
     case 'bool':
     case 'boolean':
       switch (value) {
         case 'true':
         case 'TRUE':
           return true;
-
         case 'false':
         case 'FALSE':
           return false;
-
         default:
           return Boolean(value);
       }
-
     case 'date':
       return value === 'now' ? 'now' : new Date(String(value));
-
     default:
       return value;
   }
 };
-
 exports["default"] = _default;
 
 /***/ }),
@@ -8485,7 +7373,6 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -8517,21 +7404,17 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(3038));
-
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
 var _default = {
   FILTER_DELIMITER: ';',
   FILTER_PAIR_DELIMITER: '=',
   encode: function encode() {
     var _this = this;
-
     var filter = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var query = [];
     var has = Object.prototype.hasOwnProperty;
@@ -8544,15 +7427,13 @@ var _default = {
   },
   decode: function decode() {
     var _this2 = this;
-
     var query = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
     var filter = {};
     query.split(this.FILTER_DELIMITER).forEach(function (v) {
       var _v$split = v.split(_this2.FILTER_PAIR_DELIMITER),
-          _v$split2 = (0, _slicedToArray2.default)(_v$split, 2),
-          name = _v$split2[0],
-          value = _v$split2[1];
-
+        _v$split2 = (0, _slicedToArray2.default)(_v$split, 2),
+        name = _v$split2[0],
+        value = _v$split2[1];
       filter[name] = value;
     });
     return filter;
@@ -8568,50 +7449,39 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _typeof2 = _interopRequireDefault(__webpack_require__(8));
-
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(9713));
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
+var _typeof2 = _interopRequireDefault(__webpack_require__(8698));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
 /**
  * The context values.
  * @type {{}}
  * @private
  */
 var valuesMap = new WeakMap();
+
 /**
  * List of values that was defined
  * @type {{}}
  * @private
  */
-
 var definedMap = new WeakMap();
+
 /**
  * Context defaults
  * @type {{baseUrl: string, securityMode}}
  * @private
  */
-
 var defaultsMap = new WeakMap();
-
 var Context = /*#__PURE__*/function () {
   function Context(values) {
     (0, _classCallCheck2.default)(this, Context);
@@ -8623,7 +7493,6 @@ var Context = /*#__PURE__*/function () {
     definedMap.set(this, {});
     this.setValues(_objectSpread(_objectSpread({}, defaultsMap.get(this)), values));
   }
-
   (0, _createClass2.default)(Context, [{
     key: "setBaseUrl",
     value: function setBaseUrl(baseUrl) {
@@ -8684,42 +7553,40 @@ var Context = /*#__PURE__*/function () {
     value: function getVendorNumber(def) {
       return this.getValue('vendorNumber', def);
     }
+
     /**
      * Set a given values on the context.
      * @param key
      * @param value
      * @returns {Context}
      */
-
   }, {
     key: "setValue",
     value: function setValue(key, value) {
       // check values
       if (!_CheckUtils.default.isValid(key) || (0, _typeof2.default)(key) === 'object') throw new Error("Bad value key:".concat(key));
-      if (!_CheckUtils.default.isValid(value)) throw new Error("Value ".concat(key, " has wrong value").concat(value)); // define keys
+      if (!_CheckUtils.default.isValid(value)) throw new Error("Value ".concat(key, " has wrong value").concat(value));
 
+      // define keys
       this.define(key);
       var copedValue = value;
-
       if ((0, _typeof2.default)(value) === 'object' && value !== null) {
         copedValue = Array.isArray(value) ? Object.assign([], value) : _objectSpread({}, value);
       }
-
       var values = valuesMap.get(this);
       values[key] = copedValue;
       return this;
     }
+
     /**
      * Set the array of context values.
      * @param values
      * @returns {Context}
      */
-
   }, {
     key: "setValues",
     value: function setValues(values) {
       var _this = this;
-
       this.removeValues();
       var has = Object.prototype.hasOwnProperty;
       Object.keys(values).forEach(function (key) {
@@ -8729,33 +7596,33 @@ var Context = /*#__PURE__*/function () {
       });
       return this;
     }
+
     /**
      * Get an value from the context.
      * @param key
      * @param def
      * @returns {*}
      */
-
   }, {
     key: "getValue",
     value: function getValue(key, def) {
       return key in valuesMap.get(this) ? valuesMap.get(this)[key] : def;
     }
+
     /**
      * Get all of the current value on the context.
      */
-
   }, {
     key: "getValues",
     value: function getValues() {
       return _objectSpread({}, valuesMap.get(this));
     }
+
     /**
      * Remove value
      * @param key
      * @returns {Context}
      */
-
   }, {
     key: "removeValue",
     value: function removeValue(key) {
@@ -8764,39 +7631,37 @@ var Context = /*#__PURE__*/function () {
       this.removeDefine(key);
       return this;
     }
+
     /**
      * Remove values
      * @param keys
      */
-
   }, {
     key: "removeValues",
     value: function removeValues(keys) {
       var _this2 = this;
-
       var keysAr = keys || Object.keys(valuesMap.get(this));
       keysAr.forEach(function (key) {
         return _this2.removeValue(key);
       });
     }
+
     /**
      * Define value getter and setter
      * @param key
      * @param onlyGetter
      * @private
      */
-
   }, {
     key: "define",
     value: function define(key, onlyGetter) {
       if (this.hasDefine(key)) return;
-
       if (!_CheckUtils.default.isValid(key) || (typeof property === "undefined" ? "undefined" : (0, _typeof2.default)(property)) === 'object') {
         throw new TypeError("Bad value name:".concat(key));
       }
+      var self = this;
 
-      var self = this; // delete property
-
+      // delete property
       delete this[key];
       var descriptors = {
         enumerable: true,
@@ -8805,34 +7670,32 @@ var Context = /*#__PURE__*/function () {
           return self.getValue(key);
         }
       };
-
       if (!onlyGetter) {
         descriptors.set = function (value) {
           return self.setValue(key, value);
         };
       }
-
       var defined = definedMap.get(this);
       defined[key] = true;
       Object.defineProperty(this, key, descriptors);
     }
+
     /**
      * Check if value has defined
      * @param key
      * @private
      */
-
   }, {
     key: "hasDefine",
     value: function hasDefine(key) {
       return Boolean(definedMap.get(this)[key]);
     }
+
     /**
      * Remove value getter and setter
      * @param key
      * @private
      */
-
   }, {
     key: "removeDefine",
     value: function removeDefine(key) {
@@ -8844,7 +7707,6 @@ var Context = /*#__PURE__*/function () {
   }]);
   return Context;
 }();
-
 exports["default"] = Context;
 
 /***/ }),
@@ -8859,7 +7721,6 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
 var _default = function _default() {
   var content = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var pageNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
@@ -8892,12 +7753,10 @@ var _default = function _default() {
       if (paginatorKeys.indexOf(key) !== -1) {
         return paginator[key];
       }
-
       return target[key];
     }
   });
 };
-
 exports["default"] = _default;
 
 /***/ }),
@@ -8908,23 +7767,16 @@ exports["default"] = _default;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(9713));
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -8937,6 +7789,7 @@ var ValidationParameters = /*#__PURE__*/function () {
     this.parameters = {};
     this.licenseeProperties = {};
   }
+
   /**
    * Sets the target product
    *
@@ -8944,24 +7797,23 @@ var ValidationParameters = /*#__PURE__*/function () {
    * @param productNumber
    * @returns {ValidationParameters}
    */
-
-
   (0, _createClass2.default)(ValidationParameters, [{
     key: "setProductNumber",
     value: function setProductNumber(productNumber) {
       this.productNumber = productNumber;
       return this;
     }
+
     /**
      * Get the target product
      * @returns {*}
      */
-
   }, {
     key: "getProductNumber",
     value: function getProductNumber() {
       return this.productNumber;
     }
+
     /**
      * Sets the name for the new licensee
      *
@@ -8971,23 +7823,23 @@ var ValidationParameters = /*#__PURE__*/function () {
      * @param licenseeName
      * @returns {ValidationParameters}
      */
-
   }, {
     key: "setLicenseeName",
     value: function setLicenseeName(licenseeName) {
       this.licenseeProperties.licenseeName = licenseeName;
       return this;
     }
+
     /**
      * Get the licensee name
      * @returns {*}
      */
-
   }, {
     key: "getLicenseeName",
     value: function getLicenseeName() {
       return this.licenseeProperties.licenseeName;
     }
+
     /**
      * Sets the licensee secret
      *
@@ -8996,62 +7848,61 @@ var ValidationParameters = /*#__PURE__*/function () {
      * @returns {ValidationParameters}
      * @deprecated use 'NodeLocked' licensingModel instead
      */
-
   }, {
     key: "setLicenseeSecret",
     value: function setLicenseeSecret(licenseeSecret) {
       this.licenseeProperties.licenseeSecret = licenseeSecret;
       return this;
     }
+
     /**
      * Get the licensee secret
      * @returns {*}
      * @deprecated use 'NodeLocked' licensingModel instead
      */
-
   }, {
     key: "getLicenseeSecret",
     value: function getLicenseeSecret() {
       return this.licenseeProperties.licenseeSecret;
     }
+
     /**
      * Get all licensee properties
      */
-
   }, {
     key: "getLicenseeProperties",
     value: function getLicenseeProperties() {
       return this.licenseeProperties;
     }
+
     /**
      * Set licensee property
      * @param key
      * @param value
      */
-
   }, {
     key: "setLicenseeProperty",
     value: function setLicenseeProperty(key, value) {
       this.licenseeProperties[key] = value;
       return this;
     }
+
     /**
      * Get licensee property
      * @param key
      */
-
   }, {
     key: "getLicenseeProperty",
     value: function getLicenseeProperty(key, def) {
       return this.licenseeProperties[key] || def;
     }
+
     /**
      * Indicates, that the validation response is intended the offline use
      *
      * @param forOfflineUse
      *            if "true", validation response will be extended with data required for the offline use
      */
-
   }, {
     key: "setForOfflineUse",
     value: function setForOfflineUse(forOfflineUse) {
@@ -9074,11 +7925,11 @@ var ValidationParameters = /*#__PURE__*/function () {
     value: function getDryRun(def) {
       return this.dryRun || def;
     }
+
     /**
      * Get validation parameters
      * @returns {*}
      */
-
   }, {
     key: "getParameters",
     value: function getParameters() {
@@ -9095,14 +7946,12 @@ var ValidationParameters = /*#__PURE__*/function () {
       if (this.parameters[productModuleNumber] === undefined || !Object.keys(this.parameters[productModuleNumber]).length) {
         this.parameters[productModuleNumber] = {};
       }
-
       this.parameters[productModuleNumber] = _objectSpread(_objectSpread({}, this.parameters[productModuleNumber]), productModuleParameters);
       return this;
     }
   }]);
   return ValidationParameters;
 }();
-
 exports["default"] = ValidationParameters;
 
 /***/ }),
@@ -9113,33 +7962,23 @@ exports["default"] = ValidationParameters;
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-
-var _typeof2 = _interopRequireDefault(__webpack_require__(8));
-
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(9713));
-
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(4575));
-
-var _createClass2 = _interopRequireDefault(__webpack_require__(3913));
-
+var _typeof2 = _interopRequireDefault(__webpack_require__(8698));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
 var ValidationResults = /*#__PURE__*/function () {
   function ValidationResults() {
     (0, _classCallCheck2.default)(this, ValidationResults);
     this.validators = {};
   }
-
   (0, _createClass2.default)(ValidationResults, [{
     key: "getValidators",
     value: function getValidators() {
@@ -9151,7 +7990,6 @@ var ValidationResults = /*#__PURE__*/function () {
       if (!_CheckUtils.default.isValid(productModuleNumber) || (0, _typeof2.default)(productModuleNumber) === 'object') {
         throw new TypeError("Bad productModuleNumber:".concat(productModuleNumber));
       }
-
       this.validators[productModuleNumber] = productModuleValidation;
       return this;
     }
@@ -9161,7 +7999,6 @@ var ValidationResults = /*#__PURE__*/function () {
       if (!_CheckUtils.default.isValid(productModuleNumber) || (0, _typeof2.default)(productModuleNumber) === 'object') {
         throw new TypeError("Bad productModuleNumber:".concat(productModuleNumber));
       }
-
       return this.validators[productModuleNumber];
     }
   }, {
@@ -9170,7 +8007,6 @@ var ValidationResults = /*#__PURE__*/function () {
       if (!_CheckUtils.default.isValid(ttl) || (0, _typeof2.default)(ttl) === 'object') {
         throw new TypeError("Bad ttl:".concat(ttl));
       }
-
       this.ttl = new Date(String(ttl));
       return this;
     }
@@ -9187,7 +8023,6 @@ var ValidationResults = /*#__PURE__*/function () {
       var has = Object.prototype.hasOwnProperty;
       Object.keys(validators).forEach(function (productModuleNumber) {
         data += "ProductModule<".concat(productModuleNumber, ">");
-
         if (has.call(validators, productModuleNumber)) {
           data += JSON.stringify(validators[productModuleNumber]);
         }
@@ -9198,7 +8033,6 @@ var ValidationResults = /*#__PURE__*/function () {
   }]);
   return ValidationResults;
 }();
-
 exports["default"] = ValidationResults;
 
 /***/ }),
@@ -9542,7 +8376,7 @@ function setup(env) {
 
 	/**
 	* Selects a color for a debug namespace
-	* @param {String} namespace The namespace string for the for the debug instance to be colored
+	* @param {String} namespace The namespace string for the debug instance to be colored
 	* @return {Number|String} An ANSI color code for the given namespace
 	* @api private
 	*/
@@ -9687,7 +8521,7 @@ function setup(env) {
 			namespaces = split[i].replace(/\*/g, '.*?');
 
 			if (namespaces[0] === '-') {
-				createDebug.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+				createDebug.skips.push(new RegExp('^' + namespaces.slice(1) + '$'));
 			} else {
 				createDebug.names.push(new RegExp('^' + namespaces + '$'));
 			}
@@ -10113,6 +8947,11 @@ events.forEach(function (event) {
   };
 });
 
+var InvalidUrlError = createErrorType(
+  "ERR_INVALID_URL",
+  "Invalid URL",
+  TypeError
+);
 // Error types with codes
 var RedirectionError = createErrorType(
   "ERR_FR_REDIRECTION_FAILURE",
@@ -10173,10 +9012,10 @@ RedirectableRequest.prototype.write = function (data, encoding, callback) {
   }
 
   // Validate input and shift parameters if necessary
-  if (!(typeof data === "string" || typeof data === "object" && ("length" in data))) {
+  if (!isString(data) && !isBuffer(data)) {
     throw new TypeError("data should be a string, Buffer or Uint8Array");
   }
-  if (typeof encoding === "function") {
+  if (isFunction(encoding)) {
     callback = encoding;
     encoding = null;
   }
@@ -10205,11 +9044,11 @@ RedirectableRequest.prototype.write = function (data, encoding, callback) {
 // Ends the current native request
 RedirectableRequest.prototype.end = function (data, encoding, callback) {
   // Shift parameters if necessary
-  if (typeof data === "function") {
+  if (isFunction(data)) {
     callback = data;
     data = encoding = null;
   }
-  else if (typeof encoding === "function") {
+  else if (isFunction(encoding)) {
     callback = encoding;
     encoding = null;
   }
@@ -10368,25 +9207,30 @@ RedirectableRequest.prototype._performRequest = function () {
   // If specified, use the agent corresponding to the protocol
   // (HTTP and HTTPS use different types of agents)
   if (this._options.agents) {
-    var scheme = protocol.substr(0, protocol.length - 1);
+    var scheme = protocol.slice(0, -1);
     this._options.agent = this._options.agents[scheme];
   }
 
-  // Create the native request
+  // Create the native request and set up its event handlers
   var request = this._currentRequest =
         nativeProtocol.request(this._options, this._onNativeResponse);
-  this._currentUrl = url.format(this._options);
-
-  // Set up event handlers
   request._redirectable = this;
-  for (var e = 0; e < events.length; e++) {
-    request.on(events[e], eventHandlers[events[e]]);
+  for (var event of events) {
+    request.on(event, eventHandlers[event]);
   }
+
+  // RFC7230§5.3.1: When making a request directly to an origin server, […]
+  // a client MUST send only the absolute path […] as the request-target.
+  this._currentUrl = /^\//.test(this._options.path) ?
+    url.format(this._options) :
+    // When making a request to a proxy, […]
+    // a client MUST send the target URI in absolute-form […].
+    this._options.path;
 
   // End a redirected request
   // (The first request must be ended explicitly with RedirectableRequest#end)
   if (this._isRedirect) {
-    // Write the request entity and end.
+    // Write the request entity and end
     var i = 0;
     var self = this;
     var buffers = this._requestBodyBuffers;
@@ -10460,10 +9304,21 @@ RedirectableRequest.prototype._processResponse = function (response) {
     return;
   }
 
+  // Store the request headers if applicable
+  var requestHeaders;
+  var beforeRedirect = this._options.beforeRedirect;
+  if (beforeRedirect) {
+    requestHeaders = Object.assign({
+      // The Host header was set by nativeProtocol.request
+      Host: response.req.getHeader("host"),
+    }, this._options.headers);
+  }
+
   // RFC7231§6.4: Automatic redirection needs to done with
   // care for methods not known to be safe, […]
   // RFC7231§6.4.2–3: For historical reasons, a user agent MAY change
   // the request method from POST to GET for the subsequent request.
+  var method = this._options.method;
   if ((statusCode === 301 || statusCode === 302) && this._options.method === "POST" ||
       // RFC7231§6.4.4: The 303 (See Other) status code indicates that
       // the server is redirecting the user agent to a different resource […]
@@ -10491,7 +9346,7 @@ RedirectableRequest.prototype._processResponse = function (response) {
     redirectUrl = url.resolve(currentUrl, location);
   }
   catch (cause) {
-    this.emit("error", new RedirectionError(cause));
+    this.emit("error", new RedirectionError({ cause: cause }));
     return;
   }
 
@@ -10511,10 +9366,18 @@ RedirectableRequest.prototype._processResponse = function (response) {
   }
 
   // Evaluate the beforeRedirect callback
-  if (typeof this._options.beforeRedirect === "function") {
-    var responseDetails = { headers: response.headers };
+  if (isFunction(beforeRedirect)) {
+    var responseDetails = {
+      headers: response.headers,
+      statusCode: statusCode,
+    };
+    var requestDetails = {
+      url: currentUrl,
+      method: method,
+      headers: requestHeaders,
+    };
     try {
-      this._options.beforeRedirect.call(null, this._options, responseDetails);
+      beforeRedirect(this._options, responseDetails, requestDetails);
     }
     catch (err) {
       this.emit("error", err);
@@ -10528,7 +9391,7 @@ RedirectableRequest.prototype._processResponse = function (response) {
     this._performRequest();
   }
   catch (cause) {
-    this.emit("error", new RedirectionError(cause));
+    this.emit("error", new RedirectionError({ cause: cause }));
   }
 };
 
@@ -10550,15 +9413,19 @@ function wrap(protocols) {
     // Executes a request, following redirects
     function request(input, options, callback) {
       // Parse parameters
-      if (typeof input === "string") {
-        var urlStr = input;
+      if (isString(input)) {
+        var parsed;
         try {
-          input = urlToOptions(new URL(urlStr));
+          parsed = urlToOptions(new URL(input));
         }
         catch (err) {
           /* istanbul ignore next */
-          input = url.parse(urlStr);
+          parsed = url.parse(input);
         }
+        if (!isString(parsed.protocol)) {
+          throw new InvalidUrlError({ input });
+        }
+        input = parsed;
       }
       else if (URL && (input instanceof URL)) {
         input = urlToOptions(input);
@@ -10568,7 +9435,7 @@ function wrap(protocols) {
         options = input;
         input = { protocol: protocol };
       }
-      if (typeof options === "function") {
+      if (isFunction(options)) {
         callback = options;
         options = null;
       }
@@ -10579,6 +9446,9 @@ function wrap(protocols) {
         maxBodyLength: exports.maxBodyLength,
       }, input, options);
       options.nativeProtocols = nativeProtocols;
+      if (!isString(options.host) && !isString(options.hostname)) {
+        options.hostname = "::1";
+      }
 
       assert.equal(options.protocol, protocol, "protocol mismatch");
       debug("options", options);
@@ -10636,35 +9506,46 @@ function removeMatchingHeaders(regex, headers) {
     undefined : String(lastValue).trim();
 }
 
-function createErrorType(code, defaultMessage) {
-  function CustomError(cause) {
+function createErrorType(code, message, baseClass) {
+  // Create constructor
+  function CustomError(properties) {
     Error.captureStackTrace(this, this.constructor);
-    if (!cause) {
-      this.message = defaultMessage;
-    }
-    else {
-      this.message = defaultMessage + ": " + cause.message;
-      this.cause = cause;
-    }
+    Object.assign(this, properties || {});
+    this.code = code;
+    this.message = this.cause ? message + ": " + this.cause.message : message;
   }
-  CustomError.prototype = new Error();
+
+  // Attach constructor and set default properties
+  CustomError.prototype = new (baseClass || Error)();
   CustomError.prototype.constructor = CustomError;
   CustomError.prototype.name = "Error [" + code + "]";
-  CustomError.prototype.code = code;
   return CustomError;
 }
 
 function abortRequest(request) {
-  for (var e = 0; e < events.length; e++) {
-    request.removeListener(events[e], eventHandlers[events[e]]);
+  for (var event of events) {
+    request.removeListener(event, eventHandlers[event]);
   }
   request.on("error", noop);
   request.abort();
 }
 
 function isSubdomain(subdomain, domain) {
-  const dot = subdomain.length - domain.length - 1;
+  assert(isString(subdomain) && isString(domain));
+  var dot = subdomain.length - domain.length - 1;
   return dot > 0 && subdomain[dot] === "." && subdomain.endsWith(domain);
+}
+
+function isString(value) {
+  return typeof value === "string" || value instanceof String;
+}
+
+function isFunction(value) {
+  return typeof value === "function";
+}
+
+function isBuffer(value) {
+  return typeof value === "object" && ("length" in value);
 }
 
 // Exports
@@ -10679,12 +9560,12 @@ module.exports.wrap = wrap;
 
 "use strict";
 
-module.exports = (flag, argv) => {
-	argv = argv || process.argv;
+
+module.exports = (flag, argv = process.argv) => {
 	const prefix = flag.startsWith('-') ? '' : (flag.length === 1 ? '-' : '--');
-	const pos = argv.indexOf(prefix + flag);
-	const terminatorPos = argv.indexOf('--');
-	return pos !== -1 && (terminatorPos === -1 ? true : pos < terminatorPos);
+	const position = argv.indexOf(prefix + flag);
+	const terminatorPosition = argv.indexOf('--');
+	return position !== -1 && (terminatorPosition === -1 || position < terminatorPosition);
 };
 
 
@@ -10859,790 +9740,38 @@ function plural(ms, msAbs, n, name) {
 
 /***/ }),
 
-/***/ 5666:
-/***/ ((module) => {
-
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-var runtime = (function (exports) {
-  "use strict";
-
-  var Op = Object.prototype;
-  var hasOwn = Op.hasOwnProperty;
-  var undefined; // More compressible than void 0.
-  var $Symbol = typeof Symbol === "function" ? Symbol : {};
-  var iteratorSymbol = $Symbol.iterator || "@@iterator";
-  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
-  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-
-  function define(obj, key, value) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-    return obj[key];
-  }
-  try {
-    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
-    define({}, "");
-  } catch (err) {
-    define = function(obj, key, value) {
-      return obj[key] = value;
-    };
-  }
-
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
-    var generator = Object.create(protoGenerator.prototype);
-    var context = new Context(tryLocsList || []);
-
-    // The ._invoke method unifies the implementations of the .next,
-    // .throw, and .return methods.
-    generator._invoke = makeInvokeMethod(innerFn, self, context);
-
-    return generator;
-  }
-  exports.wrap = wrap;
-
-  // Try/catch helper to minimize deoptimizations. Returns a completion
-  // record like context.tryEntries[i].completion. This interface could
-  // have been (and was previously) designed to take a closure to be
-  // invoked without arguments, but in all the cases we care about we
-  // already have an existing method we want to call, so there's no need
-  // to create a new function object. We can even get away with assuming
-  // the method takes exactly one argument, since that happens to be true
-  // in every case, so we don't have to touch the arguments object. The
-  // only additional allocation required is the completion record, which
-  // has a stable shape and so hopefully should be cheap to allocate.
-  function tryCatch(fn, obj, arg) {
-    try {
-      return { type: "normal", arg: fn.call(obj, arg) };
-    } catch (err) {
-      return { type: "throw", arg: err };
-    }
-  }
-
-  var GenStateSuspendedStart = "suspendedStart";
-  var GenStateSuspendedYield = "suspendedYield";
-  var GenStateExecuting = "executing";
-  var GenStateCompleted = "completed";
-
-  // Returning this object from the innerFn has the same effect as
-  // breaking out of the dispatch switch statement.
-  var ContinueSentinel = {};
-
-  // Dummy constructor functions that we use as the .constructor and
-  // .constructor.prototype properties for functions that return Generator
-  // objects. For full spec compliance, you may wish to configure your
-  // minifier not to mangle the names of these two functions.
-  function Generator() {}
-  function GeneratorFunction() {}
-  function GeneratorFunctionPrototype() {}
-
-  // This is a polyfill for %IteratorPrototype% for environments that
-  // don't natively support it.
-  var IteratorPrototype = {};
-  define(IteratorPrototype, iteratorSymbol, function () {
-    return this;
-  });
-
-  var getProto = Object.getPrototypeOf;
-  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  if (NativeIteratorPrototype &&
-      NativeIteratorPrototype !== Op &&
-      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
-    // This environment has a native %IteratorPrototype%; use it instead
-    // of the polyfill.
-    IteratorPrototype = NativeIteratorPrototype;
-  }
-
-  var Gp = GeneratorFunctionPrototype.prototype =
-    Generator.prototype = Object.create(IteratorPrototype);
-  GeneratorFunction.prototype = GeneratorFunctionPrototype;
-  define(Gp, "constructor", GeneratorFunctionPrototype);
-  define(GeneratorFunctionPrototype, "constructor", GeneratorFunction);
-  GeneratorFunction.displayName = define(
-    GeneratorFunctionPrototype,
-    toStringTagSymbol,
-    "GeneratorFunction"
-  );
-
-  // Helper for defining the .next, .throw, and .return methods of the
-  // Iterator interface in terms of a single ._invoke method.
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function(method) {
-      define(prototype, method, function(arg) {
-        return this._invoke(method, arg);
-      });
-    });
-  }
-
-  exports.isGeneratorFunction = function(genFun) {
-    var ctor = typeof genFun === "function" && genFun.constructor;
-    return ctor
-      ? ctor === GeneratorFunction ||
-        // For the native GeneratorFunction constructor, the best we can
-        // do is to check its .name property.
-        (ctor.displayName || ctor.name) === "GeneratorFunction"
-      : false;
-  };
-
-  exports.mark = function(genFun) {
-    if (Object.setPrototypeOf) {
-      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
-    } else {
-      genFun.__proto__ = GeneratorFunctionPrototype;
-      define(genFun, toStringTagSymbol, "GeneratorFunction");
-    }
-    genFun.prototype = Object.create(Gp);
-    return genFun;
-  };
-
-  // Within the body of any async function, `await x` is transformed to
-  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
-  // `hasOwn.call(value, "__await")` to determine if the yielded value is
-  // meant to be awaited.
-  exports.awrap = function(arg) {
-    return { __await: arg };
-  };
-
-  function AsyncIterator(generator, PromiseImpl) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if (record.type === "throw") {
-        reject(record.arg);
-      } else {
-        var result = record.arg;
-        var value = result.value;
-        if (value &&
-            typeof value === "object" &&
-            hasOwn.call(value, "__await")) {
-          return PromiseImpl.resolve(value.__await).then(function(value) {
-            invoke("next", value, resolve, reject);
-          }, function(err) {
-            invoke("throw", err, resolve, reject);
-          });
-        }
-
-        return PromiseImpl.resolve(value).then(function(unwrapped) {
-          // When a yielded Promise is resolved, its final value becomes
-          // the .value of the Promise<{value,done}> result for the
-          // current iteration.
-          result.value = unwrapped;
-          resolve(result);
-        }, function(error) {
-          // If a rejected Promise was yielded, throw the rejection back
-          // into the async generator function so it can be handled there.
-          return invoke("throw", error, resolve, reject);
-        });
-      }
-    }
-
-    var previousPromise;
-
-    function enqueue(method, arg) {
-      function callInvokeWithMethodAndArg() {
-        return new PromiseImpl(function(resolve, reject) {
-          invoke(method, arg, resolve, reject);
-        });
-      }
-
-      return previousPromise =
-        // If enqueue has been called before, then we want to wait until
-        // all previous Promises have been resolved before calling invoke,
-        // so that results are always delivered in the correct order. If
-        // enqueue has not been called before, then it is important to
-        // call invoke immediately, without waiting on a callback to fire,
-        // so that the async generator function has the opportunity to do
-        // any necessary setup in a predictable way. This predictability
-        // is why the Promise constructor synchronously invokes its
-        // executor callback, and why async functions synchronously
-        // execute code before the first await. Since we implement simple
-        // async functions in terms of async generators, it is especially
-        // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(
-          callInvokeWithMethodAndArg,
-          // Avoid propagating failures to Promises returned by later
-          // invocations of the iterator.
-          callInvokeWithMethodAndArg
-        ) : callInvokeWithMethodAndArg();
-    }
-
-    // Define the unified helper method that is used to implement .next,
-    // .throw, and .return (see defineIteratorMethods).
-    this._invoke = enqueue;
-  }
-
-  defineIteratorMethods(AsyncIterator.prototype);
-  define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
-    return this;
-  });
-  exports.AsyncIterator = AsyncIterator;
-
-  // Note that simple async functions are implemented on top of
-  // AsyncIterator objects; they just return a Promise for the value of
-  // the final result produced by the iterator.
-  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
-    if (PromiseImpl === void 0) PromiseImpl = Promise;
-
-    var iter = new AsyncIterator(
-      wrap(innerFn, outerFn, self, tryLocsList),
-      PromiseImpl
-    );
-
-    return exports.isGeneratorFunction(outerFn)
-      ? iter // If outerFn is a generator, return the full iterator.
-      : iter.next().then(function(result) {
-          return result.done ? result.value : iter.next();
-        });
-  };
-
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = GenStateSuspendedStart;
-
-    return function invoke(method, arg) {
-      if (state === GenStateExecuting) {
-        throw new Error("Generator is already running");
-      }
-
-      if (state === GenStateCompleted) {
-        if (method === "throw") {
-          throw arg;
-        }
-
-        // Be forgiving, per 25.3.3.3.3 of the spec:
-        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
-        return doneResult();
-      }
-
-      context.method = method;
-      context.arg = arg;
-
-      while (true) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
-          }
-        }
-
-        if (context.method === "next") {
-          // Setting context._sent for legacy support of Babel's
-          // function.sent implementation.
-          context.sent = context._sent = context.arg;
-
-        } else if (context.method === "throw") {
-          if (state === GenStateSuspendedStart) {
-            state = GenStateCompleted;
-            throw context.arg;
-          }
-
-          context.dispatchException(context.arg);
-
-        } else if (context.method === "return") {
-          context.abrupt("return", context.arg);
-        }
-
-        state = GenStateExecuting;
-
-        var record = tryCatch(innerFn, self, context);
-        if (record.type === "normal") {
-          // If an exception is thrown from innerFn, we leave state ===
-          // GenStateExecuting and loop back for another invocation.
-          state = context.done
-            ? GenStateCompleted
-            : GenStateSuspendedYield;
-
-          if (record.arg === ContinueSentinel) {
-            continue;
-          }
-
-          return {
-            value: record.arg,
-            done: context.done
-          };
-
-        } else if (record.type === "throw") {
-          state = GenStateCompleted;
-          // Dispatch the exception by looping back around to the
-          // context.dispatchException(context.arg) call above.
-          context.method = "throw";
-          context.arg = record.arg;
-        }
-      }
-    };
-  }
-
-  // Call delegate.iterator[context.method](context.arg) and handle the
-  // result, either by returning a { value, done } result from the
-  // delegate iterator, or by modifying context.method and context.arg,
-  // setting context.delegate to null, and returning the ContinueSentinel.
-  function maybeInvokeDelegate(delegate, context) {
-    var method = delegate.iterator[context.method];
-    if (method === undefined) {
-      // A .throw or .return when the delegate iterator has no .throw
-      // method always terminates the yield* loop.
-      context.delegate = null;
-
-      if (context.method === "throw") {
-        // Note: ["return"] must be used for ES3 parsing compatibility.
-        if (delegate.iterator["return"]) {
-          // If the delegate iterator has a return method, give it a
-          // chance to clean up.
-          context.method = "return";
-          context.arg = undefined;
-          maybeInvokeDelegate(delegate, context);
-
-          if (context.method === "throw") {
-            // If maybeInvokeDelegate(context) changed context.method from
-            // "return" to "throw", let that override the TypeError below.
-            return ContinueSentinel;
-          }
-        }
-
-        context.method = "throw";
-        context.arg = new TypeError(
-          "The iterator does not provide a 'throw' method");
-      }
-
-      return ContinueSentinel;
-    }
-
-    var record = tryCatch(method, delegate.iterator, context.arg);
-
-    if (record.type === "throw") {
-      context.method = "throw";
-      context.arg = record.arg;
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    var info = record.arg;
-
-    if (! info) {
-      context.method = "throw";
-      context.arg = new TypeError("iterator result is not an object");
-      context.delegate = null;
-      return ContinueSentinel;
-    }
-
-    if (info.done) {
-      // Assign the result of the finished delegate to the temporary
-      // variable specified by delegate.resultName (see delegateYield).
-      context[delegate.resultName] = info.value;
-
-      // Resume execution at the desired location (see delegateYield).
-      context.next = delegate.nextLoc;
-
-      // If context.method was "throw" but the delegate handled the
-      // exception, let the outer generator proceed normally. If
-      // context.method was "next", forget context.arg since it has been
-      // "consumed" by the delegate iterator. If context.method was
-      // "return", allow the original .return call to continue in the
-      // outer generator.
-      if (context.method !== "return") {
-        context.method = "next";
-        context.arg = undefined;
-      }
-
-    } else {
-      // Re-yield the result returned by the delegate method.
-      return info;
-    }
-
-    // The delegate iterator is finished, so forget it and continue with
-    // the outer generator.
-    context.delegate = null;
-    return ContinueSentinel;
-  }
-
-  // Define Generator.prototype.{next,throw,return} in terms of the
-  // unified ._invoke helper method.
-  defineIteratorMethods(Gp);
-
-  define(Gp, toStringTagSymbol, "Generator");
-
-  // A Generator should always return itself as the iterator object when the
-  // @@iterator function is called on it. Some browsers' implementations of the
-  // iterator prototype chain incorrectly implement this, causing the Generator
-  // object to not be returned from this call. This ensures that doesn't happen.
-  // See https://github.com/facebook/regenerator/issues/274 for more details.
-  define(Gp, iteratorSymbol, function() {
-    return this;
-  });
-
-  define(Gp, "toString", function() {
-    return "[object Generator]";
-  });
-
-  function pushTryEntry(locs) {
-    var entry = { tryLoc: locs[0] };
-
-    if (1 in locs) {
-      entry.catchLoc = locs[1];
-    }
-
-    if (2 in locs) {
-      entry.finallyLoc = locs[2];
-      entry.afterLoc = locs[3];
-    }
-
-    this.tryEntries.push(entry);
-  }
-
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal";
-    delete record.arg;
-    entry.completion = record;
-  }
-
-  function Context(tryLocsList) {
-    // The root entry object (effectively a try statement without a catch
-    // or a finally block) gives us a place to store values thrown from
-    // locations where there is no enclosing try statement.
-    this.tryEntries = [{ tryLoc: "root" }];
-    tryLocsList.forEach(pushTryEntry, this);
-    this.reset(true);
-  }
-
-  exports.keys = function(object) {
-    var keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
-    keys.reverse();
-
-    // Rather than returning an object with a next method, we keep
-    // things simple and return the next function itself.
-    return function next() {
-      while (keys.length) {
-        var key = keys.pop();
-        if (key in object) {
-          next.value = key;
-          next.done = false;
-          return next;
-        }
-      }
-
-      // To avoid creating an additional object, we just hang the .value
-      // and .done properties off the next function object itself. This
-      // also ensures that the minifier will not anonymize the function.
-      next.done = true;
-      return next;
-    };
-  };
-
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) {
-        return iteratorMethod.call(iterable);
-      }
-
-      if (typeof iterable.next === "function") {
-        return iterable;
-      }
-
-      if (!isNaN(iterable.length)) {
-        var i = -1, next = function next() {
-          while (++i < iterable.length) {
-            if (hasOwn.call(iterable, i)) {
-              next.value = iterable[i];
-              next.done = false;
-              return next;
-            }
-          }
-
-          next.value = undefined;
-          next.done = true;
-
-          return next;
-        };
-
-        return next.next = next;
-      }
-    }
-
-    // Return an iterator with no values.
-    return { next: doneResult };
-  }
-  exports.values = values;
-
-  function doneResult() {
-    return { value: undefined, done: true };
-  }
-
-  Context.prototype = {
-    constructor: Context,
-
-    reset: function(skipTempReset) {
-      this.prev = 0;
-      this.next = 0;
-      // Resetting context._sent for legacy support of Babel's
-      // function.sent implementation.
-      this.sent = this._sent = undefined;
-      this.done = false;
-      this.delegate = null;
-
-      this.method = "next";
-      this.arg = undefined;
-
-      this.tryEntries.forEach(resetTryEntry);
-
-      if (!skipTempReset) {
-        for (var name in this) {
-          // Not sure about the optimal order of these conditions:
-          if (name.charAt(0) === "t" &&
-              hasOwn.call(this, name) &&
-              !isNaN(+name.slice(1))) {
-            this[name] = undefined;
-          }
-        }
-      }
-    },
-
-    stop: function() {
-      this.done = true;
-
-      var rootEntry = this.tryEntries[0];
-      var rootRecord = rootEntry.completion;
-      if (rootRecord.type === "throw") {
-        throw rootRecord.arg;
-      }
-
-      return this.rval;
-    },
-
-    dispatchException: function(exception) {
-      if (this.done) {
-        throw exception;
-      }
-
-      var context = this;
-      function handle(loc, caught) {
-        record.type = "throw";
-        record.arg = exception;
-        context.next = loc;
-
-        if (caught) {
-          // If the dispatched exception was caught by a catch block,
-          // then let that catch block handle the exception normally.
-          context.method = "next";
-          context.arg = undefined;
-        }
-
-        return !! caught;
-      }
-
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        var record = entry.completion;
-
-        if (entry.tryLoc === "root") {
-          // Exception thrown outside of any try block that could handle
-          // it, so set the completion value of the entire function to
-          // throw the exception.
-          return handle("end");
-        }
-
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc");
-          var hasFinally = hasOwn.call(entry, "finallyLoc");
-
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            } else if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) {
-              return handle(entry.catchLoc, true);
-            }
-
-          } else if (hasFinally) {
-            if (this.prev < entry.finallyLoc) {
-              return handle(entry.finallyLoc);
-            }
-
-          } else {
-            throw new Error("try statement without catch or finally");
-          }
-        }
-      }
-    },
-
-    abrupt: function(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev &&
-            hasOwn.call(entry, "finallyLoc") &&
-            this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
-          break;
-        }
-      }
-
-      if (finallyEntry &&
-          (type === "break" ||
-           type === "continue") &&
-          finallyEntry.tryLoc <= arg &&
-          arg <= finallyEntry.finallyLoc) {
-        // Ignore the finally entry if control is not jumping to a
-        // location outside the try/catch block.
-        finallyEntry = null;
-      }
-
-      var record = finallyEntry ? finallyEntry.completion : {};
-      record.type = type;
-      record.arg = arg;
-
-      if (finallyEntry) {
-        this.method = "next";
-        this.next = finallyEntry.finallyLoc;
-        return ContinueSentinel;
-      }
-
-      return this.complete(record);
-    },
-
-    complete: function(record, afterLoc) {
-      if (record.type === "throw") {
-        throw record.arg;
-      }
-
-      if (record.type === "break" ||
-          record.type === "continue") {
-        this.next = record.arg;
-      } else if (record.type === "return") {
-        this.rval = this.arg = record.arg;
-        this.method = "return";
-        this.next = "end";
-      } else if (record.type === "normal" && afterLoc) {
-        this.next = afterLoc;
-      }
-
-      return ContinueSentinel;
-    },
-
-    finish: function(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) {
-          this.complete(entry.completion, entry.afterLoc);
-          resetTryEntry(entry);
-          return ContinueSentinel;
-        }
-      }
-    },
-
-    "catch": function(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if (record.type === "throw") {
-            var thrown = record.arg;
-            resetTryEntry(entry);
-          }
-          return thrown;
-        }
-      }
-
-      // The context.catch method must only be called with a location
-      // argument that corresponds to a known catch block.
-      throw new Error("illegal catch attempt");
-    },
-
-    delegateYield: function(iterable, resultName, nextLoc) {
-      this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      };
-
-      if (this.method === "next") {
-        // Deliberately forget the last sent value so that we don't
-        // accidentally pass it on to the delegate.
-        this.arg = undefined;
-      }
-
-      return ContinueSentinel;
-    }
-  };
-
-  // Regardless of whether this script is executing as a CommonJS module
-  // or not, return the runtime object so that we can declare the variable
-  // regeneratorRuntime in the outer scope, which allows this module to be
-  // injected easily by `bin/regenerator --include-runtime script.js`.
-  return exports;
-
-}(
-  // If this script is executing as a CommonJS module, use module.exports
-  // as the regeneratorRuntime namespace. Otherwise create a new empty
-  // object. Either way, the resulting object will be used to initialize
-  // the regeneratorRuntime variable at the top of this file.
-   true ? module.exports : 0
-));
-
-try {
-  regeneratorRuntime = runtime;
-} catch (accidentalStrictMode) {
-  // This module should not be running in strict mode, so the above
-  // assignment should always work unless something is misconfigured. Just
-  // in case runtime.js accidentally runs in strict mode, in modern engines
-  // we can explicitly access globalThis. In older engines we can escape
-  // strict mode using a global Function call. This could conceivably fail
-  // if a Content Security Policy forbids using Function, but in that case
-  // the proper solution is to fix the accidental strict mode problem. If
-  // you've misconfigured your bundler to force strict mode and applied a
-  // CSP to forbid Function, and you're not willing to fix either of those
-  // problems, please detail your unique predicament in a GitHub issue.
-  if (typeof globalThis === "object") {
-    globalThis.regeneratorRuntime = runtime;
-  } else {
-    Function("r", "regeneratorRuntime = r")(runtime);
-  }
-}
-
-
-/***/ }),
-
 /***/ 2130:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 const os = __webpack_require__(2037);
+const tty = __webpack_require__(6224);
 const hasFlag = __webpack_require__(6560);
 
-const env = process.env;
+const {env} = process;
 
 let forceColor;
 if (hasFlag('no-color') ||
 	hasFlag('no-colors') ||
-	hasFlag('color=false')) {
-	forceColor = false;
+	hasFlag('color=false') ||
+	hasFlag('color=never')) {
+	forceColor = 0;
 } else if (hasFlag('color') ||
 	hasFlag('colors') ||
 	hasFlag('color=true') ||
 	hasFlag('color=always')) {
-	forceColor = true;
+	forceColor = 1;
 }
+
 if ('FORCE_COLOR' in env) {
-	forceColor = env.FORCE_COLOR.length === 0 || parseInt(env.FORCE_COLOR, 10) !== 0;
+	if (env.FORCE_COLOR === 'true') {
+		forceColor = 1;
+	} else if (env.FORCE_COLOR === 'false') {
+		forceColor = 0;
+	} else {
+		forceColor = env.FORCE_COLOR.length === 0 ? 1 : Math.min(parseInt(env.FORCE_COLOR, 10), 3);
+	}
 }
 
 function translateLevel(level) {
@@ -11658,8 +9787,8 @@ function translateLevel(level) {
 	};
 }
 
-function supportsColor(stream) {
-	if (forceColor === false) {
+function supportsColor(haveStream, streamIsTTY) {
+	if (forceColor === 0) {
 		return 0;
 	}
 
@@ -11673,22 +9802,21 @@ function supportsColor(stream) {
 		return 2;
 	}
 
-	if (stream && !stream.isTTY && forceColor !== true) {
+	if (haveStream && !streamIsTTY && forceColor === undefined) {
 		return 0;
 	}
 
-	const min = forceColor ? 1 : 0;
+	const min = forceColor || 0;
+
+	if (env.TERM === 'dumb') {
+		return min;
+	}
 
 	if (process.platform === 'win32') {
-		// Node.js 7.5.0 is the first version of Node.js to include a patch to
-		// libuv that enables 256 color output on Windows. Anything earlier and it
-		// won't work. However, here we target Node.js 8 at minimum as it is an LTS
-		// release, and Node.js 7 is not. Windows 10 build 10586 is the first Windows
-		// release that supports 256 colors. Windows 10 build 14931 is the first release
-		// that supports 16m/TrueColor.
+		// Windows 10 build 10586 is the first Windows release that supports 256 colors.
+		// Windows 10 build 14931 is the first release that supports 16m/TrueColor.
 		const osRelease = os.release().split('.');
 		if (
-			Number(process.versions.node.split('.')[0]) >= 8 &&
 			Number(osRelease[0]) >= 10 &&
 			Number(osRelease[2]) >= 10586
 		) {
@@ -11699,7 +9827,7 @@ function supportsColor(stream) {
 	}
 
 	if ('CI' in env) {
-		if (['TRAVIS', 'CIRCLECI', 'APPVEYOR', 'GITLAB_CI'].some(sign => sign in env) || env.CI_NAME === 'codeship') {
+		if (['TRAVIS', 'CIRCLECI', 'APPVEYOR', 'GITLAB_CI', 'GITHUB_ACTIONS', 'BUILDKITE'].some(sign => sign in env) || env.CI_NAME === 'codeship') {
 			return 1;
 		}
 
@@ -11738,22 +9866,18 @@ function supportsColor(stream) {
 		return 1;
 	}
 
-	if (env.TERM === 'dumb') {
-		return min;
-	}
-
 	return min;
 }
 
 function getSupportLevel(stream) {
-	const level = supportsColor(stream);
+	const level = supportsColor(stream, stream && stream.isTTY);
 	return translateLevel(level);
 }
 
 module.exports = {
 	supportsColor: getSupportLevel,
-	stdout: getSupportLevel(process.stdout),
-	stderr: getSupportLevel(process.stderr)
+	stdout: translateLevel(supportsColor(true, tty.isatty(1))),
+	stderr: translateLevel(supportsColor(true, tty.isatty(2)))
 };
 
 
@@ -11831,6 +9955,808 @@ module.exports = require("zlib");
 
 /***/ }),
 
+/***/ 3897:
+/***/ ((module) => {
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+  return arr2;
+}
+module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 5372:
+/***/ ((module) => {
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 6115:
+/***/ ((module) => {
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+  return self;
+}
+module.exports = _assertThisInitialized, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 7156:
+/***/ ((module) => {
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+      args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+      _next(undefined);
+    });
+  };
+}
+module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 6690:
+/***/ ((module) => {
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 3515:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var setPrototypeOf = __webpack_require__(6015);
+var isNativeReflectConstruct = __webpack_require__(9617);
+function _construct(Parent, args, Class) {
+  if (isNativeReflectConstruct()) {
+    module.exports = _construct = Reflect.construct.bind(), module.exports.__esModule = true, module.exports["default"] = module.exports;
+  } else {
+    module.exports = _construct = function _construct(Parent, args, Class) {
+      var a = [null];
+      a.push.apply(a, args);
+      var Constructor = Function.bind.apply(Parent, a);
+      var instance = new Constructor();
+      if (Class) setPrototypeOf(instance, Class.prototype);
+      return instance;
+    }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  }
+  return _construct.apply(null, arguments);
+}
+module.exports = _construct, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 9728:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var toPropertyKey = __webpack_require__(4062);
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, toPropertyKey(descriptor.key), descriptor);
+  }
+}
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
+  return Constructor;
+}
+module.exports = _createClass, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 8416:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var toPropertyKey = __webpack_require__(4062);
+function _defineProperty(obj, key, value) {
+  key = toPropertyKey(key);
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+module.exports = _defineProperty, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 1588:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var superPropBase = __webpack_require__(1753);
+function _get() {
+  if (typeof Reflect !== "undefined" && Reflect.get) {
+    module.exports = _get = Reflect.get.bind(), module.exports.__esModule = true, module.exports["default"] = module.exports;
+  } else {
+    module.exports = _get = function _get(target, property, receiver) {
+      var base = superPropBase(target, property);
+      if (!base) return;
+      var desc = Object.getOwnPropertyDescriptor(base, property);
+      if (desc.get) {
+        return desc.get.call(arguments.length < 3 ? target : receiver);
+      }
+      return desc.value;
+    }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  }
+  return _get.apply(this, arguments);
+}
+module.exports = _get, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 3808:
+/***/ ((module) => {
+
+function _getPrototypeOf(o) {
+  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  return _getPrototypeOf(o);
+}
+module.exports = _getPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 1655:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var setPrototypeOf = __webpack_require__(6015);
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  Object.defineProperty(subClass, "prototype", {
+    writable: false
+  });
+  if (superClass) setPrototypeOf(subClass, superClass);
+}
+module.exports = _inherits, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 4836:
+/***/ ((module) => {
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 6035:
+/***/ ((module) => {
+
+function _isNativeFunction(fn) {
+  return Function.toString.call(fn).indexOf("[native code]") !== -1;
+}
+module.exports = _isNativeFunction, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 9617:
+/***/ ((module) => {
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+  try {
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+module.exports = _isNativeReflectConstruct, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 8872:
+/***/ ((module) => {
+
+function _iterableToArrayLimit(arr, i) {
+  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
+  if (null != _i) {
+    var _s,
+      _e,
+      _x,
+      _r,
+      _arr = [],
+      _n = !0,
+      _d = !1;
+    try {
+      if (_x = (_i = _i.call(arr)).next, 0 === i) {
+        if (Object(_i) !== _i) return;
+        _n = !1;
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) {
+        ;
+      }
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 2218:
+/***/ ((module) => {
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+module.exports = _nonIterableRest, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 4993:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _typeof = (__webpack_require__(8698)["default"]);
+var assertThisInitialized = __webpack_require__(6115);
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
+  }
+  return assertThisInitialized(self);
+}
+module.exports = _possibleConstructorReturn, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 7061:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _typeof = (__webpack_require__(8698)["default"]);
+function _regeneratorRuntime() {
+  "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+  module.exports = _regeneratorRuntime = function _regeneratorRuntime() {
+    return exports;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  var exports = {},
+    Op = Object.prototype,
+    hasOwn = Op.hasOwnProperty,
+    defineProperty = Object.defineProperty || function (obj, key, desc) {
+      obj[key] = desc.value;
+    },
+    $Symbol = "function" == typeof Symbol ? Symbol : {},
+    iteratorSymbol = $Symbol.iterator || "@@iterator",
+    asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator",
+    toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+  function define(obj, key, value) {
+    return Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: !0,
+      configurable: !0,
+      writable: !0
+    }), obj[key];
+  }
+  try {
+    define({}, "");
+  } catch (err) {
+    define = function define(obj, key, value) {
+      return obj[key] = value;
+    };
+  }
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator,
+      generator = Object.create(protoGenerator.prototype),
+      context = new Context(tryLocsList || []);
+    return defineProperty(generator, "_invoke", {
+      value: makeInvokeMethod(innerFn, self, context)
+    }), generator;
+  }
+  function tryCatch(fn, obj, arg) {
+    try {
+      return {
+        type: "normal",
+        arg: fn.call(obj, arg)
+      };
+    } catch (err) {
+      return {
+        type: "throw",
+        arg: err
+      };
+    }
+  }
+  exports.wrap = wrap;
+  var ContinueSentinel = {};
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+  var IteratorPrototype = {};
+  define(IteratorPrototype, iteratorSymbol, function () {
+    return this;
+  });
+  var getProto = Object.getPrototypeOf,
+    NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype);
+  var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype);
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function (method) {
+      define(prototype, method, function (arg) {
+        return this._invoke(method, arg);
+      });
+    });
+  }
+  function AsyncIterator(generator, PromiseImpl) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if ("throw" !== record.type) {
+        var result = record.arg,
+          value = result.value;
+        return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) {
+          invoke("next", value, resolve, reject);
+        }, function (err) {
+          invoke("throw", err, resolve, reject);
+        }) : PromiseImpl.resolve(value).then(function (unwrapped) {
+          result.value = unwrapped, resolve(result);
+        }, function (error) {
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+      reject(record.arg);
+    }
+    var previousPromise;
+    defineProperty(this, "_invoke", {
+      value: function value(method, arg) {
+        function callInvokeWithMethodAndArg() {
+          return new PromiseImpl(function (resolve, reject) {
+            invoke(method, arg, resolve, reject);
+          });
+        }
+        return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
+      }
+    });
+  }
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = "suspendedStart";
+    return function (method, arg) {
+      if ("executing" === state) throw new Error("Generator is already running");
+      if ("completed" === state) {
+        if ("throw" === method) throw arg;
+        return doneResult();
+      }
+      for (context.method = method, context.arg = arg;;) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+        if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) {
+          if ("suspendedStart" === state) throw state = "completed", context.arg;
+          context.dispatchException(context.arg);
+        } else "return" === context.method && context.abrupt("return", context.arg);
+        state = "executing";
+        var record = tryCatch(innerFn, self, context);
+        if ("normal" === record.type) {
+          if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue;
+          return {
+            value: record.arg,
+            done: context.done
+          };
+        }
+        "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg);
+      }
+    };
+  }
+  function maybeInvokeDelegate(delegate, context) {
+    var methodName = context.method,
+      method = delegate.iterator[methodName];
+    if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel;
+    var record = tryCatch(method, delegate.iterator, context.arg);
+    if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel;
+    var info = record.arg;
+    return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel);
+  }
+  function pushTryEntry(locs) {
+    var entry = {
+      tryLoc: locs[0]
+    };
+    1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry);
+  }
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal", delete record.arg, entry.completion = record;
+  }
+  function Context(tryLocsList) {
+    this.tryEntries = [{
+      tryLoc: "root"
+    }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0);
+  }
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) return iteratorMethod.call(iterable);
+      if ("function" == typeof iterable.next) return iterable;
+      if (!isNaN(iterable.length)) {
+        var i = -1,
+          next = function next() {
+            for (; ++i < iterable.length;) {
+              if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
+            }
+            return next.value = undefined, next.done = !0, next;
+          };
+        return next.next = next;
+      }
+    }
+    return {
+      next: doneResult
+    };
+  }
+  function doneResult() {
+    return {
+      value: undefined,
+      done: !0
+    };
+  }
+  return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", {
+    value: GeneratorFunctionPrototype,
+    configurable: !0
+  }), defineProperty(GeneratorFunctionPrototype, "constructor", {
+    value: GeneratorFunction,
+    configurable: !0
+  }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) {
+    var ctor = "function" == typeof genFun && genFun.constructor;
+    return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name));
+  }, exports.mark = function (genFun) {
+    return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun;
+  }, exports.awrap = function (arg) {
+    return {
+      __await: arg
+    };
+  }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
+    return this;
+  }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    void 0 === PromiseImpl && (PromiseImpl = Promise);
+    var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl);
+    return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) {
+      return result.done ? result.value : iter.next();
+    });
+  }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () {
+    return this;
+  }), define(Gp, "toString", function () {
+    return "[object Generator]";
+  }), exports.keys = function (val) {
+    var object = Object(val),
+      keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    return keys.reverse(), function next() {
+      for (; keys.length;) {
+        var key = keys.pop();
+        if (key in object) return next.value = key, next.done = !1, next;
+      }
+      return next.done = !0, next;
+    };
+  }, exports.values = values, Context.prototype = {
+    constructor: Context,
+    reset: function reset(skipTempReset) {
+      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) {
+        "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined);
+      }
+    },
+    stop: function stop() {
+      this.done = !0;
+      var rootRecord = this.tryEntries[0].completion;
+      if ("throw" === rootRecord.type) throw rootRecord.arg;
+      return this.rval;
+    },
+    dispatchException: function dispatchException(exception) {
+      if (this.done) throw exception;
+      var context = this;
+      function handle(loc, caught) {
+        return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught;
+      }
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i],
+          record = entry.completion;
+        if ("root" === entry.tryLoc) return handle("end");
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc"),
+            hasFinally = hasOwn.call(entry, "finallyLoc");
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0);
+            if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc);
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0);
+          } else {
+            if (!hasFinally) throw new Error("try statement without catch or finally");
+            if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc);
+          }
+        }
+      }
+    },
+    abrupt: function abrupt(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+      finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null);
+      var record = finallyEntry ? finallyEntry.completion : {};
+      return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record);
+    },
+    complete: function complete(record, afterLoc) {
+      if ("throw" === record.type) throw record.arg;
+      return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel;
+    },
+    finish: function finish(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel;
+      }
+    },
+    "catch": function _catch(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if ("throw" === record.type) {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+      throw new Error("illegal catch attempt");
+    },
+    delegateYield: function delegateYield(iterable, resultName, nextLoc) {
+      return this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      }, "next" === this.method && (this.arg = undefined), ContinueSentinel;
+    }
+  }, exports;
+}
+module.exports = _regeneratorRuntime, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 6015:
+/***/ ((module) => {
+
+function _setPrototypeOf(o, p) {
+  module.exports = _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  return _setPrototypeOf(o, p);
+}
+module.exports = _setPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 7424:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var arrayWithHoles = __webpack_require__(5372);
+var iterableToArrayLimit = __webpack_require__(8872);
+var unsupportedIterableToArray = __webpack_require__(6116);
+var nonIterableRest = __webpack_require__(2218);
+function _slicedToArray(arr, i) {
+  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
+}
+module.exports = _slicedToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 1753:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var getPrototypeOf = __webpack_require__(3808);
+function _superPropBase(object, property) {
+  while (!Object.prototype.hasOwnProperty.call(object, property)) {
+    object = getPrototypeOf(object);
+    if (object === null) break;
+  }
+  return object;
+}
+module.exports = _superPropBase, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 5036:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _typeof = (__webpack_require__(8698)["default"]);
+function _toPrimitive(input, hint) {
+  if (_typeof(input) !== "object" || input === null) return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    var res = prim.call(input, hint || "default");
+    if (_typeof(res) !== "object") return res;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return (hint === "string" ? String : Number)(input);
+}
+module.exports = _toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 4062:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var _typeof = (__webpack_require__(8698)["default"]);
+var toPrimitive = __webpack_require__(5036);
+function _toPropertyKey(arg) {
+  var key = toPrimitive(arg, "string");
+  return _typeof(key) === "symbol" ? key : String(key);
+}
+module.exports = _toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 8698:
+/***/ ((module) => {
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
+}
+module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 6116:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var arrayLikeToArray = __webpack_require__(3897);
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
+}
+module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 3496:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var getPrototypeOf = __webpack_require__(3808);
+var setPrototypeOf = __webpack_require__(6015);
+var isNativeFunction = __webpack_require__(6035);
+var construct = __webpack_require__(3515);
+function _wrapNativeSuper(Class) {
+  var _cache = typeof Map === "function" ? new Map() : undefined;
+  module.exports = _wrapNativeSuper = function _wrapNativeSuper(Class) {
+    if (Class === null || !isNativeFunction(Class)) return Class;
+    if (typeof Class !== "function") {
+      throw new TypeError("Super expression must either be null or a function");
+    }
+    if (typeof _cache !== "undefined") {
+      if (_cache.has(Class)) return _cache.get(Class);
+      _cache.set(Class, Wrapper);
+    }
+    function Wrapper() {
+      return construct(Class, arguments, getPrototypeOf(this).constructor);
+    }
+    Wrapper.prototype = Object.create(Class.prototype, {
+      constructor: {
+        value: Wrapper,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+    return setPrototypeOf(Wrapper, Class);
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  return _wrapNativeSuper(Class);
+}
+module.exports = _wrapNativeSuper, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 4687:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// TODO(Babel 8): Remove this file.
+
+var runtime = __webpack_require__(7061)();
+module.exports = runtime;
+
+// Copied from https://github.com/facebook/regenerator/blob/main/packages/runtime/runtime.js#L736=
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  if (typeof globalThis === "object") {
+    globalThis.regeneratorRuntime = runtime;
+  } else {
+    Function("r", "regeneratorRuntime = r")(runtime);
+  }
+}
+
+
+/***/ }),
+
 /***/ 4147:
 /***/ ((module) => {
 
@@ -11873,8 +10799,7 @@ var __webpack_exports__ = {};
 var exports = __webpack_exports__;
 
 
-var _interopRequireDefault = __webpack_require__(5318);
-
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
@@ -12124,87 +11049,46 @@ Object.defineProperty(exports, "itemToTransaction", ({
     return _itemToTransaction.default;
   }
 }));
-
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-
 var _Context = _interopRequireDefault(__webpack_require__(4693));
-
 var _Page = _interopRequireDefault(__webpack_require__(9407));
-
 var _ValidationParameters = _interopRequireDefault(__webpack_require__(4856));
-
 var _ValidationResults = _interopRequireDefault(__webpack_require__(3735));
-
 var _Service = _interopRequireDefault(__webpack_require__(393));
-
 var _LicenseeService = _interopRequireDefault(__webpack_require__(5498));
-
 var _LicenseService = _interopRequireDefault(__webpack_require__(6486));
-
 var _LicenseTemplateService = _interopRequireDefault(__webpack_require__(1580));
-
 var _PaymentMethodService = _interopRequireDefault(__webpack_require__(5225));
-
 var _ProductModuleService = _interopRequireDefault(__webpack_require__(7443));
-
 var _ProductService = _interopRequireDefault(__webpack_require__(5042));
-
 var _TokenService = _interopRequireDefault(__webpack_require__(731));
-
 var _TransactionService = _interopRequireDefault(__webpack_require__(5919));
-
 var _UtilityService = _interopRequireDefault(__webpack_require__(7635));
-
 var _BaseEntity = _interopRequireDefault(__webpack_require__(389));
-
 var _Country = _interopRequireDefault(__webpack_require__(187));
-
 var _License = _interopRequireDefault(__webpack_require__(9763));
-
 var _Licensee = _interopRequireDefault(__webpack_require__(2948));
-
 var _LicenseTemplate = _interopRequireDefault(__webpack_require__(767));
-
 var _PaymentMethod = _interopRequireDefault(__webpack_require__(5088));
-
 var _Product = _interopRequireDefault(__webpack_require__(7143));
-
 var _ProductDiscount = _interopRequireDefault(__webpack_require__(3144));
-
 var _ProductModule = _interopRequireDefault(__webpack_require__(3886));
-
 var _Token = _interopRequireDefault(__webpack_require__(8132));
-
 var _Transaction = _interopRequireDefault(__webpack_require__(4880));
-
 var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3089));
-
 var _itemToCountry = _interopRequireDefault(__webpack_require__(3213));
-
 var _itemToLicense = _interopRequireDefault(__webpack_require__(3887));
-
 var _itemToLicensee = _interopRequireDefault(__webpack_require__(6463));
-
 var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(3255));
-
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
-
 var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(797));
-
 var _itemToProduct = _interopRequireDefault(__webpack_require__(1255));
-
 var _itemToProductModule = _interopRequireDefault(__webpack_require__(2514));
-
 var _itemToToken = _interopRequireDefault(__webpack_require__(4073));
-
 var _itemToTransaction = _interopRequireDefault(__webpack_require__(1198));
-
 var _CastsUtils = _interopRequireDefault(__webpack_require__(553));
-
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-
 var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
-
 var _NlicError = _interopRequireDefault(__webpack_require__(2986));
 })();
 
