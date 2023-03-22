@@ -205,4 +205,15 @@ export default {
         YELLOW: 'YELLOW',
         RED: 'RED',
     },
+
+    Notification: {
+        ENDPOINT_PATH: 'notification',
+        Type: {
+            WEBHOOK: 'WEBHOOK',
+        },
+        Event: {
+            CREATE_LICENSEE: 'CREATE_LICENSEE',
+            CREATE_LICENSE: 'CREATE_LICENSE',
+        },
+    },
 };

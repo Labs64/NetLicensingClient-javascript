@@ -18,6 +18,7 @@ import ProductService from './services/ProductService';
 import TokenService from './services/TokenService';
 import TransactionService from './services/TransactionService';
 import UtilityService from './services/UtilityService';
+import NotificationService from './services/NotificationService';
 
 // Entities
 import BaseEntity from './entities/BaseEntity';
@@ -32,6 +33,7 @@ import ProductModule from './entities/ProductModule';
 import Token from './entities/Token';
 import Transaction from './entities/Transaction';
 import LicenseTransactionJoin from './entities/LicenseTransactionJoin';
+import Notification from './entities/Notification';
 
 // Converters
 import itemToCountry from './converters/itemToCountry';
@@ -44,6 +46,7 @@ import itemToProduct from './converters/itemToProduct';
 import itemToProductModule from './converters/itemToProductModule';
 import itemToToken from './converters/itemToToken';
 import itemToTransaction from './converters/itemToTransaction';
+import itemToNotification from './converters/itemToNotification';
 
 // Utils
 import CastsUtils from './util/CastsUtils';
@@ -76,6 +79,7 @@ export {
     TokenService,
     TransactionService,
     UtilityService,
+    NotificationService,
 
     // Expose Entities
     BaseEntity,
@@ -90,6 +94,7 @@ export {
     Token,
     Transaction,
     LicenseTransactionJoin,
+    Notification,
 
     // Expose Converters
     itemToCountry,
@@ -102,6 +107,7 @@ export {
     itemToProductModule,
     itemToToken,
     itemToTransaction,
+    itemToNotification,
 
     // Expose Utils
     CastsUtils,
@@ -111,7 +117,3 @@ export {
     // Errors
     NlicError,
 };
-
-// module.exports = NetLicensing;
-
-// Allow use of default import syntax in TypeScript

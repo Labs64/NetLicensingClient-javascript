@@ -34,7 +34,7 @@ import BaseEntity from './BaseEntity';
  *
  * If set to true, this license is not shown in NetLicensing Shop as purchased license. Set from license
  * template on creation, if not specified explicitly.
- * @property boolean $hidden
+ * @property boolean hidden
  *
  * @property string startDate
  *
