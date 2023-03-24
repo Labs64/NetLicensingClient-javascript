@@ -39,7 +39,7 @@ export default {
         const { data: { items: { item: items } } } = await Service
             .post(context, Constants.Notification.ENDPOINT_PATH, notification.asPropertiesMap());
 
-        const [item] = items.filter(({ type }) => type === 'VendorNotification');
+        const [item] = items.filter(({ type }) => type === 'Notification');
 
         return itemToNotification(item);
     },
@@ -63,7 +63,7 @@ export default {
         const { data: { items: { item: items } } } = await Service
             .get(context, `${Constants.Notification.ENDPOINT_PATH}/${number}`);
 
-        const [item] = items.filter(({ type }) => type === 'VendorNotification');
+        const [item] = items.filter(({ type }) => type === 'Notification');
 
         return itemToNotification(item);
     },
@@ -92,7 +92,7 @@ export default {
         const { data } = await Service.get(context, Constants.Notification.ENDPOINT_PATH, queryParams);
 
         return Page(
-            data.items.item.filter(({ type }) => type === 'VendorNotification').map((v) => itemToNotification(v)),
+            data.items.item.filter(({ type }) => type === 'Notification').map((v) => itemToNotification(v)),
             data.items.pagenumber,
             data.items.itemsnumber,
             data.items.totalpages,
@@ -122,7 +122,7 @@ export default {
         const { data: { items: { item: items } } } = await Service
             .post(context, `${Constants.Notification.ENDPOINT_PATH}/${number}`, notification.asPropertiesMap());
 
-        const [item] = items.filter(({ type }) => type === 'VendorNotification');
+        const [item] = items.filter(({ type }) => type === 'Notification');
 
         return itemToNotification(item);
     },
