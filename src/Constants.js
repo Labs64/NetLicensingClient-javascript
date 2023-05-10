@@ -205,4 +205,9 @@ export default {
         YELLOW: 'YELLOW',
         RED: 'RED',
     },
+
+    Bundle: {
+        ENDPOINT_PATH: 'bundle',
+        ENDPOINT_OBTAIN_PATH: 'obtain',
+    },
 };

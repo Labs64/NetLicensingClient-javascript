@@ -7,7 +7,6 @@ import Response from 'test@/response';
 import Context from '@/vo/Context';
 import ProductModule from '@/entities/ProductModule';
 import ProductModuleService from '@/services/ProductModuleService';
-import Constants from '@/Constants';
 import Service from '@/services/Service';
 import NlicError from '@/errors/NlicError';
 
@@ -27,7 +26,7 @@ describe('services/ProductModuleService', () => {
         const productModule = productModuleFactory();
 
         // configure mock for create request
-        mock.onPost(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}`)
+        mock.onPost(`${context.getBaseUrl()}/productmodule`)
             .reply(200, new Response(new Item(productModule)));
 
         const entity = await ProductModuleService.create(context, 'some number', productModule);
@@ -45,7 +44,7 @@ describe('services/ProductModuleService', () => {
             const productModule = productModuleFactory();
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}/${productModule.number}`)
+            mock.onGet(`${context.getBaseUrl()}/productmodule/${productModule.number}`)
                 .reply(200, new Response(new Item(productModule)));
 
             const entity = await ProductModuleService.get(context, productModule.number);
@@ -62,7 +61,7 @@ describe('services/ProductModuleService', () => {
             const number = 'Any-number-that-not-exist';
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}/${number}`)
+            mock.onGet(`${context.getBaseUrl()}/productmodule/${number}`)
                 .reply(400, new Response(
                     new Info('Requested productModule does not exist', 'NotFoundException'),
                 ));
@@ -80,7 +79,7 @@ describe('services/ProductModuleService', () => {
             const productModules = productModuleFactory(10);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/productmodule`)
                 .reply(200, new Response(productModules.map((v) => new Item(v))));
 
             const list = await ProductModuleService.list(context);
@@ -102,7 +101,7 @@ describe('services/ProductModuleService', () => {
             const productModules = productModuleFactory(50);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/productmodule`)
                 .reply(() => {
                     const response = new Response(productModules.map((v) => new Item(v)));
                     response.setPage(3, 50, 1050);
@@ -123,7 +122,7 @@ describe('services/ProductModuleService', () => {
             const productModules = productModuleFactory(10);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/productmodule`)
                 .reply(200, new Response(productModules.map((v) => new Item(v))));
 
             // if filter parameter is object
@@ -142,7 +141,7 @@ describe('services/ProductModuleService', () => {
         let productModule = productModuleFactory();
 
         // configure mock for get request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}/${productModule.number}`)
+        mock.onGet(`${context.getBaseUrl()}/productmodule/${productModule.number}`)
             .reply(200, new Response(new Item(productModule)));
 
         productModule = await ProductModuleService.get(context, productModule.number);
@@ -151,7 +150,7 @@ describe('services/ProductModuleService', () => {
         productModule.setProperty('custom_property', 'MY-CUSTOM-PROPERTY-UPDATED');
 
         // configure mock for update request
-        mock.onPost(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}/${productModule.number}`)
+        mock.onPost(`${context.getBaseUrl()}/productmodule/${productModule.number}`)
             .reply(200, new Response(new Item(productModule)));
 
         const updated = await ProductModuleService.update(context, productModule.getProperty('number'), productModule);
@@ -165,7 +164,7 @@ describe('services/ProductModuleService', () => {
         const number = 'some-number';
 
         // configure mock for delete request
-        mock.onDelete(`${context.getBaseUrl()}/${Constants.ProductModule.ENDPOINT_PATH}/${number}`)
+        mock.onDelete(`${context.getBaseUrl()}/productmodule/${number}`)
             .reply(204);
 
         await ProductModuleService.delete(context, number);

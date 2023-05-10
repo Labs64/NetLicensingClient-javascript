@@ -30,7 +30,7 @@ describe('services/TokenService', () => {
         });
 
         // configure mock for create request
-        mock.onPost(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}`)
+        mock.onPost(`${context.getBaseUrl()}/token`)
             .reply(200, new Response(new Item(token)));
 
         const entity = await TokenService.create(context, token);
@@ -50,7 +50,7 @@ describe('services/TokenService', () => {
             });
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}/${token.number}`)
+            mock.onGet(`${context.getBaseUrl()}/token/${token.number}`)
                 .reply(200, new Response(new Item(token)));
 
             const entity = await TokenService.get(context, token.number);
@@ -66,7 +66,7 @@ describe('services/TokenService', () => {
             const number = 'Any-number-that-not-exist';
 
             // configure mock for product get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}/${number}`)
+            mock.onGet(`${context.getBaseUrl()}/token/${number}`)
                 .reply(400, new Response(
                     new Info('Requested token does not exist', 'NotFoundException'),
                 ));
@@ -87,7 +87,7 @@ describe('services/TokenService', () => {
             });
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/token`)
                 .reply(200, new Response(tokens.map((v) => new Item(v))));
 
             const list = await TokenService.list(context);
@@ -109,7 +109,7 @@ describe('services/TokenService', () => {
             const tokens = tokenFactory(100);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/token`)
                 .reply(() => {
                     const response = new Response(tokens.map((v) => new Item(v)));
                     response.setPage(1, 100, 200);
@@ -133,7 +133,7 @@ describe('services/TokenService', () => {
             });
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/token`)
                 .reply(200, new Response(new Item(token)));
 
             // if filter parameter is object
@@ -152,7 +152,7 @@ describe('services/TokenService', () => {
         const number = 'some-number';
 
         // configure mock for delete request
-        mock.onDelete(`${context.getBaseUrl()}/${Constants.Token.ENDPOINT_PATH}/${number}`)
+        mock.onDelete(`${context.getBaseUrl()}/token/${number}`)
             .reply(204);
 
         await TokenService.delete(context, number);

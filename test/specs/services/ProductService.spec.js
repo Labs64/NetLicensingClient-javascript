@@ -8,7 +8,6 @@ import Response from 'test@/response';
 import Context from '@/vo/Context';
 import Product from '@/entities/Product';
 import ProductService from '@/services/ProductService';
-import Constants from '@/Constants';
 import Service from '@/services/Service';
 import NlicError from '@/errors/NlicError';
 
@@ -33,7 +32,7 @@ describe('services/ProductService', () => {
         product.addDiscount(percentDiscount);
 
         // configure mock for create request
-        mock.onPost(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}`)
+        mock.onPost(`${context.getBaseUrl()}/product`)
             .reply(200, new Response(
                 new Item({ ...product, discount: [fixDiscount, percentDiscount] }, 'Product'),
             ));
@@ -62,7 +61,7 @@ describe('services/ProductService', () => {
             product.addDiscount(percentDiscount);
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.number}`)
+            mock.onGet(`${context.getBaseUrl()}/product/${product.number}`)
                 .reply(200, new Response(
                     new Item({ ...product, discount: [fixDiscount, percentDiscount] }, 'Product'),
                 ));
@@ -85,7 +84,7 @@ describe('services/ProductService', () => {
             const number = 'Any-number-that-not-exist';
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${number}`)
+            mock.onGet(`${context.getBaseUrl()}/product/${number}`)
                 .reply(400, new Response(
                     new Info('Requested product does not exist', 'NotFoundException'),
                 ));
@@ -103,7 +102,7 @@ describe('services/ProductService', () => {
             const products = productFactory(10);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/product`)
                 .reply(200, new Response(products.map((v) => new Item(v))));
 
             const list = await ProductService.list(context);
@@ -128,7 +127,7 @@ describe('services/ProductService', () => {
             const products = productFactory(10);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/product`)
                 .reply(() => {
                     const response = new Response(products.map((v) => new Item(v)));
                     response.setPage(2, 10, 1000);
@@ -149,7 +148,7 @@ describe('services/ProductService', () => {
             const products = productFactory(10);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/product`)
                 .reply(200, new Response(products.map((v) => new Item(v))));
 
             // if filter parameter is object
@@ -174,7 +173,7 @@ describe('services/ProductService', () => {
         product.addDiscount(percentDiscount);
 
         // configure mock for get request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.number}`)
+        mock.onGet(`${context.getBaseUrl()}/product/${product.number}`)
             .reply(200, new Response(
                 new Item({ ...product, discount: [fixDiscount, percentDiscount] }, 'Product'),
             ));
@@ -187,7 +186,7 @@ describe('services/ProductService', () => {
         product.addDiscount(discountForUpdate);
 
         // configure mock for update request
-        mock.onPost(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${product.number}`)
+        mock.onPost(`${context.getBaseUrl()}/product/${product.number}`)
             .reply(200, new Response(
                 new Item({ ...product, discount: [fixDiscount, percentDiscount, discountForUpdate] }, 'Product'),
             ));
@@ -204,7 +203,7 @@ describe('services/ProductService', () => {
         const number = 'some-number';
 
         // configure mock for delete request
-        mock.onDelete(`${context.getBaseUrl()}/${Constants.Product.ENDPOINT_PATH}/${number}`)
+        mock.onDelete(`${context.getBaseUrl()}/product/${number}`)
             .reply(204);
 
         await ProductService.delete(context, number);
