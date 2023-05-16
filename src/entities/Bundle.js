@@ -72,30 +72,30 @@ export default class Bundle extends BaseEntity {
         return this.getProperty('description', def);
     }
 
-    setLicenseTemplatesNumbers(licenseTemplatesNumbers) {
-        const numbers = (Array.isArray(licenseTemplatesNumbers))
-            ? licenseTemplatesNumbers.join(',')
-            : licenseTemplatesNumbers;
+    setLicenseTemplateNumbers(licenseTemplateNumbers) {
+        const numbers = (Array.isArray(licenseTemplateNumbers))
+            ? licenseTemplateNumbers.join(',')
+            : licenseTemplateNumbers;
 
-        return this.setProperty('licenseTemplatesNumbers', numbers);
+        return this.setProperty('licenseTemplateNumbers', numbers);
     }
 
-    getLicenseTemplatesNumbers(def) {
-        const numbers = this.getProperty('licenseTemplatesNumbers', def);
+    getLicenseTemplateNumbers(def) {
+        const numbers = this.getProperty('licenseTemplateNumbers', def);
         return (numbers) ? numbers.split(',') : numbers;
     }
 
     addLicenseTemplateNumber(licenseTemplateNumber) {
-        const numbers = this.getLicenseTemplatesNumbers([]);
+        const numbers = this.getLicenseTemplateNumbers([]);
         numbers.push(licenseTemplateNumber);
 
-        return this.setLicenseTemplatesNumbers(numbers);
+        return this.setLicenseTemplateNumbers(numbers);
     }
 
     removeLicenseTemplateNumber(licenseTemplateNumber) {
-        const numbers = this.getLicenseTemplatesNumbers([]);
+        const numbers = this.getLicenseTemplateNumbers([]);
         numbers.splice(numbers.indexOf(licenseTemplateNumber), 1);
 
-        return this.setLicenseTemplatesNumbers(numbers);
+        return this.setLicenseTemplateNumbers(numbers);
     }
 }
