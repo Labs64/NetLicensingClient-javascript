@@ -10,7 +10,6 @@ import ValidationParameters from '@/vo/ValidationParameters';
 import Licensee from '@/entities/Licensee';
 import LicenseeService from '@/services/LicenseeService';
 import ValidationResults from '@/vo/ValidationResults';
-import Constants from '@/Constants';
 import Service from '@/services/Service';
 import NlicError from '@/errors/NlicError';
 
@@ -30,7 +29,7 @@ describe('services/LicenseeService', () => {
         const licensee = licenseeFactory();
 
         // configure mock for create request
-        mock.onPost(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}`)
+        mock.onPost(`${context.getBaseUrl()}/licensee`)
             .reply(200, new Response(new Item(licensee)));
 
         const entity = await LicenseeService.create(context, 'some number', licensee);
@@ -47,7 +46,7 @@ describe('services/LicenseeService', () => {
             const licensee = licenseeFactory();
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}/${licensee.number}`)
+            mock.onGet(`${context.getBaseUrl()}/licensee/${licensee.number}`)
                 .reply(200, new Response(new Item(licensee)));
 
             const entity = await LicenseeService.get(context, licensee.number);
@@ -63,7 +62,7 @@ describe('services/LicenseeService', () => {
             const number = 'Any-number-that-not-exist';
 
             // configure mock for product get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}/${number}`)
+            mock.onGet(`${context.getBaseUrl()}/licensee/${number}`)
                 .reply(400, new Response(new Info('Requested licenseTemplate does not exist', 'NotFoundException')));
 
             try {
@@ -80,7 +79,7 @@ describe('services/LicenseeService', () => {
             const licensees = licenseeFactory(10);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/licensee`)
                 .reply(200, new Response(licensees.map((v) => new Item(v))));
 
             const list = await LicenseeService.list(context);
@@ -103,7 +102,7 @@ describe('services/LicenseeService', () => {
 
             // configure mock for list request
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/licensee`)
                 .reply(() => {
                     const response = new Response(licensees.map((v) => new Item(v)));
                     response.setPage(0, 100, 1000);
@@ -124,7 +123,7 @@ describe('services/LicenseeService', () => {
             const licensees = licenseeFactory(10);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/licensee`)
                 .reply(200, new Response(licensees.map((v) => new Item(v))));
 
             // if filter parameter is object
@@ -143,7 +142,7 @@ describe('services/LicenseeService', () => {
         let licensee = licenseeFactory();
 
         // configure mock for get request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}/${licensee.number}`)
+        mock.onGet(`${context.getBaseUrl()}/licensee/${licensee.number}`)
             .reply(200, new Response(new Item(licensee)));
 
         licensee = await LicenseeService.get(context, licensee.number);
@@ -152,7 +151,7 @@ describe('services/LicenseeService', () => {
         licensee.setProperty('custom_property', 'MY-CUSTOM-PROPERTY-UPDATED');
 
         // configure mock for update request
-        mock.onPost(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}/${licensee.number}`)
+        mock.onPost(`${context.getBaseUrl()}/licensee/${licensee.number}`)
             .reply(200, new Response(new Item(licensee)));
 
         const updated = await LicenseeService.update(context, licensee.getProperty('number'), licensee);
@@ -170,8 +169,7 @@ describe('services/LicenseeService', () => {
             .setLicenseeName(licensee.getProperty('name'))
             .setProductNumber('some number');
 
-        mock.onPost(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}`
-            + `/${licensee.number}/${Constants.Licensee.ENDPOINT_PATH_VALIDATE}`)
+        mock.onPost(`${context.getBaseUrl()}/licensee/${licensee.number}/validate`)
             .reply(() => {
                 const res = new Response(new Item(validate, 'ProductModuleValidation'));
                 res.ttl = new Date();
@@ -192,8 +190,8 @@ describe('services/LicenseeService', () => {
 
         transferLicensee.setProperty('markedForTransfer', true);
 
-        mock.onPost(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}`
-            + `/${licensee.number}/${Constants.Licensee.ENDPOINT_PATH_TRANSFER}`)
+        mock.onPost(`${context.getBaseUrl()}/licensee`
+            + `/${licensee.number}/transfer`)
             .reply(204);
         await LicenseeService
             .transfer(context, licensee.getProperty('number'), transferLicensee.getProperty('number'));
@@ -205,7 +203,7 @@ describe('services/LicenseeService', () => {
         const number = 'some-number';
 
         // configure mock for delete request
-        mock.onDelete(`${context.getBaseUrl()}/${Constants.Licensee.ENDPOINT_PATH}/${number}`)
+        mock.onDelete(`${context.getBaseUrl()}/licensee/${number}`)
             .reply(204);
 
         await LicenseeService.delete(context, number);

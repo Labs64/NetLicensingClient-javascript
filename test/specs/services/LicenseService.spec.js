@@ -7,7 +7,6 @@ import Response from 'test@/response';
 import Context from '@/vo/Context';
 import License from '@/entities/License';
 import LicenseService from '@/services/LicenseService';
-import Constants from '@/Constants';
 import Service from '@/services/Service';
 import NlicError from '@/errors/NlicError';
 
@@ -30,7 +29,7 @@ describe('services/LicenseService', () => {
         });
 
         // configure mock for create request
-        mock.onPost(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}`)
+        mock.onPost(`${context.getBaseUrl()}/license`)
             .reply(200, new Response(new Item(license)));
 
         const entity = await LicenseService.create(
@@ -53,7 +52,7 @@ describe('services/LicenseService', () => {
             const license = licenseFactory();
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}/${license.number}`)
+            mock.onGet(`${context.getBaseUrl()}/license/${license.number}`)
                 .reply(200, new Response(new Item(license)));
 
             const entity = await LicenseService.get(context, license.number);
@@ -69,7 +68,7 @@ describe('services/LicenseService', () => {
             const number = 'Any-number-that-not-exist';
 
             // configure mock for product get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}/${number}`)
+            mock.onGet(`${context.getBaseUrl()}/license/${number}`)
                 .reply(400, new Response(
                     new Info('Requested license does not exist', 'NotFoundException'),
                 ));
@@ -88,7 +87,7 @@ describe('services/LicenseService', () => {
             const licenses = licenseFactory(10);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/license`)
                 .reply(200, new Response(licenses.map((v) => new Item(v))));
 
             const list = await LicenseService.list(context);
@@ -110,7 +109,7 @@ describe('services/LicenseService', () => {
             const licenses = licenseFactory(100);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/license`)
                 .reply(200, new Response(licenses.map((v) => new Item(v))));
 
             const list = await LicenseService.list(context);
@@ -126,7 +125,7 @@ describe('services/LicenseService', () => {
             const licenses = licenseFactory(10);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/license`)
                 .reply(200, new Response(licenses.map((v) => new Item(v))));
 
             // if filter parameter is object
@@ -145,7 +144,7 @@ describe('services/LicenseService', () => {
         let license = licenseFactory();
 
         // configure mock for get request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}/${license.number}`)
+        mock.onGet(`${context.getBaseUrl()}/license/${license.number}`)
             .reply(200, new Response(new Item(license)));
 
         license = await LicenseService.get(context, license.number);
@@ -154,7 +153,7 @@ describe('services/LicenseService', () => {
         license.setProperty('custom_property', 'MY-CUSTOM-PROPERTY-UPDATED');
 
         // configure mock for update request
-        mock.onPost(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}/${license.number}`)
+        mock.onPost(`${context.getBaseUrl()}/license/${license.number}`)
             .reply(200, new Response(new Item(license)));
 
         const updated = await LicenseService.update(
@@ -173,7 +172,7 @@ describe('services/LicenseService', () => {
         const number = 'some-number';
 
         // configure mock for delete request
-        mock.onDelete(`${context.getBaseUrl()}/${Constants.License.ENDPOINT_PATH}/${number}`)
+        mock.onDelete(`${context.getBaseUrl()}/license/${number}`)
             .reply(204);
 
         await LicenseService.delete(context, number);

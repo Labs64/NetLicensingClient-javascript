@@ -7,7 +7,6 @@ import Response from 'test@/response';
 import Context from '@/vo/Context';
 import Transaction from '@/entities/Transaction';
 import TransactionService from '@/services/TransactionService';
-import Constants from '@/Constants';
 import Service from '@/services/Service';
 import NlicError from '@/errors/NlicError';
 
@@ -27,7 +26,7 @@ describe('services/TransactionService', () => {
         const transaction = transactionFactory();
 
         // configure mock for create request
-        mock.onPost(`${context.getBaseUrl()}/${Constants.Transaction.ENDPOINT_PATH}`)
+        mock.onPost(`${context.getBaseUrl()}/transaction`)
             .reply(200, new Response(new Item(transaction)));
 
         const entity = await TransactionService.create(context, transaction);
@@ -43,7 +42,7 @@ describe('services/TransactionService', () => {
             const transaction = transactionFactory();
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Transaction.ENDPOINT_PATH}/${transaction.number}`)
+            mock.onGet(`${context.getBaseUrl()}/transaction/${transaction.number}`)
                 .reply(200, new Response(new Item(transaction)));
 
             const entity = await TransactionService.get(context, transaction.number);
@@ -58,7 +57,7 @@ describe('services/TransactionService', () => {
             const number = 'Any-number-that-not-exist';
 
             // configure mock for product get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Transaction.ENDPOINT_PATH}/${number}`)
+            mock.onGet(`${context.getBaseUrl()}/transaction/${number}`)
                 .reply(400, new Response(
                     new Info('Requested transaction does not exist', 'NotFoundException'),
                 ));
@@ -76,7 +75,7 @@ describe('services/TransactionService', () => {
             const transactions = transactionFactory(10);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Transaction.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/transaction`)
                 .reply(200, new Response(transactions.map((v) => new Item(v))));
 
             const list = await TransactionService.list(context);
@@ -97,7 +96,7 @@ describe('services/TransactionService', () => {
             const transactions = transactionFactory(40);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Transaction.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/transaction`)
                 .reply(() => {
                     const response = new Response(transactions.map((v) => new Item(v)));
                     response.setPage(3, 40, 1200);
@@ -118,7 +117,7 @@ describe('services/TransactionService', () => {
             const transaction = transactionFactory();
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Transaction.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/transaction`)
                 .reply(200, new Response(new Item(transaction)));
 
             // if filter parameter is object
@@ -137,7 +136,7 @@ describe('services/TransactionService', () => {
         let transaction = transactionFactory();
 
         // configure mock for get request
-        mock.onGet(`${context.getBaseUrl()}/${Constants.Transaction.ENDPOINT_PATH}/${transaction.number}`)
+        mock.onGet(`${context.getBaseUrl()}/transaction/${transaction.number}`)
             .reply(200, new Response(new Item(transaction)));
 
         transaction = await TransactionService.get(context, transaction.number);
@@ -145,7 +144,7 @@ describe('services/TransactionService', () => {
         transaction.setProperty('status', 'CLOSED');
 
         // configure mock for update request
-        mock.onPost(`${context.getBaseUrl()}/${Constants.Transaction.ENDPOINT_PATH}/${transaction.number}`)
+        mock.onPost(`${context.getBaseUrl()}/transaction/${transaction.number}`)
             .reply(200, new Response(new Item(transaction)));
 
         const updated = await TransactionService.update(context, transaction.getProperty('number'), transaction);

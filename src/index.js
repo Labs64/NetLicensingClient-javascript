@@ -6,6 +6,7 @@ import Context from './vo/Context';
 import Page from './vo/Page';
 import ValidationParameters from './vo/ValidationParameters';
 import ValidationResults from './vo/ValidationResults';
+import BundleObtainParameters from './vo/BundleObtainParameters';
 
 // Services
 import Service from './services/Service';
@@ -18,7 +19,7 @@ import ProductService from './services/ProductService';
 import TokenService from './services/TokenService';
 import TransactionService from './services/TransactionService';
 import UtilityService from './services/UtilityService';
-import NotificationService from './services/NotificationService';
+import BundleService from './services/BundleService';
 
 // Entities
 import BaseEntity from './entities/BaseEntity';
@@ -33,7 +34,7 @@ import ProductModule from './entities/ProductModule';
 import Token from './entities/Token';
 import Transaction from './entities/Transaction';
 import LicenseTransactionJoin from './entities/LicenseTransactionJoin';
-import Notification from './entities/Notification';
+import Bundle from './entities/Bundle';
 
 // Converters
 import itemToCountry from './converters/itemToCountry';
@@ -46,7 +47,7 @@ import itemToProduct from './converters/itemToProduct';
 import itemToProductModule from './converters/itemToProductModule';
 import itemToToken from './converters/itemToToken';
 import itemToTransaction from './converters/itemToTransaction';
-import itemToNotification from './converters/itemToNotification';
+import itemToBundle from './converters/itemToBundle';
 
 // Utils
 import CastsUtils from './util/CastsUtils';
@@ -67,6 +68,7 @@ export {
     Page,
     ValidationParameters,
     ValidationResults,
+    BundleObtainParameters,
 
     // Expose Services
     Service,
@@ -79,7 +81,7 @@ export {
     TokenService,
     TransactionService,
     UtilityService,
-    NotificationService,
+    BundleService,
 
     // Expose Entities
     BaseEntity,
@@ -94,7 +96,7 @@ export {
     Token,
     Transaction,
     LicenseTransactionJoin,
-    Notification,
+    Bundle,
 
     // Expose Converters
     itemToCountry,
@@ -107,7 +109,7 @@ export {
     itemToProductModule,
     itemToToken,
     itemToTransaction,
-    itemToNotification,
+    itemToBundle,
 
     // Expose Utils
     CastsUtils,
@@ -117,3 +119,7 @@ export {
     // Errors
     NlicError,
 };
+
+// module.exports = NetLicensing;
+
+// Allow use of default import syntax in TypeScript

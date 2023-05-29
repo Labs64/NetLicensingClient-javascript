@@ -7,7 +7,6 @@ import Response from 'test@/response';
 import Context from '@/vo/Context';
 import PaymentMethod from '@/entities/PaymentMethod';
 import PaymentMethodService from '@/services/PaymentMethodService';
-import Constants from '@/Constants';
 import NlicError from '@/errors/NlicError';
 
 describe('services/PaymentMethodService', () => {
@@ -27,7 +26,7 @@ describe('services/PaymentMethodService', () => {
             const paymentMethod = paymentMethodFactory();
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}/${paymentMethod.number}`)
+            mock.onGet(`${context.getBaseUrl()}/paymentmethod/${paymentMethod.number}`)
                 .reply(200, new Response(new Item(paymentMethod)));
 
             const entity = await PaymentMethodService.get(context, paymentMethod.number);
@@ -40,7 +39,7 @@ describe('services/PaymentMethodService', () => {
             const number = 'Payment-that-is-not-supported';
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}/${number}`)
+            mock.onGet(`${context.getBaseUrl()}/paymentmethod/${number}`)
                 .reply(() => {
                     if (['PAYPAL', 'PAYPAL_SANDBOX', 'STRIPE'].indexOf(number) === -1) {
                         return [400, new Response(
@@ -64,7 +63,7 @@ describe('services/PaymentMethodService', () => {
             const number = 'Any-number-that-not-exist';
 
             // configure mock for get request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}/${number}`)
+            mock.onGet(`${context.getBaseUrl()}/paymentmethod/${number}`)
                 .reply(400, new Response(
                     new Info('Requested paymentMethod does not exist', 'NotFoundException'),
                 ));
@@ -83,7 +82,7 @@ describe('services/PaymentMethodService', () => {
             const paymentMethods = paymentMethodFactory(3);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/paymentmethod`)
                 .reply(200, new Response(paymentMethods.map((v) => new Item(v))));
 
             const list = await PaymentMethodService.list(context);
@@ -103,7 +102,7 @@ describe('services/PaymentMethodService', () => {
             const paymentMethods = paymentMethodFactory(3);
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.PaymentMethod.ENDPOINT_PATH}`)
+            mock.onGet(`${context.getBaseUrl()}/paymentmethod`)
                 .reply(200, new Response(paymentMethods.map((v) => new Item(v))));
 
             const list = await PaymentMethodService.list(context);

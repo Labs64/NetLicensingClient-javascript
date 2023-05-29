@@ -7,7 +7,6 @@ import Context from '@/vo/Context';
 import UtilityService from '@/services/UtilityService';
 import Service from '@/services/Service';
 import Country from '@/entities/Country';
-import Constants from '@/Constants';
 
 describe('services/UtilityService', () => {
     let context;
@@ -27,7 +26,7 @@ describe('services/UtilityService', () => {
 
             // configure mock for list request
             // eslint-disable-next-line max-len
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/${Constants.Utility.ENDPOINT_PATH_LICENSE_TYPES}`)
+            mock.onGet(`${context.getBaseUrl()}/utility/licenseTypes`)
                 .reply(200, new Response(licenseTypes.map((v) => new Item(v, 'LicenseType'))));
 
             const list = await UtilityService.listLicenseTypes(context);
@@ -41,7 +40,7 @@ describe('services/UtilityService', () => {
 
             // configure mock for list request
             // eslint-disable-next-line max-len
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/${Constants.Utility.ENDPOINT_PATH_LICENSE_TYPES}`)
+            mock.onGet(`${context.getBaseUrl()}/utility/licenseTypes`)
                 .reply(200, new Response(licenseTypes.map((v) => new Item(v, 'LicenseType'))));
 
             const list = await UtilityService.listLicenseTypes(context);
@@ -60,7 +59,7 @@ describe('services/UtilityService', () => {
 
             // configure mock for list request
             // eslint-disable-next-line max-len
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/${Constants.Utility.ENDPOINT_PATH_LICENSING_MODELS}`)
+            mock.onGet(`${context.getBaseUrl()}/utility/licensingModels`)
                 .reply(200, new Response(licenseModels.map((v) => new Item(v, 'LicensingModelProperties'))));
 
             const list = await UtilityService.listLicensingModels(context);
@@ -74,7 +73,7 @@ describe('services/UtilityService', () => {
 
             // configure mock for list request
             // eslint-disable-next-line max-len
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/${Constants.Utility.ENDPOINT_PATH_LICENSING_MODELS}`)
+            mock.onGet(`${context.getBaseUrl()}/utility/licensingModels`)
                 .reply(200, new Response(licenseModels.map((v) => new Item(v, 'LicensingModelProperties'))));
 
             const list = await UtilityService.listLicensingModels(context);
@@ -111,7 +110,7 @@ describe('services/UtilityService', () => {
             ];
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/countries`)
+            mock.onGet(`${context.getBaseUrl()}/utility/countries`)
                 .reply(200, new Response(countries.map((v) => new Item(v))));
 
             const list = await UtilityService.listCountries(context);
@@ -143,7 +142,7 @@ describe('services/UtilityService', () => {
             ];
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/countries`)
+            mock.onGet(`${context.getBaseUrl()}/utility/countries`)
                 .reply(200, new Response(countries.map((v) => new Item(v))));
 
             const list = await UtilityService.listCountries(context);
@@ -178,7 +177,7 @@ describe('services/UtilityService', () => {
             ];
 
             // configure mock for list request
-            mock.onGet(`${context.getBaseUrl()}/${Constants.Utility.ENDPOINT_PATH}/countries`)
+            mock.onGet(`${context.getBaseUrl()}/utility/countries`)
                 .reply(200, new Response(countries.map((v) => new Item(v))));
 
             // if filter parameter is object
