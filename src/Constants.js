@@ -219,6 +219,10 @@ export default {
         Event: {
             CREATE_LICENSEE: 'CREATE_LICENSEE',
             CREATE_LICENSE: 'CREATE_LICENSE',
+            WARNING_LEVEL_TO_ANY: 'WARNING_LEVEL_TO_ANY',
+            WARNING_LEVEL_TO_GREEN: 'WARNING_LEVEL_TO_GREEN',
+            WARNING_LEVEL_TO_YELLOW: 'WARNING_LEVEL_TO_YELLOW',
+            WARNING_LEVEL_TO_RED: 'WARNING_LEVEL_TO_RED',
         },
     },
 };
