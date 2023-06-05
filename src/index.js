@@ -20,6 +20,7 @@ import TokenService from './services/TokenService';
 import TransactionService from './services/TransactionService';
 import UtilityService from './services/UtilityService';
 import BundleService from './services/BundleService';
+import NotificationService from './services/NotificationService';
 
 // Entities
 import BaseEntity from './entities/BaseEntity';
@@ -35,6 +36,7 @@ import Token from './entities/Token';
 import Transaction from './entities/Transaction';
 import LicenseTransactionJoin from './entities/LicenseTransactionJoin';
 import Bundle from './entities/Bundle';
+import Notification from './entities/Notification';
 
 // Converters
 import itemToCountry from './converters/itemToCountry';
@@ -82,6 +84,7 @@ export {
     TransactionService,
     UtilityService,
     BundleService,
+    NotificationService,
 
     // Expose Entities
     BaseEntity,
@@ -97,6 +100,7 @@ export {
     Transaction,
     LicenseTransactionJoin,
     Bundle,
+    Notification,
 
     // Expose Converters
     itemToCountry,
