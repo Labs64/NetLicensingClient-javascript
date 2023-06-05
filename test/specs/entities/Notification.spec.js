@@ -58,21 +58,21 @@ describe('entities/Notification', () => {
         expect(notification.active).toBe(true);
     });
 
-    it('check "type" property setters/getters', () => {
-        notification.setProperty('type', 'WEBHOOK');
-        expect(notification.getProperty('type')).toBe('WEBHOOK');
-        expect(notification.getType()).toBe('WEBHOOK');
-        expect(notification.type).toBe('WEBHOOK');
+    it('check "protocol" property setters/getters', () => {
+        notification.setProperty('protocol', 'WEBHOOK');
+        expect(notification.getProperty('protocol')).toBe('WEBHOOK');
+        expect(notification.getProtocol()).toBe('WEBHOOK');
+        expect(notification.protocol).toBe('WEBHOOK');
 
-        notification.setType('EMAIL');
-        expect(notification.getProperty('type')).toBe('EMAIL');
-        expect(notification.getType()).toBe('EMAIL');
-        expect(notification.type).toBe('EMAIL');
+        notification.setProtocol('EMAIL');
+        expect(notification.getProperty('protocol')).toBe('EMAIL');
+        expect(notification.getProtocol()).toBe('EMAIL');
+        expect(notification.protocol).toBe('EMAIL');
 
-        notification.type = 'EMAIL';
-        expect(notification.getProperty('type')).toBe('EMAIL');
-        expect(notification.getType()).toBe('EMAIL');
-        expect(notification.type).toBe('EMAIL');
+        notification.protocol = 'EMAIL';
+        expect(notification.getProperty('protocol')).toBe('EMAIL');
+        expect(notification.getProtocol()).toBe('EMAIL');
+        expect(notification.protocol).toBe('EMAIL');
     });
 
     it('check "events" property setters/getters', () => {
@@ -109,21 +109,21 @@ describe('entities/Notification', () => {
         expect(notification.payload).toBe('some-payload-2');
     });
 
-    it('check "url" property setters/getters', () => {
-        notification.setProperty('url', 'https://example.com');
-        expect(notification.getProperty('url')).toBe('https://example.com');
-        expect(notification.getURL()).toBe('https://example.com');
-        expect(notification.url).toBe('https://example.com');
+    it('check "endpoint" property setters/getters', () => {
+        notification.setProperty('endpoint', 'https://example.com');
+        expect(notification.getProperty('endpoint')).toBe('https://example.com');
+        expect(notification.getEndpoint()).toBe('https://example.com');
+        expect(notification.endpoint).toBe('https://example.com');
 
-        notification.setURL('https://example2.com');
-        expect(notification.getProperty('url')).toBe('https://example2.com');
-        expect(notification.getURL()).toBe('https://example2.com');
-        expect(notification.url).toBe('https://example2.com');
+        notification.setEndpoint('https://example2.com');
+        expect(notification.getProperty('endpoint')).toBe('https://example2.com');
+        expect(notification.getEndpoint()).toBe('https://example2.com');
+        expect(notification.endpoint).toBe('https://example2.com');
 
-        notification.url = 'https://example3.com';
-        expect(notification.getProperty('url')).toBe('https://example3.com');
-        expect(notification.getURL()).toBe('https://example3.com');
-        expect(notification.url).toBe('https://example3.com');
+        notification.endpoint = 'https://example3.com';
+        expect(notification.getProperty('endpoint')).toBe('https://example3.com');
+        expect(notification.getEndpoint()).toBe('https://example3.com');
+        expect(notification.endpoint).toBe('https://example3.com');
     });
 
     it('check "custom-property" property setters/getters', () => {

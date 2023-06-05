@@ -48,10 +48,10 @@ export default class Notification extends BaseEntity {
                 number: 'string',
                 active: 'boolean',
                 name: 'string',
-                type: 'string',
+                protocol: 'string',
                 events: 'string',
                 payload: 'string',
-                url: 'string',
+                endpoint: 'string',
             },
         });
     }
@@ -80,12 +80,12 @@ export default class Notification extends BaseEntity {
         return this.getProperty('name', def);
     }
 
-    setType(type) {
-        return this.setProperty('type', type);
+    setProtocol(type) {
+        return this.setProperty('protocol', type);
     }
 
-    getType(def) {
-        return this.getProperty('type', def);
+    getProtocol(def) {
+        return this.getProperty('protocol', def);
     }
 
     setEvents(events) {
@@ -104,11 +104,11 @@ export default class Notification extends BaseEntity {
         return this.getProperty('payload', def);
     }
 
-    setURL(url) {
-        return this.setProperty('url', url);
+    setEndpoint(endpoint) {
+        return this.setProperty('endpoint', endpoint);
     }
 
-    getURL(def) {
-        return this.getProperty('url', def);
+    getEndpoint(def) {
+        return this.getProperty('endpoint', def);
     }
 }

@@ -210,4 +210,15 @@ export default {
         ENDPOINT_PATH: 'bundle',
         ENDPOINT_OBTAIN_PATH: 'obtain',
     },
+
+    Notification: {
+        ENDPOINT_PATH: 'notification',
+        Protocol: {
+            WEBHOOK: 'WEBHOOK',
+        },
+        Event: {
+            CREATE_LICENSEE: 'CREATE_LICENSEE',
+            CREATE_LICENSE: 'CREATE_LICENSE',
+        },
+    },
 };
