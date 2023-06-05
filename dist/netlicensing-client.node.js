@@ -971,7 +971,12 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
 var _CastsUtils = _interopRequireDefault(__webpack_require__(553));
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
 /**
  * The entity properties.
  * @type {{}}
@@ -1224,7 +1229,12 @@ var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(499
 var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * NetLicensing Bundle entity.
  *
@@ -1351,7 +1361,12 @@ var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(499
 var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Country entity used internally by NetLicensing.
  *
@@ -1446,7 +1461,12 @@ var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(499
 var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * License entity used internally by NetLicensing.
  *
@@ -1613,7 +1633,12 @@ var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(499
 var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * License template entity used internally by NetLicensing.
  *
@@ -1911,7 +1936,12 @@ var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(499
 var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Licensee entity used internally by NetLicensing.
  *
@@ -2056,7 +2086,12 @@ var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(499
 var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * NetLicensing Notification entity.
  *
@@ -2203,7 +2238,12 @@ var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(499
 var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * PaymentMethod entity used internally by NetLicensing.
  *
@@ -2285,7 +2325,12 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 var _ProductDiscount = _interopRequireDefault(__webpack_require__(3144));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * The discounts map
  * @type {{}}
@@ -2546,7 +2591,12 @@ var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(499
 var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 var ProductDiscount = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(ProductDiscount, _BaseEntity);
   var _super = _createSuper(ProductDiscount);
@@ -2638,7 +2688,12 @@ var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(499
 var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Product module entity used internally by NetLicensing.
  *
@@ -2819,7 +2874,12 @@ var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(499
 var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Product module entity used internally by NetLicensing.
  *
@@ -3030,7 +3090,12 @@ var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3089));
 var _License = _interopRequireDefault(__webpack_require__(9763));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Transaction entity used internally by NetLicensing.
  *
@@ -3349,23 +3414,21 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _Service.default.post(context, _Constants.default.Bundle.ENDPOINT_PATH, bundle.asPropertiesMap());
-            case 2:
-              _yield$Service$post = _context.sent;
-              items = _yield$Service$post.data.items.item;
-              _items$filter = items.filter(function (_ref) {
-                var type = _ref.type;
-                return type === 'Bundle';
-              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-              return _context.abrupt("return", (0, _itemToBundle.default)(item));
-            case 6:
-            case "end":
-              return _context.stop();
-          }
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _Service.default.post(context, _Constants.default.Bundle.ENDPOINT_PATH, bundle.asPropertiesMap());
+          case 2:
+            _yield$Service$post = _context.sent;
+            items = _yield$Service$post.data.items.item;
+            _items$filter = items.filter(function (_ref) {
+              var type = _ref.type;
+              return type === 'Bundle';
+            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+            return _context.abrupt("return", (0, _itemToBundle.default)(item));
+          case 6:
+          case "end":
+            return _context.stop();
         }
       }, _callee);
     }))();
@@ -3387,24 +3450,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context2.next = 3;
-              return _Service.default.get(context, "".concat(_Constants.default.Bundle.ENDPOINT_PATH, "/").concat(number));
-            case 3:
-              _yield$Service$get = _context2.sent;
-              items = _yield$Service$get.data.items.item;
-              _items$filter3 = items.filter(function (_ref2) {
-                var type = _ref2.type;
-                return type === 'Bundle';
-              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-              return _context2.abrupt("return", (0, _itemToBundle.default)(item));
-            case 7:
-            case "end":
-              return _context2.stop();
-          }
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context2.next = 3;
+            return _Service.default.get(context, "".concat(_Constants.default.Bundle.ENDPOINT_PATH, "/").concat(number));
+          case 3:
+            _yield$Service$get = _context2.sent;
+            items = _yield$Service$get.data.items.item;
+            _items$filter3 = items.filter(function (_ref2) {
+              var type = _ref2.type;
+              return type === 'Bundle';
+            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+            return _context2.abrupt("return", (0, _itemToBundle.default)(item));
+          case 7:
+          case "end":
+            return _context2.stop();
         }
       }, _callee2);
     }))();
@@ -3426,37 +3487,35 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              queryParams = {};
-              if (!filter) {
-                _context3.next = 5;
-                break;
-              }
-              if (_CheckUtils.default.isValid(filter)) {
-                _context3.next = 4;
-                break;
-              }
-              throw new TypeError("filter has bad value ".concat(filter));
-            case 4:
-              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-            case 5:
-              _context3.next = 7;
-              return _Service.default.get(context, _Constants.default.Bundle.ENDPOINT_PATH, queryParams);
-            case 7:
-              _yield$Service$get2 = _context3.sent;
-              data = _yield$Service$get2.data;
-              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-                var type = _ref3.type;
-                return type === 'Bundle';
-              }).map(function (v) {
-                return (0, _itemToBundle.default)(v);
-              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-            case 10:
-            case "end":
-              return _context3.stop();
-          }
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            queryParams = {};
+            if (!filter) {
+              _context3.next = 5;
+              break;
+            }
+            if (_CheckUtils.default.isValid(filter)) {
+              _context3.next = 4;
+              break;
+            }
+            throw new TypeError("filter has bad value ".concat(filter));
+          case 4:
+            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+          case 5:
+            _context3.next = 7;
+            return _Service.default.get(context, _Constants.default.Bundle.ENDPOINT_PATH, queryParams);
+          case 7:
+            _yield$Service$get2 = _context3.sent;
+            data = _yield$Service$get2.data;
+            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+              var type = _ref3.type;
+              return type === 'Bundle';
+            }).map(function (v) {
+              return (0, _itemToBundle.default)(v);
+            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+          case 10:
+          case "end":
+            return _context3.stop();
         }
       }, _callee3);
     }))();
@@ -3481,24 +3540,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context4.next = 3;
-              return _Service.default.post(context, "".concat(_Constants.default.Bundle.ENDPOINT_PATH, "/").concat(number), bundle.asPropertiesMap());
-            case 3:
-              _yield$Service$post2 = _context4.sent;
-              items = _yield$Service$post2.data.items.item;
-              _items$filter5 = items.filter(function (_ref4) {
-                var type = _ref4.type;
-                return type === 'Bundle';
-              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-              return _context4.abrupt("return", (0, _itemToBundle.default)(item));
-            case 7:
-            case "end":
-              return _context4.stop();
-          }
+        while (1) switch (_context4.prev = _context4.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context4.next = 3;
+            return _Service.default.post(context, "".concat(_Constants.default.Bundle.ENDPOINT_PATH, "/").concat(number), bundle.asPropertiesMap());
+          case 3:
+            _yield$Service$post2 = _context4.sent;
+            items = _yield$Service$post2.data.items.item;
+            _items$filter5 = items.filter(function (_ref4) {
+              var type = _ref4.type;
+              return type === 'Bundle';
+            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+            return _context4.abrupt("return", (0, _itemToBundle.default)(item));
+          case 7:
+          case "end":
+            return _context4.stop();
         }
       }, _callee4);
     }))();
@@ -3546,28 +3603,26 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5() {
       var _Constants$Bundle, ENDPOINT_PATH, ENDPOINT_OBTAIN_PATH, queryParams, _yield$Service$post3, items;
       return _regenerator.default.wrap(function _callee5$(_context5) {
-        while (1) {
-          switch (_context5.prev = _context5.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _CheckUtils.default.paramNotEmpty(bundleObtainParameters.getLicenseeNumber(), _Constants.default.Licensee.LICENSEE_NUMBER);
-              _Constants$Bundle = _Constants.default.Bundle, ENDPOINT_PATH = _Constants$Bundle.ENDPOINT_PATH, ENDPOINT_OBTAIN_PATH = _Constants$Bundle.ENDPOINT_OBTAIN_PATH;
-              queryParams = (0, _defineProperty2.default)({}, _Constants.default.Licensee.LICENSEE_NUMBER, bundleObtainParameters.getLicenseeNumber());
-              _context5.next = 6;
-              return _Service.default.post(context, "".concat(ENDPOINT_PATH, "/").concat(number, "/").concat(ENDPOINT_OBTAIN_PATH), queryParams);
-            case 6:
-              _yield$Service$post3 = _context5.sent;
-              items = _yield$Service$post3.data.items.item;
-              return _context5.abrupt("return", items.filter(function (_ref5) {
-                var type = _ref5.type;
-                return type === 'License';
-              }).map(function (i) {
-                return (0, _itemToLicense.default)(i);
-              }));
-            case 9:
-            case "end":
-              return _context5.stop();
-          }
+        while (1) switch (_context5.prev = _context5.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _CheckUtils.default.paramNotEmpty(bundleObtainParameters.getLicenseeNumber(), _Constants.default.Licensee.LICENSEE_NUMBER);
+            _Constants$Bundle = _Constants.default.Bundle, ENDPOINT_PATH = _Constants$Bundle.ENDPOINT_PATH, ENDPOINT_OBTAIN_PATH = _Constants$Bundle.ENDPOINT_OBTAIN_PATH;
+            queryParams = (0, _defineProperty2.default)({}, _Constants.default.Licensee.LICENSEE_NUMBER, bundleObtainParameters.getLicenseeNumber());
+            _context5.next = 6;
+            return _Service.default.post(context, "".concat(ENDPOINT_PATH, "/").concat(number, "/").concat(ENDPOINT_OBTAIN_PATH), queryParams);
+          case 6:
+            _yield$Service$post3 = _context5.sent;
+            items = _yield$Service$post3.data.items.item;
+            return _context5.abrupt("return", items.filter(function (_ref5) {
+              var type = _ref5.type;
+              return type === 'License';
+            }).map(function (i) {
+              return (0, _itemToLicense.default)(i);
+            }));
+          case 9:
+          case "end":
+            return _context5.stop();
         }
       }, _callee5);
     }))();
@@ -3640,28 +3695,26 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(licenseeNumber, _Constants.default.Licensee.LICENSEE_NUMBER);
-              _CheckUtils.default.paramNotEmpty(licenseTemplateNumber, _Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER);
-              license.setProperty(_Constants.default.Licensee.LICENSEE_NUMBER, licenseeNumber);
-              license.setProperty(_Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER, licenseTemplateNumber);
-              if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
-              _context.next = 7;
-              return _Service.default.post(context, _Constants.default.License.ENDPOINT_PATH, license.asPropertiesMap());
-            case 7:
-              _yield$Service$post = _context.sent;
-              items = _yield$Service$post.data.items.item;
-              _items$filter = items.filter(function (_ref) {
-                var type = _ref.type;
-                return type === 'License';
-              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-              return _context.abrupt("return", (0, _itemToLicense.default)(item));
-            case 11:
-            case "end":
-              return _context.stop();
-          }
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(licenseeNumber, _Constants.default.Licensee.LICENSEE_NUMBER);
+            _CheckUtils.default.paramNotEmpty(licenseTemplateNumber, _Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER);
+            license.setProperty(_Constants.default.Licensee.LICENSEE_NUMBER, licenseeNumber);
+            license.setProperty(_Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER, licenseTemplateNumber);
+            if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
+            _context.next = 7;
+            return _Service.default.post(context, _Constants.default.License.ENDPOINT_PATH, license.asPropertiesMap());
+          case 7:
+            _yield$Service$post = _context.sent;
+            items = _yield$Service$post.data.items.item;
+            _items$filter = items.filter(function (_ref) {
+              var type = _ref.type;
+              return type === 'License';
+            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+            return _context.abrupt("return", (0, _itemToLicense.default)(item));
+          case 11:
+          case "end":
+            return _context.stop();
         }
       }, _callee);
     }))();
@@ -3683,24 +3736,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context2.next = 3;
-              return _Service.default.get(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number));
-            case 3:
-              _yield$Service$get = _context2.sent;
-              items = _yield$Service$get.data.items.item;
-              _items$filter3 = items.filter(function (_ref2) {
-                var type = _ref2.type;
-                return type === 'License';
-              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-              return _context2.abrupt("return", (0, _itemToLicense.default)(item));
-            case 7:
-            case "end":
-              return _context2.stop();
-          }
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context2.next = 3;
+            return _Service.default.get(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number));
+          case 3:
+            _yield$Service$get = _context2.sent;
+            items = _yield$Service$get.data.items.item;
+            _items$filter3 = items.filter(function (_ref2) {
+              var type = _ref2.type;
+              return type === 'License';
+            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+            return _context2.abrupt("return", (0, _itemToLicense.default)(item));
+          case 7:
+          case "end":
+            return _context2.stop();
         }
       }, _callee2);
     }))();
@@ -3722,37 +3773,35 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              queryParams = {};
-              if (!filter) {
-                _context3.next = 5;
-                break;
-              }
-              if (_CheckUtils.default.isValid(filter)) {
-                _context3.next = 4;
-                break;
-              }
-              throw new TypeError("filter has bad value ".concat(filter));
-            case 4:
-              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-            case 5:
-              _context3.next = 7;
-              return _Service.default.get(context, _Constants.default.License.ENDPOINT_PATH, queryParams);
-            case 7:
-              _yield$Service$get2 = _context3.sent;
-              data = _yield$Service$get2.data;
-              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-                var type = _ref3.type;
-                return type === 'License';
-              }).map(function (v) {
-                return (0, _itemToLicense.default)(v);
-              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-            case 10:
-            case "end":
-              return _context3.stop();
-          }
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            queryParams = {};
+            if (!filter) {
+              _context3.next = 5;
+              break;
+            }
+            if (_CheckUtils.default.isValid(filter)) {
+              _context3.next = 4;
+              break;
+            }
+            throw new TypeError("filter has bad value ".concat(filter));
+          case 4:
+            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+          case 5:
+            _context3.next = 7;
+            return _Service.default.get(context, _Constants.default.License.ENDPOINT_PATH, queryParams);
+          case 7:
+            _yield$Service$get2 = _context3.sent;
+            data = _yield$Service$get2.data;
+            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+              var type = _ref3.type;
+              return type === 'License';
+            }).map(function (v) {
+              return (0, _itemToLicense.default)(v);
+            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+          case 10:
+          case "end":
+            return _context3.stop();
         }
       }, _callee3);
     }))();
@@ -3781,25 +3830,23 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
-              _context4.next = 4;
-              return _Service.default.post(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number), license.asPropertiesMap());
-            case 4:
-              _yield$Service$post2 = _context4.sent;
-              items = _yield$Service$post2.data.items.item;
-              _items$filter5 = items.filter(function (_ref4) {
-                var type = _ref4.type;
-                return type === 'License';
-              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-              return _context4.abrupt("return", (0, _itemToLicense.default)(item));
-            case 8:
-            case "end":
-              return _context4.stop();
-          }
+        while (1) switch (_context4.prev = _context4.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
+            _context4.next = 4;
+            return _Service.default.post(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number), license.asPropertiesMap());
+          case 4:
+            _yield$Service$post2 = _context4.sent;
+            items = _yield$Service$post2.data.items.item;
+            _items$filter5 = items.filter(function (_ref4) {
+              var type = _ref4.type;
+              return type === 'License';
+            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+            return _context4.abrupt("return", (0, _itemToLicense.default)(item));
+          case 8:
+          case "end":
+            return _context4.stop();
         }
       }, _callee4);
     }))();
@@ -3888,25 +3935,23 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(productModuleNumber, _Constants.default.ProductModule.PRODUCT_MODULE_NUMBER);
-              licenseTemplate.setProperty(_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER, productModuleNumber);
-              _context.next = 4;
-              return _Service.default.post(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, licenseTemplate.asPropertiesMap());
-            case 4:
-              _yield$Service$post = _context.sent;
-              items = _yield$Service$post.data.items.item;
-              _items$filter = items.filter(function (_ref) {
-                var type = _ref.type;
-                return type === 'LicenseTemplate';
-              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-              return _context.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
-            case 8:
-            case "end":
-              return _context.stop();
-          }
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(productModuleNumber, _Constants.default.ProductModule.PRODUCT_MODULE_NUMBER);
+            licenseTemplate.setProperty(_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER, productModuleNumber);
+            _context.next = 4;
+            return _Service.default.post(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, licenseTemplate.asPropertiesMap());
+          case 4:
+            _yield$Service$post = _context.sent;
+            items = _yield$Service$post.data.items.item;
+            _items$filter = items.filter(function (_ref) {
+              var type = _ref.type;
+              return type === 'LicenseTemplate';
+            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+            return _context.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
+          case 8:
+          case "end":
+            return _context.stop();
         }
       }, _callee);
     }))();
@@ -3928,24 +3973,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context2.next = 3;
-              return _Service.default.get(context, "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number));
-            case 3:
-              _yield$Service$get = _context2.sent;
-              items = _yield$Service$get.data.items.item;
-              _items$filter3 = items.filter(function (_ref2) {
-                var type = _ref2.type;
-                return type === 'LicenseTemplate';
-              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-              return _context2.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
-            case 7:
-            case "end":
-              return _context2.stop();
-          }
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context2.next = 3;
+            return _Service.default.get(context, "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number));
+          case 3:
+            _yield$Service$get = _context2.sent;
+            items = _yield$Service$get.data.items.item;
+            _items$filter3 = items.filter(function (_ref2) {
+              var type = _ref2.type;
+              return type === 'LicenseTemplate';
+            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+            return _context2.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
+          case 7:
+          case "end":
+            return _context2.stop();
         }
       }, _callee2);
     }))();
@@ -3967,37 +4010,35 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              queryParams = {};
-              if (!filter) {
-                _context3.next = 5;
-                break;
-              }
-              if (_CheckUtils.default.isValid(filter)) {
-                _context3.next = 4;
-                break;
-              }
-              throw new TypeError("filter has bad value ".concat(filter));
-            case 4:
-              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-            case 5:
-              _context3.next = 7;
-              return _Service.default.get(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, queryParams);
-            case 7:
-              _yield$Service$get2 = _context3.sent;
-              data = _yield$Service$get2.data;
-              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-                var type = _ref3.type;
-                return type === 'LicenseTemplate';
-              }).map(function (v) {
-                return (0, _itemToLicenseTemplate.default)(v);
-              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-            case 10:
-            case "end":
-              return _context3.stop();
-          }
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            queryParams = {};
+            if (!filter) {
+              _context3.next = 5;
+              break;
+            }
+            if (_CheckUtils.default.isValid(filter)) {
+              _context3.next = 4;
+              break;
+            }
+            throw new TypeError("filter has bad value ".concat(filter));
+          case 4:
+            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+          case 5:
+            _context3.next = 7;
+            return _Service.default.get(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, queryParams);
+          case 7:
+            _yield$Service$get2 = _context3.sent;
+            data = _yield$Service$get2.data;
+            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+              var type = _ref3.type;
+              return type === 'LicenseTemplate';
+            }).map(function (v) {
+              return (0, _itemToLicenseTemplate.default)(v);
+            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+          case 10:
+          case "end":
+            return _context3.stop();
         }
       }, _callee3);
     }))();
@@ -4022,25 +4063,23 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var path, _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              path = "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number);
-              _context4.next = 4;
-              return _Service.default.post(context, path, licenseTemplate.asPropertiesMap());
-            case 4:
-              _yield$Service$post2 = _context4.sent;
-              items = _yield$Service$post2.data.items.item;
-              _items$filter5 = items.filter(function (_ref4) {
-                var type = _ref4.type;
-                return type === 'LicenseTemplate';
-              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-              return _context4.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
-            case 8:
-            case "end":
-              return _context4.stop();
-          }
+        while (1) switch (_context4.prev = _context4.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            path = "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number);
+            _context4.next = 4;
+            return _Service.default.post(context, path, licenseTemplate.asPropertiesMap());
+          case 4:
+            _yield$Service$post2 = _context4.sent;
+            items = _yield$Service$post2.data.items.item;
+            _items$filter5 = items.filter(function (_ref4) {
+              var type = _ref4.type;
+              return type === 'LicenseTemplate';
+            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+            return _context4.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
+          case 8:
+          case "end":
+            return _context4.stop();
         }
       }, _callee4);
     }))();
@@ -4129,25 +4168,23 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
-              licensee.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
-              _context.next = 4;
-              return _Service.default.post(context, _Constants.default.Licensee.ENDPOINT_PATH, licensee.asPropertiesMap());
-            case 4:
-              _yield$Service$post = _context.sent;
-              items = _yield$Service$post.data.items.item;
-              _items$filter = items.filter(function (_ref) {
-                var type = _ref.type;
-                return type === 'Licensee';
-              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-              return _context.abrupt("return", (0, _itemToLicensee.default)(item));
-            case 8:
-            case "end":
-              return _context.stop();
-          }
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
+            licensee.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
+            _context.next = 4;
+            return _Service.default.post(context, _Constants.default.Licensee.ENDPOINT_PATH, licensee.asPropertiesMap());
+          case 4:
+            _yield$Service$post = _context.sent;
+            items = _yield$Service$post.data.items.item;
+            _items$filter = items.filter(function (_ref) {
+              var type = _ref.type;
+              return type === 'Licensee';
+            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+            return _context.abrupt("return", (0, _itemToLicensee.default)(item));
+          case 8:
+          case "end":
+            return _context.stop();
         }
       }, _callee);
     }))();
@@ -4169,24 +4206,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context2.next = 3;
-              return _Service.default.get(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number));
-            case 3:
-              _yield$Service$get = _context2.sent;
-              items = _yield$Service$get.data.items.item;
-              _items$filter3 = items.filter(function (_ref2) {
-                var type = _ref2.type;
-                return type === 'Licensee';
-              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-              return _context2.abrupt("return", (0, _itemToLicensee.default)(item));
-            case 7:
-            case "end":
-              return _context2.stop();
-          }
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context2.next = 3;
+            return _Service.default.get(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number));
+          case 3:
+            _yield$Service$get = _context2.sent;
+            items = _yield$Service$get.data.items.item;
+            _items$filter3 = items.filter(function (_ref2) {
+              var type = _ref2.type;
+              return type === 'Licensee';
+            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+            return _context2.abrupt("return", (0, _itemToLicensee.default)(item));
+          case 7:
+          case "end":
+            return _context2.stop();
         }
       }, _callee2);
     }))();
@@ -4208,37 +4243,35 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              queryParams = {};
-              if (!filter) {
-                _context3.next = 5;
-                break;
-              }
-              if (_CheckUtils.default.isValid(filter)) {
-                _context3.next = 4;
-                break;
-              }
-              throw new TypeError("filter has bad value ".concat(filter));
-            case 4:
-              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-            case 5:
-              _context3.next = 7;
-              return _Service.default.get(context, _Constants.default.Licensee.ENDPOINT_PATH, queryParams);
-            case 7:
-              _yield$Service$get2 = _context3.sent;
-              data = _yield$Service$get2.data;
-              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-                var type = _ref3.type;
-                return type === 'Licensee';
-              }).map(function (v) {
-                return (0, _itemToLicensee.default)(v);
-              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-            case 10:
-            case "end":
-              return _context3.stop();
-          }
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            queryParams = {};
+            if (!filter) {
+              _context3.next = 5;
+              break;
+            }
+            if (_CheckUtils.default.isValid(filter)) {
+              _context3.next = 4;
+              break;
+            }
+            throw new TypeError("filter has bad value ".concat(filter));
+          case 4:
+            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+          case 5:
+            _context3.next = 7;
+            return _Service.default.get(context, _Constants.default.Licensee.ENDPOINT_PATH, queryParams);
+          case 7:
+            _yield$Service$get2 = _context3.sent;
+            data = _yield$Service$get2.data;
+            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+              var type = _ref3.type;
+              return type === 'Licensee';
+            }).map(function (v) {
+              return (0, _itemToLicensee.default)(v);
+            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+          case 10:
+          case "end":
+            return _context3.stop();
         }
       }, _callee3);
     }))();
@@ -4263,24 +4296,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context4.next = 3;
-              return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number), licensee.asPropertiesMap());
-            case 3:
-              _yield$Service$post2 = _context4.sent;
-              items = _yield$Service$post2.data.items.item;
-              _items$filter5 = items.filter(function (_ref4) {
-                var type = _ref4.type;
-                return type === 'Licensee';
-              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-              return _context4.abrupt("return", (0, _itemToLicensee.default)(item));
-            case 7:
-            case "end":
-              return _context4.stop();
-          }
+        while (1) switch (_context4.prev = _context4.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context4.next = 3;
+            return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number), licensee.asPropertiesMap());
+          case 3:
+            _yield$Service$post2 = _context4.sent;
+            items = _yield$Service$post2.data.items.item;
+            _items$filter5 = items.filter(function (_ref4) {
+              var type = _ref4.type;
+              return type === 'Licensee';
+            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+            return _context4.abrupt("return", (0, _itemToLicensee.default)(item));
+          case 7:
+          case "end":
+            return _context4.stop();
         }
       }, _callee4);
     }))();
@@ -4330,58 +4361,56 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5() {
       var queryParams, pmIndex, parameters, has, _yield$Service$post3, _yield$Service$post3$, items, ttl, validationResults;
       return _regenerator.default.wrap(function _callee5$(_context5) {
-        while (1) {
-          switch (_context5.prev = _context5.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              queryParams = {};
-              if (validationParameters.getProductNumber()) {
-                queryParams.productNumber = validationParameters.getProductNumber();
-              }
-              Object.keys(validationParameters.getLicenseeProperties()).forEach(function (key) {
-                queryParams[key] = validationParameters.getLicenseeProperty(key);
+        while (1) switch (_context5.prev = _context5.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            queryParams = {};
+            if (validationParameters.getProductNumber()) {
+              queryParams.productNumber = validationParameters.getProductNumber();
+            }
+            Object.keys(validationParameters.getLicenseeProperties()).forEach(function (key) {
+              queryParams[key] = validationParameters.getLicenseeProperty(key);
+            });
+            if (validationParameters.isForOfflineUse()) {
+              queryParams.forOfflineUse = true;
+            }
+            if (validationParameters.getDryRun()) {
+              queryParams.dryRun = true;
+            }
+            pmIndex = 0;
+            parameters = validationParameters.getParameters();
+            has = Object.prototype.hasOwnProperty;
+            Object.keys(parameters).forEach(function (productModuleName) {
+              queryParams["".concat(_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER).concat(pmIndex)] = productModuleName;
+              if (!has.call(parameters, productModuleName)) return;
+              var parameter = parameters[productModuleName];
+              Object.keys(parameter).forEach(function (key) {
+                if (has.call(parameter, key)) {
+                  queryParams[key + pmIndex] = parameter[key];
+                }
               });
-              if (validationParameters.isForOfflineUse()) {
-                queryParams.forOfflineUse = true;
-              }
-              if (validationParameters.getDryRun()) {
-                queryParams.dryRun = true;
-              }
-              pmIndex = 0;
-              parameters = validationParameters.getParameters();
-              has = Object.prototype.hasOwnProperty;
-              Object.keys(parameters).forEach(function (productModuleName) {
-                queryParams["".concat(_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER).concat(pmIndex)] = productModuleName;
-                if (!has.call(parameters, productModuleName)) return;
-                var parameter = parameters[productModuleName];
-                Object.keys(parameter).forEach(function (key) {
-                  if (has.call(parameter, key)) {
-                    queryParams[key + pmIndex] = parameter[key];
-                  }
-                });
-                pmIndex += 1;
-              });
-              _context5.next = 12;
-              return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number, "/").concat(_Constants.default.Licensee.ENDPOINT_PATH_VALIDATE), queryParams);
-            case 12:
-              _yield$Service$post3 = _context5.sent;
-              _yield$Service$post3$ = _yield$Service$post3.data;
-              items = _yield$Service$post3$.items.item;
-              ttl = _yield$Service$post3$.ttl;
-              validationResults = new _ValidationResults.default();
-              validationResults.setTtl(ttl);
-              items.filter(function (_ref5) {
-                var type = _ref5.type;
-                return type === 'ProductModuleValidation';
-              }).forEach(function (v) {
-                var item = (0, _itemToObject.default)(v);
-                validationResults.setProductModuleValidation(item[_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER], item);
-              });
-              return _context5.abrupt("return", validationResults);
-            case 20:
-            case "end":
-              return _context5.stop();
-          }
+              pmIndex += 1;
+            });
+            _context5.next = 12;
+            return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number, "/").concat(_Constants.default.Licensee.ENDPOINT_PATH_VALIDATE), queryParams);
+          case 12:
+            _yield$Service$post3 = _context5.sent;
+            _yield$Service$post3$ = _yield$Service$post3.data;
+            items = _yield$Service$post3$.items.item;
+            ttl = _yield$Service$post3$.ttl;
+            validationResults = new _ValidationResults.default();
+            validationResults.setTtl(ttl);
+            items.filter(function (_ref5) {
+              var type = _ref5.type;
+              return type === 'ProductModuleValidation';
+            }).forEach(function (v) {
+              var item = (0, _itemToObject.default)(v);
+              validationResults.setProductModuleValidation(item[_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER], item);
+            });
+            return _context5.abrupt("return", validationResults);
+          case 20:
+          case "end":
+            return _context5.stop();
         }
       }, _callee5);
     }))();
@@ -4465,23 +4494,21 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _Service.default.post(context, _Constants.default.Notification.ENDPOINT_PATH, notification.asPropertiesMap());
-            case 2:
-              _yield$Service$post = _context.sent;
-              items = _yield$Service$post.data.items.item;
-              _items$filter = items.filter(function (_ref) {
-                var type = _ref.type;
-                return type === 'Notification';
-              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-              return _context.abrupt("return", (0, _itemToNotification.default)(item));
-            case 6:
-            case "end":
-              return _context.stop();
-          }
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _Service.default.post(context, _Constants.default.Notification.ENDPOINT_PATH, notification.asPropertiesMap());
+          case 2:
+            _yield$Service$post = _context.sent;
+            items = _yield$Service$post.data.items.item;
+            _items$filter = items.filter(function (_ref) {
+              var type = _ref.type;
+              return type === 'Notification';
+            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+            return _context.abrupt("return", (0, _itemToNotification.default)(item));
+          case 6:
+          case "end":
+            return _context.stop();
         }
       }, _callee);
     }))();
@@ -4503,24 +4530,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context2.next = 3;
-              return _Service.default.get(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number));
-            case 3:
-              _yield$Service$get = _context2.sent;
-              items = _yield$Service$get.data.items.item;
-              _items$filter3 = items.filter(function (_ref2) {
-                var type = _ref2.type;
-                return type === 'Notification';
-              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-              return _context2.abrupt("return", (0, _itemToNotification.default)(item));
-            case 7:
-            case "end":
-              return _context2.stop();
-          }
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context2.next = 3;
+            return _Service.default.get(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number));
+          case 3:
+            _yield$Service$get = _context2.sent;
+            items = _yield$Service$get.data.items.item;
+            _items$filter3 = items.filter(function (_ref2) {
+              var type = _ref2.type;
+              return type === 'Notification';
+            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+            return _context2.abrupt("return", (0, _itemToNotification.default)(item));
+          case 7:
+          case "end":
+            return _context2.stop();
         }
       }, _callee2);
     }))();
@@ -4542,37 +4567,35 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              queryParams = {};
-              if (!filter) {
-                _context3.next = 5;
-                break;
-              }
-              if (_CheckUtils.default.isValid(filter)) {
-                _context3.next = 4;
-                break;
-              }
-              throw new TypeError("filter has bad value ".concat(filter));
-            case 4:
-              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-            case 5:
-              _context3.next = 7;
-              return _Service.default.get(context, _Constants.default.Notification.ENDPOINT_PATH, queryParams);
-            case 7:
-              _yield$Service$get2 = _context3.sent;
-              data = _yield$Service$get2.data;
-              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-                var type = _ref3.type;
-                return type === 'Notification';
-              }).map(function (v) {
-                return (0, _itemToNotification.default)(v);
-              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-            case 10:
-            case "end":
-              return _context3.stop();
-          }
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            queryParams = {};
+            if (!filter) {
+              _context3.next = 5;
+              break;
+            }
+            if (_CheckUtils.default.isValid(filter)) {
+              _context3.next = 4;
+              break;
+            }
+            throw new TypeError("filter has bad value ".concat(filter));
+          case 4:
+            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+          case 5:
+            _context3.next = 7;
+            return _Service.default.get(context, _Constants.default.Notification.ENDPOINT_PATH, queryParams);
+          case 7:
+            _yield$Service$get2 = _context3.sent;
+            data = _yield$Service$get2.data;
+            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+              var type = _ref3.type;
+              return type === 'Notification';
+            }).map(function (v) {
+              return (0, _itemToNotification.default)(v);
+            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+          case 10:
+          case "end":
+            return _context3.stop();
         }
       }, _callee3);
     }))();
@@ -4597,24 +4620,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context4.next = 3;
-              return _Service.default.post(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number), notification.asPropertiesMap());
-            case 3:
-              _yield$Service$post2 = _context4.sent;
-              items = _yield$Service$post2.data.items.item;
-              _items$filter5 = items.filter(function (_ref4) {
-                var type = _ref4.type;
-                return type === 'Notification';
-              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-              return _context4.abrupt("return", (0, _itemToNotification.default)(item));
-            case 7:
-            case "end":
-              return _context4.stop();
-          }
+        while (1) switch (_context4.prev = _context4.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context4.next = 3;
+            return _Service.default.post(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number), notification.asPropertiesMap());
+          case 3:
+            _yield$Service$post2 = _context4.sent;
+            items = _yield$Service$post2.data.items.item;
+            _items$filter5 = items.filter(function (_ref4) {
+              var type = _ref4.type;
+              return type === 'Notification';
+            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+            return _context4.abrupt("return", (0, _itemToNotification.default)(item));
+          case 7:
+          case "end":
+            return _context4.stop();
         }
       }, _callee4);
     }))();
@@ -4685,24 +4706,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$get, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context.next = 3;
-              return _Service.default.get(context, "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number));
-            case 3:
-              _yield$Service$get = _context.sent;
-              items = _yield$Service$get.data.items.item;
-              _items$filter = items.filter(function (_ref) {
-                var type = _ref.type;
-                return type === 'PaymentMethod';
-              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-              return _context.abrupt("return", (0, _itemToPaymentMethod.default)(item));
-            case 7:
-            case "end":
-              return _context.stop();
-          }
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context.next = 3;
+            return _Service.default.get(context, "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number));
+          case 3:
+            _yield$Service$get = _context.sent;
+            items = _yield$Service$get.data.items.item;
+            _items$filter = items.filter(function (_ref) {
+              var type = _ref.type;
+              return type === 'PaymentMethod';
+            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+            return _context.abrupt("return", (0, _itemToPaymentMethod.default)(item));
+          case 7:
+          case "end":
+            return _context.stop();
         }
       }, _callee);
     }))();
@@ -4724,37 +4743,35 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              queryParams = {};
-              if (!filter) {
-                _context2.next = 5;
-                break;
-              }
-              if (_CheckUtils.default.isValid(filter)) {
-                _context2.next = 4;
-                break;
-              }
-              throw new TypeError("filter has bad value ".concat(filter));
-            case 4:
-              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-            case 5:
-              _context2.next = 7;
-              return _Service.default.get(context, _Constants.default.PaymentMethod.ENDPOINT_PATH, queryParams);
-            case 7:
-              _yield$Service$get2 = _context2.sent;
-              data = _yield$Service$get2.data;
-              return _context2.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref2) {
-                var type = _ref2.type;
-                return type === 'PaymentMethod';
-              }).map(function (v) {
-                return (0, _itemToPaymentMethod.default)(v);
-              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-            case 10:
-            case "end":
-              return _context2.stop();
-          }
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            queryParams = {};
+            if (!filter) {
+              _context2.next = 5;
+              break;
+            }
+            if (_CheckUtils.default.isValid(filter)) {
+              _context2.next = 4;
+              break;
+            }
+            throw new TypeError("filter has bad value ".concat(filter));
+          case 4:
+            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+          case 5:
+            _context2.next = 7;
+            return _Service.default.get(context, _Constants.default.PaymentMethod.ENDPOINT_PATH, queryParams);
+          case 7:
+            _yield$Service$get2 = _context2.sent;
+            data = _yield$Service$get2.data;
+            return _context2.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref2) {
+              var type = _ref2.type;
+              return type === 'PaymentMethod';
+            }).map(function (v) {
+              return (0, _itemToPaymentMethod.default)(v);
+            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+          case 10:
+          case "end":
+            return _context2.stop();
         }
       }, _callee2);
     }))();
@@ -4779,25 +4796,23 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var path, _yield$Service$post, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              path = "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number);
-              _context3.next = 4;
-              return _Service.default.post(context, path, paymentMethod.asPropertiesMap());
-            case 4:
-              _yield$Service$post = _context3.sent;
-              items = _yield$Service$post.data.items.item;
-              _items$filter3 = items.filter(function (_ref3) {
-                var type = _ref3.type;
-                return type === 'PaymentMethod';
-              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-              return _context3.abrupt("return", (0, _itemToPaymentMethod.default)(item));
-            case 8:
-            case "end":
-              return _context3.stop();
-          }
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            path = "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number);
+            _context3.next = 4;
+            return _Service.default.post(context, path, paymentMethod.asPropertiesMap());
+          case 4:
+            _yield$Service$post = _context3.sent;
+            items = _yield$Service$post.data.items.item;
+            _items$filter3 = items.filter(function (_ref3) {
+              var type = _ref3.type;
+              return type === 'PaymentMethod';
+            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+            return _context3.abrupt("return", (0, _itemToPaymentMethod.default)(item));
+          case 8:
+          case "end":
+            return _context3.stop();
         }
       }, _callee3);
     }))();
@@ -4861,25 +4876,23 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
-              productModule.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
-              _context.next = 4;
-              return _Service.default.post(context, _Constants.default.ProductModule.ENDPOINT_PATH, productModule.asPropertiesMap());
-            case 4:
-              _yield$Service$post = _context.sent;
-              items = _yield$Service$post.data.items.item;
-              _items$filter = items.filter(function (_ref) {
-                var type = _ref.type;
-                return type === 'ProductModule';
-              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-              return _context.abrupt("return", (0, _itemToProductModule.default)(item));
-            case 8:
-            case "end":
-              return _context.stop();
-          }
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
+            productModule.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
+            _context.next = 4;
+            return _Service.default.post(context, _Constants.default.ProductModule.ENDPOINT_PATH, productModule.asPropertiesMap());
+          case 4:
+            _yield$Service$post = _context.sent;
+            items = _yield$Service$post.data.items.item;
+            _items$filter = items.filter(function (_ref) {
+              var type = _ref.type;
+              return type === 'ProductModule';
+            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+            return _context.abrupt("return", (0, _itemToProductModule.default)(item));
+          case 8:
+          case "end":
+            return _context.stop();
         }
       }, _callee);
     }))();
@@ -4901,24 +4914,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context2.next = 3;
-              return _Service.default.get(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number));
-            case 3:
-              _yield$Service$get = _context2.sent;
-              items = _yield$Service$get.data.items.item;
-              _items$filter3 = items.filter(function (_ref2) {
-                var type = _ref2.type;
-                return type === 'ProductModule';
-              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-              return _context2.abrupt("return", (0, _itemToProductModule.default)(item));
-            case 7:
-            case "end":
-              return _context2.stop();
-          }
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context2.next = 3;
+            return _Service.default.get(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number));
+          case 3:
+            _yield$Service$get = _context2.sent;
+            items = _yield$Service$get.data.items.item;
+            _items$filter3 = items.filter(function (_ref2) {
+              var type = _ref2.type;
+              return type === 'ProductModule';
+            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+            return _context2.abrupt("return", (0, _itemToProductModule.default)(item));
+          case 7:
+          case "end":
+            return _context2.stop();
         }
       }, _callee2);
     }))();
@@ -4940,37 +4951,35 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              queryParams = {};
-              if (!filter) {
-                _context3.next = 5;
-                break;
-              }
-              if (_CheckUtils.default.isValid(filter)) {
-                _context3.next = 4;
-                break;
-              }
-              throw new TypeError("filter has bad value ".concat(filter));
-            case 4:
-              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-            case 5:
-              _context3.next = 7;
-              return _Service.default.get(context, _Constants.default.ProductModule.ENDPOINT_PATH, queryParams);
-            case 7:
-              _yield$Service$get2 = _context3.sent;
-              data = _yield$Service$get2.data;
-              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-                var type = _ref3.type;
-                return type === 'ProductModule';
-              }).map(function (v) {
-                return (0, _itemToProductModule.default)(v);
-              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-            case 10:
-            case "end":
-              return _context3.stop();
-          }
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            queryParams = {};
+            if (!filter) {
+              _context3.next = 5;
+              break;
+            }
+            if (_CheckUtils.default.isValid(filter)) {
+              _context3.next = 4;
+              break;
+            }
+            throw new TypeError("filter has bad value ".concat(filter));
+          case 4:
+            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+          case 5:
+            _context3.next = 7;
+            return _Service.default.get(context, _Constants.default.ProductModule.ENDPOINT_PATH, queryParams);
+          case 7:
+            _yield$Service$get2 = _context3.sent;
+            data = _yield$Service$get2.data;
+            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+              var type = _ref3.type;
+              return type === 'ProductModule';
+            }).map(function (v) {
+              return (0, _itemToProductModule.default)(v);
+            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+          case 10:
+          case "end":
+            return _context3.stop();
         }
       }, _callee3);
     }))();
@@ -4995,24 +5004,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context4.next = 3;
-              return _Service.default.post(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number), productModule.asPropertiesMap());
-            case 3:
-              _yield$Service$post2 = _context4.sent;
-              items = _yield$Service$post2.data.items.item;
-              _items$filter5 = items.filter(function (_ref4) {
-                var type = _ref4.type;
-                return type === 'ProductModule';
-              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-              return _context4.abrupt("return", (0, _itemToProductModule.default)(item));
-            case 7:
-            case "end":
-              return _context4.stop();
-          }
+        while (1) switch (_context4.prev = _context4.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context4.next = 3;
+            return _Service.default.post(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number), productModule.asPropertiesMap());
+          case 3:
+            _yield$Service$post2 = _context4.sent;
+            items = _yield$Service$post2.data.items.item;
+            _items$filter5 = items.filter(function (_ref4) {
+              var type = _ref4.type;
+              return type === 'ProductModule';
+            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+            return _context4.abrupt("return", (0, _itemToProductModule.default)(item));
+          case 7:
+          case "end":
+            return _context4.stop();
         }
       }, _callee4);
     }))();
@@ -5096,23 +5103,21 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _Service.default.post(context, _Constants.default.Product.ENDPOINT_PATH, product.asPropertiesMap());
-            case 2:
-              _yield$Service$post = _context.sent;
-              items = _yield$Service$post.data.items.item;
-              _items$filter = items.filter(function (_ref) {
-                var type = _ref.type;
-                return type === 'Product';
-              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-              return _context.abrupt("return", (0, _itemToProduct.default)(item));
-            case 6:
-            case "end":
-              return _context.stop();
-          }
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _Service.default.post(context, _Constants.default.Product.ENDPOINT_PATH, product.asPropertiesMap());
+          case 2:
+            _yield$Service$post = _context.sent;
+            items = _yield$Service$post.data.items.item;
+            _items$filter = items.filter(function (_ref) {
+              var type = _ref.type;
+              return type === 'Product';
+            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+            return _context.abrupt("return", (0, _itemToProduct.default)(item));
+          case 6:
+          case "end":
+            return _context.stop();
         }
       }, _callee);
     }))();
@@ -5134,24 +5139,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context2.next = 3;
-              return _Service.default.get(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number));
-            case 3:
-              _yield$Service$get = _context2.sent;
-              items = _yield$Service$get.data.items.item;
-              _items$filter3 = items.filter(function (_ref2) {
-                var type = _ref2.type;
-                return type === 'Product';
-              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-              return _context2.abrupt("return", (0, _itemToProduct.default)(item));
-            case 7:
-            case "end":
-              return _context2.stop();
-          }
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context2.next = 3;
+            return _Service.default.get(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number));
+          case 3:
+            _yield$Service$get = _context2.sent;
+            items = _yield$Service$get.data.items.item;
+            _items$filter3 = items.filter(function (_ref2) {
+              var type = _ref2.type;
+              return type === 'Product';
+            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+            return _context2.abrupt("return", (0, _itemToProduct.default)(item));
+          case 7:
+          case "end":
+            return _context2.stop();
         }
       }, _callee2);
     }))();
@@ -5173,37 +5176,35 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              queryParams = {};
-              if (!filter) {
-                _context3.next = 5;
-                break;
-              }
-              if (_CheckUtils.default.isValid(filter)) {
-                _context3.next = 4;
-                break;
-              }
-              throw new TypeError("filter has bad value ".concat(filter));
-            case 4:
-              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-            case 5:
-              _context3.next = 7;
-              return _Service.default.get(context, _Constants.default.Product.ENDPOINT_PATH, queryParams);
-            case 7:
-              _yield$Service$get2 = _context3.sent;
-              data = _yield$Service$get2.data;
-              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-                var type = _ref3.type;
-                return type === 'Product';
-              }).map(function (v) {
-                return (0, _itemToProduct.default)(v);
-              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-            case 10:
-            case "end":
-              return _context3.stop();
-          }
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            queryParams = {};
+            if (!filter) {
+              _context3.next = 5;
+              break;
+            }
+            if (_CheckUtils.default.isValid(filter)) {
+              _context3.next = 4;
+              break;
+            }
+            throw new TypeError("filter has bad value ".concat(filter));
+          case 4:
+            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+          case 5:
+            _context3.next = 7;
+            return _Service.default.get(context, _Constants.default.Product.ENDPOINT_PATH, queryParams);
+          case 7:
+            _yield$Service$get2 = _context3.sent;
+            data = _yield$Service$get2.data;
+            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+              var type = _ref3.type;
+              return type === 'Product';
+            }).map(function (v) {
+              return (0, _itemToProduct.default)(v);
+            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+          case 10:
+          case "end":
+            return _context3.stop();
         }
       }, _callee3);
     }))();
@@ -5228,24 +5229,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context4.next = 3;
-              return _Service.default.post(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number), product.asPropertiesMap());
-            case 3:
-              _yield$Service$post2 = _context4.sent;
-              items = _yield$Service$post2.data.items.item;
-              _items$filter5 = items.filter(function (_ref4) {
-                var type = _ref4.type;
-                return type === 'Product';
-              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-              return _context4.abrupt("return", (0, _itemToProduct.default)(item));
-            case 7:
-            case "end":
-              return _context4.stop();
-          }
+        while (1) switch (_context4.prev = _context4.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context4.next = 3;
+            return _Service.default.post(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number), product.asPropertiesMap());
+          case 3:
+            _yield$Service$post2 = _context4.sent;
+            items = _yield$Service$post2.data.items.item;
+            _items$filter5 = items.filter(function (_ref4) {
+              var type = _ref4.type;
+              return type === 'Product';
+            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+            return _context4.abrupt("return", (0, _itemToProduct.default)(item));
+          case 7:
+          case "end":
+            return _context4.stop();
         }
       }, _callee4);
     }))();
@@ -5588,23 +5587,21 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _Service.default.post(context, _Constants.default.Token.ENDPOINT_PATH, token.asPropertiesMap());
-            case 2:
-              _yield$Service$post = _context.sent;
-              items = _yield$Service$post.data.items.item;
-              _items$filter = items.filter(function (_ref) {
-                var type = _ref.type;
-                return type === 'Token';
-              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-              return _context.abrupt("return", (0, _itemToToken.default)(item));
-            case 6:
-            case "end":
-              return _context.stop();
-          }
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _Service.default.post(context, _Constants.default.Token.ENDPOINT_PATH, token.asPropertiesMap());
+          case 2:
+            _yield$Service$post = _context.sent;
+            items = _yield$Service$post.data.items.item;
+            _items$filter = items.filter(function (_ref) {
+              var type = _ref.type;
+              return type === 'Token';
+            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+            return _context.abrupt("return", (0, _itemToToken.default)(item));
+          case 6:
+          case "end":
+            return _context.stop();
         }
       }, _callee);
     }))();
@@ -5626,24 +5623,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context2.next = 3;
-              return _Service.default.get(context, "".concat(_Constants.default.Token.ENDPOINT_PATH, "/").concat(number));
-            case 3:
-              _yield$Service$get = _context2.sent;
-              items = _yield$Service$get.data.items.item;
-              _items$filter3 = items.filter(function (_ref2) {
-                var type = _ref2.type;
-                return type === 'Token';
-              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-              return _context2.abrupt("return", (0, _itemToToken.default)(item));
-            case 7:
-            case "end":
-              return _context2.stop();
-          }
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context2.next = 3;
+            return _Service.default.get(context, "".concat(_Constants.default.Token.ENDPOINT_PATH, "/").concat(number));
+          case 3:
+            _yield$Service$get = _context2.sent;
+            items = _yield$Service$get.data.items.item;
+            _items$filter3 = items.filter(function (_ref2) {
+              var type = _ref2.type;
+              return type === 'Token';
+            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+            return _context2.abrupt("return", (0, _itemToToken.default)(item));
+          case 7:
+          case "end":
+            return _context2.stop();
         }
       }, _callee2);
     }))();
@@ -5665,37 +5660,35 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              queryParams = {};
-              if (!filter) {
-                _context3.next = 5;
-                break;
-              }
-              if (_CheckUtils.default.isValid(filter)) {
-                _context3.next = 4;
-                break;
-              }
-              throw new TypeError("filter has bad value ".concat(filter));
-            case 4:
-              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-            case 5:
-              _context3.next = 7;
-              return _Service.default.get(context, _Constants.default.Token.ENDPOINT_PATH, queryParams);
-            case 7:
-              _yield$Service$get2 = _context3.sent;
-              data = _yield$Service$get2.data;
-              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-                var type = _ref3.type;
-                return type === 'Token';
-              }).map(function (v) {
-                return (0, _itemToToken.default)(v);
-              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-            case 10:
-            case "end":
-              return _context3.stop();
-          }
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            queryParams = {};
+            if (!filter) {
+              _context3.next = 5;
+              break;
+            }
+            if (_CheckUtils.default.isValid(filter)) {
+              _context3.next = 4;
+              break;
+            }
+            throw new TypeError("filter has bad value ".concat(filter));
+          case 4:
+            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+          case 5:
+            _context3.next = 7;
+            return _Service.default.get(context, _Constants.default.Token.ENDPOINT_PATH, queryParams);
+          case 7:
+            _yield$Service$get2 = _context3.sent;
+            data = _yield$Service$get2.data;
+            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+              var type = _ref3.type;
+              return type === 'Token';
+            }).map(function (v) {
+              return (0, _itemToToken.default)(v);
+            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+          case 10:
+          case "end":
+            return _context3.stop();
         }
       }, _callee3);
     }))();
@@ -5781,23 +5774,21 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _Service.default.post(context, _Constants.default.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap());
-            case 2:
-              _yield$Service$post = _context.sent;
-              items = _yield$Service$post.data.items.item;
-              _items$filter = items.filter(function (_ref) {
-                var type = _ref.type;
-                return type === 'Transaction';
-              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-              return _context.abrupt("return", (0, _itemToTransaction.default)(item));
-            case 6:
-            case "end":
-              return _context.stop();
-          }
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _Service.default.post(context, _Constants.default.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap());
+          case 2:
+            _yield$Service$post = _context.sent;
+            items = _yield$Service$post.data.items.item;
+            _items$filter = items.filter(function (_ref) {
+              var type = _ref.type;
+              return type === 'Transaction';
+            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+            return _context.abrupt("return", (0, _itemToTransaction.default)(item));
+          case 6:
+          case "end":
+            return _context.stop();
         }
       }, _callee);
     }))();
@@ -5819,24 +5810,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context2.next = 3;
-              return _Service.default.get(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number));
-            case 3:
-              _yield$Service$get = _context2.sent;
-              items = _yield$Service$get.data.items.item;
-              _items$filter3 = items.filter(function (_ref2) {
-                var type = _ref2.type;
-                return type === 'Transaction';
-              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-              return _context2.abrupt("return", (0, _itemToTransaction.default)(item));
-            case 7:
-            case "end":
-              return _context2.stop();
-          }
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context2.next = 3;
+            return _Service.default.get(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number));
+          case 3:
+            _yield$Service$get = _context2.sent;
+            items = _yield$Service$get.data.items.item;
+            _items$filter3 = items.filter(function (_ref2) {
+              var type = _ref2.type;
+              return type === 'Transaction';
+            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+            return _context2.abrupt("return", (0, _itemToTransaction.default)(item));
+          case 7:
+          case "end":
+            return _context2.stop();
         }
       }, _callee2);
     }))();
@@ -5858,37 +5847,35 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              queryParams = {};
-              if (!filter) {
-                _context3.next = 5;
-                break;
-              }
-              if (_CheckUtils.default.isValid(filter)) {
-                _context3.next = 4;
-                break;
-              }
-              throw new TypeError("filter has bad value ".concat(filter));
-            case 4:
-              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-            case 5:
-              _context3.next = 7;
-              return _Service.default.get(context, _Constants.default.Transaction.ENDPOINT_PATH, queryParams);
-            case 7:
-              _yield$Service$get2 = _context3.sent;
-              data = _yield$Service$get2.data;
-              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-                var type = _ref3.type;
-                return type === 'Transaction';
-              }).map(function (v) {
-                return (0, _itemToTransaction.default)(v);
-              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-            case 10:
-            case "end":
-              return _context3.stop();
-          }
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            queryParams = {};
+            if (!filter) {
+              _context3.next = 5;
+              break;
+            }
+            if (_CheckUtils.default.isValid(filter)) {
+              _context3.next = 4;
+              break;
+            }
+            throw new TypeError("filter has bad value ".concat(filter));
+          case 4:
+            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+          case 5:
+            _context3.next = 7;
+            return _Service.default.get(context, _Constants.default.Transaction.ENDPOINT_PATH, queryParams);
+          case 7:
+            _yield$Service$get2 = _context3.sent;
+            data = _yield$Service$get2.data;
+            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+              var type = _ref3.type;
+              return type === 'Transaction';
+            }).map(function (v) {
+              return (0, _itemToTransaction.default)(v);
+            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+          case 10:
+          case "end":
+            return _context3.stop();
         }
       }, _callee3);
     }))();
@@ -5913,24 +5900,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-              _context4.next = 3;
-              return _Service.default.post(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number), transaction.asPropertiesMap());
-            case 3:
-              _yield$Service$post2 = _context4.sent;
-              items = _yield$Service$post2.data.items.item;
-              _items$filter5 = items.filter(function (_ref4) {
-                var type = _ref4.type;
-                return type === 'Transaction';
-              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-              return _context4.abrupt("return", (0, _itemToTransaction.default)(item));
-            case 7:
-            case "end":
-              return _context4.stop();
-          }
+        while (1) switch (_context4.prev = _context4.next) {
+          case 0:
+            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+            _context4.next = 3;
+            return _Service.default.post(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number), transaction.asPropertiesMap());
+          case 3:
+            _yield$Service$post2 = _context4.sent;
+            items = _yield$Service$post2.data.items.item;
+            _items$filter5 = items.filter(function (_ref4) {
+              var type = _ref4.type;
+              return type === 'Transaction';
+            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+            return _context4.abrupt("return", (0, _itemToTransaction.default)(item));
+          case 7:
+          case "end":
+            return _context4.stop();
         }
       }, _callee4);
     }))();
@@ -5986,24 +5971,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$get, data;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSE_TYPES));
-            case 2:
-              _yield$Service$get = _context.sent;
-              data = _yield$Service$get.data;
-              return _context.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref) {
-                var type = _ref.type;
-                return type === 'LicenseType';
-              }).map(function (v) {
-                return (0, _itemToObject.default)(v);
-              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-            case 5:
-            case "end":
-              return _context.stop();
-          }
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSE_TYPES));
+          case 2:
+            _yield$Service$get = _context.sent;
+            data = _yield$Service$get.data;
+            return _context.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref) {
+              var type = _ref.type;
+              return type === 'LicenseType';
+            }).map(function (v) {
+              return (0, _itemToObject.default)(v);
+            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+          case 5:
+          case "end":
+            return _context.stop();
         }
       }, _callee);
     }))();
@@ -6022,24 +6005,22 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _context2.next = 2;
-              return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSING_MODELS));
-            case 2:
-              _yield$Service$get2 = _context2.sent;
-              data = _yield$Service$get2.data;
-              return _context2.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref2) {
-                var type = _ref2.type;
-                return type === 'LicensingModelProperties';
-              }).map(function (v) {
-                return (0, _itemToObject.default)(v);
-              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-            case 5:
-            case "end":
-              return _context2.stop();
-          }
+        while (1) switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSING_MODELS));
+          case 2:
+            _yield$Service$get2 = _context2.sent;
+            data = _yield$Service$get2.data;
+            return _context2.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref2) {
+              var type = _ref2.type;
+              return type === 'LicensingModelProperties';
+            }).map(function (v) {
+              return (0, _itemToObject.default)(v);
+            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+          case 5:
+          case "end":
+            return _context2.stop();
         }
       }, _callee2);
     }))();
@@ -6060,37 +6041,35 @@ var _default = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get3, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              queryParams = {};
-              if (!filter) {
-                _context3.next = 5;
-                break;
-              }
-              if (_CheckUtils.default.isValid(filter)) {
-                _context3.next = 4;
-                break;
-              }
-              throw new TypeError("filter has bad value ".concat(filter));
-            case 4:
-              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-            case 5:
-              _context3.next = 7;
-              return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_COUNTRIES), queryParams);
-            case 7:
-              _yield$Service$get3 = _context3.sent;
-              data = _yield$Service$get3.data;
-              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-                var type = _ref3.type;
-                return type === 'Country';
-              }).map(function (v) {
-                return (0, _itemToCountry.default)(v);
-              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-            case 10:
-            case "end":
-              return _context3.stop();
-          }
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            queryParams = {};
+            if (!filter) {
+              _context3.next = 5;
+              break;
+            }
+            if (_CheckUtils.default.isValid(filter)) {
+              _context3.next = 4;
+              break;
+            }
+            throw new TypeError("filter has bad value ".concat(filter));
+          case 4:
+            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+          case 5:
+            _context3.next = 7;
+            return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_COUNTRIES), queryParams);
+          case 7:
+            _yield$Service$get3 = _context3.sent;
+            data = _yield$Service$get3.data;
+            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+              var type = _ref3.type;
+              return type === 'Country';
+            }).map(function (v) {
+              return (0, _itemToCountry.default)(v);
+            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+          case 10:
+          case "end":
+            return _context3.stop();
         }
       }, _callee3);
     }))();
@@ -6296,7 +6275,12 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
 /**
  * The context values.
  * @type {{}}
@@ -6808,7 +6792,12 @@ var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
 var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
 var ValidationResults = /*#__PURE__*/function () {
   function ValidationResults() {
     (0, _classCallCheck2.default)(this, ValidationResults);
@@ -10004,9 +9993,7 @@ module.exports = require("zlib");
 
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
   return arr2;
 }
 module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
@@ -10274,9 +10261,7 @@ function _iterableToArrayLimit(arr, i) {
       if (_x = (_i = _i.call(arr)).next, 0 === i) {
         if (Object(_i) !== _i) return;
         _n = !1;
-      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) {
-        ;
-      }
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0);
     } catch (err) {
       _d = !0, _e = err;
     } finally {
@@ -10491,9 +10476,7 @@ function _regeneratorRuntime() {
       if (!isNaN(iterable.length)) {
         var i = -1,
           next = function next() {
-            for (; ++i < iterable.length;) {
-              if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
-            }
+            for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
             return next.value = undefined, next.done = !0, next;
           };
         return next.next = next;
@@ -10539,9 +10522,7 @@ function _regeneratorRuntime() {
   }), exports.keys = function (val) {
     var object = Object(val),
       keys = [];
-    for (var key in object) {
-      keys.push(key);
-    }
+    for (var key in object) keys.push(key);
     return keys.reverse(), function next() {
       for (; keys.length;) {
         var key = keys.pop();
@@ -10552,9 +10533,7 @@ function _regeneratorRuntime() {
   }, exports.values = values, Context.prototype = {
     constructor: Context,
     reset: function reset(skipTempReset) {
-      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) {
-        "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined);
-      }
+      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined);
     },
     stop: function stop() {
       this.done = !0;
@@ -15058,7 +15037,7 @@ module.exports = JSON.parse('{"application/1d-interleaved-parityfec":{"source":"
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"netlicensing-client","version":"1.2.31","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.cjs","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.cjs","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.cjs","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^1.4.0","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.17.8","@babel/plugin-proposal-class-properties":"^7.16.7","@babel/plugin-proposal-decorators":"^7.17.8","@babel/plugin-proposal-export-namespace-from":"^7.16.7","@babel/plugin-proposal-function-sent":"^7.16.7","@babel/plugin-proposal-json-strings":"^7.16.7","@babel/plugin-proposal-numeric-separator":"^7.16.7","@babel/plugin-proposal-throw-expressions":"^7.16.7","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.17.7","@babel/plugin-transform-runtime":"^7.17.0","@babel/preset-env":"^7.16.11","@babel/runtime":"^7.17.8","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^9.1.2","chalk":"^4.1.2","eslint":"^7.32.0","eslint-config-airbnb-base":"^15.0.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-plugin-import":"^2.25.4","eslint-plugin-jasmine":"^4.1.3","eslint-webpack-plugin":"^3.1.1","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^4.0.2","jasmine-core":"^4.0.1","karma":"^6.3.17","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.2","karma-jasmine":"^4.0.2","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.33","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.3.1","webpack":"^5.76.0","webpack-cli":"^5.1.1","webpack-merge":"^5.8.0"},"engines":{"node":">= 14.0.0","npm":">= 8.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
+module.exports = JSON.parse('{"name":"netlicensing-client","version":"1.2.32","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.cjs","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.cjs","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.cjs","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^1.4.0","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.17.8","@babel/plugin-proposal-class-properties":"^7.16.7","@babel/plugin-proposal-decorators":"^7.17.8","@babel/plugin-proposal-export-namespace-from":"^7.16.7","@babel/plugin-proposal-function-sent":"^7.16.7","@babel/plugin-proposal-json-strings":"^7.16.7","@babel/plugin-proposal-numeric-separator":"^7.16.7","@babel/plugin-proposal-throw-expressions":"^7.16.7","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.17.7","@babel/plugin-transform-runtime":"^7.17.0","@babel/preset-env":"^7.16.11","@babel/runtime":"^7.17.8","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^9.1.2","chalk":"^4.1.2","eslint":"^7.32.0","eslint-config-airbnb-base":"^15.0.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-plugin-import":"^2.25.4","eslint-plugin-jasmine":"^4.1.3","eslint-webpack-plugin":"^3.1.1","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^4.0.2","jasmine-core":"^4.0.1","karma":"^6.3.17","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.2","karma-jasmine":"^4.0.2","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.33","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.3.1","webpack":"^5.76.0","webpack-cli":"^5.1.1","webpack-merge":"^5.8.0"},"engines":{"node":">= 14.0.0","npm":">= 8.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
 
 /***/ })
 
