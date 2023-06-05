@@ -23,5 +23,5 @@ fi
 # start release
 git commit -a -m "Prepare for release $version"
 npm config set tag-version-prefix ''
-npm version $version -m "Release $version"
+npm version $version -m "Prepare for Release $version"
 git push origin master $version
