@@ -29,7 +29,7 @@ describe('services/NotificationService', () => {
         // configure mock for create request
         mock.onPost(`${context.getBaseUrl()}/${Constants.Notification.ENDPOINT_PATH}`)
             .reply(200, new Response(
-                new Item({ ...notification }, 'VendorNotification'),
+                new Item({ ...notification }, 'Notification'),
             ));
 
         const entity = await NotificationService.create(context, notification);
@@ -38,10 +38,10 @@ describe('services/NotificationService', () => {
         expect(entity.getProperty('number', null)).toBe(notification.number);
         expect(entity.getProperty('name', null)).toBe(notification.name);
         expect(entity.getProperty('active', null)).toBe(notification.active);
-        expect(entity.getProperty('type', null)).toBe(notification.type);
+        expect(entity.getProperty('protocol', null)).toBe(notification.protocol);
         expect(entity.getProperty('events', null)).toBe(notification.events);
         expect(entity.getProperty('payload', null)).toBe(notification.payload);
-        expect(entity.getProperty('url', null)).toBe(notification.url);
+        expect(entity.getProperty('endpoint', null)).toBe(notification.endpoint);
         expect(entity.getProperty('custom_property', null)).toBe(notification.custom_property);
     });
 
@@ -52,7 +52,7 @@ describe('services/NotificationService', () => {
             // configure mock for get request
             mock.onGet(`${context.getBaseUrl()}/${Constants.Notification.ENDPOINT_PATH}/${notification.number}`)
                 .reply(200, new Response(
-                    new Item({ ...notification }, 'VendorNotification'),
+                    new Item({ ...notification }, 'Notification'),
                 ));
 
             const entity = await NotificationService.get(context, notification.number);
@@ -61,10 +61,10 @@ describe('services/NotificationService', () => {
             expect(entity.getProperty('number', null)).toBe(notification.number);
             expect(entity.getProperty('name', null)).toBe(notification.name);
             expect(entity.getProperty('active', null)).toBe(notification.active);
-            expect(entity.getProperty('type', null)).toBe(notification.type);
+            expect(entity.getProperty('protocol', null)).toBe(notification.protocol);
             expect(entity.getProperty('events', null)).toBe(notification.events);
             expect(entity.getProperty('payload', null)).toBe(notification.payload);
-            expect(entity.getProperty('url', null)).toBe(notification.url);
+            expect(entity.getProperty('endpoint', null)).toBe(notification.endpoint);
             expect(entity.getProperty('custom_property', null)).toBe(notification.custom_property);
         });
 
@@ -91,7 +91,7 @@ describe('services/NotificationService', () => {
 
             // configure mock for list request
             mock.onGet(`${context.getBaseUrl()}/${Constants.Notification.ENDPOINT_PATH}`)
-                .reply(200, new Response(notifications.map((v) => new Item(v, 'VendorNotification'))));
+                .reply(200, new Response(notifications.map((v) => new Item(v, 'Notification'))));
 
             const list = await NotificationService.list(context);
 
@@ -103,10 +103,10 @@ describe('services/NotificationService', () => {
                 expect(entity.getProperty('number', null)).toBe(notification.number);
                 expect(entity.getProperty('name', null)).toBe(notification.name);
                 expect(entity.getProperty('active', null)).toBe(notification.active);
-                expect(entity.getProperty('type', null)).toBe(notification.type);
+                expect(entity.getProperty('protocol', null)).toBe(notification.protocol);
                 expect(entity.getProperty('events', null)).toBe(notification.events);
                 expect(entity.getProperty('payload', null)).toBe(notification.payload);
-                expect(entity.getProperty('url', null)).toBe(notification.url);
+                expect(entity.getProperty('endpoint', null)).toBe(notification.endpoint);
                 expect(entity.getProperty('custom_property', null)).toBe(notification.custom_property);
             });
         });
@@ -157,7 +157,7 @@ describe('services/NotificationService', () => {
         // configure mock for get request
         mock.onGet(`${context.getBaseUrl()}/${Constants.Notification.ENDPOINT_PATH}/${notification.number}`)
             .reply(200, new Response(
-                new Item({ ...notification }, 'VendorNotification'),
+                new Item({ ...notification }, 'Notification'),
             ));
 
         notification = await NotificationService.get(context, notification.number);
@@ -168,7 +168,7 @@ describe('services/NotificationService', () => {
         // configure mock for update request
         mock.onPost(`${context.getBaseUrl()}/${Constants.Notification.ENDPOINT_PATH}/${notification.number}`)
             .reply(200, new Response(
-                new Item({ ...notification }, 'VendorNotification'),
+                new Item({ ...notification }, 'Notification'),
             ));
 
         const updated = await NotificationService.update(context, notification.getProperty('number'), notification);

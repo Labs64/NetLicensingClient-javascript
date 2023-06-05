@@ -6,10 +6,10 @@ export default factory((data = {}) => new Notification({
     number: Math.random().toString(36).substr(2, 9),
     name: faker.lorem.words(),
     active: faker.datatype.boolean(),
-    type: Math.round(Math.random()) ? 'WEBHOOK' : 'EMAIL',
+    protocol: Math.round(Math.random()) ? 'WEBHOOK' : 'EMAIL',
     events: faker.hacker.verb(),
     payload: faker.lorem.sentence(),
-    url: faker.internet.url(),
+    endpoint: faker.internet.url(),
     custom_property: faker.lorem.words(),
 
     ...data,
