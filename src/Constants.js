@@ -217,8 +217,9 @@ export default {
             WEBHOOK: 'WEBHOOK',
         },
         Event: {
-            CREATE_LICENSEE: 'CREATE_LICENSEE',
-            CREATE_LICENSE: 'CREATE_LICENSE',
+            LICENSEE_CREATED: 'LICENSEE_CREATED',
+            LICENSE_CREATED: 'LICENSE_CREATED',
+            WARNING_LEVEL_CHANGED: 'WARNING_LEVEL_CHANGED',
         },
     },
 };

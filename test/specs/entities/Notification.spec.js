@@ -1,4 +1,5 @@
 import Notification from '@/entities/Notification';
+import Constants from '@/Constants';
 
 describe('entities/Notification', () => {
     let notification;
@@ -76,20 +77,20 @@ describe('entities/Notification', () => {
     });
 
     it('check "events" property setters/getters', () => {
-        notification.setProperty('events', 'CREATE_LICENSEE,CREATE_LICENSE');
-        expect(notification.getProperty('events')).toBe('CREATE_LICENSEE,CREATE_LICENSE');
-        expect(notification.getEvents()).toBe('CREATE_LICENSEE,CREATE_LICENSE');
-        expect(notification.events).toBe('CREATE_LICENSEE,CREATE_LICENSE');
+        notification.setProperty('events', 'LICENSEE_CREATED,LICENSE_CREATED');
+        expect(notification.getProperty('events')).toBe('LICENSEE_CREATED,LICENSE_CREATED');
+        expect(notification.getEvents()).toBe('LICENSEE_CREATED,LICENSE_CREATED');
+        expect(notification.events).toBe('LICENSEE_CREATED,LICENSE_CREATED');
 
-        notification.setEvents('CREATE_LICENSEE');
-        expect(notification.getProperty('events')).toBe('CREATE_LICENSEE');
-        expect(notification.getEvents()).toBe('CREATE_LICENSEE');
-        expect(notification.events).toBe('CREATE_LICENSEE');
+        notification.setEvents('LICENSEE_CREATED');
+        expect(notification.getProperty('events')).toBe('LICENSEE_CREATED');
+        expect(notification.getEvents()).toBe('LICENSEE_CREATED');
+        expect(notification.events).toBe('LICENSEE_CREATED');
 
-        notification.events = 'CREATE_LICENSE';
-        expect(notification.getProperty('events')).toBe('CREATE_LICENSE');
-        expect(notification.getEvents()).toBe('CREATE_LICENSE');
-        expect(notification.events).toBe('CREATE_LICENSE');
+        notification.events = 'LICENSE_CREATED';
+        expect(notification.getProperty('events')).toBe('LICENSE_CREATED');
+        expect(notification.getEvents()).toBe('LICENSE_CREATED');
+        expect(notification.events).toBe('LICENSE_CREATED');
     });
 
     it('check "payload" property setters/getters', () => {
@@ -158,5 +159,11 @@ describe('entities/Notification', () => {
         expect(notification.number).toBe('number_1');
         expect(notification.getProperty('number')).toBe('number');
         expect(notification.getNumber()).toBe('number');
+    });
+
+    it('check events', () => {
+        expect(Constants.Notification.Event.LICENSEE_CREATED).toBe('LICENSEE_CREATED');
+        expect(Constants.Notification.Event.LICENSE_CREATED).toBe('LICENSE_CREATED');
+        expect(Constants.Notification.Event.WARNING_LEVEL_CHANGED).toBe('WARNING_LEVEL_CHANGED');
     });
 });

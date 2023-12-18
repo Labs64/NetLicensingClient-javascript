@@ -662,7 +662,11 @@ var _default = {
     },
     Event: {
       CREATE_LICENSEE: 'CREATE_LICENSEE',
-      CREATE_LICENSE: 'CREATE_LICENSE'
+      CREATE_LICENSE: 'CREATE_LICENSE',
+      WARNING_LEVEL_TO_ANY: 'WARNING_LEVEL_TO_ANY',
+      WARNING_LEVEL_TO_GREEN: 'WARNING_LEVEL_TO_GREEN',
+      WARNING_LEVEL_TO_YELLOW: 'WARNING_LEVEL_TO_YELLOW',
+      WARNING_LEVEL_TO_RED: 'WARNING_LEVEL_TO_RED'
     }
   }
 };
@@ -765,26 +769,6 @@ var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
 var _Licensee = _interopRequireDefault(__webpack_require__(2948));
 var _default = function _default(item) {
   return new _Licensee.default((0, _itemToObject.default)(item));
-};
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 6546:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(4836);
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
-var _Notification = _interopRequireDefault(__webpack_require__(5433));
-var _default = function _default(item) {
-  return new _Notification.default((0, _itemToObject.default)(item));
 };
 exports["default"] = _default;
 
@@ -2065,158 +2049,6 @@ var Licensee = /*#__PURE__*/function (_BaseEntity) {
   return Licensee;
 }(_BaseEntity2.default);
 exports["default"] = Licensee;
-
-/***/ }),
-
-/***/ 5433:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(4836);
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
-var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
-var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
-                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                           */
-/**
- * NetLicensing Notification entity.
- *
- * Properties visible via NetLicensing  API:
- *
- * Unique number that identifies the notification. Vendor can assign this number when creating a notification or
- * let NetLicensing generate one.
- * @property string number
- *
- * If set to false, the notification is disabled. The notification will not be fired when the event triggered.
- * @property boolean active
- *
- * Notification name.
- * @property string name
- *
- * Notification type. Indicate the method of transmitting notification, ex: EMAIL, WEBHOOK.
- * @property float type
- *
- * Comma separated string of events that fire the notification when emitted.
- * @property string events
- *
- * Notification response payload.
- * @property string payload
- *
- * Notification response url. Optional. Uses only for WEBHOOK type notification.
- * @property string url
- *
- * Arbitrary additional user properties of string type may be associated with each notification. The name of user property
- * must not be equal to any of the fixed property names listed above and must be none of id, deleted.
- *
- * @constructor
- */
-var Notification = /*#__PURE__*/function (_BaseEntity) {
-  (0, _inherits2.default)(Notification, _BaseEntity);
-  var _super = _createSuper(Notification);
-  function Notification(properties) {
-    (0, _classCallCheck2.default)(this, Notification);
-    return _super.call(this, {
-      properties: properties,
-      // The attributes that should be cast to native types.
-      casts: {
-        number: 'string',
-        active: 'boolean',
-        name: 'string',
-        protocol: 'string',
-        events: 'string',
-        payload: 'string',
-        endpoint: 'string'
-      }
-    });
-  }
-  (0, _createClass2.default)(Notification, [{
-    key: "setNumber",
-    value: function setNumber(number) {
-      return this.setProperty('number', number);
-    }
-  }, {
-    key: "getNumber",
-    value: function getNumber(def) {
-      return this.getProperty('number', def);
-    }
-  }, {
-    key: "setActive",
-    value: function setActive(active) {
-      return this.setProperty('active', active);
-    }
-  }, {
-    key: "getActive",
-    value: function getActive(def) {
-      return this.getProperty('active', def);
-    }
-  }, {
-    key: "setName",
-    value: function setName(name) {
-      return this.setProperty('name', name);
-    }
-  }, {
-    key: "getName",
-    value: function getName(def) {
-      return this.getProperty('name', def);
-    }
-  }, {
-    key: "setProtocol",
-    value: function setProtocol(type) {
-      return this.setProperty('protocol', type);
-    }
-  }, {
-    key: "getProtocol",
-    value: function getProtocol(def) {
-      return this.getProperty('protocol', def);
-    }
-  }, {
-    key: "setEvents",
-    value: function setEvents(events) {
-      return this.setProperty('events', events);
-    }
-  }, {
-    key: "getEvents",
-    value: function getEvents(def) {
-      return this.getProperty('events', def);
-    }
-  }, {
-    key: "setPayload",
-    value: function setPayload(payload) {
-      return this.setProperty('payload', payload);
-    }
-  }, {
-    key: "getPayload",
-    value: function getPayload(def) {
-      return this.getProperty('payload', def);
-    }
-  }, {
-    key: "setEndpoint",
-    value: function setEndpoint(endpoint) {
-      return this.setProperty('endpoint', endpoint);
-    }
-  }, {
-    key: "getEndpoint",
-    value: function getEndpoint(def) {
-      return this.getProperty('endpoint', def);
-    }
-  }]);
-  return Notification;
-}(_BaseEntity2.default);
-exports["default"] = Notification;
 
 /***/ }),
 
@@ -4437,225 +4269,6 @@ var _default = {
       sourceLicenseeNumber: sourceLicenseeNumber
     };
     return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number, "/").concat(_Constants.default.Licensee.ENDPOINT_PATH_TRANSFER), queryParams);
-  }
-};
-exports["default"] = _default;
-
-/***/ }),
-
-/***/ 3212:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(4836);
-Object.defineProperty(exports, "__esModule", ({
-  value: true
-}));
-exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4687));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
-var _Service = _interopRequireDefault(__webpack_require__(393));
-var _Constants = _interopRequireDefault(__webpack_require__(1480));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
-var _itemToNotification = _interopRequireDefault(__webpack_require__(6546));
-var _Page = _interopRequireDefault(__webpack_require__(9407));
-/**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
-/**
- * JS representation of the Notification Service. See NetLicensingAPI for details:
- * https://netlicensing.io/wiki/notification-services
- *
- * @constructor
- */
-var _default = {
-  /**
-   * Creates new notification with given properties.See NetLicensingAPI for details:
-   * @see https://netlicensing.io/wiki/notification-services#create-notification
-   *
-   * determines the vendor on whose behalf the call is performed
-   * @param context NetLicensing.Context
-   *
-   * non-null properties will be taken for the new object, null properties will either stay null, or will
-   * be set to a default value, depending on property.
-   * @param notification NetLicensing.Notification
-   *
-   * return the newly created notification object in promise
-   * @returns {Promise}
-   */
-  create: function create(context, notification) {
-    return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-      var _yield$Service$post, items, _items$filter, _items$filter2, item;
-      return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _Service.default.post(context, _Constants.default.Notification.ENDPOINT_PATH, notification.asPropertiesMap());
-          case 2:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'Notification';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToNotification.default)(item));
-          case 6:
-          case "end":
-            return _context.stop();
-        }
-      }, _callee);
-    }))();
-  },
-  /**
-   * Gets notification by its number.See NetLicensingAPI for details:
-   * @see https://netlicensing.io/wiki/notification-services#get-notification
-   *
-   * determines the vendor on whose behalf the call is performed
-   * @param context NetLicensing.Context
-   *
-   * the notification number
-   * @param number string
-   *
-   * return the notification object in promise
-   * @returns {Promise}
-   */
-  get: function get(context, number) {
-    return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-      var _yield$Service$get, items, _items$filter3, _items$filter4, item;
-      return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'Notification';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToNotification.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
-        }
-      }, _callee2);
-    }))();
-  },
-  /**
-   * Returns notifications of a vendor.See NetLicensingAPI for details:
-   * @see https://netlicensing.io/wiki/notification-services#notifications-list
-   *
-   * determines the vendor on whose behalf the call is performed
-   * @param context NetLicensing.Context
-   *
-   * reserved for the future use, must be omitted / set to NULL
-   * @param filter string|null
-   *
-   * array of notification entities or empty array if nothing found in promise.
-   * @returns {Promise}
-   */
-  list: function list(context, filter) {
-    return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
-      var queryParams, _yield$Service$get2, data;
-      return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.Notification.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Notification';
-            }).map(function (v) {
-              return (0, _itemToNotification.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
-        }
-      }, _callee3);
-    }))();
-  },
-  /**
-   * Updates notification properties.See NetLicensingAPI for details:
-   * @see https://netlicensing.io/wiki/notification-services#update-notification
-   *
-   * determines the vendor on whose behalf the call is performed
-   * @param context NetLicensing.Context
-   *
-   * notification number
-   * @param number string
-   *
-   * non-null properties will be updated to the provided values, null properties will stay unchanged.
-   * @param notification NetLicensing.Notification
-   *
-   * updated notification in promise.
-   * @returns {Promise}
-   */
-  update: function update(context, number, notification) {
-    return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
-      var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
-      return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context4.next = 3;
-            return _Service.default.post(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number), notification.asPropertiesMap());
-          case 3:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'Notification';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToNotification.default)(item));
-          case 7:
-          case "end":
-            return _context4.stop();
-        }
-      }, _callee4);
-    }))();
-  },
-  /**
-   * Deletes notification.See NetLicensingAPI for details:
-   * @see https://netlicensing.io/wiki/notification-services#delete-notification
-   *
-   * determines the vendor on whose behalf the call is performed
-   * @param context NetLicensing.Context
-   *
-   * notification number
-   * @param number string
-   *
-   * return boolean state of delete in promise
-   * @returns {Promise}
-   */
-  delete: function _delete(context, number) {
-    _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-    return _Service.default.delete(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number));
   }
 };
 exports["default"] = _default;
@@ -15037,7 +14650,7 @@ module.exports = JSON.parse('{"application/1d-interleaved-parityfec":{"source":"
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"netlicensing-client","version":"1.2.33","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.cjs","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.cjs","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.cjs","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^1.4.0","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.17.8","@babel/plugin-proposal-class-properties":"^7.16.7","@babel/plugin-proposal-decorators":"^7.17.8","@babel/plugin-proposal-export-namespace-from":"^7.16.7","@babel/plugin-proposal-function-sent":"^7.16.7","@babel/plugin-proposal-json-strings":"^7.16.7","@babel/plugin-proposal-numeric-separator":"^7.16.7","@babel/plugin-proposal-throw-expressions":"^7.16.7","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.17.7","@babel/plugin-transform-runtime":"^7.17.0","@babel/preset-env":"^7.16.11","@babel/runtime":"^7.17.8","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^9.1.2","chalk":"^4.1.2","eslint":"^7.32.0","eslint-config-airbnb-base":"^15.0.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-plugin-import":"^2.25.4","eslint-plugin-jasmine":"^4.1.3","eslint-webpack-plugin":"^3.1.1","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^4.0.2","jasmine-core":"^4.0.1","karma":"^6.3.17","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.2","karma-jasmine":"^4.0.2","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.33","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.3.1","webpack":"^5.76.0","webpack-cli":"^5.1.1","webpack-merge":"^5.8.0"},"engines":{"node":">= 14.0.0","npm":">= 8.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
+module.exports = JSON.parse('{"name":"netlicensing-client","version":"1.2.31","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.cjs","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.cjs","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.cjs","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^1.4.0","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.17.8","@babel/plugin-proposal-class-properties":"^7.16.7","@babel/plugin-proposal-decorators":"^7.17.8","@babel/plugin-proposal-export-namespace-from":"^7.16.7","@babel/plugin-proposal-function-sent":"^7.16.7","@babel/plugin-proposal-json-strings":"^7.16.7","@babel/plugin-proposal-numeric-separator":"^7.16.7","@babel/plugin-proposal-throw-expressions":"^7.16.7","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.17.7","@babel/plugin-transform-runtime":"^7.17.0","@babel/preset-env":"^7.16.11","@babel/runtime":"^7.17.8","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^9.1.2","chalk":"^4.1.2","eslint":"^7.32.0","eslint-config-airbnb-base":"^15.0.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-plugin-import":"^2.25.4","eslint-plugin-jasmine":"^4.1.3","eslint-webpack-plugin":"^3.1.1","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^4.0.2","jasmine-core":"^4.0.1","karma":"^6.3.17","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.2","karma-jasmine":"^4.0.2","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.33","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.3.1","webpack":"^5.76.0","webpack-cli":"^5.1.1","webpack-merge":"^5.8.0"},"engines":{"node":">= 14.0.0","npm":">= 8.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
 
 /***/ })
 
@@ -15185,18 +14798,6 @@ Object.defineProperty(exports, "NlicError", ({
   enumerable: true,
   get: function get() {
     return _NlicError.default;
-  }
-}));
-Object.defineProperty(exports, "Notification", ({
-  enumerable: true,
-  get: function get() {
-    return _Notification.default;
-  }
-}));
-Object.defineProperty(exports, "NotificationService", ({
-  enumerable: true,
-  get: function get() {
-    return _NotificationService.default;
   }
 }));
 Object.defineProperty(exports, "Page", ({
@@ -15378,7 +14979,6 @@ var _TokenService = _interopRequireDefault(__webpack_require__(731));
 var _TransactionService = _interopRequireDefault(__webpack_require__(5919));
 var _UtilityService = _interopRequireDefault(__webpack_require__(7635));
 var _BundleService = _interopRequireDefault(__webpack_require__(1462));
-var _NotificationService = _interopRequireDefault(__webpack_require__(3212));
 var _BaseEntity = _interopRequireDefault(__webpack_require__(389));
 var _Country = _interopRequireDefault(__webpack_require__(187));
 var _License = _interopRequireDefault(__webpack_require__(9763));
@@ -15392,7 +14992,6 @@ var _Token = _interopRequireDefault(__webpack_require__(8132));
 var _Transaction = _interopRequireDefault(__webpack_require__(4880));
 var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3089));
 var _Bundle = _interopRequireDefault(__webpack_require__(2044));
-var _Notification = _interopRequireDefault(__webpack_require__(5433));
 var _itemToCountry = _interopRequireDefault(__webpack_require__(3213));
 var _itemToLicense = _interopRequireDefault(__webpack_require__(3887));
 var _itemToLicensee = _interopRequireDefault(__webpack_require__(6463));
