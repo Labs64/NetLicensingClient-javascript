@@ -27,7 +27,7 @@ exports["default"] = void 0;
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var _default = {
+var _default = exports["default"] = {
   BASIC_AUTHENTICATION: 'BASIC_AUTH',
   APIKEY_IDENTIFICATION: 'APIKEY',
   ANONYMOUS_IDENTIFICATION: 'ANONYMOUS',
@@ -225,7 +225,6 @@ var _default = {
     }
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -242,10 +241,9 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = void 0;
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
 var _Bundle = _interopRequireDefault(__webpack_require__(2044));
-var _default = function _default(item) {
+var _default = exports["default"] = function _default(item) {
   return new _Bundle.default((0, _itemToObject.default)(item));
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -262,10 +260,9 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = void 0;
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
 var _Country = _interopRequireDefault(__webpack_require__(187));
-var _default = function _default(item) {
+var _default = exports["default"] = function _default(item) {
   return new _Country.default((0, _itemToObject.default)(item));
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -282,10 +279,9 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = void 0;
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
 var _License = _interopRequireDefault(__webpack_require__(9763));
-var _default = function _default(item) {
+var _default = exports["default"] = function _default(item) {
   return new _License.default((0, _itemToObject.default)(item));
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -302,10 +298,9 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = void 0;
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
 var _LicenseTemplate = _interopRequireDefault(__webpack_require__(767));
-var _default = function _default(item) {
+var _default = exports["default"] = function _default(item) {
   return new _LicenseTemplate.default((0, _itemToObject.default)(item));
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -322,10 +317,9 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = void 0;
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
 var _Licensee = _interopRequireDefault(__webpack_require__(2948));
-var _default = function _default(item) {
+var _default = exports["default"] = function _default(item) {
   return new _Licensee.default((0, _itemToObject.default)(item));
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -342,10 +336,9 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = void 0;
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
 var _Notification = _interopRequireDefault(__webpack_require__(5433));
-var _default = function _default(item) {
+var _default = exports["default"] = function _default(item) {
   return new _Notification.default((0, _itemToObject.default)(item));
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -381,8 +374,7 @@ var itemToObject = function itemToObject(item) {
   }
   return object;
 };
-var _default = itemToObject;
-exports["default"] = _default;
+var _default = exports["default"] = itemToObject;
 
 /***/ }),
 
@@ -399,10 +391,9 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = void 0;
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
 var _PaymentMethod = _interopRequireDefault(__webpack_require__(5088));
-var _default = function _default(item) {
+var _default = exports["default"] = function _default(item) {
   return new _PaymentMethod.default((0, _itemToObject.default)(item));
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -419,7 +410,7 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = void 0;
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
 var _Product = _interopRequireDefault(__webpack_require__(7143));
-var _default = function _default(item) {
+var _default = exports["default"] = function _default(item) {
   var object = (0, _itemToObject.default)(item);
   var discounts = object.discount;
   delete object.discount;
@@ -427,7 +418,6 @@ var _default = function _default(item) {
   product.setProductDiscounts(discounts);
   return product;
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -444,10 +434,9 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = void 0;
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
 var _ProductModule = _interopRequireDefault(__webpack_require__(3886));
-var _default = function _default(item) {
+var _default = exports["default"] = function _default(item) {
   return new _ProductModule.default((0, _itemToObject.default)(item));
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -464,10 +453,9 @@ Object.defineProperty(exports, "__esModule", ({
 exports["default"] = void 0;
 var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
 var _Token = _interopRequireDefault(__webpack_require__(8132));
-var _default = function _default(item) {
+var _default = exports["default"] = function _default(item) {
   return new _Token.default((0, _itemToObject.default)(item));
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -487,7 +475,7 @@ var _Transaction = _interopRequireDefault(__webpack_require__(39));
 var _License = _interopRequireDefault(__webpack_require__(9763));
 var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3089));
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
-var _default = function _default(item) {
+var _default = exports["default"] = function _default(item) {
   var object = (0, _itemToObject.default)(item);
   var licenseTransactionJoin = object.licenseTransactionJoin;
   delete object.licenseTransactionJoin;
@@ -508,7 +496,6 @@ var _default = function _default(item) {
   }
   return transaction;
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -529,13 +516,13 @@ var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
 var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
 var _CastsUtils = _interopRequireDefault(__webpack_require__(553));
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; } /**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 /**
  * The entity properties.
  * @type {{}}
@@ -557,7 +544,7 @@ var definedMap = new WeakMap();
  * @private
  */
 var castsMap = new WeakMap();
-var BaseEntity = /*#__PURE__*/function () {
+var BaseEntity = exports["default"] = /*#__PURE__*/function () {
   function BaseEntity(_ref) {
     var properties = _ref.properties,
       casts = _ref.casts;
@@ -766,7 +753,6 @@ var BaseEntity = /*#__PURE__*/function () {
   }]);
   return BaseEntity;
 }();
-exports["default"] = BaseEntity;
 
 /***/ }),
 
@@ -789,11 +775,11 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
-                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                           */
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 /**
  * NetLicensing Bundle entity.
  *
@@ -814,7 +800,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  *
  * @constructor
  */
-var Bundle = /*#__PURE__*/function (_BaseEntity) {
+var Bundle = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(Bundle, _BaseEntity);
   var _super = _createSuper(Bundle);
   function Bundle(properties) {
@@ -898,7 +884,6 @@ var Bundle = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return Bundle;
 }(_BaseEntity2.default);
-exports["default"] = Bundle;
 
 /***/ }),
 
@@ -921,11 +906,11 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
-                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                           */
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 /**
  * Country entity used internally by NetLicensing.
  *
@@ -939,7 +924,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  *
  * @property isEu - is country in EU.
  */
-var Country = /*#__PURE__*/function (_BaseEntity) {
+var Country = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(Country, _BaseEntity);
   var _super = _createSuper(Country);
   function Country(properties) {
@@ -998,7 +983,6 @@ var Country = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return Country;
 }(_BaseEntity2.default);
-exports["default"] = Country;
 
 /***/ }),
 
@@ -1021,11 +1005,11 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
-                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                           */
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 /**
  * License entity used internally by NetLicensing.
  *
@@ -1061,7 +1045,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  * must not be equal to any of the fixed property names listed above and must be none of id, deleted, licenseeNumber,
  * licenseTemplateNumber.
  */
-var License = /*#__PURE__*/function (_BaseEntity) {
+var License = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(License, _BaseEntity);
   var _super = _createSuper(License);
   function License(properties) {
@@ -1170,7 +1154,6 @@ var License = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return License;
 }(_BaseEntity2.default);
-exports["default"] = License;
 
 /***/ }),
 
@@ -1193,11 +1176,11 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
-                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                           */
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 /**
  * License template entity used internally by NetLicensing.
  *
@@ -1254,7 +1237,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  *
  * @constructor
  */
-var LicenseTemplate = /*#__PURE__*/function (_BaseEntity) {
+var LicenseTemplate = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(LicenseTemplate, _BaseEntity);
   var _super = _createSuper(LicenseTemplate);
   function LicenseTemplate(properties) {
@@ -1419,7 +1402,6 @@ var LicenseTemplate = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return LicenseTemplate;
 }(_BaseEntity2.default);
-exports["default"] = LicenseTemplate;
 
 /***/ }),
 
@@ -1442,7 +1424,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var LicenseTransactionJoin = /*#__PURE__*/function () {
+var LicenseTransactionJoin = exports["default"] = /*#__PURE__*/function () {
   function LicenseTransactionJoin(transaction, license) {
     (0, _classCallCheck2.default)(this, LicenseTransactionJoin);
     this.transaction = transaction;
@@ -1473,7 +1455,6 @@ var LicenseTransactionJoin = /*#__PURE__*/function () {
   }]);
   return LicenseTransactionJoin;
 }();
-exports["default"] = LicenseTransactionJoin;
 
 /***/ }),
 
@@ -1496,11 +1477,11 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
-                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                           */
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 /**
  * Licensee entity used internally by NetLicensing.
  *
@@ -1529,7 +1510,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  *
  * @constructor
  */
-var Licensee = /*#__PURE__*/function (_BaseEntity) {
+var Licensee = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(Licensee, _BaseEntity);
   var _super = _createSuper(Licensee);
   function Licensee(properties) {
@@ -1623,7 +1604,6 @@ var Licensee = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return Licensee;
 }(_BaseEntity2.default);
-exports["default"] = Licensee;
 
 /***/ }),
 
@@ -1646,11 +1626,11 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
-                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                           */
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 /**
  * NetLicensing Notification entity.
  *
@@ -1683,7 +1663,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  *
  * @constructor
  */
-var Notification = /*#__PURE__*/function (_BaseEntity) {
+var Notification = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(Notification, _BaseEntity);
   var _super = _createSuper(Notification);
   function Notification(properties) {
@@ -1775,7 +1755,6 @@ var Notification = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return Notification;
 }(_BaseEntity2.default);
-exports["default"] = Notification;
 
 /***/ }),
 
@@ -1798,11 +1777,11 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
-                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                           */
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 /**
  * PaymentMethod entity used internally by NetLicensing.
  *
@@ -1811,7 +1790,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  *
  * @constructor
  */
-var PaymentMethod = /*#__PURE__*/function (_BaseEntity) {
+var PaymentMethod = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(PaymentMethod, _BaseEntity);
   var _super = _createSuper(PaymentMethod);
   function PaymentMethod(properties) {
@@ -1859,7 +1838,6 @@ var PaymentMethod = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return PaymentMethod;
 }(_BaseEntity2.default);
-exports["default"] = PaymentMethod;
 
 /***/ }),
 
@@ -1885,11 +1863,11 @@ var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 var _ProductDiscount = _interopRequireDefault(__webpack_require__(3144));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
-                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                           */
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 /**
  * The discounts map
  * @type {{}}
@@ -1942,7 +1920,7 @@ var discountsTouched = new WeakMap();
  *
  * @constructor
  */
-var Product = /*#__PURE__*/function (_BaseEntity) {
+var Product = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(Product, _BaseEntity);
   var _super = _createSuper(Product);
   function Product(properties) {
@@ -2128,7 +2106,6 @@ var Product = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return Product;
 }(_BaseEntity2.default);
-exports["default"] = Product;
 
 /***/ }),
 
@@ -2151,12 +2128,12 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
-                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                           */
-var ProductDiscount = /*#__PURE__*/function (_BaseEntity) {
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
+var ProductDiscount = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(ProductDiscount, _BaseEntity);
   var _super = _createSuper(ProductDiscount);
   function ProductDiscount(properties) {
@@ -2225,7 +2202,6 @@ var ProductDiscount = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return ProductDiscount;
 }(_BaseEntity2.default);
-exports["default"] = ProductDiscount;
 
 /***/ }),
 
@@ -2248,11 +2224,11 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
-                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                           */
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 /**
  * Product module entity used internally by NetLicensing.
  *
@@ -2291,7 +2267,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  *
  * @constructor
  */
-var ProductModule = /*#__PURE__*/function (_BaseEntity) {
+var ProductModule = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(ProductModule, _BaseEntity);
   var _super = _createSuper(ProductModule);
   function ProductModule(properties) {
@@ -2411,7 +2387,6 @@ var ProductModule = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return ProductModule;
 }(_BaseEntity2.default);
-exports["default"] = ProductModule;
 
 /***/ }),
 
@@ -2434,11 +2409,11 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
-                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                           */
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 /**
  * Product module entity used internally by NetLicensing.
  *
@@ -2465,7 +2440,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  *
  * @constructor
  */
-var Token = /*#__PURE__*/function (_BaseEntity) {
+var Token = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(Token, _BaseEntity);
   var _super = _createSuper(Token);
   function Token(properties) {
@@ -2625,7 +2600,6 @@ var Token = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return Token;
 }(_BaseEntity2.default);
-exports["default"] = Token;
 
 /***/ }),
 
@@ -2650,11 +2624,11 @@ var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3089));
 var _License = _interopRequireDefault(__webpack_require__(9763));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
-                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                           */
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 /**
  * Transaction entity used internally by NetLicensing.
  *
@@ -2690,7 +2664,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
  *
  * @constructor
  */
-var Transaction = /*#__PURE__*/function (_BaseEntity) {
+var Transaction = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
   (0, _inherits2.default)(Transaction, _BaseEntity);
   var _super = _createSuper(Transaction);
   function Transaction(properties) {
@@ -2852,7 +2826,6 @@ var Transaction = /*#__PURE__*/function (_BaseEntity) {
   }]);
   return Transaction;
 }(_BaseEntity2.default);
-exports["default"] = Transaction;
 
 /***/ }),
 
@@ -2875,7 +2848,7 @@ var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
 var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(3496));
 function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-var NlicError = /*#__PURE__*/function (_Error) {
+var NlicError = exports["default"] = /*#__PURE__*/function (_Error) {
   (0, _inherits2.default)(NlicError, _Error);
   var _super = _createSuper(NlicError);
   function NlicError() {
@@ -2916,7 +2889,6 @@ var NlicError = /*#__PURE__*/function (_Error) {
   }]);
   return NlicError;
 }( /*#__PURE__*/(0, _wrapNativeSuper2.default)(Error));
-exports["default"] = NlicError;
 
 /***/ }),
 
@@ -2954,7 +2926,7 @@ var _Page = _interopRequireDefault(__webpack_require__(9407));
  *
  * @constructor
  */
-var _default = {
+var _default = exports["default"] = {
   /**
    * Creates new bundle with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/bundle-services#create-bundle
@@ -3187,7 +3159,6 @@ var _default = {
     }))();
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -3223,7 +3194,7 @@ var _Page = _interopRequireDefault(__webpack_require__(9407));
  *
  * @constructor
  */
-var _default = {
+var _default = exports["default"] = {
   /**
    * Creates new license object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-services#create-license
@@ -3436,7 +3407,6 @@ var _default = {
     return _Service.default.delete(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number), queryParams);
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -3472,7 +3442,7 @@ var _Page = _interopRequireDefault(__webpack_require__(9407));
  *
  * @constructor
  */
-var _default = {
+var _default = exports["default"] = {
   /**
    * Creates new license template object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-template-services#create-license-template
@@ -3667,7 +3637,6 @@ var _default = {
     return _Service.default.delete(context, "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number), queryParams);
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -3705,7 +3674,7 @@ var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
  *
  * @constructor
  */
-var _default = {
+var _default = exports["default"] = {
   /**
    * Creates new licensee object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/licensee-services#create-licensee
@@ -3998,7 +3967,6 @@ var _default = {
     return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number, "/").concat(_Constants.default.Licensee.ENDPOINT_PATH_TRANSFER), queryParams);
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -4034,7 +4002,7 @@ var _Page = _interopRequireDefault(__webpack_require__(9407));
  *
  * @constructor
  */
-var _default = {
+var _default = exports["default"] = {
   /**
    * Creates new notification with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/notification-services#create-notification
@@ -4217,7 +4185,6 @@ var _default = {
     return _Service.default.delete(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number));
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -4247,7 +4214,7 @@ var _Page = _interopRequireDefault(__webpack_require__(9407));
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var _default = {
+var _default = exports["default"] = {
   /**
    * Gets payment method by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/payment-method-services#get-payment-method
@@ -4377,7 +4344,6 @@ var _default = {
     }))();
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -4413,7 +4379,7 @@ var _Page = _interopRequireDefault(__webpack_require__(9407));
  *
  * @constructor
  */
-var _default = {
+var _default = exports["default"] = {
   /**
    * Creates new product module object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-module-services#create-product-module
@@ -4607,7 +4573,6 @@ var _default = {
     return _Service.default.delete(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number), queryParams);
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -4643,7 +4608,7 @@ var _Page = _interopRequireDefault(__webpack_require__(9407));
  *
  * @constructor
  */
-var _default = {
+var _default = exports["default"] = {
   /**
    * Creates new product with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-services#create-product
@@ -4832,7 +4797,6 @@ var _default = {
     return _Service.default.delete(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number), queryParams);
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -4865,7 +4829,7 @@ var _package = _interopRequireDefault(__webpack_require__(4147));
 
 var httpXHR = {};
 var axiosInstance = null;
-var Service = /*#__PURE__*/function () {
+var Service = exports["default"] = /*#__PURE__*/function () {
   function Service() {
     (0, _classCallCheck2.default)(this, Service);
   }
@@ -5092,7 +5056,6 @@ var Service = /*#__PURE__*/function () {
   }]);
   return Service;
 }();
-exports["default"] = Service;
 
 /***/ }),
 
@@ -5128,7 +5091,7 @@ var _Page = _interopRequireDefault(__webpack_require__(9407));
  *
  * @constructor
  */
-var _default = {
+var _default = exports["default"] = {
   /**
    * Creates new token.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/token-services#create-token
@@ -5270,7 +5233,6 @@ var _default = {
     return _Service.default.delete(context, "".concat(_Constants.default.Token.ENDPOINT_PATH, "/").concat(number));
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -5314,7 +5276,7 @@ var _Page = _interopRequireDefault(__webpack_require__(9407));
  *
  * @constructor
  */
-var _default = {
+var _default = exports["default"] = {
   /**
    * Creates new transaction object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/transaction-services#create-transaction
@@ -5480,7 +5442,6 @@ var _default = {
     }))();
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -5515,7 +5476,7 @@ var _itemToCountry = _interopRequireDefault(__webpack_require__(3213));
  * https://netlicensing.io/wiki/utility-services
  * @constructor
  */
-var _default = {
+var _default = exports["default"] = {
   /**
    * Returns all license types. See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/utility-services#license-types-list
@@ -5634,7 +5595,6 @@ var _default = {
     }))();
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -5655,7 +5615,7 @@ exports["default"] = void 0;
  * @copyright 2017 Labs64 NetLicensing
  */
 // Cast an attribute to a native JS type.
-var _default = function _default(key, value) {
+var _default = exports["default"] = function _default(key, value) {
   switch (key.trim().toLowerCase()) {
     case 'str':
     case 'string':
@@ -5690,7 +5650,6 @@ var _default = function _default(key, value) {
       return value;
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -5710,7 +5669,7 @@ exports["default"] = void 0;
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var _default = {
+var _default = exports["default"] = {
   isValid: function isValid(value) {
     var valid = value !== undefined && typeof value !== 'function';
     if (typeof value === 'number') valid = Number.isFinite(value) && !Number.isNaN(value);
@@ -5725,7 +5684,6 @@ var _default = {
     if (!parameter) throw new TypeError("Parameter ".concat(parameterName, " cannot be null or empty string"));
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -5741,7 +5699,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = void 0;
 var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
-var _default = {
+var _default = exports["default"] = {
   FILTER_DELIMITER: ';',
   FILTER_PAIR_DELIMITER: '=',
   encode: function encode() {
@@ -5770,7 +5728,6 @@ var _default = {
     return filter;
   }
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -5793,7 +5750,7 @@ var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var BundleObtainParameters = /*#__PURE__*/function () {
+var BundleObtainParameters = exports["default"] = /*#__PURE__*/function () {
   function BundleObtainParameters() {
     (0, _classCallCheck2.default)(this, BundleObtainParameters);
     this.licenseeNumber = '';
@@ -5812,7 +5769,6 @@ var BundleObtainParameters = /*#__PURE__*/function () {
   }]);
   return BundleObtainParameters;
 }();
-exports["default"] = BundleObtainParameters;
 
 /***/ }),
 
@@ -5833,13 +5789,13 @@ var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
 var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 var _Constants = _interopRequireDefault(__webpack_require__(1480));
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; } /**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 /**
  * The context values.
  * @type {{}}
@@ -5860,7 +5816,7 @@ var definedMap = new WeakMap();
  * @private
  */
 var defaultsMap = new WeakMap();
-var Context = /*#__PURE__*/function () {
+var Context = exports["default"] = /*#__PURE__*/function () {
   function Context(values) {
     (0, _classCallCheck2.default)(this, Context);
     defaultsMap.set(this, {
@@ -6085,7 +6041,6 @@ var Context = /*#__PURE__*/function () {
   }]);
   return Context;
 }();
-exports["default"] = Context;
 
 /***/ }),
 
@@ -6099,7 +6054,7 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _default = function _default() {
+var _default = exports["default"] = function _default() {
   var content = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var pageNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
   var itemsNumber = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
@@ -6135,7 +6090,6 @@ var _default = function _default() {
     }
   });
 };
-exports["default"] = _default;
 
 /***/ }),
 
@@ -6153,15 +6107,15 @@ exports["default"] = void 0;
 var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
 var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var ValidationParameters = /*#__PURE__*/function () {
+var ValidationParameters = exports["default"] = /*#__PURE__*/function () {
   function ValidationParameters() {
     (0, _classCallCheck2.default)(this, ValidationParameters);
     this.parameters = {};
@@ -6330,7 +6284,6 @@ var ValidationParameters = /*#__PURE__*/function () {
   }]);
   return ValidationParameters;
 }();
-exports["default"] = ValidationParameters;
 
 /***/ }),
 
@@ -6350,14 +6303,14 @@ var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
 var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
 var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author    Labs64 <netlicensing@labs64.com>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @license   Apache-2.0
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @link      https://netlicensing.io
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @copyright 2017 Labs64 NetLicensing
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
-var ValidationResults = /*#__PURE__*/function () {
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; } /**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
+var ValidationResults = exports["default"] = /*#__PURE__*/function () {
   function ValidationResults() {
     (0, _classCallCheck2.default)(this, ValidationResults);
     this.validators = {};
@@ -6416,7 +6369,6 @@ var ValidationResults = /*#__PURE__*/function () {
   }]);
   return ValidationResults;
 }();
-exports["default"] = ValidationResults;
 
 /***/ }),
 
@@ -6676,7 +6628,11 @@ module.exports = _interopRequireDefault, module.exports.__esModule = true, modul
 /***/ ((module) => {
 
 function _isNativeFunction(fn) {
-  return Function.toString.call(fn).indexOf("[native code]") !== -1;
+  try {
+    return Function.toString.call(fn).indexOf("[native code]") !== -1;
+  } catch (e) {
+    return typeof fn === "function";
+  }
 }
 module.exports = _isNativeFunction, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
@@ -6703,31 +6659,31 @@ module.exports = _isNativeReflectConstruct, module.exports.__esModule = true, mo
 /***/ 8872:
 /***/ ((module) => {
 
-function _iterableToArrayLimit(arr, i) {
-  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
-  if (null != _i) {
-    var _s,
-      _e,
-      _x,
-      _r,
-      _arr = [],
-      _n = !0,
-      _d = !1;
+function _iterableToArrayLimit(r, l) {
+  var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+  if (null != t) {
+    var e,
+      n,
+      i,
+      u,
+      a = [],
+      f = !0,
+      o = !1;
     try {
-      if (_x = (_i = _i.call(arr)).next, 0 === i) {
-        if (Object(_i) !== _i) return;
-        _n = !1;
-      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0);
-    } catch (err) {
-      _d = !0, _e = err;
+      if (i = (t = t.call(r)).next, 0 === l) {
+        if (Object(t) !== t) return;
+        f = !1;
+      } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
+    } catch (r) {
+      o = !0, n = r;
     } finally {
       try {
-        if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
+        if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return;
       } finally {
-        if (_d) throw _e;
+        if (o) throw n;
       }
     }
-    return _arr;
+    return a;
   }
 }
 module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module.exports["default"] = module.exports;
@@ -6768,304 +6724,304 @@ var _typeof = (__webpack_require__(8698)["default"]);
 function _regeneratorRuntime() {
   "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
   module.exports = _regeneratorRuntime = function _regeneratorRuntime() {
-    return exports;
+    return e;
   }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  var exports = {},
-    Op = Object.prototype,
-    hasOwn = Op.hasOwnProperty,
-    defineProperty = Object.defineProperty || function (obj, key, desc) {
-      obj[key] = desc.value;
+  var t,
+    e = {},
+    r = Object.prototype,
+    n = r.hasOwnProperty,
+    o = Object.defineProperty || function (t, e, r) {
+      t[e] = r.value;
     },
-    $Symbol = "function" == typeof Symbol ? Symbol : {},
-    iteratorSymbol = $Symbol.iterator || "@@iterator",
-    asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator",
-    toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
-  function define(obj, key, value) {
-    return Object.defineProperty(obj, key, {
-      value: value,
+    i = "function" == typeof Symbol ? Symbol : {},
+    a = i.iterator || "@@iterator",
+    c = i.asyncIterator || "@@asyncIterator",
+    u = i.toStringTag || "@@toStringTag";
+  function define(t, e, r) {
+    return Object.defineProperty(t, e, {
+      value: r,
       enumerable: !0,
       configurable: !0,
       writable: !0
-    }), obj[key];
+    }), t[e];
   }
   try {
     define({}, "");
-  } catch (err) {
-    define = function define(obj, key, value) {
-      return obj[key] = value;
+  } catch (t) {
+    define = function define(t, e, r) {
+      return t[e] = r;
     };
   }
-  function wrap(innerFn, outerFn, self, tryLocsList) {
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator,
-      generator = Object.create(protoGenerator.prototype),
-      context = new Context(tryLocsList || []);
-    return defineProperty(generator, "_invoke", {
-      value: makeInvokeMethod(innerFn, self, context)
-    }), generator;
+  function wrap(t, e, r, n) {
+    var i = e && e.prototype instanceof Generator ? e : Generator,
+      a = Object.create(i.prototype),
+      c = new Context(n || []);
+    return o(a, "_invoke", {
+      value: makeInvokeMethod(t, r, c)
+    }), a;
   }
-  function tryCatch(fn, obj, arg) {
+  function tryCatch(t, e, r) {
     try {
       return {
         type: "normal",
-        arg: fn.call(obj, arg)
+        arg: t.call(e, r)
       };
-    } catch (err) {
+    } catch (t) {
       return {
         type: "throw",
-        arg: err
+        arg: t
       };
     }
   }
-  exports.wrap = wrap;
-  var ContinueSentinel = {};
+  e.wrap = wrap;
+  var h = "suspendedStart",
+    l = "suspendedYield",
+    f = "executing",
+    s = "completed",
+    y = {};
   function Generator() {}
   function GeneratorFunction() {}
   function GeneratorFunctionPrototype() {}
-  var IteratorPrototype = {};
-  define(IteratorPrototype, iteratorSymbol, function () {
+  var p = {};
+  define(p, a, function () {
     return this;
   });
-  var getProto = Object.getPrototypeOf,
-    NativeIteratorPrototype = getProto && getProto(getProto(values([])));
-  NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype);
-  var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype);
-  function defineIteratorMethods(prototype) {
-    ["next", "throw", "return"].forEach(function (method) {
-      define(prototype, method, function (arg) {
-        return this._invoke(method, arg);
+  var d = Object.getPrototypeOf,
+    v = d && d(d(values([])));
+  v && v !== r && n.call(v, a) && (p = v);
+  var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p);
+  function defineIteratorMethods(t) {
+    ["next", "throw", "return"].forEach(function (e) {
+      define(t, e, function (t) {
+        return this._invoke(e, t);
       });
     });
   }
-  function AsyncIterator(generator, PromiseImpl) {
-    function invoke(method, arg, resolve, reject) {
-      var record = tryCatch(generator[method], generator, arg);
-      if ("throw" !== record.type) {
-        var result = record.arg,
-          value = result.value;
-        return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) {
-          invoke("next", value, resolve, reject);
-        }, function (err) {
-          invoke("throw", err, resolve, reject);
-        }) : PromiseImpl.resolve(value).then(function (unwrapped) {
-          result.value = unwrapped, resolve(result);
-        }, function (error) {
-          return invoke("throw", error, resolve, reject);
+  function AsyncIterator(t, e) {
+    function invoke(r, o, i, a) {
+      var c = tryCatch(t[r], t, o);
+      if ("throw" !== c.type) {
+        var u = c.arg,
+          h = u.value;
+        return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) {
+          invoke("next", t, i, a);
+        }, function (t) {
+          invoke("throw", t, i, a);
+        }) : e.resolve(h).then(function (t) {
+          u.value = t, i(u);
+        }, function (t) {
+          return invoke("throw", t, i, a);
         });
       }
-      reject(record.arg);
+      a(c.arg);
     }
-    var previousPromise;
-    defineProperty(this, "_invoke", {
-      value: function value(method, arg) {
+    var r;
+    o(this, "_invoke", {
+      value: function value(t, n) {
         function callInvokeWithMethodAndArg() {
-          return new PromiseImpl(function (resolve, reject) {
-            invoke(method, arg, resolve, reject);
+          return new e(function (e, r) {
+            invoke(t, n, e, r);
           });
         }
-        return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
+        return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
       }
     });
   }
-  function makeInvokeMethod(innerFn, self, context) {
-    var state = "suspendedStart";
-    return function (method, arg) {
-      if ("executing" === state) throw new Error("Generator is already running");
-      if ("completed" === state) {
-        if ("throw" === method) throw arg;
-        return doneResult();
+  function makeInvokeMethod(e, r, n) {
+    var o = h;
+    return function (i, a) {
+      if (o === f) throw new Error("Generator is already running");
+      if (o === s) {
+        if ("throw" === i) throw a;
+        return {
+          value: t,
+          done: !0
+        };
       }
-      for (context.method = method, context.arg = arg;;) {
-        var delegate = context.delegate;
-        if (delegate) {
-          var delegateResult = maybeInvokeDelegate(delegate, context);
-          if (delegateResult) {
-            if (delegateResult === ContinueSentinel) continue;
-            return delegateResult;
+      for (n.method = i, n.arg = a;;) {
+        var c = n.delegate;
+        if (c) {
+          var u = maybeInvokeDelegate(c, n);
+          if (u) {
+            if (u === y) continue;
+            return u;
           }
         }
-        if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) {
-          if ("suspendedStart" === state) throw state = "completed", context.arg;
-          context.dispatchException(context.arg);
-        } else "return" === context.method && context.abrupt("return", context.arg);
-        state = "executing";
-        var record = tryCatch(innerFn, self, context);
-        if ("normal" === record.type) {
-          if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue;
+        if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) {
+          if (o === h) throw o = s, n.arg;
+          n.dispatchException(n.arg);
+        } else "return" === n.method && n.abrupt("return", n.arg);
+        o = f;
+        var p = tryCatch(e, r, n);
+        if ("normal" === p.type) {
+          if (o = n.done ? s : l, p.arg === y) continue;
           return {
-            value: record.arg,
-            done: context.done
+            value: p.arg,
+            done: n.done
           };
         }
-        "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg);
+        "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg);
       }
     };
   }
-  function maybeInvokeDelegate(delegate, context) {
-    var methodName = context.method,
-      method = delegate.iterator[methodName];
-    if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel;
-    var record = tryCatch(method, delegate.iterator, context.arg);
-    if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel;
-    var info = record.arg;
-    return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel);
+  function maybeInvokeDelegate(e, r) {
+    var n = r.method,
+      o = e.iterator[n];
+    if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y;
+    var i = tryCatch(o, e.iterator, r.arg);
+    if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y;
+    var a = i.arg;
+    return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y);
   }
-  function pushTryEntry(locs) {
-    var entry = {
-      tryLoc: locs[0]
+  function pushTryEntry(t) {
+    var e = {
+      tryLoc: t[0]
     };
-    1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry);
+    1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e);
   }
-  function resetTryEntry(entry) {
-    var record = entry.completion || {};
-    record.type = "normal", delete record.arg, entry.completion = record;
+  function resetTryEntry(t) {
+    var e = t.completion || {};
+    e.type = "normal", delete e.arg, t.completion = e;
   }
-  function Context(tryLocsList) {
+  function Context(t) {
     this.tryEntries = [{
       tryLoc: "root"
-    }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0);
+    }], t.forEach(pushTryEntry, this), this.reset(!0);
   }
-  function values(iterable) {
-    if (iterable) {
-      var iteratorMethod = iterable[iteratorSymbol];
-      if (iteratorMethod) return iteratorMethod.call(iterable);
-      if ("function" == typeof iterable.next) return iterable;
-      if (!isNaN(iterable.length)) {
-        var i = -1,
-          next = function next() {
-            for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
-            return next.value = undefined, next.done = !0, next;
+  function values(e) {
+    if (e || "" === e) {
+      var r = e[a];
+      if (r) return r.call(e);
+      if ("function" == typeof e.next) return e;
+      if (!isNaN(e.length)) {
+        var o = -1,
+          i = function next() {
+            for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next;
+            return next.value = t, next.done = !0, next;
           };
-        return next.next = next;
+        return i.next = i;
       }
     }
-    return {
-      next: doneResult
-    };
+    throw new TypeError(_typeof(e) + " is not iterable");
   }
-  function doneResult() {
-    return {
-      value: undefined,
-      done: !0
-    };
-  }
-  return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", {
+  return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", {
     value: GeneratorFunctionPrototype,
     configurable: !0
-  }), defineProperty(GeneratorFunctionPrototype, "constructor", {
+  }), o(GeneratorFunctionPrototype, "constructor", {
     value: GeneratorFunction,
     configurable: !0
-  }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) {
-    var ctor = "function" == typeof genFun && genFun.constructor;
-    return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name));
-  }, exports.mark = function (genFun) {
-    return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun;
-  }, exports.awrap = function (arg) {
+  }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) {
+    var e = "function" == typeof t && t.constructor;
+    return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name));
+  }, e.mark = function (t) {
+    return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t;
+  }, e.awrap = function (t) {
     return {
-      __await: arg
+      __await: t
     };
-  }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
+  }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () {
     return this;
-  }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) {
-    void 0 === PromiseImpl && (PromiseImpl = Promise);
-    var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl);
-    return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) {
-      return result.done ? result.value : iter.next();
+  }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) {
+    void 0 === i && (i = Promise);
+    var a = new AsyncIterator(wrap(t, r, n, o), i);
+    return e.isGeneratorFunction(r) ? a : a.next().then(function (t) {
+      return t.done ? t.value : a.next();
     });
-  }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () {
+  }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () {
     return this;
-  }), define(Gp, "toString", function () {
+  }), define(g, "toString", function () {
     return "[object Generator]";
-  }), exports.keys = function (val) {
-    var object = Object(val),
-      keys = [];
-    for (var key in object) keys.push(key);
-    return keys.reverse(), function next() {
-      for (; keys.length;) {
-        var key = keys.pop();
-        if (key in object) return next.value = key, next.done = !1, next;
+  }), e.keys = function (t) {
+    var e = Object(t),
+      r = [];
+    for (var n in e) r.push(n);
+    return r.reverse(), function next() {
+      for (; r.length;) {
+        var t = r.pop();
+        if (t in e) return next.value = t, next.done = !1, next;
       }
       return next.done = !0, next;
     };
-  }, exports.values = values, Context.prototype = {
+  }, e.values = values, Context.prototype = {
     constructor: Context,
-    reset: function reset(skipTempReset) {
-      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined);
+    reset: function reset(e) {
+      if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t);
     },
     stop: function stop() {
       this.done = !0;
-      var rootRecord = this.tryEntries[0].completion;
-      if ("throw" === rootRecord.type) throw rootRecord.arg;
+      var t = this.tryEntries[0].completion;
+      if ("throw" === t.type) throw t.arg;
       return this.rval;
     },
-    dispatchException: function dispatchException(exception) {
-      if (this.done) throw exception;
-      var context = this;
-      function handle(loc, caught) {
-        return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught;
+    dispatchException: function dispatchException(e) {
+      if (this.done) throw e;
+      var r = this;
+      function handle(n, o) {
+        return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o;
       }
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i],
-          record = entry.completion;
-        if ("root" === entry.tryLoc) return handle("end");
-        if (entry.tryLoc <= this.prev) {
-          var hasCatch = hasOwn.call(entry, "catchLoc"),
-            hasFinally = hasOwn.call(entry, "finallyLoc");
-          if (hasCatch && hasFinally) {
-            if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0);
-            if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc);
-          } else if (hasCatch) {
-            if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0);
+      for (var o = this.tryEntries.length - 1; o >= 0; --o) {
+        var i = this.tryEntries[o],
+          a = i.completion;
+        if ("root" === i.tryLoc) return handle("end");
+        if (i.tryLoc <= this.prev) {
+          var c = n.call(i, "catchLoc"),
+            u = n.call(i, "finallyLoc");
+          if (c && u) {
+            if (this.prev < i.catchLoc) return handle(i.catchLoc, !0);
+            if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
+          } else if (c) {
+            if (this.prev < i.catchLoc) return handle(i.catchLoc, !0);
           } else {
-            if (!hasFinally) throw new Error("try statement without catch or finally");
-            if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc);
+            if (!u) throw new Error("try statement without catch or finally");
+            if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
           }
         }
       }
     },
-    abrupt: function abrupt(type, arg) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) {
-          var finallyEntry = entry;
+    abrupt: function abrupt(t, e) {
+      for (var r = this.tryEntries.length - 1; r >= 0; --r) {
+        var o = this.tryEntries[r];
+        if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) {
+          var i = o;
           break;
         }
       }
-      finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null);
-      var record = finallyEntry ? finallyEntry.completion : {};
-      return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record);
+      i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null);
+      var a = i ? i.completion : {};
+      return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a);
     },
-    complete: function complete(record, afterLoc) {
-      if ("throw" === record.type) throw record.arg;
-      return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel;
+    complete: function complete(t, e) {
+      if ("throw" === t.type) throw t.arg;
+      return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y;
     },
-    finish: function finish(finallyLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel;
+    finish: function finish(t) {
+      for (var e = this.tryEntries.length - 1; e >= 0; --e) {
+        var r = this.tryEntries[e];
+        if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y;
       }
     },
-    "catch": function _catch(tryLoc) {
-      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
-        var entry = this.tryEntries[i];
-        if (entry.tryLoc === tryLoc) {
-          var record = entry.completion;
-          if ("throw" === record.type) {
-            var thrown = record.arg;
-            resetTryEntry(entry);
+    "catch": function _catch(t) {
+      for (var e = this.tryEntries.length - 1; e >= 0; --e) {
+        var r = this.tryEntries[e];
+        if (r.tryLoc === t) {
+          var n = r.completion;
+          if ("throw" === n.type) {
+            var o = n.arg;
+            resetTryEntry(r);
           }
-          return thrown;
+          return o;
         }
       }
       throw new Error("illegal catch attempt");
     },
-    delegateYield: function delegateYield(iterable, resultName, nextLoc) {
+    delegateYield: function delegateYield(e, r, n) {
       return this.delegate = {
-        iterator: values(iterable),
-        resultName: resultName,
-        nextLoc: nextLoc
-      }, "next" === this.method && (this.arg = undefined), ContinueSentinel;
+        iterator: values(e),
+        resultName: r,
+        nextLoc: n
+      }, "next" === this.method && (this.arg = t), y;
     }
-  }, exports;
+  }, e;
 }
 module.exports = _regeneratorRuntime, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
@@ -7148,14 +7104,14 @@ module.exports = _toPropertyKey, module.exports.__esModule = true, module.export
 /***/ 8698:
 /***/ ((module) => {
 
-function _typeof(obj) {
+function _typeof(o) {
   "@babel/helpers - typeof";
 
-  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
+  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(o);
 }
 module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
@@ -7240,7 +7196,7 @@ try {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-// Axios v1.4.0 Copyright (c) 2023 Matt Zabriskie and contributors
+// Axios v1.6.2 Copyright (c) 2023 Matt Zabriskie and contributors
 
 
 function bind(fn, thisArg) {
@@ -7787,8 +7743,9 @@ const reduceDescriptors = (obj, reducer) => {
   const reducedDescriptors = {};
 
   forEach(descriptors, (descriptor, name) => {
-    if (reducer(descriptor, name, obj) !== false) {
-      reducedDescriptors[name] = descriptor;
+    let ret;
+    if ((ret = reducer(descriptor, name, obj)) !== false) {
+      reducedDescriptors[name] = ret || descriptor;
     }
   });
 
@@ -7914,7 +7871,7 @@ const isAsyncFn = kindOfTest('AsyncFunction');
 const isThenable = (thing) =>
   thing && (isObject(thing) || isFunction(thing)) && isFunction(thing.then) && isFunction(thing.catch);
 
-var utils = {
+var utils$1 = {
   isArray,
   isArrayBuffer,
   isBuffer,
@@ -7996,7 +7953,7 @@ function AxiosError(message, code, config, request, response) {
   response && (this.response = response);
 }
 
-utils.inherits(AxiosError, Error, {
+utils$1.inherits(AxiosError, Error, {
   toJSON: function toJSON() {
     return {
       // Standard
@@ -8011,7 +7968,7 @@ utils.inherits(AxiosError, Error, {
       columnNumber: this.columnNumber,
       stack: this.stack,
       // Axios
-      config: utils.toJSONObject(this.config),
+      config: utils$1.toJSONObject(this.config),
       code: this.code,
       status: this.response && this.response.status ? this.response.status : null
     };
@@ -8046,7 +8003,7 @@ Object.defineProperty(prototype$1, 'isAxiosError', {value: true});
 AxiosError.from = (error, code, config, request, response, customProps) => {
   const axiosError = Object.create(prototype$1);
 
-  utils.toFlatObject(error, axiosError, function filter(obj) {
+  utils$1.toFlatObject(error, axiosError, function filter(obj) {
     return obj !== Error.prototype;
   }, prop => {
     return prop !== 'isAxiosError';
@@ -8074,7 +8031,7 @@ var httpAdapter = null;
  * @returns {boolean}
  */
 function isVisitable(thing) {
-  return utils.isPlainObject(thing) || utils.isArray(thing);
+  return utils$1.isPlainObject(thing) || utils$1.isArray(thing);
 }
 
 /**
@@ -8085,7 +8042,7 @@ function isVisitable(thing) {
  * @returns {string} the key without the brackets.
  */
 function removeBrackets(key) {
-  return utils.endsWith(key, '[]') ? key.slice(0, -2) : key;
+  return utils$1.endsWith(key, '[]') ? key.slice(0, -2) : key;
 }
 
 /**
@@ -8114,10 +8071,10 @@ function renderKey(path, key, dots) {
  * @returns {boolean}
  */
 function isFlatArray(arr) {
-  return utils.isArray(arr) && !arr.some(isVisitable);
+  return utils$1.isArray(arr) && !arr.some(isVisitable);
 }
 
-const predicates = utils.toFlatObject(utils, {}, null, function filter(prop) {
+const predicates = utils$1.toFlatObject(utils$1, {}, null, function filter(prop) {
   return /^is[A-Z]/.test(prop);
 });
 
@@ -8145,7 +8102,7 @@ const predicates = utils.toFlatObject(utils, {}, null, function filter(prop) {
  * @returns
  */
 function toFormData(obj, formData, options) {
-  if (!utils.isObject(obj)) {
+  if (!utils$1.isObject(obj)) {
     throw new TypeError('target must be an object');
   }
 
@@ -8153,13 +8110,13 @@ function toFormData(obj, formData, options) {
   formData = formData || new (FormData)();
 
   // eslint-disable-next-line no-param-reassign
-  options = utils.toFlatObject(options, {
+  options = utils$1.toFlatObject(options, {
     metaTokens: true,
     dots: false,
     indexes: false
   }, false, function defined(option, source) {
     // eslint-disable-next-line no-eq-null,eqeqeq
-    return !utils.isUndefined(source[option]);
+    return !utils$1.isUndefined(source[option]);
   });
 
   const metaTokens = options.metaTokens;
@@ -8168,24 +8125,24 @@ function toFormData(obj, formData, options) {
   const dots = options.dots;
   const indexes = options.indexes;
   const _Blob = options.Blob || typeof Blob !== 'undefined' && Blob;
-  const useBlob = _Blob && utils.isSpecCompliantForm(formData);
+  const useBlob = _Blob && utils$1.isSpecCompliantForm(formData);
 
-  if (!utils.isFunction(visitor)) {
+  if (!utils$1.isFunction(visitor)) {
     throw new TypeError('visitor must be a function');
   }
 
   function convertValue(value) {
     if (value === null) return '';
 
-    if (utils.isDate(value)) {
+    if (utils$1.isDate(value)) {
       return value.toISOString();
     }
 
-    if (!useBlob && utils.isBlob(value)) {
+    if (!useBlob && utils$1.isBlob(value)) {
       throw new AxiosError('Blob is not supported. Use a Buffer instead.');
     }
 
-    if (utils.isArrayBuffer(value) || utils.isTypedArray(value)) {
+    if (utils$1.isArrayBuffer(value) || utils$1.isTypedArray(value)) {
       return useBlob && typeof Blob === 'function' ? new Blob([value]) : Buffer.from(value);
     }
 
@@ -8206,20 +8163,20 @@ function toFormData(obj, formData, options) {
     let arr = value;
 
     if (value && !path && typeof value === 'object') {
-      if (utils.endsWith(key, '{}')) {
+      if (utils$1.endsWith(key, '{}')) {
         // eslint-disable-next-line no-param-reassign
         key = metaTokens ? key : key.slice(0, -2);
         // eslint-disable-next-line no-param-reassign
         value = JSON.stringify(value);
       } else if (
-        (utils.isArray(value) && isFlatArray(value)) ||
-        ((utils.isFileList(value) || utils.endsWith(key, '[]')) && (arr = utils.toArray(value))
+        (utils$1.isArray(value) && isFlatArray(value)) ||
+        ((utils$1.isFileList(value) || utils$1.endsWith(key, '[]')) && (arr = utils$1.toArray(value))
         )) {
         // eslint-disable-next-line no-param-reassign
         key = removeBrackets(key);
 
         arr.forEach(function each(el, index) {
-          !(utils.isUndefined(el) || el === null) && formData.append(
+          !(utils$1.isUndefined(el) || el === null) && formData.append(
             // eslint-disable-next-line no-nested-ternary
             indexes === true ? renderKey([key], index, dots) : (indexes === null ? key : key + '[]'),
             convertValue(el)
@@ -8247,7 +8204,7 @@ function toFormData(obj, formData, options) {
   });
 
   function build(value, path) {
-    if (utils.isUndefined(value)) return;
+    if (utils$1.isUndefined(value)) return;
 
     if (stack.indexOf(value) !== -1) {
       throw Error('Circular reference detected in ' + path.join('.'));
@@ -8255,9 +8212,9 @@ function toFormData(obj, formData, options) {
 
     stack.push(value);
 
-    utils.forEach(value, function each(el, key) {
-      const result = !(utils.isUndefined(el) || el === null) && visitor.call(
-        formData, el, utils.isString(key) ? key.trim() : key, path, exposedHelpers
+    utils$1.forEach(value, function each(el, key) {
+      const result = !(utils$1.isUndefined(el) || el === null) && visitor.call(
+        formData, el, utils$1.isString(key) ? key.trim() : key, path, exposedHelpers
       );
 
       if (result === true) {
@@ -8268,7 +8225,7 @@ function toFormData(obj, formData, options) {
     stack.pop();
   }
 
-  if (!utils.isObject(obj)) {
+  if (!utils$1.isObject(obj)) {
     throw new TypeError('data must be an object');
   }
 
@@ -8372,7 +8329,7 @@ function buildURL(url, params, options) {
   if (serializeFn) {
     serializedParams = serializeFn(params, options);
   } else {
-    serializedParams = utils.isURLSearchParams(params) ?
+    serializedParams = utils$1.isURLSearchParams(params) ?
       params.toString() :
       new AxiosURLSearchParams(params, options).toString(_encode);
   }
@@ -8447,7 +8404,7 @@ class InterceptorManager {
    * @returns {void}
    */
   forEach(fn) {
-    utils.forEach(this.handlers, function forEachHandler(h) {
+    utils$1.forEach(this.handlers, function forEachHandler(h) {
       if (h !== null) {
         fn(h);
       }
@@ -8469,6 +8426,18 @@ var FormData$1 = typeof FormData !== 'undefined' ? FormData : null;
 
 var Blob$1 = typeof Blob !== 'undefined' ? Blob : null;
 
+var platform$1 = {
+  isBrowser: true,
+  classes: {
+    URLSearchParams: URLSearchParams$1,
+    FormData: FormData$1,
+    Blob: Blob$1
+  },
+  protocols: ['http', 'https', 'file', 'blob', 'url', 'data']
+};
+
+const hasBrowserEnv = typeof window !== 'undefined' && typeof document !== 'undefined';
+
 /**
  * Determine if we're running in a standard browser environment
  *
@@ -8486,18 +8455,10 @@ var Blob$1 = typeof Blob !== 'undefined' ? Blob : null;
  *
  * @returns {boolean}
  */
-const isStandardBrowserEnv = (() => {
-  let product;
-  if (typeof navigator !== 'undefined' && (
-    (product = navigator.product) === 'ReactNative' ||
-    product === 'NativeScript' ||
-    product === 'NS')
-  ) {
-    return false;
-  }
-
-  return typeof window !== 'undefined' && typeof document !== 'undefined';
-})();
+const hasStandardBrowserEnv = (
+  (product) => {
+    return hasBrowserEnv && ['ReactNative', 'NativeScript', 'NS'].indexOf(product) < 0
+  })(typeof navigator !== 'undefined' && navigator.product);
 
 /**
  * Determine if we're running in a standard browser webWorker environment
@@ -8508,7 +8469,7 @@ const isStandardBrowserEnv = (() => {
  * `typeof window !== 'undefined' && typeof document !== 'undefined'`.
  * This leads to a problem when axios post `FormData` in webWorker
  */
- const isStandardBrowserWebWorkerEnv = (() => {
+const hasStandardBrowserWebWorkerEnv = (() => {
   return (
     typeof WorkerGlobalScope !== 'undefined' &&
     // eslint-disable-next-line no-undef
@@ -8517,23 +8478,22 @@ const isStandardBrowserEnv = (() => {
   );
 })();
 
+var utils = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  hasBrowserEnv: hasBrowserEnv,
+  hasStandardBrowserWebWorkerEnv: hasStandardBrowserWebWorkerEnv,
+  hasStandardBrowserEnv: hasStandardBrowserEnv
+});
 
 var platform = {
-  isBrowser: true,
-  classes: {
-    URLSearchParams: URLSearchParams$1,
-    FormData: FormData$1,
-    Blob: Blob$1
-  },
-  isStandardBrowserEnv,
-  isStandardBrowserWebWorkerEnv,
-  protocols: ['http', 'https', 'file', 'blob', 'url', 'data']
+  ...utils,
+  ...platform$1
 };
 
 function toURLEncodedForm(data, options) {
   return toFormData(data, new platform.classes.URLSearchParams(), Object.assign({
     visitor: function(value, key, path, helpers) {
-      if (platform.isNode && utils.isBuffer(value)) {
+      if (platform.isNode && utils$1.isBuffer(value)) {
         this.append(key, value.toString('base64'));
         return false;
       }
@@ -8555,7 +8515,7 @@ function parsePropPath(name) {
   // foo.x.y.z
   // foo-x-y-z
   // foo x y z
-  return utils.matchAll(/\w+|\[(\w*)]/g, name).map(match => {
+  return utils$1.matchAll(/\w+|\[(\w*)]/g, name).map(match => {
     return match[0] === '[]' ? '' : match[1] || match[0];
   });
 }
@@ -8592,10 +8552,10 @@ function formDataToJSON(formData) {
     let name = path[index++];
     const isNumericKey = Number.isFinite(+name);
     const isLast = index >= path.length;
-    name = !name && utils.isArray(target) ? target.length : name;
+    name = !name && utils$1.isArray(target) ? target.length : name;
 
     if (isLast) {
-      if (utils.hasOwnProp(target, name)) {
+      if (utils$1.hasOwnProp(target, name)) {
         target[name] = [target[name], value];
       } else {
         target[name] = value;
@@ -8604,23 +8564,23 @@ function formDataToJSON(formData) {
       return !isNumericKey;
     }
 
-    if (!target[name] || !utils.isObject(target[name])) {
+    if (!target[name] || !utils$1.isObject(target[name])) {
       target[name] = [];
     }
 
     const result = buildPath(path, value, target[name], index);
 
-    if (result && utils.isArray(target[name])) {
+    if (result && utils$1.isArray(target[name])) {
       target[name] = arrayToObject(target[name]);
     }
 
     return !isNumericKey;
   }
 
-  if (utils.isFormData(formData) && utils.isFunction(formData.entries)) {
+  if (utils$1.isFormData(formData) && utils$1.isFunction(formData.entries)) {
     const obj = {};
 
-    utils.forEachEntry(formData, (name, value) => {
+    utils$1.forEachEntry(formData, (name, value) => {
       buildPath(parsePropPath(name), value, obj, 0);
     });
 
@@ -8629,10 +8589,6 @@ function formDataToJSON(formData) {
 
   return null;
 }
-
-const DEFAULT_CONTENT_TYPE = {
-  'Content-Type': undefined
-};
 
 /**
  * It takes a string, tries to parse it, and if it fails, it returns the stringified version
@@ -8645,10 +8601,10 @@ const DEFAULT_CONTENT_TYPE = {
  * @returns {string} A stringified version of the rawValue.
  */
 function stringifySafely(rawValue, parser, encoder) {
-  if (utils.isString(rawValue)) {
+  if (utils$1.isString(rawValue)) {
     try {
       (parser || JSON.parse)(rawValue);
-      return utils.trim(rawValue);
+      return utils$1.trim(rawValue);
     } catch (e) {
       if (e.name !== 'SyntaxError') {
         throw e;
@@ -8668,13 +8624,13 @@ const defaults = {
   transformRequest: [function transformRequest(data, headers) {
     const contentType = headers.getContentType() || '';
     const hasJSONContentType = contentType.indexOf('application/json') > -1;
-    const isObjectPayload = utils.isObject(data);
+    const isObjectPayload = utils$1.isObject(data);
 
-    if (isObjectPayload && utils.isHTMLForm(data)) {
+    if (isObjectPayload && utils$1.isHTMLForm(data)) {
       data = new FormData(data);
     }
 
-    const isFormData = utils.isFormData(data);
+    const isFormData = utils$1.isFormData(data);
 
     if (isFormData) {
       if (!hasJSONContentType) {
@@ -8683,18 +8639,18 @@ const defaults = {
       return hasJSONContentType ? JSON.stringify(formDataToJSON(data)) : data;
     }
 
-    if (utils.isArrayBuffer(data) ||
-      utils.isBuffer(data) ||
-      utils.isStream(data) ||
-      utils.isFile(data) ||
-      utils.isBlob(data)
+    if (utils$1.isArrayBuffer(data) ||
+      utils$1.isBuffer(data) ||
+      utils$1.isStream(data) ||
+      utils$1.isFile(data) ||
+      utils$1.isBlob(data)
     ) {
       return data;
     }
-    if (utils.isArrayBufferView(data)) {
+    if (utils$1.isArrayBufferView(data)) {
       return data.buffer;
     }
-    if (utils.isURLSearchParams(data)) {
+    if (utils$1.isURLSearchParams(data)) {
       headers.setContentType('application/x-www-form-urlencoded;charset=utf-8', false);
       return data.toString();
     }
@@ -8706,7 +8662,7 @@ const defaults = {
         return toURLEncodedForm(data, this.formSerializer).toString();
       }
 
-      if ((isFileList = utils.isFileList(data)) || contentType.indexOf('multipart/form-data') > -1) {
+      if ((isFileList = utils$1.isFileList(data)) || contentType.indexOf('multipart/form-data') > -1) {
         const _FormData = this.env && this.env.FormData;
 
         return toFormData(
@@ -8730,7 +8686,7 @@ const defaults = {
     const forcedJSONParsing = transitional && transitional.forcedJSONParsing;
     const JSONRequested = this.responseType === 'json';
 
-    if (data && utils.isString(data) && ((forcedJSONParsing && !this.responseType) || JSONRequested)) {
+    if (data && utils$1.isString(data) && ((forcedJSONParsing && !this.responseType) || JSONRequested)) {
       const silentJSONParsing = transitional && transitional.silentJSONParsing;
       const strictJSONParsing = !silentJSONParsing && JSONRequested;
 
@@ -8772,24 +8728,21 @@ const defaults = {
 
   headers: {
     common: {
-      'Accept': 'application/json, text/plain, */*'
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': undefined
     }
   }
 };
 
-utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+utils$1.forEach(['delete', 'get', 'head', 'post', 'put', 'patch'], (method) => {
   defaults.headers[method] = {};
-});
-
-utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
 });
 
 var defaults$1 = defaults;
 
 // RawAxiosHeaders whose duplicates are ignored by node
 // c.f. https://nodejs.org/api/http.html#http_message_headers
-const ignoreDuplicateOf = utils.toObjectSet([
+const ignoreDuplicateOf = utils$1.toObjectSet([
   'age', 'authorization', 'content-length', 'content-type', 'etag',
   'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
   'last-modified', 'location', 'max-forwards', 'proxy-authorization',
@@ -8850,7 +8803,7 @@ function normalizeValue(value) {
     return value;
   }
 
-  return utils.isArray(value) ? value.map(normalizeValue) : String(value);
+  return utils$1.isArray(value) ? value.map(normalizeValue) : String(value);
 }
 
 function parseTokens(str) {
@@ -8868,7 +8821,7 @@ function parseTokens(str) {
 const isValidHeaderName = (str) => /^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(str.trim());
 
 function matchHeaderValue(context, value, header, filter, isHeaderNameFilter) {
-  if (utils.isFunction(filter)) {
+  if (utils$1.isFunction(filter)) {
     return filter.call(this, value, header);
   }
 
@@ -8876,13 +8829,13 @@ function matchHeaderValue(context, value, header, filter, isHeaderNameFilter) {
     value = header;
   }
 
-  if (!utils.isString(value)) return;
+  if (!utils$1.isString(value)) return;
 
-  if (utils.isString(filter)) {
+  if (utils$1.isString(filter)) {
     return value.indexOf(filter) !== -1;
   }
 
-  if (utils.isRegExp(filter)) {
+  if (utils$1.isRegExp(filter)) {
     return filter.test(value);
   }
 }
@@ -8895,7 +8848,7 @@ function formatHeader(header) {
 }
 
 function buildAccessors(obj, header) {
-  const accessorName = utils.toCamelCase(' ' + header);
+  const accessorName = utils$1.toCamelCase(' ' + header);
 
   ['get', 'set', 'has'].forEach(methodName => {
     Object.defineProperty(obj, methodName + accessorName, {
@@ -8922,7 +8875,7 @@ class AxiosHeaders {
         throw new Error('header name must be a non-empty string');
       }
 
-      const key = utils.findKey(self, lHeader);
+      const key = utils$1.findKey(self, lHeader);
 
       if(!key || self[key] === undefined || _rewrite === true || (_rewrite === undefined && self[key] !== false)) {
         self[key || _header] = normalizeValue(_value);
@@ -8930,11 +8883,11 @@ class AxiosHeaders {
     }
 
     const setHeaders = (headers, _rewrite) =>
-      utils.forEach(headers, (_value, _header) => setHeader(_value, _header, _rewrite));
+      utils$1.forEach(headers, (_value, _header) => setHeader(_value, _header, _rewrite));
 
-    if (utils.isPlainObject(header) || header instanceof this.constructor) {
+    if (utils$1.isPlainObject(header) || header instanceof this.constructor) {
       setHeaders(header, valueOrRewrite);
-    } else if(utils.isString(header) && (header = header.trim()) && !isValidHeaderName(header)) {
+    } else if(utils$1.isString(header) && (header = header.trim()) && !isValidHeaderName(header)) {
       setHeaders(parseHeaders(header), valueOrRewrite);
     } else {
       header != null && setHeader(valueOrRewrite, header, rewrite);
@@ -8947,7 +8900,7 @@ class AxiosHeaders {
     header = normalizeHeader(header);
 
     if (header) {
-      const key = utils.findKey(this, header);
+      const key = utils$1.findKey(this, header);
 
       if (key) {
         const value = this[key];
@@ -8960,11 +8913,11 @@ class AxiosHeaders {
           return parseTokens(value);
         }
 
-        if (utils.isFunction(parser)) {
+        if (utils$1.isFunction(parser)) {
           return parser.call(this, value, key);
         }
 
-        if (utils.isRegExp(parser)) {
+        if (utils$1.isRegExp(parser)) {
           return parser.exec(value);
         }
 
@@ -8977,7 +8930,7 @@ class AxiosHeaders {
     header = normalizeHeader(header);
 
     if (header) {
-      const key = utils.findKey(this, header);
+      const key = utils$1.findKey(this, header);
 
       return !!(key && this[key] !== undefined && (!matcher || matchHeaderValue(this, this[key], key, matcher)));
     }
@@ -8993,7 +8946,7 @@ class AxiosHeaders {
       _header = normalizeHeader(_header);
 
       if (_header) {
-        const key = utils.findKey(self, _header);
+        const key = utils$1.findKey(self, _header);
 
         if (key && (!matcher || matchHeaderValue(self, self[key], key, matcher))) {
           delete self[key];
@@ -9003,7 +8956,7 @@ class AxiosHeaders {
       }
     }
 
-    if (utils.isArray(header)) {
+    if (utils$1.isArray(header)) {
       header.forEach(deleteHeader);
     } else {
       deleteHeader(header);
@@ -9032,8 +8985,8 @@ class AxiosHeaders {
     const self = this;
     const headers = {};
 
-    utils.forEach(this, (value, header) => {
-      const key = utils.findKey(headers, header);
+    utils$1.forEach(this, (value, header) => {
+      const key = utils$1.findKey(headers, header);
 
       if (key) {
         self[key] = normalizeValue(value);
@@ -9062,8 +9015,8 @@ class AxiosHeaders {
   toJSON(asStrings) {
     const obj = Object.create(null);
 
-    utils.forEach(this, (value, header) => {
-      value != null && value !== false && (obj[header] = asStrings && utils.isArray(value) ? value.join(', ') : value);
+    utils$1.forEach(this, (value, header) => {
+      value != null && value !== false && (obj[header] = asStrings && utils$1.isArray(value) ? value.join(', ') : value);
     });
 
     return obj;
@@ -9110,7 +9063,7 @@ class AxiosHeaders {
       }
     }
 
-    utils.isArray(header) ? header.forEach(defineAccessor) : defineAccessor(header);
+    utils$1.isArray(header) ? header.forEach(defineAccessor) : defineAccessor(header);
 
     return this;
   }
@@ -9118,8 +9071,18 @@ class AxiosHeaders {
 
 AxiosHeaders.accessor(['Content-Type', 'Content-Length', 'Accept', 'Accept-Encoding', 'User-Agent', 'Authorization']);
 
-utils.freezeMethods(AxiosHeaders.prototype);
-utils.freezeMethods(AxiosHeaders);
+// reserved names hotfix
+utils$1.reduceDescriptors(AxiosHeaders.prototype, ({value}, key) => {
+  let mapped = key[0].toUpperCase() + key.slice(1); // map `set` => `Set`
+  return {
+    get: () => value,
+    set(headerValue) {
+      this[mapped] = headerValue;
+    }
+  }
+});
+
+utils$1.freezeMethods(AxiosHeaders);
 
 var AxiosHeaders$1 = AxiosHeaders;
 
@@ -9137,7 +9100,7 @@ function transformData(fns, response) {
   const headers = AxiosHeaders$1.from(context.headers);
   let data = context.data;
 
-  utils.forEach(fns, function transform(fn) {
+  utils$1.forEach(fns, function transform(fn) {
     data = fn.call(config, data, headers.normalize(), response ? response.status : undefined);
   });
 
@@ -9165,7 +9128,7 @@ function CanceledError(message, config, request) {
   this.name = 'CanceledError';
 }
 
-utils.inherits(CanceledError, AxiosError, {
+utils$1.inherits(CanceledError, AxiosError, {
   __CANCEL__: true
 });
 
@@ -9193,53 +9156,44 @@ function settle(resolve, reject, response) {
   }
 }
 
-var cookies = platform.isStandardBrowserEnv ?
+var cookies = platform.hasStandardBrowserEnv ?
 
-// Standard browser envs support document.cookie
-  (function standardBrowserEnv() {
-    return {
-      write: function write(name, value, expires, path, domain, secure) {
-        const cookie = [];
-        cookie.push(name + '=' + encodeURIComponent(value));
+  // Standard browser envs support document.cookie
+  {
+    write(name, value, expires, path, domain, secure) {
+      const cookie = [name + '=' + encodeURIComponent(value)];
 
-        if (utils.isNumber(expires)) {
-          cookie.push('expires=' + new Date(expires).toGMTString());
-        }
+      utils$1.isNumber(expires) && cookie.push('expires=' + new Date(expires).toGMTString());
 
-        if (utils.isString(path)) {
-          cookie.push('path=' + path);
-        }
+      utils$1.isString(path) && cookie.push('path=' + path);
 
-        if (utils.isString(domain)) {
-          cookie.push('domain=' + domain);
-        }
+      utils$1.isString(domain) && cookie.push('domain=' + domain);
 
-        if (secure === true) {
-          cookie.push('secure');
-        }
+      secure === true && cookie.push('secure');
 
-        document.cookie = cookie.join('; ');
-      },
+      document.cookie = cookie.join('; ');
+    },
 
-      read: function read(name) {
-        const match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
-        return (match ? decodeURIComponent(match[3]) : null);
-      },
+    read(name) {
+      const match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+      return (match ? decodeURIComponent(match[3]) : null);
+    },
 
-      remove: function remove(name) {
-        this.write(name, '', Date.now() - 86400000);
-      }
-    };
-  })() :
+    remove(name) {
+      this.write(name, '', Date.now() - 86400000);
+    }
+  }
 
-// Non standard browser env (web workers, react-native) lack needed support.
-  (function nonStandardBrowserEnv() {
-    return {
-      write: function write() {},
-      read: function read() { return null; },
-      remove: function remove() {}
-    };
-  })();
+  :
+
+  // Non-standard browser env (web workers, react-native) lack needed support.
+  {
+    write() {},
+    read() {
+      return null;
+    },
+    remove() {}
+  };
 
 /**
  * Determines whether the specified URL is absolute
@@ -9286,7 +9240,7 @@ function buildFullPath(baseURL, requestedURL) {
   return requestedURL;
 }
 
-var isURLSameOrigin = platform.isStandardBrowserEnv ?
+var isURLSameOrigin = platform.hasStandardBrowserEnv ?
 
 // Standard browser envs have full support of the APIs needed to test
 // whether the request URL is of the same origin as current location.
@@ -9296,7 +9250,7 @@ var isURLSameOrigin = platform.isStandardBrowserEnv ?
     let originURL;
 
     /**
-    * Parse a URL to discover it's components
+    * Parse a URL to discover its components
     *
     * @param {String} url The URL to be parsed
     * @returns {Object}
@@ -9336,7 +9290,7 @@ var isURLSameOrigin = platform.isStandardBrowserEnv ?
     * @returns {boolean} True if URL shares the same origin, otherwise false
     */
     return function isURLSameOrigin(requestURL) {
-      const parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+      const parsed = (utils$1.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
       return (parsed.protocol === originURL.protocol &&
           parsed.host === originURL.host);
     };
@@ -9441,7 +9395,7 @@ var xhrAdapter = isXHRAdapterSupported && function (config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
     let requestData = config.data;
     const requestHeaders = AxiosHeaders$1.from(config.headers).normalize();
-    const responseType = config.responseType;
+    let {responseType, withXSRFToken} = config;
     let onCanceled;
     function done() {
       if (config.cancelToken) {
@@ -9453,11 +9407,15 @@ var xhrAdapter = isXHRAdapterSupported && function (config) {
       }
     }
 
-    if (utils.isFormData(requestData)) {
-      if (platform.isStandardBrowserEnv || platform.isStandardBrowserWebWorkerEnv) {
+    let contentType;
+
+    if (utils$1.isFormData(requestData)) {
+      if (platform.hasStandardBrowserEnv || platform.hasStandardBrowserWebWorkerEnv) {
         requestHeaders.setContentType(false); // Let the browser set it
-      } else {
-        requestHeaders.setContentType('multipart/form-data;', false); // mobile/desktop app frameworks
+      } else if ((contentType = requestHeaders.getContentType()) !== false) {
+        // fix semicolon duplication issue for ReactNative FormData implementation
+        const [type, ...tokens] = contentType ? contentType.split(';').map(token => token.trim()).filter(Boolean) : [];
+        requestHeaders.setContentType([type || 'multipart/form-data', ...tokens].join('; '));
       }
     }
 
@@ -9573,13 +9531,16 @@ var xhrAdapter = isXHRAdapterSupported && function (config) {
     // Add xsrf header
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
-    if (platform.isStandardBrowserEnv) {
-      // Add xsrf header
-      const xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath))
-        && config.xsrfCookieName && cookies.read(config.xsrfCookieName);
+    if(platform.hasStandardBrowserEnv) {
+      withXSRFToken && utils$1.isFunction(withXSRFToken) && (withXSRFToken = withXSRFToken(config));
 
-      if (xsrfValue) {
-        requestHeaders.set(config.xsrfHeaderName, xsrfValue);
+      if (withXSRFToken || (withXSRFToken !== false && isURLSameOrigin(fullPath))) {
+        // Add xsrf header
+        const xsrfValue = config.xsrfHeaderName && config.xsrfCookieName && cookies.read(config.xsrfCookieName);
+
+        if (xsrfValue) {
+          requestHeaders.set(config.xsrfHeaderName, xsrfValue);
+        }
       }
     }
 
@@ -9588,13 +9549,13 @@ var xhrAdapter = isXHRAdapterSupported && function (config) {
 
     // Add headers to the request
     if ('setRequestHeader' in request) {
-      utils.forEach(requestHeaders.toJSON(), function setRequestHeader(val, key) {
+      utils$1.forEach(requestHeaders.toJSON(), function setRequestHeader(val, key) {
         request.setRequestHeader(key, val);
       });
     }
 
     // Add withCredentials to request if needed
-    if (!utils.isUndefined(config.withCredentials)) {
+    if (!utils$1.isUndefined(config.withCredentials)) {
       request.withCredentials = !!config.withCredentials;
     }
 
@@ -9649,8 +9610,8 @@ const knownAdapters = {
   xhr: xhrAdapter
 };
 
-utils.forEach(knownAdapters, (fn, value) => {
-  if(fn) {
+utils$1.forEach(knownAdapters, (fn, value) => {
+  if (fn) {
     try {
       Object.defineProperty(fn, 'name', {value});
     } catch (e) {
@@ -9660,38 +9621,56 @@ utils.forEach(knownAdapters, (fn, value) => {
   }
 });
 
+const renderReason = (reason) => `- ${reason}`;
+
+const isResolvedHandle = (adapter) => utils$1.isFunction(adapter) || adapter === null || adapter === false;
+
 var adapters = {
   getAdapter: (adapters) => {
-    adapters = utils.isArray(adapters) ? adapters : [adapters];
+    adapters = utils$1.isArray(adapters) ? adapters : [adapters];
 
     const {length} = adapters;
     let nameOrAdapter;
     let adapter;
 
+    const rejectedReasons = {};
+
     for (let i = 0; i < length; i++) {
       nameOrAdapter = adapters[i];
-      if((adapter = utils.isString(nameOrAdapter) ? knownAdapters[nameOrAdapter.toLowerCase()] : nameOrAdapter)) {
+      let id;
+
+      adapter = nameOrAdapter;
+
+      if (!isResolvedHandle(nameOrAdapter)) {
+        adapter = knownAdapters[(id = String(nameOrAdapter)).toLowerCase()];
+
+        if (adapter === undefined) {
+          throw new AxiosError(`Unknown adapter '${id}'`);
+        }
+      }
+
+      if (adapter) {
         break;
       }
+
+      rejectedReasons[id || '#' + i] = adapter;
     }
 
     if (!adapter) {
-      if (adapter === false) {
-        throw new AxiosError(
-          `Adapter ${nameOrAdapter} is not supported by the environment`,
-          'ERR_NOT_SUPPORT'
+
+      const reasons = Object.entries(rejectedReasons)
+        .map(([id, state]) => `adapter ${id} ` +
+          (state === false ? 'is not supported by the environment' : 'is not available in the build')
         );
-      }
 
-      throw new Error(
-        utils.hasOwnProp(knownAdapters, nameOrAdapter) ?
-          `Adapter '${nameOrAdapter}' is not available in the build` :
-          `Unknown adapter '${nameOrAdapter}'`
+      let s = length ?
+        (reasons.length > 1 ? 'since :\n' + reasons.map(renderReason).join('\n') : ' ' + renderReason(reasons[0])) :
+        'as no adapter specified';
+
+      throw new AxiosError(
+        `There is no suitable adapter to dispatch the request ` + s,
+        'ERR_NOT_SUPPORT'
       );
-    }
-
-    if (!utils.isFunction(adapter)) {
-      throw new TypeError('adapter is not a function');
     }
 
     return adapter;
@@ -9789,11 +9768,11 @@ function mergeConfig(config1, config2) {
   const config = {};
 
   function getMergedValue(target, source, caseless) {
-    if (utils.isPlainObject(target) && utils.isPlainObject(source)) {
-      return utils.merge.call({caseless}, target, source);
-    } else if (utils.isPlainObject(source)) {
-      return utils.merge({}, source);
-    } else if (utils.isArray(source)) {
+    if (utils$1.isPlainObject(target) && utils$1.isPlainObject(source)) {
+      return utils$1.merge.call({caseless}, target, source);
+    } else if (utils$1.isPlainObject(source)) {
+      return utils$1.merge({}, source);
+    } else if (utils$1.isArray(source)) {
       return source.slice();
     }
     return source;
@@ -9801,25 +9780,25 @@ function mergeConfig(config1, config2) {
 
   // eslint-disable-next-line consistent-return
   function mergeDeepProperties(a, b, caseless) {
-    if (!utils.isUndefined(b)) {
+    if (!utils$1.isUndefined(b)) {
       return getMergedValue(a, b, caseless);
-    } else if (!utils.isUndefined(a)) {
+    } else if (!utils$1.isUndefined(a)) {
       return getMergedValue(undefined, a, caseless);
     }
   }
 
   // eslint-disable-next-line consistent-return
   function valueFromConfig2(a, b) {
-    if (!utils.isUndefined(b)) {
+    if (!utils$1.isUndefined(b)) {
       return getMergedValue(undefined, b);
     }
   }
 
   // eslint-disable-next-line consistent-return
   function defaultToConfig2(a, b) {
-    if (!utils.isUndefined(b)) {
+    if (!utils$1.isUndefined(b)) {
       return getMergedValue(undefined, b);
-    } else if (!utils.isUndefined(a)) {
+    } else if (!utils$1.isUndefined(a)) {
       return getMergedValue(undefined, a);
     }
   }
@@ -9844,6 +9823,7 @@ function mergeConfig(config1, config2) {
     timeout: defaultToConfig2,
     timeoutMessage: defaultToConfig2,
     withCredentials: defaultToConfig2,
+    withXSRFToken: defaultToConfig2,
     adapter: defaultToConfig2,
     responseType: defaultToConfig2,
     xsrfCookieName: defaultToConfig2,
@@ -9864,16 +9844,16 @@ function mergeConfig(config1, config2) {
     headers: (a, b) => mergeDeepProperties(headersToObject(a), headersToObject(b), true)
   };
 
-  utils.forEach(Object.keys(Object.assign({}, config1, config2)), function computeConfigValue(prop) {
+  utils$1.forEach(Object.keys(Object.assign({}, config1, config2)), function computeConfigValue(prop) {
     const merge = mergeMap[prop] || mergeDeepProperties;
     const configValue = merge(config1[prop], config2[prop], prop);
-    (utils.isUndefined(configValue) && merge !== mergeDirectKeys) || (config[prop] = configValue);
+    (utils$1.isUndefined(configValue) && merge !== mergeDirectKeys) || (config[prop] = configValue);
   });
 
   return config;
 }
 
-const VERSION = "1.4.0";
+const VERSION = "1.6.2";
 
 const validators$1 = {};
 
@@ -10011,7 +9991,7 @@ class Axios {
     }
 
     if (paramsSerializer != null) {
-      if (utils.isFunction(paramsSerializer)) {
+      if (utils$1.isFunction(paramsSerializer)) {
         config.paramsSerializer = {
           serialize: paramsSerializer
         };
@@ -10026,15 +10006,13 @@ class Axios {
     // Set config.method
     config.method = (config.method || this.defaults.method || 'get').toLowerCase();
 
-    let contextHeaders;
-
     // Flatten headers
-    contextHeaders = headers && utils.merge(
+    let contextHeaders = headers && utils$1.merge(
       headers.common,
       headers[config.method]
     );
 
-    contextHeaders && utils.forEach(
+    headers && utils$1.forEach(
       ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
       (method) => {
         delete headers[method];
@@ -10121,7 +10099,7 @@ class Axios {
 }
 
 // Provide aliases for supported request methods
-utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+utils$1.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
   /*eslint func-names:0*/
   Axios.prototype[method] = function(url, config) {
     return this.request(mergeConfig(config || {}, {
@@ -10132,7 +10110,7 @@ utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData
   };
 });
 
-utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+utils$1.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
   /*eslint func-names:0*/
 
   function generateHTTPMethod(isForm) {
@@ -10308,7 +10286,7 @@ function spread(callback) {
  * @returns {boolean} True if the payload is an error thrown by Axios, otherwise false
  */
 function isAxiosError(payload) {
-  return utils.isObject(payload) && (payload.isAxiosError === true);
+  return utils$1.isObject(payload) && (payload.isAxiosError === true);
 }
 
 const HttpStatusCode = {
@@ -10395,10 +10373,10 @@ function createInstance(defaultConfig) {
   const instance = bind(Axios$1.prototype.request, context);
 
   // Copy axios.prototype to instance
-  utils.extend(instance, Axios$1.prototype, context, {allOwnKeys: true});
+  utils$1.extend(instance, Axios$1.prototype, context, {allOwnKeys: true});
 
   // Copy context to instance
-  utils.extend(instance, context, null, {allOwnKeys: true});
+  utils$1.extend(instance, context, null, {allOwnKeys: true});
 
   // Factory for creating new instances
   instance.create = function create(instanceConfig) {
@@ -10442,7 +10420,9 @@ axios.mergeConfig = mergeConfig;
 
 axios.AxiosHeaders = AxiosHeaders$1;
 
-axios.formToJSON = thing => formDataToJSON(utils.isHTMLForm(thing) ? new FormData(thing) : thing);
+axios.formToJSON = thing => formDataToJSON(utils$1.isHTMLForm(thing) ? new FormData(thing) : thing);
+
+axios.getAdapter = adapters.getAdapter;
 
 axios.HttpStatusCode = HttpStatusCode$1;
 
@@ -10458,7 +10438,7 @@ module.exports = axios;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"netlicensing-client","version":"1.2.33","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.cjs","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.cjs","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.cjs","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^1.4.0","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.17.8","@babel/plugin-proposal-class-properties":"^7.16.7","@babel/plugin-proposal-decorators":"^7.17.8","@babel/plugin-proposal-export-namespace-from":"^7.16.7","@babel/plugin-proposal-function-sent":"^7.16.7","@babel/plugin-proposal-json-strings":"^7.16.7","@babel/plugin-proposal-numeric-separator":"^7.16.7","@babel/plugin-proposal-throw-expressions":"^7.16.7","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.17.7","@babel/plugin-transform-runtime":"^7.17.0","@babel/preset-env":"^7.16.11","@babel/runtime":"^7.17.8","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^9.1.2","chalk":"^4.1.2","eslint":"^7.32.0","eslint-config-airbnb-base":"^15.0.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-plugin-import":"^2.25.4","eslint-plugin-jasmine":"^4.1.3","eslint-webpack-plugin":"^3.1.1","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^4.0.2","jasmine-core":"^4.0.1","karma":"^6.3.17","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.2","karma-jasmine":"^4.0.2","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.33","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.3.1","webpack":"^5.76.0","webpack-cli":"^5.1.1","webpack-merge":"^5.8.0"},"engines":{"node":">= 14.0.0","npm":">= 8.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
+module.exports = JSON.parse('{"name":"netlicensing-client","version":"1.2.34","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.cjs","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.cjs","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.cjs","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^1.4.0","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.17.8","@babel/plugin-proposal-class-properties":"^7.16.7","@babel/plugin-proposal-decorators":"^7.17.8","@babel/plugin-proposal-export-namespace-from":"^7.16.7","@babel/plugin-proposal-function-sent":"^7.16.7","@babel/plugin-proposal-json-strings":"^7.16.7","@babel/plugin-proposal-numeric-separator":"^7.16.7","@babel/plugin-proposal-throw-expressions":"^7.16.7","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.17.7","@babel/plugin-transform-runtime":"^7.17.0","@babel/preset-env":"^7.16.11","@babel/runtime":"^7.17.8","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^9.1.2","chalk":"^4.1.2","eslint":"^7.32.0","eslint-config-airbnb-base":"^15.0.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-plugin-import":"^2.25.4","eslint-plugin-jasmine":"^4.1.3","eslint-webpack-plugin":"^3.1.1","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^4.0.2","jasmine-core":"^4.0.1","karma":"^6.3.17","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.2","karma-jasmine":"^4.0.2","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.33","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.3.1","webpack":"^5.76.0","webpack-cli":"^5.1.1","webpack-merge":"^5.8.0"},"engines":{"node":">= 14.0.0","npm":">= 8.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
 
 /***/ })
 
