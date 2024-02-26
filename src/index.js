@@ -6,7 +6,6 @@ import Context from './vo/Context';
 import Page from './vo/Page';
 import ValidationParameters from './vo/ValidationParameters';
 import ValidationResults from './vo/ValidationResults';
-import BundleObtainParameters from './vo/BundleObtainParameters';
 
 // Services
 import Service from './services/Service';
@@ -70,7 +69,6 @@ export {
     Page,
     ValidationParameters,
     ValidationResults,
-    BundleObtainParameters,
 
     // Expose Services
     Service,

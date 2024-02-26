@@ -163,18 +163,18 @@ export default {
      * @param number string
      *
      * licensee number
-     * @param bundleObtainParameters NetLicensing.BundleObtainParameters
+     * @param licenseeNumber String
      *
      * return array of licenses
      * @returns {Promise}
      */
-    async obtain(context, number, bundleObtainParameters) {
+    async obtain(context, number, licenseeNumber) {
         CheckUtils.paramNotEmpty(number, Constants.NUMBER);
-        CheckUtils.paramNotEmpty(bundleObtainParameters.getLicenseeNumber(), Constants.Licensee.LICENSEE_NUMBER);
+        CheckUtils.paramNotEmpty(licenseeNumber, Constants.Licensee.LICENSEE_NUMBER);
 
         const { ENDPOINT_PATH, ENDPOINT_OBTAIN_PATH } = Constants.Bundle;
 
-        const queryParams = { [Constants.Licensee.LICENSEE_NUMBER]: bundleObtainParameters.getLicenseeNumber() };
+        const queryParams = { [Constants.Licensee.LICENSEE_NUMBER]: licenseeNumber };
 
         const { data: { items: { item: items } } } = await Service
             .post(context, `${ENDPOINT_PATH}/${number}/${ENDPOINT_OBTAIN_PATH}`, queryParams);
