@@ -11,20 +11,20 @@
 return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 1873:
+/***/ 9118:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports =
 {
-  parallel      : __webpack_require__(8798),
-  serial        : __webpack_require__(2081),
-  serialOrdered : __webpack_require__(28)
+  parallel      : __webpack_require__(9162),
+  serial        : __webpack_require__(1357),
+  serialOrdered : __webpack_require__(9087)
 };
 
 
 /***/ }),
 
-/***/ 4555:
+/***/ 7651:
 /***/ ((module) => {
 
 // API
@@ -60,10 +60,10 @@ function clean(key)
 
 /***/ }),
 
-/***/ 2313:
+/***/ 5912:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var defer = __webpack_require__(405);
+var defer = __webpack_require__(9265);
 
 // API
 module.exports = async;
@@ -101,7 +101,7 @@ function async(callback)
 
 /***/ }),
 
-/***/ 405:
+/***/ 9265:
 /***/ ((module) => {
 
 module.exports = defer;
@@ -134,11 +134,11 @@ function defer(fn)
 
 /***/ }),
 
-/***/ 8051:
+/***/ 7594:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var async = __webpack_require__(2313)
-  , abort = __webpack_require__(4555)
+var async = __webpack_require__(5912)
+  , abort = __webpack_require__(7651)
   ;
 
 // API
@@ -216,7 +216,7 @@ function runJob(iterator, key, item, callback)
 
 /***/ }),
 
-/***/ 9500:
+/***/ 4528:
 /***/ ((module) => {
 
 // API
@@ -260,11 +260,11 @@ function state(list, sortMethod)
 
 /***/ }),
 
-/***/ 6276:
+/***/ 5353:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var abort = __webpack_require__(4555)
-  , async = __webpack_require__(2313)
+var abort = __webpack_require__(7651)
+  , async = __webpack_require__(5912)
   ;
 
 // API
@@ -296,12 +296,12 @@ function terminator(callback)
 
 /***/ }),
 
-/***/ 8798:
+/***/ 9162:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var iterate    = __webpack_require__(8051)
-  , initState  = __webpack_require__(9500)
-  , terminator = __webpack_require__(6276)
+var iterate    = __webpack_require__(7594)
+  , initState  = __webpack_require__(4528)
+  , terminator = __webpack_require__(5353)
   ;
 
 // Public API
@@ -346,10 +346,10 @@ function parallel(list, iterator, callback)
 
 /***/ }),
 
-/***/ 2081:
+/***/ 1357:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var serialOrdered = __webpack_require__(28);
+var serialOrdered = __webpack_require__(9087);
 
 // Public API
 module.exports = serial;
@@ -370,12 +370,12 @@ function serial(list, iterator, callback)
 
 /***/ }),
 
-/***/ 28:
+/***/ 9087:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var iterate    = __webpack_require__(8051)
-  , initState  = __webpack_require__(9500)
-  , terminator = __webpack_require__(6276)
+var iterate    = __webpack_require__(7594)
+  , initState  = __webpack_require__(4528)
+  , terminator = __webpack_require__(5353)
   ;
 
 // Public API
@@ -452,7 +452,7 @@ function descending(a, b)
 
 /***/ }),
 
-/***/ 6232:
+/***/ 1480:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -468,7 +468,7 @@ exports["default"] = void 0;
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var _default = exports["default"] = {
+var _default = {
   BASIC_AUTHENTICATION: 'BASIC_AUTH',
   APIKEY_IDENTIFICATION: 'APIKEY',
   ANONYMOUS_IDENTIFICATION: 'ANONYMOUS',
@@ -667,124 +667,131 @@ var _default = exports["default"] = {
     }
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 3849:
+/***/ 9892:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Bundle = _interopRequireDefault(__webpack_require__(9633));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Bundle = _interopRequireDefault(__webpack_require__(2044));
+var _default = function _default(item) {
   return new _Bundle.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6899:
+/***/ 3213:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Country = _interopRequireDefault(__webpack_require__(7147));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Country = _interopRequireDefault(__webpack_require__(187));
+var _default = function _default(item) {
   return new _Country.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5402:
+/***/ 3887:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _License = _interopRequireDefault(__webpack_require__(1938));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _License = _interopRequireDefault(__webpack_require__(9763));
+var _default = function _default(item) {
   return new _License.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 52:
+/***/ 3255:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _LicenseTemplate = _interopRequireDefault(__webpack_require__(2476));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _LicenseTemplate = _interopRequireDefault(__webpack_require__(767));
+var _default = function _default(item) {
   return new _LicenseTemplate.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 4067:
+/***/ 6463:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Licensee = _interopRequireDefault(__webpack_require__(9899));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Licensee = _interopRequireDefault(__webpack_require__(2948));
+var _default = function _default(item) {
   return new _Licensee.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5270:
+/***/ 6546:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Notification = _interopRequireDefault(__webpack_require__(5454));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Notification = _interopRequireDefault(__webpack_require__(5433));
+var _default = function _default(item) {
   return new _Notification.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 670:
+/***/ 7106:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -816,43 +823,45 @@ var itemToObject = function itemToObject(item) {
   }
   return object;
 };
-var _default = exports["default"] = itemToObject;
+var _default = itemToObject;
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 2430:
+/***/ 797:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _PaymentMethod = _interopRequireDefault(__webpack_require__(3014));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _PaymentMethod = _interopRequireDefault(__webpack_require__(5088));
+var _default = function _default(item) {
   return new _PaymentMethod.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 822:
+/***/ 1255:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Product = _interopRequireDefault(__webpack_require__(3262));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Product = _interopRequireDefault(__webpack_require__(7143));
+var _default = function _default(item) {
   var object = (0, _itemToObject.default)(item);
   var discounts = object.discount;
   delete object.discount;
@@ -860,64 +869,67 @@ var _default = exports["default"] = function _default(item) {
   product.setProductDiscounts(discounts);
   return product;
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 4398:
+/***/ 2514:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _ProductModule = _interopRequireDefault(__webpack_require__(9142));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _ProductModule = _interopRequireDefault(__webpack_require__(3886));
+var _default = function _default(item) {
   return new _ProductModule.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 3648:
+/***/ 4073:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Token = _interopRequireDefault(__webpack_require__(584));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Token = _interopRequireDefault(__webpack_require__(8132));
+var _default = function _default(item) {
   return new _Token.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 1717:
+/***/ 1198:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Transaction = _interopRequireDefault(__webpack_require__(269));
-var _License = _interopRequireDefault(__webpack_require__(1938));
-var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3716));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Transaction = _interopRequireDefault(__webpack_require__(4880));
+var _License = _interopRequireDefault(__webpack_require__(9763));
+var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3089));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _default = function _default(item) {
   var object = (0, _itemToObject.default)(item);
   var licenseTransactionJoin = object.licenseTransactionJoin;
   delete object.licenseTransactionJoin;
@@ -938,33 +950,34 @@ var _default = exports["default"] = function _default(item) {
   }
   return transaction;
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 635:
+/***/ 389:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(3693));
-var _typeof2 = _interopRequireDefault(__webpack_require__(3738));
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _CastsUtils = _interopRequireDefault(__webpack_require__(8769));
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _typeof2 = _interopRequireDefault(__webpack_require__(8698));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _CastsUtils = _interopRequireDefault(__webpack_require__(553));
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
 /**
  * The entity properties.
  * @type {{}}
@@ -986,7 +999,7 @@ var definedMap = new WeakMap();
  * @private
  */
 var castsMap = new WeakMap();
-var BaseEntity = exports["default"] = /*#__PURE__*/function () {
+var BaseEntity = /*#__PURE__*/function () {
   function BaseEntity(_ref) {
     var properties = _ref.properties,
       casts = _ref.casts;
@@ -1005,7 +1018,7 @@ var BaseEntity = exports["default"] = /*#__PURE__*/function () {
    * @param value
    * @returns {BaseEntity}
    */
-  return (0, _createClass2.default)(BaseEntity, [{
+  (0, _createClass2.default)(BaseEntity, [{
     key: "setProperty",
     value: function setProperty(property, value) {
       // if property name has bad native type
@@ -1193,34 +1206,36 @@ var BaseEntity = exports["default"] = /*#__PURE__*/function () {
       return _objectSpread(_objectSpread({}, customProperties), properties);
     }
   }]);
+  return BaseEntity;
 }();
+exports["default"] = BaseEntity;
 
 /***/ }),
 
-/***/ 9633:
+/***/ 2044:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * NetLicensing Bundle entity.
  *
@@ -1236,26 +1251,36 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  * Bundle name.
  * @property string name
  *
+ * Price for the bundle. If >0, it must always be accompanied by the currency specification.
+ * @property double price
+ *
+ * Specifies currency for the bundle price. Check data types to discover which currencies are
+ * supported.
+ * @property string currency
+ *
  * Arbitrary additional user properties of string type may be associated with each bundle. The name of user property
  * must not be equal to any of the fixed property names listed above and must be none of id, deleted.
  *
  * @constructor
  */
-var Bundle = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Bundle = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Bundle, _BaseEntity);
+  var _super = _createSuper(Bundle);
   function Bundle(properties) {
     (0, _classCallCheck2.default)(this, Bundle);
-    return _callSuper(this, Bundle, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
         number: 'string',
         active: 'boolean',
-        name: 'string'
+        name: 'string',
+        price: 'double',
+        currency: 'string'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(Bundle, _BaseEntity);
-  return (0, _createClass2.default)(Bundle, [{
+  (0, _createClass2.default)(Bundle, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -1296,6 +1321,26 @@ var Bundle = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('description', def);
     }
   }, {
+    key: "setPrice",
+    value: function setPrice(price) {
+      return this.setProperty('price', price);
+    }
+  }, {
+    key: "getPrice",
+    value: function getPrice(def) {
+      return this.getProperty('price', def);
+    }
+  }, {
+    key: "setCurrency",
+    value: function setCurrency(currency) {
+      return this.setProperty('currency', currency);
+    }
+  }, {
+    key: "getCurrency",
+    value: function getCurrency(def) {
+      return this.getProperty('currency', def);
+    }
+  }, {
     key: "setLicenseTemplateNumbers",
     value: function setLicenseTemplateNumbers(licenseTemplateNumbers) {
       var numbers = Array.isArray(licenseTemplateNumbers) ? licenseTemplateNumbers.join(',') : licenseTemplateNumbers;
@@ -1322,34 +1367,36 @@ var Bundle = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.setLicenseTemplateNumbers(numbers);
     }
   }]);
+  return Bundle;
 }(_BaseEntity2.default);
+exports["default"] = Bundle;
 
 /***/ }),
 
-/***/ 7147:
+/***/ 187:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Country entity used internally by NetLicensing.
  *
@@ -1363,10 +1410,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @property isEu - is country in EU.
  */
-var Country = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Country = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Country, _BaseEntity);
+  var _super = _createSuper(Country);
   function Country(properties) {
     (0, _classCallCheck2.default)(this, Country);
-    return _callSuper(this, Country, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -1375,10 +1424,9 @@ var Country = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         vatPercent: 'int',
         isEu: 'boolean'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(Country, _BaseEntity);
-  return (0, _createClass2.default)(Country, [{
+  (0, _createClass2.default)(Country, [{
     key: "setCode",
     value: function setCode(code) {
       return this.setProperty('code', code);
@@ -1419,34 +1467,36 @@ var Country = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('isEu', def);
     }
   }]);
+  return Country;
 }(_BaseEntity2.default);
+exports["default"] = Country;
 
 /***/ }),
 
-/***/ 1938:
+/***/ 9763:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * License entity used internally by NetLicensing.
  *
@@ -1482,10 +1532,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  * must not be equal to any of the fixed property names listed above and must be none of id, deleted, licenseeNumber,
  * licenseTemplateNumber.
  */
-var License = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var License = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(License, _BaseEntity);
+  var _super = _createSuper(License);
   function License(properties) {
     (0, _classCallCheck2.default)(this, License);
-    return _callSuper(this, License, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -1499,10 +1551,9 @@ var License = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         startDate: 'date',
         inUse: 'boolean'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(License, _BaseEntity);
-  return (0, _createClass2.default)(License, [{
+  (0, _createClass2.default)(License, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -1588,34 +1639,36 @@ var License = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('currency', def);
     }
   }]);
+  return License;
 }(_BaseEntity2.default);
+exports["default"] = License;
 
 /***/ }),
 
-/***/ 2476:
+/***/ 767:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * License template entity used internally by NetLicensing.
  *
@@ -1672,10 +1725,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var LicenseTemplate = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var LicenseTemplate = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(LicenseTemplate, _BaseEntity);
+  var _super = _createSuper(LicenseTemplate);
   function LicenseTemplate(properties) {
     (0, _classCallCheck2.default)(this, LicenseTemplate);
-    return _callSuper(this, LicenseTemplate, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -1695,10 +1750,9 @@ var LicenseTemplate = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         quantity: 'int',
         inUse: 'boolean'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(LicenseTemplate, _BaseEntity);
-  return (0, _createClass2.default)(LicenseTemplate, [{
+  (0, _createClass2.default)(LicenseTemplate, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -1834,36 +1888,38 @@ var LicenseTemplate = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('inUse', def);
     }
   }]);
+  return LicenseTemplate;
 }(_BaseEntity2.default);
+exports["default"] = LicenseTemplate;
 
 /***/ }),
 
-/***/ 3716:
+/***/ 3089:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var LicenseTransactionJoin = exports["default"] = /*#__PURE__*/function () {
+var LicenseTransactionJoin = /*#__PURE__*/function () {
   function LicenseTransactionJoin(transaction, license) {
     (0, _classCallCheck2.default)(this, LicenseTransactionJoin);
     this.transaction = transaction;
     this.license = license;
   }
-  return (0, _createClass2.default)(LicenseTransactionJoin, [{
+  (0, _createClass2.default)(LicenseTransactionJoin, [{
     key: "setTransaction",
     value: function setTransaction(transaction) {
       this.transaction = transaction;
@@ -1886,34 +1942,36 @@ var LicenseTransactionJoin = exports["default"] = /*#__PURE__*/function () {
       return this.license || def;
     }
   }]);
+  return LicenseTransactionJoin;
 }();
+exports["default"] = LicenseTransactionJoin;
 
 /***/ }),
 
-/***/ 9899:
+/***/ 2948:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Licensee entity used internally by NetLicensing.
  *
@@ -1942,10 +2000,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var Licensee = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Licensee = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Licensee, _BaseEntity);
+  var _super = _createSuper(Licensee);
   function Licensee(properties) {
     (0, _classCallCheck2.default)(this, Licensee);
-    return _callSuper(this, Licensee, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -1956,10 +2016,9 @@ var Licensee = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         markedForTransfer: 'boolean',
         inUse: 'boolean'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(Licensee, _BaseEntity);
-  return (0, _createClass2.default)(Licensee, [{
+  (0, _createClass2.default)(Licensee, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -2033,34 +2092,36 @@ var Licensee = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('inUse', def);
     }
   }]);
+  return Licensee;
 }(_BaseEntity2.default);
+exports["default"] = Licensee;
 
 /***/ }),
 
-/***/ 5454:
+/***/ 5433:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * NetLicensing Notification entity.
  *
@@ -2093,10 +2154,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var Notification = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Notification = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Notification, _BaseEntity);
+  var _super = _createSuper(Notification);
   function Notification(properties) {
     (0, _classCallCheck2.default)(this, Notification);
-    return _callSuper(this, Notification, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -2108,10 +2171,9 @@ var Notification = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         payload: 'string',
         endpoint: 'string'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(Notification, _BaseEntity);
-  return (0, _createClass2.default)(Notification, [{
+  (0, _createClass2.default)(Notification, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -2182,34 +2244,36 @@ var Notification = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('endpoint', def);
     }
   }]);
+  return Notification;
 }(_BaseEntity2.default);
+exports["default"] = Notification;
 
 /***/ }),
 
-/***/ 3014:
+/***/ 5088:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * PaymentMethod entity used internally by NetLicensing.
  *
@@ -2218,10 +2282,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var PaymentMethod = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var PaymentMethod = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(PaymentMethod, _BaseEntity);
+  var _super = _createSuper(PaymentMethod);
   function PaymentMethod(properties) {
     (0, _classCallCheck2.default)(this, PaymentMethod);
-    return _callSuper(this, PaymentMethod, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -2229,10 +2295,9 @@ var PaymentMethod = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         active: 'boolean',
         'paypal.subject': 'string'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(PaymentMethod, _BaseEntity);
-  return (0, _createClass2.default)(PaymentMethod, [{
+  (0, _createClass2.default)(PaymentMethod, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -2263,36 +2328,39 @@ var PaymentMethod = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('paypal.subject', def);
     }
   }]);
+  return PaymentMethod;
 }(_BaseEntity2.default);
+exports["default"] = PaymentMethod;
 
 /***/ }),
 
-/***/ 3262:
+/***/ 7143:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _get2 = _interopRequireDefault(__webpack_require__(2395));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-var _ProductDiscount = _interopRequireDefault(__webpack_require__(1721));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(6115));
+var _get2 = _interopRequireDefault(__webpack_require__(1588));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+var _ProductDiscount = _interopRequireDefault(__webpack_require__(3144));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * The discounts map
  * @type {{}}
@@ -2345,11 +2413,13 @@ var discountsTouched = new WeakMap();
  *
  * @constructor
  */
-var Product = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Product = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Product, _BaseEntity);
+  var _super = _createSuper(Product);
   function Product(properties) {
     var _this;
     (0, _classCallCheck2.default)(this, Product);
-    _this = _callSuper(this, Product, [{
+    _this = _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -2363,13 +2433,12 @@ var Product = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         licenseeSecretMode: 'string',
         inUse: 'boolean'
       }
-    }]);
-    discountsMap.set(_this, []);
-    discountsTouched.set(_this, false);
+    });
+    discountsMap.set((0, _assertThisInitialized2.default)(_this), []);
+    discountsTouched.set((0, _assertThisInitialized2.default)(_this), false);
     return _this;
   }
-  (0, _inherits2.default)(Product, _BaseEntity);
-  return (0, _createClass2.default)(Product, [{
+  (0, _createClass2.default)(Product, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -2528,38 +2597,42 @@ var Product = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return propertiesMap;
     }
   }]);
+  return Product;
 }(_BaseEntity2.default);
+exports["default"] = Product;
 
 /***/ }),
 
-/***/ 1721:
+/***/ 3144:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
-var ProductDiscount = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
+var ProductDiscount = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(ProductDiscount, _BaseEntity);
+  var _super = _createSuper(ProductDiscount);
   function ProductDiscount(properties) {
     (0, _classCallCheck2.default)(this, ProductDiscount);
-    return _callSuper(this, ProductDiscount, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -2568,10 +2641,9 @@ var ProductDiscount = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         amountFix: 'float',
         amountPercent: 'int'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(ProductDiscount, _BaseEntity);
-  return (0, _createClass2.default)(ProductDiscount, [{
+  (0, _createClass2.default)(ProductDiscount, [{
     key: "setTotalPrice",
     value: function setTotalPrice(totalPrice) {
       return this.setProperty('totalPrice', totalPrice);
@@ -2622,34 +2694,36 @@ var ProductDiscount = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return "".concat(totalPrice, ";").concat(currency, ";").concat(amount);
     }
   }]);
+  return ProductDiscount;
 }(_BaseEntity2.default);
+exports["default"] = ProductDiscount;
 
 /***/ }),
 
-/***/ 9142:
+/***/ 3886:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Product module entity used internally by NetLicensing.
  *
@@ -2688,10 +2762,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var ProductModule = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var ProductModule = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(ProductModule, _BaseEntity);
+  var _super = _createSuper(ProductModule);
   function ProductModule(properties) {
     (0, _classCallCheck2.default)(this, ProductModule);
-    return _callSuper(this, ProductModule, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -2706,10 +2782,9 @@ var ProductModule = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         inUse: 'boolean',
         licenseeSecretMode: 'string'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(ProductModule, _BaseEntity);
-  return (0, _createClass2.default)(ProductModule, [{
+  (0, _createClass2.default)(ProductModule, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -2805,34 +2880,36 @@ var ProductModule = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('licenseeSecretMode', def);
     }
   }]);
+  return ProductModule;
 }(_BaseEntity2.default);
+exports["default"] = ProductModule;
 
 /***/ }),
 
-/***/ 584:
+/***/ 8132:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Product module entity used internally by NetLicensing.
  *
@@ -2859,10 +2936,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var Token = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Token = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Token, _BaseEntity);
+  var _super = _createSuper(Token);
   function Token(properties) {
     (0, _classCallCheck2.default)(this, Token);
-    return _callSuper(this, Token, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -2878,10 +2957,9 @@ var Token = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         cancelURLTitle: 'string',
         shopURL: 'string'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(Token, _BaseEntity);
-  return (0, _createClass2.default)(Token, [{
+  (0, _createClass2.default)(Token, [{
     key: "getNumber",
     value: function getNumber(def) {
       return this.getProperty('number', def);
@@ -3016,36 +3094,38 @@ var Token = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('apiKeyRole', def);
     }
   }]);
+  return Token;
 }(_BaseEntity2.default);
+exports["default"] = Token;
 
 /***/ }),
 
-/***/ 269:
+/***/ 4880:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3716));
-var _License = _interopRequireDefault(__webpack_require__(1938));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3089));
+var _License = _interopRequireDefault(__webpack_require__(9763));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Transaction entity used internally by NetLicensing.
  *
@@ -3081,10 +3161,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var Transaction = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Transaction = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Transaction, _BaseEntity);
+  var _super = _createSuper(Transaction);
   function Transaction(properties) {
     (0, _classCallCheck2.default)(this, Transaction);
-    return _callSuper(this, Transaction, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -3100,10 +3182,9 @@ var Transaction = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         active: 'boolean',
         paymentMethod: 'string'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(Transaction, _BaseEntity);
-  return (0, _createClass2.default)(Transaction, [{
+  (0, _createClass2.default)(Transaction, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -3240,37 +3321,41 @@ var Transaction = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       this.setProperty('licenseTransactionJoins', licenseTransactionJoins);
     }
   }]);
+  return Transaction;
 }(_BaseEntity2.default);
+exports["default"] = Transaction;
 
 /***/ }),
 
-/***/ 6469:
+/***/ 2986:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(1837));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
-var NlicError = exports["default"] = /*#__PURE__*/function (_Error) {
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(3496));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+var NlicError = /*#__PURE__*/function (_Error) {
+  (0, _inherits2.default)(NlicError, _Error);
+  var _super = _createSuper(NlicError);
   function NlicError() {
     var _this;
     (0, _classCallCheck2.default)(this, NlicError);
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
-    _this = _callSuper(this, NlicError, [].concat(args));
+    _this = _super.call.apply(_super, [this].concat(args));
     _this.config = {};
     _this.response = {};
     _this.request = {};
@@ -3279,8 +3364,7 @@ var NlicError = exports["default"] = /*#__PURE__*/function (_Error) {
     _this.isAxiosError = true;
     return _this;
   }
-  (0, _inherits2.default)(NlicError, _Error);
-  return (0, _createClass2.default)(NlicError, [{
+  (0, _createClass2.default)(NlicError, [{
     key: "toJSON",
     value: function toJSON() {
       return {
@@ -3301,32 +3385,34 @@ var NlicError = exports["default"] = /*#__PURE__*/function (_Error) {
       };
     }
   }]);
+  return NlicError;
 }( /*#__PURE__*/(0, _wrapNativeSuper2.default)(Error));
+exports["default"] = NlicError;
 
 /***/ }),
 
-/***/ 9089:
+/***/ 1462:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(3693));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToBundle = _interopRequireDefault(__webpack_require__(3849));
-var _itemToLicense = _interopRequireDefault(__webpack_require__(5402));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToBundle = _interopRequireDefault(__webpack_require__(9892));
+var _itemToLicense = _interopRequireDefault(__webpack_require__(3887));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -3339,7 +3425,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new bundle with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/bundle-services#create-bundle
@@ -3358,21 +3444,23 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _Service.default.post(context, _Constants.default.Bundle.ENDPOINT_PATH, bundle.asPropertiesMap());
-          case 2:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'Bundle';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToBundle.default)(item));
-          case 6:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _Service.default.post(context, _Constants.default.Bundle.ENDPOINT_PATH, bundle.asPropertiesMap());
+            case 2:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'Bundle';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToBundle.default)(item));
+            case 6:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -3394,22 +3482,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.Bundle.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'Bundle';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToBundle.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.Bundle.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'Bundle';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToBundle.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -3431,35 +3521,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.Bundle.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Bundle';
-            }).map(function (v) {
-              return (0, _itemToBundle.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.Bundle.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Bundle';
+              }).map(function (v) {
+                return (0, _itemToBundle.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -3484,22 +3576,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context4.next = 3;
-            return _Service.default.post(context, "".concat(_Constants.default.Bundle.ENDPOINT_PATH, "/").concat(number), bundle.asPropertiesMap());
-          case 3:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'Bundle';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToBundle.default)(item));
-          case 7:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context4.next = 3;
+              return _Service.default.post(context, "".concat(_Constants.default.Bundle.ENDPOINT_PATH, "/").concat(number), bundle.asPropertiesMap());
+            case 3:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'Bundle';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToBundle.default)(item));
+            case 7:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -3547,54 +3641,57 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5() {
       var _Constants$Bundle, ENDPOINT_PATH, ENDPOINT_OBTAIN_PATH, queryParams, _yield$Service$post3, items;
       return _regenerator.default.wrap(function _callee5$(_context5) {
-        while (1) switch (_context5.prev = _context5.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _CheckUtils.default.paramNotEmpty(licenseeNumber, _Constants.default.Licensee.LICENSEE_NUMBER);
-            _Constants$Bundle = _Constants.default.Bundle, ENDPOINT_PATH = _Constants$Bundle.ENDPOINT_PATH, ENDPOINT_OBTAIN_PATH = _Constants$Bundle.ENDPOINT_OBTAIN_PATH;
-            queryParams = (0, _defineProperty2.default)({}, _Constants.default.Licensee.LICENSEE_NUMBER, licenseeNumber);
-            _context5.next = 6;
-            return _Service.default.post(context, "".concat(ENDPOINT_PATH, "/").concat(number, "/").concat(ENDPOINT_OBTAIN_PATH), queryParams);
-          case 6:
-            _yield$Service$post3 = _context5.sent;
-            items = _yield$Service$post3.data.items.item;
-            return _context5.abrupt("return", items.filter(function (_ref5) {
-              var type = _ref5.type;
-              return type === 'License';
-            }).map(function (i) {
-              return (0, _itemToLicense.default)(i);
-            }));
-          case 9:
-          case "end":
-            return _context5.stop();
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _CheckUtils.default.paramNotEmpty(licenseeNumber, _Constants.default.Licensee.LICENSEE_NUMBER);
+              _Constants$Bundle = _Constants.default.Bundle, ENDPOINT_PATH = _Constants$Bundle.ENDPOINT_PATH, ENDPOINT_OBTAIN_PATH = _Constants$Bundle.ENDPOINT_OBTAIN_PATH;
+              queryParams = (0, _defineProperty2.default)({}, _Constants.default.Licensee.LICENSEE_NUMBER, licenseeNumber);
+              _context5.next = 6;
+              return _Service.default.post(context, "".concat(ENDPOINT_PATH, "/").concat(number, "/").concat(ENDPOINT_OBTAIN_PATH), queryParams);
+            case 6:
+              _yield$Service$post3 = _context5.sent;
+              items = _yield$Service$post3.data.items.item;
+              return _context5.abrupt("return", items.filter(function (_ref5) {
+                var type = _ref5.type;
+                return type === 'License';
+              }).map(function (i) {
+                return (0, _itemToLicense.default)(i);
+              }));
+            case 9:
+            case "end":
+              return _context5.stop();
+          }
         }
       }, _callee5);
     }))();
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 7394:
+/***/ 6486:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToLicense = _interopRequireDefault(__webpack_require__(5402));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToLicense = _interopRequireDefault(__webpack_require__(3887));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -3607,7 +3704,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new license object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-services#create-license
@@ -3638,26 +3735,28 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(licenseeNumber, _Constants.default.Licensee.LICENSEE_NUMBER);
-            _CheckUtils.default.paramNotEmpty(licenseTemplateNumber, _Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER);
-            license.setProperty(_Constants.default.Licensee.LICENSEE_NUMBER, licenseeNumber);
-            license.setProperty(_Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER, licenseTemplateNumber);
-            if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
-            _context.next = 7;
-            return _Service.default.post(context, _Constants.default.License.ENDPOINT_PATH, license.asPropertiesMap());
-          case 7:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'License';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToLicense.default)(item));
-          case 11:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(licenseeNumber, _Constants.default.Licensee.LICENSEE_NUMBER);
+              _CheckUtils.default.paramNotEmpty(licenseTemplateNumber, _Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER);
+              license.setProperty(_Constants.default.Licensee.LICENSEE_NUMBER, licenseeNumber);
+              license.setProperty(_Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER, licenseTemplateNumber);
+              if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
+              _context.next = 7;
+              return _Service.default.post(context, _Constants.default.License.ENDPOINT_PATH, license.asPropertiesMap());
+            case 7:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'License';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToLicense.default)(item));
+            case 11:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -3679,22 +3778,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'License';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToLicense.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'License';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToLicense.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -3716,35 +3817,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.License.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'License';
-            }).map(function (v) {
-              return (0, _itemToLicense.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.License.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'License';
+              }).map(function (v) {
+                return (0, _itemToLicense.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -3773,23 +3876,25 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
-            _context4.next = 4;
-            return _Service.default.post(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number), license.asPropertiesMap());
-          case 4:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'License';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToLicense.default)(item));
-          case 8:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
+              _context4.next = 4;
+              return _Service.default.post(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number), license.asPropertiesMap());
+            case 4:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'License';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToLicense.default)(item));
+            case 8:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -3820,29 +3925,30 @@ var _default = exports["default"] = {
     return _Service.default.delete(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number), queryParams);
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 3140:
+/***/ 1580:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(52));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(3255));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -3855,7 +3961,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new license template object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-template-services#create-license-template
@@ -3877,23 +3983,25 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(productModuleNumber, _Constants.default.ProductModule.PRODUCT_MODULE_NUMBER);
-            licenseTemplate.setProperty(_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER, productModuleNumber);
-            _context.next = 4;
-            return _Service.default.post(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, licenseTemplate.asPropertiesMap());
-          case 4:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'LicenseTemplate';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
-          case 8:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(productModuleNumber, _Constants.default.ProductModule.PRODUCT_MODULE_NUMBER);
+              licenseTemplate.setProperty(_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER, productModuleNumber);
+              _context.next = 4;
+              return _Service.default.post(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, licenseTemplate.asPropertiesMap());
+            case 4:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'LicenseTemplate';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
+            case 8:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -3915,22 +4023,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'LicenseTemplate';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'LicenseTemplate';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -3952,35 +4062,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'LicenseTemplate';
-            }).map(function (v) {
-              return (0, _itemToLicenseTemplate.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'LicenseTemplate';
+              }).map(function (v) {
+                return (0, _itemToLicenseTemplate.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -4005,23 +4117,25 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var path, _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            path = "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number);
-            _context4.next = 4;
-            return _Service.default.post(context, path, licenseTemplate.asPropertiesMap());
-          case 4:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'LicenseTemplate';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
-          case 8:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              path = "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number);
+              _context4.next = 4;
+              return _Service.default.post(context, path, licenseTemplate.asPropertiesMap());
+            case 4:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'LicenseTemplate';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
+            case 8:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -4050,31 +4164,32 @@ var _default = exports["default"] = {
     return _Service.default.delete(context, "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number), queryParams);
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 7211:
+/***/ 5498:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _ValidationResults = _interopRequireDefault(__webpack_require__(8506));
-var _itemToLicensee = _interopRequireDefault(__webpack_require__(4067));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _ValidationResults = _interopRequireDefault(__webpack_require__(3735));
+var _itemToLicensee = _interopRequireDefault(__webpack_require__(6463));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -4087,7 +4202,7 @@ var _itemToObject = _interopRequireDefault(__webpack_require__(670));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new licensee object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/licensee-services#create-licensee
@@ -4109,23 +4224,25 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
-            licensee.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
-            _context.next = 4;
-            return _Service.default.post(context, _Constants.default.Licensee.ENDPOINT_PATH, licensee.asPropertiesMap());
-          case 4:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'Licensee';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToLicensee.default)(item));
-          case 8:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
+              licensee.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
+              _context.next = 4;
+              return _Service.default.post(context, _Constants.default.Licensee.ENDPOINT_PATH, licensee.asPropertiesMap());
+            case 4:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'Licensee';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToLicensee.default)(item));
+            case 8:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -4147,22 +4264,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'Licensee';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToLicensee.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'Licensee';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToLicensee.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -4184,35 +4303,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.Licensee.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Licensee';
-            }).map(function (v) {
-              return (0, _itemToLicensee.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.Licensee.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Licensee';
+              }).map(function (v) {
+                return (0, _itemToLicensee.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -4237,22 +4358,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context4.next = 3;
-            return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number), licensee.asPropertiesMap());
-          case 3:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'Licensee';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToLicensee.default)(item));
-          case 7:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context4.next = 3;
+              return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number), licensee.asPropertiesMap());
+            case 3:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'Licensee';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToLicensee.default)(item));
+            case 7:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -4302,56 +4425,58 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5() {
       var queryParams, pmIndex, parameters, has, _yield$Service$post3, _yield$Service$post3$, items, ttl, validationResults;
       return _regenerator.default.wrap(function _callee5$(_context5) {
-        while (1) switch (_context5.prev = _context5.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            queryParams = {};
-            if (validationParameters.getProductNumber()) {
-              queryParams.productNumber = validationParameters.getProductNumber();
-            }
-            Object.keys(validationParameters.getLicenseeProperties()).forEach(function (key) {
-              queryParams[key] = validationParameters.getLicenseeProperty(key);
-            });
-            if (validationParameters.isForOfflineUse()) {
-              queryParams.forOfflineUse = true;
-            }
-            if (validationParameters.getDryRun()) {
-              queryParams.dryRun = true;
-            }
-            pmIndex = 0;
-            parameters = validationParameters.getParameters();
-            has = Object.prototype.hasOwnProperty;
-            Object.keys(parameters).forEach(function (productModuleName) {
-              queryParams["".concat(_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER).concat(pmIndex)] = productModuleName;
-              if (!has.call(parameters, productModuleName)) return;
-              var parameter = parameters[productModuleName];
-              Object.keys(parameter).forEach(function (key) {
-                if (has.call(parameter, key)) {
-                  queryParams[key + pmIndex] = parameter[key];
-                }
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              queryParams = {};
+              if (validationParameters.getProductNumber()) {
+                queryParams.productNumber = validationParameters.getProductNumber();
+              }
+              Object.keys(validationParameters.getLicenseeProperties()).forEach(function (key) {
+                queryParams[key] = validationParameters.getLicenseeProperty(key);
               });
-              pmIndex += 1;
-            });
-            _context5.next = 12;
-            return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number, "/").concat(_Constants.default.Licensee.ENDPOINT_PATH_VALIDATE), queryParams);
-          case 12:
-            _yield$Service$post3 = _context5.sent;
-            _yield$Service$post3$ = _yield$Service$post3.data;
-            items = _yield$Service$post3$.items.item;
-            ttl = _yield$Service$post3$.ttl;
-            validationResults = new _ValidationResults.default();
-            validationResults.setTtl(ttl);
-            items.filter(function (_ref5) {
-              var type = _ref5.type;
-              return type === 'ProductModuleValidation';
-            }).forEach(function (v) {
-              var item = (0, _itemToObject.default)(v);
-              validationResults.setProductModuleValidation(item[_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER], item);
-            });
-            return _context5.abrupt("return", validationResults);
-          case 20:
-          case "end":
-            return _context5.stop();
+              if (validationParameters.isForOfflineUse()) {
+                queryParams.forOfflineUse = true;
+              }
+              if (validationParameters.getDryRun()) {
+                queryParams.dryRun = true;
+              }
+              pmIndex = 0;
+              parameters = validationParameters.getParameters();
+              has = Object.prototype.hasOwnProperty;
+              Object.keys(parameters).forEach(function (productModuleName) {
+                queryParams["".concat(_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER).concat(pmIndex)] = productModuleName;
+                if (!has.call(parameters, productModuleName)) return;
+                var parameter = parameters[productModuleName];
+                Object.keys(parameter).forEach(function (key) {
+                  if (has.call(parameter, key)) {
+                    queryParams[key + pmIndex] = parameter[key];
+                  }
+                });
+                pmIndex += 1;
+              });
+              _context5.next = 12;
+              return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number, "/").concat(_Constants.default.Licensee.ENDPOINT_PATH_VALIDATE), queryParams);
+            case 12:
+              _yield$Service$post3 = _context5.sent;
+              _yield$Service$post3$ = _yield$Service$post3.data;
+              items = _yield$Service$post3$.items.item;
+              ttl = _yield$Service$post3$.ttl;
+              validationResults = new _ValidationResults.default();
+              validationResults.setTtl(ttl);
+              items.filter(function (_ref5) {
+                var type = _ref5.type;
+                return type === 'ProductModuleValidation';
+              }).forEach(function (v) {
+                var item = (0, _itemToObject.default)(v);
+                validationResults.setProductModuleValidation(item[_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER], item);
+              });
+              return _context5.abrupt("return", validationResults);
+            case 20:
+            case "end":
+              return _context5.stop();
+          }
         }
       }, _callee5);
     }))();
@@ -4380,29 +4505,30 @@ var _default = exports["default"] = {
     return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number, "/").concat(_Constants.default.Licensee.ENDPOINT_PATH_TRANSFER), queryParams);
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 1692:
+/***/ 3212:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToNotification = _interopRequireDefault(__webpack_require__(5270));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToNotification = _interopRequireDefault(__webpack_require__(6546));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -4415,7 +4541,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new notification with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/notification-services#create-notification
@@ -4434,21 +4560,23 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _Service.default.post(context, _Constants.default.Notification.ENDPOINT_PATH, notification.asPropertiesMap());
-          case 2:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'Notification';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToNotification.default)(item));
-          case 6:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _Service.default.post(context, _Constants.default.Notification.ENDPOINT_PATH, notification.asPropertiesMap());
+            case 2:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'Notification';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToNotification.default)(item));
+            case 6:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -4470,22 +4598,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'Notification';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToNotification.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'Notification';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToNotification.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -4507,35 +4637,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.Notification.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Notification';
-            }).map(function (v) {
-              return (0, _itemToNotification.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.Notification.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Notification';
+              }).map(function (v) {
+                return (0, _itemToNotification.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -4560,22 +4692,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context4.next = 3;
-            return _Service.default.post(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number), notification.asPropertiesMap());
-          case 3:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'Notification';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToNotification.default)(item));
-          case 7:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context4.next = 3;
+              return _Service.default.post(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number), notification.asPropertiesMap());
+            case 3:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'Notification';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToNotification.default)(item));
+            case 7:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -4598,36 +4732,37 @@ var _default = exports["default"] = {
     return _Service.default.delete(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number));
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6798:
+/***/ 5225:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(2430));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(797));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Gets payment method by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/payment-method-services#get-payment-method
@@ -4645,22 +4780,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$get, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'PaymentMethod';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToPaymentMethod.default)(item));
-          case 7:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'PaymentMethod';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToPaymentMethod.default)(item));
+            case 7:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -4682,35 +4819,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context2.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context2.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context2.next = 7;
-            return _Service.default.get(context, _Constants.default.PaymentMethod.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context2.sent;
-            data = _yield$Service$get2.data;
-            return _context2.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'PaymentMethod';
-            }).map(function (v) {
-              return (0, _itemToPaymentMethod.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context2.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context2.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context2.next = 7;
+              return _Service.default.get(context, _Constants.default.PaymentMethod.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context2.sent;
+              data = _yield$Service$get2.data;
+              return _context2.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'PaymentMethod';
+              }).map(function (v) {
+                return (0, _itemToPaymentMethod.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -4735,51 +4874,54 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var path, _yield$Service$post, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            path = "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number);
-            _context3.next = 4;
-            return _Service.default.post(context, path, paymentMethod.asPropertiesMap());
-          case 4:
-            _yield$Service$post = _context3.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter3 = items.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'PaymentMethod';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context3.abrupt("return", (0, _itemToPaymentMethod.default)(item));
-          case 8:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              path = "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number);
+              _context3.next = 4;
+              return _Service.default.post(context, path, paymentMethod.asPropertiesMap());
+            case 4:
+              _yield$Service$post = _context3.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter3 = items.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'PaymentMethod';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context3.abrupt("return", (0, _itemToPaymentMethod.default)(item));
+            case 8:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 3950:
+/***/ 7443:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToProductModule = _interopRequireDefault(__webpack_require__(4398));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToProductModule = _interopRequireDefault(__webpack_require__(2514));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -4792,7 +4934,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new product module object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-module-services#create-product-module
@@ -4814,23 +4956,25 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
-            productModule.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
-            _context.next = 4;
-            return _Service.default.post(context, _Constants.default.ProductModule.ENDPOINT_PATH, productModule.asPropertiesMap());
-          case 4:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'ProductModule';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToProductModule.default)(item));
-          case 8:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
+              productModule.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
+              _context.next = 4;
+              return _Service.default.post(context, _Constants.default.ProductModule.ENDPOINT_PATH, productModule.asPropertiesMap());
+            case 4:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'ProductModule';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToProductModule.default)(item));
+            case 8:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -4852,22 +4996,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'ProductModule';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToProductModule.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'ProductModule';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToProductModule.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -4889,35 +5035,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.ProductModule.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'ProductModule';
-            }).map(function (v) {
-              return (0, _itemToProductModule.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.ProductModule.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'ProductModule';
+              }).map(function (v) {
+                return (0, _itemToProductModule.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -4942,22 +5090,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context4.next = 3;
-            return _Service.default.post(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number), productModule.asPropertiesMap());
-          case 3:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'ProductModule';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToProductModule.default)(item));
-          case 7:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context4.next = 3;
+              return _Service.default.post(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number), productModule.asPropertiesMap());
+            case 3:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'ProductModule';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToProductModule.default)(item));
+            case 7:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -4986,29 +5136,30 @@ var _default = exports["default"] = {
     return _Service.default.delete(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number), queryParams);
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5114:
+/***/ 5042:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToProduct = _interopRequireDefault(__webpack_require__(822));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToProduct = _interopRequireDefault(__webpack_require__(1255));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -5021,7 +5172,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new product with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-services#create-product
@@ -5040,21 +5191,23 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _Service.default.post(context, _Constants.default.Product.ENDPOINT_PATH, product.asPropertiesMap());
-          case 2:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'Product';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToProduct.default)(item));
-          case 6:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _Service.default.post(context, _Constants.default.Product.ENDPOINT_PATH, product.asPropertiesMap());
+            case 2:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'Product';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToProduct.default)(item));
+            case 6:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -5076,22 +5229,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'Product';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToProduct.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'Product';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToProduct.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -5113,35 +5268,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.Product.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Product';
-            }).map(function (v) {
-              return (0, _itemToProduct.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.Product.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Product';
+              }).map(function (v) {
+                return (0, _itemToProduct.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -5166,22 +5323,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context4.next = 3;
-            return _Service.default.post(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number), product.asPropertiesMap());
-          case 3:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'Product';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToProduct.default)(item));
-          case 7:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context4.next = 3;
+              return _Service.default.post(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number), product.asPropertiesMap());
+            case 3:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'Product';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToProduct.default)(item));
+            case 7:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -5210,29 +5369,30 @@ var _default = exports["default"] = {
     return _Service.default.delete(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number), queryParams);
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 3401:
+/***/ 393:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _typeof2 = _interopRequireDefault(__webpack_require__(3738));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _axios = _interopRequireDefault(__webpack_require__(9329));
-var _btoa = _interopRequireDefault(__webpack_require__(7131));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _NlicError = _interopRequireDefault(__webpack_require__(6469));
-var _package = _interopRequireDefault(__webpack_require__(8330));
+var _typeof2 = _interopRequireDefault(__webpack_require__(8698));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _axios = _interopRequireDefault(__webpack_require__(3306));
+var _btoa = _interopRequireDefault(__webpack_require__(706));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _NlicError = _interopRequireDefault(__webpack_require__(2986));
+var _package = _interopRequireDefault(__webpack_require__(4147));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -5242,11 +5402,11 @@ var _package = _interopRequireDefault(__webpack_require__(8330));
 
 var httpXHR = {};
 var axiosInstance = null;
-var Service = exports["default"] = /*#__PURE__*/function () {
+var Service = /*#__PURE__*/function () {
   function Service() {
     (0, _classCallCheck2.default)(this, Service);
   }
-  return (0, _createClass2.default)(Service, null, [{
+  (0, _createClass2.default)(Service, null, [{
     key: "getAxiosInstance",
     value: function getAxiosInstance() {
       return axiosInstance || _axios.default;
@@ -5467,30 +5627,32 @@ var Service = exports["default"] = /*#__PURE__*/function () {
       return query.join('&').replace(/%5B[0-9]+%5D=/g, '=');
     }
   }]);
+  return Service;
 }();
+exports["default"] = Service;
 
 /***/ }),
 
-/***/ 5192:
+/***/ 731:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToToken = _interopRequireDefault(__webpack_require__(3648));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToToken = _interopRequireDefault(__webpack_require__(4073));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -5503,7 +5665,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new token.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/token-services#create-token
@@ -5521,21 +5683,23 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _Service.default.post(context, _Constants.default.Token.ENDPOINT_PATH, token.asPropertiesMap());
-          case 2:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'Token';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToToken.default)(item));
-          case 6:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _Service.default.post(context, _Constants.default.Token.ENDPOINT_PATH, token.asPropertiesMap());
+            case 2:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'Token';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToToken.default)(item));
+            case 6:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -5557,22 +5721,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.Token.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'Token';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToToken.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.Token.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'Token';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToToken.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -5594,35 +5760,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.Token.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Token';
-            }).map(function (v) {
-              return (0, _itemToToken.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.Token.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Token';
+              }).map(function (v) {
+                return (0, _itemToToken.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -5645,29 +5813,30 @@ var _default = exports["default"] = {
     return _Service.default.delete(context, "".concat(_Constants.default.Token.ENDPOINT_PATH, "/").concat(number));
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 2579:
+/***/ 5919:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToTransaction = _interopRequireDefault(__webpack_require__(1717));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToTransaction = _interopRequireDefault(__webpack_require__(1198));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -5688,7 +5857,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new transaction object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/transaction-services#create-transaction
@@ -5707,21 +5876,23 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _Service.default.post(context, _Constants.default.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap());
-          case 2:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'Transaction';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToTransaction.default)(item));
-          case 6:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _Service.default.post(context, _Constants.default.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap());
+            case 2:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'Transaction';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToTransaction.default)(item));
+            case 6:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -5743,22 +5914,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'Transaction';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToTransaction.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'Transaction';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToTransaction.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -5780,35 +5953,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.Transaction.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Transaction';
-            }).map(function (v) {
-              return (0, _itemToTransaction.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.Transaction.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Transaction';
+              }).map(function (v) {
+                return (0, _itemToTransaction.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -5833,50 +6008,53 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context4.next = 3;
-            return _Service.default.post(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number), transaction.asPropertiesMap());
-          case 3:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'Transaction';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToTransaction.default)(item));
-          case 7:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context4.next = 3;
+              return _Service.default.post(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number), transaction.asPropertiesMap());
+            case 3:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'Transaction';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToTransaction.default)(item));
+            case 7:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6359:
+/***/ 7635:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
-var _itemToCountry = _interopRequireDefault(__webpack_require__(6899));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
+var _itemToCountry = _interopRequireDefault(__webpack_require__(3213));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -5888,7 +6066,7 @@ var _itemToCountry = _interopRequireDefault(__webpack_require__(6899));
  * https://netlicensing.io/wiki/utility-services
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Returns all license types. See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/utility-services#license-types-list
@@ -5903,22 +6081,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$get, data;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSE_TYPES));
-          case 2:
-            _yield$Service$get = _context.sent;
-            data = _yield$Service$get.data;
-            return _context.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'LicenseType';
-            }).map(function (v) {
-              return (0, _itemToObject.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 5:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSE_TYPES));
+            case 2:
+              _yield$Service$get = _context.sent;
+              data = _yield$Service$get.data;
+              return _context.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'LicenseType';
+              }).map(function (v) {
+                return (0, _itemToObject.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 5:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -5937,22 +6117,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.next = 2;
-            return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSING_MODELS));
-          case 2:
-            _yield$Service$get2 = _context2.sent;
-            data = _yield$Service$get2.data;
-            return _context2.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'LicensingModelProperties';
-            }).map(function (v) {
-              return (0, _itemToObject.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 5:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSING_MODELS));
+            case 2:
+              _yield$Service$get2 = _context2.sent;
+              data = _yield$Service$get2.data;
+              return _context2.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'LicensingModelProperties';
+              }).map(function (v) {
+                return (0, _itemToObject.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 5:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -5973,44 +6155,47 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get3, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_COUNTRIES), queryParams);
-          case 7:
-            _yield$Service$get3 = _context3.sent;
-            data = _yield$Service$get3.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Country';
-            }).map(function (v) {
-              return (0, _itemToCountry.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_COUNTRIES), queryParams);
+            case 7:
+              _yield$Service$get3 = _context3.sent;
+              data = _yield$Service$get3.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Country';
+              }).map(function (v) {
+                return (0, _itemToCountry.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 8769:
+/***/ 553:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -6027,7 +6212,7 @@ exports["default"] = void 0;
  * @copyright 2017 Labs64 NetLicensing
  */
 // Cast an attribute to a native JS type.
-var _default = exports["default"] = function _default(key, value) {
+var _default = function _default(key, value) {
   switch (key.trim().toLowerCase()) {
     case 'str':
     case 'string':
@@ -6062,10 +6247,11 @@ var _default = exports["default"] = function _default(key, value) {
       return value;
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 1305:
+/***/ 5661:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -6081,7 +6267,7 @@ exports["default"] = void 0;
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var _default = exports["default"] = {
+var _default = {
   isValid: function isValid(value) {
     var valid = value !== undefined && typeof value !== 'function';
     if (typeof value === 'number') valid = Number.isFinite(value) && !Number.isNaN(value);
@@ -6096,22 +6282,23 @@ var _default = exports["default"] = {
     if (!parameter) throw new TypeError("Parameter ".concat(parameterName, " cannot be null or empty string"));
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 8833:
+/***/ 3093:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _default = exports["default"] = {
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _default = {
   FILTER_DELIMITER: ';',
   FILTER_PAIR_DELIMITER: '=',
   encode: function encode() {
@@ -6140,33 +6327,34 @@ var _default = exports["default"] = {
     return filter;
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 2302:
+/***/ 4693:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _typeof2 = _interopRequireDefault(__webpack_require__(3738));
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(3693));
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _typeof2 = _interopRequireDefault(__webpack_require__(8698));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
 /**
  * The context values.
  * @type {{}}
@@ -6187,7 +6375,7 @@ var definedMap = new WeakMap();
  * @private
  */
 var defaultsMap = new WeakMap();
-var Context = exports["default"] = /*#__PURE__*/function () {
+var Context = /*#__PURE__*/function () {
   function Context(values) {
     (0, _classCallCheck2.default)(this, Context);
     defaultsMap.set(this, {
@@ -6198,7 +6386,7 @@ var Context = exports["default"] = /*#__PURE__*/function () {
     definedMap.set(this, {});
     this.setValues(_objectSpread(_objectSpread({}, defaultsMap.get(this)), values));
   }
-  return (0, _createClass2.default)(Context, [{
+  (0, _createClass2.default)(Context, [{
     key: "setBaseUrl",
     value: function setBaseUrl(baseUrl) {
       return this.setValue('baseUrl', baseUrl);
@@ -6410,11 +6598,13 @@ var Context = exports["default"] = /*#__PURE__*/function () {
       delete this[key];
     }
   }]);
+  return Context;
 }();
+exports["default"] = Context;
 
 /***/ }),
 
-/***/ 4034:
+/***/ 9407:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -6424,7 +6614,7 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _default = exports["default"] = function _default() {
+var _default = function _default() {
   var content = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var pageNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
   var itemsNumber = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
@@ -6460,32 +6650,33 @@ var _default = exports["default"] = function _default() {
     }
   });
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 662:
+/***/ 4856:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(3693));
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var ValidationParameters = exports["default"] = /*#__PURE__*/function () {
+var ValidationParameters = /*#__PURE__*/function () {
   function ValidationParameters() {
     (0, _classCallCheck2.default)(this, ValidationParameters);
     this.parameters = {};
@@ -6499,7 +6690,7 @@ var ValidationParameters = exports["default"] = /*#__PURE__*/function () {
    * @param productNumber
    * @returns {ValidationParameters}
    */
-  return (0, _createClass2.default)(ValidationParameters, [{
+  (0, _createClass2.default)(ValidationParameters, [{
     key: "setProductNumber",
     value: function setProductNumber(productNumber) {
       this.productNumber = productNumber;
@@ -6652,39 +6843,41 @@ var ValidationParameters = exports["default"] = /*#__PURE__*/function () {
       return this;
     }
   }]);
+  return ValidationParameters;
 }();
+exports["default"] = ValidationParameters;
 
 /***/ }),
 
-/***/ 8506:
+/***/ 3735:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _typeof2 = _interopRequireDefault(__webpack_require__(3738));
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(3693));
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
-var ValidationResults = exports["default"] = /*#__PURE__*/function () {
+var _typeof2 = _interopRequireDefault(__webpack_require__(8698));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
+var ValidationResults = /*#__PURE__*/function () {
   function ValidationResults() {
     (0, _classCallCheck2.default)(this, ValidationResults);
     this.validators = {};
   }
-  return (0, _createClass2.default)(ValidationResults, [{
+  (0, _createClass2.default)(ValidationResults, [{
     key: "getValidators",
     value: function getValidators() {
       return _objectSpread({}, this.validators);
@@ -6736,11 +6929,13 @@ var ValidationResults = exports["default"] = /*#__PURE__*/function () {
       return data;
     }
   }]);
+  return ValidationResults;
 }();
+exports["default"] = ValidationResults;
 
 /***/ }),
 
-/***/ 7131:
+/***/ 706:
 /***/ ((module) => {
 
 (function () {
@@ -6764,12 +6959,12 @@ var ValidationResults = exports["default"] = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 801:
+/***/ 9779:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var util = __webpack_require__(9023);
-var Stream = (__webpack_require__(2203).Stream);
-var DelayedStream = __webpack_require__(8069);
+var util = __webpack_require__(3837);
+var Stream = (__webpack_require__(2781).Stream);
+var DelayedStream = __webpack_require__(3463);
 
 module.exports = CombinedStream;
 function CombinedStream() {
@@ -6979,7 +7174,7 @@ CombinedStream.prototype._emitError = function(err) {
 
 /***/ }),
 
-/***/ 7833:
+/***/ 1227:
 /***/ ((module, exports, __webpack_require__) => {
 
 /* eslint-env browser */
@@ -7236,7 +7431,7 @@ function localstorage() {
 	}
 }
 
-module.exports = __webpack_require__(736)(exports);
+module.exports = __webpack_require__(2447)(exports);
 
 const {formatters} = module.exports;
 
@@ -7255,7 +7450,7 @@ formatters.j = function (v) {
 
 /***/ }),
 
-/***/ 736:
+/***/ 2447:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 
@@ -7271,7 +7466,7 @@ function setup(env) {
 	createDebug.disable = disable;
 	createDebug.enable = enable;
 	createDebug.enabled = enabled;
-	createDebug.humanize = __webpack_require__(6585);
+	createDebug.humanize = __webpack_require__(7824);
 	createDebug.destroy = destroy;
 
 	Object.keys(env).forEach(key => {
@@ -7536,7 +7731,7 @@ module.exports = setup;
 
 /***/ }),
 
-/***/ 5753:
+/***/ 5158:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /**
@@ -7545,23 +7740,23 @@ module.exports = setup;
  */
 
 if (typeof process === 'undefined' || process.type === 'renderer' || process.browser === true || process.__nwjs) {
-	module.exports = __webpack_require__(7833);
+	module.exports = __webpack_require__(1227);
 } else {
-	module.exports = __webpack_require__(6033);
+	module.exports = __webpack_require__(39);
 }
 
 
 /***/ }),
 
-/***/ 6033:
+/***/ 39:
 /***/ ((module, exports, __webpack_require__) => {
 
 /**
  * Module dependencies.
  */
 
-const tty = __webpack_require__(2018);
-const util = __webpack_require__(9023);
+const tty = __webpack_require__(6224);
+const util = __webpack_require__(3837);
 
 /**
  * This is the Node.js implementation of `debug()`.
@@ -7587,7 +7782,7 @@ exports.colors = [6, 2, 3, 4, 5, 1];
 try {
 	// Optional dependency (as in, doesn't need to be installed, NOT like optionalDependencies in package.json)
 	// eslint-disable-next-line import/no-extraneous-dependencies
-	const supportsColor = __webpack_require__(7687);
+	const supportsColor = __webpack_require__(2130);
 
 	if (supportsColor && (supportsColor.stderr || supportsColor).level >= 2) {
 		exports.colors = [
@@ -7795,7 +7990,7 @@ function init(debug) {
 	}
 }
 
-module.exports = __webpack_require__(736)(exports);
+module.exports = __webpack_require__(2447)(exports);
 
 const {formatters} = module.exports;
 
@@ -7823,11 +8018,11 @@ formatters.O = function (v) {
 
 /***/ }),
 
-/***/ 8069:
+/***/ 3463:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var Stream = (__webpack_require__(2203).Stream);
-var util = __webpack_require__(9023);
+var Stream = (__webpack_require__(2781).Stream);
+var util = __webpack_require__(3837);
 
 module.exports = DelayedStream;
 function DelayedStream() {
@@ -7937,7 +8132,7 @@ DelayedStream.prototype._checkIfMaxDataSizeExceeded = function() {
 
 /***/ }),
 
-/***/ 7507:
+/***/ 2261:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var debug;
@@ -7946,7 +8141,7 @@ module.exports = function () {
   if (!debug) {
     try {
       /* eslint global-require: off */
-      debug = __webpack_require__(5753)("follow-redirects");
+      debug = __webpack_require__(5158)("follow-redirects");
     }
     catch (error) { /* */ }
     if (typeof debug !== "function") {
@@ -7959,16 +8154,16 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 3164:
+/***/ 938:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var url = __webpack_require__(7016);
+var url = __webpack_require__(7310);
 var URL = url.URL;
-var http = __webpack_require__(8611);
-var https = __webpack_require__(5692);
-var Writable = (__webpack_require__(2203).Writable);
-var assert = __webpack_require__(2613);
-var debug = __webpack_require__(7507);
+var http = __webpack_require__(3685);
+var https = __webpack_require__(5687);
+var Writable = (__webpack_require__(2781).Writable);
+var assert = __webpack_require__(9491);
+var debug = __webpack_require__(2261);
 
 // Whether to use the native URL object or the legacy url module
 var useNativeURL = false;
@@ -8638,20 +8833,20 @@ module.exports.wrap = wrap;
 
 /***/ }),
 
-/***/ 737:
+/***/ 6882:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var CombinedStream = __webpack_require__(801);
-var util = __webpack_require__(9023);
-var path = __webpack_require__(6928);
-var http = __webpack_require__(8611);
-var https = __webpack_require__(5692);
-var parseUrl = (__webpack_require__(7016).parse);
-var fs = __webpack_require__(9896);
-var Stream = (__webpack_require__(2203).Stream);
-var mime = __webpack_require__(6049);
-var asynckit = __webpack_require__(1873);
-var populate = __webpack_require__(1362);
+var CombinedStream = __webpack_require__(9779);
+var util = __webpack_require__(3837);
+var path = __webpack_require__(1017);
+var http = __webpack_require__(3685);
+var https = __webpack_require__(5687);
+var parseUrl = (__webpack_require__(7310).parse);
+var fs = __webpack_require__(7147);
+var Stream = (__webpack_require__(2781).Stream);
+var mime = __webpack_require__(983);
+var asynckit = __webpack_require__(9118);
+var populate = __webpack_require__(2275);
 
 // Public API
 module.exports = FormData;
@@ -9146,7 +9341,7 @@ FormData.prototype.toString = function () {
 
 /***/ }),
 
-/***/ 1362:
+/***/ 2275:
 /***/ ((module) => {
 
 // populates missing values
@@ -9163,7 +9358,7 @@ module.exports = function(dst, src) {
 
 /***/ }),
 
-/***/ 5884:
+/***/ 6560:
 /***/ ((module) => {
 
 "use strict";
@@ -9179,7 +9374,7 @@ module.exports = (flag, argv = process.argv) => {
 
 /***/ }),
 
-/***/ 7598:
+/***/ 5234:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 /*!
@@ -9193,12 +9388,12 @@ module.exports = (flag, argv = process.argv) => {
  * Module exports.
  */
 
-module.exports = __webpack_require__(1813)
+module.exports = __webpack_require__(3765)
 
 
 /***/ }),
 
-/***/ 6049:
+/***/ 983:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -9216,8 +9411,8 @@ module.exports = __webpack_require__(1813)
  * @private
  */
 
-var db = __webpack_require__(7598)
-var extname = (__webpack_require__(6928).extname)
+var db = __webpack_require__(5234)
+var extname = (__webpack_require__(1017).extname)
 
 /**
  * Module variables.
@@ -9394,7 +9589,7 @@ function populateMaps (extensions, types) {
 
 /***/ }),
 
-/***/ 6585:
+/***/ 7824:
 /***/ ((module) => {
 
 /**
@@ -9563,13 +9758,13 @@ function plural(ms, msAbs, n, name) {
 
 /***/ }),
 
-/***/ 6504:
+/***/ 1394:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var parseUrl = (__webpack_require__(7016).parse);
+var parseUrl = (__webpack_require__(7310).parse);
 
 var DEFAULT_PORTS = {
   ftp: 21,
@@ -9679,14 +9874,14 @@ exports.getProxyForUrl = getProxyForUrl;
 
 /***/ }),
 
-/***/ 7687:
+/***/ 2130:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
-const os = __webpack_require__(857);
-const tty = __webpack_require__(2018);
-const hasFlag = __webpack_require__(5884);
+const os = __webpack_require__(2037);
+const tty = __webpack_require__(6224);
+const hasFlag = __webpack_require__(6560);
 
 const {env} = process;
 
@@ -9822,7 +10017,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 2613:
+/***/ 9491:
 /***/ ((module) => {
 
 "use strict";
@@ -9830,7 +10025,7 @@ module.exports = require("assert");
 
 /***/ }),
 
-/***/ 4434:
+/***/ 2361:
 /***/ ((module) => {
 
 "use strict";
@@ -9838,7 +10033,7 @@ module.exports = require("events");
 
 /***/ }),
 
-/***/ 9896:
+/***/ 7147:
 /***/ ((module) => {
 
 "use strict";
@@ -9846,7 +10041,7 @@ module.exports = require("fs");
 
 /***/ }),
 
-/***/ 8611:
+/***/ 3685:
 /***/ ((module) => {
 
 "use strict";
@@ -9854,7 +10049,7 @@ module.exports = require("http");
 
 /***/ }),
 
-/***/ 5692:
+/***/ 5687:
 /***/ ((module) => {
 
 "use strict";
@@ -9862,7 +10057,7 @@ module.exports = require("https");
 
 /***/ }),
 
-/***/ 857:
+/***/ 2037:
 /***/ ((module) => {
 
 "use strict";
@@ -9870,7 +10065,7 @@ module.exports = require("os");
 
 /***/ }),
 
-/***/ 6928:
+/***/ 1017:
 /***/ ((module) => {
 
 "use strict";
@@ -9878,7 +10073,7 @@ module.exports = require("path");
 
 /***/ }),
 
-/***/ 2203:
+/***/ 2781:
 /***/ ((module) => {
 
 "use strict";
@@ -9886,7 +10081,7 @@ module.exports = require("stream");
 
 /***/ }),
 
-/***/ 2018:
+/***/ 6224:
 /***/ ((module) => {
 
 "use strict";
@@ -9894,7 +10089,7 @@ module.exports = require("tty");
 
 /***/ }),
 
-/***/ 7016:
+/***/ 7310:
 /***/ ((module) => {
 
 "use strict";
@@ -9902,7 +10097,7 @@ module.exports = require("url");
 
 /***/ }),
 
-/***/ 9023:
+/***/ 3837:
 /***/ ((module) => {
 
 "use strict";
@@ -9910,7 +10105,7 @@ module.exports = require("util");
 
 /***/ }),
 
-/***/ 3106:
+/***/ 9796:
 /***/ ((module) => {
 
 "use strict";
@@ -9918,19 +10113,21 @@ module.exports = require("zlib");
 
 /***/ }),
 
-/***/ 79:
+/***/ 3897:
 /***/ ((module) => {
 
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
   return arr2;
 }
 module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 2987:
+/***/ 5372:
 /***/ ((module) => {
 
 function _arrayWithHoles(arr) {
@@ -9940,7 +10137,7 @@ module.exports = _arrayWithHoles, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 2475:
+/***/ 6115:
 /***/ ((module) => {
 
 function _assertThisInitialized(self) {
@@ -9953,7 +10150,7 @@ module.exports = _assertThisInitialized, module.exports.__esModule = true, modul
 
 /***/ }),
 
-/***/ 9293:
+/***/ 7156:
 /***/ ((module) => {
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
@@ -9990,7 +10187,7 @@ module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exp
 
 /***/ }),
 
-/***/ 7383:
+/***/ 6690:
 /***/ ((module) => {
 
 function _classCallCheck(instance, Constructor) {
@@ -10002,26 +10199,34 @@ module.exports = _classCallCheck, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 9646:
+/***/ 3515:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var setPrototypeOf = __webpack_require__(5636);
-var isNativeReflectConstruct = __webpack_require__(7550);
-function _construct(t, e, r) {
-  if (isNativeReflectConstruct()) return Reflect.construct.apply(null, arguments);
-  var o = [null];
-  o.push.apply(o, e);
-  var p = new (t.bind.apply(t, o))();
-  return r && setPrototypeOf(p, r.prototype), p;
+var setPrototypeOf = __webpack_require__(6015);
+var isNativeReflectConstruct = __webpack_require__(9617);
+function _construct(Parent, args, Class) {
+  if (isNativeReflectConstruct()) {
+    module.exports = _construct = Reflect.construct.bind(), module.exports.__esModule = true, module.exports["default"] = module.exports;
+  } else {
+    module.exports = _construct = function _construct(Parent, args, Class) {
+      var a = [null];
+      a.push.apply(a, args);
+      var Constructor = Function.bind.apply(Parent, a);
+      var instance = new Constructor();
+      if (Class) setPrototypeOf(instance, Class.prototype);
+      return instance;
+    }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  }
+  return _construct.apply(null, arguments);
 }
 module.exports = _construct, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 4579:
+/***/ 9728:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var toPropertyKey = __webpack_require__(7736);
+var toPropertyKey = __webpack_require__(4062);
 function _defineProperties(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
@@ -10043,10 +10248,10 @@ module.exports = _createClass, module.exports.__esModule = true, module.exports[
 
 /***/ }),
 
-/***/ 3693:
+/***/ 8416:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var toPropertyKey = __webpack_require__(7736);
+var toPropertyKey = __webpack_require__(4062);
 function _defineProperty(obj, key, value) {
   key = toPropertyKey(key);
   if (key in obj) {
@@ -10065,10 +10270,10 @@ module.exports = _defineProperty, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 2395:
+/***/ 1588:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var superPropBase = __webpack_require__(9552);
+var superPropBase = __webpack_require__(1753);
 function _get() {
   if (typeof Reflect !== "undefined" && Reflect.get) {
     module.exports = _get = Reflect.get.bind(), module.exports.__esModule = true, module.exports["default"] = module.exports;
@@ -10089,7 +10294,7 @@ module.exports = _get, module.exports.__esModule = true, module.exports["default
 
 /***/ }),
 
-/***/ 3072:
+/***/ 3808:
 /***/ ((module) => {
 
 function _getPrototypeOf(o) {
@@ -10102,10 +10307,10 @@ module.exports = _getPrototypeOf, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 9511:
+/***/ 1655:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var setPrototypeOf = __webpack_require__(5636);
+var setPrototypeOf = __webpack_require__(6015);
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function");
@@ -10126,7 +10331,7 @@ module.exports = _inherits, module.exports.__esModule = true, module.exports["de
 
 /***/ }),
 
-/***/ 4994:
+/***/ 4836:
 /***/ ((module) => {
 
 function _interopRequireDefault(obj) {
@@ -10138,70 +10343,71 @@ module.exports = _interopRequireDefault, module.exports.__esModule = true, modul
 
 /***/ }),
 
-/***/ 691:
+/***/ 6035:
 /***/ ((module) => {
 
 function _isNativeFunction(fn) {
-  try {
-    return Function.toString.call(fn).indexOf("[native code]") !== -1;
-  } catch (e) {
-    return typeof fn === "function";
-  }
+  return Function.toString.call(fn).indexOf("[native code]") !== -1;
 }
 module.exports = _isNativeFunction, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 7550:
+/***/ 9617:
 /***/ ((module) => {
 
 function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
   try {
-    var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
-  } catch (t) {}
-  return (module.exports = _isNativeReflectConstruct = function _isNativeReflectConstruct() {
-    return !!t;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports)();
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 module.exports = _isNativeReflectConstruct, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 1156:
+/***/ 8872:
 /***/ ((module) => {
 
-function _iterableToArrayLimit(r, l) {
-  var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
-  if (null != t) {
-    var e,
-      n,
-      i,
-      u,
-      a = [],
-      f = !0,
-      o = !1;
+function _iterableToArrayLimit(arr, i) {
+  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
+  if (null != _i) {
+    var _s,
+      _e,
+      _x,
+      _r,
+      _arr = [],
+      _n = !0,
+      _d = !1;
     try {
-      if (i = (t = t.call(r)).next, 0 === l) {
-        if (Object(t) !== t) return;
-        f = !1;
-      } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
-    } catch (r) {
-      o = !0, n = r;
+      if (_x = (_i = _i.call(arr)).next, 0 === i) {
+        if (Object(_i) !== _i) return;
+        _n = !1;
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) {
+        ;
+      }
+    } catch (err) {
+      _d = !0, _e = err;
     } finally {
       try {
-        if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return;
+        if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
       } finally {
-        if (o) throw n;
+        if (_d) throw _e;
       }
     }
-    return a;
+    return _arr;
   }
 }
 module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 7752:
+/***/ 2218:
 /***/ ((module) => {
 
 function _nonIterableRest() {
@@ -10211,11 +10417,11 @@ module.exports = _nonIterableRest, module.exports.__esModule = true, module.expo
 
 /***/ }),
 
-/***/ 8452:
+/***/ 4993:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var _typeof = (__webpack_require__(3738)["default"]);
-var assertThisInitialized = __webpack_require__(2475);
+var _typeof = (__webpack_require__(8698)["default"]);
+var assertThisInitialized = __webpack_require__(6115);
 function _possibleConstructorReturn(self, call) {
   if (call && (_typeof(call) === "object" || typeof call === "function")) {
     return call;
@@ -10228,317 +10434,323 @@ module.exports = _possibleConstructorReturn, module.exports.__esModule = true, m
 
 /***/ }),
 
-/***/ 4633:
+/***/ 7061:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var _typeof = (__webpack_require__(3738)["default"]);
+var _typeof = (__webpack_require__(8698)["default"]);
 function _regeneratorRuntime() {
   "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
   module.exports = _regeneratorRuntime = function _regeneratorRuntime() {
-    return e;
+    return exports;
   }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  var t,
-    e = {},
-    r = Object.prototype,
-    n = r.hasOwnProperty,
-    o = Object.defineProperty || function (t, e, r) {
-      t[e] = r.value;
+  var exports = {},
+    Op = Object.prototype,
+    hasOwn = Op.hasOwnProperty,
+    defineProperty = Object.defineProperty || function (obj, key, desc) {
+      obj[key] = desc.value;
     },
-    i = "function" == typeof Symbol ? Symbol : {},
-    a = i.iterator || "@@iterator",
-    c = i.asyncIterator || "@@asyncIterator",
-    u = i.toStringTag || "@@toStringTag";
-  function define(t, e, r) {
-    return Object.defineProperty(t, e, {
-      value: r,
+    $Symbol = "function" == typeof Symbol ? Symbol : {},
+    iteratorSymbol = $Symbol.iterator || "@@iterator",
+    asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator",
+    toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+  function define(obj, key, value) {
+    return Object.defineProperty(obj, key, {
+      value: value,
       enumerable: !0,
       configurable: !0,
       writable: !0
-    }), t[e];
+    }), obj[key];
   }
   try {
     define({}, "");
-  } catch (t) {
-    define = function define(t, e, r) {
-      return t[e] = r;
+  } catch (err) {
+    define = function define(obj, key, value) {
+      return obj[key] = value;
     };
   }
-  function wrap(t, e, r, n) {
-    var i = e && e.prototype instanceof Generator ? e : Generator,
-      a = Object.create(i.prototype),
-      c = new Context(n || []);
-    return o(a, "_invoke", {
-      value: makeInvokeMethod(t, r, c)
-    }), a;
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator,
+      generator = Object.create(protoGenerator.prototype),
+      context = new Context(tryLocsList || []);
+    return defineProperty(generator, "_invoke", {
+      value: makeInvokeMethod(innerFn, self, context)
+    }), generator;
   }
-  function tryCatch(t, e, r) {
+  function tryCatch(fn, obj, arg) {
     try {
       return {
         type: "normal",
-        arg: t.call(e, r)
+        arg: fn.call(obj, arg)
       };
-    } catch (t) {
+    } catch (err) {
       return {
         type: "throw",
-        arg: t
+        arg: err
       };
     }
   }
-  e.wrap = wrap;
-  var h = "suspendedStart",
-    l = "suspendedYield",
-    f = "executing",
-    s = "completed",
-    y = {};
+  exports.wrap = wrap;
+  var ContinueSentinel = {};
   function Generator() {}
   function GeneratorFunction() {}
   function GeneratorFunctionPrototype() {}
-  var p = {};
-  define(p, a, function () {
+  var IteratorPrototype = {};
+  define(IteratorPrototype, iteratorSymbol, function () {
     return this;
   });
-  var d = Object.getPrototypeOf,
-    v = d && d(d(values([])));
-  v && v !== r && n.call(v, a) && (p = v);
-  var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p);
-  function defineIteratorMethods(t) {
-    ["next", "throw", "return"].forEach(function (e) {
-      define(t, e, function (t) {
-        return this._invoke(e, t);
+  var getProto = Object.getPrototypeOf,
+    NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype);
+  var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype);
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function (method) {
+      define(prototype, method, function (arg) {
+        return this._invoke(method, arg);
       });
     });
   }
-  function AsyncIterator(t, e) {
-    function invoke(r, o, i, a) {
-      var c = tryCatch(t[r], t, o);
-      if ("throw" !== c.type) {
-        var u = c.arg,
-          h = u.value;
-        return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) {
-          invoke("next", t, i, a);
-        }, function (t) {
-          invoke("throw", t, i, a);
-        }) : e.resolve(h).then(function (t) {
-          u.value = t, i(u);
-        }, function (t) {
-          return invoke("throw", t, i, a);
+  function AsyncIterator(generator, PromiseImpl) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if ("throw" !== record.type) {
+        var result = record.arg,
+          value = result.value;
+        return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) {
+          invoke("next", value, resolve, reject);
+        }, function (err) {
+          invoke("throw", err, resolve, reject);
+        }) : PromiseImpl.resolve(value).then(function (unwrapped) {
+          result.value = unwrapped, resolve(result);
+        }, function (error) {
+          return invoke("throw", error, resolve, reject);
         });
       }
-      a(c.arg);
+      reject(record.arg);
     }
-    var r;
-    o(this, "_invoke", {
-      value: function value(t, n) {
+    var previousPromise;
+    defineProperty(this, "_invoke", {
+      value: function value(method, arg) {
         function callInvokeWithMethodAndArg() {
-          return new e(function (e, r) {
-            invoke(t, n, e, r);
+          return new PromiseImpl(function (resolve, reject) {
+            invoke(method, arg, resolve, reject);
           });
         }
-        return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
+        return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
       }
     });
   }
-  function makeInvokeMethod(e, r, n) {
-    var o = h;
-    return function (i, a) {
-      if (o === f) throw Error("Generator is already running");
-      if (o === s) {
-        if ("throw" === i) throw a;
-        return {
-          value: t,
-          done: !0
-        };
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = "suspendedStart";
+    return function (method, arg) {
+      if ("executing" === state) throw new Error("Generator is already running");
+      if ("completed" === state) {
+        if ("throw" === method) throw arg;
+        return doneResult();
       }
-      for (n.method = i, n.arg = a;;) {
-        var c = n.delegate;
-        if (c) {
-          var u = maybeInvokeDelegate(c, n);
-          if (u) {
-            if (u === y) continue;
-            return u;
+      for (context.method = method, context.arg = arg;;) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
           }
         }
-        if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) {
-          if (o === h) throw o = s, n.arg;
-          n.dispatchException(n.arg);
-        } else "return" === n.method && n.abrupt("return", n.arg);
-        o = f;
-        var p = tryCatch(e, r, n);
-        if ("normal" === p.type) {
-          if (o = n.done ? s : l, p.arg === y) continue;
+        if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) {
+          if ("suspendedStart" === state) throw state = "completed", context.arg;
+          context.dispatchException(context.arg);
+        } else "return" === context.method && context.abrupt("return", context.arg);
+        state = "executing";
+        var record = tryCatch(innerFn, self, context);
+        if ("normal" === record.type) {
+          if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue;
           return {
-            value: p.arg,
-            done: n.done
+            value: record.arg,
+            done: context.done
           };
         }
-        "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg);
+        "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg);
       }
     };
   }
-  function maybeInvokeDelegate(e, r) {
-    var n = r.method,
-      o = e.iterator[n];
-    if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y;
-    var i = tryCatch(o, e.iterator, r.arg);
-    if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y;
-    var a = i.arg;
-    return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y);
+  function maybeInvokeDelegate(delegate, context) {
+    var methodName = context.method,
+      method = delegate.iterator[methodName];
+    if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel;
+    var record = tryCatch(method, delegate.iterator, context.arg);
+    if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel;
+    var info = record.arg;
+    return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel);
   }
-  function pushTryEntry(t) {
-    var e = {
-      tryLoc: t[0]
+  function pushTryEntry(locs) {
+    var entry = {
+      tryLoc: locs[0]
     };
-    1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e);
+    1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry);
   }
-  function resetTryEntry(t) {
-    var e = t.completion || {};
-    e.type = "normal", delete e.arg, t.completion = e;
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal", delete record.arg, entry.completion = record;
   }
-  function Context(t) {
+  function Context(tryLocsList) {
     this.tryEntries = [{
       tryLoc: "root"
-    }], t.forEach(pushTryEntry, this), this.reset(!0);
+    }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0);
   }
-  function values(e) {
-    if (e || "" === e) {
-      var r = e[a];
-      if (r) return r.call(e);
-      if ("function" == typeof e.next) return e;
-      if (!isNaN(e.length)) {
-        var o = -1,
-          i = function next() {
-            for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next;
-            return next.value = t, next.done = !0, next;
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) return iteratorMethod.call(iterable);
+      if ("function" == typeof iterable.next) return iterable;
+      if (!isNaN(iterable.length)) {
+        var i = -1,
+          next = function next() {
+            for (; ++i < iterable.length;) {
+              if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
+            }
+            return next.value = undefined, next.done = !0, next;
           };
-        return i.next = i;
+        return next.next = next;
       }
     }
-    throw new TypeError(_typeof(e) + " is not iterable");
+    return {
+      next: doneResult
+    };
   }
-  return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", {
+  function doneResult() {
+    return {
+      value: undefined,
+      done: !0
+    };
+  }
+  return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", {
     value: GeneratorFunctionPrototype,
     configurable: !0
-  }), o(GeneratorFunctionPrototype, "constructor", {
+  }), defineProperty(GeneratorFunctionPrototype, "constructor", {
     value: GeneratorFunction,
     configurable: !0
-  }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) {
-    var e = "function" == typeof t && t.constructor;
-    return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name));
-  }, e.mark = function (t) {
-    return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t;
-  }, e.awrap = function (t) {
+  }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) {
+    var ctor = "function" == typeof genFun && genFun.constructor;
+    return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name));
+  }, exports.mark = function (genFun) {
+    return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun;
+  }, exports.awrap = function (arg) {
     return {
-      __await: t
+      __await: arg
     };
-  }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () {
+  }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
     return this;
-  }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) {
-    void 0 === i && (i = Promise);
-    var a = new AsyncIterator(wrap(t, r, n, o), i);
-    return e.isGeneratorFunction(r) ? a : a.next().then(function (t) {
-      return t.done ? t.value : a.next();
+  }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    void 0 === PromiseImpl && (PromiseImpl = Promise);
+    var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl);
+    return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) {
+      return result.done ? result.value : iter.next();
     });
-  }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () {
+  }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () {
     return this;
-  }), define(g, "toString", function () {
+  }), define(Gp, "toString", function () {
     return "[object Generator]";
-  }), e.keys = function (t) {
-    var e = Object(t),
-      r = [];
-    for (var n in e) r.push(n);
-    return r.reverse(), function next() {
-      for (; r.length;) {
-        var t = r.pop();
-        if (t in e) return next.value = t, next.done = !1, next;
+  }), exports.keys = function (val) {
+    var object = Object(val),
+      keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    return keys.reverse(), function next() {
+      for (; keys.length;) {
+        var key = keys.pop();
+        if (key in object) return next.value = key, next.done = !1, next;
       }
       return next.done = !0, next;
     };
-  }, e.values = values, Context.prototype = {
+  }, exports.values = values, Context.prototype = {
     constructor: Context,
-    reset: function reset(e) {
-      if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t);
+    reset: function reset(skipTempReset) {
+      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) {
+        "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined);
+      }
     },
     stop: function stop() {
       this.done = !0;
-      var t = this.tryEntries[0].completion;
-      if ("throw" === t.type) throw t.arg;
+      var rootRecord = this.tryEntries[0].completion;
+      if ("throw" === rootRecord.type) throw rootRecord.arg;
       return this.rval;
     },
-    dispatchException: function dispatchException(e) {
-      if (this.done) throw e;
-      var r = this;
-      function handle(n, o) {
-        return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o;
+    dispatchException: function dispatchException(exception) {
+      if (this.done) throw exception;
+      var context = this;
+      function handle(loc, caught) {
+        return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught;
       }
-      for (var o = this.tryEntries.length - 1; o >= 0; --o) {
-        var i = this.tryEntries[o],
-          a = i.completion;
-        if ("root" === i.tryLoc) return handle("end");
-        if (i.tryLoc <= this.prev) {
-          var c = n.call(i, "catchLoc"),
-            u = n.call(i, "finallyLoc");
-          if (c && u) {
-            if (this.prev < i.catchLoc) return handle(i.catchLoc, !0);
-            if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
-          } else if (c) {
-            if (this.prev < i.catchLoc) return handle(i.catchLoc, !0);
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i],
+          record = entry.completion;
+        if ("root" === entry.tryLoc) return handle("end");
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc"),
+            hasFinally = hasOwn.call(entry, "finallyLoc");
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0);
+            if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc);
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0);
           } else {
-            if (!u) throw Error("try statement without catch or finally");
-            if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
+            if (!hasFinally) throw new Error("try statement without catch or finally");
+            if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc);
           }
         }
       }
     },
-    abrupt: function abrupt(t, e) {
-      for (var r = this.tryEntries.length - 1; r >= 0; --r) {
-        var o = this.tryEntries[r];
-        if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) {
-          var i = o;
+    abrupt: function abrupt(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
           break;
         }
       }
-      i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null);
-      var a = i ? i.completion : {};
-      return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a);
+      finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null);
+      var record = finallyEntry ? finallyEntry.completion : {};
+      return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record);
     },
-    complete: function complete(t, e) {
-      if ("throw" === t.type) throw t.arg;
-      return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y;
+    complete: function complete(record, afterLoc) {
+      if ("throw" === record.type) throw record.arg;
+      return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel;
     },
-    finish: function finish(t) {
-      for (var e = this.tryEntries.length - 1; e >= 0; --e) {
-        var r = this.tryEntries[e];
-        if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y;
+    finish: function finish(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel;
       }
     },
-    "catch": function _catch(t) {
-      for (var e = this.tryEntries.length - 1; e >= 0; --e) {
-        var r = this.tryEntries[e];
-        if (r.tryLoc === t) {
-          var n = r.completion;
-          if ("throw" === n.type) {
-            var o = n.arg;
-            resetTryEntry(r);
+    "catch": function _catch(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if ("throw" === record.type) {
+            var thrown = record.arg;
+            resetTryEntry(entry);
           }
-          return o;
+          return thrown;
         }
       }
-      throw Error("illegal catch attempt");
+      throw new Error("illegal catch attempt");
     },
-    delegateYield: function delegateYield(e, r, n) {
+    delegateYield: function delegateYield(iterable, resultName, nextLoc) {
       return this.delegate = {
-        iterator: values(e),
-        resultName: r,
-        nextLoc: n
-      }, "next" === this.method && (this.arg = t), y;
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      }, "next" === this.method && (this.arg = undefined), ContinueSentinel;
     }
-  }, e;
+  }, exports;
 }
 module.exports = _regeneratorRuntime, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 5636:
+/***/ 6015:
 /***/ ((module) => {
 
 function _setPrototypeOf(o, p) {
@@ -10552,13 +10764,13 @@ module.exports = _setPrototypeOf, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 5715:
+/***/ 7424:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var arrayWithHoles = __webpack_require__(2987);
-var iterableToArrayLimit = __webpack_require__(1156);
-var unsupportedIterableToArray = __webpack_require__(7122);
-var nonIterableRest = __webpack_require__(7752);
+var arrayWithHoles = __webpack_require__(5372);
+var iterableToArrayLimit = __webpack_require__(8872);
+var unsupportedIterableToArray = __webpack_require__(6116);
+var nonIterableRest = __webpack_require__(2218);
 function _slicedToArray(arr, i) {
   return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
 }
@@ -10566,10 +10778,10 @@ module.exports = _slicedToArray, module.exports.__esModule = true, module.export
 
 /***/ }),
 
-/***/ 9552:
+/***/ 1753:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var getPrototypeOf = __webpack_require__(3072);
+var getPrototypeOf = __webpack_require__(3808);
 function _superPropBase(object, property) {
   while (!Object.prototype.hasOwnProperty.call(object, property)) {
     object = getPrototypeOf(object);
@@ -10581,57 +10793,57 @@ module.exports = _superPropBase, module.exports.__esModule = true, module.export
 
 /***/ }),
 
-/***/ 9045:
+/***/ 5036:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var _typeof = (__webpack_require__(3738)["default"]);
-function toPrimitive(t, r) {
-  if ("object" != _typeof(t) || !t) return t;
-  var e = t[Symbol.toPrimitive];
-  if (void 0 !== e) {
-    var i = e.call(t, r || "default");
-    if ("object" != _typeof(i)) return i;
+var _typeof = (__webpack_require__(8698)["default"]);
+function _toPrimitive(input, hint) {
+  if (_typeof(input) !== "object" || input === null) return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    var res = prim.call(input, hint || "default");
+    if (_typeof(res) !== "object") return res;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
-  return ("string" === r ? String : Number)(t);
+  return (hint === "string" ? String : Number)(input);
 }
-module.exports = toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
+module.exports = _toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 7736:
+/***/ 4062:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var _typeof = (__webpack_require__(3738)["default"]);
-var toPrimitive = __webpack_require__(9045);
-function toPropertyKey(t) {
-  var i = toPrimitive(t, "string");
-  return "symbol" == _typeof(i) ? i : i + "";
+var _typeof = (__webpack_require__(8698)["default"]);
+var toPrimitive = __webpack_require__(5036);
+function _toPropertyKey(arg) {
+  var key = toPrimitive(arg, "string");
+  return _typeof(key) === "symbol" ? key : String(key);
 }
-module.exports = toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
+module.exports = _toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 3738:
+/***/ 8698:
 /***/ ((module) => {
 
-function _typeof(o) {
+function _typeof(obj) {
   "@babel/helpers - typeof";
 
-  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
-    return typeof o;
-  } : function (o) {
-    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(o);
+  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
 }
 module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 7122:
+/***/ 6116:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var arrayLikeToArray = __webpack_require__(79);
+var arrayLikeToArray = __webpack_require__(3897);
 function _unsupportedIterableToArray(o, minLen) {
   if (!o) return;
   if (typeof o === "string") return arrayLikeToArray(o, minLen);
@@ -10644,13 +10856,13 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
 
 /***/ }),
 
-/***/ 1837:
+/***/ 3496:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var getPrototypeOf = __webpack_require__(3072);
-var setPrototypeOf = __webpack_require__(5636);
-var isNativeFunction = __webpack_require__(691);
-var construct = __webpack_require__(9646);
+var getPrototypeOf = __webpack_require__(3808);
+var setPrototypeOf = __webpack_require__(6015);
+var isNativeFunction = __webpack_require__(6035);
+var construct = __webpack_require__(3515);
 function _wrapNativeSuper(Class) {
   var _cache = typeof Map === "function" ? new Map() : undefined;
   module.exports = _wrapNativeSuper = function _wrapNativeSuper(Class) {
@@ -10681,12 +10893,12 @@ module.exports = _wrapNativeSuper, module.exports.__esModule = true, module.expo
 
 /***/ }),
 
-/***/ 4756:
+/***/ 4687:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 // TODO(Babel 8): Remove this file.
 
-var runtime = __webpack_require__(4633)();
+var runtime = __webpack_require__(7061)();
 module.exports = runtime;
 
 // Copied from https://github.com/facebook/regenerator/blob/main/packages/runtime/runtime.js#L736=
@@ -10703,23 +10915,23 @@ try {
 
 /***/ }),
 
-/***/ 9329:
+/***/ 3306:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-// Axios v1.6.8 Copyright (c) 2024 Matt Zabriskie and contributors
+// Axios v1.6.2 Copyright (c) 2023 Matt Zabriskie and contributors
 
 
-const FormData$1 = __webpack_require__(737);
-const url = __webpack_require__(7016);
-const proxyFromEnv = __webpack_require__(6504);
-const http = __webpack_require__(8611);
-const https = __webpack_require__(5692);
-const util = __webpack_require__(9023);
-const followRedirects = __webpack_require__(3164);
-const zlib = __webpack_require__(3106);
-const stream = __webpack_require__(2203);
-const events = __webpack_require__(4434);
+const FormData$1 = __webpack_require__(6882);
+const url = __webpack_require__(7310);
+const proxyFromEnv = __webpack_require__(1394);
+const http = __webpack_require__(3685);
+const https = __webpack_require__(5687);
+const util = __webpack_require__(3837);
+const followRedirects = __webpack_require__(938);
+const zlib = __webpack_require__(9796);
+const stream = __webpack_require__(2781);
+const EventEmitter = __webpack_require__(2361);
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -10731,6 +10943,7 @@ const util__default = /*#__PURE__*/_interopDefaultLegacy(util);
 const followRedirects__default = /*#__PURE__*/_interopDefaultLegacy(followRedirects);
 const zlib__default = /*#__PURE__*/_interopDefaultLegacy(zlib);
 const stream__default = /*#__PURE__*/_interopDefaultLegacy(stream);
+const EventEmitter__default = /*#__PURE__*/_interopDefaultLegacy(EventEmitter);
 
 function bind(fn, thisArg) {
   return function wrap() {
@@ -12076,9 +12289,6 @@ function arrayToObject(arr) {
 function formDataToJSON(formData) {
   function buildPath(path, value, target, index) {
     let name = path[index++];
-
-    if (name === '__proto__') return true;
-
     const isNumericKey = Number.isFinite(+name);
     const isLast = index >= path.length;
     name = !name && utils$1.isArray(target) ? target.length : name;
@@ -12162,6 +12372,9 @@ const defaults = {
     const isFormData = utils$1.isFormData(data);
 
     if (isFormData) {
+      if (!hasJSONContentType) {
+        return data;
+      }
       return hasJSONContentType ? JSON.stringify(formDataToJSON(data)) : data;
     }
 
@@ -12706,7 +12919,7 @@ function isAbsoluteURL(url) {
  */
 function combineURLs(baseURL, relativeURL) {
   return relativeURL
-    ? baseURL.replace(/\/?\/$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
     : baseURL;
 }
 
@@ -12727,7 +12940,7 @@ function buildFullPath(baseURL, requestedURL) {
   return requestedURL;
 }
 
-const VERSION = "1.6.8";
+const VERSION = "1.6.2";
 
 function parseProtocol(url) {
   const match = /^([-+\w]{1,25})(:?\/\/|:)/.exec(url);
@@ -13240,12 +13453,12 @@ const supportedProtocols = platform.protocols.map(protocol => {
  *
  * @returns {Object<string, any>}
  */
-function dispatchBeforeRedirect(options, responseDetails) {
+function dispatchBeforeRedirect(options) {
   if (options.beforeRedirects.proxy) {
     options.beforeRedirects.proxy(options);
   }
   if (options.beforeRedirects.config) {
-    options.beforeRedirects.config(options, responseDetails);
+    options.beforeRedirects.config(options);
   }
 }
 
@@ -13358,10 +13571,6 @@ const httpAdapter = isHttpAdapterSupported && function httpAdapter(config) {
       // hotfix to support opt.all option which is required for node 20.x
       lookup = (hostname, opt, cb) => {
         _lookup(hostname, opt, (err, arg0, arg1) => {
-          if (err) {
-            return cb(err);
-          }
-
           const addresses = utils$1.isArray(arg0) ? arg0.map(addr => buildAddressEntry(addr)) : [buildAddressEntry(arg0, arg1)];
 
           opt.all ? cb(err, addresses) : cb(err, addresses[0].address, addresses[0].family);
@@ -13370,7 +13579,7 @@ const httpAdapter = isHttpAdapterSupported && function httpAdapter(config) {
     }
 
     // temporary internal emitter until the AxiosRequest class will be implemented
-    const emitter = new events.EventEmitter();
+    const emitter = new EventEmitter__default["default"]();
 
     const onFinished = () => {
       if (config.cancelToken) {
@@ -14360,7 +14569,7 @@ function dispatchRequest(config) {
   });
 }
 
-const headersToObject = (thing) => thing instanceof AxiosHeaders$1 ? { ...thing } : thing;
+const headersToObject = (thing) => thing instanceof AxiosHeaders$1 ? thing.toJSON() : thing;
 
 /**
  * Config-specific merge-function which creates a new config-object
@@ -14575,31 +14784,7 @@ class Axios {
    *
    * @returns {Promise} The Promise to be fulfilled
    */
-  async request(configOrUrl, config) {
-    try {
-      return await this._request(configOrUrl, config);
-    } catch (err) {
-      if (err instanceof Error) {
-        let dummy;
-
-        Error.captureStackTrace ? Error.captureStackTrace(dummy = {}) : (dummy = new Error());
-
-        // slice off the Error: ... line
-        const stack = dummy.stack ? dummy.stack.replace(/^.+\n/, '') : '';
-
-        if (!err.stack) {
-          err.stack = stack;
-          // match without the 2 top stack lines
-        } else if (stack && !String(err.stack).endsWith(stack.replace(/^.+\n.+\n/, ''))) {
-          err.stack += '\n' + stack;
-        }
-      }
-
-      throw err;
-    }
-  }
-
-  _request(configOrUrl, config) {
+  request(configOrUrl, config) {
     /*eslint no-param-reassign:0*/
     // Allow for axios('example/url'[, config]) a la fetch API
     if (typeof configOrUrl === 'string') {
@@ -15065,19 +15250,19 @@ module.exports = axios;
 
 /***/ }),
 
-/***/ 1813:
+/***/ 3765:
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"application/1d-interleaved-parityfec":{"source":"iana"},"application/3gpdash-qoe-report+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/3gpp-ims+xml":{"source":"iana","compressible":true},"application/3gpphal+json":{"source":"iana","compressible":true},"application/3gpphalforms+json":{"source":"iana","compressible":true},"application/a2l":{"source":"iana"},"application/ace+cbor":{"source":"iana"},"application/activemessage":{"source":"iana"},"application/activity+json":{"source":"iana","compressible":true},"application/alto-costmap+json":{"source":"iana","compressible":true},"application/alto-costmapfilter+json":{"source":"iana","compressible":true},"application/alto-directory+json":{"source":"iana","compressible":true},"application/alto-endpointcost+json":{"source":"iana","compressible":true},"application/alto-endpointcostparams+json":{"source":"iana","compressible":true},"application/alto-endpointprop+json":{"source":"iana","compressible":true},"application/alto-endpointpropparams+json":{"source":"iana","compressible":true},"application/alto-error+json":{"source":"iana","compressible":true},"application/alto-networkmap+json":{"source":"iana","compressible":true},"application/alto-networkmapfilter+json":{"source":"iana","compressible":true},"application/alto-updatestreamcontrol+json":{"source":"iana","compressible":true},"application/alto-updatestreamparams+json":{"source":"iana","compressible":true},"application/aml":{"source":"iana"},"application/andrew-inset":{"source":"iana","extensions":["ez"]},"application/applefile":{"source":"iana"},"application/applixware":{"source":"apache","extensions":["aw"]},"application/at+jwt":{"source":"iana"},"application/atf":{"source":"iana"},"application/atfx":{"source":"iana"},"application/atom+xml":{"source":"iana","compressible":true,"extensions":["atom"]},"application/atomcat+xml":{"source":"iana","compressible":true,"extensions":["atomcat"]},"application/atomdeleted+xml":{"source":"iana","compressible":true,"extensions":["atomdeleted"]},"application/atomicmail":{"source":"iana"},"application/atomsvc+xml":{"source":"iana","compressible":true,"extensions":["atomsvc"]},"application/atsc-dwd+xml":{"source":"iana","compressible":true,"extensions":["dwd"]},"application/atsc-dynamic-event-message":{"source":"iana"},"application/atsc-held+xml":{"source":"iana","compressible":true,"extensions":["held"]},"application/atsc-rdt+json":{"source":"iana","compressible":true},"application/atsc-rsat+xml":{"source":"iana","compressible":true,"extensions":["rsat"]},"application/atxml":{"source":"iana"},"application/auth-policy+xml":{"source":"iana","compressible":true},"application/bacnet-xdd+zip":{"source":"iana","compressible":false},"application/batch-smtp":{"source":"iana"},"application/bdoc":{"compressible":false,"extensions":["bdoc"]},"application/beep+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/calendar+json":{"source":"iana","compressible":true},"application/calendar+xml":{"source":"iana","compressible":true,"extensions":["xcs"]},"application/call-completion":{"source":"iana"},"application/cals-1840":{"source":"iana"},"application/captive+json":{"source":"iana","compressible":true},"application/cbor":{"source":"iana"},"application/cbor-seq":{"source":"iana"},"application/cccex":{"source":"iana"},"application/ccmp+xml":{"source":"iana","compressible":true},"application/ccxml+xml":{"source":"iana","compressible":true,"extensions":["ccxml"]},"application/cdfx+xml":{"source":"iana","compressible":true,"extensions":["cdfx"]},"application/cdmi-capability":{"source":"iana","extensions":["cdmia"]},"application/cdmi-container":{"source":"iana","extensions":["cdmic"]},"application/cdmi-domain":{"source":"iana","extensions":["cdmid"]},"application/cdmi-object":{"source":"iana","extensions":["cdmio"]},"application/cdmi-queue":{"source":"iana","extensions":["cdmiq"]},"application/cdni":{"source":"iana"},"application/cea":{"source":"iana"},"application/cea-2018+xml":{"source":"iana","compressible":true},"application/cellml+xml":{"source":"iana","compressible":true},"application/cfw":{"source":"iana"},"application/city+json":{"source":"iana","compressible":true},"application/clr":{"source":"iana"},"application/clue+xml":{"source":"iana","compressible":true},"application/clue_info+xml":{"source":"iana","compressible":true},"application/cms":{"source":"iana"},"application/cnrp+xml":{"source":"iana","compressible":true},"application/coap-group+json":{"source":"iana","compressible":true},"application/coap-payload":{"source":"iana"},"application/commonground":{"source":"iana"},"application/conference-info+xml":{"source":"iana","compressible":true},"application/cose":{"source":"iana"},"application/cose-key":{"source":"iana"},"application/cose-key-set":{"source":"iana"},"application/cpl+xml":{"source":"iana","compressible":true,"extensions":["cpl"]},"application/csrattrs":{"source":"iana"},"application/csta+xml":{"source":"iana","compressible":true},"application/cstadata+xml":{"source":"iana","compressible":true},"application/csvm+json":{"source":"iana","compressible":true},"application/cu-seeme":{"source":"apache","extensions":["cu"]},"application/cwt":{"source":"iana"},"application/cybercash":{"source":"iana"},"application/dart":{"compressible":true},"application/dash+xml":{"source":"iana","compressible":true,"extensions":["mpd"]},"application/dash-patch+xml":{"source":"iana","compressible":true,"extensions":["mpp"]},"application/dashdelta":{"source":"iana"},"application/davmount+xml":{"source":"iana","compressible":true,"extensions":["davmount"]},"application/dca-rft":{"source":"iana"},"application/dcd":{"source":"iana"},"application/dec-dx":{"source":"iana"},"application/dialog-info+xml":{"source":"iana","compressible":true},"application/dicom":{"source":"iana"},"application/dicom+json":{"source":"iana","compressible":true},"application/dicom+xml":{"source":"iana","compressible":true},"application/dii":{"source":"iana"},"application/dit":{"source":"iana"},"application/dns":{"source":"iana"},"application/dns+json":{"source":"iana","compressible":true},"application/dns-message":{"source":"iana"},"application/docbook+xml":{"source":"apache","compressible":true,"extensions":["dbk"]},"application/dots+cbor":{"source":"iana"},"application/dskpp+xml":{"source":"iana","compressible":true},"application/dssc+der":{"source":"iana","extensions":["dssc"]},"application/dssc+xml":{"source":"iana","compressible":true,"extensions":["xdssc"]},"application/dvcs":{"source":"iana"},"application/ecmascript":{"source":"iana","compressible":true,"extensions":["es","ecma"]},"application/edi-consent":{"source":"iana"},"application/edi-x12":{"source":"iana","compressible":false},"application/edifact":{"source":"iana","compressible":false},"application/efi":{"source":"iana"},"application/elm+json":{"source":"iana","charset":"UTF-8","compressible":true},"application/elm+xml":{"source":"iana","compressible":true},"application/emergencycalldata.cap+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/emergencycalldata.comment+xml":{"source":"iana","compressible":true},"application/emergencycalldata.control+xml":{"source":"iana","compressible":true},"application/emergencycalldata.deviceinfo+xml":{"source":"iana","compressible":true},"application/emergencycalldata.ecall.msd":{"source":"iana"},"application/emergencycalldata.providerinfo+xml":{"source":"iana","compressible":true},"application/emergencycalldata.serviceinfo+xml":{"source":"iana","compressible":true},"application/emergencycalldata.subscriberinfo+xml":{"source":"iana","compressible":true},"application/emergencycalldata.veds+xml":{"source":"iana","compressible":true},"application/emma+xml":{"source":"iana","compressible":true,"extensions":["emma"]},"application/emotionml+xml":{"source":"iana","compressible":true,"extensions":["emotionml"]},"application/encaprtp":{"source":"iana"},"application/epp+xml":{"source":"iana","compressible":true},"application/epub+zip":{"source":"iana","compressible":false,"extensions":["epub"]},"application/eshop":{"source":"iana"},"application/exi":{"source":"iana","extensions":["exi"]},"application/expect-ct-report+json":{"source":"iana","compressible":true},"application/express":{"source":"iana","extensions":["exp"]},"application/fastinfoset":{"source":"iana"},"application/fastsoap":{"source":"iana"},"application/fdt+xml":{"source":"iana","compressible":true,"extensions":["fdt"]},"application/fhir+json":{"source":"iana","charset":"UTF-8","compressible":true},"application/fhir+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/fido.trusted-apps+json":{"compressible":true},"application/fits":{"source":"iana"},"application/flexfec":{"source":"iana"},"application/font-sfnt":{"source":"iana"},"application/font-tdpfr":{"source":"iana","extensions":["pfr"]},"application/font-woff":{"source":"iana","compressible":false},"application/framework-attributes+xml":{"source":"iana","compressible":true},"application/geo+json":{"source":"iana","compressible":true,"extensions":["geojson"]},"application/geo+json-seq":{"source":"iana"},"application/geopackage+sqlite3":{"source":"iana"},"application/geoxacml+xml":{"source":"iana","compressible":true},"application/gltf-buffer":{"source":"iana"},"application/gml+xml":{"source":"iana","compressible":true,"extensions":["gml"]},"application/gpx+xml":{"source":"apache","compressible":true,"extensions":["gpx"]},"application/gxf":{"source":"apache","extensions":["gxf"]},"application/gzip":{"source":"iana","compressible":false,"extensions":["gz"]},"application/h224":{"source":"iana"},"application/held+xml":{"source":"iana","compressible":true},"application/hjson":{"extensions":["hjson"]},"application/http":{"source":"iana"},"application/hyperstudio":{"source":"iana","extensions":["stk"]},"application/ibe-key-request+xml":{"source":"iana","compressible":true},"application/ibe-pkg-reply+xml":{"source":"iana","compressible":true},"application/ibe-pp-data":{"source":"iana"},"application/iges":{"source":"iana"},"application/im-iscomposing+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/index":{"source":"iana"},"application/index.cmd":{"source":"iana"},"application/index.obj":{"source":"iana"},"application/index.response":{"source":"iana"},"application/index.vnd":{"source":"iana"},"application/inkml+xml":{"source":"iana","compressible":true,"extensions":["ink","inkml"]},"application/iotp":{"source":"iana"},"application/ipfix":{"source":"iana","extensions":["ipfix"]},"application/ipp":{"source":"iana"},"application/isup":{"source":"iana"},"application/its+xml":{"source":"iana","compressible":true,"extensions":["its"]},"application/java-archive":{"source":"apache","compressible":false,"extensions":["jar","war","ear"]},"application/java-serialized-object":{"source":"apache","compressible":false,"extensions":["ser"]},"application/java-vm":{"source":"apache","compressible":false,"extensions":["class"]},"application/javascript":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["js","mjs"]},"application/jf2feed+json":{"source":"iana","compressible":true},"application/jose":{"source":"iana"},"application/jose+json":{"source":"iana","compressible":true},"application/jrd+json":{"source":"iana","compressible":true},"application/jscalendar+json":{"source":"iana","compressible":true},"application/json":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["json","map"]},"application/json-patch+json":{"source":"iana","compressible":true},"application/json-seq":{"source":"iana"},"application/json5":{"extensions":["json5"]},"application/jsonml+json":{"source":"apache","compressible":true,"extensions":["jsonml"]},"application/jwk+json":{"source":"iana","compressible":true},"application/jwk-set+json":{"source":"iana","compressible":true},"application/jwt":{"source":"iana"},"application/kpml-request+xml":{"source":"iana","compressible":true},"application/kpml-response+xml":{"source":"iana","compressible":true},"application/ld+json":{"source":"iana","compressible":true,"extensions":["jsonld"]},"application/lgr+xml":{"source":"iana","compressible":true,"extensions":["lgr"]},"application/link-format":{"source":"iana"},"application/load-control+xml":{"source":"iana","compressible":true},"application/lost+xml":{"source":"iana","compressible":true,"extensions":["lostxml"]},"application/lostsync+xml":{"source":"iana","compressible":true},"application/lpf+zip":{"source":"iana","compressible":false},"application/lxf":{"source":"iana"},"application/mac-binhex40":{"source":"iana","extensions":["hqx"]},"application/mac-compactpro":{"source":"apache","extensions":["cpt"]},"application/macwriteii":{"source":"iana"},"application/mads+xml":{"source":"iana","compressible":true,"extensions":["mads"]},"application/manifest+json":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["webmanifest"]},"application/marc":{"source":"iana","extensions":["mrc"]},"application/marcxml+xml":{"source":"iana","compressible":true,"extensions":["mrcx"]},"application/mathematica":{"source":"iana","extensions":["ma","nb","mb"]},"application/mathml+xml":{"source":"iana","compressible":true,"extensions":["mathml"]},"application/mathml-content+xml":{"source":"iana","compressible":true},"application/mathml-presentation+xml":{"source":"iana","compressible":true},"application/mbms-associated-procedure-description+xml":{"source":"iana","compressible":true},"application/mbms-deregister+xml":{"source":"iana","compressible":true},"application/mbms-envelope+xml":{"source":"iana","compressible":true},"application/mbms-msk+xml":{"source":"iana","compressible":true},"application/mbms-msk-response+xml":{"source":"iana","compressible":true},"application/mbms-protection-description+xml":{"source":"iana","compressible":true},"application/mbms-reception-report+xml":{"source":"iana","compressible":true},"application/mbms-register+xml":{"source":"iana","compressible":true},"application/mbms-register-response+xml":{"source":"iana","compressible":true},"application/mbms-schedule+xml":{"source":"iana","compressible":true},"application/mbms-user-service-description+xml":{"source":"iana","compressible":true},"application/mbox":{"source":"iana","extensions":["mbox"]},"application/media-policy-dataset+xml":{"source":"iana","compressible":true,"extensions":["mpf"]},"application/media_control+xml":{"source":"iana","compressible":true},"application/mediaservercontrol+xml":{"source":"iana","compressible":true,"extensions":["mscml"]},"application/merge-patch+json":{"source":"iana","compressible":true},"application/metalink+xml":{"source":"apache","compressible":true,"extensions":["metalink"]},"application/metalink4+xml":{"source":"iana","compressible":true,"extensions":["meta4"]},"application/mets+xml":{"source":"iana","compressible":true,"extensions":["mets"]},"application/mf4":{"source":"iana"},"application/mikey":{"source":"iana"},"application/mipc":{"source":"iana"},"application/missing-blocks+cbor-seq":{"source":"iana"},"application/mmt-aei+xml":{"source":"iana","compressible":true,"extensions":["maei"]},"application/mmt-usd+xml":{"source":"iana","compressible":true,"extensions":["musd"]},"application/mods+xml":{"source":"iana","compressible":true,"extensions":["mods"]},"application/moss-keys":{"source":"iana"},"application/moss-signature":{"source":"iana"},"application/mosskey-data":{"source":"iana"},"application/mosskey-request":{"source":"iana"},"application/mp21":{"source":"iana","extensions":["m21","mp21"]},"application/mp4":{"source":"iana","extensions":["mp4s","m4p"]},"application/mpeg4-generic":{"source":"iana"},"application/mpeg4-iod":{"source":"iana"},"application/mpeg4-iod-xmt":{"source":"iana"},"application/mrb-consumer+xml":{"source":"iana","compressible":true},"application/mrb-publish+xml":{"source":"iana","compressible":true},"application/msc-ivr+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/msc-mixer+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/msword":{"source":"iana","compressible":false,"extensions":["doc","dot"]},"application/mud+json":{"source":"iana","compressible":true},"application/multipart-core":{"source":"iana"},"application/mxf":{"source":"iana","extensions":["mxf"]},"application/n-quads":{"source":"iana","extensions":["nq"]},"application/n-triples":{"source":"iana","extensions":["nt"]},"application/nasdata":{"source":"iana"},"application/news-checkgroups":{"source":"iana","charset":"US-ASCII"},"application/news-groupinfo":{"source":"iana","charset":"US-ASCII"},"application/news-transmission":{"source":"iana"},"application/nlsml+xml":{"source":"iana","compressible":true},"application/node":{"source":"iana","extensions":["cjs"]},"application/nss":{"source":"iana"},"application/oauth-authz-req+jwt":{"source":"iana"},"application/oblivious-dns-message":{"source":"iana"},"application/ocsp-request":{"source":"iana"},"application/ocsp-response":{"source":"iana"},"application/octet-stream":{"source":"iana","compressible":false,"extensions":["bin","dms","lrf","mar","so","dist","distz","pkg","bpk","dump","elc","deploy","exe","dll","deb","dmg","iso","img","msi","msp","msm","buffer"]},"application/oda":{"source":"iana","extensions":["oda"]},"application/odm+xml":{"source":"iana","compressible":true},"application/odx":{"source":"iana"},"application/oebps-package+xml":{"source":"iana","compressible":true,"extensions":["opf"]},"application/ogg":{"source":"iana","compressible":false,"extensions":["ogx"]},"application/omdoc+xml":{"source":"apache","compressible":true,"extensions":["omdoc"]},"application/onenote":{"source":"apache","extensions":["onetoc","onetoc2","onetmp","onepkg"]},"application/opc-nodeset+xml":{"source":"iana","compressible":true},"application/oscore":{"source":"iana"},"application/oxps":{"source":"iana","extensions":["oxps"]},"application/p21":{"source":"iana"},"application/p21+zip":{"source":"iana","compressible":false},"application/p2p-overlay+xml":{"source":"iana","compressible":true,"extensions":["relo"]},"application/parityfec":{"source":"iana"},"application/passport":{"source":"iana"},"application/patch-ops-error+xml":{"source":"iana","compressible":true,"extensions":["xer"]},"application/pdf":{"source":"iana","compressible":false,"extensions":["pdf"]},"application/pdx":{"source":"iana"},"application/pem-certificate-chain":{"source":"iana"},"application/pgp-encrypted":{"source":"iana","compressible":false,"extensions":["pgp"]},"application/pgp-keys":{"source":"iana","extensions":["asc"]},"application/pgp-signature":{"source":"iana","extensions":["asc","sig"]},"application/pics-rules":{"source":"apache","extensions":["prf"]},"application/pidf+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/pidf-diff+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/pkcs10":{"source":"iana","extensions":["p10"]},"application/pkcs12":{"source":"iana"},"application/pkcs7-mime":{"source":"iana","extensions":["p7m","p7c"]},"application/pkcs7-signature":{"source":"iana","extensions":["p7s"]},"application/pkcs8":{"source":"iana","extensions":["p8"]},"application/pkcs8-encrypted":{"source":"iana"},"application/pkix-attr-cert":{"source":"iana","extensions":["ac"]},"application/pkix-cert":{"source":"iana","extensions":["cer"]},"application/pkix-crl":{"source":"iana","extensions":["crl"]},"application/pkix-pkipath":{"source":"iana","extensions":["pkipath"]},"application/pkixcmp":{"source":"iana","extensions":["pki"]},"application/pls+xml":{"source":"iana","compressible":true,"extensions":["pls"]},"application/poc-settings+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/postscript":{"source":"iana","compressible":true,"extensions":["ai","eps","ps"]},"application/ppsp-tracker+json":{"source":"iana","compressible":true},"application/problem+json":{"source":"iana","compressible":true},"application/problem+xml":{"source":"iana","compressible":true},"application/provenance+xml":{"source":"iana","compressible":true,"extensions":["provx"]},"application/prs.alvestrand.titrax-sheet":{"source":"iana"},"application/prs.cww":{"source":"iana","extensions":["cww"]},"application/prs.cyn":{"source":"iana","charset":"7-BIT"},"application/prs.hpub+zip":{"source":"iana","compressible":false},"application/prs.nprend":{"source":"iana"},"application/prs.plucker":{"source":"iana"},"application/prs.rdf-xml-crypt":{"source":"iana"},"application/prs.xsf+xml":{"source":"iana","compressible":true},"application/pskc+xml":{"source":"iana","compressible":true,"extensions":["pskcxml"]},"application/pvd+json":{"source":"iana","compressible":true},"application/qsig":{"source":"iana"},"application/raml+yaml":{"compressible":true,"extensions":["raml"]},"application/raptorfec":{"source":"iana"},"application/rdap+json":{"source":"iana","compressible":true},"application/rdf+xml":{"source":"iana","compressible":true,"extensions":["rdf","owl"]},"application/reginfo+xml":{"source":"iana","compressible":true,"extensions":["rif"]},"application/relax-ng-compact-syntax":{"source":"iana","extensions":["rnc"]},"application/remote-printing":{"source":"iana"},"application/reputon+json":{"source":"iana","compressible":true},"application/resource-lists+xml":{"source":"iana","compressible":true,"extensions":["rl"]},"application/resource-lists-diff+xml":{"source":"iana","compressible":true,"extensions":["rld"]},"application/rfc+xml":{"source":"iana","compressible":true},"application/riscos":{"source":"iana"},"application/rlmi+xml":{"source":"iana","compressible":true},"application/rls-services+xml":{"source":"iana","compressible":true,"extensions":["rs"]},"application/route-apd+xml":{"source":"iana","compressible":true,"extensions":["rapd"]},"application/route-s-tsid+xml":{"source":"iana","compressible":true,"extensions":["sls"]},"application/route-usd+xml":{"source":"iana","compressible":true,"extensions":["rusd"]},"application/rpki-ghostbusters":{"source":"iana","extensions":["gbr"]},"application/rpki-manifest":{"source":"iana","extensions":["mft"]},"application/rpki-publication":{"source":"iana"},"application/rpki-roa":{"source":"iana","extensions":["roa"]},"application/rpki-updown":{"source":"iana"},"application/rsd+xml":{"source":"apache","compressible":true,"extensions":["rsd"]},"application/rss+xml":{"source":"apache","compressible":true,"extensions":["rss"]},"application/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"application/rtploopback":{"source":"iana"},"application/rtx":{"source":"iana"},"application/samlassertion+xml":{"source":"iana","compressible":true},"application/samlmetadata+xml":{"source":"iana","compressible":true},"application/sarif+json":{"source":"iana","compressible":true},"application/sarif-external-properties+json":{"source":"iana","compressible":true},"application/sbe":{"source":"iana"},"application/sbml+xml":{"source":"iana","compressible":true,"extensions":["sbml"]},"application/scaip+xml":{"source":"iana","compressible":true},"application/scim+json":{"source":"iana","compressible":true},"application/scvp-cv-request":{"source":"iana","extensions":["scq"]},"application/scvp-cv-response":{"source":"iana","extensions":["scs"]},"application/scvp-vp-request":{"source":"iana","extensions":["spq"]},"application/scvp-vp-response":{"source":"iana","extensions":["spp"]},"application/sdp":{"source":"iana","extensions":["sdp"]},"application/secevent+jwt":{"source":"iana"},"application/senml+cbor":{"source":"iana"},"application/senml+json":{"source":"iana","compressible":true},"application/senml+xml":{"source":"iana","compressible":true,"extensions":["senmlx"]},"application/senml-etch+cbor":{"source":"iana"},"application/senml-etch+json":{"source":"iana","compressible":true},"application/senml-exi":{"source":"iana"},"application/sensml+cbor":{"source":"iana"},"application/sensml+json":{"source":"iana","compressible":true},"application/sensml+xml":{"source":"iana","compressible":true,"extensions":["sensmlx"]},"application/sensml-exi":{"source":"iana"},"application/sep+xml":{"source":"iana","compressible":true},"application/sep-exi":{"source":"iana"},"application/session-info":{"source":"iana"},"application/set-payment":{"source":"iana"},"application/set-payment-initiation":{"source":"iana","extensions":["setpay"]},"application/set-registration":{"source":"iana"},"application/set-registration-initiation":{"source":"iana","extensions":["setreg"]},"application/sgml":{"source":"iana"},"application/sgml-open-catalog":{"source":"iana"},"application/shf+xml":{"source":"iana","compressible":true,"extensions":["shf"]},"application/sieve":{"source":"iana","extensions":["siv","sieve"]},"application/simple-filter+xml":{"source":"iana","compressible":true},"application/simple-message-summary":{"source":"iana"},"application/simplesymbolcontainer":{"source":"iana"},"application/sipc":{"source":"iana"},"application/slate":{"source":"iana"},"application/smil":{"source":"iana"},"application/smil+xml":{"source":"iana","compressible":true,"extensions":["smi","smil"]},"application/smpte336m":{"source":"iana"},"application/soap+fastinfoset":{"source":"iana"},"application/soap+xml":{"source":"iana","compressible":true},"application/sparql-query":{"source":"iana","extensions":["rq"]},"application/sparql-results+xml":{"source":"iana","compressible":true,"extensions":["srx"]},"application/spdx+json":{"source":"iana","compressible":true},"application/spirits-event+xml":{"source":"iana","compressible":true},"application/sql":{"source":"iana"},"application/srgs":{"source":"iana","extensions":["gram"]},"application/srgs+xml":{"source":"iana","compressible":true,"extensions":["grxml"]},"application/sru+xml":{"source":"iana","compressible":true,"extensions":["sru"]},"application/ssdl+xml":{"source":"apache","compressible":true,"extensions":["ssdl"]},"application/ssml+xml":{"source":"iana","compressible":true,"extensions":["ssml"]},"application/stix+json":{"source":"iana","compressible":true},"application/swid+xml":{"source":"iana","compressible":true,"extensions":["swidtag"]},"application/tamp-apex-update":{"source":"iana"},"application/tamp-apex-update-confirm":{"source":"iana"},"application/tamp-community-update":{"source":"iana"},"application/tamp-community-update-confirm":{"source":"iana"},"application/tamp-error":{"source":"iana"},"application/tamp-sequence-adjust":{"source":"iana"},"application/tamp-sequence-adjust-confirm":{"source":"iana"},"application/tamp-status-query":{"source":"iana"},"application/tamp-status-response":{"source":"iana"},"application/tamp-update":{"source":"iana"},"application/tamp-update-confirm":{"source":"iana"},"application/tar":{"compressible":true},"application/taxii+json":{"source":"iana","compressible":true},"application/td+json":{"source":"iana","compressible":true},"application/tei+xml":{"source":"iana","compressible":true,"extensions":["tei","teicorpus"]},"application/tetra_isi":{"source":"iana"},"application/thraud+xml":{"source":"iana","compressible":true,"extensions":["tfi"]},"application/timestamp-query":{"source":"iana"},"application/timestamp-reply":{"source":"iana"},"application/timestamped-data":{"source":"iana","extensions":["tsd"]},"application/tlsrpt+gzip":{"source":"iana"},"application/tlsrpt+json":{"source":"iana","compressible":true},"application/tnauthlist":{"source":"iana"},"application/token-introspection+jwt":{"source":"iana"},"application/toml":{"compressible":true,"extensions":["toml"]},"application/trickle-ice-sdpfrag":{"source":"iana"},"application/trig":{"source":"iana","extensions":["trig"]},"application/ttml+xml":{"source":"iana","compressible":true,"extensions":["ttml"]},"application/tve-trigger":{"source":"iana"},"application/tzif":{"source":"iana"},"application/tzif-leap":{"source":"iana"},"application/ubjson":{"compressible":false,"extensions":["ubj"]},"application/ulpfec":{"source":"iana"},"application/urc-grpsheet+xml":{"source":"iana","compressible":true},"application/urc-ressheet+xml":{"source":"iana","compressible":true,"extensions":["rsheet"]},"application/urc-targetdesc+xml":{"source":"iana","compressible":true,"extensions":["td"]},"application/urc-uisocketdesc+xml":{"source":"iana","compressible":true},"application/vcard+json":{"source":"iana","compressible":true},"application/vcard+xml":{"source":"iana","compressible":true},"application/vemmi":{"source":"iana"},"application/vividence.scriptfile":{"source":"apache"},"application/vnd.1000minds.decision-model+xml":{"source":"iana","compressible":true,"extensions":["1km"]},"application/vnd.3gpp-prose+xml":{"source":"iana","compressible":true},"application/vnd.3gpp-prose-pc3ch+xml":{"source":"iana","compressible":true},"application/vnd.3gpp-v2x-local-service-information":{"source":"iana"},"application/vnd.3gpp.5gnas":{"source":"iana"},"application/vnd.3gpp.access-transfer-events+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.bsf+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.gmop+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.gtpc":{"source":"iana"},"application/vnd.3gpp.interworking-data":{"source":"iana"},"application/vnd.3gpp.lpp":{"source":"iana"},"application/vnd.3gpp.mc-signalling-ear":{"source":"iana"},"application/vnd.3gpp.mcdata-affiliation-command+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcdata-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcdata-payload":{"source":"iana"},"application/vnd.3gpp.mcdata-service-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcdata-signalling":{"source":"iana"},"application/vnd.3gpp.mcdata-ue-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcdata-user-profile+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-affiliation-command+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-floor-request+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-location-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-mbms-usage-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-service-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-signed+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-ue-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-ue-init-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-user-profile+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-affiliation-command+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-affiliation-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-location-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-mbms-usage-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-service-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-transmission-request+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-ue-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-user-profile+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mid-call+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.ngap":{"source":"iana"},"application/vnd.3gpp.pfcp":{"source":"iana"},"application/vnd.3gpp.pic-bw-large":{"source":"iana","extensions":["plb"]},"application/vnd.3gpp.pic-bw-small":{"source":"iana","extensions":["psb"]},"application/vnd.3gpp.pic-bw-var":{"source":"iana","extensions":["pvb"]},"application/vnd.3gpp.s1ap":{"source":"iana"},"application/vnd.3gpp.sms":{"source":"iana"},"application/vnd.3gpp.sms+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.srvcc-ext+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.srvcc-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.state-and-event-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.ussd+xml":{"source":"iana","compressible":true},"application/vnd.3gpp2.bcmcsinfo+xml":{"source":"iana","compressible":true},"application/vnd.3gpp2.sms":{"source":"iana"},"application/vnd.3gpp2.tcap":{"source":"iana","extensions":["tcap"]},"application/vnd.3lightssoftware.imagescal":{"source":"iana"},"application/vnd.3m.post-it-notes":{"source":"iana","extensions":["pwn"]},"application/vnd.accpac.simply.aso":{"source":"iana","extensions":["aso"]},"application/vnd.accpac.simply.imp":{"source":"iana","extensions":["imp"]},"application/vnd.acucobol":{"source":"iana","extensions":["acu"]},"application/vnd.acucorp":{"source":"iana","extensions":["atc","acutc"]},"application/vnd.adobe.air-application-installer-package+zip":{"source":"apache","compressible":false,"extensions":["air"]},"application/vnd.adobe.flash.movie":{"source":"iana"},"application/vnd.adobe.formscentral.fcdt":{"source":"iana","extensions":["fcdt"]},"application/vnd.adobe.fxp":{"source":"iana","extensions":["fxp","fxpl"]},"application/vnd.adobe.partial-upload":{"source":"iana"},"application/vnd.adobe.xdp+xml":{"source":"iana","compressible":true,"extensions":["xdp"]},"application/vnd.adobe.xfdf":{"source":"iana","extensions":["xfdf"]},"application/vnd.aether.imp":{"source":"iana"},"application/vnd.afpc.afplinedata":{"source":"iana"},"application/vnd.afpc.afplinedata-pagedef":{"source":"iana"},"application/vnd.afpc.cmoca-cmresource":{"source":"iana"},"application/vnd.afpc.foca-charset":{"source":"iana"},"application/vnd.afpc.foca-codedfont":{"source":"iana"},"application/vnd.afpc.foca-codepage":{"source":"iana"},"application/vnd.afpc.modca":{"source":"iana"},"application/vnd.afpc.modca-cmtable":{"source":"iana"},"application/vnd.afpc.modca-formdef":{"source":"iana"},"application/vnd.afpc.modca-mediummap":{"source":"iana"},"application/vnd.afpc.modca-objectcontainer":{"source":"iana"},"application/vnd.afpc.modca-overlay":{"source":"iana"},"application/vnd.afpc.modca-pagesegment":{"source":"iana"},"application/vnd.age":{"source":"iana","extensions":["age"]},"application/vnd.ah-barcode":{"source":"iana"},"application/vnd.ahead.space":{"source":"iana","extensions":["ahead"]},"application/vnd.airzip.filesecure.azf":{"source":"iana","extensions":["azf"]},"application/vnd.airzip.filesecure.azs":{"source":"iana","extensions":["azs"]},"application/vnd.amadeus+json":{"source":"iana","compressible":true},"application/vnd.amazon.ebook":{"source":"apache","extensions":["azw"]},"application/vnd.amazon.mobi8-ebook":{"source":"iana"},"application/vnd.americandynamics.acc":{"source":"iana","extensions":["acc"]},"application/vnd.amiga.ami":{"source":"iana","extensions":["ami"]},"application/vnd.amundsen.maze+xml":{"source":"iana","compressible":true},"application/vnd.android.ota":{"source":"iana"},"application/vnd.android.package-archive":{"source":"apache","compressible":false,"extensions":["apk"]},"application/vnd.anki":{"source":"iana"},"application/vnd.anser-web-certificate-issue-initiation":{"source":"iana","extensions":["cii"]},"application/vnd.anser-web-funds-transfer-initiation":{"source":"apache","extensions":["fti"]},"application/vnd.antix.game-component":{"source":"iana","extensions":["atx"]},"application/vnd.apache.arrow.file":{"source":"iana"},"application/vnd.apache.arrow.stream":{"source":"iana"},"application/vnd.apache.thrift.binary":{"source":"iana"},"application/vnd.apache.thrift.compact":{"source":"iana"},"application/vnd.apache.thrift.json":{"source":"iana"},"application/vnd.api+json":{"source":"iana","compressible":true},"application/vnd.aplextor.warrp+json":{"source":"iana","compressible":true},"application/vnd.apothekende.reservation+json":{"source":"iana","compressible":true},"application/vnd.apple.installer+xml":{"source":"iana","compressible":true,"extensions":["mpkg"]},"application/vnd.apple.keynote":{"source":"iana","extensions":["key"]},"application/vnd.apple.mpegurl":{"source":"iana","extensions":["m3u8"]},"application/vnd.apple.numbers":{"source":"iana","extensions":["numbers"]},"application/vnd.apple.pages":{"source":"iana","extensions":["pages"]},"application/vnd.apple.pkpass":{"compressible":false,"extensions":["pkpass"]},"application/vnd.arastra.swi":{"source":"iana"},"application/vnd.aristanetworks.swi":{"source":"iana","extensions":["swi"]},"application/vnd.artisan+json":{"source":"iana","compressible":true},"application/vnd.artsquare":{"source":"iana"},"application/vnd.astraea-software.iota":{"source":"iana","extensions":["iota"]},"application/vnd.audiograph":{"source":"iana","extensions":["aep"]},"application/vnd.autopackage":{"source":"iana"},"application/vnd.avalon+json":{"source":"iana","compressible":true},"application/vnd.avistar+xml":{"source":"iana","compressible":true},"application/vnd.balsamiq.bmml+xml":{"source":"iana","compressible":true,"extensions":["bmml"]},"application/vnd.balsamiq.bmpr":{"source":"iana"},"application/vnd.banana-accounting":{"source":"iana"},"application/vnd.bbf.usp.error":{"source":"iana"},"application/vnd.bbf.usp.msg":{"source":"iana"},"application/vnd.bbf.usp.msg+json":{"source":"iana","compressible":true},"application/vnd.bekitzur-stech+json":{"source":"iana","compressible":true},"application/vnd.bint.med-content":{"source":"iana"},"application/vnd.biopax.rdf+xml":{"source":"iana","compressible":true},"application/vnd.blink-idb-value-wrapper":{"source":"iana"},"application/vnd.blueice.multipass":{"source":"iana","extensions":["mpm"]},"application/vnd.bluetooth.ep.oob":{"source":"iana"},"application/vnd.bluetooth.le.oob":{"source":"iana"},"application/vnd.bmi":{"source":"iana","extensions":["bmi"]},"application/vnd.bpf":{"source":"iana"},"application/vnd.bpf3":{"source":"iana"},"application/vnd.businessobjects":{"source":"iana","extensions":["rep"]},"application/vnd.byu.uapi+json":{"source":"iana","compressible":true},"application/vnd.cab-jscript":{"source":"iana"},"application/vnd.canon-cpdl":{"source":"iana"},"application/vnd.canon-lips":{"source":"iana"},"application/vnd.capasystems-pg+json":{"source":"iana","compressible":true},"application/vnd.cendio.thinlinc.clientconf":{"source":"iana"},"application/vnd.century-systems.tcp_stream":{"source":"iana"},"application/vnd.chemdraw+xml":{"source":"iana","compressible":true,"extensions":["cdxml"]},"application/vnd.chess-pgn":{"source":"iana"},"application/vnd.chipnuts.karaoke-mmd":{"source":"iana","extensions":["mmd"]},"application/vnd.ciedi":{"source":"iana"},"application/vnd.cinderella":{"source":"iana","extensions":["cdy"]},"application/vnd.cirpack.isdn-ext":{"source":"iana"},"application/vnd.citationstyles.style+xml":{"source":"iana","compressible":true,"extensions":["csl"]},"application/vnd.claymore":{"source":"iana","extensions":["cla"]},"application/vnd.cloanto.rp9":{"source":"iana","extensions":["rp9"]},"application/vnd.clonk.c4group":{"source":"iana","extensions":["c4g","c4d","c4f","c4p","c4u"]},"application/vnd.cluetrust.cartomobile-config":{"source":"iana","extensions":["c11amc"]},"application/vnd.cluetrust.cartomobile-config-pkg":{"source":"iana","extensions":["c11amz"]},"application/vnd.coffeescript":{"source":"iana"},"application/vnd.collabio.xodocuments.document":{"source":"iana"},"application/vnd.collabio.xodocuments.document-template":{"source":"iana"},"application/vnd.collabio.xodocuments.presentation":{"source":"iana"},"application/vnd.collabio.xodocuments.presentation-template":{"source":"iana"},"application/vnd.collabio.xodocuments.spreadsheet":{"source":"iana"},"application/vnd.collabio.xodocuments.spreadsheet-template":{"source":"iana"},"application/vnd.collection+json":{"source":"iana","compressible":true},"application/vnd.collection.doc+json":{"source":"iana","compressible":true},"application/vnd.collection.next+json":{"source":"iana","compressible":true},"application/vnd.comicbook+zip":{"source":"iana","compressible":false},"application/vnd.comicbook-rar":{"source":"iana"},"application/vnd.commerce-battelle":{"source":"iana"},"application/vnd.commonspace":{"source":"iana","extensions":["csp"]},"application/vnd.contact.cmsg":{"source":"iana","extensions":["cdbcmsg"]},"application/vnd.coreos.ignition+json":{"source":"iana","compressible":true},"application/vnd.cosmocaller":{"source":"iana","extensions":["cmc"]},"application/vnd.crick.clicker":{"source":"iana","extensions":["clkx"]},"application/vnd.crick.clicker.keyboard":{"source":"iana","extensions":["clkk"]},"application/vnd.crick.clicker.palette":{"source":"iana","extensions":["clkp"]},"application/vnd.crick.clicker.template":{"source":"iana","extensions":["clkt"]},"application/vnd.crick.clicker.wordbank":{"source":"iana","extensions":["clkw"]},"application/vnd.criticaltools.wbs+xml":{"source":"iana","compressible":true,"extensions":["wbs"]},"application/vnd.cryptii.pipe+json":{"source":"iana","compressible":true},"application/vnd.crypto-shade-file":{"source":"iana"},"application/vnd.cryptomator.encrypted":{"source":"iana"},"application/vnd.cryptomator.vault":{"source":"iana"},"application/vnd.ctc-posml":{"source":"iana","extensions":["pml"]},"application/vnd.ctct.ws+xml":{"source":"iana","compressible":true},"application/vnd.cups-pdf":{"source":"iana"},"application/vnd.cups-postscript":{"source":"iana"},"application/vnd.cups-ppd":{"source":"iana","extensions":["ppd"]},"application/vnd.cups-raster":{"source":"iana"},"application/vnd.cups-raw":{"source":"iana"},"application/vnd.curl":{"source":"iana"},"application/vnd.curl.car":{"source":"apache","extensions":["car"]},"application/vnd.curl.pcurl":{"source":"apache","extensions":["pcurl"]},"application/vnd.cyan.dean.root+xml":{"source":"iana","compressible":true},"application/vnd.cybank":{"source":"iana"},"application/vnd.cyclonedx+json":{"source":"iana","compressible":true},"application/vnd.cyclonedx+xml":{"source":"iana","compressible":true},"application/vnd.d2l.coursepackage1p0+zip":{"source":"iana","compressible":false},"application/vnd.d3m-dataset":{"source":"iana"},"application/vnd.d3m-problem":{"source":"iana"},"application/vnd.dart":{"source":"iana","compressible":true,"extensions":["dart"]},"application/vnd.data-vision.rdz":{"source":"iana","extensions":["rdz"]},"application/vnd.datapackage+json":{"source":"iana","compressible":true},"application/vnd.dataresource+json":{"source":"iana","compressible":true},"application/vnd.dbf":{"source":"iana","extensions":["dbf"]},"application/vnd.debian.binary-package":{"source":"iana"},"application/vnd.dece.data":{"source":"iana","extensions":["uvf","uvvf","uvd","uvvd"]},"application/vnd.dece.ttml+xml":{"source":"iana","compressible":true,"extensions":["uvt","uvvt"]},"application/vnd.dece.unspecified":{"source":"iana","extensions":["uvx","uvvx"]},"application/vnd.dece.zip":{"source":"iana","extensions":["uvz","uvvz"]},"application/vnd.denovo.fcselayout-link":{"source":"iana","extensions":["fe_launch"]},"application/vnd.desmume.movie":{"source":"iana"},"application/vnd.dir-bi.plate-dl-nosuffix":{"source":"iana"},"application/vnd.dm.delegation+xml":{"source":"iana","compressible":true},"application/vnd.dna":{"source":"iana","extensions":["dna"]},"application/vnd.document+json":{"source":"iana","compressible":true},"application/vnd.dolby.mlp":{"source":"apache","extensions":["mlp"]},"application/vnd.dolby.mobile.1":{"source":"iana"},"application/vnd.dolby.mobile.2":{"source":"iana"},"application/vnd.doremir.scorecloud-binary-document":{"source":"iana"},"application/vnd.dpgraph":{"source":"iana","extensions":["dpg"]},"application/vnd.dreamfactory":{"source":"iana","extensions":["dfac"]},"application/vnd.drive+json":{"source":"iana","compressible":true},"application/vnd.ds-keypoint":{"source":"apache","extensions":["kpxx"]},"application/vnd.dtg.local":{"source":"iana"},"application/vnd.dtg.local.flash":{"source":"iana"},"application/vnd.dtg.local.html":{"source":"iana"},"application/vnd.dvb.ait":{"source":"iana","extensions":["ait"]},"application/vnd.dvb.dvbisl+xml":{"source":"iana","compressible":true},"application/vnd.dvb.dvbj":{"source":"iana"},"application/vnd.dvb.esgcontainer":{"source":"iana"},"application/vnd.dvb.ipdcdftnotifaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess2":{"source":"iana"},"application/vnd.dvb.ipdcesgpdd":{"source":"iana"},"application/vnd.dvb.ipdcroaming":{"source":"iana"},"application/vnd.dvb.iptv.alfec-base":{"source":"iana"},"application/vnd.dvb.iptv.alfec-enhancement":{"source":"iana"},"application/vnd.dvb.notif-aggregate-root+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-container+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-generic+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-ia-msglist+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-ia-registration-request+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-ia-registration-response+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-init+xml":{"source":"iana","compressible":true},"application/vnd.dvb.pfr":{"source":"iana"},"application/vnd.dvb.service":{"source":"iana","extensions":["svc"]},"application/vnd.dxr":{"source":"iana"},"application/vnd.dynageo":{"source":"iana","extensions":["geo"]},"application/vnd.dzr":{"source":"iana"},"application/vnd.easykaraoke.cdgdownload":{"source":"iana"},"application/vnd.ecdis-update":{"source":"iana"},"application/vnd.ecip.rlp":{"source":"iana"},"application/vnd.eclipse.ditto+json":{"source":"iana","compressible":true},"application/vnd.ecowin.chart":{"source":"iana","extensions":["mag"]},"application/vnd.ecowin.filerequest":{"source":"iana"},"application/vnd.ecowin.fileupdate":{"source":"iana"},"application/vnd.ecowin.series":{"source":"iana"},"application/vnd.ecowin.seriesrequest":{"source":"iana"},"application/vnd.ecowin.seriesupdate":{"source":"iana"},"application/vnd.efi.img":{"source":"iana"},"application/vnd.efi.iso":{"source":"iana"},"application/vnd.emclient.accessrequest+xml":{"source":"iana","compressible":true},"application/vnd.enliven":{"source":"iana","extensions":["nml"]},"application/vnd.enphase.envoy":{"source":"iana"},"application/vnd.eprints.data+xml":{"source":"iana","compressible":true},"application/vnd.epson.esf":{"source":"iana","extensions":["esf"]},"application/vnd.epson.msf":{"source":"iana","extensions":["msf"]},"application/vnd.epson.quickanime":{"source":"iana","extensions":["qam"]},"application/vnd.epson.salt":{"source":"iana","extensions":["slt"]},"application/vnd.epson.ssf":{"source":"iana","extensions":["ssf"]},"application/vnd.ericsson.quickcall":{"source":"iana"},"application/vnd.espass-espass+zip":{"source":"iana","compressible":false},"application/vnd.eszigno3+xml":{"source":"iana","compressible":true,"extensions":["es3","et3"]},"application/vnd.etsi.aoc+xml":{"source":"iana","compressible":true},"application/vnd.etsi.asic-e+zip":{"source":"iana","compressible":false},"application/vnd.etsi.asic-s+zip":{"source":"iana","compressible":false},"application/vnd.etsi.cug+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvcommand+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvdiscovery+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvprofile+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvsad-bc+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvsad-cod+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvsad-npvr+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvservice+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvsync+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvueprofile+xml":{"source":"iana","compressible":true},"application/vnd.etsi.mcid+xml":{"source":"iana","compressible":true},"application/vnd.etsi.mheg5":{"source":"iana"},"application/vnd.etsi.overload-control-policy-dataset+xml":{"source":"iana","compressible":true},"application/vnd.etsi.pstn+xml":{"source":"iana","compressible":true},"application/vnd.etsi.sci+xml":{"source":"iana","compressible":true},"application/vnd.etsi.simservs+xml":{"source":"iana","compressible":true},"application/vnd.etsi.timestamp-token":{"source":"iana"},"application/vnd.etsi.tsl+xml":{"source":"iana","compressible":true},"application/vnd.etsi.tsl.der":{"source":"iana"},"application/vnd.eu.kasparian.car+json":{"source":"iana","compressible":true},"application/vnd.eudora.data":{"source":"iana"},"application/vnd.evolv.ecig.profile":{"source":"iana"},"application/vnd.evolv.ecig.settings":{"source":"iana"},"application/vnd.evolv.ecig.theme":{"source":"iana"},"application/vnd.exstream-empower+zip":{"source":"iana","compressible":false},"application/vnd.exstream-package":{"source":"iana"},"application/vnd.ezpix-album":{"source":"iana","extensions":["ez2"]},"application/vnd.ezpix-package":{"source":"iana","extensions":["ez3"]},"application/vnd.f-secure.mobile":{"source":"iana"},"application/vnd.familysearch.gedcom+zip":{"source":"iana","compressible":false},"application/vnd.fastcopy-disk-image":{"source":"iana"},"application/vnd.fdf":{"source":"iana","extensions":["fdf"]},"application/vnd.fdsn.mseed":{"source":"iana","extensions":["mseed"]},"application/vnd.fdsn.seed":{"source":"iana","extensions":["seed","dataless"]},"application/vnd.ffsns":{"source":"iana"},"application/vnd.ficlab.flb+zip":{"source":"iana","compressible":false},"application/vnd.filmit.zfc":{"source":"iana"},"application/vnd.fints":{"source":"iana"},"application/vnd.firemonkeys.cloudcell":{"source":"iana"},"application/vnd.flographit":{"source":"iana","extensions":["gph"]},"application/vnd.fluxtime.clip":{"source":"iana","extensions":["ftc"]},"application/vnd.font-fontforge-sfd":{"source":"iana"},"application/vnd.framemaker":{"source":"iana","extensions":["fm","frame","maker","book"]},"application/vnd.frogans.fnc":{"source":"iana","extensions":["fnc"]},"application/vnd.frogans.ltf":{"source":"iana","extensions":["ltf"]},"application/vnd.fsc.weblaunch":{"source":"iana","extensions":["fsc"]},"application/vnd.fujifilm.fb.docuworks":{"source":"iana"},"application/vnd.fujifilm.fb.docuworks.binder":{"source":"iana"},"application/vnd.fujifilm.fb.docuworks.container":{"source":"iana"},"application/vnd.fujifilm.fb.jfi+xml":{"source":"iana","compressible":true},"application/vnd.fujitsu.oasys":{"source":"iana","extensions":["oas"]},"application/vnd.fujitsu.oasys2":{"source":"iana","extensions":["oa2"]},"application/vnd.fujitsu.oasys3":{"source":"iana","extensions":["oa3"]},"application/vnd.fujitsu.oasysgp":{"source":"iana","extensions":["fg5"]},"application/vnd.fujitsu.oasysprs":{"source":"iana","extensions":["bh2"]},"application/vnd.fujixerox.art-ex":{"source":"iana"},"application/vnd.fujixerox.art4":{"source":"iana"},"application/vnd.fujixerox.ddd":{"source":"iana","extensions":["ddd"]},"application/vnd.fujixerox.docuworks":{"source":"iana","extensions":["xdw"]},"application/vnd.fujixerox.docuworks.binder":{"source":"iana","extensions":["xbd"]},"application/vnd.fujixerox.docuworks.container":{"source":"iana"},"application/vnd.fujixerox.hbpl":{"source":"iana"},"application/vnd.fut-misnet":{"source":"iana"},"application/vnd.futoin+cbor":{"source":"iana"},"application/vnd.futoin+json":{"source":"iana","compressible":true},"application/vnd.fuzzysheet":{"source":"iana","extensions":["fzs"]},"application/vnd.genomatix.tuxedo":{"source":"iana","extensions":["txd"]},"application/vnd.gentics.grd+json":{"source":"iana","compressible":true},"application/vnd.geo+json":{"source":"iana","compressible":true},"application/vnd.geocube+xml":{"source":"iana","compressible":true},"application/vnd.geogebra.file":{"source":"iana","extensions":["ggb"]},"application/vnd.geogebra.slides":{"source":"iana"},"application/vnd.geogebra.tool":{"source":"iana","extensions":["ggt"]},"application/vnd.geometry-explorer":{"source":"iana","extensions":["gex","gre"]},"application/vnd.geonext":{"source":"iana","extensions":["gxt"]},"application/vnd.geoplan":{"source":"iana","extensions":["g2w"]},"application/vnd.geospace":{"source":"iana","extensions":["g3w"]},"application/vnd.gerber":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt-response":{"source":"iana"},"application/vnd.gmx":{"source":"iana","extensions":["gmx"]},"application/vnd.google-apps.document":{"compressible":false,"extensions":["gdoc"]},"application/vnd.google-apps.presentation":{"compressible":false,"extensions":["gslides"]},"application/vnd.google-apps.spreadsheet":{"compressible":false,"extensions":["gsheet"]},"application/vnd.google-earth.kml+xml":{"source":"iana","compressible":true,"extensions":["kml"]},"application/vnd.google-earth.kmz":{"source":"iana","compressible":false,"extensions":["kmz"]},"application/vnd.gov.sk.e-form+xml":{"source":"iana","compressible":true},"application/vnd.gov.sk.e-form+zip":{"source":"iana","compressible":false},"application/vnd.gov.sk.xmldatacontainer+xml":{"source":"iana","compressible":true},"application/vnd.grafeq":{"source":"iana","extensions":["gqf","gqs"]},"application/vnd.gridmp":{"source":"iana"},"application/vnd.groove-account":{"source":"iana","extensions":["gac"]},"application/vnd.groove-help":{"source":"iana","extensions":["ghf"]},"application/vnd.groove-identity-message":{"source":"iana","extensions":["gim"]},"application/vnd.groove-injector":{"source":"iana","extensions":["grv"]},"application/vnd.groove-tool-message":{"source":"iana","extensions":["gtm"]},"application/vnd.groove-tool-template":{"source":"iana","extensions":["tpl"]},"application/vnd.groove-vcard":{"source":"iana","extensions":["vcg"]},"application/vnd.hal+json":{"source":"iana","compressible":true},"application/vnd.hal+xml":{"source":"iana","compressible":true,"extensions":["hal"]},"application/vnd.handheld-entertainment+xml":{"source":"iana","compressible":true,"extensions":["zmm"]},"application/vnd.hbci":{"source":"iana","extensions":["hbci"]},"application/vnd.hc+json":{"source":"iana","compressible":true},"application/vnd.hcl-bireports":{"source":"iana"},"application/vnd.hdt":{"source":"iana"},"application/vnd.heroku+json":{"source":"iana","compressible":true},"application/vnd.hhe.lesson-player":{"source":"iana","extensions":["les"]},"application/vnd.hl7cda+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.hl7v2+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.hp-hpgl":{"source":"iana","extensions":["hpgl"]},"application/vnd.hp-hpid":{"source":"iana","extensions":["hpid"]},"application/vnd.hp-hps":{"source":"iana","extensions":["hps"]},"application/vnd.hp-jlyt":{"source":"iana","extensions":["jlt"]},"application/vnd.hp-pcl":{"source":"iana","extensions":["pcl"]},"application/vnd.hp-pclxl":{"source":"iana","extensions":["pclxl"]},"application/vnd.httphone":{"source":"iana"},"application/vnd.hydrostatix.sof-data":{"source":"iana","extensions":["sfd-hdstx"]},"application/vnd.hyper+json":{"source":"iana","compressible":true},"application/vnd.hyper-item+json":{"source":"iana","compressible":true},"application/vnd.hyperdrive+json":{"source":"iana","compressible":true},"application/vnd.hzn-3d-crossword":{"source":"iana"},"application/vnd.ibm.afplinedata":{"source":"iana"},"application/vnd.ibm.electronic-media":{"source":"iana"},"application/vnd.ibm.minipay":{"source":"iana","extensions":["mpy"]},"application/vnd.ibm.modcap":{"source":"iana","extensions":["afp","listafp","list3820"]},"application/vnd.ibm.rights-management":{"source":"iana","extensions":["irm"]},"application/vnd.ibm.secure-container":{"source":"iana","extensions":["sc"]},"application/vnd.iccprofile":{"source":"iana","extensions":["icc","icm"]},"application/vnd.ieee.1905":{"source":"iana"},"application/vnd.igloader":{"source":"iana","extensions":["igl"]},"application/vnd.imagemeter.folder+zip":{"source":"iana","compressible":false},"application/vnd.imagemeter.image+zip":{"source":"iana","compressible":false},"application/vnd.immervision-ivp":{"source":"iana","extensions":["ivp"]},"application/vnd.immervision-ivu":{"source":"iana","extensions":["ivu"]},"application/vnd.ims.imsccv1p1":{"source":"iana"},"application/vnd.ims.imsccv1p2":{"source":"iana"},"application/vnd.ims.imsccv1p3":{"source":"iana"},"application/vnd.ims.lis.v2.result+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolconsumerprofile+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy.id+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings.simple+json":{"source":"iana","compressible":true},"application/vnd.informedcontrol.rms+xml":{"source":"iana","compressible":true},"application/vnd.informix-visionary":{"source":"iana"},"application/vnd.infotech.project":{"source":"iana"},"application/vnd.infotech.project+xml":{"source":"iana","compressible":true},"application/vnd.innopath.wamp.notification":{"source":"iana"},"application/vnd.insors.igm":{"source":"iana","extensions":["igm"]},"application/vnd.intercon.formnet":{"source":"iana","extensions":["xpw","xpx"]},"application/vnd.intergeo":{"source":"iana","extensions":["i2g"]},"application/vnd.intertrust.digibox":{"source":"iana"},"application/vnd.intertrust.nncp":{"source":"iana"},"application/vnd.intu.qbo":{"source":"iana","extensions":["qbo"]},"application/vnd.intu.qfx":{"source":"iana","extensions":["qfx"]},"application/vnd.iptc.g2.catalogitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.conceptitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.knowledgeitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.newsitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.newsmessage+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.packageitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.planningitem+xml":{"source":"iana","compressible":true},"application/vnd.ipunplugged.rcprofile":{"source":"iana","extensions":["rcprofile"]},"application/vnd.irepository.package+xml":{"source":"iana","compressible":true,"extensions":["irp"]},"application/vnd.is-xpr":{"source":"iana","extensions":["xpr"]},"application/vnd.isac.fcs":{"source":"iana","extensions":["fcs"]},"application/vnd.iso11783-10+zip":{"source":"iana","compressible":false},"application/vnd.jam":{"source":"iana","extensions":["jam"]},"application/vnd.japannet-directory-service":{"source":"iana"},"application/vnd.japannet-jpnstore-wakeup":{"source":"iana"},"application/vnd.japannet-payment-wakeup":{"source":"iana"},"application/vnd.japannet-registration":{"source":"iana"},"application/vnd.japannet-registration-wakeup":{"source":"iana"},"application/vnd.japannet-setstore-wakeup":{"source":"iana"},"application/vnd.japannet-verification":{"source":"iana"},"application/vnd.japannet-verification-wakeup":{"source":"iana"},"application/vnd.jcp.javame.midlet-rms":{"source":"iana","extensions":["rms"]},"application/vnd.jisp":{"source":"iana","extensions":["jisp"]},"application/vnd.joost.joda-archive":{"source":"iana","extensions":["joda"]},"application/vnd.jsk.isdn-ngn":{"source":"iana"},"application/vnd.kahootz":{"source":"iana","extensions":["ktz","ktr"]},"application/vnd.kde.karbon":{"source":"iana","extensions":["karbon"]},"application/vnd.kde.kchart":{"source":"iana","extensions":["chrt"]},"application/vnd.kde.kformula":{"source":"iana","extensions":["kfo"]},"application/vnd.kde.kivio":{"source":"iana","extensions":["flw"]},"application/vnd.kde.kontour":{"source":"iana","extensions":["kon"]},"application/vnd.kde.kpresenter":{"source":"iana","extensions":["kpr","kpt"]},"application/vnd.kde.kspread":{"source":"iana","extensions":["ksp"]},"application/vnd.kde.kword":{"source":"iana","extensions":["kwd","kwt"]},"application/vnd.kenameaapp":{"source":"iana","extensions":["htke"]},"application/vnd.kidspiration":{"source":"iana","extensions":["kia"]},"application/vnd.kinar":{"source":"iana","extensions":["kne","knp"]},"application/vnd.koan":{"source":"iana","extensions":["skp","skd","skt","skm"]},"application/vnd.kodak-descriptor":{"source":"iana","extensions":["sse"]},"application/vnd.las":{"source":"iana"},"application/vnd.las.las+json":{"source":"iana","compressible":true},"application/vnd.las.las+xml":{"source":"iana","compressible":true,"extensions":["lasxml"]},"application/vnd.laszip":{"source":"iana"},"application/vnd.leap+json":{"source":"iana","compressible":true},"application/vnd.liberty-request+xml":{"source":"iana","compressible":true},"application/vnd.llamagraphics.life-balance.desktop":{"source":"iana","extensions":["lbd"]},"application/vnd.llamagraphics.life-balance.exchange+xml":{"source":"iana","compressible":true,"extensions":["lbe"]},"application/vnd.logipipe.circuit+zip":{"source":"iana","compressible":false},"application/vnd.loom":{"source":"iana"},"application/vnd.lotus-1-2-3":{"source":"iana","extensions":["123"]},"application/vnd.lotus-approach":{"source":"iana","extensions":["apr"]},"application/vnd.lotus-freelance":{"source":"iana","extensions":["pre"]},"application/vnd.lotus-notes":{"source":"iana","extensions":["nsf"]},"application/vnd.lotus-organizer":{"source":"iana","extensions":["org"]},"application/vnd.lotus-screencam":{"source":"iana","extensions":["scm"]},"application/vnd.lotus-wordpro":{"source":"iana","extensions":["lwp"]},"application/vnd.macports.portpkg":{"source":"iana","extensions":["portpkg"]},"application/vnd.mapbox-vector-tile":{"source":"iana","extensions":["mvt"]},"application/vnd.marlin.drm.actiontoken+xml":{"source":"iana","compressible":true},"application/vnd.marlin.drm.conftoken+xml":{"source":"iana","compressible":true},"application/vnd.marlin.drm.license+xml":{"source":"iana","compressible":true},"application/vnd.marlin.drm.mdcf":{"source":"iana"},"application/vnd.mason+json":{"source":"iana","compressible":true},"application/vnd.maxar.archive.3tz+zip":{"source":"iana","compressible":false},"application/vnd.maxmind.maxmind-db":{"source":"iana"},"application/vnd.mcd":{"source":"iana","extensions":["mcd"]},"application/vnd.medcalcdata":{"source":"iana","extensions":["mc1"]},"application/vnd.mediastation.cdkey":{"source":"iana","extensions":["cdkey"]},"application/vnd.meridian-slingshot":{"source":"iana"},"application/vnd.mfer":{"source":"iana","extensions":["mwf"]},"application/vnd.mfmp":{"source":"iana","extensions":["mfm"]},"application/vnd.micro+json":{"source":"iana","compressible":true},"application/vnd.micrografx.flo":{"source":"iana","extensions":["flo"]},"application/vnd.micrografx.igx":{"source":"iana","extensions":["igx"]},"application/vnd.microsoft.portable-executable":{"source":"iana"},"application/vnd.microsoft.windows.thumbnail-cache":{"source":"iana"},"application/vnd.miele+json":{"source":"iana","compressible":true},"application/vnd.mif":{"source":"iana","extensions":["mif"]},"application/vnd.minisoft-hp3000-save":{"source":"iana"},"application/vnd.mitsubishi.misty-guard.trustweb":{"source":"iana"},"application/vnd.mobius.daf":{"source":"iana","extensions":["daf"]},"application/vnd.mobius.dis":{"source":"iana","extensions":["dis"]},"application/vnd.mobius.mbk":{"source":"iana","extensions":["mbk"]},"application/vnd.mobius.mqy":{"source":"iana","extensions":["mqy"]},"application/vnd.mobius.msl":{"source":"iana","extensions":["msl"]},"application/vnd.mobius.plc":{"source":"iana","extensions":["plc"]},"application/vnd.mobius.txf":{"source":"iana","extensions":["txf"]},"application/vnd.mophun.application":{"source":"iana","extensions":["mpn"]},"application/vnd.mophun.certificate":{"source":"iana","extensions":["mpc"]},"application/vnd.motorola.flexsuite":{"source":"iana"},"application/vnd.motorola.flexsuite.adsi":{"source":"iana"},"application/vnd.motorola.flexsuite.fis":{"source":"iana"},"application/vnd.motorola.flexsuite.gotap":{"source":"iana"},"application/vnd.motorola.flexsuite.kmr":{"source":"iana"},"application/vnd.motorola.flexsuite.ttc":{"source":"iana"},"application/vnd.motorola.flexsuite.wem":{"source":"iana"},"application/vnd.motorola.iprm":{"source":"iana"},"application/vnd.mozilla.xul+xml":{"source":"iana","compressible":true,"extensions":["xul"]},"application/vnd.ms-3mfdocument":{"source":"iana"},"application/vnd.ms-artgalry":{"source":"iana","extensions":["cil"]},"application/vnd.ms-asf":{"source":"iana"},"application/vnd.ms-cab-compressed":{"source":"iana","extensions":["cab"]},"application/vnd.ms-color.iccprofile":{"source":"apache"},"application/vnd.ms-excel":{"source":"iana","compressible":false,"extensions":["xls","xlm","xla","xlc","xlt","xlw"]},"application/vnd.ms-excel.addin.macroenabled.12":{"source":"iana","extensions":["xlam"]},"application/vnd.ms-excel.sheet.binary.macroenabled.12":{"source":"iana","extensions":["xlsb"]},"application/vnd.ms-excel.sheet.macroenabled.12":{"source":"iana","extensions":["xlsm"]},"application/vnd.ms-excel.template.macroenabled.12":{"source":"iana","extensions":["xltm"]},"application/vnd.ms-fontobject":{"source":"iana","compressible":true,"extensions":["eot"]},"application/vnd.ms-htmlhelp":{"source":"iana","extensions":["chm"]},"application/vnd.ms-ims":{"source":"iana","extensions":["ims"]},"application/vnd.ms-lrm":{"source":"iana","extensions":["lrm"]},"application/vnd.ms-office.activex+xml":{"source":"iana","compressible":true},"application/vnd.ms-officetheme":{"source":"iana","extensions":["thmx"]},"application/vnd.ms-opentype":{"source":"apache","compressible":true},"application/vnd.ms-outlook":{"compressible":false,"extensions":["msg"]},"application/vnd.ms-package.obfuscated-opentype":{"source":"apache"},"application/vnd.ms-pki.seccat":{"source":"apache","extensions":["cat"]},"application/vnd.ms-pki.stl":{"source":"apache","extensions":["stl"]},"application/vnd.ms-playready.initiator+xml":{"source":"iana","compressible":true},"application/vnd.ms-powerpoint":{"source":"iana","compressible":false,"extensions":["ppt","pps","pot"]},"application/vnd.ms-powerpoint.addin.macroenabled.12":{"source":"iana","extensions":["ppam"]},"application/vnd.ms-powerpoint.presentation.macroenabled.12":{"source":"iana","extensions":["pptm"]},"application/vnd.ms-powerpoint.slide.macroenabled.12":{"source":"iana","extensions":["sldm"]},"application/vnd.ms-powerpoint.slideshow.macroenabled.12":{"source":"iana","extensions":["ppsm"]},"application/vnd.ms-powerpoint.template.macroenabled.12":{"source":"iana","extensions":["potm"]},"application/vnd.ms-printdevicecapabilities+xml":{"source":"iana","compressible":true},"application/vnd.ms-printing.printticket+xml":{"source":"apache","compressible":true},"application/vnd.ms-printschematicket+xml":{"source":"iana","compressible":true},"application/vnd.ms-project":{"source":"iana","extensions":["mpp","mpt"]},"application/vnd.ms-tnef":{"source":"iana"},"application/vnd.ms-windows.devicepairing":{"source":"iana"},"application/vnd.ms-windows.nwprinting.oob":{"source":"iana"},"application/vnd.ms-windows.printerpairing":{"source":"iana"},"application/vnd.ms-windows.wsd.oob":{"source":"iana"},"application/vnd.ms-wmdrm.lic-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.lic-resp":{"source":"iana"},"application/vnd.ms-wmdrm.meter-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.meter-resp":{"source":"iana"},"application/vnd.ms-word.document.macroenabled.12":{"source":"iana","extensions":["docm"]},"application/vnd.ms-word.template.macroenabled.12":{"source":"iana","extensions":["dotm"]},"application/vnd.ms-works":{"source":"iana","extensions":["wps","wks","wcm","wdb"]},"application/vnd.ms-wpl":{"source":"iana","extensions":["wpl"]},"application/vnd.ms-xpsdocument":{"source":"iana","compressible":false,"extensions":["xps"]},"application/vnd.msa-disk-image":{"source":"iana"},"application/vnd.mseq":{"source":"iana","extensions":["mseq"]},"application/vnd.msign":{"source":"iana"},"application/vnd.multiad.creator":{"source":"iana"},"application/vnd.multiad.creator.cif":{"source":"iana"},"application/vnd.music-niff":{"source":"iana"},"application/vnd.musician":{"source":"iana","extensions":["mus"]},"application/vnd.muvee.style":{"source":"iana","extensions":["msty"]},"application/vnd.mynfc":{"source":"iana","extensions":["taglet"]},"application/vnd.nacamar.ybrid+json":{"source":"iana","compressible":true},"application/vnd.ncd.control":{"source":"iana"},"application/vnd.ncd.reference":{"source":"iana"},"application/vnd.nearst.inv+json":{"source":"iana","compressible":true},"application/vnd.nebumind.line":{"source":"iana"},"application/vnd.nervana":{"source":"iana"},"application/vnd.netfpx":{"source":"iana"},"application/vnd.neurolanguage.nlu":{"source":"iana","extensions":["nlu"]},"application/vnd.nimn":{"source":"iana"},"application/vnd.nintendo.nitro.rom":{"source":"iana"},"application/vnd.nintendo.snes.rom":{"source":"iana"},"application/vnd.nitf":{"source":"iana","extensions":["ntf","nitf"]},"application/vnd.noblenet-directory":{"source":"iana","extensions":["nnd"]},"application/vnd.noblenet-sealer":{"source":"iana","extensions":["nns"]},"application/vnd.noblenet-web":{"source":"iana","extensions":["nnw"]},"application/vnd.nokia.catalogs":{"source":"iana"},"application/vnd.nokia.conml+wbxml":{"source":"iana"},"application/vnd.nokia.conml+xml":{"source":"iana","compressible":true},"application/vnd.nokia.iptv.config+xml":{"source":"iana","compressible":true},"application/vnd.nokia.isds-radio-presets":{"source":"iana"},"application/vnd.nokia.landmark+wbxml":{"source":"iana"},"application/vnd.nokia.landmark+xml":{"source":"iana","compressible":true},"application/vnd.nokia.landmarkcollection+xml":{"source":"iana","compressible":true},"application/vnd.nokia.n-gage.ac+xml":{"source":"iana","compressible":true,"extensions":["ac"]},"application/vnd.nokia.n-gage.data":{"source":"iana","extensions":["ngdat"]},"application/vnd.nokia.n-gage.symbian.install":{"source":"iana","extensions":["n-gage"]},"application/vnd.nokia.ncd":{"source":"iana"},"application/vnd.nokia.pcd+wbxml":{"source":"iana"},"application/vnd.nokia.pcd+xml":{"source":"iana","compressible":true},"application/vnd.nokia.radio-preset":{"source":"iana","extensions":["rpst"]},"application/vnd.nokia.radio-presets":{"source":"iana","extensions":["rpss"]},"application/vnd.novadigm.edm":{"source":"iana","extensions":["edm"]},"application/vnd.novadigm.edx":{"source":"iana","extensions":["edx"]},"application/vnd.novadigm.ext":{"source":"iana","extensions":["ext"]},"application/vnd.ntt-local.content-share":{"source":"iana"},"application/vnd.ntt-local.file-transfer":{"source":"iana"},"application/vnd.ntt-local.ogw_remote-access":{"source":"iana"},"application/vnd.ntt-local.sip-ta_remote":{"source":"iana"},"application/vnd.ntt-local.sip-ta_tcp_stream":{"source":"iana"},"application/vnd.oasis.opendocument.chart":{"source":"iana","extensions":["odc"]},"application/vnd.oasis.opendocument.chart-template":{"source":"iana","extensions":["otc"]},"application/vnd.oasis.opendocument.database":{"source":"iana","extensions":["odb"]},"application/vnd.oasis.opendocument.formula":{"source":"iana","extensions":["odf"]},"application/vnd.oasis.opendocument.formula-template":{"source":"iana","extensions":["odft"]},"application/vnd.oasis.opendocument.graphics":{"source":"iana","compressible":false,"extensions":["odg"]},"application/vnd.oasis.opendocument.graphics-template":{"source":"iana","extensions":["otg"]},"application/vnd.oasis.opendocument.image":{"source":"iana","extensions":["odi"]},"application/vnd.oasis.opendocument.image-template":{"source":"iana","extensions":["oti"]},"application/vnd.oasis.opendocument.presentation":{"source":"iana","compressible":false,"extensions":["odp"]},"application/vnd.oasis.opendocument.presentation-template":{"source":"iana","extensions":["otp"]},"application/vnd.oasis.opendocument.spreadsheet":{"source":"iana","compressible":false,"extensions":["ods"]},"application/vnd.oasis.opendocument.spreadsheet-template":{"source":"iana","extensions":["ots"]},"application/vnd.oasis.opendocument.text":{"source":"iana","compressible":false,"extensions":["odt"]},"application/vnd.oasis.opendocument.text-master":{"source":"iana","extensions":["odm"]},"application/vnd.oasis.opendocument.text-template":{"source":"iana","extensions":["ott"]},"application/vnd.oasis.opendocument.text-web":{"source":"iana","extensions":["oth"]},"application/vnd.obn":{"source":"iana"},"application/vnd.ocf+cbor":{"source":"iana"},"application/vnd.oci.image.manifest.v1+json":{"source":"iana","compressible":true},"application/vnd.oftn.l10n+json":{"source":"iana","compressible":true},"application/vnd.oipf.contentaccessdownload+xml":{"source":"iana","compressible":true},"application/vnd.oipf.contentaccessstreaming+xml":{"source":"iana","compressible":true},"application/vnd.oipf.cspg-hexbinary":{"source":"iana"},"application/vnd.oipf.dae.svg+xml":{"source":"iana","compressible":true},"application/vnd.oipf.dae.xhtml+xml":{"source":"iana","compressible":true},"application/vnd.oipf.mippvcontrolmessage+xml":{"source":"iana","compressible":true},"application/vnd.oipf.pae.gem":{"source":"iana"},"application/vnd.oipf.spdiscovery+xml":{"source":"iana","compressible":true},"application/vnd.oipf.spdlist+xml":{"source":"iana","compressible":true},"application/vnd.oipf.ueprofile+xml":{"source":"iana","compressible":true},"application/vnd.oipf.userprofile+xml":{"source":"iana","compressible":true},"application/vnd.olpc-sugar":{"source":"iana","extensions":["xo"]},"application/vnd.oma-scws-config":{"source":"iana"},"application/vnd.oma-scws-http-request":{"source":"iana"},"application/vnd.oma-scws-http-response":{"source":"iana"},"application/vnd.oma.bcast.associated-procedure-parameter+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.drm-trigger+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.imd+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.ltkm":{"source":"iana"},"application/vnd.oma.bcast.notification+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.provisioningtrigger":{"source":"iana"},"application/vnd.oma.bcast.sgboot":{"source":"iana"},"application/vnd.oma.bcast.sgdd+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.sgdu":{"source":"iana"},"application/vnd.oma.bcast.simple-symbol-container":{"source":"iana"},"application/vnd.oma.bcast.smartcard-trigger+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.sprov+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.stkm":{"source":"iana"},"application/vnd.oma.cab-address-book+xml":{"source":"iana","compressible":true},"application/vnd.oma.cab-feature-handler+xml":{"source":"iana","compressible":true},"application/vnd.oma.cab-pcc+xml":{"source":"iana","compressible":true},"application/vnd.oma.cab-subs-invite+xml":{"source":"iana","compressible":true},"application/vnd.oma.cab-user-prefs+xml":{"source":"iana","compressible":true},"application/vnd.oma.dcd":{"source":"iana"},"application/vnd.oma.dcdc":{"source":"iana"},"application/vnd.oma.dd2+xml":{"source":"iana","compressible":true,"extensions":["dd2"]},"application/vnd.oma.drm.risd+xml":{"source":"iana","compressible":true},"application/vnd.oma.group-usage-list+xml":{"source":"iana","compressible":true},"application/vnd.oma.lwm2m+cbor":{"source":"iana"},"application/vnd.oma.lwm2m+json":{"source":"iana","compressible":true},"application/vnd.oma.lwm2m+tlv":{"source":"iana"},"application/vnd.oma.pal+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.detailed-progress-report+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.final-report+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.groups+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.invocation-descriptor+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.optimized-progress-report+xml":{"source":"iana","compressible":true},"application/vnd.oma.push":{"source":"iana"},"application/vnd.oma.scidm.messages+xml":{"source":"iana","compressible":true},"application/vnd.oma.xcap-directory+xml":{"source":"iana","compressible":true},"application/vnd.omads-email+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.omads-file+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.omads-folder+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.omaloc-supl-init":{"source":"iana"},"application/vnd.onepager":{"source":"iana"},"application/vnd.onepagertamp":{"source":"iana"},"application/vnd.onepagertamx":{"source":"iana"},"application/vnd.onepagertat":{"source":"iana"},"application/vnd.onepagertatp":{"source":"iana"},"application/vnd.onepagertatx":{"source":"iana"},"application/vnd.openblox.game+xml":{"source":"iana","compressible":true,"extensions":["obgx"]},"application/vnd.openblox.game-binary":{"source":"iana"},"application/vnd.openeye.oeb":{"source":"iana"},"application/vnd.openofficeorg.extension":{"source":"apache","extensions":["oxt"]},"application/vnd.openstreetmap.data+xml":{"source":"iana","compressible":true,"extensions":["osm"]},"application/vnd.opentimestamps.ots":{"source":"iana"},"application/vnd.openxmlformats-officedocument.custom-properties+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.customxmlproperties+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawing+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.chart+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.chartshapes+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.diagramcolors+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.diagramdata+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.diagramlayout+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.diagramstyle+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.extended-properties+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.commentauthors+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.comments+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.handoutmaster+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.notesmaster+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.notesslide+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.presentation":{"source":"iana","compressible":false,"extensions":["pptx"]},"application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.presprops+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slide":{"source":"iana","extensions":["sldx"]},"application/vnd.openxmlformats-officedocument.presentationml.slide+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slidelayout+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slidemaster+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slideshow":{"source":"iana","extensions":["ppsx"]},"application/vnd.openxmlformats-officedocument.presentationml.slideshow.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slideupdateinfo+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.tablestyles+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.tags+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.template":{"source":"iana","extensions":["potx"]},"application/vnd.openxmlformats-officedocument.presentationml.template.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.viewprops+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.calcchain+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.comments+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.connections+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.dialogsheet+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.externallink+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcachedefinition+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcacherecords+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivottable+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.querytable+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionheaders+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionlog+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.sharedstrings+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":{"source":"iana","compressible":false,"extensions":["xlsx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheetmetadata+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.table+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.tablesinglecells+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.template":{"source":"iana","extensions":["xltx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.template.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.usernames+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.volatiledependencies+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.theme+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.themeoverride+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.vmldrawing":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.comments+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.document":{"source":"iana","compressible":false,"extensions":["docx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.glossary+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.fonttable+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.template":{"source":"iana","extensions":["dotx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.template.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.websettings+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-package.core-properties+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-package.digital-signature-xmlsignature+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-package.relationships+xml":{"source":"iana","compressible":true},"application/vnd.oracle.resource+json":{"source":"iana","compressible":true},"application/vnd.orange.indata":{"source":"iana"},"application/vnd.osa.netdeploy":{"source":"iana"},"application/vnd.osgeo.mapguide.package":{"source":"iana","extensions":["mgp"]},"application/vnd.osgi.bundle":{"source":"iana"},"application/vnd.osgi.dp":{"source":"iana","extensions":["dp"]},"application/vnd.osgi.subsystem":{"source":"iana","extensions":["esa"]},"application/vnd.otps.ct-kip+xml":{"source":"iana","compressible":true},"application/vnd.oxli.countgraph":{"source":"iana"},"application/vnd.pagerduty+json":{"source":"iana","compressible":true},"application/vnd.palm":{"source":"iana","extensions":["pdb","pqa","oprc"]},"application/vnd.panoply":{"source":"iana"},"application/vnd.paos.xml":{"source":"iana"},"application/vnd.patentdive":{"source":"iana"},"application/vnd.patientecommsdoc":{"source":"iana"},"application/vnd.pawaafile":{"source":"iana","extensions":["paw"]},"application/vnd.pcos":{"source":"iana"},"application/vnd.pg.format":{"source":"iana","extensions":["str"]},"application/vnd.pg.osasli":{"source":"iana","extensions":["ei6"]},"application/vnd.piaccess.application-licence":{"source":"iana"},"application/vnd.picsel":{"source":"iana","extensions":["efif"]},"application/vnd.pmi.widget":{"source":"iana","extensions":["wg"]},"application/vnd.poc.group-advertisement+xml":{"source":"iana","compressible":true},"application/vnd.pocketlearn":{"source":"iana","extensions":["plf"]},"application/vnd.powerbuilder6":{"source":"iana","extensions":["pbd"]},"application/vnd.powerbuilder6-s":{"source":"iana"},"application/vnd.powerbuilder7":{"source":"iana"},"application/vnd.powerbuilder7-s":{"source":"iana"},"application/vnd.powerbuilder75":{"source":"iana"},"application/vnd.powerbuilder75-s":{"source":"iana"},"application/vnd.preminet":{"source":"iana"},"application/vnd.previewsystems.box":{"source":"iana","extensions":["box"]},"application/vnd.proteus.magazine":{"source":"iana","extensions":["mgz"]},"application/vnd.psfs":{"source":"iana"},"application/vnd.publishare-delta-tree":{"source":"iana","extensions":["qps"]},"application/vnd.pvi.ptid1":{"source":"iana","extensions":["ptid"]},"application/vnd.pwg-multiplexed":{"source":"iana"},"application/vnd.pwg-xhtml-print+xml":{"source":"iana","compressible":true},"application/vnd.qualcomm.brew-app-res":{"source":"iana"},"application/vnd.quarantainenet":{"source":"iana"},"application/vnd.quark.quarkxpress":{"source":"iana","extensions":["qxd","qxt","qwd","qwt","qxl","qxb"]},"application/vnd.quobject-quoxdocument":{"source":"iana"},"application/vnd.radisys.moml+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit-conf+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit-conn+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit-dialog+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit-stream+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-conf+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-base+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-fax-detect+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-fax-sendrecv+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-group+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-speech+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-transform+xml":{"source":"iana","compressible":true},"application/vnd.rainstor.data":{"source":"iana"},"application/vnd.rapid":{"source":"iana"},"application/vnd.rar":{"source":"iana","extensions":["rar"]},"application/vnd.realvnc.bed":{"source":"iana","extensions":["bed"]},"application/vnd.recordare.musicxml":{"source":"iana","extensions":["mxl"]},"application/vnd.recordare.musicxml+xml":{"source":"iana","compressible":true,"extensions":["musicxml"]},"application/vnd.renlearn.rlprint":{"source":"iana"},"application/vnd.resilient.logic":{"source":"iana"},"application/vnd.restful+json":{"source":"iana","compressible":true},"application/vnd.rig.cryptonote":{"source":"iana","extensions":["cryptonote"]},"application/vnd.rim.cod":{"source":"apache","extensions":["cod"]},"application/vnd.rn-realmedia":{"source":"apache","extensions":["rm"]},"application/vnd.rn-realmedia-vbr":{"source":"apache","extensions":["rmvb"]},"application/vnd.route66.link66+xml":{"source":"iana","compressible":true,"extensions":["link66"]},"application/vnd.rs-274x":{"source":"iana"},"application/vnd.ruckus.download":{"source":"iana"},"application/vnd.s3sms":{"source":"iana"},"application/vnd.sailingtracker.track":{"source":"iana","extensions":["st"]},"application/vnd.sar":{"source":"iana"},"application/vnd.sbm.cid":{"source":"iana"},"application/vnd.sbm.mid2":{"source":"iana"},"application/vnd.scribus":{"source":"iana"},"application/vnd.sealed.3df":{"source":"iana"},"application/vnd.sealed.csf":{"source":"iana"},"application/vnd.sealed.doc":{"source":"iana"},"application/vnd.sealed.eml":{"source":"iana"},"application/vnd.sealed.mht":{"source":"iana"},"application/vnd.sealed.net":{"source":"iana"},"application/vnd.sealed.ppt":{"source":"iana"},"application/vnd.sealed.tiff":{"source":"iana"},"application/vnd.sealed.xls":{"source":"iana"},"application/vnd.sealedmedia.softseal.html":{"source":"iana"},"application/vnd.sealedmedia.softseal.pdf":{"source":"iana"},"application/vnd.seemail":{"source":"iana","extensions":["see"]},"application/vnd.seis+json":{"source":"iana","compressible":true},"application/vnd.sema":{"source":"iana","extensions":["sema"]},"application/vnd.semd":{"source":"iana","extensions":["semd"]},"application/vnd.semf":{"source":"iana","extensions":["semf"]},"application/vnd.shade-save-file":{"source":"iana"},"application/vnd.shana.informed.formdata":{"source":"iana","extensions":["ifm"]},"application/vnd.shana.informed.formtemplate":{"source":"iana","extensions":["itp"]},"application/vnd.shana.informed.interchange":{"source":"iana","extensions":["iif"]},"application/vnd.shana.informed.package":{"source":"iana","extensions":["ipk"]},"application/vnd.shootproof+json":{"source":"iana","compressible":true},"application/vnd.shopkick+json":{"source":"iana","compressible":true},"application/vnd.shp":{"source":"iana"},"application/vnd.shx":{"source":"iana"},"application/vnd.sigrok.session":{"source":"iana"},"application/vnd.simtech-mindmapper":{"source":"iana","extensions":["twd","twds"]},"application/vnd.siren+json":{"source":"iana","compressible":true},"application/vnd.smaf":{"source":"iana","extensions":["mmf"]},"application/vnd.smart.notebook":{"source":"iana"},"application/vnd.smart.teacher":{"source":"iana","extensions":["teacher"]},"application/vnd.snesdev-page-table":{"source":"iana"},"application/vnd.software602.filler.form+xml":{"source":"iana","compressible":true,"extensions":["fo"]},"application/vnd.software602.filler.form-xml-zip":{"source":"iana"},"application/vnd.solent.sdkm+xml":{"source":"iana","compressible":true,"extensions":["sdkm","sdkd"]},"application/vnd.spotfire.dxp":{"source":"iana","extensions":["dxp"]},"application/vnd.spotfire.sfs":{"source":"iana","extensions":["sfs"]},"application/vnd.sqlite3":{"source":"iana"},"application/vnd.sss-cod":{"source":"iana"},"application/vnd.sss-dtf":{"source":"iana"},"application/vnd.sss-ntf":{"source":"iana"},"application/vnd.stardivision.calc":{"source":"apache","extensions":["sdc"]},"application/vnd.stardivision.draw":{"source":"apache","extensions":["sda"]},"application/vnd.stardivision.impress":{"source":"apache","extensions":["sdd"]},"application/vnd.stardivision.math":{"source":"apache","extensions":["smf"]},"application/vnd.stardivision.writer":{"source":"apache","extensions":["sdw","vor"]},"application/vnd.stardivision.writer-global":{"source":"apache","extensions":["sgl"]},"application/vnd.stepmania.package":{"source":"iana","extensions":["smzip"]},"application/vnd.stepmania.stepchart":{"source":"iana","extensions":["sm"]},"application/vnd.street-stream":{"source":"iana"},"application/vnd.sun.wadl+xml":{"source":"iana","compressible":true,"extensions":["wadl"]},"application/vnd.sun.xml.calc":{"source":"apache","extensions":["sxc"]},"application/vnd.sun.xml.calc.template":{"source":"apache","extensions":["stc"]},"application/vnd.sun.xml.draw":{"source":"apache","extensions":["sxd"]},"application/vnd.sun.xml.draw.template":{"source":"apache","extensions":["std"]},"application/vnd.sun.xml.impress":{"source":"apache","extensions":["sxi"]},"application/vnd.sun.xml.impress.template":{"source":"apache","extensions":["sti"]},"application/vnd.sun.xml.math":{"source":"apache","extensions":["sxm"]},"application/vnd.sun.xml.writer":{"source":"apache","extensions":["sxw"]},"application/vnd.sun.xml.writer.global":{"source":"apache","extensions":["sxg"]},"application/vnd.sun.xml.writer.template":{"source":"apache","extensions":["stw"]},"application/vnd.sus-calendar":{"source":"iana","extensions":["sus","susp"]},"application/vnd.svd":{"source":"iana","extensions":["svd"]},"application/vnd.swiftview-ics":{"source":"iana"},"application/vnd.sycle+xml":{"source":"iana","compressible":true},"application/vnd.syft+json":{"source":"iana","compressible":true},"application/vnd.symbian.install":{"source":"apache","extensions":["sis","sisx"]},"application/vnd.syncml+xml":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["xsm"]},"application/vnd.syncml.dm+wbxml":{"source":"iana","charset":"UTF-8","extensions":["bdm"]},"application/vnd.syncml.dm+xml":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["xdm"]},"application/vnd.syncml.dm.notification":{"source":"iana"},"application/vnd.syncml.dmddf+wbxml":{"source":"iana"},"application/vnd.syncml.dmddf+xml":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["ddf"]},"application/vnd.syncml.dmtnds+wbxml":{"source":"iana"},"application/vnd.syncml.dmtnds+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.syncml.ds.notification":{"source":"iana"},"application/vnd.tableschema+json":{"source":"iana","compressible":true},"application/vnd.tao.intent-module-archive":{"source":"iana","extensions":["tao"]},"application/vnd.tcpdump.pcap":{"source":"iana","extensions":["pcap","cap","dmp"]},"application/vnd.think-cell.ppttc+json":{"source":"iana","compressible":true},"application/vnd.tmd.mediaflex.api+xml":{"source":"iana","compressible":true},"application/vnd.tml":{"source":"iana"},"application/vnd.tmobile-livetv":{"source":"iana","extensions":["tmo"]},"application/vnd.tri.onesource":{"source":"iana"},"application/vnd.trid.tpt":{"source":"iana","extensions":["tpt"]},"application/vnd.triscape.mxs":{"source":"iana","extensions":["mxs"]},"application/vnd.trueapp":{"source":"iana","extensions":["tra"]},"application/vnd.truedoc":{"source":"iana"},"application/vnd.ubisoft.webplayer":{"source":"iana"},"application/vnd.ufdl":{"source":"iana","extensions":["ufd","ufdl"]},"application/vnd.uiq.theme":{"source":"iana","extensions":["utz"]},"application/vnd.umajin":{"source":"iana","extensions":["umj"]},"application/vnd.unity":{"source":"iana","extensions":["unityweb"]},"application/vnd.uoml+xml":{"source":"iana","compressible":true,"extensions":["uoml"]},"application/vnd.uplanet.alert":{"source":"iana"},"application/vnd.uplanet.alert-wbxml":{"source":"iana"},"application/vnd.uplanet.bearer-choice":{"source":"iana"},"application/vnd.uplanet.bearer-choice-wbxml":{"source":"iana"},"application/vnd.uplanet.cacheop":{"source":"iana"},"application/vnd.uplanet.cacheop-wbxml":{"source":"iana"},"application/vnd.uplanet.channel":{"source":"iana"},"application/vnd.uplanet.channel-wbxml":{"source":"iana"},"application/vnd.uplanet.list":{"source":"iana"},"application/vnd.uplanet.list-wbxml":{"source":"iana"},"application/vnd.uplanet.listcmd":{"source":"iana"},"application/vnd.uplanet.listcmd-wbxml":{"source":"iana"},"application/vnd.uplanet.signal":{"source":"iana"},"application/vnd.uri-map":{"source":"iana"},"application/vnd.valve.source.material":{"source":"iana"},"application/vnd.vcx":{"source":"iana","extensions":["vcx"]},"application/vnd.vd-study":{"source":"iana"},"application/vnd.vectorworks":{"source":"iana"},"application/vnd.vel+json":{"source":"iana","compressible":true},"application/vnd.verimatrix.vcas":{"source":"iana"},"application/vnd.veritone.aion+json":{"source":"iana","compressible":true},"application/vnd.veryant.thin":{"source":"iana"},"application/vnd.ves.encrypted":{"source":"iana"},"application/vnd.vidsoft.vidconference":{"source":"iana"},"application/vnd.visio":{"source":"iana","extensions":["vsd","vst","vss","vsw"]},"application/vnd.visionary":{"source":"iana","extensions":["vis"]},"application/vnd.vividence.scriptfile":{"source":"iana"},"application/vnd.vsf":{"source":"iana","extensions":["vsf"]},"application/vnd.wap.sic":{"source":"iana"},"application/vnd.wap.slc":{"source":"iana"},"application/vnd.wap.wbxml":{"source":"iana","charset":"UTF-8","extensions":["wbxml"]},"application/vnd.wap.wmlc":{"source":"iana","extensions":["wmlc"]},"application/vnd.wap.wmlscriptc":{"source":"iana","extensions":["wmlsc"]},"application/vnd.webturbo":{"source":"iana","extensions":["wtb"]},"application/vnd.wfa.dpp":{"source":"iana"},"application/vnd.wfa.p2p":{"source":"iana"},"application/vnd.wfa.wsc":{"source":"iana"},"application/vnd.windows.devicepairing":{"source":"iana"},"application/vnd.wmc":{"source":"iana"},"application/vnd.wmf.bootstrap":{"source":"iana"},"application/vnd.wolfram.mathematica":{"source":"iana"},"application/vnd.wolfram.mathematica.package":{"source":"iana"},"application/vnd.wolfram.player":{"source":"iana","extensions":["nbp"]},"application/vnd.wordperfect":{"source":"iana","extensions":["wpd"]},"application/vnd.wqd":{"source":"iana","extensions":["wqd"]},"application/vnd.wrq-hp3000-labelled":{"source":"iana"},"application/vnd.wt.stf":{"source":"iana","extensions":["stf"]},"application/vnd.wv.csp+wbxml":{"source":"iana"},"application/vnd.wv.csp+xml":{"source":"iana","compressible":true},"application/vnd.wv.ssp+xml":{"source":"iana","compressible":true},"application/vnd.xacml+json":{"source":"iana","compressible":true},"application/vnd.xara":{"source":"iana","extensions":["xar"]},"application/vnd.xfdl":{"source":"iana","extensions":["xfdl"]},"application/vnd.xfdl.webform":{"source":"iana"},"application/vnd.xmi+xml":{"source":"iana","compressible":true},"application/vnd.xmpie.cpkg":{"source":"iana"},"application/vnd.xmpie.dpkg":{"source":"iana"},"application/vnd.xmpie.plan":{"source":"iana"},"application/vnd.xmpie.ppkg":{"source":"iana"},"application/vnd.xmpie.xlim":{"source":"iana"},"application/vnd.yamaha.hv-dic":{"source":"iana","extensions":["hvd"]},"application/vnd.yamaha.hv-script":{"source":"iana","extensions":["hvs"]},"application/vnd.yamaha.hv-voice":{"source":"iana","extensions":["hvp"]},"application/vnd.yamaha.openscoreformat":{"source":"iana","extensions":["osf"]},"application/vnd.yamaha.openscoreformat.osfpvg+xml":{"source":"iana","compressible":true,"extensions":["osfpvg"]},"application/vnd.yamaha.remote-setup":{"source":"iana"},"application/vnd.yamaha.smaf-audio":{"source":"iana","extensions":["saf"]},"application/vnd.yamaha.smaf-phrase":{"source":"iana","extensions":["spf"]},"application/vnd.yamaha.through-ngn":{"source":"iana"},"application/vnd.yamaha.tunnel-udpencap":{"source":"iana"},"application/vnd.yaoweme":{"source":"iana"},"application/vnd.yellowriver-custom-menu":{"source":"iana","extensions":["cmp"]},"application/vnd.youtube.yt":{"source":"iana"},"application/vnd.zul":{"source":"iana","extensions":["zir","zirz"]},"application/vnd.zzazz.deck+xml":{"source":"iana","compressible":true,"extensions":["zaz"]},"application/voicexml+xml":{"source":"iana","compressible":true,"extensions":["vxml"]},"application/voucher-cms+json":{"source":"iana","compressible":true},"application/vq-rtcpxr":{"source":"iana"},"application/wasm":{"source":"iana","compressible":true,"extensions":["wasm"]},"application/watcherinfo+xml":{"source":"iana","compressible":true,"extensions":["wif"]},"application/webpush-options+json":{"source":"iana","compressible":true},"application/whoispp-query":{"source":"iana"},"application/whoispp-response":{"source":"iana"},"application/widget":{"source":"iana","extensions":["wgt"]},"application/winhlp":{"source":"apache","extensions":["hlp"]},"application/wita":{"source":"iana"},"application/wordperfect5.1":{"source":"iana"},"application/wsdl+xml":{"source":"iana","compressible":true,"extensions":["wsdl"]},"application/wspolicy+xml":{"source":"iana","compressible":true,"extensions":["wspolicy"]},"application/x-7z-compressed":{"source":"apache","compressible":false,"extensions":["7z"]},"application/x-abiword":{"source":"apache","extensions":["abw"]},"application/x-ace-compressed":{"source":"apache","extensions":["ace"]},"application/x-amf":{"source":"apache"},"application/x-apple-diskimage":{"source":"apache","extensions":["dmg"]},"application/x-arj":{"compressible":false,"extensions":["arj"]},"application/x-authorware-bin":{"source":"apache","extensions":["aab","x32","u32","vox"]},"application/x-authorware-map":{"source":"apache","extensions":["aam"]},"application/x-authorware-seg":{"source":"apache","extensions":["aas"]},"application/x-bcpio":{"source":"apache","extensions":["bcpio"]},"application/x-bdoc":{"compressible":false,"extensions":["bdoc"]},"application/x-bittorrent":{"source":"apache","extensions":["torrent"]},"application/x-blorb":{"source":"apache","extensions":["blb","blorb"]},"application/x-bzip":{"source":"apache","compressible":false,"extensions":["bz"]},"application/x-bzip2":{"source":"apache","compressible":false,"extensions":["bz2","boz"]},"application/x-cbr":{"source":"apache","extensions":["cbr","cba","cbt","cbz","cb7"]},"application/x-cdlink":{"source":"apache","extensions":["vcd"]},"application/x-cfs-compressed":{"source":"apache","extensions":["cfs"]},"application/x-chat":{"source":"apache","extensions":["chat"]},"application/x-chess-pgn":{"source":"apache","extensions":["pgn"]},"application/x-chrome-extension":{"extensions":["crx"]},"application/x-cocoa":{"source":"nginx","extensions":["cco"]},"application/x-compress":{"source":"apache"},"application/x-conference":{"source":"apache","extensions":["nsc"]},"application/x-cpio":{"source":"apache","extensions":["cpio"]},"application/x-csh":{"source":"apache","extensions":["csh"]},"application/x-deb":{"compressible":false},"application/x-debian-package":{"source":"apache","extensions":["deb","udeb"]},"application/x-dgc-compressed":{"source":"apache","extensions":["dgc"]},"application/x-director":{"source":"apache","extensions":["dir","dcr","dxr","cst","cct","cxt","w3d","fgd","swa"]},"application/x-doom":{"source":"apache","extensions":["wad"]},"application/x-dtbncx+xml":{"source":"apache","compressible":true,"extensions":["ncx"]},"application/x-dtbook+xml":{"source":"apache","compressible":true,"extensions":["dtb"]},"application/x-dtbresource+xml":{"source":"apache","compressible":true,"extensions":["res"]},"application/x-dvi":{"source":"apache","compressible":false,"extensions":["dvi"]},"application/x-envoy":{"source":"apache","extensions":["evy"]},"application/x-eva":{"source":"apache","extensions":["eva"]},"application/x-font-bdf":{"source":"apache","extensions":["bdf"]},"application/x-font-dos":{"source":"apache"},"application/x-font-framemaker":{"source":"apache"},"application/x-font-ghostscript":{"source":"apache","extensions":["gsf"]},"application/x-font-libgrx":{"source":"apache"},"application/x-font-linux-psf":{"source":"apache","extensions":["psf"]},"application/x-font-pcf":{"source":"apache","extensions":["pcf"]},"application/x-font-snf":{"source":"apache","extensions":["snf"]},"application/x-font-speedo":{"source":"apache"},"application/x-font-sunos-news":{"source":"apache"},"application/x-font-type1":{"source":"apache","extensions":["pfa","pfb","pfm","afm"]},"application/x-font-vfont":{"source":"apache"},"application/x-freearc":{"source":"apache","extensions":["arc"]},"application/x-futuresplash":{"source":"apache","extensions":["spl"]},"application/x-gca-compressed":{"source":"apache","extensions":["gca"]},"application/x-glulx":{"source":"apache","extensions":["ulx"]},"application/x-gnumeric":{"source":"apache","extensions":["gnumeric"]},"application/x-gramps-xml":{"source":"apache","extensions":["gramps"]},"application/x-gtar":{"source":"apache","extensions":["gtar"]},"application/x-gzip":{"source":"apache"},"application/x-hdf":{"source":"apache","extensions":["hdf"]},"application/x-httpd-php":{"compressible":true,"extensions":["php"]},"application/x-install-instructions":{"source":"apache","extensions":["install"]},"application/x-iso9660-image":{"source":"apache","extensions":["iso"]},"application/x-iwork-keynote-sffkey":{"extensions":["key"]},"application/x-iwork-numbers-sffnumbers":{"extensions":["numbers"]},"application/x-iwork-pages-sffpages":{"extensions":["pages"]},"application/x-java-archive-diff":{"source":"nginx","extensions":["jardiff"]},"application/x-java-jnlp-file":{"source":"apache","compressible":false,"extensions":["jnlp"]},"application/x-javascript":{"compressible":true},"application/x-keepass2":{"extensions":["kdbx"]},"application/x-latex":{"source":"apache","compressible":false,"extensions":["latex"]},"application/x-lua-bytecode":{"extensions":["luac"]},"application/x-lzh-compressed":{"source":"apache","extensions":["lzh","lha"]},"application/x-makeself":{"source":"nginx","extensions":["run"]},"application/x-mie":{"source":"apache","extensions":["mie"]},"application/x-mobipocket-ebook":{"source":"apache","extensions":["prc","mobi"]},"application/x-mpegurl":{"compressible":false},"application/x-ms-application":{"source":"apache","extensions":["application"]},"application/x-ms-shortcut":{"source":"apache","extensions":["lnk"]},"application/x-ms-wmd":{"source":"apache","extensions":["wmd"]},"application/x-ms-wmz":{"source":"apache","extensions":["wmz"]},"application/x-ms-xbap":{"source":"apache","extensions":["xbap"]},"application/x-msaccess":{"source":"apache","extensions":["mdb"]},"application/x-msbinder":{"source":"apache","extensions":["obd"]},"application/x-mscardfile":{"source":"apache","extensions":["crd"]},"application/x-msclip":{"source":"apache","extensions":["clp"]},"application/x-msdos-program":{"extensions":["exe"]},"application/x-msdownload":{"source":"apache","extensions":["exe","dll","com","bat","msi"]},"application/x-msmediaview":{"source":"apache","extensions":["mvb","m13","m14"]},"application/x-msmetafile":{"source":"apache","extensions":["wmf","wmz","emf","emz"]},"application/x-msmoney":{"source":"apache","extensions":["mny"]},"application/x-mspublisher":{"source":"apache","extensions":["pub"]},"application/x-msschedule":{"source":"apache","extensions":["scd"]},"application/x-msterminal":{"source":"apache","extensions":["trm"]},"application/x-mswrite":{"source":"apache","extensions":["wri"]},"application/x-netcdf":{"source":"apache","extensions":["nc","cdf"]},"application/x-ns-proxy-autoconfig":{"compressible":true,"extensions":["pac"]},"application/x-nzb":{"source":"apache","extensions":["nzb"]},"application/x-perl":{"source":"nginx","extensions":["pl","pm"]},"application/x-pilot":{"source":"nginx","extensions":["prc","pdb"]},"application/x-pkcs12":{"source":"apache","compressible":false,"extensions":["p12","pfx"]},"application/x-pkcs7-certificates":{"source":"apache","extensions":["p7b","spc"]},"application/x-pkcs7-certreqresp":{"source":"apache","extensions":["p7r"]},"application/x-pki-message":{"source":"iana"},"application/x-rar-compressed":{"source":"apache","compressible":false,"extensions":["rar"]},"application/x-redhat-package-manager":{"source":"nginx","extensions":["rpm"]},"application/x-research-info-systems":{"source":"apache","extensions":["ris"]},"application/x-sea":{"source":"nginx","extensions":["sea"]},"application/x-sh":{"source":"apache","compressible":true,"extensions":["sh"]},"application/x-shar":{"source":"apache","extensions":["shar"]},"application/x-shockwave-flash":{"source":"apache","compressible":false,"extensions":["swf"]},"application/x-silverlight-app":{"source":"apache","extensions":["xap"]},"application/x-sql":{"source":"apache","extensions":["sql"]},"application/x-stuffit":{"source":"apache","compressible":false,"extensions":["sit"]},"application/x-stuffitx":{"source":"apache","extensions":["sitx"]},"application/x-subrip":{"source":"apache","extensions":["srt"]},"application/x-sv4cpio":{"source":"apache","extensions":["sv4cpio"]},"application/x-sv4crc":{"source":"apache","extensions":["sv4crc"]},"application/x-t3vm-image":{"source":"apache","extensions":["t3"]},"application/x-tads":{"source":"apache","extensions":["gam"]},"application/x-tar":{"source":"apache","compressible":true,"extensions":["tar"]},"application/x-tcl":{"source":"apache","extensions":["tcl","tk"]},"application/x-tex":{"source":"apache","extensions":["tex"]},"application/x-tex-tfm":{"source":"apache","extensions":["tfm"]},"application/x-texinfo":{"source":"apache","extensions":["texinfo","texi"]},"application/x-tgif":{"source":"apache","extensions":["obj"]},"application/x-ustar":{"source":"apache","extensions":["ustar"]},"application/x-virtualbox-hdd":{"compressible":true,"extensions":["hdd"]},"application/x-virtualbox-ova":{"compressible":true,"extensions":["ova"]},"application/x-virtualbox-ovf":{"compressible":true,"extensions":["ovf"]},"application/x-virtualbox-vbox":{"compressible":true,"extensions":["vbox"]},"application/x-virtualbox-vbox-extpack":{"compressible":false,"extensions":["vbox-extpack"]},"application/x-virtualbox-vdi":{"compressible":true,"extensions":["vdi"]},"application/x-virtualbox-vhd":{"compressible":true,"extensions":["vhd"]},"application/x-virtualbox-vmdk":{"compressible":true,"extensions":["vmdk"]},"application/x-wais-source":{"source":"apache","extensions":["src"]},"application/x-web-app-manifest+json":{"compressible":true,"extensions":["webapp"]},"application/x-www-form-urlencoded":{"source":"iana","compressible":true},"application/x-x509-ca-cert":{"source":"iana","extensions":["der","crt","pem"]},"application/x-x509-ca-ra-cert":{"source":"iana"},"application/x-x509-next-ca-cert":{"source":"iana"},"application/x-xfig":{"source":"apache","extensions":["fig"]},"application/x-xliff+xml":{"source":"apache","compressible":true,"extensions":["xlf"]},"application/x-xpinstall":{"source":"apache","compressible":false,"extensions":["xpi"]},"application/x-xz":{"source":"apache","extensions":["xz"]},"application/x-zmachine":{"source":"apache","extensions":["z1","z2","z3","z4","z5","z6","z7","z8"]},"application/x400-bp":{"source":"iana"},"application/xacml+xml":{"source":"iana","compressible":true},"application/xaml+xml":{"source":"apache","compressible":true,"extensions":["xaml"]},"application/xcap-att+xml":{"source":"iana","compressible":true,"extensions":["xav"]},"application/xcap-caps+xml":{"source":"iana","compressible":true,"extensions":["xca"]},"application/xcap-diff+xml":{"source":"iana","compressible":true,"extensions":["xdf"]},"application/xcap-el+xml":{"source":"iana","compressible":true,"extensions":["xel"]},"application/xcap-error+xml":{"source":"iana","compressible":true},"application/xcap-ns+xml":{"source":"iana","compressible":true,"extensions":["xns"]},"application/xcon-conference-info+xml":{"source":"iana","compressible":true},"application/xcon-conference-info-diff+xml":{"source":"iana","compressible":true},"application/xenc+xml":{"source":"iana","compressible":true,"extensions":["xenc"]},"application/xhtml+xml":{"source":"iana","compressible":true,"extensions":["xhtml","xht"]},"application/xhtml-voice+xml":{"source":"apache","compressible":true},"application/xliff+xml":{"source":"iana","compressible":true,"extensions":["xlf"]},"application/xml":{"source":"iana","compressible":true,"extensions":["xml","xsl","xsd","rng"]},"application/xml-dtd":{"source":"iana","compressible":true,"extensions":["dtd"]},"application/xml-external-parsed-entity":{"source":"iana"},"application/xml-patch+xml":{"source":"iana","compressible":true},"application/xmpp+xml":{"source":"iana","compressible":true},"application/xop+xml":{"source":"iana","compressible":true,"extensions":["xop"]},"application/xproc+xml":{"source":"apache","compressible":true,"extensions":["xpl"]},"application/xslt+xml":{"source":"iana","compressible":true,"extensions":["xsl","xslt"]},"application/xspf+xml":{"source":"apache","compressible":true,"extensions":["xspf"]},"application/xv+xml":{"source":"iana","compressible":true,"extensions":["mxml","xhvml","xvml","xvm"]},"application/yang":{"source":"iana","extensions":["yang"]},"application/yang-data+json":{"source":"iana","compressible":true},"application/yang-data+xml":{"source":"iana","compressible":true},"application/yang-patch+json":{"source":"iana","compressible":true},"application/yang-patch+xml":{"source":"iana","compressible":true},"application/yin+xml":{"source":"iana","compressible":true,"extensions":["yin"]},"application/zip":{"source":"iana","compressible":false,"extensions":["zip"]},"application/zlib":{"source":"iana"},"application/zstd":{"source":"iana"},"audio/1d-interleaved-parityfec":{"source":"iana"},"audio/32kadpcm":{"source":"iana"},"audio/3gpp":{"source":"iana","compressible":false,"extensions":["3gpp"]},"audio/3gpp2":{"source":"iana"},"audio/aac":{"source":"iana"},"audio/ac3":{"source":"iana"},"audio/adpcm":{"source":"apache","extensions":["adp"]},"audio/amr":{"source":"iana","extensions":["amr"]},"audio/amr-wb":{"source":"iana"},"audio/amr-wb+":{"source":"iana"},"audio/aptx":{"source":"iana"},"audio/asc":{"source":"iana"},"audio/atrac-advanced-lossless":{"source":"iana"},"audio/atrac-x":{"source":"iana"},"audio/atrac3":{"source":"iana"},"audio/basic":{"source":"iana","compressible":false,"extensions":["au","snd"]},"audio/bv16":{"source":"iana"},"audio/bv32":{"source":"iana"},"audio/clearmode":{"source":"iana"},"audio/cn":{"source":"iana"},"audio/dat12":{"source":"iana"},"audio/dls":{"source":"iana"},"audio/dsr-es201108":{"source":"iana"},"audio/dsr-es202050":{"source":"iana"},"audio/dsr-es202211":{"source":"iana"},"audio/dsr-es202212":{"source":"iana"},"audio/dv":{"source":"iana"},"audio/dvi4":{"source":"iana"},"audio/eac3":{"source":"iana"},"audio/encaprtp":{"source":"iana"},"audio/evrc":{"source":"iana"},"audio/evrc-qcp":{"source":"iana"},"audio/evrc0":{"source":"iana"},"audio/evrc1":{"source":"iana"},"audio/evrcb":{"source":"iana"},"audio/evrcb0":{"source":"iana"},"audio/evrcb1":{"source":"iana"},"audio/evrcnw":{"source":"iana"},"audio/evrcnw0":{"source":"iana"},"audio/evrcnw1":{"source":"iana"},"audio/evrcwb":{"source":"iana"},"audio/evrcwb0":{"source":"iana"},"audio/evrcwb1":{"source":"iana"},"audio/evs":{"source":"iana"},"audio/flexfec":{"source":"iana"},"audio/fwdred":{"source":"iana"},"audio/g711-0":{"source":"iana"},"audio/g719":{"source":"iana"},"audio/g722":{"source":"iana"},"audio/g7221":{"source":"iana"},"audio/g723":{"source":"iana"},"audio/g726-16":{"source":"iana"},"audio/g726-24":{"source":"iana"},"audio/g726-32":{"source":"iana"},"audio/g726-40":{"source":"iana"},"audio/g728":{"source":"iana"},"audio/g729":{"source":"iana"},"audio/g7291":{"source":"iana"},"audio/g729d":{"source":"iana"},"audio/g729e":{"source":"iana"},"audio/gsm":{"source":"iana"},"audio/gsm-efr":{"source":"iana"},"audio/gsm-hr-08":{"source":"iana"},"audio/ilbc":{"source":"iana"},"audio/ip-mr_v2.5":{"source":"iana"},"audio/isac":{"source":"apache"},"audio/l16":{"source":"iana"},"audio/l20":{"source":"iana"},"audio/l24":{"source":"iana","compressible":false},"audio/l8":{"source":"iana"},"audio/lpc":{"source":"iana"},"audio/melp":{"source":"iana"},"audio/melp1200":{"source":"iana"},"audio/melp2400":{"source":"iana"},"audio/melp600":{"source":"iana"},"audio/mhas":{"source":"iana"},"audio/midi":{"source":"apache","extensions":["mid","midi","kar","rmi"]},"audio/mobile-xmf":{"source":"iana","extensions":["mxmf"]},"audio/mp3":{"compressible":false,"extensions":["mp3"]},"audio/mp4":{"source":"iana","compressible":false,"extensions":["m4a","mp4a"]},"audio/mp4a-latm":{"source":"iana"},"audio/mpa":{"source":"iana"},"audio/mpa-robust":{"source":"iana"},"audio/mpeg":{"source":"iana","compressible":false,"extensions":["mpga","mp2","mp2a","mp3","m2a","m3a"]},"audio/mpeg4-generic":{"source":"iana"},"audio/musepack":{"source":"apache"},"audio/ogg":{"source":"iana","compressible":false,"extensions":["oga","ogg","spx","opus"]},"audio/opus":{"source":"iana"},"audio/parityfec":{"source":"iana"},"audio/pcma":{"source":"iana"},"audio/pcma-wb":{"source":"iana"},"audio/pcmu":{"source":"iana"},"audio/pcmu-wb":{"source":"iana"},"audio/prs.sid":{"source":"iana"},"audio/qcelp":{"source":"iana"},"audio/raptorfec":{"source":"iana"},"audio/red":{"source":"iana"},"audio/rtp-enc-aescm128":{"source":"iana"},"audio/rtp-midi":{"source":"iana"},"audio/rtploopback":{"source":"iana"},"audio/rtx":{"source":"iana"},"audio/s3m":{"source":"apache","extensions":["s3m"]},"audio/scip":{"source":"iana"},"audio/silk":{"source":"apache","extensions":["sil"]},"audio/smv":{"source":"iana"},"audio/smv-qcp":{"source":"iana"},"audio/smv0":{"source":"iana"},"audio/sofa":{"source":"iana"},"audio/sp-midi":{"source":"iana"},"audio/speex":{"source":"iana"},"audio/t140c":{"source":"iana"},"audio/t38":{"source":"iana"},"audio/telephone-event":{"source":"iana"},"audio/tetra_acelp":{"source":"iana"},"audio/tetra_acelp_bb":{"source":"iana"},"audio/tone":{"source":"iana"},"audio/tsvcis":{"source":"iana"},"audio/uemclip":{"source":"iana"},"audio/ulpfec":{"source":"iana"},"audio/usac":{"source":"iana"},"audio/vdvi":{"source":"iana"},"audio/vmr-wb":{"source":"iana"},"audio/vnd.3gpp.iufp":{"source":"iana"},"audio/vnd.4sb":{"source":"iana"},"audio/vnd.audiokoz":{"source":"iana"},"audio/vnd.celp":{"source":"iana"},"audio/vnd.cisco.nse":{"source":"iana"},"audio/vnd.cmles.radio-events":{"source":"iana"},"audio/vnd.cns.anp1":{"source":"iana"},"audio/vnd.cns.inf1":{"source":"iana"},"audio/vnd.dece.audio":{"source":"iana","extensions":["uva","uvva"]},"audio/vnd.digital-winds":{"source":"iana","extensions":["eol"]},"audio/vnd.dlna.adts":{"source":"iana"},"audio/vnd.dolby.heaac.1":{"source":"iana"},"audio/vnd.dolby.heaac.2":{"source":"iana"},"audio/vnd.dolby.mlp":{"source":"iana"},"audio/vnd.dolby.mps":{"source":"iana"},"audio/vnd.dolby.pl2":{"source":"iana"},"audio/vnd.dolby.pl2x":{"source":"iana"},"audio/vnd.dolby.pl2z":{"source":"iana"},"audio/vnd.dolby.pulse.1":{"source":"iana"},"audio/vnd.dra":{"source":"iana","extensions":["dra"]},"audio/vnd.dts":{"source":"iana","extensions":["dts"]},"audio/vnd.dts.hd":{"source":"iana","extensions":["dtshd"]},"audio/vnd.dts.uhd":{"source":"iana"},"audio/vnd.dvb.file":{"source":"iana"},"audio/vnd.everad.plj":{"source":"iana"},"audio/vnd.hns.audio":{"source":"iana"},"audio/vnd.lucent.voice":{"source":"iana","extensions":["lvp"]},"audio/vnd.ms-playready.media.pya":{"source":"iana","extensions":["pya"]},"audio/vnd.nokia.mobile-xmf":{"source":"iana"},"audio/vnd.nortel.vbk":{"source":"iana"},"audio/vnd.nuera.ecelp4800":{"source":"iana","extensions":["ecelp4800"]},"audio/vnd.nuera.ecelp7470":{"source":"iana","extensions":["ecelp7470"]},"audio/vnd.nuera.ecelp9600":{"source":"iana","extensions":["ecelp9600"]},"audio/vnd.octel.sbc":{"source":"iana"},"audio/vnd.presonus.multitrack":{"source":"iana"},"audio/vnd.qcelp":{"source":"iana"},"audio/vnd.rhetorex.32kadpcm":{"source":"iana"},"audio/vnd.rip":{"source":"iana","extensions":["rip"]},"audio/vnd.rn-realaudio":{"compressible":false},"audio/vnd.sealedmedia.softseal.mpeg":{"source":"iana"},"audio/vnd.vmx.cvsd":{"source":"iana"},"audio/vnd.wave":{"compressible":false},"audio/vorbis":{"source":"iana","compressible":false},"audio/vorbis-config":{"source":"iana"},"audio/wav":{"compressible":false,"extensions":["wav"]},"audio/wave":{"compressible":false,"extensions":["wav"]},"audio/webm":{"source":"apache","compressible":false,"extensions":["weba"]},"audio/x-aac":{"source":"apache","compressible":false,"extensions":["aac"]},"audio/x-aiff":{"source":"apache","extensions":["aif","aiff","aifc"]},"audio/x-caf":{"source":"apache","compressible":false,"extensions":["caf"]},"audio/x-flac":{"source":"apache","extensions":["flac"]},"audio/x-m4a":{"source":"nginx","extensions":["m4a"]},"audio/x-matroska":{"source":"apache","extensions":["mka"]},"audio/x-mpegurl":{"source":"apache","extensions":["m3u"]},"audio/x-ms-wax":{"source":"apache","extensions":["wax"]},"audio/x-ms-wma":{"source":"apache","extensions":["wma"]},"audio/x-pn-realaudio":{"source":"apache","extensions":["ram","ra"]},"audio/x-pn-realaudio-plugin":{"source":"apache","extensions":["rmp"]},"audio/x-realaudio":{"source":"nginx","extensions":["ra"]},"audio/x-tta":{"source":"apache"},"audio/x-wav":{"source":"apache","extensions":["wav"]},"audio/xm":{"source":"apache","extensions":["xm"]},"chemical/x-cdx":{"source":"apache","extensions":["cdx"]},"chemical/x-cif":{"source":"apache","extensions":["cif"]},"chemical/x-cmdf":{"source":"apache","extensions":["cmdf"]},"chemical/x-cml":{"source":"apache","extensions":["cml"]},"chemical/x-csml":{"source":"apache","extensions":["csml"]},"chemical/x-pdb":{"source":"apache"},"chemical/x-xyz":{"source":"apache","extensions":["xyz"]},"font/collection":{"source":"iana","extensions":["ttc"]},"font/otf":{"source":"iana","compressible":true,"extensions":["otf"]},"font/sfnt":{"source":"iana"},"font/ttf":{"source":"iana","compressible":true,"extensions":["ttf"]},"font/woff":{"source":"iana","extensions":["woff"]},"font/woff2":{"source":"iana","extensions":["woff2"]},"image/aces":{"source":"iana","extensions":["exr"]},"image/apng":{"compressible":false,"extensions":["apng"]},"image/avci":{"source":"iana","extensions":["avci"]},"image/avcs":{"source":"iana","extensions":["avcs"]},"image/avif":{"source":"iana","compressible":false,"extensions":["avif"]},"image/bmp":{"source":"iana","compressible":true,"extensions":["bmp"]},"image/cgm":{"source":"iana","extensions":["cgm"]},"image/dicom-rle":{"source":"iana","extensions":["drle"]},"image/emf":{"source":"iana","extensions":["emf"]},"image/fits":{"source":"iana","extensions":["fits"]},"image/g3fax":{"source":"iana","extensions":["g3"]},"image/gif":{"source":"iana","compressible":false,"extensions":["gif"]},"image/heic":{"source":"iana","extensions":["heic"]},"image/heic-sequence":{"source":"iana","extensions":["heics"]},"image/heif":{"source":"iana","extensions":["heif"]},"image/heif-sequence":{"source":"iana","extensions":["heifs"]},"image/hej2k":{"source":"iana","extensions":["hej2"]},"image/hsj2":{"source":"iana","extensions":["hsj2"]},"image/ief":{"source":"iana","extensions":["ief"]},"image/jls":{"source":"iana","extensions":["jls"]},"image/jp2":{"source":"iana","compressible":false,"extensions":["jp2","jpg2"]},"image/jpeg":{"source":"iana","compressible":false,"extensions":["jpeg","jpg","jpe"]},"image/jph":{"source":"iana","extensions":["jph"]},"image/jphc":{"source":"iana","extensions":["jhc"]},"image/jpm":{"source":"iana","compressible":false,"extensions":["jpm"]},"image/jpx":{"source":"iana","compressible":false,"extensions":["jpx","jpf"]},"image/jxr":{"source":"iana","extensions":["jxr"]},"image/jxra":{"source":"iana","extensions":["jxra"]},"image/jxrs":{"source":"iana","extensions":["jxrs"]},"image/jxs":{"source":"iana","extensions":["jxs"]},"image/jxsc":{"source":"iana","extensions":["jxsc"]},"image/jxsi":{"source":"iana","extensions":["jxsi"]},"image/jxss":{"source":"iana","extensions":["jxss"]},"image/ktx":{"source":"iana","extensions":["ktx"]},"image/ktx2":{"source":"iana","extensions":["ktx2"]},"image/naplps":{"source":"iana"},"image/pjpeg":{"compressible":false},"image/png":{"source":"iana","compressible":false,"extensions":["png"]},"image/prs.btif":{"source":"iana","extensions":["btif"]},"image/prs.pti":{"source":"iana","extensions":["pti"]},"image/pwg-raster":{"source":"iana"},"image/sgi":{"source":"apache","extensions":["sgi"]},"image/svg+xml":{"source":"iana","compressible":true,"extensions":["svg","svgz"]},"image/t38":{"source":"iana","extensions":["t38"]},"image/tiff":{"source":"iana","compressible":false,"extensions":["tif","tiff"]},"image/tiff-fx":{"source":"iana","extensions":["tfx"]},"image/vnd.adobe.photoshop":{"source":"iana","compressible":true,"extensions":["psd"]},"image/vnd.airzip.accelerator.azv":{"source":"iana","extensions":["azv"]},"image/vnd.cns.inf2":{"source":"iana"},"image/vnd.dece.graphic":{"source":"iana","extensions":["uvi","uvvi","uvg","uvvg"]},"image/vnd.djvu":{"source":"iana","extensions":["djvu","djv"]},"image/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"image/vnd.dwg":{"source":"iana","extensions":["dwg"]},"image/vnd.dxf":{"source":"iana","extensions":["dxf"]},"image/vnd.fastbidsheet":{"source":"iana","extensions":["fbs"]},"image/vnd.fpx":{"source":"iana","extensions":["fpx"]},"image/vnd.fst":{"source":"iana","extensions":["fst"]},"image/vnd.fujixerox.edmics-mmr":{"source":"iana","extensions":["mmr"]},"image/vnd.fujixerox.edmics-rlc":{"source":"iana","extensions":["rlc"]},"image/vnd.globalgraphics.pgb":{"source":"iana"},"image/vnd.microsoft.icon":{"source":"iana","compressible":true,"extensions":["ico"]},"image/vnd.mix":{"source":"iana"},"image/vnd.mozilla.apng":{"source":"iana"},"image/vnd.ms-dds":{"compressible":true,"extensions":["dds"]},"image/vnd.ms-modi":{"source":"iana","extensions":["mdi"]},"image/vnd.ms-photo":{"source":"apache","extensions":["wdp"]},"image/vnd.net-fpx":{"source":"iana","extensions":["npx"]},"image/vnd.pco.b16":{"source":"iana","extensions":["b16"]},"image/vnd.radiance":{"source":"iana"},"image/vnd.sealed.png":{"source":"iana"},"image/vnd.sealedmedia.softseal.gif":{"source":"iana"},"image/vnd.sealedmedia.softseal.jpg":{"source":"iana"},"image/vnd.svf":{"source":"iana"},"image/vnd.tencent.tap":{"source":"iana","extensions":["tap"]},"image/vnd.valve.source.texture":{"source":"iana","extensions":["vtf"]},"image/vnd.wap.wbmp":{"source":"iana","extensions":["wbmp"]},"image/vnd.xiff":{"source":"iana","extensions":["xif"]},"image/vnd.zbrush.pcx":{"source":"iana","extensions":["pcx"]},"image/webp":{"source":"apache","extensions":["webp"]},"image/wmf":{"source":"iana","extensions":["wmf"]},"image/x-3ds":{"source":"apache","extensions":["3ds"]},"image/x-cmu-raster":{"source":"apache","extensions":["ras"]},"image/x-cmx":{"source":"apache","extensions":["cmx"]},"image/x-freehand":{"source":"apache","extensions":["fh","fhc","fh4","fh5","fh7"]},"image/x-icon":{"source":"apache","compressible":true,"extensions":["ico"]},"image/x-jng":{"source":"nginx","extensions":["jng"]},"image/x-mrsid-image":{"source":"apache","extensions":["sid"]},"image/x-ms-bmp":{"source":"nginx","compressible":true,"extensions":["bmp"]},"image/x-pcx":{"source":"apache","extensions":["pcx"]},"image/x-pict":{"source":"apache","extensions":["pic","pct"]},"image/x-portable-anymap":{"source":"apache","extensions":["pnm"]},"image/x-portable-bitmap":{"source":"apache","extensions":["pbm"]},"image/x-portable-graymap":{"source":"apache","extensions":["pgm"]},"image/x-portable-pixmap":{"source":"apache","extensions":["ppm"]},"image/x-rgb":{"source":"apache","extensions":["rgb"]},"image/x-tga":{"source":"apache","extensions":["tga"]},"image/x-xbitmap":{"source":"apache","extensions":["xbm"]},"image/x-xcf":{"compressible":false},"image/x-xpixmap":{"source":"apache","extensions":["xpm"]},"image/x-xwindowdump":{"source":"apache","extensions":["xwd"]},"message/cpim":{"source":"iana"},"message/delivery-status":{"source":"iana"},"message/disposition-notification":{"source":"iana","extensions":["disposition-notification"]},"message/external-body":{"source":"iana"},"message/feedback-report":{"source":"iana"},"message/global":{"source":"iana","extensions":["u8msg"]},"message/global-delivery-status":{"source":"iana","extensions":["u8dsn"]},"message/global-disposition-notification":{"source":"iana","extensions":["u8mdn"]},"message/global-headers":{"source":"iana","extensions":["u8hdr"]},"message/http":{"source":"iana","compressible":false},"message/imdn+xml":{"source":"iana","compressible":true},"message/news":{"source":"iana"},"message/partial":{"source":"iana","compressible":false},"message/rfc822":{"source":"iana","compressible":true,"extensions":["eml","mime"]},"message/s-http":{"source":"iana"},"message/sip":{"source":"iana"},"message/sipfrag":{"source":"iana"},"message/tracking-status":{"source":"iana"},"message/vnd.si.simp":{"source":"iana"},"message/vnd.wfa.wsc":{"source":"iana","extensions":["wsc"]},"model/3mf":{"source":"iana","extensions":["3mf"]},"model/e57":{"source":"iana"},"model/gltf+json":{"source":"iana","compressible":true,"extensions":["gltf"]},"model/gltf-binary":{"source":"iana","compressible":true,"extensions":["glb"]},"model/iges":{"source":"iana","compressible":false,"extensions":["igs","iges"]},"model/mesh":{"source":"iana","compressible":false,"extensions":["msh","mesh","silo"]},"model/mtl":{"source":"iana","extensions":["mtl"]},"model/obj":{"source":"iana","extensions":["obj"]},"model/step":{"source":"iana"},"model/step+xml":{"source":"iana","compressible":true,"extensions":["stpx"]},"model/step+zip":{"source":"iana","compressible":false,"extensions":["stpz"]},"model/step-xml+zip":{"source":"iana","compressible":false,"extensions":["stpxz"]},"model/stl":{"source":"iana","extensions":["stl"]},"model/vnd.collada+xml":{"source":"iana","compressible":true,"extensions":["dae"]},"model/vnd.dwf":{"source":"iana","extensions":["dwf"]},"model/vnd.flatland.3dml":{"source":"iana"},"model/vnd.gdl":{"source":"iana","extensions":["gdl"]},"model/vnd.gs-gdl":{"source":"apache"},"model/vnd.gs.gdl":{"source":"iana"},"model/vnd.gtw":{"source":"iana","extensions":["gtw"]},"model/vnd.moml+xml":{"source":"iana","compressible":true},"model/vnd.mts":{"source":"iana","extensions":["mts"]},"model/vnd.opengex":{"source":"iana","extensions":["ogex"]},"model/vnd.parasolid.transmit.binary":{"source":"iana","extensions":["x_b"]},"model/vnd.parasolid.transmit.text":{"source":"iana","extensions":["x_t"]},"model/vnd.pytha.pyox":{"source":"iana"},"model/vnd.rosette.annotated-data-model":{"source":"iana"},"model/vnd.sap.vds":{"source":"iana","extensions":["vds"]},"model/vnd.usdz+zip":{"source":"iana","compressible":false,"extensions":["usdz"]},"model/vnd.valve.source.compiled-map":{"source":"iana","extensions":["bsp"]},"model/vnd.vtu":{"source":"iana","extensions":["vtu"]},"model/vrml":{"source":"iana","compressible":false,"extensions":["wrl","vrml"]},"model/x3d+binary":{"source":"apache","compressible":false,"extensions":["x3db","x3dbz"]},"model/x3d+fastinfoset":{"source":"iana","extensions":["x3db"]},"model/x3d+vrml":{"source":"apache","compressible":false,"extensions":["x3dv","x3dvz"]},"model/x3d+xml":{"source":"iana","compressible":true,"extensions":["x3d","x3dz"]},"model/x3d-vrml":{"source":"iana","extensions":["x3dv"]},"multipart/alternative":{"source":"iana","compressible":false},"multipart/appledouble":{"source":"iana"},"multipart/byteranges":{"source":"iana"},"multipart/digest":{"source":"iana"},"multipart/encrypted":{"source":"iana","compressible":false},"multipart/form-data":{"source":"iana","compressible":false},"multipart/header-set":{"source":"iana"},"multipart/mixed":{"source":"iana"},"multipart/multilingual":{"source":"iana"},"multipart/parallel":{"source":"iana"},"multipart/related":{"source":"iana","compressible":false},"multipart/report":{"source":"iana"},"multipart/signed":{"source":"iana","compressible":false},"multipart/vnd.bint.med-plus":{"source":"iana"},"multipart/voice-message":{"source":"iana"},"multipart/x-mixed-replace":{"source":"iana"},"text/1d-interleaved-parityfec":{"source":"iana"},"text/cache-manifest":{"source":"iana","compressible":true,"extensions":["appcache","manifest"]},"text/calendar":{"source":"iana","extensions":["ics","ifb"]},"text/calender":{"compressible":true},"text/cmd":{"compressible":true},"text/coffeescript":{"extensions":["coffee","litcoffee"]},"text/cql":{"source":"iana"},"text/cql-expression":{"source":"iana"},"text/cql-identifier":{"source":"iana"},"text/css":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["css"]},"text/csv":{"source":"iana","compressible":true,"extensions":["csv"]},"text/csv-schema":{"source":"iana"},"text/directory":{"source":"iana"},"text/dns":{"source":"iana"},"text/ecmascript":{"source":"iana"},"text/encaprtp":{"source":"iana"},"text/enriched":{"source":"iana"},"text/fhirpath":{"source":"iana"},"text/flexfec":{"source":"iana"},"text/fwdred":{"source":"iana"},"text/gff3":{"source":"iana"},"text/grammar-ref-list":{"source":"iana"},"text/html":{"source":"iana","compressible":true,"extensions":["html","htm","shtml"]},"text/jade":{"extensions":["jade"]},"text/javascript":{"source":"iana","compressible":true},"text/jcr-cnd":{"source":"iana"},"text/jsx":{"compressible":true,"extensions":["jsx"]},"text/less":{"compressible":true,"extensions":["less"]},"text/markdown":{"source":"iana","compressible":true,"extensions":["markdown","md"]},"text/mathml":{"source":"nginx","extensions":["mml"]},"text/mdx":{"compressible":true,"extensions":["mdx"]},"text/mizar":{"source":"iana"},"text/n3":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["n3"]},"text/parameters":{"source":"iana","charset":"UTF-8"},"text/parityfec":{"source":"iana"},"text/plain":{"source":"iana","compressible":true,"extensions":["txt","text","conf","def","list","log","in","ini"]},"text/provenance-notation":{"source":"iana","charset":"UTF-8"},"text/prs.fallenstein.rst":{"source":"iana"},"text/prs.lines.tag":{"source":"iana","extensions":["dsc"]},"text/prs.prop.logic":{"source":"iana"},"text/raptorfec":{"source":"iana"},"text/red":{"source":"iana"},"text/rfc822-headers":{"source":"iana"},"text/richtext":{"source":"iana","compressible":true,"extensions":["rtx"]},"text/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"text/rtp-enc-aescm128":{"source":"iana"},"text/rtploopback":{"source":"iana"},"text/rtx":{"source":"iana"},"text/sgml":{"source":"iana","extensions":["sgml","sgm"]},"text/shaclc":{"source":"iana"},"text/shex":{"source":"iana","extensions":["shex"]},"text/slim":{"extensions":["slim","slm"]},"text/spdx":{"source":"iana","extensions":["spdx"]},"text/strings":{"source":"iana"},"text/stylus":{"extensions":["stylus","styl"]},"text/t140":{"source":"iana"},"text/tab-separated-values":{"source":"iana","compressible":true,"extensions":["tsv"]},"text/troff":{"source":"iana","extensions":["t","tr","roff","man","me","ms"]},"text/turtle":{"source":"iana","charset":"UTF-8","extensions":["ttl"]},"text/ulpfec":{"source":"iana"},"text/uri-list":{"source":"iana","compressible":true,"extensions":["uri","uris","urls"]},"text/vcard":{"source":"iana","compressible":true,"extensions":["vcard"]},"text/vnd.a":{"source":"iana"},"text/vnd.abc":{"source":"iana"},"text/vnd.ascii-art":{"source":"iana"},"text/vnd.curl":{"source":"iana","extensions":["curl"]},"text/vnd.curl.dcurl":{"source":"apache","extensions":["dcurl"]},"text/vnd.curl.mcurl":{"source":"apache","extensions":["mcurl"]},"text/vnd.curl.scurl":{"source":"apache","extensions":["scurl"]},"text/vnd.debian.copyright":{"source":"iana","charset":"UTF-8"},"text/vnd.dmclientscript":{"source":"iana"},"text/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"text/vnd.esmertec.theme-descriptor":{"source":"iana","charset":"UTF-8"},"text/vnd.familysearch.gedcom":{"source":"iana","extensions":["ged"]},"text/vnd.ficlab.flt":{"source":"iana"},"text/vnd.fly":{"source":"iana","extensions":["fly"]},"text/vnd.fmi.flexstor":{"source":"iana","extensions":["flx"]},"text/vnd.gml":{"source":"iana"},"text/vnd.graphviz":{"source":"iana","extensions":["gv"]},"text/vnd.hans":{"source":"iana"},"text/vnd.hgl":{"source":"iana"},"text/vnd.in3d.3dml":{"source":"iana","extensions":["3dml"]},"text/vnd.in3d.spot":{"source":"iana","extensions":["spot"]},"text/vnd.iptc.newsml":{"source":"iana"},"text/vnd.iptc.nitf":{"source":"iana"},"text/vnd.latex-z":{"source":"iana"},"text/vnd.motorola.reflex":{"source":"iana"},"text/vnd.ms-mediapackage":{"source":"iana"},"text/vnd.net2phone.commcenter.command":{"source":"iana"},"text/vnd.radisys.msml-basic-layout":{"source":"iana"},"text/vnd.senx.warpscript":{"source":"iana"},"text/vnd.si.uricatalogue":{"source":"iana"},"text/vnd.sosi":{"source":"iana"},"text/vnd.sun.j2me.app-descriptor":{"source":"iana","charset":"UTF-8","extensions":["jad"]},"text/vnd.trolltech.linguist":{"source":"iana","charset":"UTF-8"},"text/vnd.wap.si":{"source":"iana"},"text/vnd.wap.sl":{"source":"iana"},"text/vnd.wap.wml":{"source":"iana","extensions":["wml"]},"text/vnd.wap.wmlscript":{"source":"iana","extensions":["wmls"]},"text/vtt":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["vtt"]},"text/x-asm":{"source":"apache","extensions":["s","asm"]},"text/x-c":{"source":"apache","extensions":["c","cc","cxx","cpp","h","hh","dic"]},"text/x-component":{"source":"nginx","extensions":["htc"]},"text/x-fortran":{"source":"apache","extensions":["f","for","f77","f90"]},"text/x-gwt-rpc":{"compressible":true},"text/x-handlebars-template":{"extensions":["hbs"]},"text/x-java-source":{"source":"apache","extensions":["java"]},"text/x-jquery-tmpl":{"compressible":true},"text/x-lua":{"extensions":["lua"]},"text/x-markdown":{"compressible":true,"extensions":["mkd"]},"text/x-nfo":{"source":"apache","extensions":["nfo"]},"text/x-opml":{"source":"apache","extensions":["opml"]},"text/x-org":{"compressible":true,"extensions":["org"]},"text/x-pascal":{"source":"apache","extensions":["p","pas"]},"text/x-processing":{"compressible":true,"extensions":["pde"]},"text/x-sass":{"extensions":["sass"]},"text/x-scss":{"extensions":["scss"]},"text/x-setext":{"source":"apache","extensions":["etx"]},"text/x-sfv":{"source":"apache","extensions":["sfv"]},"text/x-suse-ymp":{"compressible":true,"extensions":["ymp"]},"text/x-uuencode":{"source":"apache","extensions":["uu"]},"text/x-vcalendar":{"source":"apache","extensions":["vcs"]},"text/x-vcard":{"source":"apache","extensions":["vcf"]},"text/xml":{"source":"iana","compressible":true,"extensions":["xml"]},"text/xml-external-parsed-entity":{"source":"iana"},"text/yaml":{"compressible":true,"extensions":["yaml","yml"]},"video/1d-interleaved-parityfec":{"source":"iana"},"video/3gpp":{"source":"iana","extensions":["3gp","3gpp"]},"video/3gpp-tt":{"source":"iana"},"video/3gpp2":{"source":"iana","extensions":["3g2"]},"video/av1":{"source":"iana"},"video/bmpeg":{"source":"iana"},"video/bt656":{"source":"iana"},"video/celb":{"source":"iana"},"video/dv":{"source":"iana"},"video/encaprtp":{"source":"iana"},"video/ffv1":{"source":"iana"},"video/flexfec":{"source":"iana"},"video/h261":{"source":"iana","extensions":["h261"]},"video/h263":{"source":"iana","extensions":["h263"]},"video/h263-1998":{"source":"iana"},"video/h263-2000":{"source":"iana"},"video/h264":{"source":"iana","extensions":["h264"]},"video/h264-rcdo":{"source":"iana"},"video/h264-svc":{"source":"iana"},"video/h265":{"source":"iana"},"video/iso.segment":{"source":"iana","extensions":["m4s"]},"video/jpeg":{"source":"iana","extensions":["jpgv"]},"video/jpeg2000":{"source":"iana"},"video/jpm":{"source":"apache","extensions":["jpm","jpgm"]},"video/jxsv":{"source":"iana"},"video/mj2":{"source":"iana","extensions":["mj2","mjp2"]},"video/mp1s":{"source":"iana"},"video/mp2p":{"source":"iana"},"video/mp2t":{"source":"iana","extensions":["ts"]},"video/mp4":{"source":"iana","compressible":false,"extensions":["mp4","mp4v","mpg4"]},"video/mp4v-es":{"source":"iana"},"video/mpeg":{"source":"iana","compressible":false,"extensions":["mpeg","mpg","mpe","m1v","m2v"]},"video/mpeg4-generic":{"source":"iana"},"video/mpv":{"source":"iana"},"video/nv":{"source":"iana"},"video/ogg":{"source":"iana","compressible":false,"extensions":["ogv"]},"video/parityfec":{"source":"iana"},"video/pointer":{"source":"iana"},"video/quicktime":{"source":"iana","compressible":false,"extensions":["qt","mov"]},"video/raptorfec":{"source":"iana"},"video/raw":{"source":"iana"},"video/rtp-enc-aescm128":{"source":"iana"},"video/rtploopback":{"source":"iana"},"video/rtx":{"source":"iana"},"video/scip":{"source":"iana"},"video/smpte291":{"source":"iana"},"video/smpte292m":{"source":"iana"},"video/ulpfec":{"source":"iana"},"video/vc1":{"source":"iana"},"video/vc2":{"source":"iana"},"video/vnd.cctv":{"source":"iana"},"video/vnd.dece.hd":{"source":"iana","extensions":["uvh","uvvh"]},"video/vnd.dece.mobile":{"source":"iana","extensions":["uvm","uvvm"]},"video/vnd.dece.mp4":{"source":"iana"},"video/vnd.dece.pd":{"source":"iana","extensions":["uvp","uvvp"]},"video/vnd.dece.sd":{"source":"iana","extensions":["uvs","uvvs"]},"video/vnd.dece.video":{"source":"iana","extensions":["uvv","uvvv"]},"video/vnd.directv.mpeg":{"source":"iana"},"video/vnd.directv.mpeg-tts":{"source":"iana"},"video/vnd.dlna.mpeg-tts":{"source":"iana"},"video/vnd.dvb.file":{"source":"iana","extensions":["dvb"]},"video/vnd.fvt":{"source":"iana","extensions":["fvt"]},"video/vnd.hns.video":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.ttsavc":{"source":"iana"},"video/vnd.iptvforum.ttsmpeg2":{"source":"iana"},"video/vnd.motorola.video":{"source":"iana"},"video/vnd.motorola.videop":{"source":"iana"},"video/vnd.mpegurl":{"source":"iana","extensions":["mxu","m4u"]},"video/vnd.ms-playready.media.pyv":{"source":"iana","extensions":["pyv"]},"video/vnd.nokia.interleaved-multimedia":{"source":"iana"},"video/vnd.nokia.mp4vr":{"source":"iana"},"video/vnd.nokia.videovoip":{"source":"iana"},"video/vnd.objectvideo":{"source":"iana"},"video/vnd.radgamettools.bink":{"source":"iana"},"video/vnd.radgamettools.smacker":{"source":"iana"},"video/vnd.sealed.mpeg1":{"source":"iana"},"video/vnd.sealed.mpeg4":{"source":"iana"},"video/vnd.sealed.swf":{"source":"iana"},"video/vnd.sealedmedia.softseal.mov":{"source":"iana"},"video/vnd.uvvu.mp4":{"source":"iana","extensions":["uvu","uvvu"]},"video/vnd.vivo":{"source":"iana","extensions":["viv"]},"video/vnd.youtube.yt":{"source":"iana"},"video/vp8":{"source":"iana"},"video/vp9":{"source":"iana"},"video/webm":{"source":"apache","compressible":false,"extensions":["webm"]},"video/x-f4v":{"source":"apache","extensions":["f4v"]},"video/x-fli":{"source":"apache","extensions":["fli"]},"video/x-flv":{"source":"apache","compressible":false,"extensions":["flv"]},"video/x-m4v":{"source":"apache","extensions":["m4v"]},"video/x-matroska":{"source":"apache","compressible":false,"extensions":["mkv","mk3d","mks"]},"video/x-mng":{"source":"apache","extensions":["mng"]},"video/x-ms-asf":{"source":"apache","extensions":["asf","asx"]},"video/x-ms-vob":{"source":"apache","extensions":["vob"]},"video/x-ms-wm":{"source":"apache","extensions":["wm"]},"video/x-ms-wmv":{"source":"apache","compressible":false,"extensions":["wmv"]},"video/x-ms-wmx":{"source":"apache","extensions":["wmx"]},"video/x-ms-wvx":{"source":"apache","extensions":["wvx"]},"video/x-msvideo":{"source":"apache","extensions":["avi"]},"video/x-sgi-movie":{"source":"apache","extensions":["movie"]},"video/x-smv":{"source":"apache","extensions":["smv"]},"x-conference/x-cooltalk":{"source":"apache","extensions":["ice"]},"x-shader/x-fragment":{"compressible":true},"x-shader/x-vertex":{"compressible":true}}');
+module.exports = JSON.parse('{"application/1d-interleaved-parityfec":{"source":"iana"},"application/3gpdash-qoe-report+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/3gpp-ims+xml":{"source":"iana","compressible":true},"application/3gpphal+json":{"source":"iana","compressible":true},"application/3gpphalforms+json":{"source":"iana","compressible":true},"application/a2l":{"source":"iana"},"application/ace+cbor":{"source":"iana"},"application/activemessage":{"source":"iana"},"application/activity+json":{"source":"iana","compressible":true},"application/alto-costmap+json":{"source":"iana","compressible":true},"application/alto-costmapfilter+json":{"source":"iana","compressible":true},"application/alto-directory+json":{"source":"iana","compressible":true},"application/alto-endpointcost+json":{"source":"iana","compressible":true},"application/alto-endpointcostparams+json":{"source":"iana","compressible":true},"application/alto-endpointprop+json":{"source":"iana","compressible":true},"application/alto-endpointpropparams+json":{"source":"iana","compressible":true},"application/alto-error+json":{"source":"iana","compressible":true},"application/alto-networkmap+json":{"source":"iana","compressible":true},"application/alto-networkmapfilter+json":{"source":"iana","compressible":true},"application/alto-updatestreamcontrol+json":{"source":"iana","compressible":true},"application/alto-updatestreamparams+json":{"source":"iana","compressible":true},"application/aml":{"source":"iana"},"application/andrew-inset":{"source":"iana","extensions":["ez"]},"application/applefile":{"source":"iana"},"application/applixware":{"source":"apache","extensions":["aw"]},"application/at+jwt":{"source":"iana"},"application/atf":{"source":"iana"},"application/atfx":{"source":"iana"},"application/atom+xml":{"source":"iana","compressible":true,"extensions":["atom"]},"application/atomcat+xml":{"source":"iana","compressible":true,"extensions":["atomcat"]},"application/atomdeleted+xml":{"source":"iana","compressible":true,"extensions":["atomdeleted"]},"application/atomicmail":{"source":"iana"},"application/atomsvc+xml":{"source":"iana","compressible":true,"extensions":["atomsvc"]},"application/atsc-dwd+xml":{"source":"iana","compressible":true,"extensions":["dwd"]},"application/atsc-dynamic-event-message":{"source":"iana"},"application/atsc-held+xml":{"source":"iana","compressible":true,"extensions":["held"]},"application/atsc-rdt+json":{"source":"iana","compressible":true},"application/atsc-rsat+xml":{"source":"iana","compressible":true,"extensions":["rsat"]},"application/atxml":{"source":"iana"},"application/auth-policy+xml":{"source":"iana","compressible":true},"application/bacnet-xdd+zip":{"source":"iana","compressible":false},"application/batch-smtp":{"source":"iana"},"application/bdoc":{"compressible":false,"extensions":["bdoc"]},"application/beep+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/calendar+json":{"source":"iana","compressible":true},"application/calendar+xml":{"source":"iana","compressible":true,"extensions":["xcs"]},"application/call-completion":{"source":"iana"},"application/cals-1840":{"source":"iana"},"application/captive+json":{"source":"iana","compressible":true},"application/cbor":{"source":"iana"},"application/cbor-seq":{"source":"iana"},"application/cccex":{"source":"iana"},"application/ccmp+xml":{"source":"iana","compressible":true},"application/ccxml+xml":{"source":"iana","compressible":true,"extensions":["ccxml"]},"application/cdfx+xml":{"source":"iana","compressible":true,"extensions":["cdfx"]},"application/cdmi-capability":{"source":"iana","extensions":["cdmia"]},"application/cdmi-container":{"source":"iana","extensions":["cdmic"]},"application/cdmi-domain":{"source":"iana","extensions":["cdmid"]},"application/cdmi-object":{"source":"iana","extensions":["cdmio"]},"application/cdmi-queue":{"source":"iana","extensions":["cdmiq"]},"application/cdni":{"source":"iana"},"application/cea":{"source":"iana"},"application/cea-2018+xml":{"source":"iana","compressible":true},"application/cellml+xml":{"source":"iana","compressible":true},"application/cfw":{"source":"iana"},"application/city+json":{"source":"iana","compressible":true},"application/clr":{"source":"iana"},"application/clue+xml":{"source":"iana","compressible":true},"application/clue_info+xml":{"source":"iana","compressible":true},"application/cms":{"source":"iana"},"application/cnrp+xml":{"source":"iana","compressible":true},"application/coap-group+json":{"source":"iana","compressible":true},"application/coap-payload":{"source":"iana"},"application/commonground":{"source":"iana"},"application/conference-info+xml":{"source":"iana","compressible":true},"application/cose":{"source":"iana"},"application/cose-key":{"source":"iana"},"application/cose-key-set":{"source":"iana"},"application/cpl+xml":{"source":"iana","compressible":true,"extensions":["cpl"]},"application/csrattrs":{"source":"iana"},"application/csta+xml":{"source":"iana","compressible":true},"application/cstadata+xml":{"source":"iana","compressible":true},"application/csvm+json":{"source":"iana","compressible":true},"application/cu-seeme":{"source":"apache","extensions":["cu"]},"application/cwt":{"source":"iana"},"application/cybercash":{"source":"iana"},"application/dart":{"compressible":true},"application/dash+xml":{"source":"iana","compressible":true,"extensions":["mpd"]},"application/dash-patch+xml":{"source":"iana","compressible":true,"extensions":["mpp"]},"application/dashdelta":{"source":"iana"},"application/davmount+xml":{"source":"iana","compressible":true,"extensions":["davmount"]},"application/dca-rft":{"source":"iana"},"application/dcd":{"source":"iana"},"application/dec-dx":{"source":"iana"},"application/dialog-info+xml":{"source":"iana","compressible":true},"application/dicom":{"source":"iana"},"application/dicom+json":{"source":"iana","compressible":true},"application/dicom+xml":{"source":"iana","compressible":true},"application/dii":{"source":"iana"},"application/dit":{"source":"iana"},"application/dns":{"source":"iana"},"application/dns+json":{"source":"iana","compressible":true},"application/dns-message":{"source":"iana"},"application/docbook+xml":{"source":"apache","compressible":true,"extensions":["dbk"]},"application/dots+cbor":{"source":"iana"},"application/dskpp+xml":{"source":"iana","compressible":true},"application/dssc+der":{"source":"iana","extensions":["dssc"]},"application/dssc+xml":{"source":"iana","compressible":true,"extensions":["xdssc"]},"application/dvcs":{"source":"iana"},"application/ecmascript":{"source":"iana","compressible":true,"extensions":["es","ecma"]},"application/edi-consent":{"source":"iana"},"application/edi-x12":{"source":"iana","compressible":false},"application/edifact":{"source":"iana","compressible":false},"application/efi":{"source":"iana"},"application/elm+json":{"source":"iana","charset":"UTF-8","compressible":true},"application/elm+xml":{"source":"iana","compressible":true},"application/emergencycalldata.cap+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/emergencycalldata.comment+xml":{"source":"iana","compressible":true},"application/emergencycalldata.control+xml":{"source":"iana","compressible":true},"application/emergencycalldata.deviceinfo+xml":{"source":"iana","compressible":true},"application/emergencycalldata.ecall.msd":{"source":"iana"},"application/emergencycalldata.providerinfo+xml":{"source":"iana","compressible":true},"application/emergencycalldata.serviceinfo+xml":{"source":"iana","compressible":true},"application/emergencycalldata.subscriberinfo+xml":{"source":"iana","compressible":true},"application/emergencycalldata.veds+xml":{"source":"iana","compressible":true},"application/emma+xml":{"source":"iana","compressible":true,"extensions":["emma"]},"application/emotionml+xml":{"source":"iana","compressible":true,"extensions":["emotionml"]},"application/encaprtp":{"source":"iana"},"application/epp+xml":{"source":"iana","compressible":true},"application/epub+zip":{"source":"iana","compressible":false,"extensions":["epub"]},"application/eshop":{"source":"iana"},"application/exi":{"source":"iana","extensions":["exi"]},"application/expect-ct-report+json":{"source":"iana","compressible":true},"application/express":{"source":"iana","extensions":["exp"]},"application/fastinfoset":{"source":"iana"},"application/fastsoap":{"source":"iana"},"application/fdt+xml":{"source":"iana","compressible":true,"extensions":["fdt"]},"application/fhir+json":{"source":"iana","charset":"UTF-8","compressible":true},"application/fhir+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/fido.trusted-apps+json":{"compressible":true},"application/fits":{"source":"iana"},"application/flexfec":{"source":"iana"},"application/font-sfnt":{"source":"iana"},"application/font-tdpfr":{"source":"iana","extensions":["pfr"]},"application/font-woff":{"source":"iana","compressible":false},"application/framework-attributes+xml":{"source":"iana","compressible":true},"application/geo+json":{"source":"iana","compressible":true,"extensions":["geojson"]},"application/geo+json-seq":{"source":"iana"},"application/geopackage+sqlite3":{"source":"iana"},"application/geoxacml+xml":{"source":"iana","compressible":true},"application/gltf-buffer":{"source":"iana"},"application/gml+xml":{"source":"iana","compressible":true,"extensions":["gml"]},"application/gpx+xml":{"source":"apache","compressible":true,"extensions":["gpx"]},"application/gxf":{"source":"apache","extensions":["gxf"]},"application/gzip":{"source":"iana","compressible":false,"extensions":["gz"]},"application/h224":{"source":"iana"},"application/held+xml":{"source":"iana","compressible":true},"application/hjson":{"extensions":["hjson"]},"application/http":{"source":"iana"},"application/hyperstudio":{"source":"iana","extensions":["stk"]},"application/ibe-key-request+xml":{"source":"iana","compressible":true},"application/ibe-pkg-reply+xml":{"source":"iana","compressible":true},"application/ibe-pp-data":{"source":"iana"},"application/iges":{"source":"iana"},"application/im-iscomposing+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/index":{"source":"iana"},"application/index.cmd":{"source":"iana"},"application/index.obj":{"source":"iana"},"application/index.response":{"source":"iana"},"application/index.vnd":{"source":"iana"},"application/inkml+xml":{"source":"iana","compressible":true,"extensions":["ink","inkml"]},"application/iotp":{"source":"iana"},"application/ipfix":{"source":"iana","extensions":["ipfix"]},"application/ipp":{"source":"iana"},"application/isup":{"source":"iana"},"application/its+xml":{"source":"iana","compressible":true,"extensions":["its"]},"application/java-archive":{"source":"apache","compressible":false,"extensions":["jar","war","ear"]},"application/java-serialized-object":{"source":"apache","compressible":false,"extensions":["ser"]},"application/java-vm":{"source":"apache","compressible":false,"extensions":["class"]},"application/javascript":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["js","mjs"]},"application/jf2feed+json":{"source":"iana","compressible":true},"application/jose":{"source":"iana"},"application/jose+json":{"source":"iana","compressible":true},"application/jrd+json":{"source":"iana","compressible":true},"application/jscalendar+json":{"source":"iana","compressible":true},"application/json":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["json","map"]},"application/json-patch+json":{"source":"iana","compressible":true},"application/json-seq":{"source":"iana"},"application/json5":{"extensions":["json5"]},"application/jsonml+json":{"source":"apache","compressible":true,"extensions":["jsonml"]},"application/jwk+json":{"source":"iana","compressible":true},"application/jwk-set+json":{"source":"iana","compressible":true},"application/jwt":{"source":"iana"},"application/kpml-request+xml":{"source":"iana","compressible":true},"application/kpml-response+xml":{"source":"iana","compressible":true},"application/ld+json":{"source":"iana","compressible":true,"extensions":["jsonld"]},"application/lgr+xml":{"source":"iana","compressible":true,"extensions":["lgr"]},"application/link-format":{"source":"iana"},"application/load-control+xml":{"source":"iana","compressible":true},"application/lost+xml":{"source":"iana","compressible":true,"extensions":["lostxml"]},"application/lostsync+xml":{"source":"iana","compressible":true},"application/lpf+zip":{"source":"iana","compressible":false},"application/lxf":{"source":"iana"},"application/mac-binhex40":{"source":"iana","extensions":["hqx"]},"application/mac-compactpro":{"source":"apache","extensions":["cpt"]},"application/macwriteii":{"source":"iana"},"application/mads+xml":{"source":"iana","compressible":true,"extensions":["mads"]},"application/manifest+json":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["webmanifest"]},"application/marc":{"source":"iana","extensions":["mrc"]},"application/marcxml+xml":{"source":"iana","compressible":true,"extensions":["mrcx"]},"application/mathematica":{"source":"iana","extensions":["ma","nb","mb"]},"application/mathml+xml":{"source":"iana","compressible":true,"extensions":["mathml"]},"application/mathml-content+xml":{"source":"iana","compressible":true},"application/mathml-presentation+xml":{"source":"iana","compressible":true},"application/mbms-associated-procedure-description+xml":{"source":"iana","compressible":true},"application/mbms-deregister+xml":{"source":"iana","compressible":true},"application/mbms-envelope+xml":{"source":"iana","compressible":true},"application/mbms-msk+xml":{"source":"iana","compressible":true},"application/mbms-msk-response+xml":{"source":"iana","compressible":true},"application/mbms-protection-description+xml":{"source":"iana","compressible":true},"application/mbms-reception-report+xml":{"source":"iana","compressible":true},"application/mbms-register+xml":{"source":"iana","compressible":true},"application/mbms-register-response+xml":{"source":"iana","compressible":true},"application/mbms-schedule+xml":{"source":"iana","compressible":true},"application/mbms-user-service-description+xml":{"source":"iana","compressible":true},"application/mbox":{"source":"iana","extensions":["mbox"]},"application/media-policy-dataset+xml":{"source":"iana","compressible":true,"extensions":["mpf"]},"application/media_control+xml":{"source":"iana","compressible":true},"application/mediaservercontrol+xml":{"source":"iana","compressible":true,"extensions":["mscml"]},"application/merge-patch+json":{"source":"iana","compressible":true},"application/metalink+xml":{"source":"apache","compressible":true,"extensions":["metalink"]},"application/metalink4+xml":{"source":"iana","compressible":true,"extensions":["meta4"]},"application/mets+xml":{"source":"iana","compressible":true,"extensions":["mets"]},"application/mf4":{"source":"iana"},"application/mikey":{"source":"iana"},"application/mipc":{"source":"iana"},"application/missing-blocks+cbor-seq":{"source":"iana"},"application/mmt-aei+xml":{"source":"iana","compressible":true,"extensions":["maei"]},"application/mmt-usd+xml":{"source":"iana","compressible":true,"extensions":["musd"]},"application/mods+xml":{"source":"iana","compressible":true,"extensions":["mods"]},"application/moss-keys":{"source":"iana"},"application/moss-signature":{"source":"iana"},"application/mosskey-data":{"source":"iana"},"application/mosskey-request":{"source":"iana"},"application/mp21":{"source":"iana","extensions":["m21","mp21"]},"application/mp4":{"source":"iana","extensions":["mp4s","m4p"]},"application/mpeg4-generic":{"source":"iana"},"application/mpeg4-iod":{"source":"iana"},"application/mpeg4-iod-xmt":{"source":"iana"},"application/mrb-consumer+xml":{"source":"iana","compressible":true},"application/mrb-publish+xml":{"source":"iana","compressible":true},"application/msc-ivr+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/msc-mixer+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/msword":{"source":"iana","compressible":false,"extensions":["doc","dot"]},"application/mud+json":{"source":"iana","compressible":true},"application/multipart-core":{"source":"iana"},"application/mxf":{"source":"iana","extensions":["mxf"]},"application/n-quads":{"source":"iana","extensions":["nq"]},"application/n-triples":{"source":"iana","extensions":["nt"]},"application/nasdata":{"source":"iana"},"application/news-checkgroups":{"source":"iana","charset":"US-ASCII"},"application/news-groupinfo":{"source":"iana","charset":"US-ASCII"},"application/news-transmission":{"source":"iana"},"application/nlsml+xml":{"source":"iana","compressible":true},"application/node":{"source":"iana","extensions":["cjs"]},"application/nss":{"source":"iana"},"application/oauth-authz-req+jwt":{"source":"iana"},"application/oblivious-dns-message":{"source":"iana"},"application/ocsp-request":{"source":"iana"},"application/ocsp-response":{"source":"iana"},"application/octet-stream":{"source":"iana","compressible":false,"extensions":["bin","dms","lrf","mar","so","dist","distz","pkg","bpk","dump","elc","deploy","exe","dll","deb","dmg","iso","img","msi","msp","msm","buffer"]},"application/oda":{"source":"iana","extensions":["oda"]},"application/odm+xml":{"source":"iana","compressible":true},"application/odx":{"source":"iana"},"application/oebps-package+xml":{"source":"iana","compressible":true,"extensions":["opf"]},"application/ogg":{"source":"iana","compressible":false,"extensions":["ogx"]},"application/omdoc+xml":{"source":"apache","compressible":true,"extensions":["omdoc"]},"application/onenote":{"source":"apache","extensions":["onetoc","onetoc2","onetmp","onepkg"]},"application/opc-nodeset+xml":{"source":"iana","compressible":true},"application/oscore":{"source":"iana"},"application/oxps":{"source":"iana","extensions":["oxps"]},"application/p21":{"source":"iana"},"application/p21+zip":{"source":"iana","compressible":false},"application/p2p-overlay+xml":{"source":"iana","compressible":true,"extensions":["relo"]},"application/parityfec":{"source":"iana"},"application/passport":{"source":"iana"},"application/patch-ops-error+xml":{"source":"iana","compressible":true,"extensions":["xer"]},"application/pdf":{"source":"iana","compressible":false,"extensions":["pdf"]},"application/pdx":{"source":"iana"},"application/pem-certificate-chain":{"source":"iana"},"application/pgp-encrypted":{"source":"iana","compressible":false,"extensions":["pgp"]},"application/pgp-keys":{"source":"iana","extensions":["asc"]},"application/pgp-signature":{"source":"iana","extensions":["asc","sig"]},"application/pics-rules":{"source":"apache","extensions":["prf"]},"application/pidf+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/pidf-diff+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/pkcs10":{"source":"iana","extensions":["p10"]},"application/pkcs12":{"source":"iana"},"application/pkcs7-mime":{"source":"iana","extensions":["p7m","p7c"]},"application/pkcs7-signature":{"source":"iana","extensions":["p7s"]},"application/pkcs8":{"source":"iana","extensions":["p8"]},"application/pkcs8-encrypted":{"source":"iana"},"application/pkix-attr-cert":{"source":"iana","extensions":["ac"]},"application/pkix-cert":{"source":"iana","extensions":["cer"]},"application/pkix-crl":{"source":"iana","extensions":["crl"]},"application/pkix-pkipath":{"source":"iana","extensions":["pkipath"]},"application/pkixcmp":{"source":"iana","extensions":["pki"]},"application/pls+xml":{"source":"iana","compressible":true,"extensions":["pls"]},"application/poc-settings+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/postscript":{"source":"iana","compressible":true,"extensions":["ai","eps","ps"]},"application/ppsp-tracker+json":{"source":"iana","compressible":true},"application/problem+json":{"source":"iana","compressible":true},"application/problem+xml":{"source":"iana","compressible":true},"application/provenance+xml":{"source":"iana","compressible":true,"extensions":["provx"]},"application/prs.alvestrand.titrax-sheet":{"source":"iana"},"application/prs.cww":{"source":"iana","extensions":["cww"]},"application/prs.cyn":{"source":"iana","charset":"7-BIT"},"application/prs.hpub+zip":{"source":"iana","compressible":false},"application/prs.nprend":{"source":"iana"},"application/prs.plucker":{"source":"iana"},"application/prs.rdf-xml-crypt":{"source":"iana"},"application/prs.xsf+xml":{"source":"iana","compressible":true},"application/pskc+xml":{"source":"iana","compressible":true,"extensions":["pskcxml"]},"application/pvd+json":{"source":"iana","compressible":true},"application/qsig":{"source":"iana"},"application/raml+yaml":{"compressible":true,"extensions":["raml"]},"application/raptorfec":{"source":"iana"},"application/rdap+json":{"source":"iana","compressible":true},"application/rdf+xml":{"source":"iana","compressible":true,"extensions":["rdf","owl"]},"application/reginfo+xml":{"source":"iana","compressible":true,"extensions":["rif"]},"application/relax-ng-compact-syntax":{"source":"iana","extensions":["rnc"]},"application/remote-printing":{"source":"iana"},"application/reputon+json":{"source":"iana","compressible":true},"application/resource-lists+xml":{"source":"iana","compressible":true,"extensions":["rl"]},"application/resource-lists-diff+xml":{"source":"iana","compressible":true,"extensions":["rld"]},"application/rfc+xml":{"source":"iana","compressible":true},"application/riscos":{"source":"iana"},"application/rlmi+xml":{"source":"iana","compressible":true},"application/rls-services+xml":{"source":"iana","compressible":true,"extensions":["rs"]},"application/route-apd+xml":{"source":"iana","compressible":true,"extensions":["rapd"]},"application/route-s-tsid+xml":{"source":"iana","compressible":true,"extensions":["sls"]},"application/route-usd+xml":{"source":"iana","compressible":true,"extensions":["rusd"]},"application/rpki-ghostbusters":{"source":"iana","extensions":["gbr"]},"application/rpki-manifest":{"source":"iana","extensions":["mft"]},"application/rpki-publication":{"source":"iana"},"application/rpki-roa":{"source":"iana","extensions":["roa"]},"application/rpki-updown":{"source":"iana"},"application/rsd+xml":{"source":"apache","compressible":true,"extensions":["rsd"]},"application/rss+xml":{"source":"apache","compressible":true,"extensions":["rss"]},"application/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"application/rtploopback":{"source":"iana"},"application/rtx":{"source":"iana"},"application/samlassertion+xml":{"source":"iana","compressible":true},"application/samlmetadata+xml":{"source":"iana","compressible":true},"application/sarif+json":{"source":"iana","compressible":true},"application/sarif-external-properties+json":{"source":"iana","compressible":true},"application/sbe":{"source":"iana"},"application/sbml+xml":{"source":"iana","compressible":true,"extensions":["sbml"]},"application/scaip+xml":{"source":"iana","compressible":true},"application/scim+json":{"source":"iana","compressible":true},"application/scvp-cv-request":{"source":"iana","extensions":["scq"]},"application/scvp-cv-response":{"source":"iana","extensions":["scs"]},"application/scvp-vp-request":{"source":"iana","extensions":["spq"]},"application/scvp-vp-response":{"source":"iana","extensions":["spp"]},"application/sdp":{"source":"iana","extensions":["sdp"]},"application/secevent+jwt":{"source":"iana"},"application/senml+cbor":{"source":"iana"},"application/senml+json":{"source":"iana","compressible":true},"application/senml+xml":{"source":"iana","compressible":true,"extensions":["senmlx"]},"application/senml-etch+cbor":{"source":"iana"},"application/senml-etch+json":{"source":"iana","compressible":true},"application/senml-exi":{"source":"iana"},"application/sensml+cbor":{"source":"iana"},"application/sensml+json":{"source":"iana","compressible":true},"application/sensml+xml":{"source":"iana","compressible":true,"extensions":["sensmlx"]},"application/sensml-exi":{"source":"iana"},"application/sep+xml":{"source":"iana","compressible":true},"application/sep-exi":{"source":"iana"},"application/session-info":{"source":"iana"},"application/set-payment":{"source":"iana"},"application/set-payment-initiation":{"source":"iana","extensions":["setpay"]},"application/set-registration":{"source":"iana"},"application/set-registration-initiation":{"source":"iana","extensions":["setreg"]},"application/sgml":{"source":"iana"},"application/sgml-open-catalog":{"source":"iana"},"application/shf+xml":{"source":"iana","compressible":true,"extensions":["shf"]},"application/sieve":{"source":"iana","extensions":["siv","sieve"]},"application/simple-filter+xml":{"source":"iana","compressible":true},"application/simple-message-summary":{"source":"iana"},"application/simplesymbolcontainer":{"source":"iana"},"application/sipc":{"source":"iana"},"application/slate":{"source":"iana"},"application/smil":{"source":"iana"},"application/smil+xml":{"source":"iana","compressible":true,"extensions":["smi","smil"]},"application/smpte336m":{"source":"iana"},"application/soap+fastinfoset":{"source":"iana"},"application/soap+xml":{"source":"iana","compressible":true},"application/sparql-query":{"source":"iana","extensions":["rq"]},"application/sparql-results+xml":{"source":"iana","compressible":true,"extensions":["srx"]},"application/spdx+json":{"source":"iana","compressible":true},"application/spirits-event+xml":{"source":"iana","compressible":true},"application/sql":{"source":"iana"},"application/srgs":{"source":"iana","extensions":["gram"]},"application/srgs+xml":{"source":"iana","compressible":true,"extensions":["grxml"]},"application/sru+xml":{"source":"iana","compressible":true,"extensions":["sru"]},"application/ssdl+xml":{"source":"apache","compressible":true,"extensions":["ssdl"]},"application/ssml+xml":{"source":"iana","compressible":true,"extensions":["ssml"]},"application/stix+json":{"source":"iana","compressible":true},"application/swid+xml":{"source":"iana","compressible":true,"extensions":["swidtag"]},"application/tamp-apex-update":{"source":"iana"},"application/tamp-apex-update-confirm":{"source":"iana"},"application/tamp-community-update":{"source":"iana"},"application/tamp-community-update-confirm":{"source":"iana"},"application/tamp-error":{"source":"iana"},"application/tamp-sequence-adjust":{"source":"iana"},"application/tamp-sequence-adjust-confirm":{"source":"iana"},"application/tamp-status-query":{"source":"iana"},"application/tamp-status-response":{"source":"iana"},"application/tamp-update":{"source":"iana"},"application/tamp-update-confirm":{"source":"iana"},"application/tar":{"compressible":true},"application/taxii+json":{"source":"iana","compressible":true},"application/td+json":{"source":"iana","compressible":true},"application/tei+xml":{"source":"iana","compressible":true,"extensions":["tei","teicorpus"]},"application/tetra_isi":{"source":"iana"},"application/thraud+xml":{"source":"iana","compressible":true,"extensions":["tfi"]},"application/timestamp-query":{"source":"iana"},"application/timestamp-reply":{"source":"iana"},"application/timestamped-data":{"source":"iana","extensions":["tsd"]},"application/tlsrpt+gzip":{"source":"iana"},"application/tlsrpt+json":{"source":"iana","compressible":true},"application/tnauthlist":{"source":"iana"},"application/token-introspection+jwt":{"source":"iana"},"application/toml":{"compressible":true,"extensions":["toml"]},"application/trickle-ice-sdpfrag":{"source":"iana"},"application/trig":{"source":"iana","extensions":["trig"]},"application/ttml+xml":{"source":"iana","compressible":true,"extensions":["ttml"]},"application/tve-trigger":{"source":"iana"},"application/tzif":{"source":"iana"},"application/tzif-leap":{"source":"iana"},"application/ubjson":{"compressible":false,"extensions":["ubj"]},"application/ulpfec":{"source":"iana"},"application/urc-grpsheet+xml":{"source":"iana","compressible":true},"application/urc-ressheet+xml":{"source":"iana","compressible":true,"extensions":["rsheet"]},"application/urc-targetdesc+xml":{"source":"iana","compressible":true,"extensions":["td"]},"application/urc-uisocketdesc+xml":{"source":"iana","compressible":true},"application/vcard+json":{"source":"iana","compressible":true},"application/vcard+xml":{"source":"iana","compressible":true},"application/vemmi":{"source":"iana"},"application/vividence.scriptfile":{"source":"apache"},"application/vnd.1000minds.decision-model+xml":{"source":"iana","compressible":true,"extensions":["1km"]},"application/vnd.3gpp-prose+xml":{"source":"iana","compressible":true},"application/vnd.3gpp-prose-pc3ch+xml":{"source":"iana","compressible":true},"application/vnd.3gpp-v2x-local-service-information":{"source":"iana"},"application/vnd.3gpp.5gnas":{"source":"iana"},"application/vnd.3gpp.access-transfer-events+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.bsf+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.gmop+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.gtpc":{"source":"iana"},"application/vnd.3gpp.interworking-data":{"source":"iana"},"application/vnd.3gpp.lpp":{"source":"iana"},"application/vnd.3gpp.mc-signalling-ear":{"source":"iana"},"application/vnd.3gpp.mcdata-affiliation-command+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcdata-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcdata-payload":{"source":"iana"},"application/vnd.3gpp.mcdata-service-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcdata-signalling":{"source":"iana"},"application/vnd.3gpp.mcdata-ue-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcdata-user-profile+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-affiliation-command+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-floor-request+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-location-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-mbms-usage-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-service-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-signed+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-ue-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-ue-init-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcptt-user-profile+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-affiliation-command+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-affiliation-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-location-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-mbms-usage-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-service-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-transmission-request+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-ue-config+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mcvideo-user-profile+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.mid-call+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.ngap":{"source":"iana"},"application/vnd.3gpp.pfcp":{"source":"iana"},"application/vnd.3gpp.pic-bw-large":{"source":"iana","extensions":["plb"]},"application/vnd.3gpp.pic-bw-small":{"source":"iana","extensions":["psb"]},"application/vnd.3gpp.pic-bw-var":{"source":"iana","extensions":["pvb"]},"application/vnd.3gpp.s1ap":{"source":"iana"},"application/vnd.3gpp.sms":{"source":"iana"},"application/vnd.3gpp.sms+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.srvcc-ext+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.srvcc-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.state-and-event-info+xml":{"source":"iana","compressible":true},"application/vnd.3gpp.ussd+xml":{"source":"iana","compressible":true},"application/vnd.3gpp2.bcmcsinfo+xml":{"source":"iana","compressible":true},"application/vnd.3gpp2.sms":{"source":"iana"},"application/vnd.3gpp2.tcap":{"source":"iana","extensions":["tcap"]},"application/vnd.3lightssoftware.imagescal":{"source":"iana"},"application/vnd.3m.post-it-notes":{"source":"iana","extensions":["pwn"]},"application/vnd.accpac.simply.aso":{"source":"iana","extensions":["aso"]},"application/vnd.accpac.simply.imp":{"source":"iana","extensions":["imp"]},"application/vnd.acucobol":{"source":"iana","extensions":["acu"]},"application/vnd.acucorp":{"source":"iana","extensions":["atc","acutc"]},"application/vnd.adobe.air-application-installer-package+zip":{"source":"apache","compressible":false,"extensions":["air"]},"application/vnd.adobe.flash.movie":{"source":"iana"},"application/vnd.adobe.formscentral.fcdt":{"source":"iana","extensions":["fcdt"]},"application/vnd.adobe.fxp":{"source":"iana","extensions":["fxp","fxpl"]},"application/vnd.adobe.partial-upload":{"source":"iana"},"application/vnd.adobe.xdp+xml":{"source":"iana","compressible":true,"extensions":["xdp"]},"application/vnd.adobe.xfdf":{"source":"iana","extensions":["xfdf"]},"application/vnd.aether.imp":{"source":"iana"},"application/vnd.afpc.afplinedata":{"source":"iana"},"application/vnd.afpc.afplinedata-pagedef":{"source":"iana"},"application/vnd.afpc.cmoca-cmresource":{"source":"iana"},"application/vnd.afpc.foca-charset":{"source":"iana"},"application/vnd.afpc.foca-codedfont":{"source":"iana"},"application/vnd.afpc.foca-codepage":{"source":"iana"},"application/vnd.afpc.modca":{"source":"iana"},"application/vnd.afpc.modca-cmtable":{"source":"iana"},"application/vnd.afpc.modca-formdef":{"source":"iana"},"application/vnd.afpc.modca-mediummap":{"source":"iana"},"application/vnd.afpc.modca-objectcontainer":{"source":"iana"},"application/vnd.afpc.modca-overlay":{"source":"iana"},"application/vnd.afpc.modca-pagesegment":{"source":"iana"},"application/vnd.age":{"source":"iana","extensions":["age"]},"application/vnd.ah-barcode":{"source":"iana"},"application/vnd.ahead.space":{"source":"iana","extensions":["ahead"]},"application/vnd.airzip.filesecure.azf":{"source":"iana","extensions":["azf"]},"application/vnd.airzip.filesecure.azs":{"source":"iana","extensions":["azs"]},"application/vnd.amadeus+json":{"source":"iana","compressible":true},"application/vnd.amazon.ebook":{"source":"apache","extensions":["azw"]},"application/vnd.amazon.mobi8-ebook":{"source":"iana"},"application/vnd.americandynamics.acc":{"source":"iana","extensions":["acc"]},"application/vnd.amiga.ami":{"source":"iana","extensions":["ami"]},"application/vnd.amundsen.maze+xml":{"source":"iana","compressible":true},"application/vnd.android.ota":{"source":"iana"},"application/vnd.android.package-archive":{"source":"apache","compressible":false,"extensions":["apk"]},"application/vnd.anki":{"source":"iana"},"application/vnd.anser-web-certificate-issue-initiation":{"source":"iana","extensions":["cii"]},"application/vnd.anser-web-funds-transfer-initiation":{"source":"apache","extensions":["fti"]},"application/vnd.antix.game-component":{"source":"iana","extensions":["atx"]},"application/vnd.apache.arrow.file":{"source":"iana"},"application/vnd.apache.arrow.stream":{"source":"iana"},"application/vnd.apache.thrift.binary":{"source":"iana"},"application/vnd.apache.thrift.compact":{"source":"iana"},"application/vnd.apache.thrift.json":{"source":"iana"},"application/vnd.api+json":{"source":"iana","compressible":true},"application/vnd.aplextor.warrp+json":{"source":"iana","compressible":true},"application/vnd.apothekende.reservation+json":{"source":"iana","compressible":true},"application/vnd.apple.installer+xml":{"source":"iana","compressible":true,"extensions":["mpkg"]},"application/vnd.apple.keynote":{"source":"iana","extensions":["key"]},"application/vnd.apple.mpegurl":{"source":"iana","extensions":["m3u8"]},"application/vnd.apple.numbers":{"source":"iana","extensions":["numbers"]},"application/vnd.apple.pages":{"source":"iana","extensions":["pages"]},"application/vnd.apple.pkpass":{"compressible":false,"extensions":["pkpass"]},"application/vnd.arastra.swi":{"source":"iana"},"application/vnd.aristanetworks.swi":{"source":"iana","extensions":["swi"]},"application/vnd.artisan+json":{"source":"iana","compressible":true},"application/vnd.artsquare":{"source":"iana"},"application/vnd.astraea-software.iota":{"source":"iana","extensions":["iota"]},"application/vnd.audiograph":{"source":"iana","extensions":["aep"]},"application/vnd.autopackage":{"source":"iana"},"application/vnd.avalon+json":{"source":"iana","compressible":true},"application/vnd.avistar+xml":{"source":"iana","compressible":true},"application/vnd.balsamiq.bmml+xml":{"source":"iana","compressible":true,"extensions":["bmml"]},"application/vnd.balsamiq.bmpr":{"source":"iana"},"application/vnd.banana-accounting":{"source":"iana"},"application/vnd.bbf.usp.error":{"source":"iana"},"application/vnd.bbf.usp.msg":{"source":"iana"},"application/vnd.bbf.usp.msg+json":{"source":"iana","compressible":true},"application/vnd.bekitzur-stech+json":{"source":"iana","compressible":true},"application/vnd.bint.med-content":{"source":"iana"},"application/vnd.biopax.rdf+xml":{"source":"iana","compressible":true},"application/vnd.blink-idb-value-wrapper":{"source":"iana"},"application/vnd.blueice.multipass":{"source":"iana","extensions":["mpm"]},"application/vnd.bluetooth.ep.oob":{"source":"iana"},"application/vnd.bluetooth.le.oob":{"source":"iana"},"application/vnd.bmi":{"source":"iana","extensions":["bmi"]},"application/vnd.bpf":{"source":"iana"},"application/vnd.bpf3":{"source":"iana"},"application/vnd.businessobjects":{"source":"iana","extensions":["rep"]},"application/vnd.byu.uapi+json":{"source":"iana","compressible":true},"application/vnd.cab-jscript":{"source":"iana"},"application/vnd.canon-cpdl":{"source":"iana"},"application/vnd.canon-lips":{"source":"iana"},"application/vnd.capasystems-pg+json":{"source":"iana","compressible":true},"application/vnd.cendio.thinlinc.clientconf":{"source":"iana"},"application/vnd.century-systems.tcp_stream":{"source":"iana"},"application/vnd.chemdraw+xml":{"source":"iana","compressible":true,"extensions":["cdxml"]},"application/vnd.chess-pgn":{"source":"iana"},"application/vnd.chipnuts.karaoke-mmd":{"source":"iana","extensions":["mmd"]},"application/vnd.ciedi":{"source":"iana"},"application/vnd.cinderella":{"source":"iana","extensions":["cdy"]},"application/vnd.cirpack.isdn-ext":{"source":"iana"},"application/vnd.citationstyles.style+xml":{"source":"iana","compressible":true,"extensions":["csl"]},"application/vnd.claymore":{"source":"iana","extensions":["cla"]},"application/vnd.cloanto.rp9":{"source":"iana","extensions":["rp9"]},"application/vnd.clonk.c4group":{"source":"iana","extensions":["c4g","c4d","c4f","c4p","c4u"]},"application/vnd.cluetrust.cartomobile-config":{"source":"iana","extensions":["c11amc"]},"application/vnd.cluetrust.cartomobile-config-pkg":{"source":"iana","extensions":["c11amz"]},"application/vnd.coffeescript":{"source":"iana"},"application/vnd.collabio.xodocuments.document":{"source":"iana"},"application/vnd.collabio.xodocuments.document-template":{"source":"iana"},"application/vnd.collabio.xodocuments.presentation":{"source":"iana"},"application/vnd.collabio.xodocuments.presentation-template":{"source":"iana"},"application/vnd.collabio.xodocuments.spreadsheet":{"source":"iana"},"application/vnd.collabio.xodocuments.spreadsheet-template":{"source":"iana"},"application/vnd.collection+json":{"source":"iana","compressible":true},"application/vnd.collection.doc+json":{"source":"iana","compressible":true},"application/vnd.collection.next+json":{"source":"iana","compressible":true},"application/vnd.comicbook+zip":{"source":"iana","compressible":false},"application/vnd.comicbook-rar":{"source":"iana"},"application/vnd.commerce-battelle":{"source":"iana"},"application/vnd.commonspace":{"source":"iana","extensions":["csp"]},"application/vnd.contact.cmsg":{"source":"iana","extensions":["cdbcmsg"]},"application/vnd.coreos.ignition+json":{"source":"iana","compressible":true},"application/vnd.cosmocaller":{"source":"iana","extensions":["cmc"]},"application/vnd.crick.clicker":{"source":"iana","extensions":["clkx"]},"application/vnd.crick.clicker.keyboard":{"source":"iana","extensions":["clkk"]},"application/vnd.crick.clicker.palette":{"source":"iana","extensions":["clkp"]},"application/vnd.crick.clicker.template":{"source":"iana","extensions":["clkt"]},"application/vnd.crick.clicker.wordbank":{"source":"iana","extensions":["clkw"]},"application/vnd.criticaltools.wbs+xml":{"source":"iana","compressible":true,"extensions":["wbs"]},"application/vnd.cryptii.pipe+json":{"source":"iana","compressible":true},"application/vnd.crypto-shade-file":{"source":"iana"},"application/vnd.cryptomator.encrypted":{"source":"iana"},"application/vnd.cryptomator.vault":{"source":"iana"},"application/vnd.ctc-posml":{"source":"iana","extensions":["pml"]},"application/vnd.ctct.ws+xml":{"source":"iana","compressible":true},"application/vnd.cups-pdf":{"source":"iana"},"application/vnd.cups-postscript":{"source":"iana"},"application/vnd.cups-ppd":{"source":"iana","extensions":["ppd"]},"application/vnd.cups-raster":{"source":"iana"},"application/vnd.cups-raw":{"source":"iana"},"application/vnd.curl":{"source":"iana"},"application/vnd.curl.car":{"source":"apache","extensions":["car"]},"application/vnd.curl.pcurl":{"source":"apache","extensions":["pcurl"]},"application/vnd.cyan.dean.root+xml":{"source":"iana","compressible":true},"application/vnd.cybank":{"source":"iana"},"application/vnd.cyclonedx+json":{"source":"iana","compressible":true},"application/vnd.cyclonedx+xml":{"source":"iana","compressible":true},"application/vnd.d2l.coursepackage1p0+zip":{"source":"iana","compressible":false},"application/vnd.d3m-dataset":{"source":"iana"},"application/vnd.d3m-problem":{"source":"iana"},"application/vnd.dart":{"source":"iana","compressible":true,"extensions":["dart"]},"application/vnd.data-vision.rdz":{"source":"iana","extensions":["rdz"]},"application/vnd.datapackage+json":{"source":"iana","compressible":true},"application/vnd.dataresource+json":{"source":"iana","compressible":true},"application/vnd.dbf":{"source":"iana","extensions":["dbf"]},"application/vnd.debian.binary-package":{"source":"iana"},"application/vnd.dece.data":{"source":"iana","extensions":["uvf","uvvf","uvd","uvvd"]},"application/vnd.dece.ttml+xml":{"source":"iana","compressible":true,"extensions":["uvt","uvvt"]},"application/vnd.dece.unspecified":{"source":"iana","extensions":["uvx","uvvx"]},"application/vnd.dece.zip":{"source":"iana","extensions":["uvz","uvvz"]},"application/vnd.denovo.fcselayout-link":{"source":"iana","extensions":["fe_launch"]},"application/vnd.desmume.movie":{"source":"iana"},"application/vnd.dir-bi.plate-dl-nosuffix":{"source":"iana"},"application/vnd.dm.delegation+xml":{"source":"iana","compressible":true},"application/vnd.dna":{"source":"iana","extensions":["dna"]},"application/vnd.document+json":{"source":"iana","compressible":true},"application/vnd.dolby.mlp":{"source":"apache","extensions":["mlp"]},"application/vnd.dolby.mobile.1":{"source":"iana"},"application/vnd.dolby.mobile.2":{"source":"iana"},"application/vnd.doremir.scorecloud-binary-document":{"source":"iana"},"application/vnd.dpgraph":{"source":"iana","extensions":["dpg"]},"application/vnd.dreamfactory":{"source":"iana","extensions":["dfac"]},"application/vnd.drive+json":{"source":"iana","compressible":true},"application/vnd.ds-keypoint":{"source":"apache","extensions":["kpxx"]},"application/vnd.dtg.local":{"source":"iana"},"application/vnd.dtg.local.flash":{"source":"iana"},"application/vnd.dtg.local.html":{"source":"iana"},"application/vnd.dvb.ait":{"source":"iana","extensions":["ait"]},"application/vnd.dvb.dvbisl+xml":{"source":"iana","compressible":true},"application/vnd.dvb.dvbj":{"source":"iana"},"application/vnd.dvb.esgcontainer":{"source":"iana"},"application/vnd.dvb.ipdcdftnotifaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess":{"source":"iana"},"application/vnd.dvb.ipdcesgaccess2":{"source":"iana"},"application/vnd.dvb.ipdcesgpdd":{"source":"iana"},"application/vnd.dvb.ipdcroaming":{"source":"iana"},"application/vnd.dvb.iptv.alfec-base":{"source":"iana"},"application/vnd.dvb.iptv.alfec-enhancement":{"source":"iana"},"application/vnd.dvb.notif-aggregate-root+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-container+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-generic+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-ia-msglist+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-ia-registration-request+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-ia-registration-response+xml":{"source":"iana","compressible":true},"application/vnd.dvb.notif-init+xml":{"source":"iana","compressible":true},"application/vnd.dvb.pfr":{"source":"iana"},"application/vnd.dvb.service":{"source":"iana","extensions":["svc"]},"application/vnd.dxr":{"source":"iana"},"application/vnd.dynageo":{"source":"iana","extensions":["geo"]},"application/vnd.dzr":{"source":"iana"},"application/vnd.easykaraoke.cdgdownload":{"source":"iana"},"application/vnd.ecdis-update":{"source":"iana"},"application/vnd.ecip.rlp":{"source":"iana"},"application/vnd.eclipse.ditto+json":{"source":"iana","compressible":true},"application/vnd.ecowin.chart":{"source":"iana","extensions":["mag"]},"application/vnd.ecowin.filerequest":{"source":"iana"},"application/vnd.ecowin.fileupdate":{"source":"iana"},"application/vnd.ecowin.series":{"source":"iana"},"application/vnd.ecowin.seriesrequest":{"source":"iana"},"application/vnd.ecowin.seriesupdate":{"source":"iana"},"application/vnd.efi.img":{"source":"iana"},"application/vnd.efi.iso":{"source":"iana"},"application/vnd.emclient.accessrequest+xml":{"source":"iana","compressible":true},"application/vnd.enliven":{"source":"iana","extensions":["nml"]},"application/vnd.enphase.envoy":{"source":"iana"},"application/vnd.eprints.data+xml":{"source":"iana","compressible":true},"application/vnd.epson.esf":{"source":"iana","extensions":["esf"]},"application/vnd.epson.msf":{"source":"iana","extensions":["msf"]},"application/vnd.epson.quickanime":{"source":"iana","extensions":["qam"]},"application/vnd.epson.salt":{"source":"iana","extensions":["slt"]},"application/vnd.epson.ssf":{"source":"iana","extensions":["ssf"]},"application/vnd.ericsson.quickcall":{"source":"iana"},"application/vnd.espass-espass+zip":{"source":"iana","compressible":false},"application/vnd.eszigno3+xml":{"source":"iana","compressible":true,"extensions":["es3","et3"]},"application/vnd.etsi.aoc+xml":{"source":"iana","compressible":true},"application/vnd.etsi.asic-e+zip":{"source":"iana","compressible":false},"application/vnd.etsi.asic-s+zip":{"source":"iana","compressible":false},"application/vnd.etsi.cug+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvcommand+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvdiscovery+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvprofile+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvsad-bc+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvsad-cod+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvsad-npvr+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvservice+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvsync+xml":{"source":"iana","compressible":true},"application/vnd.etsi.iptvueprofile+xml":{"source":"iana","compressible":true},"application/vnd.etsi.mcid+xml":{"source":"iana","compressible":true},"application/vnd.etsi.mheg5":{"source":"iana"},"application/vnd.etsi.overload-control-policy-dataset+xml":{"source":"iana","compressible":true},"application/vnd.etsi.pstn+xml":{"source":"iana","compressible":true},"application/vnd.etsi.sci+xml":{"source":"iana","compressible":true},"application/vnd.etsi.simservs+xml":{"source":"iana","compressible":true},"application/vnd.etsi.timestamp-token":{"source":"iana"},"application/vnd.etsi.tsl+xml":{"source":"iana","compressible":true},"application/vnd.etsi.tsl.der":{"source":"iana"},"application/vnd.eu.kasparian.car+json":{"source":"iana","compressible":true},"application/vnd.eudora.data":{"source":"iana"},"application/vnd.evolv.ecig.profile":{"source":"iana"},"application/vnd.evolv.ecig.settings":{"source":"iana"},"application/vnd.evolv.ecig.theme":{"source":"iana"},"application/vnd.exstream-empower+zip":{"source":"iana","compressible":false},"application/vnd.exstream-package":{"source":"iana"},"application/vnd.ezpix-album":{"source":"iana","extensions":["ez2"]},"application/vnd.ezpix-package":{"source":"iana","extensions":["ez3"]},"application/vnd.f-secure.mobile":{"source":"iana"},"application/vnd.familysearch.gedcom+zip":{"source":"iana","compressible":false},"application/vnd.fastcopy-disk-image":{"source":"iana"},"application/vnd.fdf":{"source":"iana","extensions":["fdf"]},"application/vnd.fdsn.mseed":{"source":"iana","extensions":["mseed"]},"application/vnd.fdsn.seed":{"source":"iana","extensions":["seed","dataless"]},"application/vnd.ffsns":{"source":"iana"},"application/vnd.ficlab.flb+zip":{"source":"iana","compressible":false},"application/vnd.filmit.zfc":{"source":"iana"},"application/vnd.fints":{"source":"iana"},"application/vnd.firemonkeys.cloudcell":{"source":"iana"},"application/vnd.flographit":{"source":"iana","extensions":["gph"]},"application/vnd.fluxtime.clip":{"source":"iana","extensions":["ftc"]},"application/vnd.font-fontforge-sfd":{"source":"iana"},"application/vnd.framemaker":{"source":"iana","extensions":["fm","frame","maker","book"]},"application/vnd.frogans.fnc":{"source":"iana","extensions":["fnc"]},"application/vnd.frogans.ltf":{"source":"iana","extensions":["ltf"]},"application/vnd.fsc.weblaunch":{"source":"iana","extensions":["fsc"]},"application/vnd.fujifilm.fb.docuworks":{"source":"iana"},"application/vnd.fujifilm.fb.docuworks.binder":{"source":"iana"},"application/vnd.fujifilm.fb.docuworks.container":{"source":"iana"},"application/vnd.fujifilm.fb.jfi+xml":{"source":"iana","compressible":true},"application/vnd.fujitsu.oasys":{"source":"iana","extensions":["oas"]},"application/vnd.fujitsu.oasys2":{"source":"iana","extensions":["oa2"]},"application/vnd.fujitsu.oasys3":{"source":"iana","extensions":["oa3"]},"application/vnd.fujitsu.oasysgp":{"source":"iana","extensions":["fg5"]},"application/vnd.fujitsu.oasysprs":{"source":"iana","extensions":["bh2"]},"application/vnd.fujixerox.art-ex":{"source":"iana"},"application/vnd.fujixerox.art4":{"source":"iana"},"application/vnd.fujixerox.ddd":{"source":"iana","extensions":["ddd"]},"application/vnd.fujixerox.docuworks":{"source":"iana","extensions":["xdw"]},"application/vnd.fujixerox.docuworks.binder":{"source":"iana","extensions":["xbd"]},"application/vnd.fujixerox.docuworks.container":{"source":"iana"},"application/vnd.fujixerox.hbpl":{"source":"iana"},"application/vnd.fut-misnet":{"source":"iana"},"application/vnd.futoin+cbor":{"source":"iana"},"application/vnd.futoin+json":{"source":"iana","compressible":true},"application/vnd.fuzzysheet":{"source":"iana","extensions":["fzs"]},"application/vnd.genomatix.tuxedo":{"source":"iana","extensions":["txd"]},"application/vnd.gentics.grd+json":{"source":"iana","compressible":true},"application/vnd.geo+json":{"source":"iana","compressible":true},"application/vnd.geocube+xml":{"source":"iana","compressible":true},"application/vnd.geogebra.file":{"source":"iana","extensions":["ggb"]},"application/vnd.geogebra.slides":{"source":"iana"},"application/vnd.geogebra.tool":{"source":"iana","extensions":["ggt"]},"application/vnd.geometry-explorer":{"source":"iana","extensions":["gex","gre"]},"application/vnd.geonext":{"source":"iana","extensions":["gxt"]},"application/vnd.geoplan":{"source":"iana","extensions":["g2w"]},"application/vnd.geospace":{"source":"iana","extensions":["g3w"]},"application/vnd.gerber":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt":{"source":"iana"},"application/vnd.globalplatform.card-content-mgt-response":{"source":"iana"},"application/vnd.gmx":{"source":"iana","extensions":["gmx"]},"application/vnd.google-apps.document":{"compressible":false,"extensions":["gdoc"]},"application/vnd.google-apps.presentation":{"compressible":false,"extensions":["gslides"]},"application/vnd.google-apps.spreadsheet":{"compressible":false,"extensions":["gsheet"]},"application/vnd.google-earth.kml+xml":{"source":"iana","compressible":true,"extensions":["kml"]},"application/vnd.google-earth.kmz":{"source":"iana","compressible":false,"extensions":["kmz"]},"application/vnd.gov.sk.e-form+xml":{"source":"iana","compressible":true},"application/vnd.gov.sk.e-form+zip":{"source":"iana","compressible":false},"application/vnd.gov.sk.xmldatacontainer+xml":{"source":"iana","compressible":true},"application/vnd.grafeq":{"source":"iana","extensions":["gqf","gqs"]},"application/vnd.gridmp":{"source":"iana"},"application/vnd.groove-account":{"source":"iana","extensions":["gac"]},"application/vnd.groove-help":{"source":"iana","extensions":["ghf"]},"application/vnd.groove-identity-message":{"source":"iana","extensions":["gim"]},"application/vnd.groove-injector":{"source":"iana","extensions":["grv"]},"application/vnd.groove-tool-message":{"source":"iana","extensions":["gtm"]},"application/vnd.groove-tool-template":{"source":"iana","extensions":["tpl"]},"application/vnd.groove-vcard":{"source":"iana","extensions":["vcg"]},"application/vnd.hal+json":{"source":"iana","compressible":true},"application/vnd.hal+xml":{"source":"iana","compressible":true,"extensions":["hal"]},"application/vnd.handheld-entertainment+xml":{"source":"iana","compressible":true,"extensions":["zmm"]},"application/vnd.hbci":{"source":"iana","extensions":["hbci"]},"application/vnd.hc+json":{"source":"iana","compressible":true},"application/vnd.hcl-bireports":{"source":"iana"},"application/vnd.hdt":{"source":"iana"},"application/vnd.heroku+json":{"source":"iana","compressible":true},"application/vnd.hhe.lesson-player":{"source":"iana","extensions":["les"]},"application/vnd.hl7cda+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.hl7v2+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.hp-hpgl":{"source":"iana","extensions":["hpgl"]},"application/vnd.hp-hpid":{"source":"iana","extensions":["hpid"]},"application/vnd.hp-hps":{"source":"iana","extensions":["hps"]},"application/vnd.hp-jlyt":{"source":"iana","extensions":["jlt"]},"application/vnd.hp-pcl":{"source":"iana","extensions":["pcl"]},"application/vnd.hp-pclxl":{"source":"iana","extensions":["pclxl"]},"application/vnd.httphone":{"source":"iana"},"application/vnd.hydrostatix.sof-data":{"source":"iana","extensions":["sfd-hdstx"]},"application/vnd.hyper+json":{"source":"iana","compressible":true},"application/vnd.hyper-item+json":{"source":"iana","compressible":true},"application/vnd.hyperdrive+json":{"source":"iana","compressible":true},"application/vnd.hzn-3d-crossword":{"source":"iana"},"application/vnd.ibm.afplinedata":{"source":"iana"},"application/vnd.ibm.electronic-media":{"source":"iana"},"application/vnd.ibm.minipay":{"source":"iana","extensions":["mpy"]},"application/vnd.ibm.modcap":{"source":"iana","extensions":["afp","listafp","list3820"]},"application/vnd.ibm.rights-management":{"source":"iana","extensions":["irm"]},"application/vnd.ibm.secure-container":{"source":"iana","extensions":["sc"]},"application/vnd.iccprofile":{"source":"iana","extensions":["icc","icm"]},"application/vnd.ieee.1905":{"source":"iana"},"application/vnd.igloader":{"source":"iana","extensions":["igl"]},"application/vnd.imagemeter.folder+zip":{"source":"iana","compressible":false},"application/vnd.imagemeter.image+zip":{"source":"iana","compressible":false},"application/vnd.immervision-ivp":{"source":"iana","extensions":["ivp"]},"application/vnd.immervision-ivu":{"source":"iana","extensions":["ivu"]},"application/vnd.ims.imsccv1p1":{"source":"iana"},"application/vnd.ims.imsccv1p2":{"source":"iana"},"application/vnd.ims.imsccv1p3":{"source":"iana"},"application/vnd.ims.lis.v2.result+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolconsumerprofile+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolproxy.id+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings+json":{"source":"iana","compressible":true},"application/vnd.ims.lti.v2.toolsettings.simple+json":{"source":"iana","compressible":true},"application/vnd.informedcontrol.rms+xml":{"source":"iana","compressible":true},"application/vnd.informix-visionary":{"source":"iana"},"application/vnd.infotech.project":{"source":"iana"},"application/vnd.infotech.project+xml":{"source":"iana","compressible":true},"application/vnd.innopath.wamp.notification":{"source":"iana"},"application/vnd.insors.igm":{"source":"iana","extensions":["igm"]},"application/vnd.intercon.formnet":{"source":"iana","extensions":["xpw","xpx"]},"application/vnd.intergeo":{"source":"iana","extensions":["i2g"]},"application/vnd.intertrust.digibox":{"source":"iana"},"application/vnd.intertrust.nncp":{"source":"iana"},"application/vnd.intu.qbo":{"source":"iana","extensions":["qbo"]},"application/vnd.intu.qfx":{"source":"iana","extensions":["qfx"]},"application/vnd.iptc.g2.catalogitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.conceptitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.knowledgeitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.newsitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.newsmessage+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.packageitem+xml":{"source":"iana","compressible":true},"application/vnd.iptc.g2.planningitem+xml":{"source":"iana","compressible":true},"application/vnd.ipunplugged.rcprofile":{"source":"iana","extensions":["rcprofile"]},"application/vnd.irepository.package+xml":{"source":"iana","compressible":true,"extensions":["irp"]},"application/vnd.is-xpr":{"source":"iana","extensions":["xpr"]},"application/vnd.isac.fcs":{"source":"iana","extensions":["fcs"]},"application/vnd.iso11783-10+zip":{"source":"iana","compressible":false},"application/vnd.jam":{"source":"iana","extensions":["jam"]},"application/vnd.japannet-directory-service":{"source":"iana"},"application/vnd.japannet-jpnstore-wakeup":{"source":"iana"},"application/vnd.japannet-payment-wakeup":{"source":"iana"},"application/vnd.japannet-registration":{"source":"iana"},"application/vnd.japannet-registration-wakeup":{"source":"iana"},"application/vnd.japannet-setstore-wakeup":{"source":"iana"},"application/vnd.japannet-verification":{"source":"iana"},"application/vnd.japannet-verification-wakeup":{"source":"iana"},"application/vnd.jcp.javame.midlet-rms":{"source":"iana","extensions":["rms"]},"application/vnd.jisp":{"source":"iana","extensions":["jisp"]},"application/vnd.joost.joda-archive":{"source":"iana","extensions":["joda"]},"application/vnd.jsk.isdn-ngn":{"source":"iana"},"application/vnd.kahootz":{"source":"iana","extensions":["ktz","ktr"]},"application/vnd.kde.karbon":{"source":"iana","extensions":["karbon"]},"application/vnd.kde.kchart":{"source":"iana","extensions":["chrt"]},"application/vnd.kde.kformula":{"source":"iana","extensions":["kfo"]},"application/vnd.kde.kivio":{"source":"iana","extensions":["flw"]},"application/vnd.kde.kontour":{"source":"iana","extensions":["kon"]},"application/vnd.kde.kpresenter":{"source":"iana","extensions":["kpr","kpt"]},"application/vnd.kde.kspread":{"source":"iana","extensions":["ksp"]},"application/vnd.kde.kword":{"source":"iana","extensions":["kwd","kwt"]},"application/vnd.kenameaapp":{"source":"iana","extensions":["htke"]},"application/vnd.kidspiration":{"source":"iana","extensions":["kia"]},"application/vnd.kinar":{"source":"iana","extensions":["kne","knp"]},"application/vnd.koan":{"source":"iana","extensions":["skp","skd","skt","skm"]},"application/vnd.kodak-descriptor":{"source":"iana","extensions":["sse"]},"application/vnd.las":{"source":"iana"},"application/vnd.las.las+json":{"source":"iana","compressible":true},"application/vnd.las.las+xml":{"source":"iana","compressible":true,"extensions":["lasxml"]},"application/vnd.laszip":{"source":"iana"},"application/vnd.leap+json":{"source":"iana","compressible":true},"application/vnd.liberty-request+xml":{"source":"iana","compressible":true},"application/vnd.llamagraphics.life-balance.desktop":{"source":"iana","extensions":["lbd"]},"application/vnd.llamagraphics.life-balance.exchange+xml":{"source":"iana","compressible":true,"extensions":["lbe"]},"application/vnd.logipipe.circuit+zip":{"source":"iana","compressible":false},"application/vnd.loom":{"source":"iana"},"application/vnd.lotus-1-2-3":{"source":"iana","extensions":["123"]},"application/vnd.lotus-approach":{"source":"iana","extensions":["apr"]},"application/vnd.lotus-freelance":{"source":"iana","extensions":["pre"]},"application/vnd.lotus-notes":{"source":"iana","extensions":["nsf"]},"application/vnd.lotus-organizer":{"source":"iana","extensions":["org"]},"application/vnd.lotus-screencam":{"source":"iana","extensions":["scm"]},"application/vnd.lotus-wordpro":{"source":"iana","extensions":["lwp"]},"application/vnd.macports.portpkg":{"source":"iana","extensions":["portpkg"]},"application/vnd.mapbox-vector-tile":{"source":"iana","extensions":["mvt"]},"application/vnd.marlin.drm.actiontoken+xml":{"source":"iana","compressible":true},"application/vnd.marlin.drm.conftoken+xml":{"source":"iana","compressible":true},"application/vnd.marlin.drm.license+xml":{"source":"iana","compressible":true},"application/vnd.marlin.drm.mdcf":{"source":"iana"},"application/vnd.mason+json":{"source":"iana","compressible":true},"application/vnd.maxar.archive.3tz+zip":{"source":"iana","compressible":false},"application/vnd.maxmind.maxmind-db":{"source":"iana"},"application/vnd.mcd":{"source":"iana","extensions":["mcd"]},"application/vnd.medcalcdata":{"source":"iana","extensions":["mc1"]},"application/vnd.mediastation.cdkey":{"source":"iana","extensions":["cdkey"]},"application/vnd.meridian-slingshot":{"source":"iana"},"application/vnd.mfer":{"source":"iana","extensions":["mwf"]},"application/vnd.mfmp":{"source":"iana","extensions":["mfm"]},"application/vnd.micro+json":{"source":"iana","compressible":true},"application/vnd.micrografx.flo":{"source":"iana","extensions":["flo"]},"application/vnd.micrografx.igx":{"source":"iana","extensions":["igx"]},"application/vnd.microsoft.portable-executable":{"source":"iana"},"application/vnd.microsoft.windows.thumbnail-cache":{"source":"iana"},"application/vnd.miele+json":{"source":"iana","compressible":true},"application/vnd.mif":{"source":"iana","extensions":["mif"]},"application/vnd.minisoft-hp3000-save":{"source":"iana"},"application/vnd.mitsubishi.misty-guard.trustweb":{"source":"iana"},"application/vnd.mobius.daf":{"source":"iana","extensions":["daf"]},"application/vnd.mobius.dis":{"source":"iana","extensions":["dis"]},"application/vnd.mobius.mbk":{"source":"iana","extensions":["mbk"]},"application/vnd.mobius.mqy":{"source":"iana","extensions":["mqy"]},"application/vnd.mobius.msl":{"source":"iana","extensions":["msl"]},"application/vnd.mobius.plc":{"source":"iana","extensions":["plc"]},"application/vnd.mobius.txf":{"source":"iana","extensions":["txf"]},"application/vnd.mophun.application":{"source":"iana","extensions":["mpn"]},"application/vnd.mophun.certificate":{"source":"iana","extensions":["mpc"]},"application/vnd.motorola.flexsuite":{"source":"iana"},"application/vnd.motorola.flexsuite.adsi":{"source":"iana"},"application/vnd.motorola.flexsuite.fis":{"source":"iana"},"application/vnd.motorola.flexsuite.gotap":{"source":"iana"},"application/vnd.motorola.flexsuite.kmr":{"source":"iana"},"application/vnd.motorola.flexsuite.ttc":{"source":"iana"},"application/vnd.motorola.flexsuite.wem":{"source":"iana"},"application/vnd.motorola.iprm":{"source":"iana"},"application/vnd.mozilla.xul+xml":{"source":"iana","compressible":true,"extensions":["xul"]},"application/vnd.ms-3mfdocument":{"source":"iana"},"application/vnd.ms-artgalry":{"source":"iana","extensions":["cil"]},"application/vnd.ms-asf":{"source":"iana"},"application/vnd.ms-cab-compressed":{"source":"iana","extensions":["cab"]},"application/vnd.ms-color.iccprofile":{"source":"apache"},"application/vnd.ms-excel":{"source":"iana","compressible":false,"extensions":["xls","xlm","xla","xlc","xlt","xlw"]},"application/vnd.ms-excel.addin.macroenabled.12":{"source":"iana","extensions":["xlam"]},"application/vnd.ms-excel.sheet.binary.macroenabled.12":{"source":"iana","extensions":["xlsb"]},"application/vnd.ms-excel.sheet.macroenabled.12":{"source":"iana","extensions":["xlsm"]},"application/vnd.ms-excel.template.macroenabled.12":{"source":"iana","extensions":["xltm"]},"application/vnd.ms-fontobject":{"source":"iana","compressible":true,"extensions":["eot"]},"application/vnd.ms-htmlhelp":{"source":"iana","extensions":["chm"]},"application/vnd.ms-ims":{"source":"iana","extensions":["ims"]},"application/vnd.ms-lrm":{"source":"iana","extensions":["lrm"]},"application/vnd.ms-office.activex+xml":{"source":"iana","compressible":true},"application/vnd.ms-officetheme":{"source":"iana","extensions":["thmx"]},"application/vnd.ms-opentype":{"source":"apache","compressible":true},"application/vnd.ms-outlook":{"compressible":false,"extensions":["msg"]},"application/vnd.ms-package.obfuscated-opentype":{"source":"apache"},"application/vnd.ms-pki.seccat":{"source":"apache","extensions":["cat"]},"application/vnd.ms-pki.stl":{"source":"apache","extensions":["stl"]},"application/vnd.ms-playready.initiator+xml":{"source":"iana","compressible":true},"application/vnd.ms-powerpoint":{"source":"iana","compressible":false,"extensions":["ppt","pps","pot"]},"application/vnd.ms-powerpoint.addin.macroenabled.12":{"source":"iana","extensions":["ppam"]},"application/vnd.ms-powerpoint.presentation.macroenabled.12":{"source":"iana","extensions":["pptm"]},"application/vnd.ms-powerpoint.slide.macroenabled.12":{"source":"iana","extensions":["sldm"]},"application/vnd.ms-powerpoint.slideshow.macroenabled.12":{"source":"iana","extensions":["ppsm"]},"application/vnd.ms-powerpoint.template.macroenabled.12":{"source":"iana","extensions":["potm"]},"application/vnd.ms-printdevicecapabilities+xml":{"source":"iana","compressible":true},"application/vnd.ms-printing.printticket+xml":{"source":"apache","compressible":true},"application/vnd.ms-printschematicket+xml":{"source":"iana","compressible":true},"application/vnd.ms-project":{"source":"iana","extensions":["mpp","mpt"]},"application/vnd.ms-tnef":{"source":"iana"},"application/vnd.ms-windows.devicepairing":{"source":"iana"},"application/vnd.ms-windows.nwprinting.oob":{"source":"iana"},"application/vnd.ms-windows.printerpairing":{"source":"iana"},"application/vnd.ms-windows.wsd.oob":{"source":"iana"},"application/vnd.ms-wmdrm.lic-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.lic-resp":{"source":"iana"},"application/vnd.ms-wmdrm.meter-chlg-req":{"source":"iana"},"application/vnd.ms-wmdrm.meter-resp":{"source":"iana"},"application/vnd.ms-word.document.macroenabled.12":{"source":"iana","extensions":["docm"]},"application/vnd.ms-word.template.macroenabled.12":{"source":"iana","extensions":["dotm"]},"application/vnd.ms-works":{"source":"iana","extensions":["wps","wks","wcm","wdb"]},"application/vnd.ms-wpl":{"source":"iana","extensions":["wpl"]},"application/vnd.ms-xpsdocument":{"source":"iana","compressible":false,"extensions":["xps"]},"application/vnd.msa-disk-image":{"source":"iana"},"application/vnd.mseq":{"source":"iana","extensions":["mseq"]},"application/vnd.msign":{"source":"iana"},"application/vnd.multiad.creator":{"source":"iana"},"application/vnd.multiad.creator.cif":{"source":"iana"},"application/vnd.music-niff":{"source":"iana"},"application/vnd.musician":{"source":"iana","extensions":["mus"]},"application/vnd.muvee.style":{"source":"iana","extensions":["msty"]},"application/vnd.mynfc":{"source":"iana","extensions":["taglet"]},"application/vnd.nacamar.ybrid+json":{"source":"iana","compressible":true},"application/vnd.ncd.control":{"source":"iana"},"application/vnd.ncd.reference":{"source":"iana"},"application/vnd.nearst.inv+json":{"source":"iana","compressible":true},"application/vnd.nebumind.line":{"source":"iana"},"application/vnd.nervana":{"source":"iana"},"application/vnd.netfpx":{"source":"iana"},"application/vnd.neurolanguage.nlu":{"source":"iana","extensions":["nlu"]},"application/vnd.nimn":{"source":"iana"},"application/vnd.nintendo.nitro.rom":{"source":"iana"},"application/vnd.nintendo.snes.rom":{"source":"iana"},"application/vnd.nitf":{"source":"iana","extensions":["ntf","nitf"]},"application/vnd.noblenet-directory":{"source":"iana","extensions":["nnd"]},"application/vnd.noblenet-sealer":{"source":"iana","extensions":["nns"]},"application/vnd.noblenet-web":{"source":"iana","extensions":["nnw"]},"application/vnd.nokia.catalogs":{"source":"iana"},"application/vnd.nokia.conml+wbxml":{"source":"iana"},"application/vnd.nokia.conml+xml":{"source":"iana","compressible":true},"application/vnd.nokia.iptv.config+xml":{"source":"iana","compressible":true},"application/vnd.nokia.isds-radio-presets":{"source":"iana"},"application/vnd.nokia.landmark+wbxml":{"source":"iana"},"application/vnd.nokia.landmark+xml":{"source":"iana","compressible":true},"application/vnd.nokia.landmarkcollection+xml":{"source":"iana","compressible":true},"application/vnd.nokia.n-gage.ac+xml":{"source":"iana","compressible":true,"extensions":["ac"]},"application/vnd.nokia.n-gage.data":{"source":"iana","extensions":["ngdat"]},"application/vnd.nokia.n-gage.symbian.install":{"source":"iana","extensions":["n-gage"]},"application/vnd.nokia.ncd":{"source":"iana"},"application/vnd.nokia.pcd+wbxml":{"source":"iana"},"application/vnd.nokia.pcd+xml":{"source":"iana","compressible":true},"application/vnd.nokia.radio-preset":{"source":"iana","extensions":["rpst"]},"application/vnd.nokia.radio-presets":{"source":"iana","extensions":["rpss"]},"application/vnd.novadigm.edm":{"source":"iana","extensions":["edm"]},"application/vnd.novadigm.edx":{"source":"iana","extensions":["edx"]},"application/vnd.novadigm.ext":{"source":"iana","extensions":["ext"]},"application/vnd.ntt-local.content-share":{"source":"iana"},"application/vnd.ntt-local.file-transfer":{"source":"iana"},"application/vnd.ntt-local.ogw_remote-access":{"source":"iana"},"application/vnd.ntt-local.sip-ta_remote":{"source":"iana"},"application/vnd.ntt-local.sip-ta_tcp_stream":{"source":"iana"},"application/vnd.oasis.opendocument.chart":{"source":"iana","extensions":["odc"]},"application/vnd.oasis.opendocument.chart-template":{"source":"iana","extensions":["otc"]},"application/vnd.oasis.opendocument.database":{"source":"iana","extensions":["odb"]},"application/vnd.oasis.opendocument.formula":{"source":"iana","extensions":["odf"]},"application/vnd.oasis.opendocument.formula-template":{"source":"iana","extensions":["odft"]},"application/vnd.oasis.opendocument.graphics":{"source":"iana","compressible":false,"extensions":["odg"]},"application/vnd.oasis.opendocument.graphics-template":{"source":"iana","extensions":["otg"]},"application/vnd.oasis.opendocument.image":{"source":"iana","extensions":["odi"]},"application/vnd.oasis.opendocument.image-template":{"source":"iana","extensions":["oti"]},"application/vnd.oasis.opendocument.presentation":{"source":"iana","compressible":false,"extensions":["odp"]},"application/vnd.oasis.opendocument.presentation-template":{"source":"iana","extensions":["otp"]},"application/vnd.oasis.opendocument.spreadsheet":{"source":"iana","compressible":false,"extensions":["ods"]},"application/vnd.oasis.opendocument.spreadsheet-template":{"source":"iana","extensions":["ots"]},"application/vnd.oasis.opendocument.text":{"source":"iana","compressible":false,"extensions":["odt"]},"application/vnd.oasis.opendocument.text-master":{"source":"iana","extensions":["odm"]},"application/vnd.oasis.opendocument.text-template":{"source":"iana","extensions":["ott"]},"application/vnd.oasis.opendocument.text-web":{"source":"iana","extensions":["oth"]},"application/vnd.obn":{"source":"iana"},"application/vnd.ocf+cbor":{"source":"iana"},"application/vnd.oci.image.manifest.v1+json":{"source":"iana","compressible":true},"application/vnd.oftn.l10n+json":{"source":"iana","compressible":true},"application/vnd.oipf.contentaccessdownload+xml":{"source":"iana","compressible":true},"application/vnd.oipf.contentaccessstreaming+xml":{"source":"iana","compressible":true},"application/vnd.oipf.cspg-hexbinary":{"source":"iana"},"application/vnd.oipf.dae.svg+xml":{"source":"iana","compressible":true},"application/vnd.oipf.dae.xhtml+xml":{"source":"iana","compressible":true},"application/vnd.oipf.mippvcontrolmessage+xml":{"source":"iana","compressible":true},"application/vnd.oipf.pae.gem":{"source":"iana"},"application/vnd.oipf.spdiscovery+xml":{"source":"iana","compressible":true},"application/vnd.oipf.spdlist+xml":{"source":"iana","compressible":true},"application/vnd.oipf.ueprofile+xml":{"source":"iana","compressible":true},"application/vnd.oipf.userprofile+xml":{"source":"iana","compressible":true},"application/vnd.olpc-sugar":{"source":"iana","extensions":["xo"]},"application/vnd.oma-scws-config":{"source":"iana"},"application/vnd.oma-scws-http-request":{"source":"iana"},"application/vnd.oma-scws-http-response":{"source":"iana"},"application/vnd.oma.bcast.associated-procedure-parameter+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.drm-trigger+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.imd+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.ltkm":{"source":"iana"},"application/vnd.oma.bcast.notification+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.provisioningtrigger":{"source":"iana"},"application/vnd.oma.bcast.sgboot":{"source":"iana"},"application/vnd.oma.bcast.sgdd+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.sgdu":{"source":"iana"},"application/vnd.oma.bcast.simple-symbol-container":{"source":"iana"},"application/vnd.oma.bcast.smartcard-trigger+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.sprov+xml":{"source":"iana","compressible":true},"application/vnd.oma.bcast.stkm":{"source":"iana"},"application/vnd.oma.cab-address-book+xml":{"source":"iana","compressible":true},"application/vnd.oma.cab-feature-handler+xml":{"source":"iana","compressible":true},"application/vnd.oma.cab-pcc+xml":{"source":"iana","compressible":true},"application/vnd.oma.cab-subs-invite+xml":{"source":"iana","compressible":true},"application/vnd.oma.cab-user-prefs+xml":{"source":"iana","compressible":true},"application/vnd.oma.dcd":{"source":"iana"},"application/vnd.oma.dcdc":{"source":"iana"},"application/vnd.oma.dd2+xml":{"source":"iana","compressible":true,"extensions":["dd2"]},"application/vnd.oma.drm.risd+xml":{"source":"iana","compressible":true},"application/vnd.oma.group-usage-list+xml":{"source":"iana","compressible":true},"application/vnd.oma.lwm2m+cbor":{"source":"iana"},"application/vnd.oma.lwm2m+json":{"source":"iana","compressible":true},"application/vnd.oma.lwm2m+tlv":{"source":"iana"},"application/vnd.oma.pal+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.detailed-progress-report+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.final-report+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.groups+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.invocation-descriptor+xml":{"source":"iana","compressible":true},"application/vnd.oma.poc.optimized-progress-report+xml":{"source":"iana","compressible":true},"application/vnd.oma.push":{"source":"iana"},"application/vnd.oma.scidm.messages+xml":{"source":"iana","compressible":true},"application/vnd.oma.xcap-directory+xml":{"source":"iana","compressible":true},"application/vnd.omads-email+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.omads-file+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.omads-folder+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.omaloc-supl-init":{"source":"iana"},"application/vnd.onepager":{"source":"iana"},"application/vnd.onepagertamp":{"source":"iana"},"application/vnd.onepagertamx":{"source":"iana"},"application/vnd.onepagertat":{"source":"iana"},"application/vnd.onepagertatp":{"source":"iana"},"application/vnd.onepagertatx":{"source":"iana"},"application/vnd.openblox.game+xml":{"source":"iana","compressible":true,"extensions":["obgx"]},"application/vnd.openblox.game-binary":{"source":"iana"},"application/vnd.openeye.oeb":{"source":"iana"},"application/vnd.openofficeorg.extension":{"source":"apache","extensions":["oxt"]},"application/vnd.openstreetmap.data+xml":{"source":"iana","compressible":true,"extensions":["osm"]},"application/vnd.opentimestamps.ots":{"source":"iana"},"application/vnd.openxmlformats-officedocument.custom-properties+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.customxmlproperties+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawing+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.chart+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.chartshapes+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.diagramcolors+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.diagramdata+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.diagramlayout+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.drawingml.diagramstyle+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.extended-properties+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.commentauthors+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.comments+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.handoutmaster+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.notesmaster+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.notesslide+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.presentation":{"source":"iana","compressible":false,"extensions":["pptx"]},"application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.presprops+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slide":{"source":"iana","extensions":["sldx"]},"application/vnd.openxmlformats-officedocument.presentationml.slide+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slidelayout+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slidemaster+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slideshow":{"source":"iana","extensions":["ppsx"]},"application/vnd.openxmlformats-officedocument.presentationml.slideshow.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.slideupdateinfo+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.tablestyles+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.tags+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.template":{"source":"iana","extensions":["potx"]},"application/vnd.openxmlformats-officedocument.presentationml.template.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.presentationml.viewprops+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.calcchain+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.chartsheet+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.comments+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.connections+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.dialogsheet+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.externallink+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcachedefinition+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivotcacherecords+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.pivottable+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.querytable+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionheaders+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.revisionlog+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.sharedstrings+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":{"source":"iana","compressible":false,"extensions":["xlsx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.sheetmetadata+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.table+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.tablesinglecells+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.template":{"source":"iana","extensions":["xltx"]},"application/vnd.openxmlformats-officedocument.spreadsheetml.template.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.usernames+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.volatiledependencies+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.theme+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.themeoverride+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.vmldrawing":{"source":"iana"},"application/vnd.openxmlformats-officedocument.wordprocessingml.comments+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.document":{"source":"iana","compressible":false,"extensions":["docx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.glossary+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.endnotes+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.fonttable+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.footnotes+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.template":{"source":"iana","extensions":["dotx"]},"application/vnd.openxmlformats-officedocument.wordprocessingml.template.main+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-officedocument.wordprocessingml.websettings+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-package.core-properties+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-package.digital-signature-xmlsignature+xml":{"source":"iana","compressible":true},"application/vnd.openxmlformats-package.relationships+xml":{"source":"iana","compressible":true},"application/vnd.oracle.resource+json":{"source":"iana","compressible":true},"application/vnd.orange.indata":{"source":"iana"},"application/vnd.osa.netdeploy":{"source":"iana"},"application/vnd.osgeo.mapguide.package":{"source":"iana","extensions":["mgp"]},"application/vnd.osgi.bundle":{"source":"iana"},"application/vnd.osgi.dp":{"source":"iana","extensions":["dp"]},"application/vnd.osgi.subsystem":{"source":"iana","extensions":["esa"]},"application/vnd.otps.ct-kip+xml":{"source":"iana","compressible":true},"application/vnd.oxli.countgraph":{"source":"iana"},"application/vnd.pagerduty+json":{"source":"iana","compressible":true},"application/vnd.palm":{"source":"iana","extensions":["pdb","pqa","oprc"]},"application/vnd.panoply":{"source":"iana"},"application/vnd.paos.xml":{"source":"iana"},"application/vnd.patentdive":{"source":"iana"},"application/vnd.patientecommsdoc":{"source":"iana"},"application/vnd.pawaafile":{"source":"iana","extensions":["paw"]},"application/vnd.pcos":{"source":"iana"},"application/vnd.pg.format":{"source":"iana","extensions":["str"]},"application/vnd.pg.osasli":{"source":"iana","extensions":["ei6"]},"application/vnd.piaccess.application-licence":{"source":"iana"},"application/vnd.picsel":{"source":"iana","extensions":["efif"]},"application/vnd.pmi.widget":{"source":"iana","extensions":["wg"]},"application/vnd.poc.group-advertisement+xml":{"source":"iana","compressible":true},"application/vnd.pocketlearn":{"source":"iana","extensions":["plf"]},"application/vnd.powerbuilder6":{"source":"iana","extensions":["pbd"]},"application/vnd.powerbuilder6-s":{"source":"iana"},"application/vnd.powerbuilder7":{"source":"iana"},"application/vnd.powerbuilder7-s":{"source":"iana"},"application/vnd.powerbuilder75":{"source":"iana"},"application/vnd.powerbuilder75-s":{"source":"iana"},"application/vnd.preminet":{"source":"iana"},"application/vnd.previewsystems.box":{"source":"iana","extensions":["box"]},"application/vnd.proteus.magazine":{"source":"iana","extensions":["mgz"]},"application/vnd.psfs":{"source":"iana"},"application/vnd.publishare-delta-tree":{"source":"iana","extensions":["qps"]},"application/vnd.pvi.ptid1":{"source":"iana","extensions":["ptid"]},"application/vnd.pwg-multiplexed":{"source":"iana"},"application/vnd.pwg-xhtml-print+xml":{"source":"iana","compressible":true},"application/vnd.qualcomm.brew-app-res":{"source":"iana"},"application/vnd.quarantainenet":{"source":"iana"},"application/vnd.quark.quarkxpress":{"source":"iana","extensions":["qxd","qxt","qwd","qwt","qxl","qxb"]},"application/vnd.quobject-quoxdocument":{"source":"iana"},"application/vnd.radisys.moml+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit-conf+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit-conn+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit-dialog+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-audit-stream+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-conf+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-base+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-fax-detect+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-fax-sendrecv+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-group+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-speech+xml":{"source":"iana","compressible":true},"application/vnd.radisys.msml-dialog-transform+xml":{"source":"iana","compressible":true},"application/vnd.rainstor.data":{"source":"iana"},"application/vnd.rapid":{"source":"iana"},"application/vnd.rar":{"source":"iana","extensions":["rar"]},"application/vnd.realvnc.bed":{"source":"iana","extensions":["bed"]},"application/vnd.recordare.musicxml":{"source":"iana","extensions":["mxl"]},"application/vnd.recordare.musicxml+xml":{"source":"iana","compressible":true,"extensions":["musicxml"]},"application/vnd.renlearn.rlprint":{"source":"iana"},"application/vnd.resilient.logic":{"source":"iana"},"application/vnd.restful+json":{"source":"iana","compressible":true},"application/vnd.rig.cryptonote":{"source":"iana","extensions":["cryptonote"]},"application/vnd.rim.cod":{"source":"apache","extensions":["cod"]},"application/vnd.rn-realmedia":{"source":"apache","extensions":["rm"]},"application/vnd.rn-realmedia-vbr":{"source":"apache","extensions":["rmvb"]},"application/vnd.route66.link66+xml":{"source":"iana","compressible":true,"extensions":["link66"]},"application/vnd.rs-274x":{"source":"iana"},"application/vnd.ruckus.download":{"source":"iana"},"application/vnd.s3sms":{"source":"iana"},"application/vnd.sailingtracker.track":{"source":"iana","extensions":["st"]},"application/vnd.sar":{"source":"iana"},"application/vnd.sbm.cid":{"source":"iana"},"application/vnd.sbm.mid2":{"source":"iana"},"application/vnd.scribus":{"source":"iana"},"application/vnd.sealed.3df":{"source":"iana"},"application/vnd.sealed.csf":{"source":"iana"},"application/vnd.sealed.doc":{"source":"iana"},"application/vnd.sealed.eml":{"source":"iana"},"application/vnd.sealed.mht":{"source":"iana"},"application/vnd.sealed.net":{"source":"iana"},"application/vnd.sealed.ppt":{"source":"iana"},"application/vnd.sealed.tiff":{"source":"iana"},"application/vnd.sealed.xls":{"source":"iana"},"application/vnd.sealedmedia.softseal.html":{"source":"iana"},"application/vnd.sealedmedia.softseal.pdf":{"source":"iana"},"application/vnd.seemail":{"source":"iana","extensions":["see"]},"application/vnd.seis+json":{"source":"iana","compressible":true},"application/vnd.sema":{"source":"iana","extensions":["sema"]},"application/vnd.semd":{"source":"iana","extensions":["semd"]},"application/vnd.semf":{"source":"iana","extensions":["semf"]},"application/vnd.shade-save-file":{"source":"iana"},"application/vnd.shana.informed.formdata":{"source":"iana","extensions":["ifm"]},"application/vnd.shana.informed.formtemplate":{"source":"iana","extensions":["itp"]},"application/vnd.shana.informed.interchange":{"source":"iana","extensions":["iif"]},"application/vnd.shana.informed.package":{"source":"iana","extensions":["ipk"]},"application/vnd.shootproof+json":{"source":"iana","compressible":true},"application/vnd.shopkick+json":{"source":"iana","compressible":true},"application/vnd.shp":{"source":"iana"},"application/vnd.shx":{"source":"iana"},"application/vnd.sigrok.session":{"source":"iana"},"application/vnd.simtech-mindmapper":{"source":"iana","extensions":["twd","twds"]},"application/vnd.siren+json":{"source":"iana","compressible":true},"application/vnd.smaf":{"source":"iana","extensions":["mmf"]},"application/vnd.smart.notebook":{"source":"iana"},"application/vnd.smart.teacher":{"source":"iana","extensions":["teacher"]},"application/vnd.snesdev-page-table":{"source":"iana"},"application/vnd.software602.filler.form+xml":{"source":"iana","compressible":true,"extensions":["fo"]},"application/vnd.software602.filler.form-xml-zip":{"source":"iana"},"application/vnd.solent.sdkm+xml":{"source":"iana","compressible":true,"extensions":["sdkm","sdkd"]},"application/vnd.spotfire.dxp":{"source":"iana","extensions":["dxp"]},"application/vnd.spotfire.sfs":{"source":"iana","extensions":["sfs"]},"application/vnd.sqlite3":{"source":"iana"},"application/vnd.sss-cod":{"source":"iana"},"application/vnd.sss-dtf":{"source":"iana"},"application/vnd.sss-ntf":{"source":"iana"},"application/vnd.stardivision.calc":{"source":"apache","extensions":["sdc"]},"application/vnd.stardivision.draw":{"source":"apache","extensions":["sda"]},"application/vnd.stardivision.impress":{"source":"apache","extensions":["sdd"]},"application/vnd.stardivision.math":{"source":"apache","extensions":["smf"]},"application/vnd.stardivision.writer":{"source":"apache","extensions":["sdw","vor"]},"application/vnd.stardivision.writer-global":{"source":"apache","extensions":["sgl"]},"application/vnd.stepmania.package":{"source":"iana","extensions":["smzip"]},"application/vnd.stepmania.stepchart":{"source":"iana","extensions":["sm"]},"application/vnd.street-stream":{"source":"iana"},"application/vnd.sun.wadl+xml":{"source":"iana","compressible":true,"extensions":["wadl"]},"application/vnd.sun.xml.calc":{"source":"apache","extensions":["sxc"]},"application/vnd.sun.xml.calc.template":{"source":"apache","extensions":["stc"]},"application/vnd.sun.xml.draw":{"source":"apache","extensions":["sxd"]},"application/vnd.sun.xml.draw.template":{"source":"apache","extensions":["std"]},"application/vnd.sun.xml.impress":{"source":"apache","extensions":["sxi"]},"application/vnd.sun.xml.impress.template":{"source":"apache","extensions":["sti"]},"application/vnd.sun.xml.math":{"source":"apache","extensions":["sxm"]},"application/vnd.sun.xml.writer":{"source":"apache","extensions":["sxw"]},"application/vnd.sun.xml.writer.global":{"source":"apache","extensions":["sxg"]},"application/vnd.sun.xml.writer.template":{"source":"apache","extensions":["stw"]},"application/vnd.sus-calendar":{"source":"iana","extensions":["sus","susp"]},"application/vnd.svd":{"source":"iana","extensions":["svd"]},"application/vnd.swiftview-ics":{"source":"iana"},"application/vnd.sycle+xml":{"source":"iana","compressible":true},"application/vnd.syft+json":{"source":"iana","compressible":true},"application/vnd.symbian.install":{"source":"apache","extensions":["sis","sisx"]},"application/vnd.syncml+xml":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["xsm"]},"application/vnd.syncml.dm+wbxml":{"source":"iana","charset":"UTF-8","extensions":["bdm"]},"application/vnd.syncml.dm+xml":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["xdm"]},"application/vnd.syncml.dm.notification":{"source":"iana"},"application/vnd.syncml.dmddf+wbxml":{"source":"iana"},"application/vnd.syncml.dmddf+xml":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["ddf"]},"application/vnd.syncml.dmtnds+wbxml":{"source":"iana"},"application/vnd.syncml.dmtnds+xml":{"source":"iana","charset":"UTF-8","compressible":true},"application/vnd.syncml.ds.notification":{"source":"iana"},"application/vnd.tableschema+json":{"source":"iana","compressible":true},"application/vnd.tao.intent-module-archive":{"source":"iana","extensions":["tao"]},"application/vnd.tcpdump.pcap":{"source":"iana","extensions":["pcap","cap","dmp"]},"application/vnd.think-cell.ppttc+json":{"source":"iana","compressible":true},"application/vnd.tmd.mediaflex.api+xml":{"source":"iana","compressible":true},"application/vnd.tml":{"source":"iana"},"application/vnd.tmobile-livetv":{"source":"iana","extensions":["tmo"]},"application/vnd.tri.onesource":{"source":"iana"},"application/vnd.trid.tpt":{"source":"iana","extensions":["tpt"]},"application/vnd.triscape.mxs":{"source":"iana","extensions":["mxs"]},"application/vnd.trueapp":{"source":"iana","extensions":["tra"]},"application/vnd.truedoc":{"source":"iana"},"application/vnd.ubisoft.webplayer":{"source":"iana"},"application/vnd.ufdl":{"source":"iana","extensions":["ufd","ufdl"]},"application/vnd.uiq.theme":{"source":"iana","extensions":["utz"]},"application/vnd.umajin":{"source":"iana","extensions":["umj"]},"application/vnd.unity":{"source":"iana","extensions":["unityweb"]},"application/vnd.uoml+xml":{"source":"iana","compressible":true,"extensions":["uoml"]},"application/vnd.uplanet.alert":{"source":"iana"},"application/vnd.uplanet.alert-wbxml":{"source":"iana"},"application/vnd.uplanet.bearer-choice":{"source":"iana"},"application/vnd.uplanet.bearer-choice-wbxml":{"source":"iana"},"application/vnd.uplanet.cacheop":{"source":"iana"},"application/vnd.uplanet.cacheop-wbxml":{"source":"iana"},"application/vnd.uplanet.channel":{"source":"iana"},"application/vnd.uplanet.channel-wbxml":{"source":"iana"},"application/vnd.uplanet.list":{"source":"iana"},"application/vnd.uplanet.list-wbxml":{"source":"iana"},"application/vnd.uplanet.listcmd":{"source":"iana"},"application/vnd.uplanet.listcmd-wbxml":{"source":"iana"},"application/vnd.uplanet.signal":{"source":"iana"},"application/vnd.uri-map":{"source":"iana"},"application/vnd.valve.source.material":{"source":"iana"},"application/vnd.vcx":{"source":"iana","extensions":["vcx"]},"application/vnd.vd-study":{"source":"iana"},"application/vnd.vectorworks":{"source":"iana"},"application/vnd.vel+json":{"source":"iana","compressible":true},"application/vnd.verimatrix.vcas":{"source":"iana"},"application/vnd.veritone.aion+json":{"source":"iana","compressible":true},"application/vnd.veryant.thin":{"source":"iana"},"application/vnd.ves.encrypted":{"source":"iana"},"application/vnd.vidsoft.vidconference":{"source":"iana"},"application/vnd.visio":{"source":"iana","extensions":["vsd","vst","vss","vsw"]},"application/vnd.visionary":{"source":"iana","extensions":["vis"]},"application/vnd.vividence.scriptfile":{"source":"iana"},"application/vnd.vsf":{"source":"iana","extensions":["vsf"]},"application/vnd.wap.sic":{"source":"iana"},"application/vnd.wap.slc":{"source":"iana"},"application/vnd.wap.wbxml":{"source":"iana","charset":"UTF-8","extensions":["wbxml"]},"application/vnd.wap.wmlc":{"source":"iana","extensions":["wmlc"]},"application/vnd.wap.wmlscriptc":{"source":"iana","extensions":["wmlsc"]},"application/vnd.webturbo":{"source":"iana","extensions":["wtb"]},"application/vnd.wfa.dpp":{"source":"iana"},"application/vnd.wfa.p2p":{"source":"iana"},"application/vnd.wfa.wsc":{"source":"iana"},"application/vnd.windows.devicepairing":{"source":"iana"},"application/vnd.wmc":{"source":"iana"},"application/vnd.wmf.bootstrap":{"source":"iana"},"application/vnd.wolfram.mathematica":{"source":"iana"},"application/vnd.wolfram.mathematica.package":{"source":"iana"},"application/vnd.wolfram.player":{"source":"iana","extensions":["nbp"]},"application/vnd.wordperfect":{"source":"iana","extensions":["wpd"]},"application/vnd.wqd":{"source":"iana","extensions":["wqd"]},"application/vnd.wrq-hp3000-labelled":{"source":"iana"},"application/vnd.wt.stf":{"source":"iana","extensions":["stf"]},"application/vnd.wv.csp+wbxml":{"source":"iana"},"application/vnd.wv.csp+xml":{"source":"iana","compressible":true},"application/vnd.wv.ssp+xml":{"source":"iana","compressible":true},"application/vnd.xacml+json":{"source":"iana","compressible":true},"application/vnd.xara":{"source":"iana","extensions":["xar"]},"application/vnd.xfdl":{"source":"iana","extensions":["xfdl"]},"application/vnd.xfdl.webform":{"source":"iana"},"application/vnd.xmi+xml":{"source":"iana","compressible":true},"application/vnd.xmpie.cpkg":{"source":"iana"},"application/vnd.xmpie.dpkg":{"source":"iana"},"application/vnd.xmpie.plan":{"source":"iana"},"application/vnd.xmpie.ppkg":{"source":"iana"},"application/vnd.xmpie.xlim":{"source":"iana"},"application/vnd.yamaha.hv-dic":{"source":"iana","extensions":["hvd"]},"application/vnd.yamaha.hv-script":{"source":"iana","extensions":["hvs"]},"application/vnd.yamaha.hv-voice":{"source":"iana","extensions":["hvp"]},"application/vnd.yamaha.openscoreformat":{"source":"iana","extensions":["osf"]},"application/vnd.yamaha.openscoreformat.osfpvg+xml":{"source":"iana","compressible":true,"extensions":["osfpvg"]},"application/vnd.yamaha.remote-setup":{"source":"iana"},"application/vnd.yamaha.smaf-audio":{"source":"iana","extensions":["saf"]},"application/vnd.yamaha.smaf-phrase":{"source":"iana","extensions":["spf"]},"application/vnd.yamaha.through-ngn":{"source":"iana"},"application/vnd.yamaha.tunnel-udpencap":{"source":"iana"},"application/vnd.yaoweme":{"source":"iana"},"application/vnd.yellowriver-custom-menu":{"source":"iana","extensions":["cmp"]},"application/vnd.youtube.yt":{"source":"iana"},"application/vnd.zul":{"source":"iana","extensions":["zir","zirz"]},"application/vnd.zzazz.deck+xml":{"source":"iana","compressible":true,"extensions":["zaz"]},"application/voicexml+xml":{"source":"iana","compressible":true,"extensions":["vxml"]},"application/voucher-cms+json":{"source":"iana","compressible":true},"application/vq-rtcpxr":{"source":"iana"},"application/wasm":{"source":"iana","compressible":true,"extensions":["wasm"]},"application/watcherinfo+xml":{"source":"iana","compressible":true,"extensions":["wif"]},"application/webpush-options+json":{"source":"iana","compressible":true},"application/whoispp-query":{"source":"iana"},"application/whoispp-response":{"source":"iana"},"application/widget":{"source":"iana","extensions":["wgt"]},"application/winhlp":{"source":"apache","extensions":["hlp"]},"application/wita":{"source":"iana"},"application/wordperfect5.1":{"source":"iana"},"application/wsdl+xml":{"source":"iana","compressible":true,"extensions":["wsdl"]},"application/wspolicy+xml":{"source":"iana","compressible":true,"extensions":["wspolicy"]},"application/x-7z-compressed":{"source":"apache","compressible":false,"extensions":["7z"]},"application/x-abiword":{"source":"apache","extensions":["abw"]},"application/x-ace-compressed":{"source":"apache","extensions":["ace"]},"application/x-amf":{"source":"apache"},"application/x-apple-diskimage":{"source":"apache","extensions":["dmg"]},"application/x-arj":{"compressible":false,"extensions":["arj"]},"application/x-authorware-bin":{"source":"apache","extensions":["aab","x32","u32","vox"]},"application/x-authorware-map":{"source":"apache","extensions":["aam"]},"application/x-authorware-seg":{"source":"apache","extensions":["aas"]},"application/x-bcpio":{"source":"apache","extensions":["bcpio"]},"application/x-bdoc":{"compressible":false,"extensions":["bdoc"]},"application/x-bittorrent":{"source":"apache","extensions":["torrent"]},"application/x-blorb":{"source":"apache","extensions":["blb","blorb"]},"application/x-bzip":{"source":"apache","compressible":false,"extensions":["bz"]},"application/x-bzip2":{"source":"apache","compressible":false,"extensions":["bz2","boz"]},"application/x-cbr":{"source":"apache","extensions":["cbr","cba","cbt","cbz","cb7"]},"application/x-cdlink":{"source":"apache","extensions":["vcd"]},"application/x-cfs-compressed":{"source":"apache","extensions":["cfs"]},"application/x-chat":{"source":"apache","extensions":["chat"]},"application/x-chess-pgn":{"source":"apache","extensions":["pgn"]},"application/x-chrome-extension":{"extensions":["crx"]},"application/x-cocoa":{"source":"nginx","extensions":["cco"]},"application/x-compress":{"source":"apache"},"application/x-conference":{"source":"apache","extensions":["nsc"]},"application/x-cpio":{"source":"apache","extensions":["cpio"]},"application/x-csh":{"source":"apache","extensions":["csh"]},"application/x-deb":{"compressible":false},"application/x-debian-package":{"source":"apache","extensions":["deb","udeb"]},"application/x-dgc-compressed":{"source":"apache","extensions":["dgc"]},"application/x-director":{"source":"apache","extensions":["dir","dcr","dxr","cst","cct","cxt","w3d","fgd","swa"]},"application/x-doom":{"source":"apache","extensions":["wad"]},"application/x-dtbncx+xml":{"source":"apache","compressible":true,"extensions":["ncx"]},"application/x-dtbook+xml":{"source":"apache","compressible":true,"extensions":["dtb"]},"application/x-dtbresource+xml":{"source":"apache","compressible":true,"extensions":["res"]},"application/x-dvi":{"source":"apache","compressible":false,"extensions":["dvi"]},"application/x-envoy":{"source":"apache","extensions":["evy"]},"application/x-eva":{"source":"apache","extensions":["eva"]},"application/x-font-bdf":{"source":"apache","extensions":["bdf"]},"application/x-font-dos":{"source":"apache"},"application/x-font-framemaker":{"source":"apache"},"application/x-font-ghostscript":{"source":"apache","extensions":["gsf"]},"application/x-font-libgrx":{"source":"apache"},"application/x-font-linux-psf":{"source":"apache","extensions":["psf"]},"application/x-font-pcf":{"source":"apache","extensions":["pcf"]},"application/x-font-snf":{"source":"apache","extensions":["snf"]},"application/x-font-speedo":{"source":"apache"},"application/x-font-sunos-news":{"source":"apache"},"application/x-font-type1":{"source":"apache","extensions":["pfa","pfb","pfm","afm"]},"application/x-font-vfont":{"source":"apache"},"application/x-freearc":{"source":"apache","extensions":["arc"]},"application/x-futuresplash":{"source":"apache","extensions":["spl"]},"application/x-gca-compressed":{"source":"apache","extensions":["gca"]},"application/x-glulx":{"source":"apache","extensions":["ulx"]},"application/x-gnumeric":{"source":"apache","extensions":["gnumeric"]},"application/x-gramps-xml":{"source":"apache","extensions":["gramps"]},"application/x-gtar":{"source":"apache","extensions":["gtar"]},"application/x-gzip":{"source":"apache"},"application/x-hdf":{"source":"apache","extensions":["hdf"]},"application/x-httpd-php":{"compressible":true,"extensions":["php"]},"application/x-install-instructions":{"source":"apache","extensions":["install"]},"application/x-iso9660-image":{"source":"apache","extensions":["iso"]},"application/x-iwork-keynote-sffkey":{"extensions":["key"]},"application/x-iwork-numbers-sffnumbers":{"extensions":["numbers"]},"application/x-iwork-pages-sffpages":{"extensions":["pages"]},"application/x-java-archive-diff":{"source":"nginx","extensions":["jardiff"]},"application/x-java-jnlp-file":{"source":"apache","compressible":false,"extensions":["jnlp"]},"application/x-javascript":{"compressible":true},"application/x-keepass2":{"extensions":["kdbx"]},"application/x-latex":{"source":"apache","compressible":false,"extensions":["latex"]},"application/x-lua-bytecode":{"extensions":["luac"]},"application/x-lzh-compressed":{"source":"apache","extensions":["lzh","lha"]},"application/x-makeself":{"source":"nginx","extensions":["run"]},"application/x-mie":{"source":"apache","extensions":["mie"]},"application/x-mobipocket-ebook":{"source":"apache","extensions":["prc","mobi"]},"application/x-mpegurl":{"compressible":false},"application/x-ms-application":{"source":"apache","extensions":["application"]},"application/x-ms-shortcut":{"source":"apache","extensions":["lnk"]},"application/x-ms-wmd":{"source":"apache","extensions":["wmd"]},"application/x-ms-wmz":{"source":"apache","extensions":["wmz"]},"application/x-ms-xbap":{"source":"apache","extensions":["xbap"]},"application/x-msaccess":{"source":"apache","extensions":["mdb"]},"application/x-msbinder":{"source":"apache","extensions":["obd"]},"application/x-mscardfile":{"source":"apache","extensions":["crd"]},"application/x-msclip":{"source":"apache","extensions":["clp"]},"application/x-msdos-program":{"extensions":["exe"]},"application/x-msdownload":{"source":"apache","extensions":["exe","dll","com","bat","msi"]},"application/x-msmediaview":{"source":"apache","extensions":["mvb","m13","m14"]},"application/x-msmetafile":{"source":"apache","extensions":["wmf","wmz","emf","emz"]},"application/x-msmoney":{"source":"apache","extensions":["mny"]},"application/x-mspublisher":{"source":"apache","extensions":["pub"]},"application/x-msschedule":{"source":"apache","extensions":["scd"]},"application/x-msterminal":{"source":"apache","extensions":["trm"]},"application/x-mswrite":{"source":"apache","extensions":["wri"]},"application/x-netcdf":{"source":"apache","extensions":["nc","cdf"]},"application/x-ns-proxy-autoconfig":{"compressible":true,"extensions":["pac"]},"application/x-nzb":{"source":"apache","extensions":["nzb"]},"application/x-perl":{"source":"nginx","extensions":["pl","pm"]},"application/x-pilot":{"source":"nginx","extensions":["prc","pdb"]},"application/x-pkcs12":{"source":"apache","compressible":false,"extensions":["p12","pfx"]},"application/x-pkcs7-certificates":{"source":"apache","extensions":["p7b","spc"]},"application/x-pkcs7-certreqresp":{"source":"apache","extensions":["p7r"]},"application/x-pki-message":{"source":"iana"},"application/x-rar-compressed":{"source":"apache","compressible":false,"extensions":["rar"]},"application/x-redhat-package-manager":{"source":"nginx","extensions":["rpm"]},"application/x-research-info-systems":{"source":"apache","extensions":["ris"]},"application/x-sea":{"source":"nginx","extensions":["sea"]},"application/x-sh":{"source":"apache","compressible":true,"extensions":["sh"]},"application/x-shar":{"source":"apache","extensions":["shar"]},"application/x-shockwave-flash":{"source":"apache","compressible":false,"extensions":["swf"]},"application/x-silverlight-app":{"source":"apache","extensions":["xap"]},"application/x-sql":{"source":"apache","extensions":["sql"]},"application/x-stuffit":{"source":"apache","compressible":false,"extensions":["sit"]},"application/x-stuffitx":{"source":"apache","extensions":["sitx"]},"application/x-subrip":{"source":"apache","extensions":["srt"]},"application/x-sv4cpio":{"source":"apache","extensions":["sv4cpio"]},"application/x-sv4crc":{"source":"apache","extensions":["sv4crc"]},"application/x-t3vm-image":{"source":"apache","extensions":["t3"]},"application/x-tads":{"source":"apache","extensions":["gam"]},"application/x-tar":{"source":"apache","compressible":true,"extensions":["tar"]},"application/x-tcl":{"source":"apache","extensions":["tcl","tk"]},"application/x-tex":{"source":"apache","extensions":["tex"]},"application/x-tex-tfm":{"source":"apache","extensions":["tfm"]},"application/x-texinfo":{"source":"apache","extensions":["texinfo","texi"]},"application/x-tgif":{"source":"apache","extensions":["obj"]},"application/x-ustar":{"source":"apache","extensions":["ustar"]},"application/x-virtualbox-hdd":{"compressible":true,"extensions":["hdd"]},"application/x-virtualbox-ova":{"compressible":true,"extensions":["ova"]},"application/x-virtualbox-ovf":{"compressible":true,"extensions":["ovf"]},"application/x-virtualbox-vbox":{"compressible":true,"extensions":["vbox"]},"application/x-virtualbox-vbox-extpack":{"compressible":false,"extensions":["vbox-extpack"]},"application/x-virtualbox-vdi":{"compressible":true,"extensions":["vdi"]},"application/x-virtualbox-vhd":{"compressible":true,"extensions":["vhd"]},"application/x-virtualbox-vmdk":{"compressible":true,"extensions":["vmdk"]},"application/x-wais-source":{"source":"apache","extensions":["src"]},"application/x-web-app-manifest+json":{"compressible":true,"extensions":["webapp"]},"application/x-www-form-urlencoded":{"source":"iana","compressible":true},"application/x-x509-ca-cert":{"source":"iana","extensions":["der","crt","pem"]},"application/x-x509-ca-ra-cert":{"source":"iana"},"application/x-x509-next-ca-cert":{"source":"iana"},"application/x-xfig":{"source":"apache","extensions":["fig"]},"application/x-xliff+xml":{"source":"apache","compressible":true,"extensions":["xlf"]},"application/x-xpinstall":{"source":"apache","compressible":false,"extensions":["xpi"]},"application/x-xz":{"source":"apache","extensions":["xz"]},"application/x-zmachine":{"source":"apache","extensions":["z1","z2","z3","z4","z5","z6","z7","z8"]},"application/x400-bp":{"source":"iana"},"application/xacml+xml":{"source":"iana","compressible":true},"application/xaml+xml":{"source":"apache","compressible":true,"extensions":["xaml"]},"application/xcap-att+xml":{"source":"iana","compressible":true,"extensions":["xav"]},"application/xcap-caps+xml":{"source":"iana","compressible":true,"extensions":["xca"]},"application/xcap-diff+xml":{"source":"iana","compressible":true,"extensions":["xdf"]},"application/xcap-el+xml":{"source":"iana","compressible":true,"extensions":["xel"]},"application/xcap-error+xml":{"source":"iana","compressible":true},"application/xcap-ns+xml":{"source":"iana","compressible":true,"extensions":["xns"]},"application/xcon-conference-info+xml":{"source":"iana","compressible":true},"application/xcon-conference-info-diff+xml":{"source":"iana","compressible":true},"application/xenc+xml":{"source":"iana","compressible":true,"extensions":["xenc"]},"application/xhtml+xml":{"source":"iana","compressible":true,"extensions":["xhtml","xht"]},"application/xhtml-voice+xml":{"source":"apache","compressible":true},"application/xliff+xml":{"source":"iana","compressible":true,"extensions":["xlf"]},"application/xml":{"source":"iana","compressible":true,"extensions":["xml","xsl","xsd","rng"]},"application/xml-dtd":{"source":"iana","compressible":true,"extensions":["dtd"]},"application/xml-external-parsed-entity":{"source":"iana"},"application/xml-patch+xml":{"source":"iana","compressible":true},"application/xmpp+xml":{"source":"iana","compressible":true},"application/xop+xml":{"source":"iana","compressible":true,"extensions":["xop"]},"application/xproc+xml":{"source":"apache","compressible":true,"extensions":["xpl"]},"application/xslt+xml":{"source":"iana","compressible":true,"extensions":["xsl","xslt"]},"application/xspf+xml":{"source":"apache","compressible":true,"extensions":["xspf"]},"application/xv+xml":{"source":"iana","compressible":true,"extensions":["mxml","xhvml","xvml","xvm"]},"application/yang":{"source":"iana","extensions":["yang"]},"application/yang-data+json":{"source":"iana","compressible":true},"application/yang-data+xml":{"source":"iana","compressible":true},"application/yang-patch+json":{"source":"iana","compressible":true},"application/yang-patch+xml":{"source":"iana","compressible":true},"application/yin+xml":{"source":"iana","compressible":true,"extensions":["yin"]},"application/zip":{"source":"iana","compressible":false,"extensions":["zip"]},"application/zlib":{"source":"iana"},"application/zstd":{"source":"iana"},"audio/1d-interleaved-parityfec":{"source":"iana"},"audio/32kadpcm":{"source":"iana"},"audio/3gpp":{"source":"iana","compressible":false,"extensions":["3gpp"]},"audio/3gpp2":{"source":"iana"},"audio/aac":{"source":"iana"},"audio/ac3":{"source":"iana"},"audio/adpcm":{"source":"apache","extensions":["adp"]},"audio/amr":{"source":"iana","extensions":["amr"]},"audio/amr-wb":{"source":"iana"},"audio/amr-wb+":{"source":"iana"},"audio/aptx":{"source":"iana"},"audio/asc":{"source":"iana"},"audio/atrac-advanced-lossless":{"source":"iana"},"audio/atrac-x":{"source":"iana"},"audio/atrac3":{"source":"iana"},"audio/basic":{"source":"iana","compressible":false,"extensions":["au","snd"]},"audio/bv16":{"source":"iana"},"audio/bv32":{"source":"iana"},"audio/clearmode":{"source":"iana"},"audio/cn":{"source":"iana"},"audio/dat12":{"source":"iana"},"audio/dls":{"source":"iana"},"audio/dsr-es201108":{"source":"iana"},"audio/dsr-es202050":{"source":"iana"},"audio/dsr-es202211":{"source":"iana"},"audio/dsr-es202212":{"source":"iana"},"audio/dv":{"source":"iana"},"audio/dvi4":{"source":"iana"},"audio/eac3":{"source":"iana"},"audio/encaprtp":{"source":"iana"},"audio/evrc":{"source":"iana"},"audio/evrc-qcp":{"source":"iana"},"audio/evrc0":{"source":"iana"},"audio/evrc1":{"source":"iana"},"audio/evrcb":{"source":"iana"},"audio/evrcb0":{"source":"iana"},"audio/evrcb1":{"source":"iana"},"audio/evrcnw":{"source":"iana"},"audio/evrcnw0":{"source":"iana"},"audio/evrcnw1":{"source":"iana"},"audio/evrcwb":{"source":"iana"},"audio/evrcwb0":{"source":"iana"},"audio/evrcwb1":{"source":"iana"},"audio/evs":{"source":"iana"},"audio/flexfec":{"source":"iana"},"audio/fwdred":{"source":"iana"},"audio/g711-0":{"source":"iana"},"audio/g719":{"source":"iana"},"audio/g722":{"source":"iana"},"audio/g7221":{"source":"iana"},"audio/g723":{"source":"iana"},"audio/g726-16":{"source":"iana"},"audio/g726-24":{"source":"iana"},"audio/g726-32":{"source":"iana"},"audio/g726-40":{"source":"iana"},"audio/g728":{"source":"iana"},"audio/g729":{"source":"iana"},"audio/g7291":{"source":"iana"},"audio/g729d":{"source":"iana"},"audio/g729e":{"source":"iana"},"audio/gsm":{"source":"iana"},"audio/gsm-efr":{"source":"iana"},"audio/gsm-hr-08":{"source":"iana"},"audio/ilbc":{"source":"iana"},"audio/ip-mr_v2.5":{"source":"iana"},"audio/isac":{"source":"apache"},"audio/l16":{"source":"iana"},"audio/l20":{"source":"iana"},"audio/l24":{"source":"iana","compressible":false},"audio/l8":{"source":"iana"},"audio/lpc":{"source":"iana"},"audio/melp":{"source":"iana"},"audio/melp1200":{"source":"iana"},"audio/melp2400":{"source":"iana"},"audio/melp600":{"source":"iana"},"audio/mhas":{"source":"iana"},"audio/midi":{"source":"apache","extensions":["mid","midi","kar","rmi"]},"audio/mobile-xmf":{"source":"iana","extensions":["mxmf"]},"audio/mp3":{"compressible":false,"extensions":["mp3"]},"audio/mp4":{"source":"iana","compressible":false,"extensions":["m4a","mp4a"]},"audio/mp4a-latm":{"source":"iana"},"audio/mpa":{"source":"iana"},"audio/mpa-robust":{"source":"iana"},"audio/mpeg":{"source":"iana","compressible":false,"extensions":["mpga","mp2","mp2a","mp3","m2a","m3a"]},"audio/mpeg4-generic":{"source":"iana"},"audio/musepack":{"source":"apache"},"audio/ogg":{"source":"iana","compressible":false,"extensions":["oga","ogg","spx","opus"]},"audio/opus":{"source":"iana"},"audio/parityfec":{"source":"iana"},"audio/pcma":{"source":"iana"},"audio/pcma-wb":{"source":"iana"},"audio/pcmu":{"source":"iana"},"audio/pcmu-wb":{"source":"iana"},"audio/prs.sid":{"source":"iana"},"audio/qcelp":{"source":"iana"},"audio/raptorfec":{"source":"iana"},"audio/red":{"source":"iana"},"audio/rtp-enc-aescm128":{"source":"iana"},"audio/rtp-midi":{"source":"iana"},"audio/rtploopback":{"source":"iana"},"audio/rtx":{"source":"iana"},"audio/s3m":{"source":"apache","extensions":["s3m"]},"audio/scip":{"source":"iana"},"audio/silk":{"source":"apache","extensions":["sil"]},"audio/smv":{"source":"iana"},"audio/smv-qcp":{"source":"iana"},"audio/smv0":{"source":"iana"},"audio/sofa":{"source":"iana"},"audio/sp-midi":{"source":"iana"},"audio/speex":{"source":"iana"},"audio/t140c":{"source":"iana"},"audio/t38":{"source":"iana"},"audio/telephone-event":{"source":"iana"},"audio/tetra_acelp":{"source":"iana"},"audio/tetra_acelp_bb":{"source":"iana"},"audio/tone":{"source":"iana"},"audio/tsvcis":{"source":"iana"},"audio/uemclip":{"source":"iana"},"audio/ulpfec":{"source":"iana"},"audio/usac":{"source":"iana"},"audio/vdvi":{"source":"iana"},"audio/vmr-wb":{"source":"iana"},"audio/vnd.3gpp.iufp":{"source":"iana"},"audio/vnd.4sb":{"source":"iana"},"audio/vnd.audiokoz":{"source":"iana"},"audio/vnd.celp":{"source":"iana"},"audio/vnd.cisco.nse":{"source":"iana"},"audio/vnd.cmles.radio-events":{"source":"iana"},"audio/vnd.cns.anp1":{"source":"iana"},"audio/vnd.cns.inf1":{"source":"iana"},"audio/vnd.dece.audio":{"source":"iana","extensions":["uva","uvva"]},"audio/vnd.digital-winds":{"source":"iana","extensions":["eol"]},"audio/vnd.dlna.adts":{"source":"iana"},"audio/vnd.dolby.heaac.1":{"source":"iana"},"audio/vnd.dolby.heaac.2":{"source":"iana"},"audio/vnd.dolby.mlp":{"source":"iana"},"audio/vnd.dolby.mps":{"source":"iana"},"audio/vnd.dolby.pl2":{"source":"iana"},"audio/vnd.dolby.pl2x":{"source":"iana"},"audio/vnd.dolby.pl2z":{"source":"iana"},"audio/vnd.dolby.pulse.1":{"source":"iana"},"audio/vnd.dra":{"source":"iana","extensions":["dra"]},"audio/vnd.dts":{"source":"iana","extensions":["dts"]},"audio/vnd.dts.hd":{"source":"iana","extensions":["dtshd"]},"audio/vnd.dts.uhd":{"source":"iana"},"audio/vnd.dvb.file":{"source":"iana"},"audio/vnd.everad.plj":{"source":"iana"},"audio/vnd.hns.audio":{"source":"iana"},"audio/vnd.lucent.voice":{"source":"iana","extensions":["lvp"]},"audio/vnd.ms-playready.media.pya":{"source":"iana","extensions":["pya"]},"audio/vnd.nokia.mobile-xmf":{"source":"iana"},"audio/vnd.nortel.vbk":{"source":"iana"},"audio/vnd.nuera.ecelp4800":{"source":"iana","extensions":["ecelp4800"]},"audio/vnd.nuera.ecelp7470":{"source":"iana","extensions":["ecelp7470"]},"audio/vnd.nuera.ecelp9600":{"source":"iana","extensions":["ecelp9600"]},"audio/vnd.octel.sbc":{"source":"iana"},"audio/vnd.presonus.multitrack":{"source":"iana"},"audio/vnd.qcelp":{"source":"iana"},"audio/vnd.rhetorex.32kadpcm":{"source":"iana"},"audio/vnd.rip":{"source":"iana","extensions":["rip"]},"audio/vnd.rn-realaudio":{"compressible":false},"audio/vnd.sealedmedia.softseal.mpeg":{"source":"iana"},"audio/vnd.vmx.cvsd":{"source":"iana"},"audio/vnd.wave":{"compressible":false},"audio/vorbis":{"source":"iana","compressible":false},"audio/vorbis-config":{"source":"iana"},"audio/wav":{"compressible":false,"extensions":["wav"]},"audio/wave":{"compressible":false,"extensions":["wav"]},"audio/webm":{"source":"apache","compressible":false,"extensions":["weba"]},"audio/x-aac":{"source":"apache","compressible":false,"extensions":["aac"]},"audio/x-aiff":{"source":"apache","extensions":["aif","aiff","aifc"]},"audio/x-caf":{"source":"apache","compressible":false,"extensions":["caf"]},"audio/x-flac":{"source":"apache","extensions":["flac"]},"audio/x-m4a":{"source":"nginx","extensions":["m4a"]},"audio/x-matroska":{"source":"apache","extensions":["mka"]},"audio/x-mpegurl":{"source":"apache","extensions":["m3u"]},"audio/x-ms-wax":{"source":"apache","extensions":["wax"]},"audio/x-ms-wma":{"source":"apache","extensions":["wma"]},"audio/x-pn-realaudio":{"source":"apache","extensions":["ram","ra"]},"audio/x-pn-realaudio-plugin":{"source":"apache","extensions":["rmp"]},"audio/x-realaudio":{"source":"nginx","extensions":["ra"]},"audio/x-tta":{"source":"apache"},"audio/x-wav":{"source":"apache","extensions":["wav"]},"audio/xm":{"source":"apache","extensions":["xm"]},"chemical/x-cdx":{"source":"apache","extensions":["cdx"]},"chemical/x-cif":{"source":"apache","extensions":["cif"]},"chemical/x-cmdf":{"source":"apache","extensions":["cmdf"]},"chemical/x-cml":{"source":"apache","extensions":["cml"]},"chemical/x-csml":{"source":"apache","extensions":["csml"]},"chemical/x-pdb":{"source":"apache"},"chemical/x-xyz":{"source":"apache","extensions":["xyz"]},"font/collection":{"source":"iana","extensions":["ttc"]},"font/otf":{"source":"iana","compressible":true,"extensions":["otf"]},"font/sfnt":{"source":"iana"},"font/ttf":{"source":"iana","compressible":true,"extensions":["ttf"]},"font/woff":{"source":"iana","extensions":["woff"]},"font/woff2":{"source":"iana","extensions":["woff2"]},"image/aces":{"source":"iana","extensions":["exr"]},"image/apng":{"compressible":false,"extensions":["apng"]},"image/avci":{"source":"iana","extensions":["avci"]},"image/avcs":{"source":"iana","extensions":["avcs"]},"image/avif":{"source":"iana","compressible":false,"extensions":["avif"]},"image/bmp":{"source":"iana","compressible":true,"extensions":["bmp"]},"image/cgm":{"source":"iana","extensions":["cgm"]},"image/dicom-rle":{"source":"iana","extensions":["drle"]},"image/emf":{"source":"iana","extensions":["emf"]},"image/fits":{"source":"iana","extensions":["fits"]},"image/g3fax":{"source":"iana","extensions":["g3"]},"image/gif":{"source":"iana","compressible":false,"extensions":["gif"]},"image/heic":{"source":"iana","extensions":["heic"]},"image/heic-sequence":{"source":"iana","extensions":["heics"]},"image/heif":{"source":"iana","extensions":["heif"]},"image/heif-sequence":{"source":"iana","extensions":["heifs"]},"image/hej2k":{"source":"iana","extensions":["hej2"]},"image/hsj2":{"source":"iana","extensions":["hsj2"]},"image/ief":{"source":"iana","extensions":["ief"]},"image/jls":{"source":"iana","extensions":["jls"]},"image/jp2":{"source":"iana","compressible":false,"extensions":["jp2","jpg2"]},"image/jpeg":{"source":"iana","compressible":false,"extensions":["jpeg","jpg","jpe"]},"image/jph":{"source":"iana","extensions":["jph"]},"image/jphc":{"source":"iana","extensions":["jhc"]},"image/jpm":{"source":"iana","compressible":false,"extensions":["jpm"]},"image/jpx":{"source":"iana","compressible":false,"extensions":["jpx","jpf"]},"image/jxr":{"source":"iana","extensions":["jxr"]},"image/jxra":{"source":"iana","extensions":["jxra"]},"image/jxrs":{"source":"iana","extensions":["jxrs"]},"image/jxs":{"source":"iana","extensions":["jxs"]},"image/jxsc":{"source":"iana","extensions":["jxsc"]},"image/jxsi":{"source":"iana","extensions":["jxsi"]},"image/jxss":{"source":"iana","extensions":["jxss"]},"image/ktx":{"source":"iana","extensions":["ktx"]},"image/ktx2":{"source":"iana","extensions":["ktx2"]},"image/naplps":{"source":"iana"},"image/pjpeg":{"compressible":false},"image/png":{"source":"iana","compressible":false,"extensions":["png"]},"image/prs.btif":{"source":"iana","extensions":["btif"]},"image/prs.pti":{"source":"iana","extensions":["pti"]},"image/pwg-raster":{"source":"iana"},"image/sgi":{"source":"apache","extensions":["sgi"]},"image/svg+xml":{"source":"iana","compressible":true,"extensions":["svg","svgz"]},"image/t38":{"source":"iana","extensions":["t38"]},"image/tiff":{"source":"iana","compressible":false,"extensions":["tif","tiff"]},"image/tiff-fx":{"source":"iana","extensions":["tfx"]},"image/vnd.adobe.photoshop":{"source":"iana","compressible":true,"extensions":["psd"]},"image/vnd.airzip.accelerator.azv":{"source":"iana","extensions":["azv"]},"image/vnd.cns.inf2":{"source":"iana"},"image/vnd.dece.graphic":{"source":"iana","extensions":["uvi","uvvi","uvg","uvvg"]},"image/vnd.djvu":{"source":"iana","extensions":["djvu","djv"]},"image/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"image/vnd.dwg":{"source":"iana","extensions":["dwg"]},"image/vnd.dxf":{"source":"iana","extensions":["dxf"]},"image/vnd.fastbidsheet":{"source":"iana","extensions":["fbs"]},"image/vnd.fpx":{"source":"iana","extensions":["fpx"]},"image/vnd.fst":{"source":"iana","extensions":["fst"]},"image/vnd.fujixerox.edmics-mmr":{"source":"iana","extensions":["mmr"]},"image/vnd.fujixerox.edmics-rlc":{"source":"iana","extensions":["rlc"]},"image/vnd.globalgraphics.pgb":{"source":"iana"},"image/vnd.microsoft.icon":{"source":"iana","compressible":true,"extensions":["ico"]},"image/vnd.mix":{"source":"iana"},"image/vnd.mozilla.apng":{"source":"iana"},"image/vnd.ms-dds":{"compressible":true,"extensions":["dds"]},"image/vnd.ms-modi":{"source":"iana","extensions":["mdi"]},"image/vnd.ms-photo":{"source":"apache","extensions":["wdp"]},"image/vnd.net-fpx":{"source":"iana","extensions":["npx"]},"image/vnd.pco.b16":{"source":"iana","extensions":["b16"]},"image/vnd.radiance":{"source":"iana"},"image/vnd.sealed.png":{"source":"iana"},"image/vnd.sealedmedia.softseal.gif":{"source":"iana"},"image/vnd.sealedmedia.softseal.jpg":{"source":"iana"},"image/vnd.svf":{"source":"iana"},"image/vnd.tencent.tap":{"source":"iana","extensions":["tap"]},"image/vnd.valve.source.texture":{"source":"iana","extensions":["vtf"]},"image/vnd.wap.wbmp":{"source":"iana","extensions":["wbmp"]},"image/vnd.xiff":{"source":"iana","extensions":["xif"]},"image/vnd.zbrush.pcx":{"source":"iana","extensions":["pcx"]},"image/webp":{"source":"apache","extensions":["webp"]},"image/wmf":{"source":"iana","extensions":["wmf"]},"image/x-3ds":{"source":"apache","extensions":["3ds"]},"image/x-cmu-raster":{"source":"apache","extensions":["ras"]},"image/x-cmx":{"source":"apache","extensions":["cmx"]},"image/x-freehand":{"source":"apache","extensions":["fh","fhc","fh4","fh5","fh7"]},"image/x-icon":{"source":"apache","compressible":true,"extensions":["ico"]},"image/x-jng":{"source":"nginx","extensions":["jng"]},"image/x-mrsid-image":{"source":"apache","extensions":["sid"]},"image/x-ms-bmp":{"source":"nginx","compressible":true,"extensions":["bmp"]},"image/x-pcx":{"source":"apache","extensions":["pcx"]},"image/x-pict":{"source":"apache","extensions":["pic","pct"]},"image/x-portable-anymap":{"source":"apache","extensions":["pnm"]},"image/x-portable-bitmap":{"source":"apache","extensions":["pbm"]},"image/x-portable-graymap":{"source":"apache","extensions":["pgm"]},"image/x-portable-pixmap":{"source":"apache","extensions":["ppm"]},"image/x-rgb":{"source":"apache","extensions":["rgb"]},"image/x-tga":{"source":"apache","extensions":["tga"]},"image/x-xbitmap":{"source":"apache","extensions":["xbm"]},"image/x-xcf":{"compressible":false},"image/x-xpixmap":{"source":"apache","extensions":["xpm"]},"image/x-xwindowdump":{"source":"apache","extensions":["xwd"]},"message/cpim":{"source":"iana"},"message/delivery-status":{"source":"iana"},"message/disposition-notification":{"source":"iana","extensions":["disposition-notification"]},"message/external-body":{"source":"iana"},"message/feedback-report":{"source":"iana"},"message/global":{"source":"iana","extensions":["u8msg"]},"message/global-delivery-status":{"source":"iana","extensions":["u8dsn"]},"message/global-disposition-notification":{"source":"iana","extensions":["u8mdn"]},"message/global-headers":{"source":"iana","extensions":["u8hdr"]},"message/http":{"source":"iana","compressible":false},"message/imdn+xml":{"source":"iana","compressible":true},"message/news":{"source":"iana"},"message/partial":{"source":"iana","compressible":false},"message/rfc822":{"source":"iana","compressible":true,"extensions":["eml","mime"]},"message/s-http":{"source":"iana"},"message/sip":{"source":"iana"},"message/sipfrag":{"source":"iana"},"message/tracking-status":{"source":"iana"},"message/vnd.si.simp":{"source":"iana"},"message/vnd.wfa.wsc":{"source":"iana","extensions":["wsc"]},"model/3mf":{"source":"iana","extensions":["3mf"]},"model/e57":{"source":"iana"},"model/gltf+json":{"source":"iana","compressible":true,"extensions":["gltf"]},"model/gltf-binary":{"source":"iana","compressible":true,"extensions":["glb"]},"model/iges":{"source":"iana","compressible":false,"extensions":["igs","iges"]},"model/mesh":{"source":"iana","compressible":false,"extensions":["msh","mesh","silo"]},"model/mtl":{"source":"iana","extensions":["mtl"]},"model/obj":{"source":"iana","extensions":["obj"]},"model/step":{"source":"iana"},"model/step+xml":{"source":"iana","compressible":true,"extensions":["stpx"]},"model/step+zip":{"source":"iana","compressible":false,"extensions":["stpz"]},"model/step-xml+zip":{"source":"iana","compressible":false,"extensions":["stpxz"]},"model/stl":{"source":"iana","extensions":["stl"]},"model/vnd.collada+xml":{"source":"iana","compressible":true,"extensions":["dae"]},"model/vnd.dwf":{"source":"iana","extensions":["dwf"]},"model/vnd.flatland.3dml":{"source":"iana"},"model/vnd.gdl":{"source":"iana","extensions":["gdl"]},"model/vnd.gs-gdl":{"source":"apache"},"model/vnd.gs.gdl":{"source":"iana"},"model/vnd.gtw":{"source":"iana","extensions":["gtw"]},"model/vnd.moml+xml":{"source":"iana","compressible":true},"model/vnd.mts":{"source":"iana","extensions":["mts"]},"model/vnd.opengex":{"source":"iana","extensions":["ogex"]},"model/vnd.parasolid.transmit.binary":{"source":"iana","extensions":["x_b"]},"model/vnd.parasolid.transmit.text":{"source":"iana","extensions":["x_t"]},"model/vnd.pytha.pyox":{"source":"iana"},"model/vnd.rosette.annotated-data-model":{"source":"iana"},"model/vnd.sap.vds":{"source":"iana","extensions":["vds"]},"model/vnd.usdz+zip":{"source":"iana","compressible":false,"extensions":["usdz"]},"model/vnd.valve.source.compiled-map":{"source":"iana","extensions":["bsp"]},"model/vnd.vtu":{"source":"iana","extensions":["vtu"]},"model/vrml":{"source":"iana","compressible":false,"extensions":["wrl","vrml"]},"model/x3d+binary":{"source":"apache","compressible":false,"extensions":["x3db","x3dbz"]},"model/x3d+fastinfoset":{"source":"iana","extensions":["x3db"]},"model/x3d+vrml":{"source":"apache","compressible":false,"extensions":["x3dv","x3dvz"]},"model/x3d+xml":{"source":"iana","compressible":true,"extensions":["x3d","x3dz"]},"model/x3d-vrml":{"source":"iana","extensions":["x3dv"]},"multipart/alternative":{"source":"iana","compressible":false},"multipart/appledouble":{"source":"iana"},"multipart/byteranges":{"source":"iana"},"multipart/digest":{"source":"iana"},"multipart/encrypted":{"source":"iana","compressible":false},"multipart/form-data":{"source":"iana","compressible":false},"multipart/header-set":{"source":"iana"},"multipart/mixed":{"source":"iana"},"multipart/multilingual":{"source":"iana"},"multipart/parallel":{"source":"iana"},"multipart/related":{"source":"iana","compressible":false},"multipart/report":{"source":"iana"},"multipart/signed":{"source":"iana","compressible":false},"multipart/vnd.bint.med-plus":{"source":"iana"},"multipart/voice-message":{"source":"iana"},"multipart/x-mixed-replace":{"source":"iana"},"text/1d-interleaved-parityfec":{"source":"iana"},"text/cache-manifest":{"source":"iana","compressible":true,"extensions":["appcache","manifest"]},"text/calendar":{"source":"iana","extensions":["ics","ifb"]},"text/calender":{"compressible":true},"text/cmd":{"compressible":true},"text/coffeescript":{"extensions":["coffee","litcoffee"]},"text/cql":{"source":"iana"},"text/cql-expression":{"source":"iana"},"text/cql-identifier":{"source":"iana"},"text/css":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["css"]},"text/csv":{"source":"iana","compressible":true,"extensions":["csv"]},"text/csv-schema":{"source":"iana"},"text/directory":{"source":"iana"},"text/dns":{"source":"iana"},"text/ecmascript":{"source":"iana"},"text/encaprtp":{"source":"iana"},"text/enriched":{"source":"iana"},"text/fhirpath":{"source":"iana"},"text/flexfec":{"source":"iana"},"text/fwdred":{"source":"iana"},"text/gff3":{"source":"iana"},"text/grammar-ref-list":{"source":"iana"},"text/html":{"source":"iana","compressible":true,"extensions":["html","htm","shtml"]},"text/jade":{"extensions":["jade"]},"text/javascript":{"source":"iana","compressible":true},"text/jcr-cnd":{"source":"iana"},"text/jsx":{"compressible":true,"extensions":["jsx"]},"text/less":{"compressible":true,"extensions":["less"]},"text/markdown":{"source":"iana","compressible":true,"extensions":["markdown","md"]},"text/mathml":{"source":"nginx","extensions":["mml"]},"text/mdx":{"compressible":true,"extensions":["mdx"]},"text/mizar":{"source":"iana"},"text/n3":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["n3"]},"text/parameters":{"source":"iana","charset":"UTF-8"},"text/parityfec":{"source":"iana"},"text/plain":{"source":"iana","compressible":true,"extensions":["txt","text","conf","def","list","log","in","ini"]},"text/provenance-notation":{"source":"iana","charset":"UTF-8"},"text/prs.fallenstein.rst":{"source":"iana"},"text/prs.lines.tag":{"source":"iana","extensions":["dsc"]},"text/prs.prop.logic":{"source":"iana"},"text/raptorfec":{"source":"iana"},"text/red":{"source":"iana"},"text/rfc822-headers":{"source":"iana"},"text/richtext":{"source":"iana","compressible":true,"extensions":["rtx"]},"text/rtf":{"source":"iana","compressible":true,"extensions":["rtf"]},"text/rtp-enc-aescm128":{"source":"iana"},"text/rtploopback":{"source":"iana"},"text/rtx":{"source":"iana"},"text/sgml":{"source":"iana","extensions":["sgml","sgm"]},"text/shaclc":{"source":"iana"},"text/shex":{"source":"iana","extensions":["shex"]},"text/slim":{"extensions":["slim","slm"]},"text/spdx":{"source":"iana","extensions":["spdx"]},"text/strings":{"source":"iana"},"text/stylus":{"extensions":["stylus","styl"]},"text/t140":{"source":"iana"},"text/tab-separated-values":{"source":"iana","compressible":true,"extensions":["tsv"]},"text/troff":{"source":"iana","extensions":["t","tr","roff","man","me","ms"]},"text/turtle":{"source":"iana","charset":"UTF-8","extensions":["ttl"]},"text/ulpfec":{"source":"iana"},"text/uri-list":{"source":"iana","compressible":true,"extensions":["uri","uris","urls"]},"text/vcard":{"source":"iana","compressible":true,"extensions":["vcard"]},"text/vnd.a":{"source":"iana"},"text/vnd.abc":{"source":"iana"},"text/vnd.ascii-art":{"source":"iana"},"text/vnd.curl":{"source":"iana","extensions":["curl"]},"text/vnd.curl.dcurl":{"source":"apache","extensions":["dcurl"]},"text/vnd.curl.mcurl":{"source":"apache","extensions":["mcurl"]},"text/vnd.curl.scurl":{"source":"apache","extensions":["scurl"]},"text/vnd.debian.copyright":{"source":"iana","charset":"UTF-8"},"text/vnd.dmclientscript":{"source":"iana"},"text/vnd.dvb.subtitle":{"source":"iana","extensions":["sub"]},"text/vnd.esmertec.theme-descriptor":{"source":"iana","charset":"UTF-8"},"text/vnd.familysearch.gedcom":{"source":"iana","extensions":["ged"]},"text/vnd.ficlab.flt":{"source":"iana"},"text/vnd.fly":{"source":"iana","extensions":["fly"]},"text/vnd.fmi.flexstor":{"source":"iana","extensions":["flx"]},"text/vnd.gml":{"source":"iana"},"text/vnd.graphviz":{"source":"iana","extensions":["gv"]},"text/vnd.hans":{"source":"iana"},"text/vnd.hgl":{"source":"iana"},"text/vnd.in3d.3dml":{"source":"iana","extensions":["3dml"]},"text/vnd.in3d.spot":{"source":"iana","extensions":["spot"]},"text/vnd.iptc.newsml":{"source":"iana"},"text/vnd.iptc.nitf":{"source":"iana"},"text/vnd.latex-z":{"source":"iana"},"text/vnd.motorola.reflex":{"source":"iana"},"text/vnd.ms-mediapackage":{"source":"iana"},"text/vnd.net2phone.commcenter.command":{"source":"iana"},"text/vnd.radisys.msml-basic-layout":{"source":"iana"},"text/vnd.senx.warpscript":{"source":"iana"},"text/vnd.si.uricatalogue":{"source":"iana"},"text/vnd.sosi":{"source":"iana"},"text/vnd.sun.j2me.app-descriptor":{"source":"iana","charset":"UTF-8","extensions":["jad"]},"text/vnd.trolltech.linguist":{"source":"iana","charset":"UTF-8"},"text/vnd.wap.si":{"source":"iana"},"text/vnd.wap.sl":{"source":"iana"},"text/vnd.wap.wml":{"source":"iana","extensions":["wml"]},"text/vnd.wap.wmlscript":{"source":"iana","extensions":["wmls"]},"text/vtt":{"source":"iana","charset":"UTF-8","compressible":true,"extensions":["vtt"]},"text/x-asm":{"source":"apache","extensions":["s","asm"]},"text/x-c":{"source":"apache","extensions":["c","cc","cxx","cpp","h","hh","dic"]},"text/x-component":{"source":"nginx","extensions":["htc"]},"text/x-fortran":{"source":"apache","extensions":["f","for","f77","f90"]},"text/x-gwt-rpc":{"compressible":true},"text/x-handlebars-template":{"extensions":["hbs"]},"text/x-java-source":{"source":"apache","extensions":["java"]},"text/x-jquery-tmpl":{"compressible":true},"text/x-lua":{"extensions":["lua"]},"text/x-markdown":{"compressible":true,"extensions":["mkd"]},"text/x-nfo":{"source":"apache","extensions":["nfo"]},"text/x-opml":{"source":"apache","extensions":["opml"]},"text/x-org":{"compressible":true,"extensions":["org"]},"text/x-pascal":{"source":"apache","extensions":["p","pas"]},"text/x-processing":{"compressible":true,"extensions":["pde"]},"text/x-sass":{"extensions":["sass"]},"text/x-scss":{"extensions":["scss"]},"text/x-setext":{"source":"apache","extensions":["etx"]},"text/x-sfv":{"source":"apache","extensions":["sfv"]},"text/x-suse-ymp":{"compressible":true,"extensions":["ymp"]},"text/x-uuencode":{"source":"apache","extensions":["uu"]},"text/x-vcalendar":{"source":"apache","extensions":["vcs"]},"text/x-vcard":{"source":"apache","extensions":["vcf"]},"text/xml":{"source":"iana","compressible":true,"extensions":["xml"]},"text/xml-external-parsed-entity":{"source":"iana"},"text/yaml":{"compressible":true,"extensions":["yaml","yml"]},"video/1d-interleaved-parityfec":{"source":"iana"},"video/3gpp":{"source":"iana","extensions":["3gp","3gpp"]},"video/3gpp-tt":{"source":"iana"},"video/3gpp2":{"source":"iana","extensions":["3g2"]},"video/av1":{"source":"iana"},"video/bmpeg":{"source":"iana"},"video/bt656":{"source":"iana"},"video/celb":{"source":"iana"},"video/dv":{"source":"iana"},"video/encaprtp":{"source":"iana"},"video/ffv1":{"source":"iana"},"video/flexfec":{"source":"iana"},"video/h261":{"source":"iana","extensions":["h261"]},"video/h263":{"source":"iana","extensions":["h263"]},"video/h263-1998":{"source":"iana"},"video/h263-2000":{"source":"iana"},"video/h264":{"source":"iana","extensions":["h264"]},"video/h264-rcdo":{"source":"iana"},"video/h264-svc":{"source":"iana"},"video/h265":{"source":"iana"},"video/iso.segment":{"source":"iana","extensions":["m4s"]},"video/jpeg":{"source":"iana","extensions":["jpgv"]},"video/jpeg2000":{"source":"iana"},"video/jpm":{"source":"apache","extensions":["jpm","jpgm"]},"video/jxsv":{"source":"iana"},"video/mj2":{"source":"iana","extensions":["mj2","mjp2"]},"video/mp1s":{"source":"iana"},"video/mp2p":{"source":"iana"},"video/mp2t":{"source":"iana","extensions":["ts"]},"video/mp4":{"source":"iana","compressible":false,"extensions":["mp4","mp4v","mpg4"]},"video/mp4v-es":{"source":"iana"},"video/mpeg":{"source":"iana","compressible":false,"extensions":["mpeg","mpg","mpe","m1v","m2v"]},"video/mpeg4-generic":{"source":"iana"},"video/mpv":{"source":"iana"},"video/nv":{"source":"iana"},"video/ogg":{"source":"iana","compressible":false,"extensions":["ogv"]},"video/parityfec":{"source":"iana"},"video/pointer":{"source":"iana"},"video/quicktime":{"source":"iana","compressible":false,"extensions":["qt","mov"]},"video/raptorfec":{"source":"iana"},"video/raw":{"source":"iana"},"video/rtp-enc-aescm128":{"source":"iana"},"video/rtploopback":{"source":"iana"},"video/rtx":{"source":"iana"},"video/scip":{"source":"iana"},"video/smpte291":{"source":"iana"},"video/smpte292m":{"source":"iana"},"video/ulpfec":{"source":"iana"},"video/vc1":{"source":"iana"},"video/vc2":{"source":"iana"},"video/vnd.cctv":{"source":"iana"},"video/vnd.dece.hd":{"source":"iana","extensions":["uvh","uvvh"]},"video/vnd.dece.mobile":{"source":"iana","extensions":["uvm","uvvm"]},"video/vnd.dece.mp4":{"source":"iana"},"video/vnd.dece.pd":{"source":"iana","extensions":["uvp","uvvp"]},"video/vnd.dece.sd":{"source":"iana","extensions":["uvs","uvvs"]},"video/vnd.dece.video":{"source":"iana","extensions":["uvv","uvvv"]},"video/vnd.directv.mpeg":{"source":"iana"},"video/vnd.directv.mpeg-tts":{"source":"iana"},"video/vnd.dlna.mpeg-tts":{"source":"iana"},"video/vnd.dvb.file":{"source":"iana","extensions":["dvb"]},"video/vnd.fvt":{"source":"iana","extensions":["fvt"]},"video/vnd.hns.video":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.1dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-1010":{"source":"iana"},"video/vnd.iptvforum.2dparityfec-2005":{"source":"iana"},"video/vnd.iptvforum.ttsavc":{"source":"iana"},"video/vnd.iptvforum.ttsmpeg2":{"source":"iana"},"video/vnd.motorola.video":{"source":"iana"},"video/vnd.motorola.videop":{"source":"iana"},"video/vnd.mpegurl":{"source":"iana","extensions":["mxu","m4u"]},"video/vnd.ms-playready.media.pyv":{"source":"iana","extensions":["pyv"]},"video/vnd.nokia.interleaved-multimedia":{"source":"iana"},"video/vnd.nokia.mp4vr":{"source":"iana"},"video/vnd.nokia.videovoip":{"source":"iana"},"video/vnd.objectvideo":{"source":"iana"},"video/vnd.radgamettools.bink":{"source":"iana"},"video/vnd.radgamettools.smacker":{"source":"iana"},"video/vnd.sealed.mpeg1":{"source":"iana"},"video/vnd.sealed.mpeg4":{"source":"iana"},"video/vnd.sealed.swf":{"source":"iana"},"video/vnd.sealedmedia.softseal.mov":{"source":"iana"},"video/vnd.uvvu.mp4":{"source":"iana","extensions":["uvu","uvvu"]},"video/vnd.vivo":{"source":"iana","extensions":["viv"]},"video/vnd.youtube.yt":{"source":"iana"},"video/vp8":{"source":"iana"},"video/vp9":{"source":"iana"},"video/webm":{"source":"apache","compressible":false,"extensions":["webm"]},"video/x-f4v":{"source":"apache","extensions":["f4v"]},"video/x-fli":{"source":"apache","extensions":["fli"]},"video/x-flv":{"source":"apache","compressible":false,"extensions":["flv"]},"video/x-m4v":{"source":"apache","extensions":["m4v"]},"video/x-matroska":{"source":"apache","compressible":false,"extensions":["mkv","mk3d","mks"]},"video/x-mng":{"source":"apache","extensions":["mng"]},"video/x-ms-asf":{"source":"apache","extensions":["asf","asx"]},"video/x-ms-vob":{"source":"apache","extensions":["vob"]},"video/x-ms-wm":{"source":"apache","extensions":["wm"]},"video/x-ms-wmv":{"source":"apache","compressible":false,"extensions":["wmv"]},"video/x-ms-wmx":{"source":"apache","extensions":["wmx"]},"video/x-ms-wvx":{"source":"apache","extensions":["wvx"]},"video/x-msvideo":{"source":"apache","extensions":["avi"]},"video/x-sgi-movie":{"source":"apache","extensions":["movie"]},"video/x-smv":{"source":"apache","extensions":["smv"]},"x-conference/x-cooltalk":{"source":"apache","extensions":["ice"]},"x-shader/x-fragment":{"compressible":true},"x-shader/x-vertex":{"compressible":true}}');
 
 /***/ }),
 
-/***/ 8330:
+/***/ 4147:
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"netlicensing-client","version":"1.2.35","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.cjs","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.cjs","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.cjs","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^1.6.0","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.17.8","@babel/plugin-proposal-class-properties":"^7.16.7","@babel/plugin-proposal-decorators":"^7.17.8","@babel/plugin-proposal-export-namespace-from":"^7.16.7","@babel/plugin-proposal-function-sent":"^7.16.7","@babel/plugin-proposal-json-strings":"^7.16.7","@babel/plugin-proposal-numeric-separator":"^7.16.7","@babel/plugin-proposal-throw-expressions":"^7.16.7","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.17.7","@babel/plugin-transform-runtime":"^7.17.0","@babel/preset-env":"^7.16.11","@babel/runtime":"^7.17.8","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^9.1.2","chalk":"^4.1.2","eslint":"^7.32.0","eslint-config-airbnb-base":"^15.0.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-plugin-import":"^2.25.4","eslint-plugin-jasmine":"^4.1.3","eslint-webpack-plugin":"^3.1.1","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^4.0.2","jasmine-core":"^4.0.1","karma":"^6.3.17","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.2","karma-jasmine":"^4.0.2","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.33","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.3.1","webpack":"^5.76.0","webpack-cli":"^5.1.1","webpack-merge":"^5.8.0"},"engines":{"node":">= 14.0.0","npm":">= 8.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
+module.exports = JSON.parse('{"name":"netlicensing-client","version":"1.2.36","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.cjs","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.cjs","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.cjs","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^1.6.0","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.17.8","@babel/plugin-proposal-class-properties":"^7.16.7","@babel/plugin-proposal-decorators":"^7.17.8","@babel/plugin-proposal-export-namespace-from":"^7.16.7","@babel/plugin-proposal-function-sent":"^7.16.7","@babel/plugin-proposal-json-strings":"^7.16.7","@babel/plugin-proposal-numeric-separator":"^7.16.7","@babel/plugin-proposal-throw-expressions":"^7.16.7","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.17.7","@babel/plugin-transform-runtime":"^7.17.0","@babel/preset-env":"^7.16.11","@babel/runtime":"^7.17.8","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^9.1.2","chalk":"^4.1.2","eslint":"^7.32.0","eslint-config-airbnb-base":"^15.0.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-plugin-import":"^2.25.4","eslint-plugin-jasmine":"^4.1.3","eslint-webpack-plugin":"^3.1.1","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^4.0.2","jasmine-core":"^4.0.1","karma":"^6.3.17","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.2","karma-jasmine":"^4.0.2","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.33","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.3.1","webpack":"^5.76.0","webpack-cli":"^5.1.1","webpack-merge":"^5.8.0"},"engines":{"node":">= 14.0.0","npm":">= 8.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
 
 /***/ })
 
@@ -15115,7 +15300,7 @@ var __webpack_exports__ = {};
 var exports = __webpack_exports__;
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
@@ -15395,52 +15580,52 @@ Object.defineProperty(exports, "itemToTransaction", ({
     return _itemToTransaction.default;
   }
 }));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Context = _interopRequireDefault(__webpack_require__(2302));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
-var _ValidationParameters = _interopRequireDefault(__webpack_require__(662));
-var _ValidationResults = _interopRequireDefault(__webpack_require__(8506));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _LicenseeService = _interopRequireDefault(__webpack_require__(7211));
-var _LicenseService = _interopRequireDefault(__webpack_require__(7394));
-var _LicenseTemplateService = _interopRequireDefault(__webpack_require__(3140));
-var _PaymentMethodService = _interopRequireDefault(__webpack_require__(6798));
-var _ProductModuleService = _interopRequireDefault(__webpack_require__(3950));
-var _ProductService = _interopRequireDefault(__webpack_require__(5114));
-var _TokenService = _interopRequireDefault(__webpack_require__(5192));
-var _TransactionService = _interopRequireDefault(__webpack_require__(2579));
-var _UtilityService = _interopRequireDefault(__webpack_require__(6359));
-var _BundleService = _interopRequireDefault(__webpack_require__(9089));
-var _NotificationService = _interopRequireDefault(__webpack_require__(1692));
-var _BaseEntity = _interopRequireDefault(__webpack_require__(635));
-var _Country = _interopRequireDefault(__webpack_require__(7147));
-var _License = _interopRequireDefault(__webpack_require__(1938));
-var _Licensee = _interopRequireDefault(__webpack_require__(9899));
-var _LicenseTemplate = _interopRequireDefault(__webpack_require__(2476));
-var _PaymentMethod = _interopRequireDefault(__webpack_require__(3014));
-var _Product = _interopRequireDefault(__webpack_require__(3262));
-var _ProductDiscount = _interopRequireDefault(__webpack_require__(1721));
-var _ProductModule = _interopRequireDefault(__webpack_require__(9142));
-var _Token = _interopRequireDefault(__webpack_require__(584));
-var _Transaction = _interopRequireDefault(__webpack_require__(269));
-var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3716));
-var _Bundle = _interopRequireDefault(__webpack_require__(9633));
-var _Notification = _interopRequireDefault(__webpack_require__(5454));
-var _itemToCountry = _interopRequireDefault(__webpack_require__(6899));
-var _itemToLicense = _interopRequireDefault(__webpack_require__(5402));
-var _itemToLicensee = _interopRequireDefault(__webpack_require__(4067));
-var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(52));
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(2430));
-var _itemToProduct = _interopRequireDefault(__webpack_require__(822));
-var _itemToProductModule = _interopRequireDefault(__webpack_require__(4398));
-var _itemToToken = _interopRequireDefault(__webpack_require__(3648));
-var _itemToTransaction = _interopRequireDefault(__webpack_require__(1717));
-var _itemToBundle = _interopRequireDefault(__webpack_require__(3849));
-var _CastsUtils = _interopRequireDefault(__webpack_require__(8769));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _NlicError = _interopRequireDefault(__webpack_require__(6469));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Context = _interopRequireDefault(__webpack_require__(4693));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
+var _ValidationParameters = _interopRequireDefault(__webpack_require__(4856));
+var _ValidationResults = _interopRequireDefault(__webpack_require__(3735));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _LicenseeService = _interopRequireDefault(__webpack_require__(5498));
+var _LicenseService = _interopRequireDefault(__webpack_require__(6486));
+var _LicenseTemplateService = _interopRequireDefault(__webpack_require__(1580));
+var _PaymentMethodService = _interopRequireDefault(__webpack_require__(5225));
+var _ProductModuleService = _interopRequireDefault(__webpack_require__(7443));
+var _ProductService = _interopRequireDefault(__webpack_require__(5042));
+var _TokenService = _interopRequireDefault(__webpack_require__(731));
+var _TransactionService = _interopRequireDefault(__webpack_require__(5919));
+var _UtilityService = _interopRequireDefault(__webpack_require__(7635));
+var _BundleService = _interopRequireDefault(__webpack_require__(1462));
+var _NotificationService = _interopRequireDefault(__webpack_require__(3212));
+var _BaseEntity = _interopRequireDefault(__webpack_require__(389));
+var _Country = _interopRequireDefault(__webpack_require__(187));
+var _License = _interopRequireDefault(__webpack_require__(9763));
+var _Licensee = _interopRequireDefault(__webpack_require__(2948));
+var _LicenseTemplate = _interopRequireDefault(__webpack_require__(767));
+var _PaymentMethod = _interopRequireDefault(__webpack_require__(5088));
+var _Product = _interopRequireDefault(__webpack_require__(7143));
+var _ProductDiscount = _interopRequireDefault(__webpack_require__(3144));
+var _ProductModule = _interopRequireDefault(__webpack_require__(3886));
+var _Token = _interopRequireDefault(__webpack_require__(8132));
+var _Transaction = _interopRequireDefault(__webpack_require__(4880));
+var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3089));
+var _Bundle = _interopRequireDefault(__webpack_require__(2044));
+var _Notification = _interopRequireDefault(__webpack_require__(5433));
+var _itemToCountry = _interopRequireDefault(__webpack_require__(3213));
+var _itemToLicense = _interopRequireDefault(__webpack_require__(3887));
+var _itemToLicensee = _interopRequireDefault(__webpack_require__(6463));
+var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(3255));
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(797));
+var _itemToProduct = _interopRequireDefault(__webpack_require__(1255));
+var _itemToProductModule = _interopRequireDefault(__webpack_require__(2514));
+var _itemToToken = _interopRequireDefault(__webpack_require__(4073));
+var _itemToTransaction = _interopRequireDefault(__webpack_require__(1198));
+var _itemToBundle = _interopRequireDefault(__webpack_require__(9892));
+var _CastsUtils = _interopRequireDefault(__webpack_require__(553));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _NlicError = _interopRequireDefault(__webpack_require__(2986));
 })();
 
 /******/ 	return __webpack_exports__;

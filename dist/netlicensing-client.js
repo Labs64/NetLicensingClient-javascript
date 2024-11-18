@@ -11,7 +11,7 @@
 return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 6232:
+/***/ 1480:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -27,7 +27,7 @@ exports["default"] = void 0;
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var _default = exports["default"] = {
+var _default = {
   BASIC_AUTHENTICATION: 'BASIC_AUTH',
   APIKEY_IDENTIFICATION: 'APIKEY',
   ANONYMOUS_IDENTIFICATION: 'ANONYMOUS',
@@ -226,124 +226,131 @@ var _default = exports["default"] = {
     }
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 3849:
+/***/ 9892:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Bundle = _interopRequireDefault(__webpack_require__(9633));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Bundle = _interopRequireDefault(__webpack_require__(2044));
+var _default = function _default(item) {
   return new _Bundle.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6899:
+/***/ 3213:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Country = _interopRequireDefault(__webpack_require__(7147));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Country = _interopRequireDefault(__webpack_require__(187));
+var _default = function _default(item) {
   return new _Country.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5402:
+/***/ 3887:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _License = _interopRequireDefault(__webpack_require__(1938));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _License = _interopRequireDefault(__webpack_require__(9763));
+var _default = function _default(item) {
   return new _License.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 52:
+/***/ 3255:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _LicenseTemplate = _interopRequireDefault(__webpack_require__(2476));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _LicenseTemplate = _interopRequireDefault(__webpack_require__(767));
+var _default = function _default(item) {
   return new _LicenseTemplate.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 4067:
+/***/ 6463:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Licensee = _interopRequireDefault(__webpack_require__(9899));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Licensee = _interopRequireDefault(__webpack_require__(2948));
+var _default = function _default(item) {
   return new _Licensee.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5270:
+/***/ 6546:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Notification = _interopRequireDefault(__webpack_require__(5454));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Notification = _interopRequireDefault(__webpack_require__(5433));
+var _default = function _default(item) {
   return new _Notification.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 670:
+/***/ 7106:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -375,43 +382,45 @@ var itemToObject = function itemToObject(item) {
   }
   return object;
 };
-var _default = exports["default"] = itemToObject;
+var _default = itemToObject;
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 2430:
+/***/ 797:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _PaymentMethod = _interopRequireDefault(__webpack_require__(3014));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _PaymentMethod = _interopRequireDefault(__webpack_require__(5088));
+var _default = function _default(item) {
   return new _PaymentMethod.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 822:
+/***/ 1255:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Product = _interopRequireDefault(__webpack_require__(3262));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Product = _interopRequireDefault(__webpack_require__(7143));
+var _default = function _default(item) {
   var object = (0, _itemToObject.default)(item);
   var discounts = object.discount;
   delete object.discount;
@@ -419,64 +428,67 @@ var _default = exports["default"] = function _default(item) {
   product.setProductDiscounts(discounts);
   return product;
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 4398:
+/***/ 2514:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _ProductModule = _interopRequireDefault(__webpack_require__(9142));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _ProductModule = _interopRequireDefault(__webpack_require__(3886));
+var _default = function _default(item) {
   return new _ProductModule.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 3648:
+/***/ 4073:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Token = _interopRequireDefault(__webpack_require__(584));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Token = _interopRequireDefault(__webpack_require__(8132));
+var _default = function _default(item) {
   return new _Token.default((0, _itemToObject.default)(item));
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 1717:
+/***/ 1198:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Transaction = _interopRequireDefault(__webpack_require__(269));
-var _License = _interopRequireDefault(__webpack_require__(1938));
-var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3716));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _default = exports["default"] = function _default(item) {
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Transaction = _interopRequireDefault(__webpack_require__(39));
+var _License = _interopRequireDefault(__webpack_require__(9763));
+var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3089));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _default = function _default(item) {
   var object = (0, _itemToObject.default)(item);
   var licenseTransactionJoin = object.licenseTransactionJoin;
   delete object.licenseTransactionJoin;
@@ -497,33 +509,34 @@ var _default = exports["default"] = function _default(item) {
   }
   return transaction;
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 635:
+/***/ 389:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(3693));
-var _typeof2 = _interopRequireDefault(__webpack_require__(3738));
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _CastsUtils = _interopRequireDefault(__webpack_require__(8769));
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _typeof2 = _interopRequireDefault(__webpack_require__(8698));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _CastsUtils = _interopRequireDefault(__webpack_require__(553));
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
 /**
  * The entity properties.
  * @type {{}}
@@ -545,7 +558,7 @@ var definedMap = new WeakMap();
  * @private
  */
 var castsMap = new WeakMap();
-var BaseEntity = exports["default"] = /*#__PURE__*/function () {
+var BaseEntity = /*#__PURE__*/function () {
   function BaseEntity(_ref) {
     var properties = _ref.properties,
       casts = _ref.casts;
@@ -564,7 +577,7 @@ var BaseEntity = exports["default"] = /*#__PURE__*/function () {
    * @param value
    * @returns {BaseEntity}
    */
-  return (0, _createClass2.default)(BaseEntity, [{
+  (0, _createClass2.default)(BaseEntity, [{
     key: "setProperty",
     value: function setProperty(property, value) {
       // if property name has bad native type
@@ -752,34 +765,36 @@ var BaseEntity = exports["default"] = /*#__PURE__*/function () {
       return _objectSpread(_objectSpread({}, customProperties), properties);
     }
   }]);
+  return BaseEntity;
 }();
+exports["default"] = BaseEntity;
 
 /***/ }),
 
-/***/ 9633:
+/***/ 2044:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * NetLicensing Bundle entity.
  *
@@ -795,26 +810,36 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  * Bundle name.
  * @property string name
  *
+ * Price for the bundle. If >0, it must always be accompanied by the currency specification.
+ * @property double price
+ *
+ * Specifies currency for the bundle price. Check data types to discover which currencies are
+ * supported.
+ * @property string currency
+ *
  * Arbitrary additional user properties of string type may be associated with each bundle. The name of user property
  * must not be equal to any of the fixed property names listed above and must be none of id, deleted.
  *
  * @constructor
  */
-var Bundle = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Bundle = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Bundle, _BaseEntity);
+  var _super = _createSuper(Bundle);
   function Bundle(properties) {
     (0, _classCallCheck2.default)(this, Bundle);
-    return _callSuper(this, Bundle, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
         number: 'string',
         active: 'boolean',
-        name: 'string'
+        name: 'string',
+        price: 'double',
+        currency: 'string'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(Bundle, _BaseEntity);
-  return (0, _createClass2.default)(Bundle, [{
+  (0, _createClass2.default)(Bundle, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -855,6 +880,26 @@ var Bundle = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('description', def);
     }
   }, {
+    key: "setPrice",
+    value: function setPrice(price) {
+      return this.setProperty('price', price);
+    }
+  }, {
+    key: "getPrice",
+    value: function getPrice(def) {
+      return this.getProperty('price', def);
+    }
+  }, {
+    key: "setCurrency",
+    value: function setCurrency(currency) {
+      return this.setProperty('currency', currency);
+    }
+  }, {
+    key: "getCurrency",
+    value: function getCurrency(def) {
+      return this.getProperty('currency', def);
+    }
+  }, {
     key: "setLicenseTemplateNumbers",
     value: function setLicenseTemplateNumbers(licenseTemplateNumbers) {
       var numbers = Array.isArray(licenseTemplateNumbers) ? licenseTemplateNumbers.join(',') : licenseTemplateNumbers;
@@ -881,34 +926,36 @@ var Bundle = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.setLicenseTemplateNumbers(numbers);
     }
   }]);
+  return Bundle;
 }(_BaseEntity2.default);
+exports["default"] = Bundle;
 
 /***/ }),
 
-/***/ 7147:
+/***/ 187:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Country entity used internally by NetLicensing.
  *
@@ -922,10 +969,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @property isEu - is country in EU.
  */
-var Country = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Country = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Country, _BaseEntity);
+  var _super = _createSuper(Country);
   function Country(properties) {
     (0, _classCallCheck2.default)(this, Country);
-    return _callSuper(this, Country, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -934,10 +983,9 @@ var Country = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         vatPercent: 'int',
         isEu: 'boolean'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(Country, _BaseEntity);
-  return (0, _createClass2.default)(Country, [{
+  (0, _createClass2.default)(Country, [{
     key: "setCode",
     value: function setCode(code) {
       return this.setProperty('code', code);
@@ -978,34 +1026,36 @@ var Country = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('isEu', def);
     }
   }]);
+  return Country;
 }(_BaseEntity2.default);
+exports["default"] = Country;
 
 /***/ }),
 
-/***/ 1938:
+/***/ 9763:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * License entity used internally by NetLicensing.
  *
@@ -1041,10 +1091,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  * must not be equal to any of the fixed property names listed above and must be none of id, deleted, licenseeNumber,
  * licenseTemplateNumber.
  */
-var License = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var License = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(License, _BaseEntity);
+  var _super = _createSuper(License);
   function License(properties) {
     (0, _classCallCheck2.default)(this, License);
-    return _callSuper(this, License, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -1058,10 +1110,9 @@ var License = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         startDate: 'date',
         inUse: 'boolean'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(License, _BaseEntity);
-  return (0, _createClass2.default)(License, [{
+  (0, _createClass2.default)(License, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -1147,34 +1198,36 @@ var License = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('currency', def);
     }
   }]);
+  return License;
 }(_BaseEntity2.default);
+exports["default"] = License;
 
 /***/ }),
 
-/***/ 2476:
+/***/ 767:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * License template entity used internally by NetLicensing.
  *
@@ -1231,10 +1284,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var LicenseTemplate = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var LicenseTemplate = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(LicenseTemplate, _BaseEntity);
+  var _super = _createSuper(LicenseTemplate);
   function LicenseTemplate(properties) {
     (0, _classCallCheck2.default)(this, LicenseTemplate);
-    return _callSuper(this, LicenseTemplate, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -1254,10 +1309,9 @@ var LicenseTemplate = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         quantity: 'int',
         inUse: 'boolean'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(LicenseTemplate, _BaseEntity);
-  return (0, _createClass2.default)(LicenseTemplate, [{
+  (0, _createClass2.default)(LicenseTemplate, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -1393,36 +1447,38 @@ var LicenseTemplate = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('inUse', def);
     }
   }]);
+  return LicenseTemplate;
 }(_BaseEntity2.default);
+exports["default"] = LicenseTemplate;
 
 /***/ }),
 
-/***/ 3716:
+/***/ 3089:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var LicenseTransactionJoin = exports["default"] = /*#__PURE__*/function () {
+var LicenseTransactionJoin = /*#__PURE__*/function () {
   function LicenseTransactionJoin(transaction, license) {
     (0, _classCallCheck2.default)(this, LicenseTransactionJoin);
     this.transaction = transaction;
     this.license = license;
   }
-  return (0, _createClass2.default)(LicenseTransactionJoin, [{
+  (0, _createClass2.default)(LicenseTransactionJoin, [{
     key: "setTransaction",
     value: function setTransaction(transaction) {
       this.transaction = transaction;
@@ -1445,34 +1501,36 @@ var LicenseTransactionJoin = exports["default"] = /*#__PURE__*/function () {
       return this.license || def;
     }
   }]);
+  return LicenseTransactionJoin;
 }();
+exports["default"] = LicenseTransactionJoin;
 
 /***/ }),
 
-/***/ 9899:
+/***/ 2948:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Licensee entity used internally by NetLicensing.
  *
@@ -1501,10 +1559,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var Licensee = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Licensee = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Licensee, _BaseEntity);
+  var _super = _createSuper(Licensee);
   function Licensee(properties) {
     (0, _classCallCheck2.default)(this, Licensee);
-    return _callSuper(this, Licensee, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -1515,10 +1575,9 @@ var Licensee = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         markedForTransfer: 'boolean',
         inUse: 'boolean'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(Licensee, _BaseEntity);
-  return (0, _createClass2.default)(Licensee, [{
+  (0, _createClass2.default)(Licensee, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -1592,34 +1651,36 @@ var Licensee = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('inUse', def);
     }
   }]);
+  return Licensee;
 }(_BaseEntity2.default);
+exports["default"] = Licensee;
 
 /***/ }),
 
-/***/ 5454:
+/***/ 5433:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * NetLicensing Notification entity.
  *
@@ -1652,10 +1713,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var Notification = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Notification = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Notification, _BaseEntity);
+  var _super = _createSuper(Notification);
   function Notification(properties) {
     (0, _classCallCheck2.default)(this, Notification);
-    return _callSuper(this, Notification, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -1667,10 +1730,9 @@ var Notification = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         payload: 'string',
         endpoint: 'string'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(Notification, _BaseEntity);
-  return (0, _createClass2.default)(Notification, [{
+  (0, _createClass2.default)(Notification, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -1741,34 +1803,36 @@ var Notification = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('endpoint', def);
     }
   }]);
+  return Notification;
 }(_BaseEntity2.default);
+exports["default"] = Notification;
 
 /***/ }),
 
-/***/ 3014:
+/***/ 5088:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * PaymentMethod entity used internally by NetLicensing.
  *
@@ -1777,10 +1841,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var PaymentMethod = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var PaymentMethod = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(PaymentMethod, _BaseEntity);
+  var _super = _createSuper(PaymentMethod);
   function PaymentMethod(properties) {
     (0, _classCallCheck2.default)(this, PaymentMethod);
-    return _callSuper(this, PaymentMethod, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -1788,10 +1854,9 @@ var PaymentMethod = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         active: 'boolean',
         'paypal.subject': 'string'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(PaymentMethod, _BaseEntity);
-  return (0, _createClass2.default)(PaymentMethod, [{
+  (0, _createClass2.default)(PaymentMethod, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -1822,36 +1887,39 @@ var PaymentMethod = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('paypal.subject', def);
     }
   }]);
+  return PaymentMethod;
 }(_BaseEntity2.default);
+exports["default"] = PaymentMethod;
 
 /***/ }),
 
-/***/ 3262:
+/***/ 7143:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _get2 = _interopRequireDefault(__webpack_require__(2395));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-var _ProductDiscount = _interopRequireDefault(__webpack_require__(1721));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(6115));
+var _get2 = _interopRequireDefault(__webpack_require__(1588));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+var _ProductDiscount = _interopRequireDefault(__webpack_require__(3144));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * The discounts map
  * @type {{}}
@@ -1904,11 +1972,13 @@ var discountsTouched = new WeakMap();
  *
  * @constructor
  */
-var Product = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Product = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Product, _BaseEntity);
+  var _super = _createSuper(Product);
   function Product(properties) {
     var _this;
     (0, _classCallCheck2.default)(this, Product);
-    _this = _callSuper(this, Product, [{
+    _this = _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -1922,13 +1992,12 @@ var Product = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         licenseeSecretMode: 'string',
         inUse: 'boolean'
       }
-    }]);
-    discountsMap.set(_this, []);
-    discountsTouched.set(_this, false);
+    });
+    discountsMap.set((0, _assertThisInitialized2.default)(_this), []);
+    discountsTouched.set((0, _assertThisInitialized2.default)(_this), false);
     return _this;
   }
-  (0, _inherits2.default)(Product, _BaseEntity);
-  return (0, _createClass2.default)(Product, [{
+  (0, _createClass2.default)(Product, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -2087,38 +2156,42 @@ var Product = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return propertiesMap;
     }
   }]);
+  return Product;
 }(_BaseEntity2.default);
+exports["default"] = Product;
 
 /***/ }),
 
-/***/ 1721:
+/***/ 3144:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
-var ProductDiscount = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
+var ProductDiscount = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(ProductDiscount, _BaseEntity);
+  var _super = _createSuper(ProductDiscount);
   function ProductDiscount(properties) {
     (0, _classCallCheck2.default)(this, ProductDiscount);
-    return _callSuper(this, ProductDiscount, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -2127,10 +2200,9 @@ var ProductDiscount = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         amountFix: 'float',
         amountPercent: 'int'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(ProductDiscount, _BaseEntity);
-  return (0, _createClass2.default)(ProductDiscount, [{
+  (0, _createClass2.default)(ProductDiscount, [{
     key: "setTotalPrice",
     value: function setTotalPrice(totalPrice) {
       return this.setProperty('totalPrice', totalPrice);
@@ -2181,34 +2253,36 @@ var ProductDiscount = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return "".concat(totalPrice, ";").concat(currency, ";").concat(amount);
     }
   }]);
+  return ProductDiscount;
 }(_BaseEntity2.default);
+exports["default"] = ProductDiscount;
 
 /***/ }),
 
-/***/ 9142:
+/***/ 3886:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Product module entity used internally by NetLicensing.
  *
@@ -2247,10 +2321,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var ProductModule = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var ProductModule = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(ProductModule, _BaseEntity);
+  var _super = _createSuper(ProductModule);
   function ProductModule(properties) {
     (0, _classCallCheck2.default)(this, ProductModule);
-    return _callSuper(this, ProductModule, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -2265,10 +2341,9 @@ var ProductModule = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         inUse: 'boolean',
         licenseeSecretMode: 'string'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(ProductModule, _BaseEntity);
-  return (0, _createClass2.default)(ProductModule, [{
+  (0, _createClass2.default)(ProductModule, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -2364,34 +2439,36 @@ var ProductModule = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('licenseeSecretMode', def);
     }
   }]);
+  return ProductModule;
 }(_BaseEntity2.default);
+exports["default"] = ProductModule;
 
 /***/ }),
 
-/***/ 584:
+/***/ 8132:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Product module entity used internally by NetLicensing.
  *
@@ -2418,10 +2495,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var Token = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Token = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Token, _BaseEntity);
+  var _super = _createSuper(Token);
   function Token(properties) {
     (0, _classCallCheck2.default)(this, Token);
-    return _callSuper(this, Token, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -2437,10 +2516,9 @@ var Token = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         cancelURLTitle: 'string',
         shopURL: 'string'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(Token, _BaseEntity);
-  return (0, _createClass2.default)(Token, [{
+  (0, _createClass2.default)(Token, [{
     key: "getNumber",
     value: function getNumber(def) {
       return this.getProperty('number', def);
@@ -2575,36 +2653,38 @@ var Token = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       return this.getProperty('apiKeyRole', def);
     }
   }]);
+  return Token;
 }(_BaseEntity2.default);
+exports["default"] = Token;
 
 /***/ }),
 
-/***/ 269:
+/***/ 39:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _BaseEntity2 = _interopRequireDefault(__webpack_require__(635));
-var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3716));
-var _License = _interopRequireDefault(__webpack_require__(1938));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _BaseEntity2 = _interopRequireDefault(__webpack_require__(389));
+var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3089));
+var _License = _interopRequireDefault(__webpack_require__(9763));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } } /**
+                                                                                                                                                                                                                                                                                                                                           * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                           * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                           * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                           * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                           */
 /**
  * Transaction entity used internally by NetLicensing.
  *
@@ -2640,10 +2720,12 @@ function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.
  *
  * @constructor
  */
-var Transaction = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
+var Transaction = /*#__PURE__*/function (_BaseEntity) {
+  (0, _inherits2.default)(Transaction, _BaseEntity);
+  var _super = _createSuper(Transaction);
   function Transaction(properties) {
     (0, _classCallCheck2.default)(this, Transaction);
-    return _callSuper(this, Transaction, [{
+    return _super.call(this, {
       properties: properties,
       // The attributes that should be cast to native types.
       casts: {
@@ -2659,10 +2741,9 @@ var Transaction = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
         active: 'boolean',
         paymentMethod: 'string'
       }
-    }]);
+    });
   }
-  (0, _inherits2.default)(Transaction, _BaseEntity);
-  return (0, _createClass2.default)(Transaction, [{
+  (0, _createClass2.default)(Transaction, [{
     key: "setNumber",
     value: function setNumber(number) {
       return this.setProperty('number', number);
@@ -2799,37 +2880,41 @@ var Transaction = exports["default"] = /*#__PURE__*/function (_BaseEntity) {
       this.setProperty('licenseTransactionJoins', licenseTransactionJoins);
     }
   }]);
+  return Transaction;
 }(_BaseEntity2.default);
+exports["default"] = Transaction;
 
 /***/ }),
 
-/***/ 6469:
+/***/ 2986:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(8452));
-var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3072));
-var _inherits2 = _interopRequireDefault(__webpack_require__(9511));
-var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(1837));
-function _callSuper(t, o, e) { return o = (0, _getPrototypeOf2.default)(o), (0, _possibleConstructorReturn2.default)(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], (0, _getPrototypeOf2.default)(t).constructor) : o.apply(t, e)); }
-function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
-var NlicError = exports["default"] = /*#__PURE__*/function (_Error) {
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _inherits2 = _interopRequireDefault(__webpack_require__(1655));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__(4993));
+var _getPrototypeOf2 = _interopRequireDefault(__webpack_require__(3808));
+var _wrapNativeSuper2 = _interopRequireDefault(__webpack_require__(3496));
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+var NlicError = /*#__PURE__*/function (_Error) {
+  (0, _inherits2.default)(NlicError, _Error);
+  var _super = _createSuper(NlicError);
   function NlicError() {
     var _this;
     (0, _classCallCheck2.default)(this, NlicError);
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
-    _this = _callSuper(this, NlicError, [].concat(args));
+    _this = _super.call.apply(_super, [this].concat(args));
     _this.config = {};
     _this.response = {};
     _this.request = {};
@@ -2838,8 +2923,7 @@ var NlicError = exports["default"] = /*#__PURE__*/function (_Error) {
     _this.isAxiosError = true;
     return _this;
   }
-  (0, _inherits2.default)(NlicError, _Error);
-  return (0, _createClass2.default)(NlicError, [{
+  (0, _createClass2.default)(NlicError, [{
     key: "toJSON",
     value: function toJSON() {
       return {
@@ -2860,32 +2944,34 @@ var NlicError = exports["default"] = /*#__PURE__*/function (_Error) {
       };
     }
   }]);
+  return NlicError;
 }( /*#__PURE__*/(0, _wrapNativeSuper2.default)(Error));
+exports["default"] = NlicError;
 
 /***/ }),
 
-/***/ 9089:
+/***/ 1462:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(3693));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToBundle = _interopRequireDefault(__webpack_require__(3849));
-var _itemToLicense = _interopRequireDefault(__webpack_require__(5402));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToBundle = _interopRequireDefault(__webpack_require__(9892));
+var _itemToLicense = _interopRequireDefault(__webpack_require__(3887));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -2898,7 +2984,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new bundle with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/bundle-services#create-bundle
@@ -2917,21 +3003,23 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _Service.default.post(context, _Constants.default.Bundle.ENDPOINT_PATH, bundle.asPropertiesMap());
-          case 2:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'Bundle';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToBundle.default)(item));
-          case 6:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _Service.default.post(context, _Constants.default.Bundle.ENDPOINT_PATH, bundle.asPropertiesMap());
+            case 2:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'Bundle';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToBundle.default)(item));
+            case 6:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -2953,22 +3041,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.Bundle.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'Bundle';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToBundle.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.Bundle.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'Bundle';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToBundle.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -2990,35 +3080,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.Bundle.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Bundle';
-            }).map(function (v) {
-              return (0, _itemToBundle.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.Bundle.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Bundle';
+              }).map(function (v) {
+                return (0, _itemToBundle.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -3043,22 +3135,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context4.next = 3;
-            return _Service.default.post(context, "".concat(_Constants.default.Bundle.ENDPOINT_PATH, "/").concat(number), bundle.asPropertiesMap());
-          case 3:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'Bundle';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToBundle.default)(item));
-          case 7:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context4.next = 3;
+              return _Service.default.post(context, "".concat(_Constants.default.Bundle.ENDPOINT_PATH, "/").concat(number), bundle.asPropertiesMap());
+            case 3:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'Bundle';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToBundle.default)(item));
+            case 7:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -3106,54 +3200,57 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5() {
       var _Constants$Bundle, ENDPOINT_PATH, ENDPOINT_OBTAIN_PATH, queryParams, _yield$Service$post3, items;
       return _regenerator.default.wrap(function _callee5$(_context5) {
-        while (1) switch (_context5.prev = _context5.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _CheckUtils.default.paramNotEmpty(licenseeNumber, _Constants.default.Licensee.LICENSEE_NUMBER);
-            _Constants$Bundle = _Constants.default.Bundle, ENDPOINT_PATH = _Constants$Bundle.ENDPOINT_PATH, ENDPOINT_OBTAIN_PATH = _Constants$Bundle.ENDPOINT_OBTAIN_PATH;
-            queryParams = (0, _defineProperty2.default)({}, _Constants.default.Licensee.LICENSEE_NUMBER, licenseeNumber);
-            _context5.next = 6;
-            return _Service.default.post(context, "".concat(ENDPOINT_PATH, "/").concat(number, "/").concat(ENDPOINT_OBTAIN_PATH), queryParams);
-          case 6:
-            _yield$Service$post3 = _context5.sent;
-            items = _yield$Service$post3.data.items.item;
-            return _context5.abrupt("return", items.filter(function (_ref5) {
-              var type = _ref5.type;
-              return type === 'License';
-            }).map(function (i) {
-              return (0, _itemToLicense.default)(i);
-            }));
-          case 9:
-          case "end":
-            return _context5.stop();
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _CheckUtils.default.paramNotEmpty(licenseeNumber, _Constants.default.Licensee.LICENSEE_NUMBER);
+              _Constants$Bundle = _Constants.default.Bundle, ENDPOINT_PATH = _Constants$Bundle.ENDPOINT_PATH, ENDPOINT_OBTAIN_PATH = _Constants$Bundle.ENDPOINT_OBTAIN_PATH;
+              queryParams = (0, _defineProperty2.default)({}, _Constants.default.Licensee.LICENSEE_NUMBER, licenseeNumber);
+              _context5.next = 6;
+              return _Service.default.post(context, "".concat(ENDPOINT_PATH, "/").concat(number, "/").concat(ENDPOINT_OBTAIN_PATH), queryParams);
+            case 6:
+              _yield$Service$post3 = _context5.sent;
+              items = _yield$Service$post3.data.items.item;
+              return _context5.abrupt("return", items.filter(function (_ref5) {
+                var type = _ref5.type;
+                return type === 'License';
+              }).map(function (i) {
+                return (0, _itemToLicense.default)(i);
+              }));
+            case 9:
+            case "end":
+              return _context5.stop();
+          }
         }
       }, _callee5);
     }))();
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 7394:
+/***/ 6486:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToLicense = _interopRequireDefault(__webpack_require__(5402));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToLicense = _interopRequireDefault(__webpack_require__(3887));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -3166,7 +3263,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new license object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-services#create-license
@@ -3197,26 +3294,28 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(licenseeNumber, _Constants.default.Licensee.LICENSEE_NUMBER);
-            _CheckUtils.default.paramNotEmpty(licenseTemplateNumber, _Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER);
-            license.setProperty(_Constants.default.Licensee.LICENSEE_NUMBER, licenseeNumber);
-            license.setProperty(_Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER, licenseTemplateNumber);
-            if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
-            _context.next = 7;
-            return _Service.default.post(context, _Constants.default.License.ENDPOINT_PATH, license.asPropertiesMap());
-          case 7:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'License';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToLicense.default)(item));
-          case 11:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(licenseeNumber, _Constants.default.Licensee.LICENSEE_NUMBER);
+              _CheckUtils.default.paramNotEmpty(licenseTemplateNumber, _Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER);
+              license.setProperty(_Constants.default.Licensee.LICENSEE_NUMBER, licenseeNumber);
+              license.setProperty(_Constants.default.LicenseTemplate.LICENSE_TEMPLATE_NUMBER, licenseTemplateNumber);
+              if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
+              _context.next = 7;
+              return _Service.default.post(context, _Constants.default.License.ENDPOINT_PATH, license.asPropertiesMap());
+            case 7:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'License';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToLicense.default)(item));
+            case 11:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -3238,22 +3337,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'License';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToLicense.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'License';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToLicense.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -3275,35 +3376,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.License.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'License';
-            }).map(function (v) {
-              return (0, _itemToLicense.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.License.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'License';
+              }).map(function (v) {
+                return (0, _itemToLicense.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -3332,23 +3435,25 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
-            _context4.next = 4;
-            return _Service.default.post(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number), license.asPropertiesMap());
-          case 4:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'License';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToLicense.default)(item));
-          case 8:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              if (transactionNumber) license.setProperty(_Constants.default.Transaction.TRANSACTION_NUMBER, transactionNumber);
+              _context4.next = 4;
+              return _Service.default.post(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number), license.asPropertiesMap());
+            case 4:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'License';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToLicense.default)(item));
+            case 8:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -3379,29 +3484,30 @@ var _default = exports["default"] = {
     return _Service.default.delete(context, "".concat(_Constants.default.License.ENDPOINT_PATH, "/").concat(number), queryParams);
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 3140:
+/***/ 1580:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(52));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(3255));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -3414,7 +3520,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new license template object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-template-services#create-license-template
@@ -3436,23 +3542,25 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(productModuleNumber, _Constants.default.ProductModule.PRODUCT_MODULE_NUMBER);
-            licenseTemplate.setProperty(_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER, productModuleNumber);
-            _context.next = 4;
-            return _Service.default.post(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, licenseTemplate.asPropertiesMap());
-          case 4:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'LicenseTemplate';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
-          case 8:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(productModuleNumber, _Constants.default.ProductModule.PRODUCT_MODULE_NUMBER);
+              licenseTemplate.setProperty(_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER, productModuleNumber);
+              _context.next = 4;
+              return _Service.default.post(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, licenseTemplate.asPropertiesMap());
+            case 4:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'LicenseTemplate';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
+            case 8:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -3474,22 +3582,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'LicenseTemplate';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'LicenseTemplate';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -3511,35 +3621,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'LicenseTemplate';
-            }).map(function (v) {
-              return (0, _itemToLicenseTemplate.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.LicenseTemplate.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'LicenseTemplate';
+              }).map(function (v) {
+                return (0, _itemToLicenseTemplate.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -3564,23 +3676,25 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var path, _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            path = "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number);
-            _context4.next = 4;
-            return _Service.default.post(context, path, licenseTemplate.asPropertiesMap());
-          case 4:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'LicenseTemplate';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
-          case 8:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              path = "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number);
+              _context4.next = 4;
+              return _Service.default.post(context, path, licenseTemplate.asPropertiesMap());
+            case 4:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'LicenseTemplate';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToLicenseTemplate.default)(item));
+            case 8:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -3609,31 +3723,32 @@ var _default = exports["default"] = {
     return _Service.default.delete(context, "".concat(_Constants.default.LicenseTemplate.ENDPOINT_PATH, "/").concat(number), queryParams);
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 7211:
+/***/ 5498:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _ValidationResults = _interopRequireDefault(__webpack_require__(8506));
-var _itemToLicensee = _interopRequireDefault(__webpack_require__(4067));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _ValidationResults = _interopRequireDefault(__webpack_require__(3735));
+var _itemToLicensee = _interopRequireDefault(__webpack_require__(6463));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -3646,7 +3761,7 @@ var _itemToObject = _interopRequireDefault(__webpack_require__(670));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new licensee object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/licensee-services#create-licensee
@@ -3668,23 +3783,25 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
-            licensee.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
-            _context.next = 4;
-            return _Service.default.post(context, _Constants.default.Licensee.ENDPOINT_PATH, licensee.asPropertiesMap());
-          case 4:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'Licensee';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToLicensee.default)(item));
-          case 8:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
+              licensee.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
+              _context.next = 4;
+              return _Service.default.post(context, _Constants.default.Licensee.ENDPOINT_PATH, licensee.asPropertiesMap());
+            case 4:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'Licensee';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToLicensee.default)(item));
+            case 8:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -3706,22 +3823,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'Licensee';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToLicensee.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'Licensee';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToLicensee.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -3743,35 +3862,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.Licensee.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Licensee';
-            }).map(function (v) {
-              return (0, _itemToLicensee.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.Licensee.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Licensee';
+              }).map(function (v) {
+                return (0, _itemToLicensee.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -3796,22 +3917,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context4.next = 3;
-            return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number), licensee.asPropertiesMap());
-          case 3:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'Licensee';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToLicensee.default)(item));
-          case 7:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context4.next = 3;
+              return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number), licensee.asPropertiesMap());
+            case 3:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'Licensee';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToLicensee.default)(item));
+            case 7:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -3861,56 +3984,58 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee5() {
       var queryParams, pmIndex, parameters, has, _yield$Service$post3, _yield$Service$post3$, items, ttl, validationResults;
       return _regenerator.default.wrap(function _callee5$(_context5) {
-        while (1) switch (_context5.prev = _context5.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            queryParams = {};
-            if (validationParameters.getProductNumber()) {
-              queryParams.productNumber = validationParameters.getProductNumber();
-            }
-            Object.keys(validationParameters.getLicenseeProperties()).forEach(function (key) {
-              queryParams[key] = validationParameters.getLicenseeProperty(key);
-            });
-            if (validationParameters.isForOfflineUse()) {
-              queryParams.forOfflineUse = true;
-            }
-            if (validationParameters.getDryRun()) {
-              queryParams.dryRun = true;
-            }
-            pmIndex = 0;
-            parameters = validationParameters.getParameters();
-            has = Object.prototype.hasOwnProperty;
-            Object.keys(parameters).forEach(function (productModuleName) {
-              queryParams["".concat(_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER).concat(pmIndex)] = productModuleName;
-              if (!has.call(parameters, productModuleName)) return;
-              var parameter = parameters[productModuleName];
-              Object.keys(parameter).forEach(function (key) {
-                if (has.call(parameter, key)) {
-                  queryParams[key + pmIndex] = parameter[key];
-                }
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              queryParams = {};
+              if (validationParameters.getProductNumber()) {
+                queryParams.productNumber = validationParameters.getProductNumber();
+              }
+              Object.keys(validationParameters.getLicenseeProperties()).forEach(function (key) {
+                queryParams[key] = validationParameters.getLicenseeProperty(key);
               });
-              pmIndex += 1;
-            });
-            _context5.next = 12;
-            return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number, "/").concat(_Constants.default.Licensee.ENDPOINT_PATH_VALIDATE), queryParams);
-          case 12:
-            _yield$Service$post3 = _context5.sent;
-            _yield$Service$post3$ = _yield$Service$post3.data;
-            items = _yield$Service$post3$.items.item;
-            ttl = _yield$Service$post3$.ttl;
-            validationResults = new _ValidationResults.default();
-            validationResults.setTtl(ttl);
-            items.filter(function (_ref5) {
-              var type = _ref5.type;
-              return type === 'ProductModuleValidation';
-            }).forEach(function (v) {
-              var item = (0, _itemToObject.default)(v);
-              validationResults.setProductModuleValidation(item[_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER], item);
-            });
-            return _context5.abrupt("return", validationResults);
-          case 20:
-          case "end":
-            return _context5.stop();
+              if (validationParameters.isForOfflineUse()) {
+                queryParams.forOfflineUse = true;
+              }
+              if (validationParameters.getDryRun()) {
+                queryParams.dryRun = true;
+              }
+              pmIndex = 0;
+              parameters = validationParameters.getParameters();
+              has = Object.prototype.hasOwnProperty;
+              Object.keys(parameters).forEach(function (productModuleName) {
+                queryParams["".concat(_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER).concat(pmIndex)] = productModuleName;
+                if (!has.call(parameters, productModuleName)) return;
+                var parameter = parameters[productModuleName];
+                Object.keys(parameter).forEach(function (key) {
+                  if (has.call(parameter, key)) {
+                    queryParams[key + pmIndex] = parameter[key];
+                  }
+                });
+                pmIndex += 1;
+              });
+              _context5.next = 12;
+              return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number, "/").concat(_Constants.default.Licensee.ENDPOINT_PATH_VALIDATE), queryParams);
+            case 12:
+              _yield$Service$post3 = _context5.sent;
+              _yield$Service$post3$ = _yield$Service$post3.data;
+              items = _yield$Service$post3$.items.item;
+              ttl = _yield$Service$post3$.ttl;
+              validationResults = new _ValidationResults.default();
+              validationResults.setTtl(ttl);
+              items.filter(function (_ref5) {
+                var type = _ref5.type;
+                return type === 'ProductModuleValidation';
+              }).forEach(function (v) {
+                var item = (0, _itemToObject.default)(v);
+                validationResults.setProductModuleValidation(item[_Constants.default.ProductModule.PRODUCT_MODULE_NUMBER], item);
+              });
+              return _context5.abrupt("return", validationResults);
+            case 20:
+            case "end":
+              return _context5.stop();
+          }
         }
       }, _callee5);
     }))();
@@ -3939,29 +4064,30 @@ var _default = exports["default"] = {
     return _Service.default.post(context, "".concat(_Constants.default.Licensee.ENDPOINT_PATH, "/").concat(number, "/").concat(_Constants.default.Licensee.ENDPOINT_PATH_TRANSFER), queryParams);
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 1692:
+/***/ 3212:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToNotification = _interopRequireDefault(__webpack_require__(5270));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToNotification = _interopRequireDefault(__webpack_require__(6546));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -3974,7 +4100,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new notification with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/notification-services#create-notification
@@ -3993,21 +4119,23 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _Service.default.post(context, _Constants.default.Notification.ENDPOINT_PATH, notification.asPropertiesMap());
-          case 2:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'Notification';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToNotification.default)(item));
-          case 6:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _Service.default.post(context, _Constants.default.Notification.ENDPOINT_PATH, notification.asPropertiesMap());
+            case 2:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'Notification';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToNotification.default)(item));
+            case 6:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -4029,22 +4157,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'Notification';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToNotification.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'Notification';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToNotification.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -4066,35 +4196,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.Notification.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Notification';
-            }).map(function (v) {
-              return (0, _itemToNotification.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.Notification.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Notification';
+              }).map(function (v) {
+                return (0, _itemToNotification.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -4119,22 +4251,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context4.next = 3;
-            return _Service.default.post(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number), notification.asPropertiesMap());
-          case 3:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'Notification';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToNotification.default)(item));
-          case 7:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context4.next = 3;
+              return _Service.default.post(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number), notification.asPropertiesMap());
+            case 3:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'Notification';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToNotification.default)(item));
+            case 7:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -4157,36 +4291,37 @@ var _default = exports["default"] = {
     return _Service.default.delete(context, "".concat(_Constants.default.Notification.ENDPOINT_PATH, "/").concat(number));
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6798:
+/***/ 5225:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(2430));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(797));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Gets payment method by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/payment-method-services#get-payment-method
@@ -4204,22 +4339,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$get, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'PaymentMethod';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToPaymentMethod.default)(item));
-          case 7:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'PaymentMethod';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToPaymentMethod.default)(item));
+            case 7:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -4241,35 +4378,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context2.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context2.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context2.next = 7;
-            return _Service.default.get(context, _Constants.default.PaymentMethod.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context2.sent;
-            data = _yield$Service$get2.data;
-            return _context2.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'PaymentMethod';
-            }).map(function (v) {
-              return (0, _itemToPaymentMethod.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context2.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context2.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context2.next = 7;
+              return _Service.default.get(context, _Constants.default.PaymentMethod.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context2.sent;
+              data = _yield$Service$get2.data;
+              return _context2.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'PaymentMethod';
+              }).map(function (v) {
+                return (0, _itemToPaymentMethod.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -4294,51 +4433,54 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var path, _yield$Service$post, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            path = "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number);
-            _context3.next = 4;
-            return _Service.default.post(context, path, paymentMethod.asPropertiesMap());
-          case 4:
-            _yield$Service$post = _context3.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter3 = items.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'PaymentMethod';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context3.abrupt("return", (0, _itemToPaymentMethod.default)(item));
-          case 8:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              path = "".concat(_Constants.default.PaymentMethod.ENDPOINT_PATH, "/").concat(number);
+              _context3.next = 4;
+              return _Service.default.post(context, path, paymentMethod.asPropertiesMap());
+            case 4:
+              _yield$Service$post = _context3.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter3 = items.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'PaymentMethod';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context3.abrupt("return", (0, _itemToPaymentMethod.default)(item));
+            case 8:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 3950:
+/***/ 7443:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToProductModule = _interopRequireDefault(__webpack_require__(4398));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToProductModule = _interopRequireDefault(__webpack_require__(2514));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -4351,7 +4493,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new product module object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-module-services#create-product-module
@@ -4373,23 +4515,25 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
-            productModule.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
-            _context.next = 4;
-            return _Service.default.post(context, _Constants.default.ProductModule.ENDPOINT_PATH, productModule.asPropertiesMap());
-          case 4:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'ProductModule';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToProductModule.default)(item));
-          case 8:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(productNumber, _Constants.default.Product.PRODUCT_NUMBER);
+              productModule.setProperty(_Constants.default.Product.PRODUCT_NUMBER, productNumber);
+              _context.next = 4;
+              return _Service.default.post(context, _Constants.default.ProductModule.ENDPOINT_PATH, productModule.asPropertiesMap());
+            case 4:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'ProductModule';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToProductModule.default)(item));
+            case 8:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -4411,22 +4555,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'ProductModule';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToProductModule.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'ProductModule';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToProductModule.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -4448,35 +4594,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.ProductModule.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'ProductModule';
-            }).map(function (v) {
-              return (0, _itemToProductModule.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.ProductModule.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'ProductModule';
+              }).map(function (v) {
+                return (0, _itemToProductModule.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -4501,22 +4649,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context4.next = 3;
-            return _Service.default.post(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number), productModule.asPropertiesMap());
-          case 3:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'ProductModule';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToProductModule.default)(item));
-          case 7:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context4.next = 3;
+              return _Service.default.post(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number), productModule.asPropertiesMap());
+            case 3:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'ProductModule';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToProductModule.default)(item));
+            case 7:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -4545,29 +4695,30 @@ var _default = exports["default"] = {
     return _Service.default.delete(context, "".concat(_Constants.default.ProductModule.ENDPOINT_PATH, "/").concat(number), queryParams);
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 5114:
+/***/ 5042:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToProduct = _interopRequireDefault(__webpack_require__(822));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToProduct = _interopRequireDefault(__webpack_require__(1255));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -4580,7 +4731,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new product with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-services#create-product
@@ -4599,21 +4750,23 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _Service.default.post(context, _Constants.default.Product.ENDPOINT_PATH, product.asPropertiesMap());
-          case 2:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'Product';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToProduct.default)(item));
-          case 6:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _Service.default.post(context, _Constants.default.Product.ENDPOINT_PATH, product.asPropertiesMap());
+            case 2:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'Product';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToProduct.default)(item));
+            case 6:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -4635,22 +4788,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'Product';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToProduct.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'Product';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToProduct.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -4672,35 +4827,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.Product.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Product';
-            }).map(function (v) {
-              return (0, _itemToProduct.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.Product.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Product';
+              }).map(function (v) {
+                return (0, _itemToProduct.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -4725,22 +4882,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context4.next = 3;
-            return _Service.default.post(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number), product.asPropertiesMap());
-          case 3:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'Product';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToProduct.default)(item));
-          case 7:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context4.next = 3;
+              return _Service.default.post(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number), product.asPropertiesMap());
+            case 3:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'Product';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToProduct.default)(item));
+            case 7:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
@@ -4769,29 +4928,30 @@ var _default = exports["default"] = {
     return _Service.default.delete(context, "".concat(_Constants.default.Product.ENDPOINT_PATH, "/").concat(number), queryParams);
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 3401:
+/***/ 393:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _typeof2 = _interopRequireDefault(__webpack_require__(3738));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _axios = _interopRequireDefault(__webpack_require__(6425));
-var _btoa = _interopRequireDefault(__webpack_require__(7131));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _NlicError = _interopRequireDefault(__webpack_require__(6469));
-var _package = _interopRequireDefault(__webpack_require__(8330));
+var _typeof2 = _interopRequireDefault(__webpack_require__(8698));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _axios = _interopRequireDefault(__webpack_require__(7218));
+var _btoa = _interopRequireDefault(__webpack_require__(706));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _NlicError = _interopRequireDefault(__webpack_require__(2986));
+var _package = _interopRequireDefault(__webpack_require__(4147));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -4801,11 +4961,11 @@ var _package = _interopRequireDefault(__webpack_require__(8330));
 
 var httpXHR = {};
 var axiosInstance = null;
-var Service = exports["default"] = /*#__PURE__*/function () {
+var Service = /*#__PURE__*/function () {
   function Service() {
     (0, _classCallCheck2.default)(this, Service);
   }
-  return (0, _createClass2.default)(Service, null, [{
+  (0, _createClass2.default)(Service, null, [{
     key: "getAxiosInstance",
     value: function getAxiosInstance() {
       return axiosInstance || _axios.default;
@@ -5026,30 +5186,32 @@ var Service = exports["default"] = /*#__PURE__*/function () {
       return query.join('&').replace(/%5B[0-9]+%5D=/g, '=');
     }
   }]);
+  return Service;
 }();
+exports["default"] = Service;
 
 /***/ }),
 
-/***/ 5192:
+/***/ 731:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToToken = _interopRequireDefault(__webpack_require__(3648));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToToken = _interopRequireDefault(__webpack_require__(4073));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -5062,7 +5224,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new token.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/token-services#create-token
@@ -5080,21 +5242,23 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _Service.default.post(context, _Constants.default.Token.ENDPOINT_PATH, token.asPropertiesMap());
-          case 2:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'Token';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToToken.default)(item));
-          case 6:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _Service.default.post(context, _Constants.default.Token.ENDPOINT_PATH, token.asPropertiesMap());
+            case 2:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'Token';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToToken.default)(item));
+            case 6:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -5116,22 +5280,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.Token.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'Token';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToToken.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.Token.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'Token';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToToken.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -5153,35 +5319,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.Token.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Token';
-            }).map(function (v) {
-              return (0, _itemToToken.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.Token.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Token';
+              }).map(function (v) {
+                return (0, _itemToToken.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -5204,29 +5372,30 @@ var _default = exports["default"] = {
     return _Service.default.delete(context, "".concat(_Constants.default.Token.ENDPOINT_PATH, "/").concat(number));
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 2579:
+/***/ 5919:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToTransaction = _interopRequireDefault(__webpack_require__(1717));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToTransaction = _interopRequireDefault(__webpack_require__(1198));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -5247,7 +5416,7 @@ var _Page = _interopRequireDefault(__webpack_require__(4034));
  *
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Creates new transaction object with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/transaction-services#create-transaction
@@ -5266,21 +5435,23 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$post, items, _items$filter, _items$filter2, item;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _Service.default.post(context, _Constants.default.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap());
-          case 2:
-            _yield$Service$post = _context.sent;
-            items = _yield$Service$post.data.items.item;
-            _items$filter = items.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'Transaction';
-            }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
-            return _context.abrupt("return", (0, _itemToTransaction.default)(item));
-          case 6:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _Service.default.post(context, _Constants.default.Transaction.ENDPOINT_PATH, transaction.asPropertiesMap());
+            case 2:
+              _yield$Service$post = _context.sent;
+              items = _yield$Service$post.data.items.item;
+              _items$filter = items.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'Transaction';
+              }), _items$filter2 = (0, _slicedToArray2.default)(_items$filter, 1), item = _items$filter2[0];
+              return _context.abrupt("return", (0, _itemToTransaction.default)(item));
+            case 6:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -5302,22 +5473,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get, items, _items$filter3, _items$filter4, item;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context2.next = 3;
-            return _Service.default.get(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number));
-          case 3:
-            _yield$Service$get = _context2.sent;
-            items = _yield$Service$get.data.items.item;
-            _items$filter3 = items.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'Transaction';
-            }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
-            return _context2.abrupt("return", (0, _itemToTransaction.default)(item));
-          case 7:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context2.next = 3;
+              return _Service.default.get(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number));
+            case 3:
+              _yield$Service$get = _context2.sent;
+              items = _yield$Service$get.data.items.item;
+              _items$filter3 = items.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'Transaction';
+              }), _items$filter4 = (0, _slicedToArray2.default)(_items$filter3, 1), item = _items$filter4[0];
+              return _context2.abrupt("return", (0, _itemToTransaction.default)(item));
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -5339,35 +5512,37 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, _Constants.default.Transaction.ENDPOINT_PATH, queryParams);
-          case 7:
-            _yield$Service$get2 = _context3.sent;
-            data = _yield$Service$get2.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Transaction';
-            }).map(function (v) {
-              return (0, _itemToTransaction.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, _Constants.default.Transaction.ENDPOINT_PATH, queryParams);
+            case 7:
+              _yield$Service$get2 = _context3.sent;
+              data = _yield$Service$get2.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Transaction';
+              }).map(function (v) {
+                return (0, _itemToTransaction.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
@@ -5392,50 +5567,53 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee4() {
       var _yield$Service$post2, items, _items$filter5, _items$filter6, item;
       return _regenerator.default.wrap(function _callee4$(_context4) {
-        while (1) switch (_context4.prev = _context4.next) {
-          case 0:
-            _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
-            _context4.next = 3;
-            return _Service.default.post(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number), transaction.asPropertiesMap());
-          case 3:
-            _yield$Service$post2 = _context4.sent;
-            items = _yield$Service$post2.data.items.item;
-            _items$filter5 = items.filter(function (_ref4) {
-              var type = _ref4.type;
-              return type === 'Transaction';
-            }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
-            return _context4.abrupt("return", (0, _itemToTransaction.default)(item));
-          case 7:
-          case "end":
-            return _context4.stop();
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _CheckUtils.default.paramNotEmpty(number, _Constants.default.NUMBER);
+              _context4.next = 3;
+              return _Service.default.post(context, "".concat(_Constants.default.Transaction.ENDPOINT_PATH, "/").concat(number), transaction.asPropertiesMap());
+            case 3:
+              _yield$Service$post2 = _context4.sent;
+              items = _yield$Service$post2.data.items.item;
+              _items$filter5 = items.filter(function (_ref4) {
+                var type = _ref4.type;
+                return type === 'Transaction';
+              }), _items$filter6 = (0, _slicedToArray2.default)(_items$filter5, 1), item = _items$filter6[0];
+              return _context4.abrupt("return", (0, _itemToTransaction.default)(item));
+            case 7:
+            case "end":
+              return _context4.stop();
+          }
         }
       }, _callee4);
     }))();
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 6359:
+/***/ 7635:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _regenerator = _interopRequireDefault(__webpack_require__(4756));
-var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(9293));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
-var _itemToCountry = _interopRequireDefault(__webpack_require__(6899));
+var _regenerator = _interopRequireDefault(__webpack_require__(4687));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(7156));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
+var _itemToCountry = _interopRequireDefault(__webpack_require__(3213));
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
@@ -5447,7 +5625,7 @@ var _itemToCountry = _interopRequireDefault(__webpack_require__(6899));
  * https://netlicensing.io/wiki/utility-services
  * @constructor
  */
-var _default = exports["default"] = {
+var _default = {
   /**
    * Returns all license types. See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/utility-services#license-types-list
@@ -5462,22 +5640,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       var _yield$Service$get, data;
       return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSE_TYPES));
-          case 2:
-            _yield$Service$get = _context.sent;
-            data = _yield$Service$get.data;
-            return _context.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref) {
-              var type = _ref.type;
-              return type === 'LicenseType';
-            }).map(function (v) {
-              return (0, _itemToObject.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 5:
-          case "end":
-            return _context.stop();
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSE_TYPES));
+            case 2:
+              _yield$Service$get = _context.sent;
+              data = _yield$Service$get.data;
+              return _context.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref) {
+                var type = _ref.type;
+                return type === 'LicenseType';
+              }).map(function (v) {
+                return (0, _itemToObject.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 5:
+            case "end":
+              return _context.stop();
+          }
         }
       }, _callee);
     }))();
@@ -5496,22 +5676,24 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       var _yield$Service$get2, data;
       return _regenerator.default.wrap(function _callee2$(_context2) {
-        while (1) switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.next = 2;
-            return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSING_MODELS));
-          case 2:
-            _yield$Service$get2 = _context2.sent;
-            data = _yield$Service$get2.data;
-            return _context2.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref2) {
-              var type = _ref2.type;
-              return type === 'LicensingModelProperties';
-            }).map(function (v) {
-              return (0, _itemToObject.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 5:
-          case "end":
-            return _context2.stop();
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_LICENSING_MODELS));
+            case 2:
+              _yield$Service$get2 = _context2.sent;
+              data = _yield$Service$get2.data;
+              return _context2.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref2) {
+                var type = _ref2.type;
+                return type === 'LicensingModelProperties';
+              }).map(function (v) {
+                return (0, _itemToObject.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 5:
+            case "end":
+              return _context2.stop();
+          }
         }
       }, _callee2);
     }))();
@@ -5532,44 +5714,47 @@ var _default = exports["default"] = {
     return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var queryParams, _yield$Service$get3, data;
       return _regenerator.default.wrap(function _callee3$(_context3) {
-        while (1) switch (_context3.prev = _context3.next) {
-          case 0:
-            queryParams = {};
-            if (!filter) {
-              _context3.next = 5;
-              break;
-            }
-            if (_CheckUtils.default.isValid(filter)) {
-              _context3.next = 4;
-              break;
-            }
-            throw new TypeError("filter has bad value ".concat(filter));
-          case 4:
-            queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
-          case 5:
-            _context3.next = 7;
-            return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_COUNTRIES), queryParams);
-          case 7:
-            _yield$Service$get3 = _context3.sent;
-            data = _yield$Service$get3.data;
-            return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
-              var type = _ref3.type;
-              return type === 'Country';
-            }).map(function (v) {
-              return (0, _itemToCountry.default)(v);
-            }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
-          case 10:
-          case "end":
-            return _context3.stop();
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              queryParams = {};
+              if (!filter) {
+                _context3.next = 5;
+                break;
+              }
+              if (_CheckUtils.default.isValid(filter)) {
+                _context3.next = 4;
+                break;
+              }
+              throw new TypeError("filter has bad value ".concat(filter));
+            case 4:
+              queryParams[_Constants.default.FILTER] = typeof filter === 'string' ? filter : _FilterUtils.default.encode(filter);
+            case 5:
+              _context3.next = 7;
+              return _Service.default.get(context, "".concat(_Constants.default.Utility.ENDPOINT_PATH, "/").concat(_Constants.default.Utility.ENDPOINT_PATH_COUNTRIES), queryParams);
+            case 7:
+              _yield$Service$get3 = _context3.sent;
+              data = _yield$Service$get3.data;
+              return _context3.abrupt("return", (0, _Page.default)(data.items.item.filter(function (_ref3) {
+                var type = _ref3.type;
+                return type === 'Country';
+              }).map(function (v) {
+                return (0, _itemToCountry.default)(v);
+              }), data.items.pagenumber, data.items.itemsnumber, data.items.totalpages, data.items.totalitems));
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
         }
       }, _callee3);
     }))();
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 8769:
+/***/ 553:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -5586,7 +5771,7 @@ exports["default"] = void 0;
  * @copyright 2017 Labs64 NetLicensing
  */
 // Cast an attribute to a native JS type.
-var _default = exports["default"] = function _default(key, value) {
+var _default = function _default(key, value) {
   switch (key.trim().toLowerCase()) {
     case 'str':
     case 'string':
@@ -5621,10 +5806,11 @@ var _default = exports["default"] = function _default(key, value) {
       return value;
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 1305:
+/***/ 5661:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -5640,7 +5826,7 @@ exports["default"] = void 0;
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var _default = exports["default"] = {
+var _default = {
   isValid: function isValid(value) {
     var valid = value !== undefined && typeof value !== 'function';
     if (typeof value === 'number') valid = Number.isFinite(value) && !Number.isNaN(value);
@@ -5655,22 +5841,23 @@ var _default = exports["default"] = {
     if (!parameter) throw new TypeError("Parameter ".concat(parameterName, " cannot be null or empty string"));
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 8833:
+/***/ 3093:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _slicedToArray2 = _interopRequireDefault(__webpack_require__(5715));
-var _default = exports["default"] = {
+var _slicedToArray2 = _interopRequireDefault(__webpack_require__(7424));
+var _default = {
   FILTER_DELIMITER: ';',
   FILTER_PAIR_DELIMITER: '=',
   encode: function encode() {
@@ -5699,33 +5886,34 @@ var _default = exports["default"] = {
     return filter;
   }
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 2302:
+/***/ 4693:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _typeof2 = _interopRequireDefault(__webpack_require__(3738));
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(3693));
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
+var _typeof2 = _interopRequireDefault(__webpack_require__(8698));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
 /**
  * The context values.
  * @type {{}}
@@ -5746,7 +5934,7 @@ var definedMap = new WeakMap();
  * @private
  */
 var defaultsMap = new WeakMap();
-var Context = exports["default"] = /*#__PURE__*/function () {
+var Context = /*#__PURE__*/function () {
   function Context(values) {
     (0, _classCallCheck2.default)(this, Context);
     defaultsMap.set(this, {
@@ -5757,7 +5945,7 @@ var Context = exports["default"] = /*#__PURE__*/function () {
     definedMap.set(this, {});
     this.setValues(_objectSpread(_objectSpread({}, defaultsMap.get(this)), values));
   }
-  return (0, _createClass2.default)(Context, [{
+  (0, _createClass2.default)(Context, [{
     key: "setBaseUrl",
     value: function setBaseUrl(baseUrl) {
       return this.setValue('baseUrl', baseUrl);
@@ -5969,11 +6157,13 @@ var Context = exports["default"] = /*#__PURE__*/function () {
       delete this[key];
     }
   }]);
+  return Context;
 }();
+exports["default"] = Context;
 
 /***/ }),
 
-/***/ 4034:
+/***/ 9407:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -5983,7 +6173,7 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _default = exports["default"] = function _default() {
+var _default = function _default() {
   var content = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var pageNumber = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
   var itemsNumber = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
@@ -6019,32 +6209,33 @@ var _default = exports["default"] = function _default() {
     }
   });
 };
+exports["default"] = _default;
 
 /***/ }),
 
-/***/ 662:
+/***/ 4856:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(3693));
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 /**
  * @author    Labs64 <netlicensing@labs64.com>
  * @license   Apache-2.0
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-var ValidationParameters = exports["default"] = /*#__PURE__*/function () {
+var ValidationParameters = /*#__PURE__*/function () {
   function ValidationParameters() {
     (0, _classCallCheck2.default)(this, ValidationParameters);
     this.parameters = {};
@@ -6058,7 +6249,7 @@ var ValidationParameters = exports["default"] = /*#__PURE__*/function () {
    * @param productNumber
    * @returns {ValidationParameters}
    */
-  return (0, _createClass2.default)(ValidationParameters, [{
+  (0, _createClass2.default)(ValidationParameters, [{
     key: "setProductNumber",
     value: function setProductNumber(productNumber) {
       this.productNumber = productNumber;
@@ -6211,39 +6402,41 @@ var ValidationParameters = exports["default"] = /*#__PURE__*/function () {
       return this;
     }
   }]);
+  return ValidationParameters;
 }();
+exports["default"] = ValidationParameters;
 
 /***/ }),
 
-/***/ 8506:
+/***/ 3735:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 exports["default"] = void 0;
-var _typeof2 = _interopRequireDefault(__webpack_require__(3738));
-var _defineProperty2 = _interopRequireDefault(__webpack_require__(3693));
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__(7383));
-var _createClass2 = _interopRequireDefault(__webpack_require__(4579));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0, _defineProperty2.default)(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; } /**
- * @author    Labs64 <netlicensing@labs64.com>
- * @license   Apache-2.0
- * @link      https://netlicensing.io
- * @copyright 2017 Labs64 NetLicensing
- */
-var ValidationResults = exports["default"] = /*#__PURE__*/function () {
+var _typeof2 = _interopRequireDefault(__webpack_require__(8698));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(8416));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__(6690));
+var _createClass2 = _interopRequireDefault(__webpack_require__(9728));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author    Labs64 <netlicensing@labs64.com>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @license   Apache-2.0
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @link      https://netlicensing.io
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @copyright 2017 Labs64 NetLicensing
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
+var ValidationResults = /*#__PURE__*/function () {
   function ValidationResults() {
     (0, _classCallCheck2.default)(this, ValidationResults);
     this.validators = {};
   }
-  return (0, _createClass2.default)(ValidationResults, [{
+  (0, _createClass2.default)(ValidationResults, [{
     key: "getValidators",
     value: function getValidators() {
       return _objectSpread({}, this.validators);
@@ -6295,11 +6488,13 @@ var ValidationResults = exports["default"] = /*#__PURE__*/function () {
       return data;
     }
   }]);
+  return ValidationResults;
 }();
+exports["default"] = ValidationResults;
 
 /***/ }),
 
-/***/ 7131:
+/***/ 706:
 /***/ ((module) => {
 
 (function () {
@@ -6323,19 +6518,21 @@ var ValidationResults = exports["default"] = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 79:
+/***/ 3897:
 /***/ ((module) => {
 
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
   return arr2;
 }
 module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 2987:
+/***/ 5372:
 /***/ ((module) => {
 
 function _arrayWithHoles(arr) {
@@ -6345,7 +6542,7 @@ module.exports = _arrayWithHoles, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 2475:
+/***/ 6115:
 /***/ ((module) => {
 
 function _assertThisInitialized(self) {
@@ -6358,7 +6555,7 @@ module.exports = _assertThisInitialized, module.exports.__esModule = true, modul
 
 /***/ }),
 
-/***/ 9293:
+/***/ 7156:
 /***/ ((module) => {
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
@@ -6395,7 +6592,7 @@ module.exports = _asyncToGenerator, module.exports.__esModule = true, module.exp
 
 /***/ }),
 
-/***/ 7383:
+/***/ 6690:
 /***/ ((module) => {
 
 function _classCallCheck(instance, Constructor) {
@@ -6407,26 +6604,34 @@ module.exports = _classCallCheck, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 9646:
+/***/ 3515:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var setPrototypeOf = __webpack_require__(5636);
-var isNativeReflectConstruct = __webpack_require__(7550);
-function _construct(t, e, r) {
-  if (isNativeReflectConstruct()) return Reflect.construct.apply(null, arguments);
-  var o = [null];
-  o.push.apply(o, e);
-  var p = new (t.bind.apply(t, o))();
-  return r && setPrototypeOf(p, r.prototype), p;
+var setPrototypeOf = __webpack_require__(6015);
+var isNativeReflectConstruct = __webpack_require__(9617);
+function _construct(Parent, args, Class) {
+  if (isNativeReflectConstruct()) {
+    module.exports = _construct = Reflect.construct.bind(), module.exports.__esModule = true, module.exports["default"] = module.exports;
+  } else {
+    module.exports = _construct = function _construct(Parent, args, Class) {
+      var a = [null];
+      a.push.apply(a, args);
+      var Constructor = Function.bind.apply(Parent, a);
+      var instance = new Constructor();
+      if (Class) setPrototypeOf(instance, Class.prototype);
+      return instance;
+    }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  }
+  return _construct.apply(null, arguments);
 }
 module.exports = _construct, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 4579:
+/***/ 9728:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var toPropertyKey = __webpack_require__(7736);
+var toPropertyKey = __webpack_require__(4062);
 function _defineProperties(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
@@ -6448,10 +6653,10 @@ module.exports = _createClass, module.exports.__esModule = true, module.exports[
 
 /***/ }),
 
-/***/ 3693:
+/***/ 8416:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var toPropertyKey = __webpack_require__(7736);
+var toPropertyKey = __webpack_require__(4062);
 function _defineProperty(obj, key, value) {
   key = toPropertyKey(key);
   if (key in obj) {
@@ -6470,10 +6675,10 @@ module.exports = _defineProperty, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 2395:
+/***/ 1588:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var superPropBase = __webpack_require__(9552);
+var superPropBase = __webpack_require__(1753);
 function _get() {
   if (typeof Reflect !== "undefined" && Reflect.get) {
     module.exports = _get = Reflect.get.bind(), module.exports.__esModule = true, module.exports["default"] = module.exports;
@@ -6494,7 +6699,7 @@ module.exports = _get, module.exports.__esModule = true, module.exports["default
 
 /***/ }),
 
-/***/ 3072:
+/***/ 3808:
 /***/ ((module) => {
 
 function _getPrototypeOf(o) {
@@ -6507,10 +6712,10 @@ module.exports = _getPrototypeOf, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 9511:
+/***/ 1655:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var setPrototypeOf = __webpack_require__(5636);
+var setPrototypeOf = __webpack_require__(6015);
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function");
@@ -6531,7 +6736,7 @@ module.exports = _inherits, module.exports.__esModule = true, module.exports["de
 
 /***/ }),
 
-/***/ 4994:
+/***/ 4836:
 /***/ ((module) => {
 
 function _interopRequireDefault(obj) {
@@ -6543,70 +6748,71 @@ module.exports = _interopRequireDefault, module.exports.__esModule = true, modul
 
 /***/ }),
 
-/***/ 691:
+/***/ 6035:
 /***/ ((module) => {
 
 function _isNativeFunction(fn) {
-  try {
-    return Function.toString.call(fn).indexOf("[native code]") !== -1;
-  } catch (e) {
-    return typeof fn === "function";
-  }
+  return Function.toString.call(fn).indexOf("[native code]") !== -1;
 }
 module.exports = _isNativeFunction, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 7550:
+/***/ 9617:
 /***/ ((module) => {
 
 function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
   try {
-    var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
-  } catch (t) {}
-  return (module.exports = _isNativeReflectConstruct = function _isNativeReflectConstruct() {
-    return !!t;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports)();
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 module.exports = _isNativeReflectConstruct, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 1156:
+/***/ 8872:
 /***/ ((module) => {
 
-function _iterableToArrayLimit(r, l) {
-  var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
-  if (null != t) {
-    var e,
-      n,
-      i,
-      u,
-      a = [],
-      f = !0,
-      o = !1;
+function _iterableToArrayLimit(arr, i) {
+  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
+  if (null != _i) {
+    var _s,
+      _e,
+      _x,
+      _r,
+      _arr = [],
+      _n = !0,
+      _d = !1;
     try {
-      if (i = (t = t.call(r)).next, 0 === l) {
-        if (Object(t) !== t) return;
-        f = !1;
-      } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
-    } catch (r) {
-      o = !0, n = r;
+      if (_x = (_i = _i.call(arr)).next, 0 === i) {
+        if (Object(_i) !== _i) return;
+        _n = !1;
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) {
+        ;
+      }
+    } catch (err) {
+      _d = !0, _e = err;
     } finally {
       try {
-        if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return;
+        if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
       } finally {
-        if (o) throw n;
+        if (_d) throw _e;
       }
     }
-    return a;
+    return _arr;
   }
 }
 module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 7752:
+/***/ 2218:
 /***/ ((module) => {
 
 function _nonIterableRest() {
@@ -6616,11 +6822,11 @@ module.exports = _nonIterableRest, module.exports.__esModule = true, module.expo
 
 /***/ }),
 
-/***/ 8452:
+/***/ 4993:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var _typeof = (__webpack_require__(3738)["default"]);
-var assertThisInitialized = __webpack_require__(2475);
+var _typeof = (__webpack_require__(8698)["default"]);
+var assertThisInitialized = __webpack_require__(6115);
 function _possibleConstructorReturn(self, call) {
   if (call && (_typeof(call) === "object" || typeof call === "function")) {
     return call;
@@ -6633,317 +6839,323 @@ module.exports = _possibleConstructorReturn, module.exports.__esModule = true, m
 
 /***/ }),
 
-/***/ 4633:
+/***/ 7061:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var _typeof = (__webpack_require__(3738)["default"]);
+var _typeof = (__webpack_require__(8698)["default"]);
 function _regeneratorRuntime() {
   "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
   module.exports = _regeneratorRuntime = function _regeneratorRuntime() {
-    return e;
+    return exports;
   }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  var t,
-    e = {},
-    r = Object.prototype,
-    n = r.hasOwnProperty,
-    o = Object.defineProperty || function (t, e, r) {
-      t[e] = r.value;
+  var exports = {},
+    Op = Object.prototype,
+    hasOwn = Op.hasOwnProperty,
+    defineProperty = Object.defineProperty || function (obj, key, desc) {
+      obj[key] = desc.value;
     },
-    i = "function" == typeof Symbol ? Symbol : {},
-    a = i.iterator || "@@iterator",
-    c = i.asyncIterator || "@@asyncIterator",
-    u = i.toStringTag || "@@toStringTag";
-  function define(t, e, r) {
-    return Object.defineProperty(t, e, {
-      value: r,
+    $Symbol = "function" == typeof Symbol ? Symbol : {},
+    iteratorSymbol = $Symbol.iterator || "@@iterator",
+    asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator",
+    toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+  function define(obj, key, value) {
+    return Object.defineProperty(obj, key, {
+      value: value,
       enumerable: !0,
       configurable: !0,
       writable: !0
-    }), t[e];
+    }), obj[key];
   }
   try {
     define({}, "");
-  } catch (t) {
-    define = function define(t, e, r) {
-      return t[e] = r;
+  } catch (err) {
+    define = function define(obj, key, value) {
+      return obj[key] = value;
     };
   }
-  function wrap(t, e, r, n) {
-    var i = e && e.prototype instanceof Generator ? e : Generator,
-      a = Object.create(i.prototype),
-      c = new Context(n || []);
-    return o(a, "_invoke", {
-      value: makeInvokeMethod(t, r, c)
-    }), a;
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator,
+      generator = Object.create(protoGenerator.prototype),
+      context = new Context(tryLocsList || []);
+    return defineProperty(generator, "_invoke", {
+      value: makeInvokeMethod(innerFn, self, context)
+    }), generator;
   }
-  function tryCatch(t, e, r) {
+  function tryCatch(fn, obj, arg) {
     try {
       return {
         type: "normal",
-        arg: t.call(e, r)
+        arg: fn.call(obj, arg)
       };
-    } catch (t) {
+    } catch (err) {
       return {
         type: "throw",
-        arg: t
+        arg: err
       };
     }
   }
-  e.wrap = wrap;
-  var h = "suspendedStart",
-    l = "suspendedYield",
-    f = "executing",
-    s = "completed",
-    y = {};
+  exports.wrap = wrap;
+  var ContinueSentinel = {};
   function Generator() {}
   function GeneratorFunction() {}
   function GeneratorFunctionPrototype() {}
-  var p = {};
-  define(p, a, function () {
+  var IteratorPrototype = {};
+  define(IteratorPrototype, iteratorSymbol, function () {
     return this;
   });
-  var d = Object.getPrototypeOf,
-    v = d && d(d(values([])));
-  v && v !== r && n.call(v, a) && (p = v);
-  var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p);
-  function defineIteratorMethods(t) {
-    ["next", "throw", "return"].forEach(function (e) {
-      define(t, e, function (t) {
-        return this._invoke(e, t);
+  var getProto = Object.getPrototypeOf,
+    NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype);
+  var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype);
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function (method) {
+      define(prototype, method, function (arg) {
+        return this._invoke(method, arg);
       });
     });
   }
-  function AsyncIterator(t, e) {
-    function invoke(r, o, i, a) {
-      var c = tryCatch(t[r], t, o);
-      if ("throw" !== c.type) {
-        var u = c.arg,
-          h = u.value;
-        return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) {
-          invoke("next", t, i, a);
-        }, function (t) {
-          invoke("throw", t, i, a);
-        }) : e.resolve(h).then(function (t) {
-          u.value = t, i(u);
-        }, function (t) {
-          return invoke("throw", t, i, a);
+  function AsyncIterator(generator, PromiseImpl) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if ("throw" !== record.type) {
+        var result = record.arg,
+          value = result.value;
+        return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) {
+          invoke("next", value, resolve, reject);
+        }, function (err) {
+          invoke("throw", err, resolve, reject);
+        }) : PromiseImpl.resolve(value).then(function (unwrapped) {
+          result.value = unwrapped, resolve(result);
+        }, function (error) {
+          return invoke("throw", error, resolve, reject);
         });
       }
-      a(c.arg);
+      reject(record.arg);
     }
-    var r;
-    o(this, "_invoke", {
-      value: function value(t, n) {
+    var previousPromise;
+    defineProperty(this, "_invoke", {
+      value: function value(method, arg) {
         function callInvokeWithMethodAndArg() {
-          return new e(function (e, r) {
-            invoke(t, n, e, r);
+          return new PromiseImpl(function (resolve, reject) {
+            invoke(method, arg, resolve, reject);
           });
         }
-        return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
+        return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
       }
     });
   }
-  function makeInvokeMethod(e, r, n) {
-    var o = h;
-    return function (i, a) {
-      if (o === f) throw Error("Generator is already running");
-      if (o === s) {
-        if ("throw" === i) throw a;
-        return {
-          value: t,
-          done: !0
-        };
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = "suspendedStart";
+    return function (method, arg) {
+      if ("executing" === state) throw new Error("Generator is already running");
+      if ("completed" === state) {
+        if ("throw" === method) throw arg;
+        return doneResult();
       }
-      for (n.method = i, n.arg = a;;) {
-        var c = n.delegate;
-        if (c) {
-          var u = maybeInvokeDelegate(c, n);
-          if (u) {
-            if (u === y) continue;
-            return u;
+      for (context.method = method, context.arg = arg;;) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
           }
         }
-        if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) {
-          if (o === h) throw o = s, n.arg;
-          n.dispatchException(n.arg);
-        } else "return" === n.method && n.abrupt("return", n.arg);
-        o = f;
-        var p = tryCatch(e, r, n);
-        if ("normal" === p.type) {
-          if (o = n.done ? s : l, p.arg === y) continue;
+        if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) {
+          if ("suspendedStart" === state) throw state = "completed", context.arg;
+          context.dispatchException(context.arg);
+        } else "return" === context.method && context.abrupt("return", context.arg);
+        state = "executing";
+        var record = tryCatch(innerFn, self, context);
+        if ("normal" === record.type) {
+          if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue;
           return {
-            value: p.arg,
-            done: n.done
+            value: record.arg,
+            done: context.done
           };
         }
-        "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg);
+        "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg);
       }
     };
   }
-  function maybeInvokeDelegate(e, r) {
-    var n = r.method,
-      o = e.iterator[n];
-    if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y;
-    var i = tryCatch(o, e.iterator, r.arg);
-    if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y;
-    var a = i.arg;
-    return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y);
+  function maybeInvokeDelegate(delegate, context) {
+    var methodName = context.method,
+      method = delegate.iterator[methodName];
+    if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel;
+    var record = tryCatch(method, delegate.iterator, context.arg);
+    if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel;
+    var info = record.arg;
+    return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel);
   }
-  function pushTryEntry(t) {
-    var e = {
-      tryLoc: t[0]
+  function pushTryEntry(locs) {
+    var entry = {
+      tryLoc: locs[0]
     };
-    1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e);
+    1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry);
   }
-  function resetTryEntry(t) {
-    var e = t.completion || {};
-    e.type = "normal", delete e.arg, t.completion = e;
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal", delete record.arg, entry.completion = record;
   }
-  function Context(t) {
+  function Context(tryLocsList) {
     this.tryEntries = [{
       tryLoc: "root"
-    }], t.forEach(pushTryEntry, this), this.reset(!0);
+    }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0);
   }
-  function values(e) {
-    if (e || "" === e) {
-      var r = e[a];
-      if (r) return r.call(e);
-      if ("function" == typeof e.next) return e;
-      if (!isNaN(e.length)) {
-        var o = -1,
-          i = function next() {
-            for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next;
-            return next.value = t, next.done = !0, next;
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) return iteratorMethod.call(iterable);
+      if ("function" == typeof iterable.next) return iterable;
+      if (!isNaN(iterable.length)) {
+        var i = -1,
+          next = function next() {
+            for (; ++i < iterable.length;) {
+              if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next;
+            }
+            return next.value = undefined, next.done = !0, next;
           };
-        return i.next = i;
+        return next.next = next;
       }
     }
-    throw new TypeError(_typeof(e) + " is not iterable");
+    return {
+      next: doneResult
+    };
   }
-  return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", {
+  function doneResult() {
+    return {
+      value: undefined,
+      done: !0
+    };
+  }
+  return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", {
     value: GeneratorFunctionPrototype,
     configurable: !0
-  }), o(GeneratorFunctionPrototype, "constructor", {
+  }), defineProperty(GeneratorFunctionPrototype, "constructor", {
     value: GeneratorFunction,
     configurable: !0
-  }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) {
-    var e = "function" == typeof t && t.constructor;
-    return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name));
-  }, e.mark = function (t) {
-    return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t;
-  }, e.awrap = function (t) {
+  }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) {
+    var ctor = "function" == typeof genFun && genFun.constructor;
+    return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name));
+  }, exports.mark = function (genFun) {
+    return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun;
+  }, exports.awrap = function (arg) {
     return {
-      __await: t
+      __await: arg
     };
-  }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () {
+  }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
     return this;
-  }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) {
-    void 0 === i && (i = Promise);
-    var a = new AsyncIterator(wrap(t, r, n, o), i);
-    return e.isGeneratorFunction(r) ? a : a.next().then(function (t) {
-      return t.done ? t.value : a.next();
+  }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    void 0 === PromiseImpl && (PromiseImpl = Promise);
+    var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl);
+    return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) {
+      return result.done ? result.value : iter.next();
     });
-  }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () {
+  }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () {
     return this;
-  }), define(g, "toString", function () {
+  }), define(Gp, "toString", function () {
     return "[object Generator]";
-  }), e.keys = function (t) {
-    var e = Object(t),
-      r = [];
-    for (var n in e) r.push(n);
-    return r.reverse(), function next() {
-      for (; r.length;) {
-        var t = r.pop();
-        if (t in e) return next.value = t, next.done = !1, next;
+  }), exports.keys = function (val) {
+    var object = Object(val),
+      keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    return keys.reverse(), function next() {
+      for (; keys.length;) {
+        var key = keys.pop();
+        if (key in object) return next.value = key, next.done = !1, next;
       }
       return next.done = !0, next;
     };
-  }, e.values = values, Context.prototype = {
+  }, exports.values = values, Context.prototype = {
     constructor: Context,
-    reset: function reset(e) {
-      if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t);
+    reset: function reset(skipTempReset) {
+      if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) {
+        "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined);
+      }
     },
     stop: function stop() {
       this.done = !0;
-      var t = this.tryEntries[0].completion;
-      if ("throw" === t.type) throw t.arg;
+      var rootRecord = this.tryEntries[0].completion;
+      if ("throw" === rootRecord.type) throw rootRecord.arg;
       return this.rval;
     },
-    dispatchException: function dispatchException(e) {
-      if (this.done) throw e;
-      var r = this;
-      function handle(n, o) {
-        return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o;
+    dispatchException: function dispatchException(exception) {
+      if (this.done) throw exception;
+      var context = this;
+      function handle(loc, caught) {
+        return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught;
       }
-      for (var o = this.tryEntries.length - 1; o >= 0; --o) {
-        var i = this.tryEntries[o],
-          a = i.completion;
-        if ("root" === i.tryLoc) return handle("end");
-        if (i.tryLoc <= this.prev) {
-          var c = n.call(i, "catchLoc"),
-            u = n.call(i, "finallyLoc");
-          if (c && u) {
-            if (this.prev < i.catchLoc) return handle(i.catchLoc, !0);
-            if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
-          } else if (c) {
-            if (this.prev < i.catchLoc) return handle(i.catchLoc, !0);
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i],
+          record = entry.completion;
+        if ("root" === entry.tryLoc) return handle("end");
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc"),
+            hasFinally = hasOwn.call(entry, "finallyLoc");
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0);
+            if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc);
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0);
           } else {
-            if (!u) throw Error("try statement without catch or finally");
-            if (this.prev < i.finallyLoc) return handle(i.finallyLoc);
+            if (!hasFinally) throw new Error("try statement without catch or finally");
+            if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc);
           }
         }
       }
     },
-    abrupt: function abrupt(t, e) {
-      for (var r = this.tryEntries.length - 1; r >= 0; --r) {
-        var o = this.tryEntries[r];
-        if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) {
-          var i = o;
+    abrupt: function abrupt(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
           break;
         }
       }
-      i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null);
-      var a = i ? i.completion : {};
-      return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a);
+      finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null);
+      var record = finallyEntry ? finallyEntry.completion : {};
+      return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record);
     },
-    complete: function complete(t, e) {
-      if ("throw" === t.type) throw t.arg;
-      return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y;
+    complete: function complete(record, afterLoc) {
+      if ("throw" === record.type) throw record.arg;
+      return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel;
     },
-    finish: function finish(t) {
-      for (var e = this.tryEntries.length - 1; e >= 0; --e) {
-        var r = this.tryEntries[e];
-        if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y;
+    finish: function finish(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel;
       }
     },
-    "catch": function _catch(t) {
-      for (var e = this.tryEntries.length - 1; e >= 0; --e) {
-        var r = this.tryEntries[e];
-        if (r.tryLoc === t) {
-          var n = r.completion;
-          if ("throw" === n.type) {
-            var o = n.arg;
-            resetTryEntry(r);
+    "catch": function _catch(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if ("throw" === record.type) {
+            var thrown = record.arg;
+            resetTryEntry(entry);
           }
-          return o;
+          return thrown;
         }
       }
-      throw Error("illegal catch attempt");
+      throw new Error("illegal catch attempt");
     },
-    delegateYield: function delegateYield(e, r, n) {
+    delegateYield: function delegateYield(iterable, resultName, nextLoc) {
       return this.delegate = {
-        iterator: values(e),
-        resultName: r,
-        nextLoc: n
-      }, "next" === this.method && (this.arg = t), y;
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      }, "next" === this.method && (this.arg = undefined), ContinueSentinel;
     }
-  }, e;
+  }, exports;
 }
 module.exports = _regeneratorRuntime, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 5636:
+/***/ 6015:
 /***/ ((module) => {
 
 function _setPrototypeOf(o, p) {
@@ -6957,13 +7169,13 @@ module.exports = _setPrototypeOf, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 5715:
+/***/ 7424:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var arrayWithHoles = __webpack_require__(2987);
-var iterableToArrayLimit = __webpack_require__(1156);
-var unsupportedIterableToArray = __webpack_require__(7122);
-var nonIterableRest = __webpack_require__(7752);
+var arrayWithHoles = __webpack_require__(5372);
+var iterableToArrayLimit = __webpack_require__(8872);
+var unsupportedIterableToArray = __webpack_require__(6116);
+var nonIterableRest = __webpack_require__(2218);
 function _slicedToArray(arr, i) {
   return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
 }
@@ -6971,10 +7183,10 @@ module.exports = _slicedToArray, module.exports.__esModule = true, module.export
 
 /***/ }),
 
-/***/ 9552:
+/***/ 1753:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var getPrototypeOf = __webpack_require__(3072);
+var getPrototypeOf = __webpack_require__(3808);
 function _superPropBase(object, property) {
   while (!Object.prototype.hasOwnProperty.call(object, property)) {
     object = getPrototypeOf(object);
@@ -6986,57 +7198,57 @@ module.exports = _superPropBase, module.exports.__esModule = true, module.export
 
 /***/ }),
 
-/***/ 9045:
+/***/ 5036:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var _typeof = (__webpack_require__(3738)["default"]);
-function toPrimitive(t, r) {
-  if ("object" != _typeof(t) || !t) return t;
-  var e = t[Symbol.toPrimitive];
-  if (void 0 !== e) {
-    var i = e.call(t, r || "default");
-    if ("object" != _typeof(i)) return i;
+var _typeof = (__webpack_require__(8698)["default"]);
+function _toPrimitive(input, hint) {
+  if (_typeof(input) !== "object" || input === null) return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    var res = prim.call(input, hint || "default");
+    if (_typeof(res) !== "object") return res;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
-  return ("string" === r ? String : Number)(t);
+  return (hint === "string" ? String : Number)(input);
 }
-module.exports = toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
+module.exports = _toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 7736:
+/***/ 4062:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var _typeof = (__webpack_require__(3738)["default"]);
-var toPrimitive = __webpack_require__(9045);
-function toPropertyKey(t) {
-  var i = toPrimitive(t, "string");
-  return "symbol" == _typeof(i) ? i : i + "";
+var _typeof = (__webpack_require__(8698)["default"]);
+var toPrimitive = __webpack_require__(5036);
+function _toPropertyKey(arg) {
+  var key = toPrimitive(arg, "string");
+  return _typeof(key) === "symbol" ? key : String(key);
 }
-module.exports = toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
+module.exports = _toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 3738:
+/***/ 8698:
 /***/ ((module) => {
 
-function _typeof(o) {
+function _typeof(obj) {
   "@babel/helpers - typeof";
 
-  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
-    return typeof o;
-  } : function (o) {
-    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(o);
+  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
 }
 module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
 
-/***/ 7122:
+/***/ 6116:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var arrayLikeToArray = __webpack_require__(79);
+var arrayLikeToArray = __webpack_require__(3897);
 function _unsupportedIterableToArray(o, minLen) {
   if (!o) return;
   if (typeof o === "string") return arrayLikeToArray(o, minLen);
@@ -7049,13 +7261,13 @@ module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, 
 
 /***/ }),
 
-/***/ 1837:
+/***/ 3496:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var getPrototypeOf = __webpack_require__(3072);
-var setPrototypeOf = __webpack_require__(5636);
-var isNativeFunction = __webpack_require__(691);
-var construct = __webpack_require__(9646);
+var getPrototypeOf = __webpack_require__(3808);
+var setPrototypeOf = __webpack_require__(6015);
+var isNativeFunction = __webpack_require__(6035);
+var construct = __webpack_require__(3515);
 function _wrapNativeSuper(Class) {
   var _cache = typeof Map === "function" ? new Map() : undefined;
   module.exports = _wrapNativeSuper = function _wrapNativeSuper(Class) {
@@ -7086,12 +7298,12 @@ module.exports = _wrapNativeSuper, module.exports.__esModule = true, module.expo
 
 /***/ }),
 
-/***/ 4756:
+/***/ 4687:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 // TODO(Babel 8): Remove this file.
 
-var runtime = __webpack_require__(4633)();
+var runtime = __webpack_require__(7061)();
 module.exports = runtime;
 
 // Copied from https://github.com/facebook/regenerator/blob/main/packages/runtime/runtime.js#L736=
@@ -7108,11 +7320,11 @@ try {
 
 /***/ }),
 
-/***/ 6425:
+/***/ 7218:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-// Axios v1.6.8 Copyright (c) 2024 Matt Zabriskie and contributors
+// Axios v1.6.2 Copyright (c) 2023 Matt Zabriskie and contributors
 
 
 function bind(fn, thisArg) {
@@ -8466,9 +8678,6 @@ function arrayToObject(arr) {
 function formDataToJSON(formData) {
   function buildPath(path, value, target, index) {
     let name = path[index++];
-
-    if (name === '__proto__') return true;
-
     const isNumericKey = Number.isFinite(+name);
     const isLast = index >= path.length;
     name = !name && utils$1.isArray(target) ? target.length : name;
@@ -8552,6 +8761,9 @@ const defaults = {
     const isFormData = utils$1.isFormData(data);
 
     if (isFormData) {
+      if (!hasJSONContentType) {
+        return data;
+      }
       return hasJSONContentType ? JSON.stringify(formDataToJSON(data)) : data;
     }
 
@@ -9135,7 +9347,7 @@ function isAbsoluteURL(url) {
  */
 function combineURLs(baseURL, relativeURL) {
   return relativeURL
-    ? baseURL.replace(/\/?\/$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
     : baseURL;
 }
 
@@ -9667,7 +9879,7 @@ function dispatchRequest(config) {
   });
 }
 
-const headersToObject = (thing) => thing instanceof AxiosHeaders$1 ? { ...thing } : thing;
+const headersToObject = (thing) => thing instanceof AxiosHeaders$1 ? thing.toJSON() : thing;
 
 /**
  * Config-specific merge-function which creates a new config-object
@@ -9769,7 +9981,7 @@ function mergeConfig(config1, config2) {
   return config;
 }
 
-const VERSION = "1.6.8";
+const VERSION = "1.6.2";
 
 const validators$1 = {};
 
@@ -9884,31 +10096,7 @@ class Axios {
    *
    * @returns {Promise} The Promise to be fulfilled
    */
-  async request(configOrUrl, config) {
-    try {
-      return await this._request(configOrUrl, config);
-    } catch (err) {
-      if (err instanceof Error) {
-        let dummy;
-
-        Error.captureStackTrace ? Error.captureStackTrace(dummy = {}) : (dummy = new Error());
-
-        // slice off the Error: ... line
-        const stack = dummy.stack ? dummy.stack.replace(/^.+\n/, '') : '';
-
-        if (!err.stack) {
-          err.stack = stack;
-          // match without the 2 top stack lines
-        } else if (stack && !String(err.stack).endsWith(stack.replace(/^.+\n.+\n/, ''))) {
-          err.stack += '\n' + stack;
-        }
-      }
-
-      throw err;
-    }
-  }
-
-  _request(configOrUrl, config) {
+  request(configOrUrl, config) {
     /*eslint no-param-reassign:0*/
     // Allow for axios('example/url'[, config]) a la fetch API
     if (typeof configOrUrl === 'string') {
@@ -10374,11 +10562,11 @@ module.exports = axios;
 
 /***/ }),
 
-/***/ 8330:
+/***/ 4147:
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"name":"netlicensing-client","version":"1.2.35","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.cjs","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.cjs","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.cjs","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^1.6.0","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.17.8","@babel/plugin-proposal-class-properties":"^7.16.7","@babel/plugin-proposal-decorators":"^7.17.8","@babel/plugin-proposal-export-namespace-from":"^7.16.7","@babel/plugin-proposal-function-sent":"^7.16.7","@babel/plugin-proposal-json-strings":"^7.16.7","@babel/plugin-proposal-numeric-separator":"^7.16.7","@babel/plugin-proposal-throw-expressions":"^7.16.7","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.17.7","@babel/plugin-transform-runtime":"^7.17.0","@babel/preset-env":"^7.16.11","@babel/runtime":"^7.17.8","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^9.1.2","chalk":"^4.1.2","eslint":"^7.32.0","eslint-config-airbnb-base":"^15.0.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-plugin-import":"^2.25.4","eslint-plugin-jasmine":"^4.1.3","eslint-webpack-plugin":"^3.1.1","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^4.0.2","jasmine-core":"^4.0.1","karma":"^6.3.17","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.2","karma-jasmine":"^4.0.2","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.33","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.3.1","webpack":"^5.76.0","webpack-cli":"^5.1.1","webpack-merge":"^5.8.0"},"engines":{"node":">= 14.0.0","npm":">= 8.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
+module.exports = JSON.parse('{"name":"netlicensing-client","version":"1.2.36","description":"JavaScript Wrapper for Labs64 NetLicensing RESTful API","keywords":["labs64","netlicensing","licensing","licensing-as-a-service","license","license-management","software-license","client","restful","restful-api","javascript","wrapper","api","client"],"license":"Apache-2.0","author":"Labs64 GmbH","homepage":"https://netlicensing.io","repository":{"type":"git","url":"https://github.com/Labs64/NetLicensingClient-javascript"},"bugs":{"url":"https://github.com/Labs64/NetLicensingClient-javascript/issues"},"contributors":[{"name":"Ready Brown","email":"ready.brown@hotmail.de","url":"https://github.com/r-brown"},{"name":"Viacheslav Rudkovskiy","email":"viachaslau.rudkovski@labs64.de","url":"https://github.com/v-rudkovskiy"},{"name":"Andrei Yushkevich","email":"yushkevich@me.com","url":"https://github.com/yushkevich"}],"main":"dist/netlicensing-client.js","files":["dist"],"scripts":{"build":"node build/build.cjs","release":"npm run build && npm run test","dev":"webpack --progress --watch --config build/webpack.dev.conf.cjs","test":"karma start test/karma.conf.js --single-run","test-mocha":"webpack --config build/webpack.test.conf.cjs","test-for-travis":"karma start test/karma.conf.js --single-run --browsers Firefox","lint":"eslint --ext .js,.vue src test"},"dependencies":{"axios":"^1.6.0","btoa":"^1.2.1","es6-promise":"^4.2.8"},"devDependencies":{"@babel/core":"^7.17.8","@babel/plugin-proposal-class-properties":"^7.16.7","@babel/plugin-proposal-decorators":"^7.17.8","@babel/plugin-proposal-export-namespace-from":"^7.16.7","@babel/plugin-proposal-function-sent":"^7.16.7","@babel/plugin-proposal-json-strings":"^7.16.7","@babel/plugin-proposal-numeric-separator":"^7.16.7","@babel/plugin-proposal-throw-expressions":"^7.16.7","@babel/plugin-syntax-dynamic-import":"^7.8.3","@babel/plugin-syntax-import-meta":"^7.10.4","@babel/plugin-transform-modules-commonjs":"^7.17.7","@babel/plugin-transform-runtime":"^7.17.0","@babel/preset-env":"^7.16.11","@babel/runtime":"^7.17.8","axios-mock-adapter":"^1.20.0","babel-eslint":"^10.1.0","babel-loader":"^9.1.2","chalk":"^4.1.2","eslint":"^7.32.0","eslint-config-airbnb-base":"^15.0.0","eslint-friendly-formatter":"^4.0.1","eslint-import-resolver-webpack":"^0.13.1","eslint-plugin-import":"^2.25.4","eslint-plugin-jasmine":"^4.1.3","eslint-webpack-plugin":"^3.1.1","faker":"^5.5.3","is-docker":"^2.2.1","jasmine":"^4.0.2","jasmine-core":"^4.0.1","karma":"^6.3.17","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.2","karma-jasmine":"^4.0.2","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.33","karma-webpack":"^5.0.0","lodash":"^4.17.21","ora":"^5.4.1","rimraf":"^3.0.2","terser-webpack-plugin":"^5.3.1","webpack":"^5.76.0","webpack-cli":"^5.1.1","webpack-merge":"^5.8.0"},"engines":{"node":">= 14.0.0","npm":">= 8.0.0"},"browserslist":["> 1%","last 2 versions","not ie <= 10"]}');
 
 /***/ })
 
@@ -10429,7 +10617,7 @@ var __webpack_exports__ = {};
 var exports = __webpack_exports__;
 
 
-var _interopRequireDefault = __webpack_require__(4994);
+var _interopRequireDefault = __webpack_require__(4836);
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
@@ -10709,52 +10897,52 @@ Object.defineProperty(exports, "itemToTransaction", ({
     return _itemToTransaction.default;
   }
 }));
-var _Constants = _interopRequireDefault(__webpack_require__(6232));
-var _Context = _interopRequireDefault(__webpack_require__(2302));
-var _Page = _interopRequireDefault(__webpack_require__(4034));
-var _ValidationParameters = _interopRequireDefault(__webpack_require__(662));
-var _ValidationResults = _interopRequireDefault(__webpack_require__(8506));
-var _Service = _interopRequireDefault(__webpack_require__(3401));
-var _LicenseeService = _interopRequireDefault(__webpack_require__(7211));
-var _LicenseService = _interopRequireDefault(__webpack_require__(7394));
-var _LicenseTemplateService = _interopRequireDefault(__webpack_require__(3140));
-var _PaymentMethodService = _interopRequireDefault(__webpack_require__(6798));
-var _ProductModuleService = _interopRequireDefault(__webpack_require__(3950));
-var _ProductService = _interopRequireDefault(__webpack_require__(5114));
-var _TokenService = _interopRequireDefault(__webpack_require__(5192));
-var _TransactionService = _interopRequireDefault(__webpack_require__(2579));
-var _UtilityService = _interopRequireDefault(__webpack_require__(6359));
-var _BundleService = _interopRequireDefault(__webpack_require__(9089));
-var _NotificationService = _interopRequireDefault(__webpack_require__(1692));
-var _BaseEntity = _interopRequireDefault(__webpack_require__(635));
-var _Country = _interopRequireDefault(__webpack_require__(7147));
-var _License = _interopRequireDefault(__webpack_require__(1938));
-var _Licensee = _interopRequireDefault(__webpack_require__(9899));
-var _LicenseTemplate = _interopRequireDefault(__webpack_require__(2476));
-var _PaymentMethod = _interopRequireDefault(__webpack_require__(3014));
-var _Product = _interopRequireDefault(__webpack_require__(3262));
-var _ProductDiscount = _interopRequireDefault(__webpack_require__(1721));
-var _ProductModule = _interopRequireDefault(__webpack_require__(9142));
-var _Token = _interopRequireDefault(__webpack_require__(584));
-var _Transaction = _interopRequireDefault(__webpack_require__(269));
-var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3716));
-var _Bundle = _interopRequireDefault(__webpack_require__(9633));
-var _Notification = _interopRequireDefault(__webpack_require__(5454));
-var _itemToCountry = _interopRequireDefault(__webpack_require__(6899));
-var _itemToLicense = _interopRequireDefault(__webpack_require__(5402));
-var _itemToLicensee = _interopRequireDefault(__webpack_require__(4067));
-var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(52));
-var _itemToObject = _interopRequireDefault(__webpack_require__(670));
-var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(2430));
-var _itemToProduct = _interopRequireDefault(__webpack_require__(822));
-var _itemToProductModule = _interopRequireDefault(__webpack_require__(4398));
-var _itemToToken = _interopRequireDefault(__webpack_require__(3648));
-var _itemToTransaction = _interopRequireDefault(__webpack_require__(1717));
-var _itemToBundle = _interopRequireDefault(__webpack_require__(3849));
-var _CastsUtils = _interopRequireDefault(__webpack_require__(8769));
-var _CheckUtils = _interopRequireDefault(__webpack_require__(1305));
-var _FilterUtils = _interopRequireDefault(__webpack_require__(8833));
-var _NlicError = _interopRequireDefault(__webpack_require__(6469));
+var _Constants = _interopRequireDefault(__webpack_require__(1480));
+var _Context = _interopRequireDefault(__webpack_require__(4693));
+var _Page = _interopRequireDefault(__webpack_require__(9407));
+var _ValidationParameters = _interopRequireDefault(__webpack_require__(4856));
+var _ValidationResults = _interopRequireDefault(__webpack_require__(3735));
+var _Service = _interopRequireDefault(__webpack_require__(393));
+var _LicenseeService = _interopRequireDefault(__webpack_require__(5498));
+var _LicenseService = _interopRequireDefault(__webpack_require__(6486));
+var _LicenseTemplateService = _interopRequireDefault(__webpack_require__(1580));
+var _PaymentMethodService = _interopRequireDefault(__webpack_require__(5225));
+var _ProductModuleService = _interopRequireDefault(__webpack_require__(7443));
+var _ProductService = _interopRequireDefault(__webpack_require__(5042));
+var _TokenService = _interopRequireDefault(__webpack_require__(731));
+var _TransactionService = _interopRequireDefault(__webpack_require__(5919));
+var _UtilityService = _interopRequireDefault(__webpack_require__(7635));
+var _BundleService = _interopRequireDefault(__webpack_require__(1462));
+var _NotificationService = _interopRequireDefault(__webpack_require__(3212));
+var _BaseEntity = _interopRequireDefault(__webpack_require__(389));
+var _Country = _interopRequireDefault(__webpack_require__(187));
+var _License = _interopRequireDefault(__webpack_require__(9763));
+var _Licensee = _interopRequireDefault(__webpack_require__(2948));
+var _LicenseTemplate = _interopRequireDefault(__webpack_require__(767));
+var _PaymentMethod = _interopRequireDefault(__webpack_require__(5088));
+var _Product = _interopRequireDefault(__webpack_require__(7143));
+var _ProductDiscount = _interopRequireDefault(__webpack_require__(3144));
+var _ProductModule = _interopRequireDefault(__webpack_require__(3886));
+var _Token = _interopRequireDefault(__webpack_require__(8132));
+var _Transaction = _interopRequireDefault(__webpack_require__(39));
+var _LicenseTransactionJoin = _interopRequireDefault(__webpack_require__(3089));
+var _Bundle = _interopRequireDefault(__webpack_require__(2044));
+var _Notification = _interopRequireDefault(__webpack_require__(5433));
+var _itemToCountry = _interopRequireDefault(__webpack_require__(3213));
+var _itemToLicense = _interopRequireDefault(__webpack_require__(3887));
+var _itemToLicensee = _interopRequireDefault(__webpack_require__(6463));
+var _itemToLicenseTemplate = _interopRequireDefault(__webpack_require__(3255));
+var _itemToObject = _interopRequireDefault(__webpack_require__(7106));
+var _itemToPaymentMethod = _interopRequireDefault(__webpack_require__(797));
+var _itemToProduct = _interopRequireDefault(__webpack_require__(1255));
+var _itemToProductModule = _interopRequireDefault(__webpack_require__(2514));
+var _itemToToken = _interopRequireDefault(__webpack_require__(4073));
+var _itemToTransaction = _interopRequireDefault(__webpack_require__(1198));
+var _itemToBundle = _interopRequireDefault(__webpack_require__(9892));
+var _CastsUtils = _interopRequireDefault(__webpack_require__(553));
+var _CheckUtils = _interopRequireDefault(__webpack_require__(5661));
+var _FilterUtils = _interopRequireDefault(__webpack_require__(3093));
+var _NlicError = _interopRequireDefault(__webpack_require__(2986));
 })();
 
 /******/ 	return __webpack_exports__;
