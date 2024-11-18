@@ -22,6 +22,13 @@ import BaseEntity from './BaseEntity';
  * Bundle name.
  * @property string name
  *
+ * Price for the bundle. If >0, it must always be accompanied by the currency specification.
+ * @property double price
+ *
+ * Specifies currency for the bundle price. Check data types to discover which currencies are
+ * supported.
+ * @property string currency
+ *
  * Arbitrary additional user properties of string type may be associated with each bundle. The name of user property
  * must not be equal to any of the fixed property names listed above and must be none of id, deleted.
  *
@@ -36,6 +43,8 @@ export default class Bundle extends BaseEntity {
                 number: 'string',
                 active: 'boolean',
                 name: 'string',
+                price: 'double',
+                currency: 'string',
             },
         });
     }
@@ -70,6 +79,22 @@ export default class Bundle extends BaseEntity {
 
     getDescription(def) {
         return this.getProperty('description', def);
+    }
+
+    setPrice(price) {
+        return this.setProperty('price', price);
+    }
+
+    getPrice(def) {
+        return this.getProperty('price', def);
+    }
+
+    setCurrency(currency) {
+        return this.setProperty('currency', currency);
+    }
+
+    getCurrency(def) {
+        return this.getProperty('currency', def);
     }
 
     setLicenseTemplateNumbers(licenseTemplateNumbers) {
