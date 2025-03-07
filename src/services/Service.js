@@ -18,8 +18,8 @@ export default class Service {
         return axiosInstance || axios;
     }
 
-    static setAxiosInstance(instanse) {
-        axiosInstance = instanse;
+    static setAxiosInstance(instance) {
+        axiosInstance = instance;
     }
 
     static getLastHttpRequestInfo() {
