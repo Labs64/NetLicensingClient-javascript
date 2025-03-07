@@ -54,6 +54,10 @@ export default class Token extends BaseEntity {
         });
     }
 
+    setNumber(number) {
+        return this.setProperty('number', number);
+    }
+
     getNumber(def) {
         return this.getProperty('number', def);
     }
