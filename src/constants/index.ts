@@ -117,6 +117,6 @@ export default {
     ENDPOINT_PATH_COUNTRIES: 'countries',
     LICENSING_MODEL_TYPE: 'LicensingModelProperties',
     LICENSE_TYPE: 'LicenseType',
-    COUNTRY_TYPE: 'CountryType',
+    COUNTRY_TYPE: 'Country',
   },
 };
