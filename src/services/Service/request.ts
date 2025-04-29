@@ -130,23 +130,26 @@ export default async (
     setLastResponse(response || null);
     setInfo(info);
 
-    let message = (e as AxiosError).message;
+    if ((e as AxiosError).isAxiosError) {
+      let message = (e as AxiosError).message;
 
-    if (response?.data && info.length > 0) {
-      const eInfo = info.find(({ type }) => type === 'ERROR');
+      if (response?.data && info.length > 0) {
+        const eInfo = info.find(({ type }) => type === 'ERROR');
 
-      if (eInfo) {
-        message = eInfo.value;
+        if (eInfo) {
+          message = eInfo.value;
+        }
       }
+
+      throw new NlicError(
+        message,
+        error.code,
+        error.config,
+        error.request,
+        error.response as AxiosResponse<NlicResponse>,
+      );
     }
 
-    throw new NlicError(
-      message,
-      error.code,
-      error.config,
-      error.request,
-      error.response as AxiosResponse<NlicResponse>,
-      error.stack,
-    );
+    throw e;
   }
 };
