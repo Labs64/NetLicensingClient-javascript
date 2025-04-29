@@ -10,6 +10,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   target: 'esnext',
+  platform: 'browser',
   esbuildOptions(options) {
     options.legalComments = 'none';
   },
