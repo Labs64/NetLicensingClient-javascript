@@ -25,7 +25,7 @@ import { createMockItem, createMockResponse } from '@test-utils/nlic';
 vi.mock('@/services/Service');
 
 describe('NotificationService', () => {
-  const context = new Context({ username: 'demo', password: '123' });
+  const context = Context({ username: 'demo', password: '123' });
   const config = {};
   const endpoint = Constants.Notification.ENDPOINT_PATH;
   const itemType = Constants.Notification.TYPE;

@@ -10,7 +10,7 @@ import type { Transaction } from '@/types/entities/Transaction';
  * @copyright 2017 Labs64 NetLicensing
  */
 
-export default class LicenseTransactionJoin implements ILicenseTransactionJoin {
+class LicenseTransactionJoin implements ILicenseTransactionJoin {
   transaction: Transaction;
   license: License;
 
@@ -35,3 +35,5 @@ export default class LicenseTransactionJoin implements ILicenseTransactionJoin {
     return this.license;
   }
 }
+
+export default (transaction: Transaction, license: License) => new LicenseTransactionJoin(transaction, license);
