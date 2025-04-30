@@ -21,7 +21,9 @@ const NetLicensingDemo = async () => {
     TokenService,
   } = NetLicensing;
 
-  const context = new Context().setUsername('demo').setPassword('demo');
+  const context = Context();
+  context.setUsername('demo');
+  context.setPassword('demo');
 
   const randomNumber = Math.random().toString(36).slice(2);
   const productNumber = numberWithPrefix('P', randomNumber);
@@ -211,7 +213,7 @@ const NetLicensingDemo = async () => {
 
   // region ********* Validate
 
-  const validationParameters = new ValidationParameters();
+  const validationParameters = ValidationParameters();
   validationParameters.setProductNumber(productNumber);
   validationParameters.setLicenseeName(numberWithPrefix('Licensee-', Math.random().toString(36).slice(2)));
   validationParameters.setProductModuleValidationParameters(productModuleNumber, {

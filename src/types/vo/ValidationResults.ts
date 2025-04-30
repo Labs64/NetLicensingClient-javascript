@@ -10,7 +10,7 @@ export interface ProductModuleValidation {
   [key: string]: string;
 }
 
-export interface ValidationResult {
+export interface ValidationResults {
   readonly validations: Record<string, ProductModuleValidation>;
   ttl?: Date;
 

@@ -27,6 +27,7 @@ import { RequestConfig } from '@/types/services/Service';
 import { Context } from '@/types/vo/Context';
 import { Page as IPage } from '@/types/vo/Page';
 import { ValidationParameters } from '@/types/vo/ValidationParameters';
+import { ValidationResults as IValidationResults } from '@/types/vo/ValidationResults';
 
 // utils
 import { encode } from '@/utils/filter';
@@ -236,7 +237,7 @@ const licenseeService: LicenseeService = {
     number: string,
     validationParameters?: ValidationParameters,
     config?: RequestConfig,
-  ): Promise<ValidationResults> {
+  ): Promise<IValidationResults> {
     ensureNotEmpty(number, 'number');
 
     const data: Record<string, string | boolean> = {};
@@ -279,7 +280,7 @@ const licenseeService: LicenseeService = {
 
     const response = await Service.post(context, `${endpoint}/${number}/${endpointValidate}`, data, config);
 
-    const validationResults = new ValidationResults();
+    const validationResults = ValidationResults();
 
     const ttl = response.data.ttl;
 

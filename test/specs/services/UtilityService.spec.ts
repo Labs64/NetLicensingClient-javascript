@@ -26,7 +26,7 @@ vi.mock('@/services/Service');
 vi.mock('@/services/Service');
 
 describe('UtilityService', () => {
-  const context = new Context({ username: 'demo', password: '123' });
+  const context = Context({ username: 'demo', password: '123' });
   const config = {};
 
   afterEach(() => {

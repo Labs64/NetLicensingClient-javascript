@@ -25,7 +25,7 @@ import { createMockItem, createMockResponse } from '@test-utils/nlic';
 vi.mock('@/services/Service');
 
 describe('LicenseeService', () => {
-  const context = new Context({ username: 'demo', password: '123' });
+  const context = Context({ username: 'demo', password: '123' });
   const config = {};
   const endpoint = Constants.Licensee.ENDPOINT_PATH;
   const itemType = Constants.Licensee.TYPE;
@@ -213,7 +213,7 @@ describe('LicenseeService', () => {
 
       const number = 'L1';
 
-      const validationParameters = new ValidationParameters();
+      const validationParameters = ValidationParameters();
       validationParameters.setProductNumber('P1');
       validationParameters.setLicenseeProperty('someLicenseeProperty', 'Z');
       validationParameters.setParameter('PM1', { xParameter: 'X', yParameter: 'Y' });
