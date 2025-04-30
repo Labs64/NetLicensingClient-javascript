@@ -45,7 +45,7 @@ describe('Transaction entity', () => {
       dateCreated: new Date(),
       dateClosed: new Date(),
       paymentMethod: PaymentMethodEnum.PAYPAL,
-      licenseTransactionJoins: [new LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' }))],
+      licenseTransactionJoins: [LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' }))],
     };
 
     const transaction = Transaction(props);
@@ -207,10 +207,10 @@ describe('Transaction entity', () => {
   });
 
   it('should set and get licenseTransactionJoins correctly', () => {
-    const join1 = new LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' }));
-    const join2 = new LicenseTransactionJoin(Transaction({ number: 'T2' }), License({ number: 'L2' }));
-    const join3 = new LicenseTransactionJoin(Transaction({ number: 'T3' }), License({ number: 'L3' }));
-    const join4 = new LicenseTransactionJoin(Transaction({ number: 'T4' }), License({ number: 'L4' }));
+    const join1 = LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' }));
+    const join2 = LicenseTransactionJoin(Transaction({ number: 'T2' }), License({ number: 'L2' }));
+    const join3 = LicenseTransactionJoin(Transaction({ number: 'T3' }), License({ number: 'L3' }));
+    const join4 = LicenseTransactionJoin(Transaction({ number: 'T4' }), License({ number: 'L4' }));
 
     const transaction = Transaction();
 
@@ -260,7 +260,7 @@ describe('Transaction entity', () => {
       dateCreated: new Date('2024-01-03T12:00:00.000Z'),
       dateClosed: new Date('2024-01-04T12:00:00.000Z'),
       paymentMethod: PaymentMethodEnum.PAYPAL,
-      licenseTransactionJoins: [new LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' }))],
+      licenseTransactionJoins: [LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' }))],
     });
 
     expect(transaction.serialize()).toStrictEqual({

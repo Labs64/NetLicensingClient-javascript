@@ -38,7 +38,7 @@ export default <T extends object = TransactionProps>(item?: Item) => {
       const transaction = Transaction({ number: transactionNumber });
       const license = License({ number: licenseNumber });
 
-      return new LicenseTransactionJoin(transaction, license);
+      return LicenseTransactionJoin(transaction, license);
     });
   }
 

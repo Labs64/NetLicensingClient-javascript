@@ -13,9 +13,7 @@ import { RequestConfig } from '@/types/services/Service';
 import { Context } from '@/types/vo/Context';
 import { Page } from '@/types/vo/Page';
 import { ValidationParameters } from '@/types/vo/ValidationParameters';
-
-// vo
-import ValidationResults from '@/vo/ValidationResults';
+import { ValidationResults } from '@/types/vo/ValidationResults';
 
 export interface LicenseeService {
   get<T extends object = LicenseeProps>(context: Context, number: string, config?: RequestConfig): Promise<Licensee<T>>;

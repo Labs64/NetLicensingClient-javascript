@@ -14,6 +14,9 @@ export default defineConfig([
   {
     ...pluginVitest.configs.recommended,
     files: ['**/*.spec.ts', '**/*.test.ts'],
+    rules: {
+      'vitest/expect-expect': ['error', { assertFunctionNames: ['expect', 'expectEntity', 'expectEntityProp'] }],
+    }
   },
 
   {
@@ -30,7 +33,7 @@ export default defineConfig([
       import: importPlugin,
     },
 
-    ignores: ['/node_modules', '/dist'],
+    ignores: ['/node_modules', '/dist', '/docs'],
 
     rules: {
       // General
