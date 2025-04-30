@@ -4,8 +4,9 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import Service from '@/services/Service';
 
 // types
-import { Info } from '@/types/api/response';
-import { RequestConfig } from '@/types/services/Service';
+import type { Info } from '@/types/api/response';
+import type { RequestConfig } from '@/types/services/Service';
+import type { Context as IContext } from '@/types/vo/Context';
 
 // vo
 import Context from '@/vo/Context';
@@ -31,7 +32,7 @@ describe('Service', () => {
       mockAxios = createMockAxiosInstance({ data });
       Service.setAxiosInstance(mockAxios);
 
-      const context = new Context({ username: 'demo', password: '123' });
+      const context = Context({ username: 'demo', password: '123' });
       const onResponse = vi.fn();
       const onInfo = vi.fn();
 
@@ -50,12 +51,12 @@ describe('Service', () => {
     ['delete', Service.delete],
     [
       'request',
-      (ctx: Context, url: string, data?: Record<string, unknown>, cfg?: RequestConfig) =>
+      (ctx: IContext, url: string, data?: Record<string, unknown>, cfg?: RequestConfig) =>
         Service.request(ctx, 'put', url, data, cfg),
     ],
   ])('%s method', (methodName, method) => {
     it('includes default headers and parameters', async () => {
-      const context = new Context({ username: 'demo', password: '123' });
+      const context = Context({ username: 'demo', password: '123' });
       const payload = { someData: 'value' };
 
       await method(context, 'some-url', payload, { axiosInstance: mockAxios });
@@ -71,7 +72,7 @@ describe('Service', () => {
 
     describe('auth strategies', () => {
       it('uses basic auth when username/password provided', async () => {
-        const context = new Context({ username: 'demo', password: '123' });
+        const context = Context({ username: 'demo', password: '123' });
 
         await method(context, 'some-url', {}, { axiosInstance: mockAxios });
 
@@ -86,7 +87,7 @@ describe('Service', () => {
       });
 
       it('uses apiKey when securityMode is APIKEY', async () => {
-        const context = new Context({ securityMode: 'APIKEY', apiKey: 'some-api-key' });
+        const context = Context({ securityMode: 'APIKEY', apiKey: 'some-api-key' });
 
         await method(context, 'some-url', {}, { axiosInstance: mockAxios });
 

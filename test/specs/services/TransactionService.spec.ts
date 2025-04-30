@@ -26,7 +26,7 @@ import { createMockItem, createMockResponse } from '@test-utils/nlic';
 vi.mock('@/services/Service');
 
 describe('TransactionService', () => {
-  const context = new Context({ username: 'demo', password: '123' });
+  const context = Context({ username: 'demo', password: '123' });
   const config = {};
   const endpoint = Constants.Transaction.ENDPOINT_PATH;
   const itemType = Constants.Transaction.TYPE;
@@ -81,8 +81,8 @@ describe('TransactionService', () => {
         dateClosed: new Date('2025-04-24T13:51:14.024Z'),
         paymentMethod: 'PAYPAL',
         licenseTransactionJoins: [
-          new LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' })),
-          new LicenseTransactionJoin(Transaction({ number: 'T2' }), License({ number: 'L2' })),
+          LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' })),
+          LicenseTransactionJoin(Transaction({ number: 'T2' }), License({ number: 'L2' })),
         ],
         customProperty: 'X',
         inUse: true,
@@ -169,8 +169,8 @@ describe('TransactionService', () => {
         dateClosed: new Date('2025-04-24T13:51:14.024Z'),
         paymentMethod: 'PAYPAL',
         licenseTransactionJoins: [
-          new LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' })),
-          new LicenseTransactionJoin(Transaction({ number: 'T2' }), License({ number: 'L2' })),
+          LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' })),
+          LicenseTransactionJoin(Transaction({ number: 'T2' }), License({ number: 'L2' })),
         ],
         customProperty: 'X',
         inUse: true,
@@ -244,8 +244,8 @@ describe('TransactionService', () => {
         dateClosed: new Date('2025-04-24T13:51:14.024Z'),
         paymentMethod: 'PAYPAL',
         licenseTransactionJoins: [
-          new LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' })),
-          new LicenseTransactionJoin(Transaction({ number: 'T2' }), License({ number: 'L2' })),
+          LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' })),
+          LicenseTransactionJoin(Transaction({ number: 'T2' }), License({ number: 'L2' })),
         ],
         customProperty: 'X',
         inUse: true,

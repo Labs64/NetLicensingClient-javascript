@@ -5,7 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 // types
-import { ProductModuleValidation, ValidationResult as IValidationResult } from '@/types/vo/ValidationResults';
+import { ProductModuleValidation, ValidationResults as IValidationResult } from '@/types/vo/ValidationResults';
 
 // utils
 import { isValid } from '@/utils/validation';
@@ -69,4 +69,4 @@ class ValidationResults implements IValidationResult {
   }
 }
 
-export default ValidationResults;
+export default () => new ValidationResults();

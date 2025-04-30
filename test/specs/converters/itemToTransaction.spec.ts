@@ -64,8 +64,8 @@ describe('itemToTransaction converter', () => {
       dateClosed: new Date('2025-04-24T13:51:14.024Z'),
       paymentMethod: 'PAYPAL',
       licenseTransactionJoins: [
-        new LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' })),
-        new LicenseTransactionJoin(Transaction({ number: 'T2' }), License({ number: 'L2' })),
+        LicenseTransactionJoin(Transaction({ number: 'T1' }), License({ number: 'L1' })),
+        LicenseTransactionJoin(Transaction({ number: 'T2' }), License({ number: 'L2' })),
       ],
       customProperty: 'X',
       inUse: true,

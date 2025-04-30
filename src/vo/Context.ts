@@ -82,4 +82,4 @@ class Context implements IContext {
   }
 }
 
-export default Context;
+export default (props?: ContextConfig) => new Context(props);

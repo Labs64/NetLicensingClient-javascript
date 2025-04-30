@@ -24,7 +24,7 @@ import { createMockItem, createMockResponse } from '@test-utils/nlic';
 vi.mock('@/services/Service');
 
 describe('BundleService', () => {
-  const context = new Context({ username: 'demo', password: '123' });
+  const context = Context({ username: 'demo', password: '123' });
   const config = {};
   const endpoint = Constants.Bundle.ENDPOINT_PATH;
   const itemType = Constants.Bundle.TYPE;

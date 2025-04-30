@@ -104,4 +104,4 @@ class ValidationParameters implements IValidationParameters {
   }
 }
 
-export default ValidationParameters;
+export default () => new ValidationParameters();
