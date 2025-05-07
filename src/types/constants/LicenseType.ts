@@ -4,7 +4,7 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-import LicenseTypeEnum from '@/constants/LicenseType';
+import LicenseType from '@/constants/LicenseType';
 
-export type LicenseTypeKeys = keyof typeof LicenseTypeEnum;
-export type LicenseType = (typeof LicenseTypeEnum)[LicenseTypeKeys];
+export type LicenseTypeKeys = keyof typeof LicenseType;
+export type LicenseTypeValues = (typeof LicenseType)[LicenseTypeKeys];

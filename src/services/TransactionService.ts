@@ -25,11 +25,11 @@ import Service from '@/services/Service';
 
 // types
 import type { ItemPagination } from '@/types/api/response';
-import type { TransactionProps, Transaction } from '@/types/entities/Transaction';
+import type { TransactionProps, TransactionEntity } from '@/types/entities/Transaction';
 import type { RequestConfig } from '@/types/services/Service';
-import type { TransactionService } from '@/types/services/TransactionService';
-import type { Context } from '@/types/vo/Context';
-import type { Page as IPage } from '@/types/vo/Page';
+import type { ITransactionService } from '@/types/services/TransactionService';
+import type { ContextInstance } from '@/types/vo/Context';
+import type { PageInstance } from '@/types/vo/Page';
 
 // utils
 import { encode } from '@/utils/filter';
@@ -41,7 +41,7 @@ import Page from '@/vo/Page';
 const endpoint = Constants.Transaction.ENDPOINT_PATH;
 const type = Constants.Transaction.TYPE;
 
-const transactionService: TransactionService = {
+const transactionService: ITransactionService = {
   /**
    * Gets transaction by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/transaction-services#get-transaction
@@ -59,10 +59,10 @@ const transactionService: TransactionService = {
    * @returns {Promise}
    */
   async get<T extends object = TransactionProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<Transaction<T>> {
+  ): Promise<TransactionEntity<T>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
@@ -88,10 +88,10 @@ const transactionService: TransactionService = {
    * @returns {Promise}
    */
   async list<T extends object = TransactionProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<IPage<Transaction<T>[]>> {
+  ): Promise<PageInstance<TransactionEntity<T>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -101,7 +101,7 @@ const transactionService: TransactionService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: Transaction<T>[] | undefined = items?.item
+    const list: TransactionEntity<T>[] | undefined = items?.item
       .filter((v) => v.type === type)
       .map((v) => itemToTransaction<T>(v));
 
@@ -126,10 +126,10 @@ const transactionService: TransactionService = {
    * @returns {Promise}
    */
   async create<T extends object = TransactionProps>(
-    context: Context,
-    transaction: Transaction<T>,
+    context: ContextInstance,
+    transaction: TransactionEntity<T>,
     config?: RequestConfig,
-  ): Promise<Transaction<T>> {
+  ): Promise<TransactionEntity<T>> {
     ensureNotNull(transaction, 'transaction');
 
     const response = await Service.post(context, endpoint, transaction.serialize(), config);
@@ -158,11 +158,11 @@ const transactionService: TransactionService = {
    * @returns {Promise}
    */
   async update<T extends object = TransactionProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
-    transaction: Transaction<T>,
+    transaction: TransactionEntity<T>,
     config?: RequestConfig,
-  ): Promise<Transaction<T>> {
+  ): Promise<TransactionEntity<T>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(transaction, 'transaction');
 

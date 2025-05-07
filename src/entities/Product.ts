@@ -8,8 +8,8 @@
 import defineEntity from '@/entities/defineEntity';
 
 // types
-import { ProductProps, Product as IProduct, ProductMethods } from '@/types/entities/Product';
-import { ProductDiscount } from '@/types/entities/ProductDiscount';
+import { ProductProps, ProductEntity, ProductMethods } from '@/types/entities/Product';
+import { ProductDiscountEntity } from '@/types/entities/ProductDiscount';
 
 // utils
 import { set, get } from '@/utils/helpers';
@@ -51,82 +51,84 @@ import serialize from '@/utils/serialize';
  * Arbitrary additional user properties of string type may be associated with each product. The name of user property
  * must not be equal to any of the fixed property names listed above and must be none of id, deleted.
  */
-const Product = function <T extends object = object>(properties: ProductProps<T> = {} as ProductProps<T>): IProduct<T> {
+const Product = function <T extends object = object>(
+  properties: ProductProps<T> = {} as ProductProps<T>,
+): ProductEntity<T> {
   const props: ProductProps = { ...properties };
 
   const methods: ProductMethods = {
-    setActive(active: boolean): void {
+    setActive(this: void, active: boolean): void {
       set(props, 'active', active);
     },
 
-    getActive<D = undefined>(def?: D): boolean | D {
+    getActive<D = undefined>(this: void, def?: D): boolean | D {
       return get(props, 'active', def) as boolean | D;
     },
 
-    setNumber(number: string): void {
+    setNumber(this: void, number: string): void {
       set(props, 'number', number);
     },
 
-    getNumber<D = undefined>(def?: D): string | D {
+    getNumber<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'number', def) as string | D;
     },
 
-    setName(name: string): void {
+    setName(this: void, name: string): void {
       set(props, 'name', name);
     },
 
-    getName<D = undefined>(def?: D): string | D {
+    getName<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'name', def) as string | D;
     },
 
-    setVersion(version: string): void {
+    setVersion(this: void, version: string): void {
       set(props, 'version', version);
     },
 
-    getVersion<D = undefined>(def?: D): string | number | D {
+    getVersion<D = undefined>(this: void, def?: D): string | number | D {
       return get(props, 'version', def) as string | number | D;
     },
 
-    setDescription(description: string): void {
+    setDescription(this: void, description: string): void {
       set(props, 'description', description);
     },
 
-    getDescription<D = undefined>(def?: D): string | D {
+    getDescription<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'description', def) as string | D;
     },
 
-    setLicensingInfo(licensingInfo: string): void {
+    setLicensingInfo(this: void, licensingInfo: string): void {
       set(props, 'licensingInfo', licensingInfo);
     },
 
-    getLicensingInfo<D = undefined>(def?: D): string | D {
+    getLicensingInfo<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'licensingInfo', def) as string | D;
     },
 
-    setLicenseeAutoCreate(licenseeAutoCreate: boolean): void {
+    setLicenseeAutoCreate(this: void, licenseeAutoCreate: boolean): void {
       set(props, 'licenseeAutoCreate', licenseeAutoCreate);
     },
 
-    getLicenseeAutoCreate<D = undefined>(def?: D): boolean | D {
+    getLicenseeAutoCreate<D = undefined>(this: void, def?: D): boolean | D {
       return get(props, 'licenseeAutoCreate', def) as boolean | D;
     },
 
-    setDiscounts(discounts: ProductDiscount[]): void {
+    setDiscounts(this: void, discounts: ProductDiscountEntity[]): void {
       set(props, 'discounts', discounts);
     },
 
-    getDiscounts<D = undefined>(def?: D): ProductDiscount[] | D {
-      return get(props, 'discounts', def) as ProductDiscount[] | D;
+    getDiscounts<D = undefined>(this: void, def?: D): ProductDiscountEntity[] | D {
+      return get(props, 'discounts', def) as ProductDiscountEntity[] | D;
     },
 
-    addDiscount(discount: ProductDiscount): void {
-      const discounts = this.getDiscounts([] as ProductDiscount[]);
+    addDiscount(discount: ProductDiscountEntity): void {
+      const discounts = this.getDiscounts([] as ProductDiscountEntity[]);
       discounts.push(discount);
 
       this.setDiscounts(discounts);
     },
 
-    removeDiscount(discount: ProductDiscount): void {
+    removeDiscount(discount: ProductDiscountEntity): void {
       const discounts = this.getDiscounts();
 
       if (Array.isArray(discounts) && discounts.length > 0) {
@@ -135,11 +137,11 @@ const Product = function <T extends object = object>(properties: ProductProps<T>
       }
     },
 
-    setProductDiscounts(productDiscounts: ProductDiscount[]): void {
+    setProductDiscounts(productDiscounts: ProductDiscountEntity[]): void {
       this.setDiscounts(productDiscounts);
     },
 
-    getProductDiscounts<D = undefined>(def?: D): ProductDiscount[] | D {
+    getProductDiscounts<D = undefined>(def?: D): ProductDiscountEntity[] | D {
       return this.getDiscounts(def);
     },
 

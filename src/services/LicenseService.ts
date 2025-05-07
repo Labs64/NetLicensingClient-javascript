@@ -20,11 +20,11 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
-import { LicenseProps, License } from '@/types/entities/License';
-import { LicenseService } from '@/types/services/LicenseService';
+import { LicenseProps, LicenseEntity } from '@/types/entities/License';
+import { ILicenseService } from '@/types/services/LicenseService';
 import { RequestConfig } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
-import { Page as IPage } from '@/types/vo/Page';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
 
 // utils
 import { encode } from '@/utils/filter';
@@ -36,7 +36,7 @@ import Page from '@/vo/Page';
 const endpoint = Constants.License.ENDPOINT_PATH;
 const type = Constants.License.TYPE;
 
-const licenseService: LicenseService = {
+const licenseService: ILicenseService = {
   /**
    * Gets license by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/license-services#get-license
@@ -54,10 +54,10 @@ const licenseService: LicenseService = {
    * @returns {Promise}
    */
   async get<T extends object = LicenseProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<License<T>> {
+  ): Promise<LicenseEntity<T>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
@@ -83,10 +83,10 @@ const licenseService: LicenseService = {
    * @returns {Promise}
    */
   async list<T extends object = LicenseProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<IPage<License<T>[]>> {
+  ): Promise<PageInstance<LicenseEntity<T>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -96,7 +96,9 @@ const licenseService: LicenseService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: License<T>[] | undefined = items?.item.filter((v) => v.type === type).map((v) => itemToLicense<T>(v));
+    const list: LicenseEntity<T>[] | undefined = items?.item
+      .filter((v) => v.type === type)
+      .map((v) => itemToLicense<T>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -131,13 +133,13 @@ const licenseService: LicenseService = {
    * @returns {Promise}
    */
   async create<T extends object = LicenseProps>(
-    context: Context,
+    context: ContextInstance,
     licenseeNumber: string | null,
     licenseTemplateNumber: string | null,
     transactionNumber: string | null,
-    license: License<T>,
+    license: LicenseEntity<T>,
     config?: RequestConfig,
-  ): Promise<License<T>> {
+  ): Promise<LicenseEntity<T>> {
     ensureNotNull(license, 'license');
 
     const data = license.serialize();
@@ -184,12 +186,12 @@ const licenseService: LicenseService = {
    * @returns {Promise}
    */
   async update<T extends object = LicenseProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     transactionNumber: string | null,
-    license: License<T>,
+    license: LicenseEntity<T>,
     config?: RequestConfig,
-  ): Promise<License<T>> {
+  ): Promise<LicenseEntity<T>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(license, 'license');
 
@@ -227,7 +229,7 @@ const licenseService: LicenseService = {
    * @returns {Promise}
    */
   delete(
-    context: Context,
+    context: ContextInstance,
     number: string,
     forceCascade: boolean,
     config?: RequestConfig,

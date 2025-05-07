@@ -15,11 +15,11 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination } from '@/types/api/response';
-import { PaymentMethodProps, PaymentMethod } from '@/types/entities/PaymentMethod';
-import { PaymentMethodService } from '@/types/services/PaymentMethodService';
+import { PaymentMethodProps, PaymentMethodEntity } from '@/types/entities/PaymentMethod';
+import { IPaymentMethodService } from '@/types/services/PaymentMethodService';
 import { RequestConfig } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
-import { Page as IPage } from '@/types/vo/Page';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
 
 // utils
 import { encode } from '@/utils/filter';
@@ -31,7 +31,7 @@ import Page from '@/vo/Page';
 const endpoint = Constants.PaymentMethod.ENDPOINT_PATH;
 const type = Constants.PaymentMethod.TYPE;
 
-const paymentMethodService: PaymentMethodService = {
+const paymentMethodService: IPaymentMethodService = {
   /**
    * Gets payment method by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/payment-method-services#get-payment-method
@@ -49,10 +49,10 @@ const paymentMethodService: PaymentMethodService = {
    * @returns {Promise}
    */
   async get<T extends object = PaymentMethodProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<PaymentMethod<T>> {
+  ): Promise<PaymentMethodEntity<T>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
@@ -78,10 +78,10 @@ const paymentMethodService: PaymentMethodService = {
    * @returns {Promise}
    */
   async list<T extends object = PaymentMethodProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<IPage<PaymentMethod<T>[]>> {
+  ): Promise<PageInstance<PaymentMethodEntity<T>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -91,7 +91,7 @@ const paymentMethodService: PaymentMethodService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: PaymentMethod<T>[] | undefined = items?.item
+    const list: PaymentMethodEntity<T>[] | undefined = items?.item
       .filter((v) => v.type === type)
       .map((v) => itemToPaymentMethod<T>(v));
 
@@ -118,11 +118,11 @@ const paymentMethodService: PaymentMethodService = {
    * @returns {Promise}
    */
   async update<T extends object = PaymentMethodProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
-    paymentMethod: PaymentMethod<T>,
+    paymentMethod: PaymentMethodEntity<T>,
     config?: RequestConfig,
-  ): Promise<PaymentMethod<T>> {
+  ): Promise<PaymentMethodEntity<T>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(paymentMethod, 'paymentMethod');
 

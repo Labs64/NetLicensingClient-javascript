@@ -6,7 +6,7 @@
  */
 
 // types
-import type { BundleProps, BundleMethods, Bundle as IBundle } from '@/types/entities/Bundle';
+import type { BundleProps, BundleMethods, BundleEntity } from '@/types/entities/Bundle';
 
 // utils
 import { set, get } from '@/utils/helpers';
@@ -43,55 +43,55 @@ import defineEntity from './defineEntity';
  * Arbitrary additional user properties of string type may be associated with each bundle. The name of user property
  * must not be equal to any of the fixed property names listed above and must be none of id, deleted.
  */
-const Bundle = function <T extends object>(properties: BundleProps<T> = {} as BundleProps<T>): IBundle<T> {
+const Bundle = function <T extends object>(properties: BundleProps<T> = {} as BundleProps<T>): BundleEntity<T> {
   const props: BundleProps = { ...properties };
 
   const methods: BundleMethods = {
-    setActive(active: boolean) {
+    setActive(this: void, active: boolean) {
       set(props, 'active', active);
     },
 
-    getActive<D = undefined>(def?: D): boolean | D {
+    getActive<D = undefined>(this: void, def?: D): boolean | D {
       return get(props, 'active', def) as boolean | D;
     },
 
-    setNumber(number: string) {
+    setNumber(this: void, number: string) {
       set(props, 'number', number);
     },
 
-    getNumber<D = undefined>(def?: D): string | D {
+    getNumber<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'number', def) as string | D;
     },
 
-    setName(name: string): void {
+    setName(this: void, name: string): void {
       set(props, 'name', name);
     },
 
-    getName<D = undefined>(def?: D): string | D {
+    getName<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'name', def) as string | D;
     },
 
-    setPrice(price: number): void {
+    setPrice(this: void, price: number): void {
       set(props, 'price', price);
     },
 
-    getPrice<D = undefined>(def?: D): number | D {
+    getPrice<D = undefined>(this: void, def?: D): number | D {
       return get(props, 'price', def) as number | D;
     },
 
-    setCurrency(currency: string): void {
+    setCurrency(this: void, currency: string): void {
       set(props, 'currency', currency);
     },
 
-    getCurrency<D = undefined>(def?: D): string | D {
+    getCurrency<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'currency', def) as string | D;
     },
 
-    setLicenseTemplateNumbers(numbers: string[]): void {
+    setLicenseTemplateNumbers(this: void, numbers: string[]): void {
       set(props, 'licenseTemplateNumbers', numbers);
     },
 
-    addLicenseTemplateNumber(number: string): void {
+    addLicenseTemplateNumber(this: void, number: string): void {
       if (!props.licenseTemplateNumbers) {
         props.licenseTemplateNumbers = [];
       }
@@ -99,18 +99,18 @@ const Bundle = function <T extends object>(properties: BundleProps<T> = {} as Bu
       props.licenseTemplateNumbers.push(number);
     },
 
-    getLicenseTemplateNumbers<D = undefined>(def?: D): string[] | D {
+    getLicenseTemplateNumbers<D = undefined>(this: void, def?: D): string[] | D {
       return get(props, 'licenseTemplateNumbers', def) as string[] | D;
     },
 
-    removeLicenseTemplateNumber(number: string): void {
+    removeLicenseTemplateNumber(this: void, number: string): void {
       const { licenseTemplateNumbers: numbers = [] } = props;
 
       numbers.splice(numbers.indexOf(number), 1);
       props.licenseTemplateNumbers = numbers;
     },
 
-    serialize(): Record<string, string> {
+    serialize(this: void): Record<string, string> {
       if (props.licenseTemplateNumbers) {
         const licenseTemplateNumbers = props.licenseTemplateNumbers.join(',');
         return serialize({ ...props, licenseTemplateNumbers });

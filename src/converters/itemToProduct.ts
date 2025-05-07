@@ -11,12 +11,12 @@ import ProductDiscount from '@/entities/ProductDiscount';
 // types
 import { Item } from '@/types/api/response';
 import { ProductProps } from '@/types/entities/Product';
-import { ProductDiscount as IProductDiscount } from '@/types/entities/ProductDiscount';
+import { ProductDiscountEntity } from '@/types/entities/ProductDiscount';
 
 export default <T extends object = ProductProps>(item?: Item) => {
   const props = itemToObject<Record<string, unknown>>(item);
 
-  const discounts: IProductDiscount[] | undefined = props.discount as IProductDiscount[] | undefined;
+  const discounts: ProductDiscountEntity[] | undefined = props.discount as ProductDiscountEntity[] | undefined;
   delete props.discount;
 
   if (discounts) {

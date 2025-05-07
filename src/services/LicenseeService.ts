@@ -21,13 +21,13 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
-import { LicenseeProps, Licensee } from '@/types/entities/Licensee';
-import { LicenseeService } from '@/types/services/LicenseeService';
+import { LicenseeProps, LicenseeEntity } from '@/types/entities/Licensee';
+import { ILicenseeService } from '@/types/services/LicenseeService';
 import { RequestConfig } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
-import { Page as IPage } from '@/types/vo/Page';
-import { ValidationParameters } from '@/types/vo/ValidationParameters';
-import { ValidationResults as IValidationResults } from '@/types/vo/ValidationResults';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
+import { ValidationParametersInstance } from '@/types/vo/ValidationParameters';
+import { ValidationResultsInstance as IValidationResults } from '@/types/vo/ValidationResults';
 
 // utils
 import { encode } from '@/utils/filter';
@@ -42,7 +42,7 @@ const endpointValidate = Constants.Licensee.ENDPOINT_PATH_VALIDATE;
 const endpointTransfer = Constants.Licensee.ENDPOINT_PATH_TRANSFER;
 const type = Constants.Licensee.TYPE;
 
-const licenseeService: LicenseeService = {
+const licenseeService: ILicenseeService = {
   /**
    * Gets licensee by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/licensee-services#get-licensee
@@ -60,10 +60,10 @@ const licenseeService: LicenseeService = {
    * @returns {Promise}
    */
   async get<T extends object = LicenseeProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<Licensee<T>> {
+  ): Promise<LicenseeEntity<T>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
@@ -89,10 +89,10 @@ const licenseeService: LicenseeService = {
    * @returns {Promise}
    */
   async list<T extends object = LicenseeProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<IPage<Licensee<T>[]>> {
+  ): Promise<PageInstance<LicenseeEntity<T>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -102,7 +102,9 @@ const licenseeService: LicenseeService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: Licensee<T>[] | undefined = items?.item.filter((v) => v.type === type).map((v) => itemToLicensee<T>(v));
+    const list: LicenseeEntity<T>[] | undefined = items?.item
+      .filter((v) => v.type === type)
+      .map((v) => itemToLicensee<T>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -128,11 +130,11 @@ const licenseeService: LicenseeService = {
    * @returns {Promise}
    */
   async create<T extends object = LicenseeProps>(
-    context: Context,
+    context: ContextInstance,
     productNumber: string,
-    licensee: Licensee<T>,
+    licensee: LicenseeEntity<T>,
     config?: RequestConfig,
-  ): Promise<Licensee<T>> {
+  ): Promise<LicenseeEntity<T>> {
     ensureNotNull(licensee, 'licensee');
 
     const data = licensee.serialize();
@@ -167,11 +169,11 @@ const licenseeService: LicenseeService = {
    * @returns {Promise}
    */
   async update<T extends object = LicenseeProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
-    licensee: Licensee<T>,
+    licensee: LicenseeEntity<T>,
     config?: RequestConfig,
-  ): Promise<Licensee<T>> {
+  ): Promise<LicenseeEntity<T>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(licensee, 'licensee');
 
@@ -201,7 +203,7 @@ const licenseeService: LicenseeService = {
    * @returns {Promise}
    */
   delete(
-    context: Context,
+    context: ContextInstance,
     number: string,
     forceCascade: boolean,
     config?: RequestConfig,
@@ -233,9 +235,9 @@ const licenseeService: LicenseeService = {
    * @returns {ValidationResults}
    */
   async validate(
-    context: Context,
+    context: ContextInstance,
     number: string,
-    validationParameters?: ValidationParameters,
+    validationParameters?: ValidationParametersInstance,
     config?: RequestConfig,
   ): Promise<IValidationResults> {
     ensureNotEmpty(number, 'number');
@@ -316,7 +318,7 @@ const licenseeService: LicenseeService = {
    * @returns {Promise}
    */
   transfer(
-    context: Context,
+    context: ContextInstance,
     number: string,
     sourceLicenseeNumber: string,
     config?: RequestConfig,

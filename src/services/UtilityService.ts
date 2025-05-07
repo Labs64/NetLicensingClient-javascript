@@ -18,13 +18,13 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination } from '@/types/api/response';
-import { LicenseType } from '@/types/constants/LicenseType';
-import { LicensingModel } from '@/types/constants/LicensingModel';
-import { Country } from '@/types/entities/Country';
+import { LicenseTypeValues } from '@/types/constants/LicenseType';
+import { LicensingModelValues } from '@/types/constants/LicensingModel';
+import { CountryEntity } from '@/types/entities/Country';
 import { RequestConfig } from '@/types/services/Service';
-import { UtilityService } from '@/types/services/UtilityService';
-import { Context } from '@/types/vo/Context';
-import { Page as IPage } from '@/types/vo/Page';
+import { IUtilityService } from '@/types/services/UtilityService';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
 
 // utils
 import { encode } from '@/utils/filter';
@@ -34,7 +34,7 @@ import Page from '@/vo/Page';
 
 const baseEndpoint = Constants.Utility.ENDPOINT_PATH;
 
-const utilityService: UtilityService = {
+const utilityService: IUtilityService = {
   /**
    * Returns all license types. See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/utility-services#license-types-list
@@ -48,7 +48,7 @@ const utilityService: UtilityService = {
    * array of available license types or empty array if nothing found in promise.
    * @returns {Promise}
    */
-  async listLicenseTypes(context: Context, config?: RequestConfig): Promise<IPage<LicenseType[]>> {
+  async listLicenseTypes(context: ContextInstance, config?: RequestConfig): Promise<PageInstance<LicenseTypeValues[]>> {
     const endpoint = `${baseEndpoint}/${Constants.Utility.ENDPOINT_PATH_LICENSE_TYPES}`;
 
     const response = await Service.get(context, endpoint, undefined, config);
@@ -60,7 +60,7 @@ const utilityService: UtilityService = {
       .filter((v) => v.type === type)
       .map((v) => itemToObject<{ name: string }>(v).name);
 
-    return Page((licenseTypes as LicenseType[]) || [], items as ItemPagination);
+    return Page((licenseTypes as LicenseTypeValues[]) || [], items as ItemPagination);
   },
 
   /**
@@ -76,7 +76,10 @@ const utilityService: UtilityService = {
    * array of available license models or empty array if nothing found in promise.
    * @returns {Promise}
    */
-  async listLicensingModels(context: Context, config?: RequestConfig): Promise<IPage<LicensingModel[]>> {
+  async listLicensingModels(
+    context: ContextInstance,
+    config?: RequestConfig,
+  ): Promise<PageInstance<LicensingModelValues[]>> {
     const endpoint = `${baseEndpoint}/${Constants.Utility.ENDPOINT_PATH_LICENSING_MODELS}`;
 
     const response = await Service.get(context, endpoint, undefined, config);
@@ -88,7 +91,7 @@ const utilityService: UtilityService = {
       .filter((v) => v.type === type)
       .map((v) => itemToObject<{ name: string }>(v).name);
 
-    return Page((licensingModels as LicensingModel[]) || [], items as ItemPagination);
+    return Page((licensingModels as LicensingModelValues[]) || [], items as ItemPagination);
   },
 
   /**
@@ -107,10 +110,10 @@ const utilityService: UtilityService = {
    * @returns {Promise}
    */
   async listCountries(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<IPage<Country[]>> {
+  ): Promise<PageInstance<CountryEntity[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -124,7 +127,9 @@ const utilityService: UtilityService = {
 
     const type = Constants.Utility.COUNTRY_TYPE;
 
-    const countries: Country[] | undefined = items?.item.filter((v) => v.type === type).map((v) => itemToCountry(v));
+    const countries: CountryEntity[] | undefined = items?.item
+      .filter((v) => v.type === type)
+      .map((v) => itemToCountry(v));
 
     return Page(countries || [], items as ItemPagination);
   },

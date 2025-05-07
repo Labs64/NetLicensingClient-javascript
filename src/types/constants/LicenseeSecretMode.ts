@@ -1,4 +1,4 @@
-import LicenseeSecretModeEnum from '@/constants/LicenseeSecretMode';
+import LicenseeSecretMode from '@/constants/LicenseeSecretMode';
 
-export type LicenseeSecretModeKeys = keyof typeof LicenseeSecretModeEnum;
-export type LicenseeSecretMode = (typeof LicenseeSecretModeEnum)[LicenseeSecretModeKeys];
+export type LicenseeSecretModeKeys = keyof typeof LicenseeSecretMode;
+export type LicenseeSecretModeValues = (typeof LicenseeSecretMode)[LicenseeSecretModeKeys];

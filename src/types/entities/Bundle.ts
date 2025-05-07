@@ -47,4 +47,4 @@ export interface BundleMethods {
   serialize(): Record<string, string>;
 }
 
-export type Bundle<T extends object = object> = Entity<BundleProps<T>, BundleMethods>;
+export type BundleEntity<T extends object = object> = Entity<BundleProps<T>, BundleMethods>;

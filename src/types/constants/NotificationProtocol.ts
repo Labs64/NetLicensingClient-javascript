@@ -4,7 +4,7 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-import NotificationProtocolEnum from '@/constants/NotificationProtocol';
+import NotificationProtocol from '@/constants/NotificationProtocol';
 
-export type NotificationProtocolKeys = keyof typeof NotificationProtocolEnum;
-export type NotificationProtocol = (typeof NotificationProtocolEnum)[NotificationProtocolKeys];
+export type NotificationProtocolKeys = keyof typeof NotificationProtocol;
+export type NotificationProtocolValues = (typeof NotificationProtocol)[NotificationProtocolKeys];

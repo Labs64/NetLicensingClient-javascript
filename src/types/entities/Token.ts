@@ -6,18 +6,18 @@
  */
 
 // types
-import { ApiKeyRole } from '@/types/constants/ApiKeyRole';
-import { TokenType } from '@/types/constants/TokenType';
+import { ApiKeyRoleValues } from '@/types/constants/ApiKeyRole';
+import { TokenTypeValues } from '@/types/constants/TokenType';
 import { Entity } from '@/types/entities/defineEntity';
 
 export type TokenProps<T extends object = object> = {
   active?: boolean;
   number?: string;
   expirationTime?: Date;
-  tokenType?: TokenType;
+  tokenType?: TokenTypeValues;
   licenseeNumber?: string;
   action?: string;
-  apiKeyRole?: ApiKeyRole;
+  apiKeyRole?: ApiKeyRoleValues;
   bundleNumber?: string;
   bundlePrice?: number;
   productNumber?: string;
@@ -42,9 +42,9 @@ export interface TokenMethods {
 
   getExpirationTime<D = undefined>(def?: D): Date | D;
 
-  setTokenType(tokenType: TokenType): void;
+  setTokenType(tokenType: TokenTypeValues): void;
 
-  getTokenType<D = undefined>(def?: D): TokenType | D;
+  getTokenType<D = undefined>(def?: D): TokenTypeValues | D;
 
   setLicenseeNumber(licenseeNumber: string): void;
 
@@ -54,9 +54,9 @@ export interface TokenMethods {
 
   getAction<D = undefined>(def?: D): string | D;
 
-  setApiKeyRole(apiKeyRole: ApiKeyRole): void;
+  setApiKeyRole(apiKeyRole: ApiKeyRoleValues): void;
 
-  getApiKeyRole<D = undefined>(def?: D): ApiKeyRole | D;
+  getApiKeyRole<D = undefined>(def?: D): ApiKeyRoleValues | D;
 
   setBundleNumber(bundleNumber: string): void;
 
@@ -95,4 +95,4 @@ export interface TokenMethods {
   serialize(): Record<string, string>;
 }
 
-export type Token<T extends object = object> = Entity<TokenProps<T>, TokenMethods>;
+export type TokenEntity<T extends object = object> = Entity<TokenProps<T>, TokenMethods>;

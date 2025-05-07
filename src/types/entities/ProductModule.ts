@@ -5,14 +5,14 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 // types
-import { LicensingModel } from '@/types/constants/LicensingModel';
+import { LicensingModelValues } from '@/types/constants/LicensingModel';
 import { Entity } from '@/types/entities/defineEntity';
 
 export type ProductModuleProps<T extends object = object> = {
   active?: boolean;
   number?: string;
   name?: string;
-  licensingModel?: LicensingModel;
+  licensingModel?: LicensingModelValues;
   maxCheckoutValidity?: number;
   yellowThreshold?: number;
   redThreshold?: number;
@@ -33,9 +33,9 @@ export interface ProductModuleMethods {
 
   getName<D = undefined>(def?: D): string | D;
 
-  setLicensingModel(licensingModel: LicensingModel): void;
+  setLicensingModel(licensingModel: LicensingModelValues): void;
 
-  getLicensingModel<D = undefined>(def?: D): LicensingModel | D;
+  getLicensingModel<D = undefined>(def?: D): LicensingModelValues | D;
 
   setMaxCheckoutValidity(maxCheckoutValidity: number): void;
 
@@ -56,4 +56,4 @@ export interface ProductModuleMethods {
   serialize(): Record<string, string>;
 }
 
-export type ProductModule<T extends object = object> = Entity<ProductModuleProps<T>, ProductModuleMethods>;
+export type ProductModuleEntity<T extends object = object> = Entity<ProductModuleProps<T>, ProductModuleMethods>;
