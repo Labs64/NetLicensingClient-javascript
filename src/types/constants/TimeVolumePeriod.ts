@@ -1,4 +1,4 @@
-import TimeVolumePeriodEnum from '@/constants/TimeVolumePeriod';
+import TimeVolumePeriod from '@/constants/TimeVolumePeriod';
 
-export type TimeVolumePeriodKeys = keyof typeof TimeVolumePeriodEnum;
-export type TimeVolumePeriod = (typeof TimeVolumePeriodEnum)[TimeVolumePeriodKeys];
+export type TimeVolumePeriodKeys = keyof typeof TimeVolumePeriod;
+export type TimeVolumePeriodValues = (typeof TimeVolumePeriod)[TimeVolumePeriodKeys];

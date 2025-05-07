@@ -5,15 +5,15 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 // types
-import type { LicenseType } from '@/types/constants/LicenseType';
-import type { TimeVolumePeriod } from '@/types/constants/TimeVolumePeriod';
+import type { LicenseTypeValues } from '@/types/constants/LicenseType';
+import type { TimeVolumePeriodValues } from '@/types/constants/TimeVolumePeriod';
 import { Entity } from '@/types/entities/defineEntity';
 
 export type LicenseTemplateProps<T extends object = object> = {
   active?: boolean;
   number?: string;
   name?: string;
-  licenseType?: LicenseType;
+  licenseType?: LicenseTypeValues;
   price?: number;
   currency?: string;
   automatic?: boolean;
@@ -21,7 +21,7 @@ export type LicenseTemplateProps<T extends object = object> = {
   hideLicenses?: boolean;
   gracePeriod?: boolean;
   timeVolume?: number;
-  timeVolumePeriod?: TimeVolumePeriod;
+  timeVolumePeriod?: TimeVolumePeriodValues;
   maxSessions?: number;
   quantity?: number;
   productModuleNumber?: string;
@@ -41,9 +41,9 @@ export interface LicenseTemplateMethods {
 
   getName<D = undefined>(def?: D): string | D;
 
-  setLicenseType(type: LicenseType): void;
+  setLicenseType(type: LicenseTypeValues): void;
 
-  getLicenseType<D = undefined>(def?: D): LicenseType | D;
+  getLicenseType<D = undefined>(def?: D): LicenseTypeValues | D;
 
   setPrice(price: number): void;
 
@@ -73,9 +73,9 @@ export interface LicenseTemplateMethods {
 
   getTimeVolume<D = undefined>(def?: D): number | D;
 
-  setTimeVolumePeriod(timeVolumePeriod: TimeVolumePeriod): void;
+  setTimeVolumePeriod(timeVolumePeriod: TimeVolumePeriodValues): void;
 
-  getTimeVolumePeriod<D = undefined>(def?: D): TimeVolumePeriod | D;
+  getTimeVolumePeriod<D = undefined>(def?: D): TimeVolumePeriodValues | D;
 
   setMaxSessions(maxSessions: number): void;
 
@@ -92,4 +92,4 @@ export interface LicenseTemplateMethods {
   serialize(): Record<string, string>;
 }
 
-export type LicenseTemplate<T extends object = object> = Entity<LicenseTemplateProps<T>, LicenseTemplateMethods>;
+export type LicenseTemplateEntity<T extends object = object> = Entity<LicenseTemplateProps<T>, LicenseTemplateMethods>;

@@ -4,7 +4,7 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-import ApiKeyRoleEnum from '@/constants/ApiKeyRole';
+import ApiKeyRole from '@/constants/ApiKeyRole';
 
-export type ApiKeyRoleKeys = keyof typeof ApiKeyRoleEnum;
-export type ApiKeyRole = (typeof ApiKeyRoleEnum)[ApiKeyRoleKeys];
+export type ApiKeyRoleKeys = keyof typeof ApiKeyRole;
+export type ApiKeyRoleValues = (typeof ApiKeyRole)[ApiKeyRoleKeys];

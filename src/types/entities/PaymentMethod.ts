@@ -26,4 +26,4 @@ export interface PaymentMethodMethods {
   getPaypalSubject<D = undefined>(def?: D): string | D;
 }
 
-export type PaymentMethod<T = object> = Entity<PaymentMethodProps<T>, PaymentMethodMethods>;
+export type PaymentMethodEntity<T = object> = Entity<PaymentMethodProps<T>, PaymentMethodMethods>;

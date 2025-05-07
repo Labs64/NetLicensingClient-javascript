@@ -15,7 +15,7 @@ export interface LicenseeProperties {
   [key: string]: string | undefined;
 }
 
-export interface ValidationParameters {
+export interface ValidationParametersInstance {
   productNumber?: string;
   dryRun?: boolean;
   forOfflineUse?: boolean;

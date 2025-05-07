@@ -8,11 +8,11 @@
 import defineEntity from '@/entities/defineEntity';
 
 // types
-import { PaymentMethodEnum } from '@/types/constants/PaymentMethodEnum';
-import { TransactionSource } from '@/types/constants/TransactionSource';
-import { TransactionStatus } from '@/types/constants/TransactionStatus';
-import { LicenseTransactionJoin } from '@/types/entities/LicenseTransactionJoin';
-import { TransactionMethods, TransactionProps, Transaction as ITransaction } from '@/types/entities/Transaction';
+import { PaymentMethodValues } from '@/types/constants/PaymentMethodEnum';
+import { TransactionSourceValues } from '@/types/constants/TransactionSource';
+import { TransactionStatusValues } from '@/types/constants/TransactionStatus';
+import { LicenseTransactionJoinEntity } from '@/types/entities/LicenseTransactionJoin';
+import { TransactionMethods, TransactionProps, TransactionEntity } from '@/types/entities/Transaction';
 
 // utils
 import { set, get } from '@/utils/helpers';
@@ -54,96 +54,96 @@ import serialize from '@/utils/serialize';
 
 const Transaction = function <T extends object>(
   properties: TransactionProps<T> = {} as TransactionProps<T>,
-): ITransaction<T> {
+): TransactionEntity<T> {
   const props: TransactionProps = { ...properties };
 
   const methods: TransactionMethods = {
-    setActive(active: boolean) {
+    setActive(this: void, active: boolean) {
       set(props, 'active', active);
     },
 
-    getActive<D = undefined>(def?: D): boolean | D {
+    getActive<D = undefined>(this: void, def?: D): boolean | D {
       return get(props, 'active', def) as boolean | D;
     },
 
-    setNumber(number: string): void {
+    setNumber(this: void, number: string): void {
       set(props, 'number', number);
     },
 
-    getNumber<D = undefined>(def?: D): string | D {
+    getNumber<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'number', def) as string | D;
     },
 
-    setStatus(status: TransactionStatus): void {
+    setStatus(this: void, status: TransactionStatusValues): void {
       set(props, 'status', status);
     },
 
-    getStatus<D = undefined>(def?: D): TransactionStatus | D {
-      return get(props, 'status', def) as TransactionStatus | D;
+    getStatus<D = undefined>(this: void, def?: D): TransactionStatusValues | D {
+      return get(props, 'status', def) as TransactionStatusValues | D;
     },
 
-    setSource(source: TransactionSource): void {
+    setSource(this: void, source: TransactionSourceValues): void {
       set(props, 'source', source);
     },
-    getSource<D = undefined>(def?: D): TransactionSource | D {
-      return get(props, 'source', def) as TransactionSource | D;
+    getSource<D = undefined>(this: void, def?: D): TransactionSourceValues | D {
+      return get(props, 'source', def) as TransactionSourceValues | D;
     },
-    setGrandTotal(grandTotal: number): void {
+    setGrandTotal(this: void, grandTotal: number): void {
       set(props, 'grandTotal', grandTotal);
     },
-    getGrandTotal<D = undefined>(def?: D): number | D {
+    getGrandTotal<D = undefined>(this: void, def?: D): number | D {
       return get(props, 'grandTotal', def) as number | D;
     },
 
-    setDiscount(discount: number): void {
+    setDiscount(this: void, discount: number): void {
       set(props, 'discount', discount);
     },
 
-    getDiscount<D = undefined>(def?: D): number | D {
+    getDiscount<D = undefined>(this: void, def?: D): number | D {
       return get(props, 'discount', def) as number | D;
     },
 
-    setCurrency(currency: string): void {
+    setCurrency(this: void, currency: string): void {
       set(props, 'currency', currency);
     },
 
-    getCurrency<D = undefined>(def?: D): string | D {
+    getCurrency<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'currency', def) as string | D;
     },
 
-    setDateCreated(dateCreated: Date): void {
+    setDateCreated(this: void, dateCreated: Date): void {
       set(props, 'dateCreated', dateCreated);
     },
 
-    getDateCreated<D = undefined>(def?: D): Date | D {
+    getDateCreated<D = undefined>(this: void, def?: D): Date | D {
       return get(props, 'dateCreated', def) as Date | D;
     },
 
-    setDateClosed(dateCreated: Date): void {
+    setDateClosed(this: void, dateCreated: Date): void {
       set(props, 'dateClosed', dateCreated);
     },
 
-    getDateClosed<D = undefined>(def?: D): Date | D {
+    getDateClosed<D = undefined>(this: void, def?: D): Date | D {
       return get(props, 'dateClosed', def) as Date | D;
     },
 
-    setPaymentMethod(paymentMethod: PaymentMethodEnum): void {
+    setPaymentMethod(this: void, paymentMethod: PaymentMethodValues): void {
       set(props, 'paymentMethod', paymentMethod);
     },
 
-    getPaymentMethod<D = undefined>(def?: D): PaymentMethodEnum | D {
-      return get(props, 'paymentMethod', def) as PaymentMethodEnum | D;
+    getPaymentMethod<D = undefined>(this: void, def?: D): PaymentMethodValues | D {
+      return get(props, 'paymentMethod', def) as PaymentMethodValues | D;
     },
 
-    setLicenseTransactionJoins(joins: LicenseTransactionJoin[]): void {
+    setLicenseTransactionJoins(this: void, joins: LicenseTransactionJoinEntity[]): void {
       set(props, 'licenseTransactionJoins', joins);
     },
 
-    getLicenseTransactionJoins<D = undefined>(def?: D): LicenseTransactionJoin[] | D {
-      return get(props, 'licenseTransactionJoins', def) as LicenseTransactionJoin[] | D;
+    getLicenseTransactionJoins<D = undefined>(this: void, def?: D): LicenseTransactionJoinEntity[] | D {
+      return get(props, 'licenseTransactionJoins', def) as LicenseTransactionJoinEntity[] | D;
     },
 
-    serialize() {
+    serialize(this: void) {
       return serialize(props, { ignore: ['licenseTransactionJoins', 'inUse'] });
     },
   };

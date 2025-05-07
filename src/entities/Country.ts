@@ -5,7 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 // types
-import type { CountryProps, CountryMethods, Country as ICountry } from '@/types/entities/Country';
+import type { CountryProps, CountryMethods, CountryEntity } from '@/types/entities/Country';
 
 // entity factory
 import defineEntity from './defineEntity';
@@ -20,7 +20,7 @@ import defineEntity from './defineEntity';
  * @property vatPercent - Country vat.
  * @property isEu - is country in EU.
  */
-const Country = function (properties: CountryProps = {} as CountryProps): ICountry {
+const Country = function (properties: CountryProps = {} as CountryProps): CountryEntity {
   const defaults: CountryProps = {
     code: '',
     name: '',
@@ -31,19 +31,19 @@ const Country = function (properties: CountryProps = {} as CountryProps): ICount
   const props: CountryProps = { ...defaults, ...properties };
 
   const methods: CountryMethods = {
-    getCode(): string {
+    getCode(this: void): string {
       return props.code;
     },
 
-    getName(): string {
+    getName(this: void): string {
       return props.name;
     },
 
-    getVatPercent(): number {
+    getVatPercent(this: void): number {
       return props.vatPercent as number;
     },
 
-    getIsEu(): boolean {
+    getIsEu(this: void): boolean {
       return props.isEu;
     },
   };

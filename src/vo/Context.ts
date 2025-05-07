@@ -7,12 +7,12 @@
 import SecurityModeEnum from '@/constants/SecurityMode';
 
 // types
-import type { SecurityMode } from '@/types/constants/SecurityMode';
-import type { ContextConfig, Context as IContext } from '@/types/vo/Context';
+import type { SecurityModeValues } from '@/types/constants/SecurityMode';
+import type { ContextConfig, ContextInstance } from '@/types/vo/Context';
 
-class Context implements IContext {
+class Context implements ContextInstance {
   baseUrl: string;
-  securityMode: SecurityMode;
+  securityMode: SecurityModeValues;
   username?: string;
   password?: string;
   apiKey?: string;
@@ -36,12 +36,12 @@ class Context implements IContext {
     return this.baseUrl;
   }
 
-  setSecurityMode(securityMode: SecurityMode): this {
+  setSecurityMode(securityMode: SecurityModeValues): this {
     this.securityMode = securityMode;
     return this;
   }
 
-  getSecurityMode(): SecurityMode {
+  getSecurityMode(): SecurityModeValues {
     return this.securityMode;
   }
 
@@ -82,4 +82,4 @@ class Context implements IContext {
   }
 }
 
-export default (props?: ContextConfig) => new Context(props);
+export default (props?: ContextConfig): ContextInstance => new Context(props);

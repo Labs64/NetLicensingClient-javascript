@@ -40,4 +40,4 @@ export interface LicenseeMethods {
   serialize(): Record<string, string>;
 }
 
-export type Licensee<T extends object = object> = Entity<LicenseeProps<T>, LicenseeMethods>;
+export type LicenseeEntity<T extends object = object> = Entity<LicenseeProps<T>, LicenseeMethods>;

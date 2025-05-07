@@ -9,24 +9,32 @@ import { AxiosResponse } from 'axios';
 
 // types
 import { NlicResponse } from '@/types/api/response';
-import { Token, TokenProps } from '@/types/entities/Token';
+import { TokenEntity, TokenProps } from '@/types/entities/Token';
 import { RequestConfig } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
-import { Page } from '@/types/vo/Page';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
 
-export interface TokenService {
-  get<T extends object = TokenProps>(context: Context, number: string, config?: RequestConfig): Promise<Token<T>>;
+export interface ITokenService {
+  get<T extends object = TokenProps>(
+    context: ContextInstance,
+    number: string,
+    config?: RequestConfig,
+  ): Promise<TokenEntity<T>>;
 
   list<T extends object = TokenProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<Page<Token<T>[]>>;
+  ): Promise<PageInstance<TokenEntity<T>[]>>;
 
-  create<T extends object = TokenProps>(context: Context, token: Token<T>, config?: RequestConfig): Promise<Token<T>>;
+  create<T extends object = TokenProps>(
+    context: ContextInstance,
+    token: TokenEntity<T>,
+    config?: RequestConfig,
+  ): Promise<TokenEntity<T>>;
 
   delete(
-    context: Context,
+    context: ContextInstance,
     number: string,
     forceCascade: boolean,
     config?: RequestConfig,

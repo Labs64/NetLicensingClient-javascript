@@ -6,7 +6,7 @@
  */
 import type { AxiosInstance, AxiosResponse, Method } from 'axios';
 import { Info, NlicResponse } from '@/types/api/response';
-import type { Context } from '@/types/vo/Context';
+import type { ContextInstance } from '@/types/vo/Context';
 
 export interface RequestConfig {
   onInfo?: (info: Info[]) => void;
@@ -14,7 +14,7 @@ export interface RequestConfig {
   axiosInstance?: AxiosInstance;
 }
 
-export interface Service {
+export interface IService {
   setAxiosInstance(this: void, instance: AxiosInstance): void;
 
   getAxiosInstance(this: void): AxiosInstance;
@@ -34,7 +34,7 @@ export interface Service {
    */
   get(
     this: void,
-    context: Context,
+    context: ContextInstance,
     endpoint: string,
     data?: Record<string, unknown>,
     config?: RequestConfig,
@@ -42,7 +42,7 @@ export interface Service {
 
   post(
     this: void,
-    context: Context,
+    context: ContextInstance,
     endpoint: string,
     data?: Record<string, unknown>,
     config?: RequestConfig,
@@ -50,7 +50,7 @@ export interface Service {
 
   delete(
     this: void,
-    context: Context,
+    context: ContextInstance,
     endpoint: string,
     data?: Record<string, unknown>,
     config?: RequestConfig,
@@ -58,7 +58,7 @@ export interface Service {
 
   request(
     this: void,
-    context: Context,
+    context: ContextInstance,
     method: Method,
     endpoint: string,
     data?: Record<string, unknown>,

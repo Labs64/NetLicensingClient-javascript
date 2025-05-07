@@ -20,11 +20,11 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
-import { NotificationProps, Notification } from '@/types/entities/Notification';
-import { NotificationService } from '@/types/services/NotificationService';
+import { NotificationProps, NotificationEntity } from '@/types/entities/Notification';
+import { INotificationService } from '@/types/services/NotificationService';
 import { RequestConfig } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
-import { Page as IPage } from '@/types/vo/Page';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
 
 // utils
 import { encode } from '@/utils/filter';
@@ -36,7 +36,7 @@ import Page from '@/vo/Page';
 const endpoint = Constants.Notification.ENDPOINT_PATH;
 const type = Constants.Notification.TYPE;
 
-const notificationService: NotificationService = {
+const notificationService: INotificationService = {
   /**
    * Gets notification by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/notification-services#get-notification
@@ -54,10 +54,10 @@ const notificationService: NotificationService = {
    * @returns {Promise}
    */
   async get<T extends object = NotificationProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<Notification<T>> {
+  ): Promise<NotificationEntity<T>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
@@ -83,10 +83,10 @@ const notificationService: NotificationService = {
    * @returns {Promise}
    */
   async list<T extends object = NotificationProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<IPage<Notification<T>[]>> {
+  ): Promise<PageInstance<NotificationEntity<T>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -96,7 +96,7 @@ const notificationService: NotificationService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: Notification<T>[] | undefined = items?.item
+    const list: NotificationEntity<T>[] | undefined = items?.item
       .filter((v) => v.type === type)
       .map((v) => itemToNotification<T>(v));
 
@@ -121,10 +121,10 @@ const notificationService: NotificationService = {
    * @returns {Promise}
    */
   async create<T extends object = NotificationProps>(
-    context: Context,
-    notification: Notification<T>,
+    context: ContextInstance,
+    notification: NotificationEntity<T>,
     config?: RequestConfig,
-  ): Promise<Notification<T>> {
+  ): Promise<NotificationEntity<T>> {
     ensureNotNull(notification, 'notification');
 
     const response = await Service.post(context, endpoint, notification.serialize(), config);
@@ -153,11 +153,11 @@ const notificationService: NotificationService = {
    * @returns {Promise}
    */
   async update<T extends object = NotificationProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
-    notification: Notification<T>,
+    notification: NotificationEntity<T>,
     config?: RequestConfig,
-  ): Promise<Notification<T>> {
+  ): Promise<NotificationEntity<T>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(notification, 'notification');
 
@@ -187,7 +187,7 @@ const notificationService: NotificationService = {
    * @returns {Promise}
    */
   delete(
-    context: Context,
+    context: ContextInstance,
     number: string,
     forceCascade: boolean,
     config?: RequestConfig,

@@ -29,4 +29,4 @@ export interface PaginationMethods<T extends object> {
   hasNext(): boolean;
 }
 
-export type Page<T extends object> = PaginationMethods<T> & T;
+export type PageInstance<T extends object> = PaginationMethods<T> & T;

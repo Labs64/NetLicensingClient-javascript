@@ -7,39 +7,43 @@
 // types
 import { AxiosResponse } from 'axios';
 import { NlicResponse } from '@/types/api/response';
-import { License, LicenseProps } from '@/types/entities/License';
+import { LicenseEntity, LicenseProps } from '@/types/entities/License';
 import { RequestConfig } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
-import { Page } from '@/types/vo/Page';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
 
-export interface LicenseService {
-  get<T extends object = LicenseProps>(context: Context, number: string, config?: RequestConfig): Promise<License<T>>;
+export interface ILicenseService {
+  get<T extends object = LicenseProps>(
+    context: ContextInstance,
+    number: string,
+    config?: RequestConfig,
+  ): Promise<LicenseEntity<T>>;
 
   list<T extends object = LicenseProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<Page<License<T>[]>>;
+  ): Promise<PageInstance<LicenseEntity<T>[]>>;
 
   create<T extends object = LicenseProps>(
-    context: Context,
+    context: ContextInstance,
     licenseeNumber: string | null,
     licenseTemplateNumber: string | null,
     transactionNumber: string | null,
-    license: License<T>,
+    license: LicenseEntity<T>,
     config?: RequestConfig,
-  ): Promise<License<T>>;
+  ): Promise<LicenseEntity<T>>;
 
   update<T extends object = LicenseProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     transactionNumber: string | null,
-    license: License<T>,
+    license: LicenseEntity<T>,
     config?: RequestConfig,
-  ): Promise<License<T>>;
+  ): Promise<LicenseEntity<T>>;
 
   delete(
-    context: Context,
+    context: ContextInstance,
     number: string,
     forceCascade: boolean,
     config?: RequestConfig,

@@ -4,18 +4,19 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-import type { License } from '@/types/entities/License';
-import type { Transaction } from '@/types/entities/Transaction';
+import type { LicenseEntity } from '@/types/entities/License';
+import type { TransactionEntity } from '@/types/entities/Transaction';
 
-export interface LicenseTransactionJoin {
-  transaction: Transaction;
-  license: License;
-
-  setTransaction(transaction: Transaction): void;
-
-  getTransaction(): Transaction;
-
-  setLicense(license: License): void;
-
-  getLicense(license: License): License;
+export interface LicenseTransactionJoinProps {
+  transaction: TransactionEntity;
+  license: LicenseEntity;
 }
+
+export interface LicenseTransactionJoinMethods {
+  setTransaction(t: TransactionEntity): void;
+  getTransaction(): TransactionEntity;
+  setLicense(l: LicenseEntity): void;
+  getLicense(): LicenseEntity;
+}
+
+export type LicenseTransactionJoinEntity = LicenseTransactionJoinProps & LicenseTransactionJoinMethods;

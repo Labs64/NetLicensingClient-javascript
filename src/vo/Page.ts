@@ -5,7 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 import { ItemPagination } from '@/types/api/response';
-import { Page as IPage, Pagination, PaginationMethods } from '@/types/vo/Page';
+import { PageInstance, Pagination, PaginationMethods } from '@/types/vo/Page';
 
 const Page = function <T extends object>(content: T, pagination?: Partial<ItemPagination>) {
   const pageNumber = parseInt(pagination?.pagenumber || '0', 10);
@@ -14,11 +14,11 @@ const Page = function <T extends object>(content: T, pagination?: Partial<ItemPa
   const totalItems = parseInt(pagination?.totalitems || '0', 10);
 
   const page: PaginationMethods<T> = {
-    getContent(): T {
+    getContent(this: void): T {
       return content;
     },
 
-    getPagination(): Pagination {
+    getPagination(this: void): Pagination {
       return {
         pageNumber,
         itemsNumber,
@@ -28,23 +28,23 @@ const Page = function <T extends object>(content: T, pagination?: Partial<ItemPa
       };
     },
 
-    getPageNumber(): number {
+    getPageNumber(this: void): number {
       return pageNumber;
     },
 
-    getItemsNumber(): number {
+    getItemsNumber(this: void): number {
       return itemsNumber;
     },
 
-    getTotalPages(): number {
+    getTotalPages(this: void): number {
       return totalPages;
     },
 
-    getTotalItems(): number {
+    getTotalItems(this: void): number {
       return totalItems;
     },
 
-    hasNext(): boolean {
+    hasNext(this: void): boolean {
       return totalPages > pageNumber + 1;
     },
   };
@@ -65,7 +65,7 @@ const Page = function <T extends object>(content: T, pagination?: Partial<ItemPa
     getPrototypeOf() {
       return (Page.prototype as object) || null;
     },
-  }) as IPage<T>;
+  }) as PageInstance<T>;
 };
 
 export default Page;

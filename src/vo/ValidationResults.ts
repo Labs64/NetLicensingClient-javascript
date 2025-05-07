@@ -5,12 +5,12 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 // types
-import { ProductModuleValidation, ValidationResults as IValidationResult } from '@/types/vo/ValidationResults';
+import { ProductModuleValidation, ValidationResultsInstance } from '@/types/vo/ValidationResults';
 
 // utils
 import { isValid } from '@/utils/validation';
 
-class ValidationResults implements IValidationResult {
+class ValidationResults implements ValidationResultsInstance {
   readonly validations: Record<string, ProductModuleValidation>;
   ttl?: Date;
 
@@ -69,4 +69,4 @@ class ValidationResults implements IValidationResult {
   }
 }
 
-export default () => new ValidationResults();
+export default (): ValidationResultsInstance => new ValidationResults();

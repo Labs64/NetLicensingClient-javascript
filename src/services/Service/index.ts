@@ -8,12 +8,12 @@ import toQueryString from '@/services/Service/toQueryString';
 
 // types
 import { Info, NlicResponse } from '@/types/api/response';
-import { RequestConfig, Service } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
+import { RequestConfig, IService } from '@/types/services/Service';
+import { ContextInstance } from '@/types/vo/Context';
 
 export { get, post, del, request, toQueryString };
 
-const service: Service = {
+const service: IService = {
   setAxiosInstance(this: void, instance: AxiosInstance) {
     setAxiosInstance(instance);
   },
@@ -32,7 +32,7 @@ const service: Service = {
 
   get(
     this: void,
-    context: Context,
+    context: ContextInstance,
     endpoint: string,
     data?: Record<string, unknown>,
     config?: RequestConfig,
@@ -42,7 +42,7 @@ const service: Service = {
 
   post(
     this: void,
-    context: Context,
+    context: ContextInstance,
     endpoint: string,
     data?: Record<string, unknown>,
     config?: RequestConfig,
@@ -52,7 +52,7 @@ const service: Service = {
 
   delete(
     this: void,
-    context: Context,
+    context: ContextInstance,
     endpoint: string,
     data?: Record<string, unknown>,
     config?: RequestConfig,
@@ -62,7 +62,7 @@ const service: Service = {
 
   request(
     this: void,
-    context: Context,
+    context: ContextInstance,
     method: Method,
     endpoint: string,
     data?: Record<string, unknown>,
