@@ -4,16 +4,16 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-import type { NotificationEvent } from '@/types/constants/NotificationEvent';
-import type { NotificationProtocol } from '@/types/constants/NotificationProtocol';
+import type { NotificationEventValues } from '@/types/constants/NotificationEvent';
+import type { NotificationProtocolValues } from '@/types/constants/NotificationProtocol';
 import type { Entity } from '@/types/entities/defineEntity';
 
 export type NotificationProps<T extends object = object> = {
   active?: boolean;
   number?: string;
   name?: string;
-  protocol?: NotificationProtocol;
-  events?: NotificationEvent[];
+  protocol?: NotificationProtocolValues;
+  events?: NotificationEventValues[];
   payload?: string;
   endpoint?: string;
 } & T;
@@ -31,15 +31,15 @@ export interface NotificationMethods {
 
   getName<D = undefined>(def?: D): string | D;
 
-  setProtocol(protocol: NotificationProtocol): void;
+  setProtocol(protocol: NotificationProtocolValues): void;
 
-  getProtocol<D = undefined>(def?: D): NotificationProtocol | D;
+  getProtocol<D = undefined>(def?: D): NotificationProtocolValues | D;
 
-  setEvents(events: NotificationEvent[]): void;
+  setEvents(events: NotificationEventValues[]): void;
 
-  getEvents<D = undefined>(def?: D): NotificationEvent[] | D;
+  getEvents<D = undefined>(def?: D): NotificationEventValues[] | D;
 
-  addEvent(event: NotificationEvent): void;
+  addEvent(event: NotificationEventValues): void;
 
   setPayload(payload: string): void;
 
@@ -52,4 +52,4 @@ export interface NotificationMethods {
   serialize(): Record<string, string>;
 }
 
-export type Notification<T extends object = object> = Entity<NotificationProps<T>, NotificationMethods>;
+export type NotificationEntity<T extends object = object> = Entity<NotificationProps<T>, NotificationMethods>;

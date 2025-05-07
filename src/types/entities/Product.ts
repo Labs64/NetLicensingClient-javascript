@@ -6,7 +6,7 @@
  */
 
 import { Entity } from '@/types/entities/defineEntity';
-import { ProductDiscount } from '@/types/entities/ProductDiscount';
+import { ProductDiscountEntity } from '@/types/entities/ProductDiscount';
 
 export type ProductProps<T extends object = object> = {
   active?: boolean;
@@ -16,7 +16,7 @@ export type ProductProps<T extends object = object> = {
   description?: string;
   licensingInfo?: string;
   licenseeAutoCreate?: boolean;
-  discounts?: ProductDiscount[];
+  discounts?: ProductDiscountEntity[];
   readonly inUse?: boolean;
 } & T;
 
@@ -49,19 +49,19 @@ export interface ProductMethods {
 
   getLicenseeAutoCreate<D = undefined>(def?: D): boolean | D;
 
-  setDiscounts(discounts: ProductDiscount[]): void;
+  setDiscounts(discounts: ProductDiscountEntity[]): void;
 
-  getDiscounts<D = undefined>(def?: D): ProductDiscount[] | D;
+  getDiscounts<D = undefined>(def?: D): ProductDiscountEntity[] | D;
 
-  addDiscount(discount: ProductDiscount): void;
+  addDiscount(discount: ProductDiscountEntity): void;
 
-  removeDiscount(discount: ProductDiscount): void;
+  removeDiscount(discount: ProductDiscountEntity): void;
 
-  setProductDiscounts(productDiscounts: ProductDiscount[]): void;
+  setProductDiscounts(productDiscounts: ProductDiscountEntity[]): void;
 
-  getProductDiscounts<D = undefined>(def?: D): ProductDiscount[] | D;
+  getProductDiscounts<D = undefined>(def?: D): ProductDiscountEntity[] | D;
 
   serialize(): Record<string, string | string[]>;
 }
 
-export type Product<T extends object = object> = Entity<ProductProps<T>, ProductMethods>;
+export type ProductEntity<T extends object = object> = Entity<ProductProps<T>, ProductMethods>;

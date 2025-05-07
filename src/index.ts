@@ -71,6 +71,9 @@ import Page from '@/vo/Page';
 import ValidationParameters from '@/vo/ValidationParameters';
 import ValidationResults from '@/vo/ValidationResults';
 
+// types
+export type * from '@/types';
+
 export {
   // constants
   Constants,

@@ -23,4 +23,4 @@ export interface CountryMethods {
   getIsEu(): boolean;
 }
 
-export type Country = Entity<CountryProps, CountryMethods>;
+export type CountryEntity = Entity<CountryProps, CountryMethods>;

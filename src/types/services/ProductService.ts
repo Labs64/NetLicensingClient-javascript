@@ -8,35 +8,39 @@ import { AxiosResponse } from 'axios';
 
 // types
 import { NlicResponse } from '@/types/api/response';
-import { Product, ProductProps } from '@/types/entities/Product';
+import { ProductEntity, ProductProps } from '@/types/entities/Product';
 import { RequestConfig } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
-import { Page } from '@/types/vo/Page';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
 
-export interface ProductService {
-  get<T extends object = ProductProps>(context: Context, number: string, config?: RequestConfig): Promise<Product<T>>;
+export interface IProductService {
+  get<T extends object = ProductProps>(
+    context: ContextInstance,
+    number: string,
+    config?: RequestConfig,
+  ): Promise<ProductEntity<T>>;
 
   list<T extends object = ProductProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<Page<Product<T>[]>>;
+  ): Promise<PageInstance<ProductEntity<T>[]>>;
 
   create<T extends object = ProductProps>(
-    context: Context,
-    product: Product<T>,
+    context: ContextInstance,
+    product: ProductEntity<T>,
     config?: RequestConfig,
-  ): Promise<Product<T>>;
+  ): Promise<ProductEntity<T>>;
 
   update<T extends object = ProductProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
-    product: Product<T>,
+    product: ProductEntity<T>,
     config?: RequestConfig,
-  ): Promise<Product<T>>;
+  ): Promise<ProductEntity<T>>;
 
   delete(
-    context: Context,
+    context: ContextInstance,
     number: string,
     forceCascade: boolean,
     config?: RequestConfig,

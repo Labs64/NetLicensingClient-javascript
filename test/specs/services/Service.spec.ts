@@ -6,7 +6,7 @@ import Service from '@/services/Service';
 // types
 import type { Info } from '@/types/api/response';
 import type { RequestConfig } from '@/types/services/Service';
-import type { Context as IContext } from '@/types/vo/Context';
+import type { ContextInstance as IContext } from '@/types/vo/Context';
 
 // vo
 import Context from '@/vo/Context';

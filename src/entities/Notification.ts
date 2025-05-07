@@ -6,11 +6,11 @@
  */
 // entity factory
 import defineEntity from '@/entities/defineEntity';
-import { NotificationEvent } from '@/types/constants/NotificationEvent';
-import { NotificationProtocol } from '@/types/constants/NotificationProtocol';
+import { NotificationEventValues } from '@/types/constants/NotificationEvent';
+import { NotificationProtocolValues } from '@/types/constants/NotificationProtocol';
 
 // types
-import { NotificationMethods, NotificationProps, Notification as INotification } from '@/types/entities/Notification';
+import { NotificationMethods, NotificationProps, NotificationEntity } from '@/types/entities/Notification';
 
 // utils
 import { set, get } from '@/utils/helpers';
@@ -50,70 +50,70 @@ import serialize from '@/utils/serialize';
 
 const Notification = function <T extends object>(
   properties: NotificationProps<T> = {} as NotificationProps<T>,
-): INotification<T> {
+): NotificationEntity<T> {
   const props: NotificationProps = { ...properties };
 
   const methods: NotificationMethods = {
-    setActive(active: boolean): void {
+    setActive(this: void, active: boolean): void {
       set(props, 'active', active);
     },
 
-    getActive<D = undefined>(def?: D): boolean | D {
+    getActive<D = undefined>(this: void, def?: D): boolean | D {
       return get(props, 'active', def) as boolean | D;
     },
 
-    setNumber(number: string): void {
+    setNumber(this: void, number: string): void {
       set(props, 'number', number);
     },
 
-    getNumber<D = undefined>(def?: D): string | D {
+    getNumber<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'number', def) as string | D;
     },
 
-    setName(name: string): void {
+    setName(this: void, name: string): void {
       set(props, 'name', name);
     },
 
-    getName<D = undefined>(def?: D): string | D {
+    getName<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'name', def) as string | D;
     },
 
-    setProtocol(protocol: NotificationProtocol): void {
+    setProtocol(this: void, protocol: NotificationProtocolValues): void {
       set(props, 'protocol', protocol);
     },
 
-    getProtocol<D = undefined>(def?: D): NotificationProtocol | D {
-      return get(props, 'protocol', def) as NotificationProtocol | D;
+    getProtocol<D = undefined>(this: void, def?: D): NotificationProtocolValues | D {
+      return get(props, 'protocol', def) as NotificationProtocolValues | D;
     },
 
-    setEvents(events: NotificationEvent[]): void {
+    setEvents(this: void, events: NotificationEventValues[]): void {
       set(props, 'events', events);
     },
 
-    getEvents<D = undefined>(def?: D): NotificationEvent[] | D {
-      return get(props, 'events', def) as NotificationEvent[] | D;
+    getEvents<D = undefined>(this: void, def?: D): NotificationEventValues[] | D {
+      return get(props, 'events', def) as NotificationEventValues[] | D;
     },
 
-    addEvent(event: NotificationEvent): void {
-      const events = this.getEvents([]) as NotificationEvent[];
+    addEvent(event: NotificationEventValues): void {
+      const events = this.getEvents([]) as NotificationEventValues[];
       events.push(event);
 
       this.setEvents(events);
     },
 
-    setPayload(payload: string): void {
+    setPayload(this: void, payload: string): void {
       set(props, 'payload', payload);
     },
 
-    getPayload<D = undefined>(def?: D): string | D {
+    getPayload<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'payload', def) as string | D;
     },
 
-    setEndpoint(endpoint: string): void {
+    setEndpoint(this: void, endpoint: string): void {
       set(props, 'endpoint', endpoint);
     },
 
-    getEndpoint<D = undefined>(def?: D): string | D {
+    getEndpoint<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'endpoint', def) as string | D;
     },
 

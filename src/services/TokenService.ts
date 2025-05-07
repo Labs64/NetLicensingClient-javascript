@@ -20,11 +20,11 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
-import { TokenProps, Token } from '@/types/entities/Token';
+import { TokenProps, TokenEntity } from '@/types/entities/Token';
 import { RequestConfig } from '@/types/services/Service';
-import { TokenService } from '@/types/services/TokenService';
-import { Context } from '@/types/vo/Context';
-import { Page as IPage } from '@/types/vo/Page';
+import { ITokenService } from '@/types/services/TokenService';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
 
 // utils
 import { encode } from '@/utils/filter';
@@ -36,7 +36,7 @@ import Page from '@/vo/Page';
 const endpoint = Constants.Token.ENDPOINT_PATH;
 const type = Constants.Token.TYPE;
 
-const tokenService: TokenService = {
+const tokenService: ITokenService = {
   /**
    * Gets token by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/token-services#get-token
@@ -54,10 +54,10 @@ const tokenService: TokenService = {
    * @returns {Promise}
    */
   async get<T extends object = TokenProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<Token<T>> {
+  ): Promise<TokenEntity<T>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
@@ -83,10 +83,10 @@ const tokenService: TokenService = {
    * @return array
    */
   async list<T extends object = TokenProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<IPage<Token<T>[]>> {
+  ): Promise<PageInstance<TokenEntity<T>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -96,7 +96,7 @@ const tokenService: TokenService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: Token<T>[] | undefined = items?.item.filter((v) => v.type === type).map((v) => itemToToken<T>(v));
+    const list: TokenEntity<T>[] | undefined = items?.item.filter((v) => v.type === type).map((v) => itemToToken<T>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -118,10 +118,10 @@ const tokenService: TokenService = {
    * @returns {Promise}
    */
   async create<T extends object = TokenProps>(
-    context: Context,
-    token: Token<T>,
+    context: ContextInstance,
+    token: TokenEntity<T>,
     config?: RequestConfig,
-  ): Promise<Token<T>> {
+  ): Promise<TokenEntity<T>> {
     ensureNotNull(token, 'token');
 
     const response = await Service.post(context, endpoint, token.serialize(), config);
@@ -150,7 +150,7 @@ const tokenService: TokenService = {
    * @returns {Promise}
    */
   delete(
-    context: Context,
+    context: ContextInstance,
     number: string,
     forceCascade: boolean,
     config?: RequestConfig,

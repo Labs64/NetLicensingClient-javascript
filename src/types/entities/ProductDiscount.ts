@@ -33,4 +33,4 @@ export interface ProductDiscountMethods {
   toString(): string;
 }
 
-export type ProductDiscount = Entity<ProductDiscountProps, ProductDiscountMethods>;
+export type ProductDiscountEntity = Entity<ProductDiscountProps, ProductDiscountMethods>;

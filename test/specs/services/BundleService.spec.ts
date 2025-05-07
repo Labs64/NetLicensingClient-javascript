@@ -54,7 +54,6 @@ describe('BundleService', () => {
 
       const bundle = await BundleService.get(context, number, config);
 
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       expect(Service.get).toHaveBeenCalledWith(context, `${endpoint}/${number}`, {}, config);
 
       expect(bundle).toStrictEqual({
@@ -83,7 +82,6 @@ describe('BundleService', () => {
 
       const result = await BundleService.list<{ customProperty: string }>(context, '', config);
 
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       expect(Service.get).toHaveBeenCalledWith(context, `${endpoint}`, {}, config);
 
       const expected = raw
@@ -113,7 +111,6 @@ describe('BundleService', () => {
 
       const result = await BundleService.list(context, '', config);
 
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       expect(Service.get).toHaveBeenCalledWith(context, `${endpoint}`, {}, config);
 
       expect(result.getPagination()).toStrictEqual({
@@ -129,7 +126,6 @@ describe('BundleService', () => {
       vi.mocked(Service).get.mockResolvedValueOnce({ data: createMockResponse() } as AxiosResponse<NlicResponse>);
       await BundleService.list(context, { page: 2, items: 10 }, config);
 
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       expect(Service.get).toHaveBeenCalledWith(context, endpoint, { filter: 'page=2;items=10' }, config);
     });
   });
@@ -148,7 +144,6 @@ describe('BundleService', () => {
 
       const result = await BundleService.create(context, bundle, config);
 
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       expect(Service.post).toHaveBeenCalledWith(context, endpoint, bundle.serialize(), config);
 
       expect(result).toStrictEqual(bundle);
@@ -169,7 +164,6 @@ describe('BundleService', () => {
 
       const result = await BundleService.update(context, number, bundle, config);
 
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       expect(Service.post).toHaveBeenCalledWith(context, `${endpoint}/${number}`, bundle.serialize(), config);
 
       expect(result).toStrictEqual(bundle);
@@ -185,7 +179,6 @@ describe('BundleService', () => {
 
       expect(response.status).toBe(204);
 
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       expect(Service.delete).toHaveBeenCalledWith(context, `${endpoint}/${number}`, { forceCascade: true }, config);
     });
   });
@@ -209,7 +202,6 @@ describe('BundleService', () => {
 
       const obtainEndpoint = `${endpoint}/${number}/${Constants.Bundle.ENDPOINT_OBTAIN_PATH}`;
 
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       expect(Service.post).toHaveBeenCalledWith(context, obtainEndpoint, { licenseeNumber }, config);
 
       const expected = raw

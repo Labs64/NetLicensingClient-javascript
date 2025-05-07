@@ -5,8 +5,8 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 // types
-import { TimeVolumePeriod } from '@/types/constants/TimeVolumePeriod';
-import { LicenseMethods, LicenseProps, License as ILicense } from '@/types/entities/License';
+import { TimeVolumePeriodValues } from '@/types/constants/TimeVolumePeriod';
+import { LicenseMethods, LicenseProps, LicenseEntity } from '@/types/entities/License';
 
 // utils
 import { set, get } from '@/utils/helpers';
@@ -78,109 +78,109 @@ import defineEntity from './defineEntity';
  * must not be equal to any of the fixed property names listed above and must be none of id, deleted, licenseeNumber,
  * licenseTemplateNumber.
  */
-const License = function <T extends object>(properties: LicenseProps<T> = {} as LicenseProps<T>): ILicense<T> {
+const License = function <T extends object>(properties: LicenseProps<T> = {} as LicenseProps<T>): LicenseEntity<T> {
   const props: LicenseProps = { ...(properties as T) };
 
   const methods: LicenseMethods = {
-    setActive(active: boolean): void {
+    setActive(this: void, active: boolean): void {
       set(props, 'active', active);
     },
 
-    getActive<D = undefined>(def?: D): boolean | D {
+    getActive<D = undefined>(this: void, def?: D): boolean | D {
       return get(props, 'active', def) as boolean | D;
     },
 
-    setNumber(number: string): void {
+    setNumber(this: void, number: string): void {
       set(props, 'number', number);
     },
 
-    getNumber<D = undefined>(def?: D): string | D {
+    getNumber<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'number', def) as string | D;
     },
 
-    setName(name: string): void {
+    setName(this: void, name: string): void {
       set(props, 'name', name);
     },
 
-    getName<D = undefined>(def?: D): string | D {
+    getName<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'name', def) as string | D;
     },
 
-    setPrice(price: number): void {
+    setPrice(this: void, price: number): void {
       set(props, 'price', price);
     },
 
-    getPrice<D = undefined>(def?: D): number | D {
+    getPrice<D = undefined>(this: void, def?: D): number | D {
       return get(props, 'price', def) as number | D;
     },
 
-    setCurrency(currency: string): void {
+    setCurrency(this: void, currency: string): void {
       set(props, 'currency', currency);
     },
 
-    getCurrency<D = undefined>(def?: D): string | D {
+    getCurrency<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'currency', def) as string | D;
     },
 
-    setHidden(hidden: boolean): void {
+    setHidden(this: void, hidden: boolean): void {
       set(props, 'hidden', hidden);
     },
 
-    getHidden<D = undefined>(def?: D): boolean | D {
+    getHidden<D = undefined>(this: void, def?: D): boolean | D {
       return get(props, 'hidden', def) as boolean | D;
     },
 
-    setLicenseeNumber(number: string): void {
+    setLicenseeNumber(this: void, number: string): void {
       set(props, 'licenseeNumber', number);
     },
 
-    getLicenseeNumber<D = undefined>(def?: D): string | D {
+    getLicenseeNumber<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'licenseeNumber', def) as string | D;
     },
 
-    setLicenseTemplateNumber(number: string): void {
+    setLicenseTemplateNumber(this: void, number: string): void {
       set(props, 'licenseTemplateNumber', number);
     },
 
-    getLicenseTemplateNumber<D = undefined>(def?: D): string | D {
+    getLicenseTemplateNumber<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'licenseTemplateNumber', def) as string | D;
     },
 
     // TimeVolume
-    setTimeVolume(timeVolume: number): void {
+    setTimeVolume(this: void, timeVolume: number): void {
       set(props, 'timeVolume', timeVolume);
     },
 
-    getTimeVolume<D = undefined>(def?: D): number | D {
+    getTimeVolume<D = undefined>(this: void, def?: D): number | D {
       return get(props, 'timeVolume', def) as number | D;
     },
 
-    setTimeVolumePeriod(timeVolumePeriod: TimeVolumePeriod): void {
+    setTimeVolumePeriod(this: void, timeVolumePeriod: TimeVolumePeriodValues): void {
       set(props, 'timeVolumePeriod', timeVolumePeriod);
     },
 
-    getTimeVolumePeriod<D = undefined>(def?: D): TimeVolumePeriod | D {
-      return get(props, 'timeVolumePeriod', def) as TimeVolumePeriod | D;
+    getTimeVolumePeriod<D = undefined>(this: void, def?: D): TimeVolumePeriodValues | D {
+      return get(props, 'timeVolumePeriod', def) as TimeVolumePeriodValues | D;
     },
 
-    setStartDate(startDate: Date | 'now'): void {
+    setStartDate(this: void, startDate: Date | 'now'): void {
       set(props, 'startDate', startDate);
     },
 
-    getStartDate<D = undefined>(def?: D): Date | 'now' | D {
+    getStartDate<D = undefined>(this: void, def?: D): Date | 'now' | D {
       return get(props, 'startDate', def) as Date | 'now' | D;
     },
 
     // Rental
-    setParentfeature(parentfeature?: string): void {
+    setParentfeature(this: void, parentfeature?: string): void {
       set(props, 'parentfeature', parentfeature);
     },
 
-    getParentfeature<D = undefined>(def?: D): string | D {
+    getParentfeature<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'parentfeature', def) as string | D;
     },
 
-    serialize(): Record<string, string> {
+    serialize(this: void): Record<string, string> {
       return serialize(props, { ignore: ['inUse'] });
     },
   };

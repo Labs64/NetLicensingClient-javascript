@@ -5,7 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 // types
-import type { TimeVolumePeriod } from '@/types/constants/TimeVolumePeriod';
+import type { TimeVolumePeriodValues } from '@/types/constants/TimeVolumePeriod';
 import type { Entity } from '@/types/entities/defineEntity';
 
 export type LicenseProps<T extends object = object> = {
@@ -20,7 +20,7 @@ export type LicenseProps<T extends object = object> = {
 
   // TimeVolume
   timeVolume?: number;
-  timeVolumePeriod?: TimeVolumePeriod;
+  timeVolumePeriod?: TimeVolumePeriodValues;
   startDate?: Date | 'now';
 
   // Rental
@@ -68,9 +68,9 @@ export interface LicenseMethods {
 
   getTimeVolume<D = undefined>(def?: D): number | D;
 
-  setTimeVolumePeriod(timeVolumePeriod: TimeVolumePeriod): void;
+  setTimeVolumePeriod(timeVolumePeriod: TimeVolumePeriodValues): void;
 
-  getTimeVolumePeriod<D = undefined>(def?: D): TimeVolumePeriod | D;
+  getTimeVolumePeriod<D = undefined>(def?: D): TimeVolumePeriodValues | D;
 
   setStartDate(startDate: Date | 'now'): void;
 
@@ -85,4 +85,4 @@ export interface LicenseMethods {
   serialize(): Record<string, string>;
 }
 
-export type License<T extends object = object> = Entity<LicenseProps<T>, LicenseMethods>;
+export type LicenseEntity<T extends object = object> = Entity<LicenseProps<T>, LicenseMethods>;

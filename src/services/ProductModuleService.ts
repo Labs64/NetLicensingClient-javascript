@@ -20,11 +20,11 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
-import { ProductModuleProps, ProductModule } from '@/types/entities/ProductModule';
-import { ProductModuleService } from '@/types/services/ProductModuleService';
+import { ProductModuleProps, ProductModuleEntity } from '@/types/entities/ProductModule';
+import { IProductModuleService } from '@/types/services/ProductModuleService';
 import { RequestConfig } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
-import { Page as IPage } from '@/types/vo/Page';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
 
 // utils
 import { encode } from '@/utils/filter';
@@ -36,7 +36,7 @@ import Page from '@/vo/Page';
 const endpoint = Constants.ProductModule.ENDPOINT_PATH;
 const type = Constants.ProductModule.TYPE;
 
-const productModuleService: ProductModuleService = {
+const productModuleService: IProductModuleService = {
   /**
    * Gets product module by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-module-services#get-product-module
@@ -54,10 +54,10 @@ const productModuleService: ProductModuleService = {
    * @returns {Promise}
    */
   async get<T extends object = ProductModuleProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<ProductModule<T>> {
+  ): Promise<ProductModuleEntity<T>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
@@ -83,10 +83,10 @@ const productModuleService: ProductModuleService = {
    * @returns {Promise}
    */
   async list<T extends object = ProductModuleProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<IPage<ProductModule<T>[]>> {
+  ): Promise<PageInstance<ProductModuleEntity<T>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -96,7 +96,7 @@ const productModuleService: ProductModuleService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: ProductModule<T>[] | undefined = items?.item
+    const list: ProductModuleEntity<T>[] | undefined = items?.item
       .filter((v) => v.type === type)
       .map((v) => itemToProductModule<T>(v));
 
@@ -124,11 +124,11 @@ const productModuleService: ProductModuleService = {
    * @returns {Promise}
    */
   async create<T extends object = ProductModuleProps>(
-    context: Context,
+    context: ContextInstance,
     productNumber: string | null,
-    productModule: ProductModule<T>,
+    productModule: ProductModuleEntity<T>,
     config?: RequestConfig,
-  ): Promise<ProductModule<T>> {
+  ): Promise<ProductModuleEntity<T>> {
     ensureNotNull(productModule, 'productModule');
 
     const data = productModule.serialize();
@@ -163,11 +163,11 @@ const productModuleService: ProductModuleService = {
    * @returns {Promise}
    */
   async update<T extends object = ProductModuleProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
-    productModule: ProductModule<T>,
+    productModule: ProductModuleEntity<T>,
     config?: RequestConfig,
-  ): Promise<ProductModule<T>> {
+  ): Promise<ProductModuleEntity<T>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(productModule, 'productModule');
 
@@ -197,7 +197,7 @@ const productModuleService: ProductModuleService = {
    * @returns {Promise}
    */
   delete(
-    context: Context,
+    context: ContextInstance,
     number: string,
     forceCascade: boolean,
     config?: RequestConfig,

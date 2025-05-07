@@ -9,7 +9,7 @@ import NlicError from '@/errors/NlicError';
 // types
 import type { NlicResponse } from '@/types/api/response';
 import type { RequestConfig } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
+import { ContextInstance } from '@/types/vo/Context';
 
 // package.json
 import pkg from '../../../package.json';
@@ -19,7 +19,7 @@ import { getAxiosInstance, setLastResponse, setInfo } from './instance';
 import toQueryString from './toQueryString';
 
 export default async (
-  context: Context,
+  context: ContextInstance,
   method: Method,
   endpoint: string,
   data?: Record<string, unknown>,

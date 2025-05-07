@@ -37,15 +37,15 @@ const defineEntity = function <P extends Proto, T extends object, M extends obje
   }
 
   const base: EntityMethods<T> = {
-    set(key, value): void {
+    set(this: void, key, value): void {
       set(props, key, value);
     },
 
-    get(key, def) {
+    get(this: void, key, def) {
       return get(props, key, def);
     },
 
-    has(key) {
+    has(this: void, key) {
       return has(props, key);
     },
 
@@ -72,7 +72,7 @@ const defineEntity = function <P extends Proto, T extends object, M extends obje
       });
     },
 
-    serialize() {
+    serialize(this: void) {
       return serialize(props);
     },
   };

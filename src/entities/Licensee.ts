@@ -9,7 +9,7 @@
 import defineEntity from '@/entities/defineEntity';
 
 // types
-import { LicenseeMethods, LicenseeProps, Licensee as ILicense } from '@/types/entities/Licensee';
+import { LicenseeMethods, LicenseeProps, LicenseeEntity } from '@/types/entities/Licensee';
 
 // utils
 import { set, get } from '@/utils/helpers';
@@ -42,50 +42,50 @@ import serialize from '@/utils/serialize';
  * must not be equal to any of the fixed property names listed above and must be none of id, deleted, productNumber
  */
 
-const Licensee = function <T extends object>(properties: LicenseeProps<T> = {} as LicenseeProps<T>): ILicense<T> {
+const Licensee = function <T extends object>(properties: LicenseeProps<T> = {} as LicenseeProps<T>): LicenseeEntity<T> {
   const props: LicenseeProps = { ...properties };
 
   const methods: LicenseeMethods = {
-    setActive(active: boolean): void {
+    setActive(this: void, active: boolean): void {
       set(props, 'active', active);
     },
 
-    getActive<D = undefined>(def?: D): boolean | D {
+    getActive<D = undefined>(this: void, def?: D): boolean | D {
       return get(props, 'active', def) as boolean | D;
     },
 
-    setNumber(number: string): void {
+    setNumber(this: void, number: string): void {
       set(props, 'number', number);
     },
-    getNumber<D = undefined>(def?: D): string | D {
+    getNumber<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'number', def) as string | D;
     },
 
-    setName(name: string): void {
+    setName(this: void, name: string): void {
       set(props, 'name', name);
     },
 
-    getName<D = undefined>(def?: D): string | D {
+    getName<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'name', def) as string | D;
     },
 
-    setProductNumber(number: string): void {
+    setProductNumber(this: void, number: string): void {
       set(props, 'productNumber', number);
     },
 
-    getProductNumber<D = undefined>(def?: D): string | D {
+    getProductNumber<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'productNumber', def) as string | D;
     },
 
-    setMarkedForTransfer(mark: boolean): void {
+    setMarkedForTransfer(this: void, mark: boolean): void {
       set(props, 'markedForTransfer', mark);
     },
 
-    getMarkedForTransfer<D = undefined>(def?: D): boolean | D {
+    getMarkedForTransfer<D = undefined>(this: void, def?: D): boolean | D {
       return get(props, 'markedForTransfer', def) as boolean | D;
     },
 
-    serialize(): Record<string, string> {
+    serialize(this: void): Record<string, string> {
       return serialize(props, { ignore: ['inUse'] });
     },
   };

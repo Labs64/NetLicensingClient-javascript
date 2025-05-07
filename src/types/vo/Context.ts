@@ -4,28 +4,28 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-import type { SecurityMode } from '@/types/constants/SecurityMode';
+import type { SecurityModeValues } from '@/types/constants/SecurityMode';
 
 export interface ContextConfig {
   baseUrl?: string;
-  securityMode?: SecurityMode;
+  securityMode?: SecurityModeValues;
   username?: string;
   password?: string;
   apiKey?: string;
   publicKey?: string;
 }
 
-export interface Context extends ContextConfig {
+export interface ContextInstance extends ContextConfig {
   baseUrl: string;
-  securityMode: SecurityMode;
+  securityMode: SecurityModeValues;
 
   setBaseUrl(baseUrl: string): this;
 
   getBaseUrl(): string;
 
-  setSecurityMode(securityMode: SecurityMode): this;
+  setSecurityMode(securityMode: SecurityModeValues): this;
 
-  getSecurityMode(): SecurityMode;
+  getSecurityMode(): SecurityModeValues;
 
   setUsername(username: string): this;
 
