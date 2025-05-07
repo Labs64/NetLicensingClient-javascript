@@ -4,34 +4,34 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-import { Transaction, TransactionProps } from '@/types/entities/Transaction';
+import { TransactionEntity, TransactionProps } from '@/types/entities/Transaction';
 import { RequestConfig } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
-import { Page } from '@/types/vo/Page';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
 
-export interface TransactionService {
+export interface ITransactionService {
   get<T extends object = TransactionProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<Transaction<T>>;
+  ): Promise<TransactionEntity<T>>;
 
   list<T extends object = TransactionProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<Page<Transaction<T>[]>>;
+  ): Promise<PageInstance<TransactionEntity<T>[]>>;
 
   create<T extends object = TransactionProps>(
-    context: Context,
-    transaction: Transaction<T>,
+    context: ContextInstance,
+    transaction: TransactionEntity<T>,
     config?: RequestConfig,
-  ): Promise<Transaction<T>>;
+  ): Promise<TransactionEntity<T>>;
 
   update<T extends object = TransactionProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
-    transaction: Transaction<T>,
+    transaction: TransactionEntity<T>,
     config?: RequestConfig,
-  ): Promise<Transaction<T>>;
+  ): Promise<TransactionEntity<T>>;
 }

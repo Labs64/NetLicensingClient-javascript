@@ -4,7 +4,7 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-import EventEnum from '@/constants/NotificationEvent';
+import NotificationEvent from '@/constants/NotificationEvent';
 
-export type NotificationEventKeys = keyof typeof EventEnum;
-export type NotificationEvent = (typeof EventEnum)[NotificationEventKeys];
+export type NotificationEventKeys = keyof typeof NotificationEvent;
+export type NotificationEventValues = (typeof NotificationEvent)[NotificationEventKeys];

@@ -1,4 +1,4 @@
-import TransactionStatusEnum from '@/constants/TransactionStatus';
+import TransactionStatus from '@/constants/TransactionStatus';
 
-export type TransactionStatusKeys = keyof typeof TransactionStatusEnum;
-export type TransactionStatus = (typeof TransactionStatusEnum)[TransactionStatusKeys];
+export type TransactionStatusKeys = keyof typeof TransactionStatus;
+export type TransactionStatusValues = (typeof TransactionStatus)[TransactionStatusKeys];

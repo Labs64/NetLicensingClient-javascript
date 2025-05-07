@@ -6,14 +6,10 @@
  */
 // entity factory
 import defineEntity from '@/entities/defineEntity';
-import { LicensingModel } from '@/types/constants/LicensingModel';
+import { LicensingModelValues } from '@/types/constants/LicensingModel';
 
 // types
-import {
-  ProductModule as IProductModule,
-  ProductModuleMethods,
-  ProductModuleProps,
-} from '@/types/entities/ProductModule';
+import { ProductModuleEntity, ProductModuleMethods, ProductModuleProps } from '@/types/entities/ProductModule';
 
 // utils
 import { set, get } from '@/utils/helpers';
@@ -52,75 +48,75 @@ import serialize from '@/utils/serialize';
 
 const ProductModule = function <T extends object = object>(
   properties: ProductModuleProps<T> = {} as ProductModuleProps<T>,
-): IProductModule<T> {
+): ProductModuleEntity<T> {
   const props: ProductModuleProps = { ...properties };
 
   const methods: ProductModuleMethods = {
-    setActive(active: boolean): void {
+    setActive(this: void, active: boolean): void {
       set(props, 'active', active);
     },
 
-    getActive<D = undefined>(def?: D): boolean | D {
+    getActive<D = undefined>(this: void, def?: D): boolean | D {
       return get(props, 'active', def) as boolean | D;
     },
 
-    setNumber(number: string): void {
+    setNumber(this: void, number: string): void {
       set(props, 'number', number);
     },
 
-    getNumber<D = undefined>(def?: D): string | D {
+    getNumber<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'number', def) as string | D;
     },
 
-    setName(name: string): void {
+    setName(this: void, name: string): void {
       set(props, 'name', name);
     },
 
-    getName<D = undefined>(def?: D): string | D {
+    getName<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'name', def) as string | D;
     },
 
-    setLicensingModel(licensingModel: LicensingModel): void {
+    setLicensingModel(licensingModel: LicensingModelValues): void {
       set(props, 'licensingModel', licensingModel);
     },
 
-    getLicensingModel<D = undefined>(def?: D): LicensingModel | D {
-      return get(props, 'licensingModel', def) as LicensingModel | D;
+    getLicensingModel<D = undefined>(this: void, def?: D): LicensingModelValues | D {
+      return get(props, 'licensingModel', def) as LicensingModelValues | D;
     },
 
-    setMaxCheckoutValidity(maxCheckoutValidity: number): void {
+    setMaxCheckoutValidity(this: void, maxCheckoutValidity: number): void {
       set(props, 'maxCheckoutValidity', maxCheckoutValidity);
     },
 
-    getMaxCheckoutValidity<D = undefined>(def?: D): number | D {
+    getMaxCheckoutValidity<D = undefined>(this: void, def?: D): number | D {
       return get(props, 'maxCheckoutValidity', def) as number | D;
     },
 
-    setYellowThreshold(yellowThreshold: number): void {
+    setYellowThreshold(this: void, yellowThreshold: number): void {
       set(props, 'yellowThreshold', yellowThreshold);
     },
 
-    getYellowThreshold<D = undefined>(def?: D): number | D {
+    getYellowThreshold<D = undefined>(this: void, def?: D): number | D {
       return get(props, 'yellowThreshold', def) as number | D;
     },
 
-    setRedThreshold(redThreshold: number): void {
+    setRedThreshold(this: void, redThreshold: number): void {
       set(props, 'redThreshold', redThreshold);
     },
 
-    getRedThreshold<D = undefined>(def?: D): number | D {
+    getRedThreshold<D = undefined>(this: void, def?: D): number | D {
       return get(props, 'redThreshold', def) as number | D;
     },
 
-    setProductNumber(productNumber: string): void {
+    setProductNumber(this: void, productNumber: string): void {
       set(props, 'productNumber', productNumber);
     },
 
-    getProductNumber: function <D = undefined>(def?: D): string | D {
+    getProductNumber<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'productNumber', def) as string | D;
     },
 
-    serialize(): Record<string, string> {
+    serialize(this: void): Record<string, string> {
       return serialize(props, { ignore: ['inUse'] });
     },
   };

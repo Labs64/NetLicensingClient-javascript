@@ -1,7 +1,7 @@
 // types
-import type { License } from '@/types/entities/License';
-import type { LicenseTransactionJoin as ILicenseTransactionJoin } from '@/types/entities/LicenseTransactionJoin';
-import type { Transaction } from '@/types/entities/Transaction';
+import type { LicenseEntity } from '@/types/entities/License';
+import type { LicenseTransactionJoinEntity as ILicenseTransactionJoin } from '@/types/entities/LicenseTransactionJoin';
+import type { TransactionEntity } from '@/types/entities/Transaction';
 
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -11,29 +11,30 @@ import type { Transaction } from '@/types/entities/Transaction';
  */
 
 class LicenseTransactionJoin implements ILicenseTransactionJoin {
-  transaction: Transaction;
-  license: License;
+  transaction: TransactionEntity;
+  license: LicenseEntity;
 
-  constructor(transaction: Transaction, license: License) {
+  constructor(transaction: TransactionEntity, license: LicenseEntity) {
     this.transaction = transaction;
     this.license = license;
   }
 
-  setTransaction(transaction: Transaction): void {
+  setTransaction(transaction: TransactionEntity): void {
     this.transaction = transaction;
   }
 
-  getTransaction(): Transaction {
+  getTransaction(): TransactionEntity {
     return this.transaction;
   }
 
-  setLicense(license: License): void {
+  setLicense(license: LicenseEntity): void {
     this.license = license;
   }
 
-  getLicense(): License {
+  getLicense(): LicenseEntity {
     return this.license;
   }
 }
 
-export default (transaction: Transaction, license: License) => new LicenseTransactionJoin(transaction, license);
+export default (transaction: TransactionEntity, license: LicenseEntity) =>
+  new LicenseTransactionJoin(transaction, license);

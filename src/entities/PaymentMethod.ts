@@ -8,11 +8,7 @@
 import defineEntity from '@/entities/defineEntity';
 
 // types
-import {
-  PaymentMethodMethods,
-  PaymentMethodProps,
-  PaymentMethod as IPaymentMethod,
-} from '@/types/entities/PaymentMethod';
+import { PaymentMethodMethods, PaymentMethodProps, PaymentMethodEntity } from '@/types/entities/PaymentMethod';
 
 // utils
 import { set, get } from '@/utils/helpers';
@@ -26,31 +22,31 @@ import { set, get } from '@/utils/helpers';
  */
 const PaymentMethod = function <T extends object>(
   properties: PaymentMethodProps<T> = {} as PaymentMethodProps<T>,
-): IPaymentMethod<T> {
+): PaymentMethodEntity<T> {
   const props: PaymentMethodProps = { ...properties };
 
   const methods: PaymentMethodMethods = {
-    setActive(active: boolean): void {
+    setActive(this: void, active: boolean): void {
       set(props, 'active', active);
     },
 
-    getActive<D = undefined>(def?: D): boolean | D {
+    getActive<D = undefined>(this: void, def?: D): boolean | D {
       return get(props, 'active', def) as boolean | D;
     },
 
-    setNumber(number: string): void {
+    setNumber(this: void, number: string): void {
       set(props, 'number', number);
     },
 
-    getNumber<D = undefined>(def?: D): string | D {
+    getNumber<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'number', def) as string | D;
     },
 
-    setPaypalSubject(subject: string): void {
+    setPaypalSubject(this: void, subject: string): void {
       set(props, 'paypal.subject', subject);
     },
 
-    getPaypalSubject<D = undefined>(def?: D): string | D {
+    getPaypalSubject<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'paypal.subject', def) as string | D;
     },
   };

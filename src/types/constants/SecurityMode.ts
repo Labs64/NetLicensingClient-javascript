@@ -1,4 +1,4 @@
-import SecurityModeEnum from '@/constants/SecurityMode';
+import SecurityMode from '@/constants/SecurityMode';
 
-export type SecurityModeKeys = keyof typeof SecurityModeEnum;
-export type SecurityMode = (typeof SecurityModeEnum)[SecurityModeKeys];
+export type SecurityModeKeys = keyof typeof SecurityMode;
+export type SecurityModeValues = (typeof SecurityMode)[SecurityModeKeys];

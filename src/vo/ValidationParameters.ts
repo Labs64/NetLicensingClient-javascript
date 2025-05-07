@@ -6,13 +6,13 @@
  */
 // types
 import {
-  ValidationParameters as IValidationParameters,
+  ValidationParametersInstance,
   Parameter,
   Parameters,
   LicenseeProperties,
 } from '@/types/vo/ValidationParameters';
 
-class ValidationParameters implements IValidationParameters {
+class ValidationParameters implements ValidationParametersInstance {
   productNumber?: string;
   dryRun?: boolean;
   forOfflineUse?: boolean;
@@ -104,4 +104,4 @@ class ValidationParameters implements IValidationParameters {
   }
 }
 
-export default () => new ValidationParameters();
+export default (): ValidationParametersInstance => new ValidationParameters();

@@ -20,11 +20,11 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
-import { ProductProps, Product } from '@/types/entities/Product';
-import { ProductService } from '@/types/services/ProductService';
+import { ProductProps, ProductEntity } from '@/types/entities/Product';
+import { IProductService } from '@/types/services/ProductService';
 import { RequestConfig } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
-import { Page as IPage } from '@/types/vo/Page';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
 
 // utils
 import { encode } from '@/utils/filter';
@@ -36,7 +36,7 @@ import Page from '@/vo/Page';
 const endpoint = Constants.Product.ENDPOINT_PATH;
 const type = Constants.Product.TYPE;
 
-const productService: ProductService = {
+const productService: IProductService = {
   /**
    * Gets product by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/product-services#get-product
@@ -54,10 +54,10 @@ const productService: ProductService = {
    * @returns {Promise}
    */
   async get<T extends object = ProductProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<Product<T>> {
+  ): Promise<ProductEntity<T>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
@@ -83,10 +83,10 @@ const productService: ProductService = {
    * @returns {Promise}
    */
   async list<T extends object = ProductProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<IPage<Product<T>[]>> {
+  ): Promise<PageInstance<ProductEntity<T>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -96,7 +96,9 @@ const productService: ProductService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: Product<T>[] | undefined = items?.item.filter((v) => v.type === type).map((v) => itemToProduct<T>(v));
+    const list: ProductEntity<T>[] | undefined = items?.item
+      .filter((v) => v.type === type)
+      .map((v) => itemToProduct<T>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -119,10 +121,10 @@ const productService: ProductService = {
    * @returns {Promise}
    */
   async create<T extends object = ProductProps>(
-    context: Context,
-    product: Product<T>,
+    context: ContextInstance,
+    product: ProductEntity<T>,
     config?: RequestConfig,
-  ): Promise<Product<T>> {
+  ): Promise<ProductEntity<T>> {
     ensureNotNull(product, 'product');
 
     const response = await Service.post(context, endpoint, product.serialize(), config);
@@ -151,11 +153,11 @@ const productService: ProductService = {
    * @returns {Promise}
    */
   async update<T extends object = ProductProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
-    product: Product<T>,
+    product: ProductEntity<T>,
     config?: RequestConfig,
-  ): Promise<Product<T>> {
+  ): Promise<ProductEntity<T>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(product, 'product');
 
@@ -185,7 +187,7 @@ const productService: ProductService = {
    * @returns {Promise}
    */
   delete(
-    context: Context,
+    context: ContextInstance,
     number: string,
     forceCascade: boolean,
     config?: RequestConfig,

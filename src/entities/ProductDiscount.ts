@@ -11,16 +11,14 @@ import defineEntity from '@/entities/defineEntity';
 import NlicError from '@/errors/NlicError';
 
 // types
-import {
-  ProductDiscountMethods,
-  ProductDiscountProps,
-  ProductDiscount as IProductDiscount,
-} from '@/types/entities/ProductDiscount';
+import { ProductDiscountMethods, ProductDiscountProps, ProductDiscountEntity } from '@/types/entities/ProductDiscount';
 
 // utils
 import { set, get } from '@/utils/helpers';
 
-const ProductDiscount = function (properties: ProductDiscountProps = {} as ProductDiscountProps): IProductDiscount {
+const ProductDiscount = function (
+  properties: ProductDiscountProps = {} as ProductDiscountProps,
+): ProductDiscountEntity {
   const props: ProductDiscountProps = { ...properties };
 
   if (props.amountFix && props.amountPercent) {
@@ -28,11 +26,11 @@ const ProductDiscount = function (properties: ProductDiscountProps = {} as Produ
   }
 
   const methods: ProductDiscountMethods = {
-    setTotalPrice(totalPrice: number): void {
+    setTotalPrice(this: void, totalPrice: number): void {
       set(props, 'totalPrice', totalPrice);
     },
 
-    getTotalPrice<D>(def?: D): number | D {
+    getTotalPrice<D>(this: void, def?: D): number | D {
       return get(props, 'totalPrice', def) as number | D;
     },
 
@@ -40,23 +38,23 @@ const ProductDiscount = function (properties: ProductDiscountProps = {} as Produ
       set(props, 'currency', currency);
     },
 
-    getCurrency<D = undefined>(def?: D): string | D {
+    getCurrency<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'currency', def) as string | D;
     },
 
-    setAmountFix(amountFix: number): void {
+    setAmountFix(this: void, amountFix: number): void {
       set(props, 'amountFix', amountFix);
     },
 
-    getAmountFix<D = undefined>(def?: D): number | D {
+    getAmountFix<D = undefined>(this: void, def?: D): number | D {
       return get(props, 'amountFix', def) as number | D;
     },
 
-    setAmountPercent(amountPercent: number): void {
+    setAmountPercent(this: void, amountPercent: number): void {
       set(props, 'amountPercent', amountPercent);
     },
 
-    getAmountPercent<D = undefined>(def?: D): number | D {
+    getAmountPercent<D = undefined>(this: void, def?: D): number | D {
       return get(props, 'amountPercent', def) as number | D;
     },
 

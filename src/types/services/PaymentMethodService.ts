@@ -4,28 +4,28 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-import { PaymentMethod, PaymentMethodProps } from '@/types/entities/PaymentMethod';
+import { PaymentMethodEntity, PaymentMethodProps } from '@/types/entities/PaymentMethod';
 import { RequestConfig } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
-import { Page } from '@/types/vo/Page';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
 
-export interface PaymentMethodService {
+export interface IPaymentMethodService {
   get<T extends object = PaymentMethodProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<PaymentMethod<T>>;
+  ): Promise<PaymentMethodEntity<T>>;
 
   list<T extends object = PaymentMethodProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<Page<PaymentMethod<T>[]>>;
+  ): Promise<PageInstance<PaymentMethodEntity<T>[]>>;
 
   update<T extends object = PaymentMethodProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
-    paymentMethod: PaymentMethod<T>,
+    paymentMethod: PaymentMethodEntity<T>,
     config?: RequestConfig,
-  ): Promise<PaymentMethod<T>>;
+  ): Promise<PaymentMethodEntity<T>>;
 }

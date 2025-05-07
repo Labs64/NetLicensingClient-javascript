@@ -21,12 +21,12 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination } from '@/types/api/response';
-import { Bundle, BundleProps } from '@/types/entities/Bundle';
-import { License, LicenseProps } from '@/types/entities/License';
-import { BundleService } from '@/types/services/BundleService';
+import { BundleEntity, BundleProps } from '@/types/entities/Bundle';
+import { LicenseEntity, LicenseProps } from '@/types/entities/License';
+import { IBundleService } from '@/types/services/BundleService';
 import { RequestConfig } from '@/types/services/Service';
-import { Context } from '@/types/vo/Context';
-import { Page as IPage } from '@/types/vo/Page';
+import { ContextInstance } from '@/types/vo/Context';
+import { PageInstance } from '@/types/vo/Page';
 
 // utils
 import { encode } from '@/utils/filter';
@@ -39,7 +39,7 @@ const endpoint = Constants.Bundle.ENDPOINT_PATH;
 const endpointObtain = Constants.Bundle.ENDPOINT_OBTAIN_PATH;
 const type = Constants.Bundle.TYPE;
 
-const bundleService: BundleService = {
+const bundleService: IBundleService = {
   /**
    * Gets bundle by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/bundle-services#get-bundle
@@ -57,10 +57,10 @@ const bundleService: BundleService = {
    * @returns {Promise}
    */
   async get<T extends object = BundleProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<Bundle<T>> {
+  ): Promise<BundleEntity<T>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
@@ -86,10 +86,10 @@ const bundleService: BundleService = {
    * @returns {Promise}
    */
   async list<T extends object = BundleProps>(
-    context: Context,
+    context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<IPage<Bundle<T>[]>> {
+  ): Promise<PageInstance<BundleEntity<T>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -99,7 +99,9 @@ const bundleService: BundleService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const bundles: Bundle<T>[] | undefined = items?.item.filter((v) => v.type === type).map((v) => itemToBundle<T>(v));
+    const bundles: BundleEntity<T>[] | undefined = items?.item
+      .filter((v) => v.type === type)
+      .map((v) => itemToBundle<T>(v));
 
     return Page(bundles || [], items as ItemPagination);
   },
@@ -122,10 +124,10 @@ const bundleService: BundleService = {
    * @returns {Promise}
    */
   async create<T extends object = BundleProps>(
-    context: Context,
-    bundle: Bundle<T>,
+    context: ContextInstance,
+    bundle: BundleEntity<T>,
     config?: RequestConfig,
-  ): Promise<Bundle<T>> {
+  ): Promise<BundleEntity<T>> {
     ensureNotNull(bundle, 'bundle');
 
     const response = await Service.post(context, endpoint, bundle.serialize(), config);
@@ -154,11 +156,11 @@ const bundleService: BundleService = {
    * @returns {Promise}
    */
   async update<T extends object = BundleProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
-    bundle: Bundle<T>,
+    bundle: BundleEntity<T>,
     config?: RequestConfig,
-  ): Promise<Bundle<T>> {
+  ): Promise<BundleEntity<T>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(bundle, 'bundle');
 
@@ -187,7 +189,12 @@ const bundleService: BundleService = {
    * return boolean state of delete in promise
    * @returns {Promise}
    */
-  delete(context: Context, number: string, forceCascade?: boolean, config?: RequestConfig): Promise<AxiosResponse> {
+  delete(
+    context: ContextInstance,
+    number: string,
+    forceCascade?: boolean,
+    config?: RequestConfig,
+  ): Promise<AxiosResponse> {
     ensureNotEmpty(number, 'number');
 
     return Service.delete(context, `${endpoint}/${number}`, { forceCascade: Boolean(forceCascade) }, config);
@@ -213,11 +220,11 @@ const bundleService: BundleService = {
    * @returns {Promise}
    */
   async obtain<T extends object = LicenseProps>(
-    context: Context,
+    context: ContextInstance,
     number: string,
     licenseeNumber: string,
     config?: RequestConfig,
-  ): Promise<License<T>[]> {
+  ): Promise<LicenseEntity<T>[]> {
     ensureNotEmpty(number, 'number');
     ensureNotEmpty(licenseeNumber, 'licenseeNumber');
 
