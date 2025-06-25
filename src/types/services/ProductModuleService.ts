@@ -12,38 +12,39 @@ import { ProductModuleEntity, ProductModuleProps } from '@/types/entities/Produc
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
+import { Persisted } from '@/types/entities';
 
 export interface IProductModuleService {
   get<T extends object = ProductModuleProps>(
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<ProductModuleEntity<T>>;
+  ): Promise<ProductModuleEntity<Persisted<T>>>;
 
   list<T extends object = ProductModuleProps>(
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<ProductModuleEntity<T>[]>>;
+  ): Promise<PageInstance<ProductModuleEntity<Persisted<T>>[]>>;
 
   create<T extends object = ProductModuleProps>(
     context: ContextInstance,
     productNumber: string | null,
     productModule: ProductModuleEntity<T>,
     config?: RequestConfig,
-  ): Promise<ProductModuleEntity<T>>;
+  ): Promise<ProductModuleEntity<Persisted<T>>>;
 
   update<T extends object = ProductModuleProps>(
     context: ContextInstance,
     number: string,
     productModule: ProductModuleEntity<T>,
     config?: RequestConfig,
-  ): Promise<ProductModuleEntity<T>>;
+  ): Promise<ProductModuleEntity<Persisted<T>>>;
 
   delete(
     context: ContextInstance,
     number: string,
-    forceCascade: boolean,
+    forceCascade?: boolean,
     config?: RequestConfig,
   ): Promise<AxiosResponse<NlicResponse>>;
 }

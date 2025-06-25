@@ -32,6 +32,7 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 
 // vo
 import Page from '@/vo/Page';
+import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.Notification.ENDPOINT_PATH;
 const type = Constants.Notification.TYPE;
@@ -57,13 +58,13 @@ const notificationService: INotificationService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<NotificationEntity<T>> {
+  ): Promise<NotificationEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToNotification<T>(item);
+    return itemToNotification<Persisted<T>>(item);
   },
 
   /**
@@ -86,7 +87,7 @@ const notificationService: INotificationService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<NotificationEntity<T>[]>> {
+  ): Promise<PageInstance<NotificationEntity<Persisted<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -96,9 +97,9 @@ const notificationService: INotificationService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: NotificationEntity<T>[] | undefined = items?.item
+    const list: NotificationEntity<Persisted<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToNotification<T>(v));
+      .map((v) => itemToNotification<Persisted<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -124,13 +125,13 @@ const notificationService: INotificationService = {
     context: ContextInstance,
     notification: NotificationEntity<T>,
     config?: RequestConfig,
-  ): Promise<NotificationEntity<T>> {
+  ): Promise<NotificationEntity<Persisted<T>>> {
     ensureNotNull(notification, 'notification');
 
     const response = await Service.post(context, endpoint, notification.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToNotification<T>(item);
+    return itemToNotification<Persisted<T>>(item);
   },
 
   /**
@@ -157,14 +158,14 @@ const notificationService: INotificationService = {
     number: string,
     notification: NotificationEntity<T>,
     config?: RequestConfig,
-  ): Promise<NotificationEntity<T>> {
+  ): Promise<NotificationEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(notification, 'notification');
 
     const response = await Service.post(context, `${endpoint}/${number}`, notification.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToNotification<T>(item);
+    return itemToNotification<Persisted<T>>(item);
   },
 
   /**
@@ -189,7 +190,7 @@ const notificationService: INotificationService = {
   delete(
     context: ContextInstance,
     number: string,
-    forceCascade: boolean,
+    forceCascade?: boolean,
     config?: RequestConfig,
   ): Promise<AxiosResponse<NlicResponse>> {
     ensureNotEmpty(number, 'number');

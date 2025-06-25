@@ -37,6 +37,7 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 
 // vo
 import Page from '@/vo/Page';
+import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.Transaction.ENDPOINT_PATH;
 const type = Constants.Transaction.TYPE;
@@ -62,13 +63,13 @@ const transactionService: ITransactionService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<TransactionEntity<T>> {
+  ): Promise<TransactionEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToTransaction<T>(item);
+    return itemToTransaction<Persisted<T>>(item);
   },
 
   /**
@@ -91,7 +92,7 @@ const transactionService: ITransactionService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<TransactionEntity<T>[]>> {
+  ): Promise<PageInstance<TransactionEntity<Persisted<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -101,9 +102,9 @@ const transactionService: ITransactionService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: TransactionEntity<T>[] | undefined = items?.item
+    const list: TransactionEntity<Persisted<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToTransaction<T>(v));
+      .map((v) => itemToTransaction<Persisted<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -129,13 +130,13 @@ const transactionService: ITransactionService = {
     context: ContextInstance,
     transaction: TransactionEntity<T>,
     config?: RequestConfig,
-  ): Promise<TransactionEntity<T>> {
+  ): Promise<TransactionEntity<Persisted<T>>> {
     ensureNotNull(transaction, 'transaction');
 
     const response = await Service.post(context, endpoint, transaction.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToTransaction<T>(item);
+    return itemToTransaction<Persisted<T>>(item);
   },
 
   /**
@@ -162,14 +163,14 @@ const transactionService: ITransactionService = {
     number: string,
     transaction: TransactionEntity<T>,
     config?: RequestConfig,
-  ): Promise<TransactionEntity<T>> {
+  ): Promise<TransactionEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(transaction, 'transaction');
 
     const response = await Service.post(context, `${endpoint}/${number}`, transaction.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToTransaction<T>(item);
+    return itemToTransaction<Persisted<T>>(item);
   },
 };
 

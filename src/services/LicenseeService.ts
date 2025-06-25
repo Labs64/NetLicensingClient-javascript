@@ -36,6 +36,7 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 // vo
 import Page from '@/vo/Page';
 import ValidationResults from '@/vo/ValidationResults';
+import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.Licensee.ENDPOINT_PATH;
 const endpointValidate = Constants.Licensee.ENDPOINT_PATH_VALIDATE;
@@ -63,13 +64,13 @@ const licenseeService: ILicenseeService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<LicenseeEntity<T>> {
+  ): Promise<LicenseeEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicensee<T>(item);
+    return itemToLicensee<Persisted<T>>(item);
   },
 
   /**
@@ -92,7 +93,7 @@ const licenseeService: ILicenseeService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<LicenseeEntity<T>[]>> {
+  ): Promise<PageInstance<LicenseeEntity<Persisted<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -102,9 +103,9 @@ const licenseeService: ILicenseeService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: LicenseeEntity<T>[] | undefined = items?.item
+    const list: LicenseeEntity<Persisted<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToLicensee<T>(v));
+      .map((v) => itemToLicensee<Persisted<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -134,7 +135,7 @@ const licenseeService: ILicenseeService = {
     productNumber: string,
     licensee: LicenseeEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseeEntity<T>> {
+  ): Promise<LicenseeEntity<Persisted<T>>> {
     ensureNotNull(licensee, 'licensee');
 
     const data = licensee.serialize();
@@ -146,7 +147,7 @@ const licenseeService: ILicenseeService = {
     const response = await Service.post(context, endpoint, data, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicensee<T>(item);
+    return itemToLicensee<Persisted<T>>(item);
   },
 
   /**
@@ -173,14 +174,14 @@ const licenseeService: ILicenseeService = {
     number: string,
     licensee: LicenseeEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseeEntity<T>> {
+  ): Promise<LicenseeEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(licensee, 'licensee');
 
     const response = await Service.post(context, `${endpoint}/${number}`, licensee.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicensee<T>(item);
+    return itemToLicensee<Persisted<T>>(item);
   },
 
   /**
@@ -205,7 +206,7 @@ const licenseeService: ILicenseeService = {
   delete(
     context: ContextInstance,
     number: string,
-    forceCascade: boolean,
+    forceCascade?: boolean,
     config?: RequestConfig,
   ): Promise<AxiosResponse<NlicResponse>> {
     ensureNotEmpty(number, 'number');

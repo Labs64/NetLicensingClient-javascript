@@ -41,14 +41,6 @@ const PaymentMethod = function <T extends object>(
     getNumber<D = undefined>(this: void, def?: D): string | D {
       return get(props, 'number', def) as string | D;
     },
-
-    setPaypalSubject(this: void, subject: string): void {
-      set(props, 'paypal.subject', subject);
-    },
-
-    getPaypalSubject<D = undefined>(this: void, def?: D): string | D {
-      return get(props, 'paypal.subject', def) as string | D;
-    },
   };
 
   return defineEntity(props as PaymentMethodProps<T>, methods, PaymentMethod);

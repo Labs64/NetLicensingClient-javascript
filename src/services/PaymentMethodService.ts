@@ -27,6 +27,7 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 
 // vo
 import Page from '@/vo/Page';
+import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.PaymentMethod.ENDPOINT_PATH;
 const type = Constants.PaymentMethod.TYPE;
@@ -52,13 +53,13 @@ const paymentMethodService: IPaymentMethodService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<PaymentMethodEntity<T>> {
+  ): Promise<PaymentMethodEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToPaymentMethod<T>(item);
+    return itemToPaymentMethod<Persisted<T>>(item);
   },
 
   /**
@@ -81,7 +82,7 @@ const paymentMethodService: IPaymentMethodService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<PaymentMethodEntity<T>[]>> {
+  ): Promise<PageInstance<PaymentMethodEntity<Persisted<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -91,9 +92,9 @@ const paymentMethodService: IPaymentMethodService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: PaymentMethodEntity<T>[] | undefined = items?.item
+    const list: PaymentMethodEntity<Persisted<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToPaymentMethod<T>(v));
+      .map((v) => itemToPaymentMethod<Persisted<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -122,14 +123,14 @@ const paymentMethodService: IPaymentMethodService = {
     number: string,
     paymentMethod: PaymentMethodEntity<T>,
     config?: RequestConfig,
-  ): Promise<PaymentMethodEntity<T>> {
+  ): Promise<PaymentMethodEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(paymentMethod, 'paymentMethod');
 
     const response = await Service.post(context, `${endpoint}/${number}`, paymentMethod.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToPaymentMethod<T>(item);
+    return itemToPaymentMethod<Persisted<T>>(item);
   },
 };
 
