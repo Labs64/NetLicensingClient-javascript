@@ -15,6 +15,7 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination } from '@/types/api/response';
+import { Persisted } from '@/types/entities';
 import { PaymentMethodProps, PaymentMethodEntity } from '@/types/entities/PaymentMethod';
 import { IPaymentMethodService } from '@/types/services/PaymentMethodService';
 import { RequestConfig } from '@/types/services/Service';
@@ -27,7 +28,6 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 
 // vo
 import Page from '@/vo/Page';
-import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.PaymentMethod.ENDPOINT_PATH;
 const type = Constants.PaymentMethod.TYPE;

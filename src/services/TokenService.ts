@@ -20,6 +20,7 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
+import { Persisted } from '@/types/entities';
 import { TokenProps, TokenEntity } from '@/types/entities/Token';
 import { RequestConfig } from '@/types/services/Service';
 import { ITokenService } from '@/types/services/TokenService';
@@ -32,7 +33,6 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 
 // vo
 import Page from '@/vo/Page';
-import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.Token.ENDPOINT_PATH;
 const type = Constants.Token.TYPE;

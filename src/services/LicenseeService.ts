@@ -21,6 +21,7 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
+import { Persisted } from '@/types/entities';
 import { LicenseeProps, LicenseeEntity } from '@/types/entities/Licensee';
 import { ILicenseeService } from '@/types/services/LicenseeService';
 import { RequestConfig } from '@/types/services/Service';
@@ -36,7 +37,6 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 // vo
 import Page from '@/vo/Page';
 import ValidationResults from '@/vo/ValidationResults';
-import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.Licensee.ENDPOINT_PATH;
 const endpointValidate = Constants.Licensee.ENDPOINT_PATH_VALIDATE;

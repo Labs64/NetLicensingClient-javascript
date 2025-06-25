@@ -8,13 +8,13 @@ import { AxiosResponse } from 'axios';
 
 // types
 import { NlicResponse } from '@/types/api/response';
+import { Persisted } from '@/types/entities';
 import { LicenseeEntity, LicenseeProps } from '@/types/entities/Licensee';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
 import { ValidationParametersInstance } from '@/types/vo/ValidationParameters';
 import { ValidationResultsInstance } from '@/types/vo/ValidationResults';
-import { Persisted } from '@/types/entities';
 
 export interface ILicenseeService {
   get<T extends object = LicenseeProps>(

@@ -4,11 +4,11 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
+import { Persisted } from '@/types/entities';
 import { PaymentMethodEntity, PaymentMethodProps } from '@/types/entities/PaymentMethod';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
-import { Persisted } from '@/types/entities';
 
 export interface IPaymentMethodService {
   get<T extends object = PaymentMethodProps>(

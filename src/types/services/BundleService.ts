@@ -7,12 +7,12 @@
 // types
 import { AxiosResponse } from 'axios';
 import { NlicResponse } from '@/types/api/response';
+import { Persisted } from '@/types/entities';
 import { BundleEntity, BundleProps } from '@/types/entities/Bundle';
 import { LicenseEntity, LicenseProps } from '@/types/entities/License';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
-import { Persisted } from '@/types/entities';
 
 export interface IBundleService {
   get<T extends object = BundleProps>(

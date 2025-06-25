@@ -20,6 +20,7 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
+import { Persisted } from '@/types/entities';
 import { LicenseProps, LicenseEntity } from '@/types/entities/License';
 import { ILicenseService } from '@/types/services/LicenseService';
 import { RequestConfig } from '@/types/services/Service';
@@ -32,7 +33,6 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 
 // vo
 import Page from '@/vo/Page';
-import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.License.ENDPOINT_PATH;
 const type = Constants.License.TYPE;
