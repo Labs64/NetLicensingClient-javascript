@@ -8,11 +8,11 @@ import { AxiosResponse } from 'axios';
 
 // types
 import { NlicResponse } from '@/types/api/response';
+import { Persisted } from '@/types/entities';
 import { LicenseTemplateEntity, LicenseTemplateProps } from '@/types/entities/LicenseTemplate';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
-import { Persisted } from '@/types/entities';
 
 export interface ILicenseTemplateService {
   get<T extends object = LicenseTemplateProps>(

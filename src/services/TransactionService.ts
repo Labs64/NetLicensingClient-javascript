@@ -25,6 +25,7 @@ import Service from '@/services/Service';
 
 // types
 import type { ItemPagination } from '@/types/api/response';
+import { Persisted } from '@/types/entities';
 import type { TransactionProps, TransactionEntity } from '@/types/entities/Transaction';
 import type { RequestConfig } from '@/types/services/Service';
 import type { ITransactionService } from '@/types/services/TransactionService';
@@ -37,7 +38,6 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 
 // vo
 import Page from '@/vo/Page';
-import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.Transaction.ENDPOINT_PATH;
 const type = Constants.Transaction.TYPE;

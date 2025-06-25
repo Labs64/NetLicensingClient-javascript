@@ -20,6 +20,7 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
+import { Persisted } from '@/types/entities';
 import { ProductProps, ProductEntity } from '@/types/entities/Product';
 import { IProductService } from '@/types/services/ProductService';
 import { RequestConfig } from '@/types/services/Service';
@@ -32,7 +33,6 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 
 // vo
 import Page from '@/vo/Page';
-import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.Product.ENDPOINT_PATH;
 const type = Constants.Product.TYPE;
