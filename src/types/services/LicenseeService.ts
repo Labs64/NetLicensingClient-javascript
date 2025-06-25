@@ -14,38 +14,39 @@ import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
 import { ValidationParametersInstance } from '@/types/vo/ValidationParameters';
 import { ValidationResultsInstance } from '@/types/vo/ValidationResults';
+import { Persisted } from '@/types/entities';
 
 export interface ILicenseeService {
   get<T extends object = LicenseeProps>(
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<LicenseeEntity<T>>;
+  ): Promise<LicenseeEntity<Persisted<T>>>;
 
   list<T extends object = LicenseeProps>(
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<LicenseeEntity<T>[]>>;
+  ): Promise<PageInstance<LicenseeEntity<Persisted<T>>[]>>;
 
   create<T extends object = LicenseeProps>(
     context: ContextInstance,
     productNumber: string,
     licensee: LicenseeEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseeEntity<T>>;
+  ): Promise<LicenseeEntity<Persisted<T>>>;
 
   update<T extends object = LicenseeProps>(
     context: ContextInstance,
     number: string,
     licensee: LicenseeEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseeEntity<T>>;
+  ): Promise<LicenseeEntity<Persisted<T>>>;
 
   delete(
     context: ContextInstance,
     number: string,
-    forceCascade: boolean,
+    forceCascade?: boolean,
     config?: RequestConfig,
   ): Promise<AxiosResponse<NlicResponse>>;
 

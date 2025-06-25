@@ -9,6 +9,7 @@ import { AxiosResponse } from 'axios';
 
 // types
 import { NlicResponse } from '@/types/api/response';
+import { Persisted } from '@/types/entities';
 import { TokenEntity, TokenProps } from '@/types/entities/Token';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
@@ -19,24 +20,24 @@ export interface ITokenService {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<TokenEntity<T>>;
+  ): Promise<TokenEntity<Persisted<T>>>;
 
   list<T extends object = TokenProps>(
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<TokenEntity<T>[]>>;
+  ): Promise<PageInstance<TokenEntity<Persisted<T>>[]>>;
 
   create<T extends object = TokenProps>(
     context: ContextInstance,
     token: TokenEntity<T>,
     config?: RequestConfig,
-  ): Promise<TokenEntity<T>>;
+  ): Promise<TokenEntity<Persisted<T>>>;
 
   delete(
     context: ContextInstance,
     number: string,
-    forceCascade: boolean,
+    forceCascade?: boolean,
     config?: RequestConfig,
   ): Promise<AxiosResponse<NlicResponse>>;
 }

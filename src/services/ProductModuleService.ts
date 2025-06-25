@@ -32,6 +32,7 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 
 // vo
 import Page from '@/vo/Page';
+import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.ProductModule.ENDPOINT_PATH;
 const type = Constants.ProductModule.TYPE;
@@ -57,13 +58,13 @@ const productModuleService: IProductModuleService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<ProductModuleEntity<T>> {
+  ): Promise<ProductModuleEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToProductModule<T>(item);
+    return itemToProductModule<Persisted<T>>(item);
   },
 
   /**
@@ -86,7 +87,7 @@ const productModuleService: IProductModuleService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<ProductModuleEntity<T>[]>> {
+  ): Promise<PageInstance<ProductModuleEntity<Persisted<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -96,9 +97,9 @@ const productModuleService: IProductModuleService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: ProductModuleEntity<T>[] | undefined = items?.item
+    const list: ProductModuleEntity<Persisted<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToProductModule<T>(v));
+      .map((v) => itemToProductModule<Persisted<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -128,7 +129,7 @@ const productModuleService: IProductModuleService = {
     productNumber: string | null,
     productModule: ProductModuleEntity<T>,
     config?: RequestConfig,
-  ): Promise<ProductModuleEntity<T>> {
+  ): Promise<ProductModuleEntity<Persisted<T>>> {
     ensureNotNull(productModule, 'productModule');
 
     const data = productModule.serialize();
@@ -140,7 +141,7 @@ const productModuleService: IProductModuleService = {
     const response = await Service.post(context, endpoint, data, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToProductModule<T>(item);
+    return itemToProductModule<Persisted<T>>(item);
   },
 
   /**
@@ -167,14 +168,14 @@ const productModuleService: IProductModuleService = {
     number: string,
     productModule: ProductModuleEntity<T>,
     config?: RequestConfig,
-  ): Promise<ProductModuleEntity<T>> {
+  ): Promise<ProductModuleEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(productModule, 'productModule');
 
     const response = await Service.post(context, `${endpoint}/${number}`, productModule.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToProductModule<T>(item);
+    return itemToProductModule<Persisted<T>>(item);
   },
 
   /**
@@ -199,7 +200,7 @@ const productModuleService: IProductModuleService = {
   delete(
     context: ContextInstance,
     number: string,
-    forceCascade: boolean,
+    forceCascade?: boolean,
     config?: RequestConfig,
   ): Promise<AxiosResponse<NlicResponse>> {
     ensureNotEmpty(number, 'number');

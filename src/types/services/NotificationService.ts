@@ -12,37 +12,38 @@ import { NotificationEntity, NotificationProps } from '@/types/entities/Notifica
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
+import { Persisted } from '@/types/entities';
 
 export interface INotificationService {
   get<T extends object = NotificationProps>(
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<NotificationEntity<T>>;
+  ): Promise<NotificationEntity<Persisted<T>>>;
 
   list<T extends object = NotificationProps>(
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<NotificationEntity<T>[]>>;
+  ): Promise<PageInstance<NotificationEntity<Persisted<T>>[]>>;
 
   create<T extends object = NotificationProps>(
     context: ContextInstance,
     notification: NotificationEntity<T>,
     config?: RequestConfig,
-  ): Promise<NotificationEntity<T>>;
+  ): Promise<NotificationEntity<Persisted<T>>>;
 
   update<T extends object = NotificationProps>(
     context: ContextInstance,
     number: string,
     notification: NotificationEntity<T>,
     config?: RequestConfig,
-  ): Promise<NotificationEntity<T>>;
+  ): Promise<NotificationEntity<Persisted<T>>>;
 
   delete(
     context: ContextInstance,
     number: string,
-    forceCascade: boolean,
+    forceCascade?: boolean,
     config?: RequestConfig,
   ): Promise<AxiosResponse<NlicResponse>>;
 }

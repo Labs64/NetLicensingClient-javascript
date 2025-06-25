@@ -32,6 +32,7 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 
 // vo
 import Page from '@/vo/Page';
+import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.License.ENDPOINT_PATH;
 const type = Constants.License.TYPE;
@@ -57,13 +58,13 @@ const licenseService: ILicenseService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<LicenseEntity<T>> {
+  ): Promise<LicenseEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicense<T>(item);
+    return itemToLicense<Persisted<T>>(item);
   },
 
   /**
@@ -86,7 +87,7 @@ const licenseService: ILicenseService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<LicenseEntity<T>[]>> {
+  ): Promise<PageInstance<LicenseEntity<Persisted<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -96,9 +97,9 @@ const licenseService: ILicenseService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: LicenseEntity<T>[] | undefined = items?.item
+    const list: LicenseEntity<Persisted<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToLicense<T>(v));
+      .map((v) => itemToLicense<Persisted<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -139,7 +140,7 @@ const licenseService: ILicenseService = {
     transactionNumber: string | null,
     license: LicenseEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseEntity<T>> {
+  ): Promise<LicenseEntity<Persisted<T>>> {
     ensureNotNull(license, 'license');
 
     const data = license.serialize();
@@ -159,7 +160,7 @@ const licenseService: ILicenseService = {
     const response = await Service.post(context, endpoint, data, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicense<T>(item);
+    return itemToLicense<Persisted<T>>(item);
   },
 
   /**
@@ -191,7 +192,7 @@ const licenseService: ILicenseService = {
     transactionNumber: string | null,
     license: LicenseEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseEntity<T>> {
+  ): Promise<LicenseEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(license, 'license');
 
@@ -204,7 +205,7 @@ const licenseService: ILicenseService = {
     const response = await Service.post(context, `${endpoint}/${number}`, data, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicense<T>(item);
+    return itemToLicense<Persisted<T>>(item);
   },
 
   /**
@@ -231,7 +232,7 @@ const licenseService: ILicenseService = {
   delete(
     context: ContextInstance,
     number: string,
-    forceCascade: boolean,
+    forceCascade?: boolean,
     config?: RequestConfig,
   ): Promise<AxiosResponse<NlicResponse>> {
     ensureNotEmpty(number, 'number');

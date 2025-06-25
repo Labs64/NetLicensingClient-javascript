@@ -21,6 +21,7 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination } from '@/types/api/response';
+import { Persisted } from '@/types/entities';
 import { BundleEntity, BundleProps } from '@/types/entities/Bundle';
 import { LicenseEntity, LicenseProps } from '@/types/entities/License';
 import { IBundleService } from '@/types/services/BundleService';
@@ -41,7 +42,7 @@ const type = Constants.Bundle.TYPE;
 
 const bundleService: IBundleService = {
   /**
-   * Gets bundle by its number.See NetLicensingAPI for details:
+   * Gets a bundle by its number.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/bundle-services#get-bundle
    *
    * determines the vendor on whose behalf the call is performed
@@ -60,13 +61,13 @@ const bundleService: IBundleService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<BundleEntity<T>> {
+  ): Promise<BundleEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToBundle<T>(item);
+    return itemToBundle<Persisted<T>>(item);
   },
 
   /**
@@ -89,7 +90,7 @@ const bundleService: IBundleService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<BundleEntity<T>[]>> {
+  ): Promise<PageInstance<BundleEntity<Persisted<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -99,15 +100,15 @@ const bundleService: IBundleService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const bundles: BundleEntity<T>[] | undefined = items?.item
+    const bundles: BundleEntity<Persisted<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToBundle<T>(v));
+      .map((v) => itemToBundle<Persisted<T>>(v));
 
     return Page(bundles || [], items as ItemPagination);
   },
 
   /**
-   * Creates new bundle with given properties.See NetLicensingAPI for details:
+   * Creates a new bundle with given properties.See NetLicensingAPI for details:
    * @see https://netlicensing.io/wiki/bundle-services#create-bundle
    *
    * determines the vendor on whose behalf the call is performed
@@ -127,13 +128,13 @@ const bundleService: IBundleService = {
     context: ContextInstance,
     bundle: BundleEntity<T>,
     config?: RequestConfig,
-  ): Promise<BundleEntity<T>> {
+  ): Promise<BundleEntity<Persisted<T>>> {
     ensureNotNull(bundle, 'bundle');
 
     const response = await Service.post(context, endpoint, bundle.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToBundle<T>(item);
+    return itemToBundle<Persisted<T>>(item);
   },
 
   /**
@@ -160,14 +161,14 @@ const bundleService: IBundleService = {
     number: string,
     bundle: BundleEntity<T>,
     config?: RequestConfig,
-  ): Promise<BundleEntity<T>> {
+  ): Promise<BundleEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(bundle, 'bundle');
 
     const response = await Service.post(context, `${endpoint}/${number}`, bundle.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToBundle<T>(item);
+    return itemToBundle<Persisted<T>>(item);
   },
 
   /**
@@ -224,7 +225,7 @@ const bundleService: IBundleService = {
     number: string,
     licenseeNumber: string,
     config?: RequestConfig,
-  ): Promise<LicenseEntity<T>[]> {
+  ): Promise<LicenseEntity<Persisted<T>>[]> {
     ensureNotEmpty(number, 'number');
     ensureNotEmpty(licenseeNumber, 'licenseeNumber');
 
@@ -233,7 +234,9 @@ const bundleService: IBundleService = {
     const response = await Service.post(context, `${endpoint}/${number}/${endpointObtain}`, data, config);
     const items = response.data.items;
 
-    return items?.item.filter((v) => v.type === Constants.License.TYPE).map((v) => itemToLicense<T>(v)) || [];
+    const licenses = items?.item.filter((v) => v.type === Constants.License.TYPE);
+
+    return licenses?.map((v) => itemToLicense<Persisted<T>>(v)) || [];
   },
 };
 
