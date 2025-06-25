@@ -12,37 +12,38 @@ import { LicenseEntity, LicenseProps } from '@/types/entities/License';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
+import { Persisted } from '@/types/entities';
 
 export interface IBundleService {
   get<T extends object = BundleProps>(
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<BundleEntity<T>>;
+  ): Promise<BundleEntity<Persisted<T>>>;
 
   list<T extends object = BundleProps>(
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<BundleEntity<T>[]>>;
+  ): Promise<PageInstance<BundleEntity<Persisted<T>>[]>>;
 
   create<T extends object = BundleProps>(
     context: ContextInstance,
     bundle: BundleEntity<T>,
     config?: RequestConfig,
-  ): Promise<BundleEntity<T>>;
+  ): Promise<BundleEntity<Persisted<T>>>;
 
   update<T extends object = BundleProps>(
     context: ContextInstance,
     number: string,
     bundle: BundleEntity<T>,
     config?: RequestConfig,
-  ): Promise<BundleEntity<T>>;
+  ): Promise<BundleEntity<Persisted<T>>>;
 
   delete(
     context: ContextInstance,
     number: string,
-    forceCascade: boolean,
+    forceCascade?: boolean,
     config?: RequestConfig,
   ): Promise<AxiosResponse<NlicResponse>>;
 
@@ -51,5 +52,5 @@ export interface IBundleService {
     number: string,
     licenseeNumber: string,
     config?: RequestConfig,
-  ): Promise<LicenseEntity<T>[]>;
+  ): Promise<LicenseEntity<Persisted<T>>[]>;
 }

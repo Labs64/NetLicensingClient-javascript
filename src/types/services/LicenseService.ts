@@ -11,19 +11,20 @@ import { LicenseEntity, LicenseProps } from '@/types/entities/License';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
+import { Persisted } from '@/types/entities';
 
 export interface ILicenseService {
   get<T extends object = LicenseProps>(
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<LicenseEntity<T>>;
+  ): Promise<LicenseEntity<Persisted<T>>>;
 
   list<T extends object = LicenseProps>(
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<LicenseEntity<T>[]>>;
+  ): Promise<PageInstance<LicenseEntity<Persisted<T>>[]>>;
 
   create<T extends object = LicenseProps>(
     context: ContextInstance,
@@ -32,7 +33,7 @@ export interface ILicenseService {
     transactionNumber: string | null,
     license: LicenseEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseEntity<T>>;
+  ): Promise<LicenseEntity<Persisted<T>>>;
 
   update<T extends object = LicenseProps>(
     context: ContextInstance,
@@ -40,12 +41,12 @@ export interface ILicenseService {
     transactionNumber: string | null,
     license: LicenseEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseEntity<T>>;
+  ): Promise<LicenseEntity<Persisted<T>>>;
 
   delete(
     context: ContextInstance,
     number: string,
-    forceCascade: boolean,
+    forceCascade?: boolean,
     config?: RequestConfig,
   ): Promise<AxiosResponse<NlicResponse>>;
 }
