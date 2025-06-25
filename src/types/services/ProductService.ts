@@ -8,11 +8,11 @@ import { AxiosResponse } from 'axios';
 
 // types
 import { NlicResponse } from '@/types/api/response';
+import { Persisted } from '@/types/entities';
 import { ProductEntity, ProductProps } from '@/types/entities/Product';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
-import { Persisted } from '@/types/entities';
 
 export interface IProductService {
   get<T extends object = ProductProps>(
