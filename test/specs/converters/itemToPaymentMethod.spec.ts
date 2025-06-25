@@ -25,7 +25,7 @@ describe('itemToPaymentMethod converter', () => {
 
     const result = itemToPaymentMethod(item);
 
-    const expected: PaymentMethodProps<{ customProperty: string }> = {
+    const expected: PaymentMethodProps<{ ['paypal.subject']: string; customProperty: string }> = {
       number: 'PAYPAL',
       active: true,
       'paypal.subject': 'P-SUBJECT',

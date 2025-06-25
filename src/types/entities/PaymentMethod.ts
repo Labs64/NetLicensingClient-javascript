@@ -9,7 +9,6 @@ import { Entity } from '@/types/entities/defineEntity';
 export type PaymentMethodProps<T = object> = T & {
   active?: boolean;
   number?: string;
-  'paypal.subject'?: string;
 };
 
 export interface PaymentMethodMethods {
@@ -20,10 +19,6 @@ export interface PaymentMethodMethods {
   setNumber(number: string): void;
 
   getNumber<D = undefined>(def?: D): string | D;
-
-  setPaypalSubject(subject: string): void;
-
-  getPaypalSubject<D = undefined>(def?: D): string | D;
 }
 
 export type PaymentMethodEntity<T = object> = Entity<PaymentMethodProps<T>, PaymentMethodMethods>;

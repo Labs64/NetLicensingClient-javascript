@@ -32,6 +32,7 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 
 // vo
 import Page from '@/vo/Page';
+import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.Token.ENDPOINT_PATH;
 const type = Constants.Token.TYPE;
@@ -57,13 +58,13 @@ const tokenService: ITokenService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<TokenEntity<T>> {
+  ): Promise<TokenEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToToken<T>(item);
+    return itemToToken<Persisted<T>>(item);
   },
 
   /**
@@ -86,7 +87,7 @@ const tokenService: ITokenService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<TokenEntity<T>[]>> {
+  ): Promise<PageInstance<TokenEntity<Persisted<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -96,7 +97,9 @@ const tokenService: ITokenService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: TokenEntity<T>[] | undefined = items?.item.filter((v) => v.type === type).map((v) => itemToToken<T>(v));
+    const list: TokenEntity<Persisted<T>>[] | undefined = items?.item
+      .filter((v) => v.type === type)
+      .map((v) => itemToToken<Persisted<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -121,13 +124,13 @@ const tokenService: ITokenService = {
     context: ContextInstance,
     token: TokenEntity<T>,
     config?: RequestConfig,
-  ): Promise<TokenEntity<T>> {
+  ): Promise<TokenEntity<Persisted<T>>> {
     ensureNotNull(token, 'token');
 
     const response = await Service.post(context, endpoint, token.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToToken<T>(item);
+    return itemToToken<Persisted<T>>(item);
   },
 
   /**
@@ -152,7 +155,7 @@ const tokenService: ITokenService = {
   delete(
     context: ContextInstance,
     number: string,
-    forceCascade: boolean,
+    forceCascade?: boolean,
     config?: RequestConfig,
   ): Promise<AxiosResponse<NlicResponse>> {
     ensureNotEmpty(number, 'number');

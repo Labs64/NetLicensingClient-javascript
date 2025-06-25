@@ -120,7 +120,9 @@ const Notification = function <T extends object>(
     serialize(): Record<string, string> {
       const data = serialize(props);
 
-      data.events = this.getEvents([]).join(',');
+      if (data.events) {
+        data.events = this.getEvents([]).join(',');
+      }
 
       return data;
     },

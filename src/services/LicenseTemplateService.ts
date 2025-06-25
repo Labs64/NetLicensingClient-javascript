@@ -32,6 +32,7 @@ import { ensureNotEmpty, ensureNotNull } from '@/utils/validation';
 
 // vo
 import Page from '@/vo/Page';
+import { Persisted } from '@/types/entities';
 
 const endpoint = Constants.LicenseTemplate.ENDPOINT_PATH;
 const type = Constants.LicenseTemplate.TYPE;
@@ -57,13 +58,13 @@ const licenseTemplateService: ILicenseTemplateService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<LicenseTemplateEntity<T>> {
+  ): Promise<LicenseTemplateEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicenseTemplate<T>(item);
+    return itemToLicenseTemplate<Persisted<T>>(item);
   },
 
   /**
@@ -86,7 +87,7 @@ const licenseTemplateService: ILicenseTemplateService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<LicenseTemplateEntity<T>[]>> {
+  ): Promise<PageInstance<LicenseTemplateEntity<Persisted<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -96,9 +97,9 @@ const licenseTemplateService: ILicenseTemplateService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: LicenseTemplateEntity<T>[] | undefined = items?.item
+    const list: LicenseTemplateEntity<Persisted<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToLicenseTemplate<T>(v));
+      .map((v) => itemToLicenseTemplate<Persisted<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -128,7 +129,7 @@ const licenseTemplateService: ILicenseTemplateService = {
     productModuleNumber: string | null,
     licenseTemplate: LicenseTemplateEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseTemplateEntity<T>> {
+  ): Promise<LicenseTemplateEntity<Persisted<T>>> {
     ensureNotNull(licenseTemplate, 'licenseTemplate');
 
     const data = licenseTemplate.serialize();
@@ -140,7 +141,7 @@ const licenseTemplateService: ILicenseTemplateService = {
     const response = await Service.post(context, endpoint, data, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicenseTemplate<T>(item);
+    return itemToLicenseTemplate<Persisted<T>>(item);
   },
 
   /**
@@ -167,14 +168,14 @@ const licenseTemplateService: ILicenseTemplateService = {
     number: string,
     licenseTemplate: LicenseTemplateEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseTemplateEntity<T>> {
+  ): Promise<LicenseTemplateEntity<Persisted<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(licenseTemplate, 'licenseTemplate');
 
     const response = await Service.post(context, `${endpoint}/${number}`, licenseTemplate.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicenseTemplate<T>(item);
+    return itemToLicenseTemplate<Persisted<T>>(item);
   },
 
   /**
@@ -199,7 +200,7 @@ const licenseTemplateService: ILicenseTemplateService = {
   delete(
     context: ContextInstance,
     number: string,
-    forceCascade: boolean,
+    forceCascade?: boolean,
     config?: RequestConfig,
   ): Promise<AxiosResponse<NlicResponse>> {
     ensureNotEmpty(number, 'number');

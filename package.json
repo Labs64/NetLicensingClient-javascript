@@ -50,9 +50,9 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     }
   },
   "files": [
@@ -71,9 +71,7 @@
   "peerDependencies": {
     "axios": "^1.9.0"
   },
-  "dependencies": {
-    "btoa": "^1.2.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@eslint/js": "^9.24.0",
     "@types/node": "^22.14.0",
