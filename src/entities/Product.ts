@@ -32,7 +32,7 @@ import serialize from '@/utils/serialize';
  * @property string name
  *
  * Product version. Convenience parameter, additional to the product name.
- * @property float version
+ * @property string version
  *
  * If set to 'true', non-existing licensees will be created at first validation attempt.
  * @property boolean licenseeAutoCreate
