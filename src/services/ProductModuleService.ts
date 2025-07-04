@@ -20,8 +20,7 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
-import { Persisted } from '@/types/entities';
-import { ProductModuleProps, ProductModuleEntity } from '@/types/entities/ProductModule';
+import { ProductModuleProps, ProductModuleEntity, SavedProductModuleProps } from '@/types/entities/ProductModule';
 import { IProductModuleService } from '@/types/services/ProductModuleService';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
@@ -58,13 +57,13 @@ const productModuleService: IProductModuleService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<ProductModuleEntity<Persisted<T>>> {
+  ): Promise<ProductModuleEntity<SavedProductModuleProps<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToProductModule<Persisted<T>>(item);
+    return itemToProductModule<SavedProductModuleProps<T>>(item);
   },
 
   /**
@@ -87,7 +86,7 @@ const productModuleService: IProductModuleService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<ProductModuleEntity<Persisted<T>>[]>> {
+  ): Promise<PageInstance<ProductModuleEntity<SavedProductModuleProps<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -97,9 +96,9 @@ const productModuleService: IProductModuleService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: ProductModuleEntity<Persisted<T>>[] | undefined = items?.item
+    const list: ProductModuleEntity<SavedProductModuleProps<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToProductModule<Persisted<T>>(v));
+      .map((v) => itemToProductModule<SavedProductModuleProps<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -129,7 +128,7 @@ const productModuleService: IProductModuleService = {
     productNumber: string | null,
     productModule: ProductModuleEntity<T>,
     config?: RequestConfig,
-  ): Promise<ProductModuleEntity<Persisted<T>>> {
+  ): Promise<ProductModuleEntity<SavedProductModuleProps<T>>> {
     ensureNotNull(productModule, 'productModule');
 
     const data = productModule.serialize();
@@ -141,7 +140,7 @@ const productModuleService: IProductModuleService = {
     const response = await Service.post(context, endpoint, data, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToProductModule<Persisted<T>>(item);
+    return itemToProductModule<SavedProductModuleProps<T>>(item);
   },
 
   /**
@@ -168,14 +167,14 @@ const productModuleService: IProductModuleService = {
     number: string,
     productModule: ProductModuleEntity<T>,
     config?: RequestConfig,
-  ): Promise<ProductModuleEntity<Persisted<T>>> {
+  ): Promise<ProductModuleEntity<SavedProductModuleProps<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(productModule, 'productModule');
 
     const response = await Service.post(context, `${endpoint}/${number}`, productModule.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToProductModule<Persisted<T>>(item);
+    return itemToProductModule<SavedProductModuleProps<T>>(item);
   },
 
   /**

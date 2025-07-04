@@ -8,8 +8,7 @@ import { AxiosResponse } from 'axios';
 
 // types
 import { NlicResponse } from '@/types/api/response';
-import { Persisted } from '@/types/entities';
-import { ProductEntity, ProductProps } from '@/types/entities/Product';
+import { ProductEntity, ProductProps, SavedProductProps } from '@/types/entities/Product';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
@@ -19,26 +18,26 @@ export interface IProductService {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<ProductEntity<Persisted<T>>>;
+  ): Promise<ProductEntity<SavedProductProps<T>>>;
 
   list<T extends object = ProductProps>(
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<ProductEntity<Persisted<T>>[]>>;
+  ): Promise<PageInstance<ProductEntity<SavedProductProps<T>>[]>>;
 
   create<T extends object = ProductProps>(
     context: ContextInstance,
     product: ProductEntity<T>,
     config?: RequestConfig,
-  ): Promise<ProductEntity<Persisted<T>>>;
+  ): Promise<ProductEntity<SavedProductProps<T>>>;
 
   update<T extends object = ProductProps>(
     context: ContextInstance,
     number: string,
     product: ProductEntity<T>,
     config?: RequestConfig,
-  ): Promise<ProductEntity<Persisted<T>>>;
+  ): Promise<ProductEntity<SavedProductProps<T>>>;
 
   delete(
     context: ContextInstance,

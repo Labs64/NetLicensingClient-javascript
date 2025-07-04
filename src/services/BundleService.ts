@@ -21,9 +21,8 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination } from '@/types/api/response';
-import { Persisted } from '@/types/entities';
-import { BundleEntity, BundleProps } from '@/types/entities/Bundle';
-import { LicenseEntity, LicenseProps } from '@/types/entities/License';
+import { BundleEntity, BundleProps, SavedBundleProps } from '@/types/entities/Bundle';
+import { LicenseEntity, LicenseProps, SavedLicenseProps } from '@/types/entities/License';
 import { IBundleService } from '@/types/services/BundleService';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
@@ -61,13 +60,13 @@ const bundleService: IBundleService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<BundleEntity<Persisted<T>>> {
+  ): Promise<BundleEntity<SavedBundleProps<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToBundle<Persisted<T>>(item);
+    return itemToBundle<SavedBundleProps<T>>(item);
   },
 
   /**
@@ -90,7 +89,7 @@ const bundleService: IBundleService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<BundleEntity<Persisted<T>>[]>> {
+  ): Promise<PageInstance<BundleEntity<SavedBundleProps<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -100,9 +99,9 @@ const bundleService: IBundleService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const bundles: BundleEntity<Persisted<T>>[] | undefined = items?.item
+    const bundles: BundleEntity<SavedBundleProps<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToBundle<Persisted<T>>(v));
+      .map((v) => itemToBundle<SavedBundleProps<T>>(v));
 
     return Page(bundles || [], items as ItemPagination);
   },
@@ -128,13 +127,13 @@ const bundleService: IBundleService = {
     context: ContextInstance,
     bundle: BundleEntity<T>,
     config?: RequestConfig,
-  ): Promise<BundleEntity<Persisted<T>>> {
+  ): Promise<BundleEntity<SavedBundleProps<T>>> {
     ensureNotNull(bundle, 'bundle');
 
     const response = await Service.post(context, endpoint, bundle.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToBundle<Persisted<T>>(item);
+    return itemToBundle<SavedBundleProps<T>>(item);
   },
 
   /**
@@ -161,14 +160,14 @@ const bundleService: IBundleService = {
     number: string,
     bundle: BundleEntity<T>,
     config?: RequestConfig,
-  ): Promise<BundleEntity<Persisted<T>>> {
+  ): Promise<BundleEntity<SavedBundleProps<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(bundle, 'bundle');
 
     const response = await Service.post(context, `${endpoint}/${number}`, bundle.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToBundle<Persisted<T>>(item);
+    return itemToBundle<SavedBundleProps<T>>(item);
   },
 
   /**
@@ -225,7 +224,7 @@ const bundleService: IBundleService = {
     number: string,
     licenseeNumber: string,
     config?: RequestConfig,
-  ): Promise<LicenseEntity<Persisted<T>>[]> {
+  ): Promise<LicenseEntity<SavedLicenseProps<T>>[]> {
     ensureNotEmpty(number, 'number');
     ensureNotEmpty(licenseeNumber, 'licenseeNumber');
 
@@ -236,7 +235,7 @@ const bundleService: IBundleService = {
 
     const licenses = items?.item.filter((v) => v.type === Constants.License.TYPE);
 
-    return licenses?.map((v) => itemToLicense<Persisted<T>>(v)) || [];
+    return licenses?.map((v) => itemToLicense<SavedLicenseProps<T>>(v)) || [];
   },
 };
 

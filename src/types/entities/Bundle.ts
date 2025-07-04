@@ -4,6 +4,7 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
+import { RequiredProps } from '@/types';
 import type { Entity } from '@/types/entities/defineEntity';
 
 export type BundleProps<T extends object = object> = T & {
@@ -14,6 +15,9 @@ export type BundleProps<T extends object = object> = T & {
   currency?: string;
   licenseTemplateNumbers?: string[];
 };
+
+export type SavedBundleProps<T extends object = object> = RequiredProps<BundleProps, 'active' | 'number' | 'name'> &
+  BundleProps<T>;
 
 export interface BundleMethods {
   setActive(active: boolean): void;

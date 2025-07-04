@@ -5,6 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 // types
+import { RequiredProps } from '@/types';
 import { LicensingModelValues } from '@/types/constants/LicensingModel';
 import { Entity } from '@/types/entities/defineEntity';
 
@@ -19,6 +20,12 @@ export type ProductModuleProps<T extends object = object> = {
   productNumber?: string;
   readonly inUse?: boolean;
 } & T;
+
+export type SavedProductModuleProps<T extends object = object> = RequiredProps<
+  ProductModuleProps,
+  'active' | 'number' | 'licensingModel' | 'productNumber' | 'inUse'
+> &
+  ProductModuleProps<T>;
 
 export interface ProductModuleMethods {
   setActive(active: boolean): void;

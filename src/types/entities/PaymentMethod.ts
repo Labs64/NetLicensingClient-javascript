@@ -4,12 +4,19 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
+import { RequiredProps } from '@/types';
 import { Entity } from '@/types/entities/defineEntity';
 
 export type PaymentMethodProps<T = object> = T & {
   active?: boolean;
   number?: string;
 };
+
+export type SavedPaymentMethodProps<T extends object = object> = RequiredProps<
+  PaymentMethodProps,
+  'active' | 'number'
+> &
+  PaymentMethodProps<T>;
 
 export interface PaymentMethodMethods {
   setActive(active: boolean): void;

@@ -5,6 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 // types
+import { RequiredProps } from '@/types';
 import type { TimeVolumePeriodValues } from '@/types/constants/TimeVolumePeriod';
 import type { Entity } from '@/types/entities/defineEntity';
 
@@ -28,6 +29,9 @@ export type LicenseProps<T extends object = object> = {
 
   readonly inUse?: boolean;
 } & T;
+
+export type SavedLicenseProps<T extends object = object> = RequiredProps<LicenseProps, 'active' | 'number'> &
+  LicenseProps<T>;
 
 export interface LicenseMethods {
   setActive(active: boolean): void;
