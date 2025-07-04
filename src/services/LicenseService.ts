@@ -20,8 +20,7 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
-import { Persisted } from '@/types/entities';
-import { LicenseProps, LicenseEntity } from '@/types/entities/License';
+import { LicenseProps, LicenseEntity, SavedLicenseProps } from '@/types/entities/License';
 import { ILicenseService } from '@/types/services/LicenseService';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
@@ -58,13 +57,13 @@ const licenseService: ILicenseService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<LicenseEntity<Persisted<T>>> {
+  ): Promise<LicenseEntity<SavedLicenseProps<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicense<Persisted<T>>(item);
+    return itemToLicense<SavedLicenseProps<T>>(item);
   },
 
   /**
@@ -87,7 +86,7 @@ const licenseService: ILicenseService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<LicenseEntity<Persisted<T>>[]>> {
+  ): Promise<PageInstance<LicenseEntity<SavedLicenseProps<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -97,9 +96,9 @@ const licenseService: ILicenseService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: LicenseEntity<Persisted<T>>[] | undefined = items?.item
+    const list: LicenseEntity<SavedLicenseProps<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToLicense<Persisted<T>>(v));
+      .map((v) => itemToLicense<SavedLicenseProps<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -140,7 +139,7 @@ const licenseService: ILicenseService = {
     transactionNumber: string | null,
     license: LicenseEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseEntity<Persisted<T>>> {
+  ): Promise<LicenseEntity<SavedLicenseProps<T>>> {
     ensureNotNull(license, 'license');
 
     const data = license.serialize();
@@ -160,7 +159,7 @@ const licenseService: ILicenseService = {
     const response = await Service.post(context, endpoint, data, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicense<Persisted<T>>(item);
+    return itemToLicense<SavedLicenseProps<T>>(item);
   },
 
   /**
@@ -192,7 +191,7 @@ const licenseService: ILicenseService = {
     transactionNumber: string | null,
     license: LicenseEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseEntity<Persisted<T>>> {
+  ): Promise<LicenseEntity<SavedLicenseProps<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(license, 'license');
 
@@ -205,7 +204,7 @@ const licenseService: ILicenseService = {
     const response = await Service.post(context, `${endpoint}/${number}`, data, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicense<Persisted<T>>(item);
+    return itemToLicense<SavedLicenseProps<T>>(item);
   },
 
   /**

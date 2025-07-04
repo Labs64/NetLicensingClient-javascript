@@ -1,4 +1,1 @@
-export type Persisted<T extends object = object> = Omit<T, 'number' | 'active'> & {
-  number: string;
-  active: boolean;
-};
+export type RequiredProps<Base, Keys extends keyof Base> = Required<Pick<Base, Keys>>;

@@ -8,8 +8,7 @@ import { AxiosResponse } from 'axios';
 
 // types
 import { NlicResponse } from '@/types/api/response';
-import { Persisted } from '@/types/entities';
-import { NotificationEntity, NotificationProps } from '@/types/entities/Notification';
+import { NotificationEntity, NotificationProps, SavedNotificationProps } from '@/types/entities/Notification';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
@@ -19,26 +18,26 @@ export interface INotificationService {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<NotificationEntity<Persisted<T>>>;
+  ): Promise<NotificationEntity<SavedNotificationProps<T>>>;
 
   list<T extends object = NotificationProps>(
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<NotificationEntity<Persisted<T>>[]>>;
+  ): Promise<PageInstance<NotificationEntity<SavedNotificationProps<T>>[]>>;
 
   create<T extends object = NotificationProps>(
     context: ContextInstance,
     notification: NotificationEntity<T>,
     config?: RequestConfig,
-  ): Promise<NotificationEntity<Persisted<T>>>;
+  ): Promise<NotificationEntity<SavedNotificationProps<T>>>;
 
   update<T extends object = NotificationProps>(
     context: ContextInstance,
     number: string,
     notification: NotificationEntity<T>,
     config?: RequestConfig,
-  ): Promise<NotificationEntity<Persisted<T>>>;
+  ): Promise<NotificationEntity<SavedNotificationProps<T>>>;
 
   delete(
     context: ContextInstance,

@@ -5,6 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 // types
+import { RequiredProps } from '@/types';
 import type { LicenseTypeValues } from '@/types/constants/LicenseType';
 import type { TimeVolumePeriodValues } from '@/types/constants/TimeVolumePeriod';
 import { Entity } from '@/types/entities/defineEntity';
@@ -27,6 +28,12 @@ export type LicenseTemplateProps<T extends object = object> = {
   productModuleNumber?: string;
   readonly inUse?: boolean;
 } & T;
+
+export type SavedLicenseTemplateProps<T extends object = object> = RequiredProps<
+  LicenseTemplateProps,
+  'active' | 'number' | 'licenseType'
+> &
+  LicenseTemplateProps<T>;
 
 export interface LicenseTemplateMethods {
   setActive(active: boolean): void;

@@ -20,8 +20,7 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
-import { Persisted } from '@/types/entities';
-import { TokenProps, TokenEntity } from '@/types/entities/Token';
+import { TokenProps, TokenEntity, SavedTokenProps } from '@/types/entities/Token';
 import { RequestConfig } from '@/types/services/Service';
 import { ITokenService } from '@/types/services/TokenService';
 import { ContextInstance } from '@/types/vo/Context';
@@ -58,13 +57,13 @@ const tokenService: ITokenService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<TokenEntity<Persisted<T>>> {
+  ): Promise<TokenEntity<SavedTokenProps<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToToken<Persisted<T>>(item);
+    return itemToToken<SavedTokenProps<T>>(item);
   },
 
   /**
@@ -87,7 +86,7 @@ const tokenService: ITokenService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<TokenEntity<Persisted<T>>[]>> {
+  ): Promise<PageInstance<TokenEntity<SavedTokenProps<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -97,9 +96,9 @@ const tokenService: ITokenService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: TokenEntity<Persisted<T>>[] | undefined = items?.item
+    const list: TokenEntity<SavedTokenProps<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToToken<Persisted<T>>(v));
+      .map((v) => itemToToken<SavedTokenProps<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -124,13 +123,13 @@ const tokenService: ITokenService = {
     context: ContextInstance,
     token: TokenEntity<T>,
     config?: RequestConfig,
-  ): Promise<TokenEntity<Persisted<T>>> {
+  ): Promise<TokenEntity<SavedTokenProps<T>>> {
     ensureNotNull(token, 'token');
 
     const response = await Service.post(context, endpoint, token.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToToken<Persisted<T>>(item);
+    return itemToToken<SavedTokenProps<T>>(item);
   },
 
   /**
