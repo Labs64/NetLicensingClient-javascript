@@ -20,8 +20,7 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
-import { Persisted } from '@/types/entities';
-import { ProductProps, ProductEntity } from '@/types/entities/Product';
+import { ProductProps, ProductEntity, SavedProductProps } from '@/types/entities/Product';
 import { IProductService } from '@/types/services/ProductService';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
@@ -58,13 +57,13 @@ const productService: IProductService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<ProductEntity<Persisted<T>>> {
+  ): Promise<ProductEntity<SavedProductProps<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToProduct<Persisted<T>>(item);
+    return itemToProduct<SavedProductProps<T>>(item);
   },
 
   /**
@@ -87,7 +86,7 @@ const productService: IProductService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<ProductEntity<Persisted<T>>[]>> {
+  ): Promise<PageInstance<ProductEntity<SavedProductProps<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -97,9 +96,9 @@ const productService: IProductService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: ProductEntity<Persisted<T>>[] | undefined = items?.item
+    const list: ProductEntity<SavedProductProps<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToProduct<Persisted<T>>(v));
+      .map((v) => itemToProduct<SavedProductProps<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -125,13 +124,13 @@ const productService: IProductService = {
     context: ContextInstance,
     product: ProductEntity<T>,
     config?: RequestConfig,
-  ): Promise<ProductEntity<Persisted<T>>> {
+  ): Promise<ProductEntity<SavedProductProps<T>>> {
     ensureNotNull(product, 'product');
 
     const response = await Service.post(context, endpoint, product.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToProduct<Persisted<T>>(item);
+    return itemToProduct<SavedProductProps<T>>(item);
   },
 
   /**
@@ -158,14 +157,14 @@ const productService: IProductService = {
     number: string,
     product: ProductEntity<T>,
     config?: RequestConfig,
-  ): Promise<ProductEntity<Persisted<T>>> {
+  ): Promise<ProductEntity<SavedProductProps<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(product, 'product');
 
     const response = await Service.post(context, `${endpoint}/${number}`, product.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToProduct<Persisted<T>>(item);
+    return itemToProduct<SavedProductProps<T>>(item);
   },
 
   /**

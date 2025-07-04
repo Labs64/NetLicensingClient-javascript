@@ -5,6 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 
+import { RequiredProps } from '@/types';
 import { Entity } from '@/types/entities/defineEntity';
 import { ProductDiscountEntity } from '@/types/entities/ProductDiscount';
 
@@ -19,6 +20,9 @@ export type ProductProps<T extends object = object> = {
   discounts?: ProductDiscountEntity[];
   readonly inUse?: boolean;
 } & T;
+
+export type SavedProductProps<T extends object = object> = RequiredProps<ProductProps, 'active' | 'number' | 'inUse'> &
+  ProductProps<T>;
 
 export interface ProductMethods {
   setActive(active: boolean): void;

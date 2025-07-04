@@ -4,6 +4,7 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
+import { RequiredProps } from '@/types';
 import type { NotificationEventValues } from '@/types/constants/NotificationEvent';
 import type { NotificationProtocolValues } from '@/types/constants/NotificationProtocol';
 import type { Entity } from '@/types/entities/defineEntity';
@@ -17,6 +18,12 @@ export type NotificationProps<T extends object = object> = {
   payload?: string;
   endpoint?: string;
 } & T;
+
+export type SavedNotificationProps<T extends object = object> = RequiredProps<
+  NotificationProps,
+  'active' | 'number' | 'name' | 'protocol' | 'events' | 'endpoint'
+> &
+  NotificationProps<T>;
 
 export interface NotificationMethods {
   setActive(active: boolean): void;

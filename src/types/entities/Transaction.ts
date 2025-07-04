@@ -5,25 +5,12 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 // types
+import { RequiredProps } from '@/types';
 import { PaymentMethodValues } from '@/types/constants/PaymentMethodEnum';
 import { TransactionSourceValues } from '@/types/constants/TransactionSource';
 import { TransactionStatusValues } from '@/types/constants/TransactionStatus';
 import type { Entity } from '@/types/entities/defineEntity';
 import type { LicenseTransactionJoinEntity } from '@/types/entities/LicenseTransactionJoin';
-
-export interface TransactionBaseProps {
-  active?: boolean;
-  number?: string;
-  status?: TransactionStatusValues;
-  source?: TransactionSourceValues;
-  grandTotal?: number;
-  discount?: number;
-  currency?: string;
-  dateCreated?: Date;
-  dateClosed?: Date;
-  paymentMethod?: PaymentMethodValues;
-  licenseTransactionJoins?: LicenseTransactionJoinEntity[];
-}
 
 export type TransactionProps<T extends object = object> = {
   active?: boolean;
@@ -39,6 +26,12 @@ export type TransactionProps<T extends object = object> = {
   licenseTransactionJoins?: LicenseTransactionJoinEntity[];
   readonly inUse?: boolean;
 } & T;
+
+export type SavedTransactionProps<T extends object = object> = RequiredProps<
+  TransactionProps,
+  'active' | 'number' | 'status' | 'dateCreated'
+> &
+  TransactionProps<T>;
 
 export interface TransactionMethods {
   setActive(active: boolean): void;

@@ -4,8 +4,7 @@
  * @link      https://netlicensing.io
  * @copyright 2017 Labs64 NetLicensing
  */
-import { Persisted } from '@/types/entities';
-import { PaymentMethodEntity, PaymentMethodProps } from '@/types/entities/PaymentMethod';
+import { PaymentMethodEntity, PaymentMethodProps, SavedPaymentMethodProps } from '@/types/entities/PaymentMethod';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
@@ -15,18 +14,18 @@ export interface IPaymentMethodService {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<PaymentMethodEntity<Persisted<T>>>;
+  ): Promise<PaymentMethodEntity<SavedPaymentMethodProps<T>>>;
 
   list<T extends object = PaymentMethodProps>(
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<PaymentMethodEntity<Persisted<T>>[]>>;
+  ): Promise<PageInstance<PaymentMethodEntity<SavedPaymentMethodProps<T>>[]>>;
 
   update<T extends object = PaymentMethodProps>(
     context: ContextInstance,
     number: string,
     paymentMethod: PaymentMethodEntity<T>,
     config?: RequestConfig,
-  ): Promise<PaymentMethodEntity<Persisted<T>>>;
+  ): Promise<PaymentMethodEntity<SavedPaymentMethodProps<T>>>;
 }

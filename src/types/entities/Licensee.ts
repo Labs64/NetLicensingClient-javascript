@@ -5,6 +5,7 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 // types
+import { RequiredProps } from '@/types';
 import type { Entity } from '@/types/entities/defineEntity';
 
 export type LicenseeProps<T extends object = object> = {
@@ -15,6 +16,12 @@ export type LicenseeProps<T extends object = object> = {
   productNumber?: string;
   readonly inUse?: boolean;
 } & T;
+
+export type SavedLicenseeProps<T extends object = object> = RequiredProps<
+  LicenseeProps,
+  'active' | 'number' | 'productNumber'
+> &
+  LicenseeProps<T>;
 
 export interface LicenseeMethods {
   setActive(active: boolean): void;
