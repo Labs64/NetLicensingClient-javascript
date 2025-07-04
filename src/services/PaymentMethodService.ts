@@ -15,8 +15,7 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination } from '@/types/api/response';
-import { Persisted } from '@/types/entities';
-import { PaymentMethodProps, PaymentMethodEntity } from '@/types/entities/PaymentMethod';
+import { PaymentMethodProps, PaymentMethodEntity, SavedPaymentMethodProps } from '@/types/entities/PaymentMethod';
 import { IPaymentMethodService } from '@/types/services/PaymentMethodService';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
@@ -53,13 +52,13 @@ const paymentMethodService: IPaymentMethodService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<PaymentMethodEntity<Persisted<T>>> {
+  ): Promise<PaymentMethodEntity<SavedPaymentMethodProps<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToPaymentMethod<Persisted<T>>(item);
+    return itemToPaymentMethod<SavedPaymentMethodProps<T>>(item);
   },
 
   /**
@@ -82,7 +81,7 @@ const paymentMethodService: IPaymentMethodService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<PaymentMethodEntity<Persisted<T>>[]>> {
+  ): Promise<PageInstance<PaymentMethodEntity<SavedPaymentMethodProps<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -92,9 +91,9 @@ const paymentMethodService: IPaymentMethodService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: PaymentMethodEntity<Persisted<T>>[] | undefined = items?.item
+    const list: PaymentMethodEntity<SavedPaymentMethodProps<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToPaymentMethod<Persisted<T>>(v));
+      .map((v) => itemToPaymentMethod<SavedPaymentMethodProps<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -123,14 +122,14 @@ const paymentMethodService: IPaymentMethodService = {
     number: string,
     paymentMethod: PaymentMethodEntity<T>,
     config?: RequestConfig,
-  ): Promise<PaymentMethodEntity<Persisted<T>>> {
+  ): Promise<PaymentMethodEntity<SavedPaymentMethodProps<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(paymentMethod, 'paymentMethod');
 
     const response = await Service.post(context, `${endpoint}/${number}`, paymentMethod.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToPaymentMethod<Persisted<T>>(item);
+    return itemToPaymentMethod<SavedPaymentMethodProps<T>>(item);
   },
 };
 

@@ -7,9 +7,8 @@
 // types
 import { AxiosResponse } from 'axios';
 import { NlicResponse } from '@/types/api/response';
-import { Persisted } from '@/types/entities';
-import { BundleEntity, BundleProps } from '@/types/entities/Bundle';
-import { LicenseEntity, LicenseProps } from '@/types/entities/License';
+import { BundleEntity, BundleProps, SavedBundleProps } from '@/types/entities/Bundle';
+import { LicenseEntity, LicenseProps, SavedLicenseProps } from '@/types/entities/License';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 import { PageInstance } from '@/types/vo/Page';
@@ -19,26 +18,26 @@ export interface IBundleService {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<BundleEntity<Persisted<T>>>;
+  ): Promise<BundleEntity<SavedBundleProps<T>>>;
 
   list<T extends object = BundleProps>(
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<BundleEntity<Persisted<T>>[]>>;
+  ): Promise<PageInstance<BundleEntity<SavedBundleProps<T>>[]>>;
 
   create<T extends object = BundleProps>(
     context: ContextInstance,
     bundle: BundleEntity<T>,
     config?: RequestConfig,
-  ): Promise<BundleEntity<Persisted<T>>>;
+  ): Promise<BundleEntity<SavedBundleProps<T>>>;
 
   update<T extends object = BundleProps>(
     context: ContextInstance,
     number: string,
     bundle: BundleEntity<T>,
     config?: RequestConfig,
-  ): Promise<BundleEntity<Persisted<T>>>;
+  ): Promise<BundleEntity<SavedBundleProps<T>>>;
 
   delete(
     context: ContextInstance,
@@ -52,5 +51,5 @@ export interface IBundleService {
     number: string,
     licenseeNumber: string,
     config?: RequestConfig,
-  ): Promise<LicenseEntity<Persisted<T>>[]>;
+  ): Promise<LicenseEntity<SavedLicenseProps<T>>[]>;
 }

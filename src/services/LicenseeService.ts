@@ -21,8 +21,7 @@ import Service from '@/services/Service';
 
 // types
 import { ItemPagination, NlicResponse } from '@/types/api/response';
-import { Persisted } from '@/types/entities';
-import { LicenseeProps, LicenseeEntity } from '@/types/entities/Licensee';
+import { LicenseeProps, LicenseeEntity, SavedLicenseeProps } from '@/types/entities/Licensee';
 import { ILicenseeService } from '@/types/services/LicenseeService';
 import { RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
@@ -64,13 +63,13 @@ const licenseeService: ILicenseeService = {
     context: ContextInstance,
     number: string,
     config?: RequestConfig,
-  ): Promise<LicenseeEntity<Persisted<T>>> {
+  ): Promise<LicenseeEntity<SavedLicenseeProps<T>>> {
     ensureNotEmpty(number, 'number');
 
     const response = await Service.get(context, `${endpoint}/${number}`, {}, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicensee<Persisted<T>>(item);
+    return itemToLicensee<SavedLicenseeProps<T>>(item);
   },
 
   /**
@@ -93,7 +92,7 @@ const licenseeService: ILicenseeService = {
     context: ContextInstance,
     filter?: Record<string, string | boolean | number> | string | null,
     config?: RequestConfig,
-  ): Promise<PageInstance<LicenseeEntity<Persisted<T>>[]>> {
+  ): Promise<PageInstance<LicenseeEntity<SavedLicenseeProps<T>>[]>> {
     const data: { [Constants.FILTER]: string } = {};
 
     if (filter) {
@@ -103,9 +102,9 @@ const licenseeService: ILicenseeService = {
     const response = await Service.get(context, endpoint, data, config);
     const items = response.data.items;
 
-    const list: LicenseeEntity<Persisted<T>>[] | undefined = items?.item
+    const list: LicenseeEntity<SavedLicenseeProps<T>>[] | undefined = items?.item
       .filter((v) => v.type === type)
-      .map((v) => itemToLicensee<Persisted<T>>(v));
+      .map((v) => itemToLicensee<SavedLicenseeProps<T>>(v));
 
     return Page(list || [], items as ItemPagination);
   },
@@ -135,7 +134,7 @@ const licenseeService: ILicenseeService = {
     productNumber: string,
     licensee: LicenseeEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseeEntity<Persisted<T>>> {
+  ): Promise<LicenseeEntity<SavedLicenseeProps<T>>> {
     ensureNotNull(licensee, 'licensee');
 
     const data = licensee.serialize();
@@ -147,7 +146,7 @@ const licenseeService: ILicenseeService = {
     const response = await Service.post(context, endpoint, data, config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicensee<Persisted<T>>(item);
+    return itemToLicensee<SavedLicenseeProps<T>>(item);
   },
 
   /**
@@ -174,14 +173,14 @@ const licenseeService: ILicenseeService = {
     number: string,
     licensee: LicenseeEntity<T>,
     config?: RequestConfig,
-  ): Promise<LicenseeEntity<Persisted<T>>> {
+  ): Promise<LicenseeEntity<SavedLicenseeProps<T>>> {
     ensureNotEmpty(number, 'number');
     ensureNotNull(licensee, 'licensee');
 
     const response = await Service.post(context, `${endpoint}/${number}`, licensee.serialize(), config);
     const item = response.data.items?.item.find((v) => v.type === type);
 
-    return itemToLicensee<Persisted<T>>(item);
+    return itemToLicensee<SavedLicenseeProps<T>>(item);
   },
 
   /**

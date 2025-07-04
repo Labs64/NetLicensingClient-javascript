@@ -6,6 +6,7 @@
  */
 
 // types
+import { RequiredProps } from '@/types';
 import { ApiKeyRoleValues } from '@/types/constants/ApiKeyRole';
 import { TokenTypeValues } from '@/types/constants/TokenType';
 import { Entity } from '@/types/entities/defineEntity';
@@ -28,6 +29,9 @@ export type TokenProps<T extends object = object> = {
   cancelURLTitle?: string;
   readonly shopURL?: string;
 } & T;
+
+export type SavedTokenProps<T extends object = object> = RequiredProps<TokenProps, 'active' | 'number' | 'tokenType'> &
+  TokenProps<T>;
 
 export interface TokenMethods {
   setActive(active: boolean): void;
