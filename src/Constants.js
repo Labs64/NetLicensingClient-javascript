@@ -57,6 +57,9 @@ export default {
         NodeLocked: {
             NAME: 'NodeLocked',
         },
+        Discount: {
+            NAME: 'Discount',
+        },
     },
 
     Vendor: {
