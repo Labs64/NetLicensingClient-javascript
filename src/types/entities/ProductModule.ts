@@ -7,6 +7,7 @@
 // types
 import { RequiredProps } from '@/types';
 import { LicensingModelValues } from '@/types/constants/LicensingModel';
+import { NodeSecretModeValues } from '@/types/constants/NodeSecretMode';
 import { Entity } from '@/types/entities/defineEntity';
 
 export type ProductModuleProps<T extends object = object> = {
@@ -18,6 +19,7 @@ export type ProductModuleProps<T extends object = object> = {
   yellowThreshold?: number;
   redThreshold?: number;
   productNumber?: string;
+  nodeSecretMode?: NodeSecretModeValues;
   readonly inUse?: boolean;
 } & T;
 
