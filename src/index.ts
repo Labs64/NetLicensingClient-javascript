@@ -4,6 +4,7 @@ import ApiKeyRole from '@/constants/ApiKeyRole';
 import LicenseeSecretMode from '@/constants/LicenseeSecretMode';
 import LicenseType from '@/constants/LicenseType';
 import LicensingModel from '@/constants/LicensingModel';
+import NodeSecretMode from '@/constants/NodeSecretMode';
 import NotificationEvent from '@/constants/NotificationEvent';
 import NotificationProtocol from '@/constants/NotificationProtocol';
 import PaymentMethodEnum from '@/constants/PaymentMethodEnum';
@@ -81,6 +82,7 @@ export {
   LicenseeSecretMode,
   LicenseType,
   LicensingModel,
+  NodeSecretMode,
   NotificationEvent,
   NotificationProtocol,
   PaymentMethodEnum,

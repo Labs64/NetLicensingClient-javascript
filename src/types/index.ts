@@ -4,6 +4,7 @@ export * from './api/response';
 // constants
 export * from './constants/ApiKeyRole';
 export * from './constants/LicenseeSecretMode';
+export * from './constants/NodeSecretMode';
 export * from './constants/LicenseType';
 export * from './constants/LicensingModel';
 export * from './constants/NotificationEvent';
