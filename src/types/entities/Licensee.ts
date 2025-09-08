@@ -8,18 +8,26 @@
 import { RequiredProps } from '@/types';
 import type { Entity } from '@/types/entities/defineEntity';
 
+export interface WarningLevelSummary {
+    RED: string[];
+    YELLOW: string[];
+    GREEN: string[];
+}
+
 export type LicenseeProps<T extends object = object> = {
   active?: boolean;
   number?: string;
   name?: string;
   markedForTransfer?: boolean;
   productNumber?: string;
+  aliases?: string[];
   readonly inUse?: boolean;
+  readonly warningLevelSummary?: WarningLevelSummary;
 } & T;
 
 export type SavedLicenseeProps<T extends object = object> = RequiredProps<
   LicenseeProps,
-  'active' | 'number' | 'productNumber'
+  'active' | 'number' | 'productNumber' | 'inUse' | 'warningLevelSummary'
 > &
   LicenseeProps<T>;
 
