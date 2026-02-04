@@ -87,6 +87,14 @@ const Bundle = function <T extends object>(properties: BundleProps<T> = {} as Bu
       return get(props, 'currency', def) as string | D;
     },
 
+    setProductNumber(number: string) {
+      set(props, 'productNumber', number);
+    },
+
+    getProductNumber<D = undefined>(def?: D): string | D {
+      return get(props, 'productNumber', def) as string | D;
+    },
+
     setLicenseTemplateNumbers(this: void, numbers: string[]): void {
       set(props, 'licenseTemplateNumbers', numbers);
     },
@@ -110,13 +118,18 @@ const Bundle = function <T extends object>(properties: BundleProps<T> = {} as Bu
       props.licenseTemplateNumbers = numbers;
     },
 
+    getStaleLicenseTemplateNumbers<D = undefined>(this: void, def?: D): string[] | D {
+      return get(props, 'staleLicenseTemplateNumbers', def) as string[] | D;
+    },
+
     serialize(this: void): Record<string, string> {
+      const cast: Record<string, string> = {};
+
       if (props.licenseTemplateNumbers) {
-        const licenseTemplateNumbers = props.licenseTemplateNumbers.join(',');
-        return serialize({ ...props, licenseTemplateNumbers });
+        cast['licenseTemplateNumbers'] = props.licenseTemplateNumbers.join(',');
       }
 
-      return serialize(props);
+      return serialize({ ...props, ...cast }, { ignore: ['staleLicenseTemplateNumbers'] });
     },
   };
 

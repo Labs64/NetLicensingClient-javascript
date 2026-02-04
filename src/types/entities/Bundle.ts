@@ -13,7 +13,9 @@ export type BundleProps<T extends object = object> = T & {
   name?: string;
   price?: number;
   currency?: string;
+  productNumber?: string;
   licenseTemplateNumbers?: string[];
+  readonly staleLicenseTemplateNumbers?: string[];
 };
 
 export type SavedBundleProps<T extends object = object> = RequiredProps<BundleProps, 'active' | 'number' | 'name'> &
@@ -40,6 +42,10 @@ export interface BundleMethods {
 
   getCurrency<D = undefined>(def?: D): string | D;
 
+  setProductNumber(number: string): void;
+
+  getProductNumber<D = undefined>(def?: D): string | D;
+
   setLicenseTemplateNumbers(numbers: string[]): void;
 
   getLicenseTemplateNumbers<D = undefined>(def?: D): string[] | D;
@@ -47,6 +53,8 @@ export interface BundleMethods {
   addLicenseTemplateNumber(number: string): void;
 
   removeLicenseTemplateNumber(number: string): void;
+
+  getStaleLicenseTemplateNumbers<D = undefined>(def?: D): string[] | D;
 
   serialize(): Record<string, string>;
 }
