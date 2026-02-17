@@ -9,6 +9,7 @@ import License from '@/entities/License';
 import { LicenseProps } from '@/types/entities/License';
 import expectEntity from '@test-utils/expectEntity';
 import expectEntityProp from '@test-utils/expectEntityProp';
+import {DateField, TimeVolumePeriodValues} from "@/types";
 
 describe('License Entity', () => {
   it('should create a License with default properties', () => {
@@ -40,10 +41,6 @@ describe('License Entity', () => {
       hidden: false,
       licenseeNumber: 'ABC123',
       licenseTemplateNumber: 'TPL001',
-      timeVolume: 50,
-      timeVolumePeriod: TimeVolumePeriod.DAY,
-      startDate: 'now',
-      parentfeature: 'PARENT123',
       inUse: true,
     };
 
@@ -187,8 +184,7 @@ describe('License Entity', () => {
   });
 
   it('should set and get time volume correctly', () => {
-    const license = License();
-    license.setTimeVolume(1);
+    const license = License({ timeVolume: 1 });
     expectEntityProp(license, 'timeVolume', 1);
 
     license.timeVolume = 2;
@@ -202,9 +198,9 @@ describe('License Entity', () => {
   });
 
   it('should set and get time volume period correctly', () => {
-    const license = License();
-
-    license.setTimeVolumePeriod(TimeVolumePeriod.MONTH);
+    const license = License<{ timeVolumePeriod: TimeVolumePeriodValues }>({
+      timeVolumePeriod: TimeVolumePeriod.MONTH,
+    });
     expectEntityProp(license, 'timeVolumePeriod', TimeVolumePeriod.MONTH);
 
     license.timeVolumePeriod = TimeVolumePeriod.DAY;
@@ -218,11 +214,9 @@ describe('License Entity', () => {
   });
 
   it('should set and get start date correctly', () => {
-    const license = License();
-
     const date1 = new Date();
 
-    license.setStartDate(date1);
+    const license = License<{ startDate: DateField }>({ startDate: date1 });
     expectEntityProp(license, 'startDate', date1);
 
     const date2 = new Date();
@@ -240,19 +234,17 @@ describe('License Entity', () => {
   });
 
   it('should set and get parent feature correctly', () => {
-    const license = License();
+    const license = License({ parentFeature: 'PF1' });
+    expectEntityProp(license, 'parentFeature', 'PF1');
 
-    license.setParentfeature('PF1');
-    expectEntityProp(license, 'parentfeature', 'PF1');
+    license.parentFeature = 'PF2';
+    expectEntityProp(license, 'parentFeature', 'PF2');
 
-    license.parentfeature = 'PF2';
-    expectEntityProp(license, 'parentfeature', 'PF2');
+    license.set('parentFeature', 'PF3');
+    expectEntityProp(license, 'parentFeature', 'PF3');
 
-    license.set('parentfeature', 'PF3');
-    expectEntityProp(license, 'parentfeature', 'PF3');
-
-    license.setProperty('parentfeature', 'PF4');
-    expectEntityProp(license, 'parentfeature', 'PF4');
+    license.setProperty('parentFeature', 'PF4');
+    expectEntityProp(license, 'parentFeature', 'PF4');
   });
 
   it('should allow custom properties', () => {
@@ -279,7 +271,7 @@ describe('License Entity', () => {
       timeVolume: 50,
       timeVolumePeriod: TimeVolumePeriod.DAY,
       startDate: 'now',
-      parentfeature: 'PARENT123',
+      parentFeature: 'PARENT123',
       inUse: true,
     });
 

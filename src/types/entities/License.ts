@@ -6,7 +6,6 @@
  */
 // types
 import { RequiredProps } from '@/types';
-import type { TimeVolumePeriodValues } from '@/types/constants/TimeVolumePeriod';
 import type { Entity } from '@/types/entities/defineEntity';
 
 export type LicenseProps<T extends object = object> = {
@@ -18,15 +17,7 @@ export type LicenseProps<T extends object = object> = {
   hidden?: boolean;
   licenseeNumber?: string;
   licenseTemplateNumber?: string;
-
-  // TimeVolume
-  timeVolume?: number;
-  timeVolumePeriod?: TimeVolumePeriodValues;
-  startDate?: Date | 'now';
-
-  // Rental
-  parentfeature?: string;
-
+  productModuleNumber?: string;
   readonly inUse?: boolean;
 } & T;
 
@@ -66,25 +57,9 @@ export interface LicenseMethods {
 
   getLicenseTemplateNumber<D = undefined>(def?: D): string | D;
 
-  // TimeVolume
+  setProductModuleNumber(number: string): void;
 
-  setTimeVolume(timeVolume: number): void;
-
-  getTimeVolume<D = undefined>(def?: D): number | D;
-
-  setTimeVolumePeriod(timeVolumePeriod: TimeVolumePeriodValues): void;
-
-  getTimeVolumePeriod<D = undefined>(def?: D): TimeVolumePeriodValues | D;
-
-  setStartDate(startDate: Date | 'now'): void;
-
-  getStartDate<D = undefined>(def?: D): Date | 'now' | D;
-
-  // Rental
-
-  setParentfeature(parentfeature?: string): void;
-
-  getParentfeature<D = undefined>(def?: D): string | D;
+  getProductModuleNumber<D = undefined>(def?: D): string | D;
 
   serialize(): Record<string, string>;
 }

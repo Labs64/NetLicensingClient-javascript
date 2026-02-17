@@ -9,6 +9,7 @@ import LicenseTemplate from '@/entities/LicenseTemplate';
 // test utils
 import expectEntity from '@test-utils/expectEntity';
 import expectEntityProp from '@test-utils/expectEntityProp';
+import {TimeVolumePeriodValues} from "@/types";
 
 describe('LicenseTemplate Entity', () => {
   it('should create a LicenseTemplate with default properties', () => {
@@ -205,9 +206,10 @@ describe('LicenseTemplate Entity', () => {
   });
 
   it('should set and get grace period status correctly', () => {
-    const licenseTemplate = LicenseTemplate();
+    const licenseTemplate = LicenseTemplate({
+      gracePeriod: true,
+    });
 
-    licenseTemplate.setGracePeriod(true);
     expectEntityProp(licenseTemplate, 'gracePeriod', true);
 
     licenseTemplate.gracePeriod = false;
@@ -221,9 +223,10 @@ describe('LicenseTemplate Entity', () => {
   });
 
   it('should set and get time volume correctly', () => {
-    const licenseTemplate = LicenseTemplate();
+    const licenseTemplate = LicenseTemplate({
+      timeVolume: 10,
+    });
 
-    licenseTemplate.setTimeVolume(10);
     expectEntityProp(licenseTemplate, 'timeVolume', 10);
 
     licenseTemplate.timeVolume = 20;
@@ -237,9 +240,10 @@ describe('LicenseTemplate Entity', () => {
   });
 
   it('should set and get time volume period correctly', () => {
-    const licenseTemplate = LicenseTemplate();
+    const licenseTemplate = LicenseTemplate<{ timeVolumePeriod: TimeVolumePeriodValues }>({
+      timeVolumePeriod:TimeVolumePeriod.DAY,
+    });
 
-    licenseTemplate.setTimeVolumePeriod(TimeVolumePeriod.DAY);
     expectEntityProp(licenseTemplate, 'timeVolumePeriod', TimeVolumePeriod.DAY);
 
     licenseTemplate.timeVolumePeriod = TimeVolumePeriod.MONTH;
@@ -253,9 +257,10 @@ describe('LicenseTemplate Entity', () => {
   });
 
   it('should set and get max sessions correctly', () => {
-    const licenseTemplate = LicenseTemplate();
+    const licenseTemplate = LicenseTemplate({
+      maxSessions: 5,
+    });
 
-    licenseTemplate.setMaxSessions(5);
     expectEntityProp(licenseTemplate, 'maxSessions', 5);
 
     licenseTemplate.maxSessions = 10;
@@ -269,9 +274,10 @@ describe('LicenseTemplate Entity', () => {
   });
 
   it('should set and get quantity correctly for QUANTITY license type', () => {
-    const licenseTemplate = LicenseTemplate();
+    const licenseTemplate = LicenseTemplate({
+      quantity: 100,
+    });
 
-    licenseTemplate.setQuantity(100);
     expectEntityProp(licenseTemplate, 'quantity', 100);
 
     licenseTemplate.quantity = 200;

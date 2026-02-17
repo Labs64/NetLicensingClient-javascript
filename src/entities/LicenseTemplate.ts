@@ -9,8 +9,11 @@ import defineEntity from '@/entities/defineEntity';
 
 // types
 import { LicenseTypeValues } from '@/types/constants/LicenseType';
-import { TimeVolumePeriodValues } from '@/types/constants/TimeVolumePeriod';
-import { LicenseTemplateMethods, LicenseTemplateProps, LicenseTemplateEntity } from '@/types/entities/LicenseTemplate';
+import {
+  LicenseTemplateMethods,
+  LicenseTemplateProps,
+  LicenseTemplateEntity,
+} from '@/types/entities/LicenseTemplate';
 
 // utils
 import { set, get } from '@/utils/helpers';
@@ -147,46 +150,6 @@ const LicenseTemplate = function <T extends object>(
 
     getHideLicenses<D = undefined>(this: void, def?: D): boolean | D {
       return get(props, 'hideLicenses', def) as boolean | D;
-    },
-
-    setGracePeriod(this: void, gradePeriod: boolean): void {
-      set(props, 'gracePeriod', gradePeriod);
-    },
-
-    getGracePeriod<D = undefined>(this: void, def?: D): boolean | D {
-      return get(props, 'gracePeriod', def) as boolean | D;
-    },
-
-    setTimeVolume(this: void, timeVolume: number): void {
-      set(props, 'timeVolume', timeVolume);
-    },
-
-    getTimeVolume<D = undefined>(this: void, def?: D): number | D {
-      return get(props, 'timeVolume', def) as number | D;
-    },
-
-    setTimeVolumePeriod(this: void, timeVolumePeriod: TimeVolumePeriodValues): void {
-      set(props, 'timeVolumePeriod', timeVolumePeriod);
-    },
-
-    getTimeVolumePeriod<D = undefined>(this: void, def?: D): TimeVolumePeriodValues | D {
-      return get(props, 'timeVolumePeriod', def) as TimeVolumePeriodValues | D;
-    },
-
-    setMaxSessions(this: void, maxSessions: number): void {
-      set(props, 'maxSessions', maxSessions);
-    },
-
-    getMaxSessions<D = undefined>(this: void, def?: D): number | D {
-      return get(props, 'maxSessions', def) as number | D;
-    },
-
-    setQuantity(this: void, quantity: number): void {
-      set(props, 'quantity', quantity);
-    },
-
-    getQuantity<D = undefined>(this: void, def?: D): number | D {
-      return get(props, 'quantity', def) as number | D;
     },
 
     setProductModuleNumber(this: void, productModuleNumber: string): void {

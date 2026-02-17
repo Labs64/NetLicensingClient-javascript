@@ -7,7 +7,6 @@
 // types
 import { RequiredProps } from '@/types';
 import type { LicenseTypeValues } from '@/types/constants/LicenseType';
-import type { TimeVolumePeriodValues } from '@/types/constants/TimeVolumePeriod';
 import { Entity } from '@/types/entities/defineEntity';
 
 export type LicenseTemplateProps<T extends object = object> = {
@@ -20,11 +19,6 @@ export type LicenseTemplateProps<T extends object = object> = {
   automatic?: boolean;
   hidden?: boolean;
   hideLicenses?: boolean;
-  gracePeriod?: boolean;
-  timeVolume?: number;
-  timeVolumePeriod?: TimeVolumePeriodValues;
-  maxSessions?: number;
-  quantity?: number;
   productModuleNumber?: string;
   readonly inUse?: boolean;
 } & T;
@@ -71,26 +65,6 @@ export interface LicenseTemplateMethods {
   setHideLicenses(hideLicenses: boolean): void;
 
   getHideLicenses<D = undefined>(def?: D): boolean | D;
-
-  setGracePeriod(gradePeriod: boolean): void;
-
-  getGracePeriod<D = undefined>(def?: D): boolean | D;
-
-  setTimeVolume(timeVolume: number): void;
-
-  getTimeVolume<D = undefined>(def?: D): number | D;
-
-  setTimeVolumePeriod(timeVolumePeriod: TimeVolumePeriodValues): void;
-
-  getTimeVolumePeriod<D = undefined>(def?: D): TimeVolumePeriodValues | D;
-
-  setMaxSessions(maxSessions: number): void;
-
-  getMaxSessions<D = undefined>(def?: D): number | D;
-
-  setQuantity(quantity: number): void;
-
-  getQuantity<D = undefined>(def?: D): number | D;
 
   setProductModuleNumber(productModuleNumber: string): void;
 

@@ -5,7 +5,6 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 // types
-import { TimeVolumePeriodValues } from '@/types/constants/TimeVolumePeriod';
 import { LicenseMethods, LicenseProps, LicenseEntity } from '@/types/entities/License';
 
 // utils
@@ -146,38 +145,12 @@ const License = function <T extends object>(properties: LicenseProps<T> = {} as 
       return get(props, 'licenseTemplateNumber', def) as string | D;
     },
 
-    // TimeVolume
-    setTimeVolume(this: void, timeVolume: number): void {
-      set(props, 'timeVolume', timeVolume);
+    setProductModuleNumber(this: void, number: string): void {
+      set(props, 'productModuleNumber', number);
     },
 
-    getTimeVolume<D = undefined>(this: void, def?: D): number | D {
-      return get(props, 'timeVolume', def) as number | D;
-    },
-
-    setTimeVolumePeriod(this: void, timeVolumePeriod: TimeVolumePeriodValues): void {
-      set(props, 'timeVolumePeriod', timeVolumePeriod);
-    },
-
-    getTimeVolumePeriod<D = undefined>(this: void, def?: D): TimeVolumePeriodValues | D {
-      return get(props, 'timeVolumePeriod', def) as TimeVolumePeriodValues | D;
-    },
-
-    setStartDate(this: void, startDate: Date | 'now'): void {
-      set(props, 'startDate', startDate);
-    },
-
-    getStartDate<D = undefined>(this: void, def?: D): Date | 'now' | D {
-      return get(props, 'startDate', def) as Date | 'now' | D;
-    },
-
-    // Rental
-    setParentfeature(this: void, parentfeature?: string): void {
-      set(props, 'parentfeature', parentfeature);
-    },
-
-    getParentfeature<D = undefined>(this: void, def?: D): string | D {
-      return get(props, 'parentfeature', def) as string | D;
+    getProductModuleNumber<D = undefined>(this: void, def?: D): string | D {
+      return get(props, 'productModuleNumber', def) as string | D;
     },
 
     serialize(this: void): Record<string, string> {

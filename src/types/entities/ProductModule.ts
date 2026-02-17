@@ -7,7 +7,6 @@
 // types
 import { RequiredProps } from '@/types';
 import { LicensingModelValues } from '@/types/constants/LicensingModel';
-import { NodeSecretModeValues } from '@/types/constants/NodeSecretMode';
 import { Entity } from '@/types/entities/defineEntity';
 
 export type ProductModuleProps<T extends object = object> = {
@@ -15,11 +14,7 @@ export type ProductModuleProps<T extends object = object> = {
   number?: string;
   name?: string;
   licensingModel?: LicensingModelValues;
-  maxCheckoutValidity?: number;
-  yellowThreshold?: number;
-  redThreshold?: number;
   productNumber?: string;
-  nodeSecretMode?: NodeSecretModeValues;
   readonly inUse?: boolean;
 } & T;
 
@@ -45,18 +40,6 @@ export interface ProductModuleMethods {
   setLicensingModel(licensingModel: LicensingModelValues): void;
 
   getLicensingModel<D = undefined>(def?: D): LicensingModelValues | D;
-
-  setMaxCheckoutValidity(maxCheckoutValidity: number): void;
-
-  getMaxCheckoutValidity<D = undefined>(def?: D): number | D;
-
-  setYellowThreshold(yellowThreshold: number): void;
-
-  getYellowThreshold<D = undefined>(def?: D): number | D;
-
-  setRedThreshold(redThreshold: number): void;
-
-  getRedThreshold<D = undefined>(def?: D): number | D;
 
   setProductNumber(productNumber: string): void;
 

@@ -451,6 +451,7 @@ type TransactionStatusKeys = keyof typeof TransactionStatus;
 type TransactionStatusValues = (typeof TransactionStatus)[TransactionStatusKeys];
 
 type RequiredProps<Base, Keys extends keyof Base> = Required<Pick<Base, Keys>>;
+type DateField = Date | 'now';
 
 /**
  * @author    Labs64 <netlicensing@labs64.com>
@@ -512,10 +513,7 @@ type LicenseProps<T extends object = object> = {
     hidden?: boolean;
     licenseeNumber?: string;
     licenseTemplateNumber?: string;
-    timeVolume?: number;
-    timeVolumePeriod?: TimeVolumePeriodValues;
-    startDate?: Date | 'now';
-    parentfeature?: string;
+    productModuleNumber?: string;
     readonly inUse?: boolean;
 } & T;
 type SavedLicenseProps<T extends object = object> = RequiredProps<LicenseProps, 'active' | 'number'> & LicenseProps<T>;
@@ -536,14 +534,8 @@ interface LicenseMethods {
     getLicenseeNumber<D = undefined>(def?: D): string | D;
     setLicenseTemplateNumber(number: string): void;
     getLicenseTemplateNumber<D = undefined>(def?: D): string | D;
-    setTimeVolume(timeVolume: number): void;
-    getTimeVolume<D = undefined>(def?: D): number | D;
-    setTimeVolumePeriod(timeVolumePeriod: TimeVolumePeriodValues): void;
-    getTimeVolumePeriod<D = undefined>(def?: D): TimeVolumePeriodValues | D;
-    setStartDate(startDate: Date | 'now'): void;
-    getStartDate<D = undefined>(def?: D): Date | 'now' | D;
-    setParentfeature(parentfeature?: string): void;
-    getParentfeature<D = undefined>(def?: D): string | D;
+    setProductModuleNumber(number: string): void;
+    getProductModuleNumber<D = undefined>(def?: D): string | D;
     serialize(): Record<string, string>;
 }
 type LicenseEntity<T extends object = object> = Entity<LicenseProps<T>, LicenseMethods>;
@@ -603,11 +595,6 @@ type LicenseTemplateProps<T extends object = object> = {
     automatic?: boolean;
     hidden?: boolean;
     hideLicenses?: boolean;
-    gracePeriod?: boolean;
-    timeVolume?: number;
-    timeVolumePeriod?: TimeVolumePeriodValues;
-    maxSessions?: number;
-    quantity?: number;
     productModuleNumber?: string;
     readonly inUse?: boolean;
 } & T;
@@ -631,16 +618,6 @@ interface LicenseTemplateMethods {
     getHidden<D = undefined>(def?: D): boolean | D;
     setHideLicenses(hideLicenses: boolean): void;
     getHideLicenses<D = undefined>(def?: D): boolean | D;
-    setGracePeriod(gradePeriod: boolean): void;
-    getGracePeriod<D = undefined>(def?: D): boolean | D;
-    setTimeVolume(timeVolume: number): void;
-    getTimeVolume<D = undefined>(def?: D): number | D;
-    setTimeVolumePeriod(timeVolumePeriod: TimeVolumePeriodValues): void;
-    getTimeVolumePeriod<D = undefined>(def?: D): TimeVolumePeriodValues | D;
-    setMaxSessions(maxSessions: number): void;
-    getMaxSessions<D = undefined>(def?: D): number | D;
-    setQuantity(quantity: number): void;
-    getQuantity<D = undefined>(def?: D): number | D;
     setProductModuleNumber(productModuleNumber: string): void;
     getProductModuleNumber<D = undefined>(def?: D): string | D;
     serialize(): Record<string, string>;
@@ -854,11 +831,7 @@ type ProductModuleProps<T extends object = object> = {
     number?: string;
     name?: string;
     licensingModel?: LicensingModelValues;
-    maxCheckoutValidity?: number;
-    yellowThreshold?: number;
-    redThreshold?: number;
     productNumber?: string;
-    nodeSecretMode?: NodeSecretModeValues;
     readonly inUse?: boolean;
 } & T;
 type SavedProductModuleProps<T extends object = object> = RequiredProps<ProductModuleProps, 'active' | 'number' | 'licensingModel' | 'productNumber' | 'inUse'> & ProductModuleProps<T>;
@@ -871,12 +844,6 @@ interface ProductModuleMethods {
     getName<D = undefined>(def?: D): string | D;
     setLicensingModel(licensingModel: LicensingModelValues): void;
     getLicensingModel<D = undefined>(def?: D): LicensingModelValues | D;
-    setMaxCheckoutValidity(maxCheckoutValidity: number): void;
-    getMaxCheckoutValidity<D = undefined>(def?: D): number | D;
-    setYellowThreshold(yellowThreshold: number): void;
-    getYellowThreshold<D = undefined>(def?: D): number | D;
-    setRedThreshold(redThreshold: number): void;
-    getRedThreshold<D = undefined>(def?: D): number | D;
     setProductNumber(productNumber: string): void;
     getProductNumber<D = undefined>(def?: D): string | D;
     serialize(): Record<string, string>;
@@ -1269,7 +1236,9 @@ type BundleProps<T extends object = object> = T & {
     name?: string;
     price?: number;
     currency?: string;
+    productNumber?: string;
     licenseTemplateNumbers?: string[];
+    readonly staleLicenseTemplateNumbers?: string[];
 };
 type SavedBundleProps<T extends object = object> = RequiredProps<BundleProps, 'active' | 'number' | 'name'> & BundleProps<T>;
 interface BundleMethods {
@@ -1283,10 +1252,13 @@ interface BundleMethods {
     getPrice<D = undefined>(def?: D): number | D;
     setCurrency(currency: string): void;
     getCurrency<D = undefined>(def?: D): string | D;
+    setProductNumber(number: string): void;
+    getProductNumber<D = undefined>(def?: D): string | D;
     setLicenseTemplateNumbers(numbers: string[]): void;
     getLicenseTemplateNumbers<D = undefined>(def?: D): string[] | D;
     addLicenseTemplateNumber(number: string): void;
     removeLicenseTemplateNumber(number: string): void;
+    getStaleLicenseTemplateNumbers<D = undefined>(def?: D): string[] | D;
     serialize(): Record<string, string>;
 }
 type BundleEntity<T extends object = object> = Entity<BundleProps<T>, BundleMethods>;
@@ -1382,6 +1354,13 @@ declare const defineEntity: <P extends Proto, T extends object, M extends object
     set?: PropSetEventListener<T>;
     get?: PropGetEventListener<T>;
 }) => Entity<T, M>;
+
+/**
+ * @author    Labs64 <netlicensing@labs64.com>
+ * @license   Apache-2.0
+ * @link      https://netlicensing.io
+ * @copyright 2017 Labs64 NetLicensing
+ */
 
 /**
  * License entity used internally by NetLicensing.
@@ -1801,4 +1780,4 @@ declare const _default$1: () => ValidationParametersInstance;
 
 declare const _default: () => ValidationResultsInstance;
 
-export { ApiKeyRole, type ApiKeyRoleKeys, type ApiKeyRoleValues, Bundle, type BundleEntity, type BundleMethods, type BundleProps, bundleService as BundleService, _default$g as Constants, _default$2 as Context, type ContextConfig, type ContextInstance, Country, type CountryEntity, type CountryMethods, type CountryProps, type Entity, type EntityMethods, type IBundleService, type ILicenseService, type ILicenseTemplateService, type ILicenseeService, type INotificationService, type IPaymentMethodService, type IProductModuleService, type IProductService, type IService, type ITokenService, type ITransactionService, type IUtilityService, type Info, type Item, type ItemPagination, type Items, License, type LicenseEntity, type LicenseMethods, type LicenseProps, licenseService as LicenseService, LicenseTemplate, type LicenseTemplateEntity, type LicenseTemplateMethods, type LicenseTemplateProps, licenseTemplateService as LicenseTemplateService, _default$4 as LicenseTransactionJoin, type LicenseTransactionJoinEntity, type LicenseTransactionJoinMethods, type LicenseTransactionJoinProps, LicenseType, type LicenseTypeKeys, type LicenseTypeValues, Licensee, type LicenseeEntity, type LicenseeMethods, type LicenseeProperties, type LicenseeProps, LicenseeSecretMode, type LicenseeSecretModeKeys, type LicenseeSecretModeValues, licenseeService as LicenseeService, LicensingModel, type LicensingModelKeys, type LicensingModelValues, type List, NlicError, type NlicResponse, NodeSecretMode, type NodeSecretModeKeys, type NodeSecretModeValues, Notification, type NotificationEntity, NotificationEvent, type NotificationEventKeys, type NotificationEventValues, type NotificationMethods, type NotificationProps, NotificationProtocol, type NotificationProtocolKeys, type NotificationProtocolValues, notificationService as NotificationService, Page, type PageInstance, type Pagination, type PaginationMethods, type Parameter, type Parameters, PaymentMethod, type PaymentMethodEntity, PaymentMethodEnum, type PaymentMethodKeys, type PaymentMethodMethods, type PaymentMethodProps, paymentMethodService as PaymentMethodService, type PaymentMethodValues, Product, ProductDiscount, type ProductDiscountEntity, type ProductDiscountMethods, type ProductDiscountProps, type ProductEntity, type ProductMethods, ProductModule, type ProductModuleEntity, type ProductModuleMethods, type ProductModuleProps, productModuleService as ProductModuleService, type ProductModuleValidation, type ProductProps, productService as ProductService, type PropGetEventListener, type PropSetEventListener, type Proto, type RequestConfig, type RequiredProps, type SavedBundleProps, type SavedLicenseProps, type SavedLicenseTemplateProps, type SavedLicenseeProps, type SavedNotificationProps, type SavedPaymentMethodProps, type SavedProductModuleProps, type SavedProductProps, type SavedTokenProps, type SavedTransactionProps, SecurityMode, type SecurityModeKeys, type SecurityModeValues, service as Service, TimeVolumePeriod, type TimeVolumePeriodKeys, type TimeVolumePeriodValues, Token, type TokenEntity, type TokenMethods, type TokenProps, tokenService as TokenService, TokenType, type TokenTypeKeys, type TokenTypeValues, Transaction, type TransactionEntity, type TransactionMethods, type TransactionProps, transactionService as TransactionService, TransactionSource, type TransactionSourceKeys, type TransactionSourceValues, TransactionStatus, type TransactionStatusKeys, type TransactionStatusValues, utilityService as UtilityService, _default$1 as ValidationParameters, type ValidationParametersInstance, _default as ValidationResults, type ValidationResultsInstance, type WarningLevelSummary, defineEntity, ensureNotEmpty, ensureNotNull, decode as filterDecode, encode as filterEncode, isDefined, isValid, _default$f as itemToBundle, _default$e as itemToCountry, _default$d as itemToLicense, _default$b as itemToLicenseTemplate, _default$c as itemToLicensee, _default$a as itemToNotification, itemToObject, _default$9 as itemToPaymentMethod, _default$8 as itemToProduct, _default$7 as itemToProductModule, _default$6 as itemToToken, _default$5 as itemToTransaction, _default$3 as serialize };
+export { ApiKeyRole, type ApiKeyRoleKeys, type ApiKeyRoleValues, Bundle, type BundleEntity, type BundleMethods, type BundleProps, bundleService as BundleService, _default$g as Constants, _default$2 as Context, type ContextConfig, type ContextInstance, Country, type CountryEntity, type CountryMethods, type CountryProps, type DateField, type Entity, type EntityMethods, type IBundleService, type ILicenseService, type ILicenseTemplateService, type ILicenseeService, type INotificationService, type IPaymentMethodService, type IProductModuleService, type IProductService, type IService, type ITokenService, type ITransactionService, type IUtilityService, type Info, type Item, type ItemPagination, type Items, License, type LicenseEntity, type LicenseMethods, type LicenseProps, licenseService as LicenseService, LicenseTemplate, type LicenseTemplateEntity, type LicenseTemplateMethods, type LicenseTemplateProps, licenseTemplateService as LicenseTemplateService, _default$4 as LicenseTransactionJoin, type LicenseTransactionJoinEntity, type LicenseTransactionJoinMethods, type LicenseTransactionJoinProps, LicenseType, type LicenseTypeKeys, type LicenseTypeValues, Licensee, type LicenseeEntity, type LicenseeMethods, type LicenseeProperties, type LicenseeProps, LicenseeSecretMode, type LicenseeSecretModeKeys, type LicenseeSecretModeValues, licenseeService as LicenseeService, LicensingModel, type LicensingModelKeys, type LicensingModelValues, type List, NlicError, type NlicResponse, NodeSecretMode, type NodeSecretModeKeys, type NodeSecretModeValues, Notification, type NotificationEntity, NotificationEvent, type NotificationEventKeys, type NotificationEventValues, type NotificationMethods, type NotificationProps, NotificationProtocol, type NotificationProtocolKeys, type NotificationProtocolValues, notificationService as NotificationService, Page, type PageInstance, type Pagination, type PaginationMethods, type Parameter, type Parameters, PaymentMethod, type PaymentMethodEntity, PaymentMethodEnum, type PaymentMethodKeys, type PaymentMethodMethods, type PaymentMethodProps, paymentMethodService as PaymentMethodService, type PaymentMethodValues, Product, ProductDiscount, type ProductDiscountEntity, type ProductDiscountMethods, type ProductDiscountProps, type ProductEntity, type ProductMethods, ProductModule, type ProductModuleEntity, type ProductModuleMethods, type ProductModuleProps, productModuleService as ProductModuleService, type ProductModuleValidation, type ProductProps, productService as ProductService, type PropGetEventListener, type PropSetEventListener, type Proto, type RequestConfig, type RequiredProps, type SavedBundleProps, type SavedLicenseProps, type SavedLicenseTemplateProps, type SavedLicenseeProps, type SavedNotificationProps, type SavedPaymentMethodProps, type SavedProductModuleProps, type SavedProductProps, type SavedTokenProps, type SavedTransactionProps, SecurityMode, type SecurityModeKeys, type SecurityModeValues, service as Service, TimeVolumePeriod, type TimeVolumePeriodKeys, type TimeVolumePeriodValues, Token, type TokenEntity, type TokenMethods, type TokenProps, tokenService as TokenService, TokenType, type TokenTypeKeys, type TokenTypeValues, Transaction, type TransactionEntity, type TransactionMethods, type TransactionProps, transactionService as TransactionService, TransactionSource, type TransactionSourceKeys, type TransactionSourceValues, TransactionStatus, type TransactionStatusKeys, type TransactionStatusValues, utilityService as UtilityService, _default$1 as ValidationParameters, type ValidationParametersInstance, _default as ValidationResults, type ValidationResultsInstance, type WarningLevelSummary, defineEntity, ensureNotEmpty, ensureNotNull, decode as filterDecode, encode as filterEncode, isDefined, isValid, _default$f as itemToBundle, _default$e as itemToCountry, _default$d as itemToLicense, _default$b as itemToLicenseTemplate, _default$c as itemToLicensee, _default$a as itemToNotification, itemToObject, _default$9 as itemToPaymentMethod, _default$8 as itemToProduct, _default$7 as itemToProductModule, _default$6 as itemToToken, _default$5 as itemToTransaction, _default$3 as serialize };
