@@ -9,6 +9,7 @@ import License from '@/entities/License';
 // types
 import { Item } from '@/types/api/response';
 import { LicenseProps } from '@/types/entities/License';
+import { TimeVolumePeriodValues } from "@/types";
 
 describe('itemToLicense converter', () => {
   it('should correctly convert item to License', () => {
@@ -25,7 +26,7 @@ describe('itemToLicense converter', () => {
         { value: '10', name: 'timeVolume' },
         { value: 'DAY', name: 'timeVolumePeriod' },
         { value: '2024-01-03T12:00:00.000Z', name: 'startDate' },
-        { value: 'PF1', name: 'parentfeature' },
+        { value: 'PF1', name: 'parentFeature' },
         { value: 'X', name: 'customProperty' },
         { value: 'true', name: 'inUse' },
       ],
@@ -33,9 +34,14 @@ describe('itemToLicense converter', () => {
       type: 'License',
     };
 
-    const result = itemToLicense(item);
+    const result = itemToLicense<{ startDate: Date }>(item);
 
-    const expected: LicenseProps<{ customProperty: string }> = {
+    const expected: LicenseProps<{
+      customProperty: string;
+      timeVolume: number;
+      timeVolumePeriod: TimeVolumePeriodValues;
+      parentFeature: string;
+    }> = {
       number: 'L1',
       active: true,
       name: 'Sample name',
@@ -46,13 +52,13 @@ describe('itemToLicense converter', () => {
       licenseTemplateNumber: 'LT1',
       timeVolume: 10,
       timeVolumePeriod: 'DAY',
-      parentfeature: 'PF1',
+      parentFeature: 'PF1',
       customProperty: 'X',
       inUse: true,
     };
 
     expect(result).toBeInstanceOf(License);
     expect(result).toMatchObject(expected);
-    expect((result.startDate as Date).toISOString()).toBe('2024-01-03T12:00:00.000Z');
+    expect((result.startDate)?.toISOString()).toBe('2024-01-03T12:00:00.000Z');
   });
 });

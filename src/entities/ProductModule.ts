@@ -9,7 +9,11 @@ import defineEntity from '@/entities/defineEntity';
 import { LicensingModelValues } from '@/types/constants/LicensingModel';
 
 // types
-import { ProductModuleEntity, ProductModuleMethods, ProductModuleProps } from '@/types/entities/ProductModule';
+import {
+  ProductModuleEntity,
+  ProductModuleMethods,
+  ProductModuleProps,
+} from '@/types/entities/ProductModule';
 
 // utils
 import { set, get } from '@/utils/helpers';
@@ -82,30 +86,6 @@ const ProductModule = function <T extends object = object>(
 
     getLicensingModel<D = undefined>(this: void, def?: D): LicensingModelValues | D {
       return get(props, 'licensingModel', def) as LicensingModelValues | D;
-    },
-
-    setMaxCheckoutValidity(this: void, maxCheckoutValidity: number): void {
-      set(props, 'maxCheckoutValidity', maxCheckoutValidity);
-    },
-
-    getMaxCheckoutValidity<D = undefined>(this: void, def?: D): number | D {
-      return get(props, 'maxCheckoutValidity', def) as number | D;
-    },
-
-    setYellowThreshold(this: void, yellowThreshold: number): void {
-      set(props, 'yellowThreshold', yellowThreshold);
-    },
-
-    getYellowThreshold<D = undefined>(this: void, def?: D): number | D {
-      return get(props, 'yellowThreshold', def) as number | D;
-    },
-
-    setRedThreshold(this: void, redThreshold: number): void {
-      set(props, 'redThreshold', redThreshold);
-    },
-
-    getRedThreshold<D = undefined>(this: void, def?: D): number | D {
-      return get(props, 'redThreshold', def) as number | D;
     },
 
     setProductNumber(this: void, productNumber: string): void {

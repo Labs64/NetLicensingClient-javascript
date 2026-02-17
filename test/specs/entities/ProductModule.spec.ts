@@ -111,9 +111,10 @@ describe('ProductModule Entity', () => {
   });
 
   it('should set and get maxCheckoutValidity correctly', () => {
-    const productModule = ProductModule();
+    const productModule = ProductModule({
+      maxCheckoutValidity: 200,
+    });
 
-    productModule.setMaxCheckoutValidity(200);
     expectEntityProp(productModule, 'maxCheckoutValidity', 200);
 
     productModule.maxCheckoutValidity = 50;
@@ -127,9 +128,9 @@ describe('ProductModule Entity', () => {
   });
 
   it('should set and get yellowThreshold correctly', () => {
-    const productModule = ProductModule();
-
-    productModule.setYellowThreshold(200);
+    const productModule = ProductModule({
+      yellowThreshold: 200,
+    });
     expectEntityProp(productModule, 'yellowThreshold', 200);
 
     productModule.yellowThreshold = 50;
@@ -143,9 +144,10 @@ describe('ProductModule Entity', () => {
   });
 
   it('should set and get redThreshold correctly', () => {
-    const productModule = ProductModule();
+    const productModule = ProductModule({
+      redThreshold: 200,
+    });
 
-    productModule.setRedThreshold(200);
     expectEntityProp(productModule, 'redThreshold', 200);
 
     productModule.redThreshold = 50;

@@ -7,6 +7,7 @@ import itemToLicenseTemplate from '@/converters/itemToLicenseTemplate';
 import LicenseTemplate from '@/entities/LicenseTemplate';
 
 // types
+import { TimeVolumePeriodValues } from "@/types";
 import { Item } from '@/types/api/response';
 import { LicenseTemplateProps } from '@/types/entities/LicenseTemplate';
 
@@ -38,7 +39,14 @@ describe('itemToLicenseTemplate converter', () => {
 
     const result = itemToLicenseTemplate(item);
 
-    const expected: LicenseTemplateProps<{ customProperty: string }> = {
+    const expected: LicenseTemplateProps<{
+      gracePeriod: boolean;
+      customProperty: string;
+      timeVolume: number;
+      timeVolumePeriod: TimeVolumePeriodValues;
+      maxSessions: number;
+      quantity: number;
+    }> = {
       number: 'L1',
       active: true,
       name: 'Sample name',

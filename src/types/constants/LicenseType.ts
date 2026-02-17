@@ -5,6 +5,5 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 import LicenseType from '@/constants/LicenseType';
-
 export type LicenseTypeKeys = keyof typeof LicenseType;
 export type LicenseTypeValues = (typeof LicenseType)[LicenseTypeKeys];

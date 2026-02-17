@@ -18,14 +18,16 @@ import { TransactionProps } from '@/types/entities/Transaction';
 export default <T extends object = TransactionProps>(item?: Item) => {
   const props = itemToObject<Record<string, unknown>>(item);
 
-  const { dateCreated, dateClosed } = props;
+  const { datecreated: dateCreated, dateclosed: dateClosed } = props;
 
   if (dateCreated && typeof dateCreated === 'string') {
     props.dateCreated = new Date(dateCreated);
+    delete props.datecreated;
   }
 
   if (dateClosed && typeof dateClosed === 'string') {
     props.dateClosed = new Date(dateClosed);
+    delete props.dateclosed;
   }
 
   const licenseTransactionJoins: { licenseNumber: string; transactionNumber: string }[] | undefined =

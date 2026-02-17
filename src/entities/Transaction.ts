@@ -144,7 +144,15 @@ const Transaction = function <T extends object>(
     },
 
     serialize(this: void) {
-      return serialize(props, { ignore: ['licenseTransactionJoins', 'inUse'] });
+      const clone: Record<string, unknown> = {...props};
+
+      clone.datecreated = props.dateCreated;
+      clone.dateclosed = props.dateClosed
+
+      delete clone.dateCreated;
+      delete clone.dateClosed;
+
+      return serialize(clone, { ignore: ['licenseTransactionJoins', 'inUse'] });
     },
   };
 

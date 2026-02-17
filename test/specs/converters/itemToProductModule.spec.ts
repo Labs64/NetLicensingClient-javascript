@@ -31,7 +31,12 @@ describe('itemToProductModule converter', () => {
 
     const result = itemToProductModule(item);
 
-    const expected: ProductModuleProps<{ customProperty: string }> = {
+    const expected: ProductModuleProps<{
+      customProperty: string;
+      maxCheckoutValidity: number;
+      yellowThreshold: number;
+      redThreshold: number;
+    }> = {
       number: 'PM1',
       active: true,
       name: 'Sample name',
