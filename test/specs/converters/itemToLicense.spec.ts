@@ -10,6 +10,7 @@ import License from '@/entities/License';
 import { TimeVolumePeriodValues } from "@/types";
 import { Item } from '@/types/api/response';
 import { LicenseProps } from '@/types/entities/License';
+import { TimeVolumePeriodValues } from "@/types";
 
 describe('itemToLicense converter', () => {
   it('should correctly convert item to License', () => {
