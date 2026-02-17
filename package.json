@@ -78,7 +78,7 @@
     "@typescript-eslint/eslint-plugin": "^8.29.1",
     "@typescript-eslint/parser": "^8.29.1",
     "@vitest/eslint-plugin": "^1.1.43",
-    "axios": "^1.9.0",
+    "axios": "^1.13.0",
     "eslint": "^9.24.0",
     "eslint-plugin-import": "^2.31.0",
     "prettier": "3.5.3",
