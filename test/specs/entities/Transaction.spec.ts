@@ -271,8 +271,8 @@ describe('Transaction entity', () => {
       grandTotal: '12.5',
       discount: '2.2',
       currency: 'EUR',
-      dateCreated: '2024-01-03T12:00:00.000Z',
-      dateClosed: '2024-01-04T12:00:00.000Z',
+      datecreated: '2024-01-03T12:00:00.000Z',
+      dateclosed: '2024-01-04T12:00:00.000Z',
       paymentMethod: PaymentMethodEnum.PAYPAL,
     });
   });

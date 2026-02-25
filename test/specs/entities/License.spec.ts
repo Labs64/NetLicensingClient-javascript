@@ -287,7 +287,7 @@ describe('License Entity', () => {
       timeVolume: '50',
       timeVolumePeriod: TimeVolumePeriod.DAY,
       startDate: 'now',
-      parentfeature: 'PARENT123',
+      parentFeature: 'PARENT123',
     });
   });
 });
