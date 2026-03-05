@@ -1,30 +1,123 @@
 name: JavaScript Client - Release
 
 on:
-  release:
-    types: [created]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g. 3.2.1) or bump type (patch, minor, major)'
+        required: true
+        default: 'patch'
+      release_notes:
+        description: 'Release notes — leave blank to auto-generate from commits/PRs'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  packages: write
+  id-token: write
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
+    environment: npm-publish
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          node-version: 18
-      - run: npm ci
-      - run: npm test
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
+          cache: npm
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+      # ── Guards ──────────────────────────────────────────────────────────────
+      - name: Validate version input
+        run: |
+          INPUT="${{ inputs.version }}"
+          # Allow bump aliases OR strict semver (with optional pre-release label)
+          if echo "$INPUT" | grep -Pq '^(patch|minor|major)$'; then
+            echo "✅ Bump type: $INPUT"
+          elif echo "$INPUT" | grep -Pq '^\d+\.\d+\.\d+(-[\w.]+)?(\+[\w.]+)?$'; then
+            echo "✅ Explicit version: $INPUT"
+          else
+            echo "❌ '$INPUT' is neither a bump type (patch/minor/major) nor valid semver"
+            exit 1
+          fi
+
+      - name: Check version not already tagged
+        run: |
+          INPUT="${{ inputs.version }}"
+          # Only relevant for explicit versions — bump types resolve at npm version time
+          if echo "$INPUT" | grep -Pq '^\d+'; then
+            if git ls-remote --tags origin | grep -q "refs/tags/${INPUT}$"; then
+              echo "❌ Tag ${INPUT} already exists — bump the version or delete the tag first"
+              exit 1
+            fi
+          fi
+
+      # ── Install & Verify ────────────────────────────────────────────────────
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check outdated dependencies
+        run: npm outdated || true  # Report only — never fail the release on this
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Lint typecheck
+        run: npm run lint:typecheck
+
+      # ── Build ───────────────────────────────────────────────────────────────
+      - name: Build distribution
+        run: npm run build
+
+      # ── Git: commit dist before versioning ──────────────────────────────────
+      # Committing dist/ separately keeps git history readable:
+      #   "chore: update build artifacts"  ← dist changes
+      #   "Release 3.2.1"                  ← version bump, this is what gets tagged
+      - name: Configure Git
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Commit build artifacts
+        run: |
+          git add .
+          git diff --quiet && git diff --staged --quiet \
+            || git commit -m "Update build artifacts for ${{ inputs.version }}"
+
+      # ── Version bump, tag & push ────────────────────────────────────────────
+      - name: Bump version and tag
+        id: bump
+        run: |
+          # 1. Pass the empty prefix directly via CLI flag (bypasses the npm bug)
+          npm version ${{ inputs.version }} --tag-version-prefix="" -m "Release %s"
+          
+          # 2. Extract the clean version directly from package.json
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          
+          # 3. Save it to outputs and push
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          git push --follow-tags
+
+      # ── Publish ─────────────────────────────────────────────────────────────
+      - name: Update npm
+        run: npm install -g npm@latest
+
+      - name: Publish to npm
+        run: npm publish --provenance --access public
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.bump.outputs.new_version }}
+          name: Release ${{ steps.bump.outputs.new_version }}
+          body: ${{ inputs.release_notes }}
+          generate_release_notes: ${{ inputs.release_notes == '' }}
+          files: dist/**

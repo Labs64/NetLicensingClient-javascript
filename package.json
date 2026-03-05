@@ -23,7 +23,7 @@
   "homepage": "https://netlicensing.io",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Labs64/NetLicensingClient-javascript"
+    "url": "git+https://github.com/Labs64/NetLicensingClient-javascript.git"
   },
   "bugs": {
     "url": "https://github.com/Labs64/NetLicensingClient-javascript/issues"
