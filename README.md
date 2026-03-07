@@ -2,7 +2,7 @@
 
 # [Labs64 NetLicensing](https://netlicensing.io) Client (JavaScript)
 
-[![Build Status](https://github.com/Labs64/NetLicensingClient-javascript/workflows/NetLicensing%20Client%20CI/badge.svg)](https://github.com/Labs64/NetLicensingClient-javascript/actions?query=workflow%3A%22JavaScript+Client+-+CI%22)
+[![JavaScript Client - CI](https://github.com/Labs64/NetLicensingClient-javascript/actions/workflows/netlicensing-js-ci.yml/badge.svg)](https://github.com/Labs64/NetLicensingClient-javascript/actions/workflows/netlicensing-js-ci.yml)
 [![npm version](https://img.shields.io/npm/v/netlicensing-client)](https://www.npmjs.com/package/netlicensing-client)
 [![npm downloads](https://img.shields.io/npm/dt/netlicensing-client)](https://www.npmjs.com/package/netlicensing-client)
 [![jsDelivr](https://data.jsdelivr.com/v1/package/npm/netlicensing-client/badge)](https://www.jsdelivr.com/package/npm/netlicensing-client)
