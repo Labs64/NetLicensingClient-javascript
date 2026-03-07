@@ -1,27 +1,61 @@
 name: JavaScript Client - CI
 
-on: [push]
+on:
+  push:
+    branches: [ "master" ]
+    paths-ignore:
+      - '**.md'      # Skip CI when only docs/readmes change
+  pull_request:
+    branches: [ "master" ]
+
+# Cancel in-progress CI runs if new commits are pushed to the same PR/branch
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    
     strategy:
+      fail-fast: false # Prevents all versions from cancelling if just one fails
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [18.x, 20.x, 22.x, 24.x]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install, build, and test
-      run: |
-        npm ci
-        npm run build --if-present
-        npm test
-        ls -la dist/
-      env:
-        CI: true
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm' # ⚡️ Speeds up `npm ci` by caching ~/.npm across runs
+
+      # ── Install ─────────────────────────────────────────────────────────────
+      - name: Install dependencies
+        run: npm ci
+
+      # ── Lint & Verify ───────────────────────────────────────────────────────
+      # We only need to lint and check outdated dependencies on ONE Node version 
+      # to save duplicate work and runner minutes. Node 24 is the current LTS.
+      - name: Lint typecheck
+        if: matrix.node-version == '24.x'
+        run: npm run lint:typecheck
+
+      - name: Check outdated dependencies
+        if: matrix.node-version == '24.x'
+        run: npm outdated || true
+
+      # ── Test & Build (Runs on all Node versions) ────────────────────────────
+      - name: Run tests
+        run: npm run test
+
+      - name: Build distribution
+        run: npm run build --if-present
+
+      - name: Verify build artifacts
+        run: ls -la dist/
