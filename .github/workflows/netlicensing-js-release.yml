@@ -117,7 +117,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.bump.outputs.new_version }}
-          name: Release ${{ steps.bump.outputs.new_version }}
+          name: ${{ steps.bump.outputs.new_version }}
           body: ${{ inputs.release_notes }}
           generate_release_notes: ${{ inputs.release_notes == '' }}
           files: dist/**
