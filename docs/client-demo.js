@@ -1,4 +1,5 @@
 const NetLicensingDemo = async () => {
+  try {
   const {
     Context,
     LicenseType,
@@ -38,8 +39,8 @@ const NetLicensingDemo = async () => {
 
   console.log('UtilityService.listLicenseTypes() :', await UtilityService.listLicenseTypes(context));
   console.log('UtilityService.listLicensingModels() :', await UtilityService.listLicensingModels(context));
-  console.log('UtilityService.listCountries() :', await UtilityService.listCountries(context));
-  console.log((await UtilityService.listCountries(context)).getContent());
+  //console.log('UtilityService.listCountries() :', await UtilityService.listCountries(context));
+  //console.log((await UtilityService.listCountries(context)).getContent());
   // endregion
 
   // region ********* Product
@@ -300,9 +301,22 @@ const NetLicensingDemo = async () => {
 
   // region ********* CleanUp
 
-  console.log('All done.');
-  await ProductService.delete(context, productNumber, true);
+  console.log('All done ✅');
+    await ProductService.delete(context, productNumber, true);
   // endregion
+
+  } catch (error) {
+    console.error('❌ NetLicensing API Error:');
+
+    // Check if it's an Axios/API response error
+    if (error.response && error.response.data) {
+      console.error('Status Code:', error.response.status);
+      console.error(JSON.stringify(error.response.data, null, 2));
+    } else {
+      // Standard JS/Network error
+      console.error(error.message || error);
+    }
+  }
 };
 
 function numberWithPrefix(prefix, number) {

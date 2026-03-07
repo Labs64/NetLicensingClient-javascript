@@ -3,5 +3,5 @@ node_modules/
 npm-debug.log
 .build*
 .idea
-index.html
 dist/
+test/coverage/lcov-report/index.html
