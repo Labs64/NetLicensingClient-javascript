@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse, Axios } from 'axios';
+import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { Info } from '@/types/api/response';
 
 let axiosInstance: AxiosInstance = axios.create();

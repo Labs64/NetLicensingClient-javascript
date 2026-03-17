@@ -8,16 +8,18 @@ import type { AxiosInstance, AxiosResponse, Method } from 'axios';
 import { Info, NlicResponse } from '@/types/api/response';
 import type { ContextInstance } from '@/types/vo/Context';
 
+export type AxiosRequestClient = Pick<AxiosInstance, 'request'>;
+
 export interface RequestConfig {
   onInfo?: (info: Info[]) => void;
   onResponse?: (response: AxiosResponse) => void;
-  axiosInstance?: AxiosInstance;
+  axiosInstance?: AxiosRequestClient;
 }
 
 export interface IService {
-  setAxiosInstance(this: void, instance: AxiosInstance): void;
+  setAxiosInstance(this: void, instance: AxiosRequestClient): void;
 
-  getAxiosInstance(this: void): AxiosInstance;
+  getAxiosInstance(this: void): AxiosRequestClient;
 
   // @deprecated use getResponse in RequestConfig
   getLastHttpRequestInfo(this: void): AxiosResponse | null;
