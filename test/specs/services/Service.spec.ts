@@ -13,10 +13,11 @@ import Context from '@/vo/Context';
 
 // utils
 import createMockAxiosInstance from '@test-utils/createMockAxiosInstance';
+import createMockAxiosRequestClient from '@test-utils/createMockAxiosInstance';
 import { createMockItem, createMockResponse } from '@test-utils/nlic';
 
 describe('Service', () => {
-  let mockAxios: ReturnType<typeof createMockAxiosInstance>;
+  let mockAxios: ReturnType<typeof createMockAxiosRequestClient>;
 
   beforeEach(() => {
     mockAxios = createMockAxiosInstance();
@@ -38,7 +39,7 @@ describe('Service', () => {
 
       const response = await Service.get(context, 'token/123', {}, { onResponse, onInfo });
 
-      expect(mockAxios).toHaveBeenCalledOnce();
+      expect(mockAxios.request).toHaveBeenCalledOnce();
       expect(onResponse).toHaveBeenCalledWith(response);
       expect(onInfo).toHaveBeenCalledWith(infos);
       expect(response).toMatchObject({ data });
@@ -61,7 +62,7 @@ describe('Service', () => {
 
       await method(context, 'some-url', payload, { axiosInstance: mockAxios });
 
-      expect(mockAxios).toHaveBeenCalledWith(
+      expect(mockAxios.request).toHaveBeenCalledWith(
         expect.objectContaining({
           headers: expect.objectContaining({ Accept: 'application/json' }) as Record<string, string>,
           url: expect.stringContaining('some-url') as string,
@@ -76,7 +77,7 @@ describe('Service', () => {
 
         await method(context, 'some-url', {}, { axiosInstance: mockAxios });
 
-        expect(mockAxios).toHaveBeenCalledWith(
+        expect(mockAxios.request).toHaveBeenCalledWith(
           expect.objectContaining({
             auth: {
               username: context.getUsername(),
@@ -91,7 +92,7 @@ describe('Service', () => {
 
         await method(context, 'some-url', {}, { axiosInstance: mockAxios });
 
-        expect(mockAxios).toHaveBeenCalledWith(
+        expect(mockAxios.request).toHaveBeenCalledWith(
           expect.objectContaining({
             headers: expect.objectContaining({
               Authorization: `Basic ${btoa('apiKey:some-api-key')}`,
