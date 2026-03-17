@@ -11,4 +11,19 @@ import LicenseTemplate from '@/entities/LicenseTemplate';
 import { Item } from '@/types/api/response';
 import { LicenseTemplateProps } from '@/types/entities/LicenseTemplate';
 
-export default <T extends object = LicenseTemplateProps>(item?: Item) => LicenseTemplate<T>(itemToObject<T>(item));
+export default <T extends object = LicenseTemplateProps>(item?: Item) =>
+  LicenseTemplate<T>(
+    itemToObject<T>(item, {
+      active: 'boolean',
+      number: 'string',
+      name: 'string',
+      licenseType: 'string',
+      price: 'number',
+      currency: 'string',
+      automatic: 'boolean',
+      hidden: 'boolean',
+      hideLicenses: 'boolean',
+      productModuleNumber: 'string',
+      inUse: 'boolean',
+    }),
+  );

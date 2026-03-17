@@ -13,4 +13,12 @@ import Country from '@/entities/Country';
 import { Item } from '@/types/api/response';
 import { CountryProps } from '@/types/entities/Country';
 
-export default (item?: Item) => Country(itemToObject<CountryProps>(item));
+export default (item?: Item) =>
+  Country(
+    itemToObject<CountryProps>(item, {
+      code: 'string',
+      name: 'string',
+      vatPercent: 'number',
+      isEu: 'boolean',
+    }),
+  );

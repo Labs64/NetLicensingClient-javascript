@@ -1,4 +1,4 @@
-import { AxiosRequestConfig, Method, AxiosRequestHeaders, AxiosResponse, AxiosError, AxiosInstance } from 'axios';
+import {AxiosRequestConfig, Method, AxiosRequestHeaders, AxiosResponse, AxiosError, AxiosInstance, Axios} from 'axios';
 
 // constants
 import SecurityMode from '@/constants/SecurityMode';

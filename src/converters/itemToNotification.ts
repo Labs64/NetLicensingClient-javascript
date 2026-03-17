@@ -12,7 +12,15 @@ import { Item } from '@/types/api/response';
 import { NotificationProps } from '@/types/entities/Notification';
 
 export default <T extends object = NotificationProps>(item?: Item) => {
-  const props = itemToObject<Record<string, unknown>>(item);
+  const props = itemToObject<Record<string, unknown>>(item, {
+    active: 'boolean',
+    number: 'string',
+    name: 'string',
+    protocol: 'string',
+    events: 'string',
+    payload: 'string',
+    endpoint: 'string',
+  });
 
   const { events } = props;
 

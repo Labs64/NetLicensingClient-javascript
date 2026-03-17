@@ -786,7 +786,7 @@ type ProductProps<T extends object = object> = {
     active?: boolean;
     number?: string;
     name?: string;
-    version?: string | number;
+    version?: string;
     description?: string;
     licensingInfo?: string;
     licenseeAutoCreate?: boolean;
@@ -1275,7 +1275,10 @@ declare const _default$b: <T extends object = LicenseTemplateProps>(item?: Item)
 
 declare const _default$a: <T extends object = NotificationProps>(item?: Item) => NotificationEntity<T>;
 
-declare const itemToObject: <T extends object = Record<string, unknown>>(item?: Item | List) => T;
+type CastType = 'auto' | 'string' | 'number' | 'boolean' | 'null' | 'json';
+
+type ItemToObjectCastMap = Record<string, CastType>;
+declare const itemToObject: <T extends object = Record<string, unknown>>(item?: Item | List, castMap?: ItemToObjectCastMap) => T;
 
 declare const _default$9: <T extends object = PaymentMethodProps>(item?: Item) => PaymentMethodEntity<T>;
 
