@@ -13,7 +13,7 @@ export type ProductProps<T extends object = object> = {
   active?: boolean;
   number?: string;
   name?: string;
-  version?: string | number;
+  version?: string;
   description?: string;
   licensingInfo?: string;
   licenseeAutoCreate?: boolean;

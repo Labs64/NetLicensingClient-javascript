@@ -11,4 +11,14 @@ import ProductModule from '@/entities/ProductModule';
 import { Item } from '@/types/api/response';
 import { ProductModuleProps } from '@/types/entities/ProductModule';
 
-export default <T extends object = ProductModuleProps>(item?: Item) => ProductModule<T>(itemToObject<T>(item));
+export default <T extends object = ProductModuleProps>(item?: Item) =>
+  ProductModule<T>(
+    itemToObject<T>(item, {
+      active: 'boolean',
+      number: 'string',
+      name: 'string',
+      licensingModel: 'string',
+      productNumber: 'string',
+      inUse: 'boolean',
+    }),
+  );

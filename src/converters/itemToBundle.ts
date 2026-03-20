@@ -12,12 +12,25 @@ import { Item } from '@/types/api/response';
 import { BundleProps } from '@/types/entities/Bundle';
 
 export default <T extends object = BundleProps>(item?: Item) => {
-  const props = itemToObject<Record<string, unknown>>(item);
+  const props = itemToObject<Record<string, unknown>>(item,{
+    active: 'boolean',
+    number: 'string',
+    name: 'string',
+    price: 'number',
+    currency: 'string',
+    productNumber: 'string',
+    licenseTemplateNumbers: 'string',
+    staleLicenseTemplateNumbers: 'string',
+  });
 
-  const { licenseTemplateNumbers } = props;
+  const { licenseTemplateNumbers, staleLicenseTemplateNumbers } = props;
 
   if (licenseTemplateNumbers && typeof licenseTemplateNumbers === 'string') {
     props.licenseTemplateNumbers = licenseTemplateNumbers.split(',');
+  }
+
+  if (staleLicenseTemplateNumbers && typeof staleLicenseTemplateNumbers === 'string') {
+    props.staleLicenseTemplateNumbers = staleLicenseTemplateNumbers.split(',');
   }
 
   return Bundle<T>(props as BundleProps<T>);

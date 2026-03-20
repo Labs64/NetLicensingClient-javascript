@@ -16,7 +16,20 @@ import { Item } from '@/types/api/response';
 import { TransactionProps } from '@/types/entities/Transaction';
 
 export default <T extends object = TransactionProps>(item?: Item) => {
-  const props = itemToObject<Record<string, unknown>>(item);
+  const props = itemToObject<Record<string, unknown>>(item, {
+    active: 'boolean',
+    number: 'string',
+    status: 'string',
+    source: 'string',
+    grandTotal: 'number',
+    discount: 'number',
+    currency: 'string',
+    datecreated: 'string',
+    dateclosed: 'string',
+    paymentMethod: 'string',
+    licenseTransactionJoins: 'json',
+    inUse: 'boolean',
+  });
 
   const { datecreated: dateCreated, dateclosed: dateClosed } = props;
 
@@ -30,15 +43,15 @@ export default <T extends object = TransactionProps>(item?: Item) => {
     delete props.dateclosed;
   }
 
-  const licenseTransactionJoins: { licenseNumber: string; transactionNumber: string }[] | undefined =
-    props.licenseTransactionJoin as { licenseNumber: string; transactionNumber: string }[];
+  type LicenseTransactionJoins = { licenseNumber: string | number; transactionNumber: string | number }[] | undefined;
+  const licenseTransactionJoins: LicenseTransactionJoins = props.licenseTransactionJoin as LicenseTransactionJoins;
 
   delete props.licenseTransactionJoin;
 
   if (licenseTransactionJoins) {
     props.licenseTransactionJoins = licenseTransactionJoins.map(({ transactionNumber, licenseNumber }) => {
-      const transaction = Transaction({ number: transactionNumber });
-      const license = License({ number: licenseNumber });
+      const transaction = Transaction({ number: String(transactionNumber) });
+      const license = License({ number: String(licenseNumber) });
 
       return LicenseTransactionJoin(transaction, license);
     });

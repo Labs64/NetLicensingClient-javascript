@@ -11,4 +11,10 @@ import PaymentMethod from '@/entities/PaymentMethod';
 import { Item } from '@/types/api/response';
 import { PaymentMethodProps } from '@/types/entities/PaymentMethod';
 
-export default <T extends object = PaymentMethodProps>(item?: Item) => PaymentMethod<T>(itemToObject<T>(item));
+export default <T extends object = PaymentMethodProps>(item?: Item) =>
+  PaymentMethod<T>(
+    itemToObject<T>(item, {
+      active: 'boolean',
+      number: 'string',
+    }),
+  );

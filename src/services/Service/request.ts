@@ -1,4 +1,4 @@
-import { AxiosRequestConfig, Method, AxiosRequestHeaders, AxiosResponse, AxiosError, AxiosInstance } from 'axios';
+import { AxiosRequestConfig, Method, AxiosRequestHeaders, AxiosResponse, AxiosError } from 'axios';
 
 // constants
 import SecurityMode from '@/constants/SecurityMode';
@@ -8,7 +8,7 @@ import NlicError from '@/errors/NlicError';
 
 // types
 import type { NlicResponse } from '@/types/api/response';
-import type { RequestConfig } from '@/types/services/Service';
+import type { AxiosRequestClient, RequestConfig } from '@/types/services/Service';
 import { ContextInstance } from '@/types/vo/Context';
 
 // package.json
@@ -95,10 +95,10 @@ export default async (
       throw new NlicError('Unknown security mode');
   }
 
-  const instance: AxiosInstance = config?.axiosInstance || getAxiosInstance();
+  const instance: AxiosRequestClient = config?.axiosInstance || getAxiosInstance();
 
   try {
-    const response: AxiosResponse<NlicResponse> = await instance(req);
+    const response: AxiosResponse<NlicResponse> = await instance.request(req);
     const info = response.data.infos?.info || [];
 
     setLastResponse(response);

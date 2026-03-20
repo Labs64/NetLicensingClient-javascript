@@ -14,7 +14,15 @@ import { ProductProps } from '@/types/entities/Product';
 import { ProductDiscountEntity } from '@/types/entities/ProductDiscount';
 
 export default <T extends object = ProductProps>(item?: Item) => {
-  const props = itemToObject<Record<string, unknown>>(item);
+  const props = itemToObject<Record<string, unknown>>(item, {
+    number: 'string',
+    name: 'string',
+    version: 'string',
+    description: 'string',
+    licensingInfo: 'string',
+    licenseeAutoCreate: 'boolean',
+    inUse: 'boolean',
+  });
 
   const discounts: ProductDiscountEntity[] | undefined = props.discount as ProductDiscountEntity[] | undefined;
   delete props.discount;

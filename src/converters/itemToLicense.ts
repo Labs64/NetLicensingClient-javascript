@@ -12,7 +12,19 @@ import { Item } from '@/types/api/response';
 import { LicenseProps } from '@/types/entities/License';
 
 export default <T extends object = LicenseProps>(item?: Item) => {
-  const props = itemToObject<Record<string, unknown>>(item);
+  const props = itemToObject<Record<string, unknown>>(item, {
+    active: 'boolean',
+    number: 'string',
+    name: 'string',
+    price: 'number',
+    currency: 'string',
+    hidden: 'boolean',
+    licenseeNumber: 'string',
+    licenseTemplateNumber: 'string',
+    productModuleNumber: 'string',
+    startDate: 'string',
+    inUse: 'boolean',
+  });
 
   const { startDate } = props;
 

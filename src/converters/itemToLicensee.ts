@@ -11,4 +11,22 @@ import Licensee from '@/entities/Licensee';
 import { Item } from '@/types/api/response';
 import { LicenseeProps } from '@/types/entities/Licensee';
 
-export default <T extends object = LicenseeProps>(item?: Item) => Licensee<T>(itemToObject<T>(item));
+export default <T extends object = LicenseeProps>(item?: Item) => {
+  const props = itemToObject<Record<string, unknown>>(item, {
+    active: 'boolean',
+    number: 'string',
+    name: 'string',
+    markedForTransfer: 'boolean',
+    productNumber: 'string',
+    aliases: 'string',
+    inUse: 'boolean',
+  });
+
+  const { aliases } = props;
+
+  if (aliases && typeof aliases === 'string') {
+    props.aliases = aliases.split(',');
+  }
+  
+  return Licensee<T>(props as LicenseeProps<T>);
+};

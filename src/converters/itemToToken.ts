@@ -12,7 +12,24 @@ import { Item } from '@/types/api/response';
 import { TokenProps } from '@/types/entities/Token';
 
 export default <T extends object = TokenProps>(item?: Item) => {
-  const props = itemToObject<Record<string, unknown>>(item);
+  const props = itemToObject<Record<string, unknown>>(item, {
+    active: 'boolean',
+    number: 'string',
+    expirationTime: 'string',
+    tokenType: 'string',
+    licenseeNumber: 'string',
+    action: 'string',
+    apiKeyRole: 'string',
+    bundleNumber: 'string',
+    bundlePrice: 'number',
+    productNumber: 'string',
+    predefinedShoppingItem: 'string',
+    successURL: 'string',
+    successURLTitle: 'string',
+    cancelURL: 'string',
+    cancelURLTitle: 'string',
+    shopURL: 'string',
+  });
 
   const { expirationTime } = props;
 
