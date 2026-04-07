@@ -19,6 +19,7 @@ describe('itemToLicensee converter', () => {
         { name: 'name', value: 'Sample name' },
         { name: 'markedForTransfer', value: 'false' },
         { name: 'productNumber', value: 'P1' },
+        { name: 'aliases', value: '["xyz","123"]'},
         { name: 'customProperty', value: 'X' },
         { name: 'inUse', value: 'true' },
       ],
@@ -35,6 +36,7 @@ describe('itemToLicensee converter', () => {
       markedForTransfer: false,
       productNumber: 'P1',
       customProperty: 'X',
+      aliases: ['xyz', '123'],
       inUse: true,
     };
 

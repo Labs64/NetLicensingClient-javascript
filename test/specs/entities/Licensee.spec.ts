@@ -29,6 +29,7 @@ describe('Licensee Entity', () => {
       licenseeSecret: 'secret123',
       markedForTransfer: false,
       productNumber: 'PN123',
+      aliases: ['xyz', '123'],
       inUse: true,
     };
 
@@ -142,6 +143,7 @@ describe('Licensee Entity', () => {
       licenseeSecret: 'secret123',
       markedForTransfer: false,
       productNumber: 'PN123',
+      aliases: ['xyz', '123'],
       inUse: true,
     });
 
@@ -152,6 +154,7 @@ describe('Licensee Entity', () => {
       licenseeSecret: 'secret123',
       markedForTransfer: 'false',
       productNumber: 'PN123',
+      aliases: '["xyz","123"]',
     });
   });
 });

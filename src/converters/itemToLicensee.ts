@@ -18,7 +18,6 @@ export default <T extends object = LicenseeProps>(item?: Item) => {
     name: 'string',
     markedForTransfer: 'boolean',
     productNumber: 'string',
-    aliases: 'string',
     inUse: 'boolean',
   });
 
