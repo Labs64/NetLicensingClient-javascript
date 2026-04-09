@@ -12,6 +12,10 @@ describe('cast', () => {
       expect(cast('null')).toBeNull();
     });
 
+    it('casts null value', () => {
+      expect(cast(null as unknown as string)).toBeNull();
+    });
+
     it('casts integer strings', () => {
       expect(cast('0')).toBe(0);
       expect(cast('1')).toBe(1);
@@ -60,6 +64,14 @@ describe('cast', () => {
       expect(cast('true', 'string')).toBe('true');
       expect(cast('1.0', 'string')).toBe('1.0');
       expect(cast('01', 'string')).toBe('01');
+    });
+
+    it('keeps null value as null for any rule', () => {
+      expect(cast(null, 'string')).toBeNull();
+      expect(cast(null, 'number')).toBeNull();
+      expect(cast(null, 'boolean')).toBeNull();
+      expect(cast(null, 'null')).toBeNull();
+      expect(cast(null, 'json')).toBeNull();
     });
 
     it('casts value to number for number rule when possible', () => {
