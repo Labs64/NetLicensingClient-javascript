@@ -2,8 +2,8 @@ const isBooleanString = (value: string): value is 'true' | 'false' => {
   return value === 'true' || value === 'false';
 };
 
-const isNullString = (value: string): value is 'null' => {
-  return value === 'null';
+const isNull = (value: string | null): value is 'null' | null => {
+  return value === 'null' || value === null;
 };
 
 const isJsonStructure = (value: string): boolean => {
@@ -43,8 +43,8 @@ const parseBoolean = (value: string): boolean | string => {
   return value;
 };
 
-const parseNull = (value: string): null | string => {
-  return value === 'null' ? null : value;
+const parseNull = (value: string | null): null | string => {
+  return isNull(value) ? null : value;
 };
 
 const parseJson = (value: string): unknown => {
@@ -66,7 +66,7 @@ const parseAuto = (value: string): unknown => {
     return value === 'true';
   }
 
-  if (isNullString(value)) {
+  if (isNull(value)) {
     return null;
   }
 
@@ -85,7 +85,11 @@ const parseAuto = (value: string): unknown => {
   return value;
 };
 
-export const cast = (value: string, type: CastType = 'auto'): unknown => {
+export const cast = (value: string | null, type: CastType = 'auto'): unknown => {
+  if (value === null) {
+    return null;
+  }
+
   switch (type) {
     case 'string':
       return value;
