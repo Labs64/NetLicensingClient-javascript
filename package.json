@@ -71,24 +71,23 @@
   "peerDependencies": {
     "axios": "^1.9.0"
   },
-  "dependencies": {},
   "devDependencies": {
     "@eslint/js": "^9.39.4",
-    "@types/node": "^25.3.5",
+    "@types/node": "^25.9.2",
     "@typescript-eslint/eslint-plugin": "^8.29.1",
     "@typescript-eslint/parser": "^8.29.1",
     "@vitest/eslint-plugin": "^1.1.43",
     "axios": "^1.13.6",
     "eslint": "^9.39.4",
     "eslint-plugin-import": "^2.31.0",
-    "prettier": "3.8.1",
+    "prettier": "^3.8.3",
     "tsup": "^8.4.0",
-    "typescript": "^5.8.3",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.29.1",
-    "vitest": "^3.2.4"
+    "vitest": "^4.1.8"
   },
   "engines": {
-    "node": ">= 16.9.0",
+    "node": ">= 20",
     "npm": ">= 8.0.0"
   },
   "browserslist": [

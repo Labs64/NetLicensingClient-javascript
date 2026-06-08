@@ -17,7 +17,7 @@ import { ProductDiscountMethods, ProductDiscountProps, ProductDiscountEntity } f
 import { set, get } from '@/utils/helpers';
 
 const ProductDiscount = function (
-  properties: ProductDiscountProps = {} as ProductDiscountProps,
+  properties: ProductDiscountProps = {},
 ): ProductDiscountEntity {
   const props: ProductDiscountProps = { ...properties };
 
