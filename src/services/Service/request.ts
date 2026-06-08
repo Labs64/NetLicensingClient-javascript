@@ -13,6 +13,7 @@ import { ContextInstance } from '@/types/vo/Context';
 
 // package.json
 import pkg from '../../../package.json';
+const packageVersion = (pkg as { version: string }).version;
 
 // service
 import { getAxiosInstance, setLastResponse, setInfo } from './instance';
@@ -32,7 +33,7 @@ export default async (
 
   // only node.js has a process variable that is of [[Class]] process
   if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
-    headers['User-agent'] = `NetLicensing/Javascript ${pkg.version}/node&${process.version}`;
+    headers['User-agent'] = `NetLicensing/Javascript ${packageVersion}/node&${process.version}`;
   }
 
   const req: AxiosRequestConfig = {
@@ -46,7 +47,7 @@ export default async (
       }
 
       if (!h['NetLicensing-Origin']) {
-        h['NetLicensing-Origin'] = `NetLicensing/Javascript ${pkg.version}`;
+        h['NetLicensing-Origin'] = `NetLicensing/Javascript ${packageVersion}`;
       }
 
       return d;
