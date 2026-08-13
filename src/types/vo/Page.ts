@@ -14,19 +14,19 @@ export interface Pagination {
 }
 
 export interface PaginationMethods<T extends object> {
-  getContent(): T;
+  getContent(this: void): T;
 
-  getPagination(): Pagination;
+  getPagination(this: void): Pagination;
 
-  getPageNumber(): number;
+  getPageNumber(this: void): number;
 
-  getItemsNumber(): number;
+  getItemsNumber(this: void): number;
 
-  getTotalPages(): number;
+  getTotalPages(this: void): number;
 
-  getTotalItems(): number;
+  getTotalItems(this: void): number;
 
-  hasNext(): boolean;
+  hasNext(this: void): boolean;
 }
 
 export type PageInstance<T extends object> = PaginationMethods<T> & T;
