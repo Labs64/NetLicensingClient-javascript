@@ -50,25 +50,25 @@ const defineEntity = function <P extends Proto, T extends object, M extends obje
     },
 
     // Aliases
-    setProperty(key, value) {
-      this.set(key, value);
+    setProperty(this: void, key, value) {
+      set(props, key, value);
     },
 
-    addProperty(key, value) {
-      this.set(key, value);
+    addProperty(this: void, key, value) {
+      set(props, key, value);
     },
 
-    getProperty(key, def) {
-      return this.get(key, def);
+    getProperty(this: void, key, def) {
+      return get(props, key, def);
     },
 
-    hasProperty(key) {
-      return this.has(key);
+    hasProperty(this: void, key) {
+      return has(props, key);
     },
 
-    setProperties(properties) {
+    setProperties(this: void, properties) {
       Object.entries(properties).forEach(([k, v]) => {
-        this.set(k as keyof T, v as T[keyof T]);
+        set(props, k as keyof T, v as T[keyof T]);
       });
     },
 

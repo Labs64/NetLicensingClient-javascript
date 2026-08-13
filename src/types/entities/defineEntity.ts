@@ -5,23 +5,23 @@
  * @copyright 2017 Labs64 NetLicensing
  */
 export interface EntityMethods<T extends object> {
-  set<K extends keyof T>(key: K, value: T[K]): void;
+  set<K extends keyof T>(this: void, key: K, value: T[K]): void;
 
-  get<K extends keyof T, D = undefined>(key: K, def?: D): T[K] | D;
+  get<K extends keyof T, D = undefined>(this: void, key: K, def?: D): T[K] | D;
 
-  has<K extends keyof T>(key: K): boolean;
+  has<K extends keyof T>(this: void, key: K): boolean;
 
-  setProperty<K extends keyof T>(key: K, value: T[K]): void;
+  setProperty<K extends keyof T>(this: void, key: K, value: T[K]): void;
 
-  addProperty<K extends keyof T>(key: K, value: T[K]): void;
+  addProperty<K extends keyof T>(this: void, key: K, value: T[K]): void;
 
-  getProperty<K extends keyof T, D = undefined>(key: K, def?: D): T[K] | D;
+  getProperty<K extends keyof T, D = undefined>(this: void, key: K, def?: D): T[K] | D;
 
-  hasProperty<K extends keyof T>(key: K): boolean;
+  hasProperty<K extends keyof T>(this: void, key: K): boolean;
 
-  setProperties(properties: Partial<T>): void;
+  setProperties(this: void, properties: Partial<T>): void;
 
-  serialize(): Record<string, string>;
+  serialize(this: void): Record<string, string>;
 }
 
 export interface Proto {
