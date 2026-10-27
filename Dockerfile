@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:24.22.1-bookworm
 
 MAINTAINER Labs64 GmbH info@labs64.com
 

@@ -1,20 +1,19 @@
 language: node_js
 node_js:
-- node
-- '12'
-- '13'
+- '22.23.4'
+- '24.22.1'
 services:
 - xvfb
 script:
 - npm run test-for-travis
 after_success:
 - env
-- test "${TRAVIS_NODE_VERSION}" == "12" && test "${TRAVIS_TEST_RESULT}" == "0" && npm run build
+- test "${TRAVIS_NODE_VERSION}" == "24.22.1" && test "${TRAVIS_TEST_RESULT}" == "0" && npm run build
 - ls -la dist/
 jobs:
   include:
   - stage: npm release
-    node_js: 12
+    node_js: '24.22.1'
     script:
     - if [ -n "$TRAVIS_TAG" ]; then echo "Deploying version ${TRAVIS_TAG} to npm...";
       fi
