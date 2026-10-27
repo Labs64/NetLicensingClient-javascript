@@ -460,15 +460,15 @@ type DateField = Date | 'now';
  * @copyright 2017 Labs64 NetLicensing
  */
 interface EntityMethods<T extends object> {
-    set<K extends keyof T>(key: K, value: T[K]): void;
-    get<K extends keyof T, D = undefined>(key: K, def?: D): T[K] | D;
-    has<K extends keyof T>(key: K): boolean;
-    setProperty<K extends keyof T>(key: K, value: T[K]): void;
-    addProperty<K extends keyof T>(key: K, value: T[K]): void;
-    getProperty<K extends keyof T, D = undefined>(key: K, def?: D): T[K] | D;
-    hasProperty<K extends keyof T>(key: K): boolean;
-    setProperties(properties: Partial<T>): void;
-    serialize(): Record<string, string>;
+    set<K extends keyof T>(this: void, key: K, value: T[K]): void;
+    get<K extends keyof T, D = undefined>(this: void, key: K, def?: D): T[K] | D;
+    has<K extends keyof T>(this: void, key: K): boolean;
+    setProperty<K extends keyof T>(this: void, key: K, value: T[K]): void;
+    addProperty<K extends keyof T>(this: void, key: K, value: T[K]): void;
+    getProperty<K extends keyof T, D = undefined>(this: void, key: K, def?: D): T[K] | D;
+    hasProperty<K extends keyof T>(this: void, key: K): boolean;
+    setProperties(this: void, properties: Partial<T>): void;
+    serialize(this: void): Record<string, string>;
 }
 interface Proto {
     prototype: object;
@@ -990,13 +990,13 @@ interface Pagination {
     hasNext: boolean;
 }
 interface PaginationMethods<T extends object> {
-    getContent(): T;
-    getPagination(): Pagination;
-    getPageNumber(): number;
-    getItemsNumber(): number;
-    getTotalPages(): number;
-    getTotalItems(): number;
-    hasNext(): boolean;
+    getContent(this: void): T;
+    getPagination(this: void): Pagination;
+    getPageNumber(this: void): number;
+    getItemsNumber(this: void): number;
+    getTotalPages(this: void): number;
+    getTotalItems(this: void): number;
+    hasNext(this: void): boolean;
 }
 type PageInstance<T extends object> = PaginationMethods<T> & T;
 
